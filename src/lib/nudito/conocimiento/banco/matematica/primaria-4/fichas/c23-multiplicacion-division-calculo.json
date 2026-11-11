@@ -1,0 +1,3290 @@
+[
+  {
+    "clave": "mat.p4.multiplicar-por-10-100-1000",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Multiplicación y división",
+    "nombre": "Multiplicación por 10, 100 y 1000",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Multiplica agregando ceros y explica el cambio de valor posicional de las cifras.",
+    "palabrasClave": [
+      "multiplicación",
+      "1000"
+    ],
+    "prerrequisitos": [
+      "mat.p4.valor-posicional-cuatro-cifras"
+    ],
+    "ordenSugerido": 41,
+    "ideaCentral": "Multiplicar un número entero por 10, 100 o 1000 cambia el valor de cada cifra: se desplaza una, dos o tres posiciones a la izquierda. En números enteros, puedes escribir uno, dos o tres ceros al final.",
+    "pasos": [
+      "Identifica si el factor es 10, 100 o 1000.",
+      "Cuenta sus ceros: uno, dos o tres.",
+      "Multiplica cada cifra por el valor posicional correspondiente.",
+      "Escribe el producto y comprueba con una estimación."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula 47 × 100.",
+        "desarrollo": "Cada unidad pasa a centena y cada decena a millar; se añaden dos ceros.",
+        "respuesta": "4700."
+      },
+      {
+        "situacion": "Calcula 6 × 1000.",
+        "desarrollo": "Seis unidades se vuelven seis millares.",
+        "respuesta": "6000."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Añadir un solo cero al multiplicar por 100.",
+        "correccion": "100 tiene dos ceros; el resultado entero se desplaza dos posiciones."
+      },
+      {
+        "error": "Poner ceros delante del número.",
+        "correccion": "Para multiplicar un entero por una potencia de diez, los ceros van a la derecha."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Factor",
+        "significado": "Número que participa en una multiplicación."
+      },
+      {
+        "termino": "Producto",
+        "significado": "Resultado de multiplicar."
+      },
+      {
+        "termino": "Potencia de diez",
+        "significado": "Número como 10, 100 o 1000 que desplaza las cifras por posiciones."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 23 × 10.",
+        "respuesta": 230,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El factor 10 tiene un cero.",
+          "Veintitrés decenas son 230.",
+          "Coloca un cero a la derecha de 23."
+        ],
+        "retroalimentacion": "23 × 10 = 230."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuánto es 7 × 100?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 100 tiene dos ceros.",
+          "Siete centenas equivalen a 700.",
+          "Busca el número con dos ceros tras el 7."
+        ],
+        "retroalimentacion": "7 × 100 = 700; 70 sería multiplicar por diez.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "70"
+          },
+          {
+            "id": "b",
+            "texto": "700"
+          },
+          {
+            "id": "c",
+            "texto": "7000"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al multiplicar 4 por 1000 se obtiene 4000.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mil tiene tres ceros.",
+          "Cuatro millares son 4000.",
+          "Comprueba contando las posiciones."
+        ],
+        "retroalimentacion": "Es verdadero: 4 × 1000 = 4000."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una caja trae 35 paquetes de 10 lápices. ¿Cuántos lápices hay?",
+        "respuesta": 350,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada paquete aporta diez.",
+          "Multiplica 35 × 10.",
+          "Añade un cero a 35."
+        ],
+        "retroalimentacion": "Hay 350 lápices; 45 sería sumar paquetes y lápices."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 84 × 100.",
+        "respuesta": 8400,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El factor 100 desplaza dos posiciones.",
+          "84 centenas son 8400 unidades.",
+          "Añade dos ceros al 84."
+        ],
+        "retroalimentacion": "84 × 100 = 8400."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una imprenta hace 12 lotes de 1000 hojas. ¿Cuántas hojas son?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada lote contiene un millar.",
+          "Multiplica 12 × 1000.",
+          "El producto tiene tres ceros tras el 12."
+        ],
+        "retroalimentacion": "Son 12000 hojas; 1200 sería multiplicar por cien.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1200"
+          },
+          {
+            "id": "b",
+            "texto": "1020"
+          },
+          {
+            "id": "c",
+            "texto": "120000"
+          },
+          {
+            "id": "d",
+            "texto": "12000"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "53 × 100 es 530, porque solo se agrega un cero.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cien tiene dos ceros.",
+          "53 × 10 sería 530.",
+          "Multiplica 530 por 10 otra vez."
+        ],
+        "retroalimentacion": "Es falso: 53 × 100 = 5300."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Qué producto obtienes al hacer 109 × 10?",
+        "respuesta": 1090,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica todo 109 por diez.",
+          "El cero intermedio de 109 se conserva.",
+          "Añade un cero al final."
+        ],
+        "retroalimentacion": "109 × 10 = 1090; no elimines el cero interno."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una cooperativa agrupa 305 bolsas de 100 semillas. ¿Cuántas semillas hay?",
+        "respuesta": 30500,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada bolsa tiene cien semillas.",
+          "Multiplica 305 × 100.",
+          "Conserva el cero de 305 y añade dos más."
+        ],
+        "retroalimentacion": "Hay 30500 semillas; el cero interno también cuenta."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el producto de 240 × 1000?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 240 por mil.",
+          "El cero que ya tiene 240 se conserva.",
+          "Agrega tres ceros nuevos al final."
+        ],
+        "retroalimentacion": "240 × 1000 = 240000.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "240000"
+          },
+          {
+            "id": "b",
+            "texto": "24000"
+          },
+          {
+            "id": "c",
+            "texto": "2400"
+          },
+          {
+            "id": "d",
+            "texto": "2400000"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "¿Cuánto representa 78 grupos de mil unidades?",
+        "respuesta": 78000,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El factor 1000 convierte cada unidad de 78 en un millar.",
+          "Escribe 78 seguido de tres ceros.",
+          "Comprueba que 78 millares son 78000."
+        ],
+        "retroalimentacion": "El producto es 78000."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al multiplicar 906 por 100, se obtiene 90600.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplicar por cien agrega dos posiciones.",
+          "El cero entre 9 y 6 se conserva.",
+          "Escribe 906 seguido de dos ceros."
+        ],
+        "retroalimentacion": "Es verdadero: 906 × 100 = 90600."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.multiplicar-decenas-centenas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Multiplicación y división",
+    "nombre": "Multiplicación por decenas y centenas exactas",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Multiplica por 20, 30 o 400 descomponiendo el factor en un dígito por 10 o 100.",
+    "palabrasClave": [
+      "multiplicación",
+      "decenas",
+      "centenas",
+      "exactas"
+    ],
+    "prerrequisitos": [
+      "mat.p4.multiplicar-por-10-100-1000"
+    ],
+    "ordenSugerido": 42,
+    "ideaCentral": "Para multiplicar por una decena o centena exacta, separa ese factor en una cifra y 10 o 100. Multiplica primero las cifras significativas y luego incorpora el valor de la decena o centena.",
+    "pasos": [
+      "Descompón 20 como 2 × 10 o 300 como 3 × 100.",
+      "Multiplica el número por la cifra distinta de cero.",
+      "Multiplica ese producto por 10 o 100.",
+      "Comprueba que el resultado tenga un tamaño razonable."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula 24 × 30.",
+        "desarrollo": "30 = 3 × 10. Entonces 24 × 3 = 72 y 72 × 10 = 720.",
+        "respuesta": "720."
+      },
+      {
+        "situacion": "Calcula 16 × 200.",
+        "desarrollo": "200 = 2 × 100. Entonces 16 × 2 = 32 y 32 × 100 = 3200.",
+        "respuesta": "3200."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Multiplicar solo por la cifra distinta de cero.",
+        "correccion": "Después de esa cuenta, multiplica también por 10 o 100."
+      },
+      {
+        "error": "Añadir tres ceros por un factor 300.",
+        "correccion": "300 es 3 × 100; tras multiplicar por 3, añade dos ceros."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Decena exacta",
+        "significado": "Múltiplo de diez como 20 o 70."
+      },
+      {
+        "termino": "Centena exacta",
+        "significado": "Múltiplo de cien como 300 o 900."
+      },
+      {
+        "termino": "Factor",
+        "significado": "Cada número que se multiplica."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 12 × 20.",
+        "respuesta": 240,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "20 equivale a 2 × 10.",
+          "12 × 2 = 24.",
+          "24 × 10 = 240."
+        ],
+        "retroalimentacion": "El producto es 240; 24 omitiría la decena del factor."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué resultado tiene 8 × 300?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "300 es 3 × 100.",
+          "8 × 3 = 24.",
+          "Multiplica 24 por cien."
+        ],
+        "retroalimentacion": "8 × 300 = 2400; 240 sería usar 30.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "240"
+          },
+          {
+            "id": "b",
+            "texto": "2400"
+          },
+          {
+            "id": "c",
+            "texto": "24000"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Cinco grupos de 40 objetos reúnen 200 objetos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "40 es 4 decenas.",
+          "5 × 4 = 20 decenas.",
+          "Veinte decenas son 200."
+        ],
+        "retroalimentacion": "Es verdadero: 5 × 40 = 200."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una bolsa vale S/ 30. ¿Cuánto cuestan 7 bolsas iguales?",
+        "respuesta": 210,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El precio unitario es tres decenas.",
+          "7 × 3 = 21 decenas.",
+          "21 decenas son 210 soles."
+        ],
+        "retroalimentacion": "Cuestan S/ 210; 37 mezclaría precio y cantidad."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Encuentra el producto de 23 y 40.",
+        "respuesta": 920,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "40 = 4 × 10.",
+          "23 × 4 = 92.",
+          "Multiplica 92 por diez."
+        ],
+        "retroalimentacion": "23 × 40 = 920."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tienda recibe 14 cajas con 200 vasos. ¿Cuántos vasos recibe?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "200 es 2 × 100.",
+          "14 × 2 = 28.",
+          "28 × 100 = 2800."
+        ],
+        "retroalimentacion": "Recibe 2800 vasos; 280 omite una posición.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "280"
+          },
+          {
+            "id": "b",
+            "texto": "214"
+          },
+          {
+            "id": "c",
+            "texto": "28000"
+          },
+          {
+            "id": "d",
+            "texto": "2800"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "36 × 50 = 1800.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "50 es 5 × 10.",
+          "36 × 5 = 180.",
+          "180 × 10 = 1800."
+        ],
+        "retroalimentacion": "Es verdadero: el producto es 1800."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Cuánto es 18 × 600?",
+        "respuesta": 10800,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "600 es 6 × 100.",
+          "18 × 6 = 108.",
+          "108 × 100 = 10800."
+        ],
+        "retroalimentacion": "El producto es 10800; los dos ceros corresponden a la centena exacta."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Si multiplicas 125 por 80, ¿qué total resulta?",
+        "respuesta": 10000,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "80 equivale a 8 × 10.",
+          "125 × 8 = 1000.",
+          "1000 × 10 = 10000."
+        ],
+        "retroalimentacion": "El producto es 10000."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuánto vale 47 × 300?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "300 = 3 × 100.",
+          "47 × 3 = 141.",
+          "Multiplica 141 por cien."
+        ],
+        "retroalimentacion": "47 × 300 = 14100.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "14100"
+          },
+          {
+            "id": "b",
+            "texto": "1410"
+          },
+          {
+            "id": "c",
+            "texto": "140100"
+          },
+          {
+            "id": "d",
+            "texto": "14400"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una fábrica arma 25 lotes de 400 tarjetas. ¿Cuántas tarjetas son?",
+        "respuesta": 10000,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "400 es 4 centenas.",
+          "25 × 4 = 100 centenas.",
+          "100 centenas son 10000 tarjetas."
+        ],
+        "retroalimentacion": "Son 10000 tarjetas; 1000 omite un factor diez."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "64 × 70 equivale a 4480.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "70 es 7 × 10.",
+          "64 × 7 = 448.",
+          "448 × 10 = 4480."
+        ],
+        "retroalimentacion": "Es verdadero: la descomposición del factor confirma el producto."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.multiplicacion-varias-cifras",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Multiplicación y división",
+    "nombre": "Multiplicación de varias cifras por una cifra",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Multiplica números de hasta cuatro cifras por un dígito con el algoritmo y con canjes.",
+    "palabrasClave": [
+      "multiplicación",
+      "varias",
+      "cifras",
+      "cifra"
+    ],
+    "prerrequisitos": [
+      "mat.p4.multiplicar-decenas-centenas"
+    ],
+    "ordenSugerido": 43,
+    "ideaCentral": "Para multiplicar varias cifras por una cifra, empieza por las unidades y avanza hacia la izquierda. Cuando un producto parcial tiene dos cifras, lleva las decenas a la columna siguiente.",
+    "pasos": [
+      "Escribe el multiplicando y el factor de una cifra.",
+      "Multiplica primero las unidades.",
+      "Anota y suma cada llevada en la columna siguiente.",
+      "Continúa hasta los millares y comprueba con una estimación."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula 243 × 3.",
+        "desarrollo": "3×3=9, 3×4=12: escribo 2 y llevo 1; 3×2+1=7.",
+        "respuesta": "729."
+      },
+      {
+        "situacion": "Calcula 1256 × 4.",
+        "desarrollo": "4×6=24, llevo 2; 4×5+2=22, llevo 2; 4×2+2=10, llevo 1; 4×1+1=5.",
+        "respuesta": "5024."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Olvidar una llevada en la siguiente columna.",
+        "correccion": "Escribe cada llevada sobre la columna que la recibirá."
+      },
+      {
+        "error": "Multiplicar solo la primera o última cifra.",
+        "correccion": "El factor de una cifra multiplica todas las posiciones del otro número."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Multiplicando",
+        "significado": "Número de varias cifras que se repite."
+      },
+      {
+        "termino": "Llevada",
+        "significado": "Cantidad que pasa a la siguiente posición tras un canje."
+      },
+      {
+        "termino": "Producto parcial",
+        "significado": "Resultado al multiplicar una cifra de una columna."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 231 × 3.",
+        "respuesta": 693,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica cada cifra por 3.",
+          "Unidades: 1 × 3 = 3.",
+          "Decenas: 3 × 3 = 9; centenas: 2 × 3 = 6."
+        ],
+        "retroalimentacion": "231 × 3 = 693."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuánto es 412 × 2?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Duplica cada posición.",
+          "2×2=4 unidades; 2×1=2 decenas.",
+          "2×4=8 centenas."
+        ],
+        "retroalimentacion": "412 × 2 = 824.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "814"
+          },
+          {
+            "id": "b",
+            "texto": "824"
+          },
+          {
+            "id": "c",
+            "texto": "822"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Tres grupos de 123 objetos reúnen 369 objetos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La cuenta es 123 × 3.",
+          "3×3=9, 2×3=6, 1×3=3.",
+          "Une las cifras del producto."
+        ],
+        "retroalimentacion": "Es verdadero: 123 × 3 = 369."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una caja contiene 204 lápices. ¿Cuántos hay en 4 cajas?",
+        "respuesta": 816,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 204 por 4.",
+          "4×4=16: anota 6 y lleva 1.",
+          "4×0+1=1; 4×2=8."
+        ],
+        "retroalimentacion": "Hay 816 lápices; el cero del multiplicando no desaparece."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Halla el producto de 347 por 6.",
+        "respuesta": 2082,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "6×7=42: lleva 4.",
+          "6×4+4=28: lleva 2.",
+          "6×3+2=20."
+        ],
+        "retroalimentacion": "347 × 6 = 2082; revisa las llevadas."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un vivero tiene 8 filas de 125 plantones. ¿Cuántos plantones hay?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 125 × 8.",
+          "8×5=40 y lleva 4.",
+          "8×2+4=20; continúa con las centenas."
+        ],
+        "retroalimentacion": "Hay 1000 plantones; ocho filas de 125 completan un millar.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "900"
+          },
+          {
+            "id": "b",
+            "texto": "1020"
+          },
+          {
+            "id": "c",
+            "texto": "1258"
+          },
+          {
+            "id": "d",
+            "texto": "1000"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El producto 609 × 7 es 4263.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "7×9=63: lleva 6.",
+          "7×0+6=6.",
+          "7×6=42 centenas."
+        ],
+        "retroalimentacion": "Es verdadero: 609 × 7 = 4263."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una imprenta hace 5 lotes de 1458 hojas. ¿Cuántas hojas fabrica?",
+        "respuesta": 7290,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "5×8=40: lleva 4.",
+          "5×5+4=29: lleva 2.",
+          "Sigue con centenas y millares."
+        ],
+        "retroalimentacion": "1458 × 5 = 7290."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "¿Qué número resulta de multiplicar 2367 por 4?",
+        "respuesta": 9468,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empieza 7×4=28.",
+          "Luego 6×4+2=26.",
+          "Continúa las llevadas hasta los millares."
+        ],
+        "retroalimentacion": "2367 × 4 = 9468; cada llevada importa."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una imprenta prepara 9 lotes de 874 etiquetas. ¿Cuántas etiquetas produce?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 874 por 9.",
+          "9×4=36 y 9×7+3=66.",
+          "Finaliza con la centena y la llevada."
+        ],
+        "retroalimentacion": "Produce 7866 etiquetas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7866"
+          },
+          {
+            "id": "b",
+            "texto": "7776"
+          },
+          {
+            "id": "c",
+            "texto": "8766"
+          },
+          {
+            "id": "d",
+            "texto": "7876"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula 1987 × 5.",
+        "respuesta": 9935,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "5×7=35; lleva 3.",
+          "5×8+3=43; lleva 4.",
+          "Completa centenas y millares."
+        ],
+        "retroalimentacion": "1987 × 5 = 9935; no omitas los canjes."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una tabla con 7 grupos de 1306 fichas contiene 9142 fichas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 1306 × 7.",
+          "7×6=42; el cero de decenas recibe la llevada.",
+          "Comprueba 1306×(5+2) si quieres."
+        ],
+        "retroalimentacion": "Es verdadero: 1306 × 7 = 9142."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.multiplicacion-dos-cifras",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Multiplicación y división",
+    "nombre": "Multiplicación por un número de dos cifras",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Multiplica por un factor de dos cifras sumando productos parciales.",
+    "palabrasClave": [
+      "multiplicación",
+      "número",
+      "cifras"
+    ],
+    "prerrequisitos": [
+      "mat.p4.multiplicacion-varias-cifras",
+      "mat.p4.distributiva-calculo"
+    ],
+    "ordenSugerido": 76,
+    "ideaCentral": "Para multiplicar por un número de dos cifras, multiplica primero por sus unidades y luego por sus decenas. El segundo producto parcial vale diez veces más por estar en la columna de decenas; suma ambos resultados.",
+    "pasos": [
+      "Separa el factor de dos cifras en decenas y unidades.",
+      "Multiplica el otro factor por las unidades.",
+      "Multiplica por las decenas y toma en cuenta su valor de diez.",
+      "Suma los dos productos parciales y comprueba."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula 24 × 13.",
+        "desarrollo": "24 × 3 = 72 y 24 × 10 = 240; 72 + 240 = 312.",
+        "respuesta": "312."
+      },
+      {
+        "situacion": "Calcula 46 × 21.",
+        "desarrollo": "46 × 1 = 46 y 46 × 20 = 920; sumo 966.",
+        "respuesta": "966."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Tratar la cifra de decenas como unidades.",
+        "correccion": "En 34, el 3 vale 30: multiplica por 30, no por 3."
+      },
+      {
+        "error": "Olvidar sumar los dos productos parciales.",
+        "correccion": "El producto final incluye unidades y decenas del factor."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Factor de dos cifras",
+        "significado": "Número entre 10 y 99 que multiplica a otro."
+      },
+      {
+        "termino": "Producto parcial",
+        "significado": "Resultado de multiplicar por una parte del factor."
+      },
+      {
+        "termino": "Decena",
+        "significado": "Grupo de diez unidades."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 12 × 11.",
+        "respuesta": 132,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa 11 en 10 + 1.",
+          "12 × 10 = 120 y 12 × 1 = 12.",
+          "Suma ambos productos."
+        ],
+        "retroalimentacion": "12 × 11 = 132."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuánto vale 23 × 12?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "12 es 10 + 2.",
+          "23 × 10 = 230 y 23 × 2 = 46.",
+          "Suma 230 + 46."
+        ],
+        "retroalimentacion": "23 × 12 = 276.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "256"
+          },
+          {
+            "id": "b",
+            "texto": "276"
+          },
+          {
+            "id": "c",
+            "texto": "236"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Cinco cajas con 14 lápices cada una contienen 70 lápices.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El factor de dos cifras es 14.",
+          "14 × 5 = 10×5 + 4×5.",
+          "50 + 20 = 70."
+        ],
+        "retroalimentacion": "Es verdadero: 5 × 14 = 70."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una fila tiene 16 sillas y hay 12 filas. ¿Cuántas sillas son?",
+        "respuesta": 192,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 16 × 12.",
+          "16 × 10 = 160.",
+          "16 × 2 = 32; suma 160 + 32."
+        ],
+        "retroalimentacion": "Hay 192 sillas; 160 cuenta solo diez filas."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Encuentra el producto de 34 y 26.",
+        "respuesta": 884,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa 26 en 20 + 6.",
+          "34 × 20 = 680.",
+          "34 × 6 = 204; suma 680 + 204."
+        ],
+        "retroalimentacion": "34 × 26 = 884."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una imprenta hace 18 paquetes de 45 hojas. ¿Cuántas hojas produce?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 45 × 18.",
+          "45 × 10 = 450 y 45 × 8 = 360.",
+          "Suma los productos parciales."
+        ],
+        "retroalimentacion": "Produce 810 hojas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "630"
+          },
+          {
+            "id": "b",
+            "texto": "800"
+          },
+          {
+            "id": "c",
+            "texto": "850"
+          },
+          {
+            "id": "d",
+            "texto": "810"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La operación 27 × 34 da 918.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "34 es 30 + 4.",
+          "27 × 30 = 810.",
+          "27 × 4 = 108; suma 918."
+        ],
+        "retroalimentacion": "Es verdadero: 27 × 34 = 918."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un puesto vende 32 canastas con 24 mangos. ¿Cuántos mangos vendió?",
+        "respuesta": 768,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 32 × 24.",
+          "32 × 20 = 640.",
+          "32 × 4 = 128; suma 768."
+        ],
+        "retroalimentacion": "Vendió 768 mangos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "¿Qué total producen 76 grupos de 48 fichas?",
+        "respuesta": 3648,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "48 se separa en 40 y 8.",
+          "76 × 40 = 3040.",
+          "76 × 8 = 608; suma."
+        ],
+        "retroalimentacion": "76 × 48 = 3648; no omitas el valor de la decena 4."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué producto resulta de 125 × 24?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "24 = 20 + 4.",
+          "125 × 20 = 2500.",
+          "125 × 4 = 500; suma."
+        ],
+        "retroalimentacion": "125 × 24 = 3000.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3000"
+          },
+          {
+            "id": "b",
+            "texto": "2500"
+          },
+          {
+            "id": "c",
+            "texto": "500"
+          },
+          {
+            "id": "d",
+            "texto": "30000"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una fábrica arma 36 lotes de 78 botones. ¿Cuántos botones son?",
+        "respuesta": 2808,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 78 × 36.",
+          "78 × 30 = 2340.",
+          "78 × 6 = 468; suma 2340 + 468."
+        ],
+        "retroalimentacion": "Son 2808 botones; el 3 de 36 vale treinta."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "El producto de 94 × 37 es 3478.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "37 = 30 + 7.",
+          "94 × 30 = 2820.",
+          "94 × 7 = 658; suma 3478."
+        ],
+        "retroalimentacion": "Es verdadero: 94 × 37 = 3478."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.distributiva-calculo",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-03",
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Multiplicación y división",
+    "nombre": "Multiplicar descomponiendo un factor (propiedad distributiva)",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Calcula productos como 7 × 23 como 7 × 20 + 7 × 3.",
+    "palabrasClave": [
+      "multiplicar",
+      "descomponiendo",
+      "factor",
+      "(propiedad",
+      "distributiva)"
+    ],
+    "prerrequisitos": [
+      "mat.p4.multiplicacion-varias-cifras"
+    ],
+    "ordenSugerido": 45,
+    "ideaCentral": "Puedes descomponer un factor en una suma y multiplicar el otro por cada parte: a × (b + c) = a × b + a × c. Al sumar los productos parciales obtienes el mismo resultado.",
+    "pasos": [
+      "Elige un factor que se pueda separar en partes cómodas.",
+      "Multiplica el otro factor por cada parte.",
+      "Suma los productos parciales.",
+      "Comprueba que el factor descompuesto conserva su valor."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula 7 × 23 descomponiendo 23.",
+        "desarrollo": "23 = 20 + 3; 7×20=140 y 7×3=21; total 161.",
+        "respuesta": "161."
+      },
+      {
+        "situacion": "Calcula 12 × 15 separando 15 en 10 + 5.",
+        "desarrollo": "12×10=120 y 12×5=60; 120+60=180.",
+        "respuesta": "180."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Multiplicar solo una de las partes.",
+        "correccion": "Cada parte del factor necesita su propio producto parcial."
+      },
+      {
+        "error": "Sumar los factores antes de multiplicar el otro por ambas partes de forma incorrecta.",
+        "correccion": "Si separaste 18 en 10+8, calcula a×10 y a×8, luego suma."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Distributiva",
+        "significado": "Propiedad que reparte una multiplicación entre sumandos."
+      },
+      {
+        "termino": "Descomponer",
+        "significado": "Separar un número en una suma de partes."
+      },
+      {
+        "termino": "Producto parcial",
+        "significado": "Resultado de multiplicar por una de esas partes."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 6 × (10 + 4) sumando dos productos.",
+        "respuesta": 84,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 6 × 10.",
+          "Después multiplica 6 × 4.",
+          "Suma 60 + 24."
+        ],
+        "retroalimentacion": "6 × 14 = 84; no olvides la segunda parte."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué expresión usa la distributiva para 5 × 17?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Descompón 17 en 10 + 7.",
+          "Multiplica 5 por cada parte.",
+          "Después suma ambos productos."
+        ],
+        "retroalimentacion": "5 × 10 + 5 × 7 representa 5 × 17.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 × 10 + 7"
+          },
+          {
+            "id": "b",
+            "texto": "5 × 10 + 5 × 7"
+          },
+          {
+            "id": "c",
+            "texto": "5 + 10 × 7"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "8 × 12 = 8 × 10 + 8 × 2.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "12 se descompone en 10 y 2.",
+          "Repite el factor 8 en ambas partes.",
+          "Suma 80 + 16."
+        ],
+        "retroalimentacion": "Es verdadero: ambos lados valen 96."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Descompón 24 en 20 + 4 para calcular 3 × 24.",
+        "respuesta": 72,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 3 × 20.",
+          "Multiplica también 3 × 4.",
+          "60 + 12 = 72."
+        ],
+        "retroalimentacion": "3 × 24 = 72 por la suma de productos parciales."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 9 × 36 usando 30 + 6.",
+        "respuesta": 324,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "9 × 30 = 270.",
+          "9 × 6 = 54.",
+          "Suma 270 + 54."
+        ],
+        "retroalimentacion": "El producto es 324; ambos sumandos de 36 se multiplican."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una niña calcula 14 × 18 como 14 × 20 − 14 × 2. ¿Qué resultado obtiene?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "18 es 20 − 2.",
+          "14 × 20 = 280.",
+          "14 × 2 = 28; resta."
+        ],
+        "retroalimentacion": "Obtiene 252; la distributiva también sirve con una resta.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "280"
+          },
+          {
+            "id": "b",
+            "texto": "266"
+          },
+          {
+            "id": "c",
+            "texto": "224"
+          },
+          {
+            "id": "d",
+            "texto": "252"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al descomponer 47 en 40 + 7, 6 × 47 es igual a 6 × 40 + 6 × 7.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La suma 40 + 7 conserva 47.",
+          "Multiplica 6 por cada parte.",
+          "240 + 42 = 282."
+        ],
+        "retroalimentacion": "Es verdadero: 6 × 47 = 282."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 23 × 15 separando 23 en 20 + 3.",
+        "respuesta": 345,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 20 × 15.",
+          "Multiplica 3 × 15.",
+          "300 + 45 = 345."
+        ],
+        "retroalimentacion": "23 × 15 = 345; separar el primer factor también funciona."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Usa 125 = 100 + 25 para calcular 8 × 125.",
+        "respuesta": 1000,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "8 × 100 = 800.",
+          "8 × 25 = 200.",
+          "Suma 800 + 200."
+        ],
+        "retroalimentacion": "El producto es 1000."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué valor resulta de 32 × 49 si usas 50 − 1?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "49 = 50 − 1.",
+          "32 × 50 = 1600.",
+          "Resta 32 × 1."
+        ],
+        "retroalimentacion": "32 × 49 = 1568.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1568"
+          },
+          {
+            "id": "b",
+            "texto": "1600"
+          },
+          {
+            "id": "c",
+            "texto": "1632"
+          },
+          {
+            "id": "d",
+            "texto": "1549"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula 27 × 34 mediante 30 + 4.",
+        "respuesta": 918,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "27 × 30 = 810.",
+          "27 × 4 = 108.",
+          "Suma los dos productos."
+        ],
+        "retroalimentacion": "27 × 34 = 918."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La cuenta 18 × 25 puede hacerse como 18 × 20 + 18 × 5 = 450.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "25 se separa en 20 y 5.",
+          "Los productos parciales son 360 y 90.",
+          "Suma 360 + 90."
+        ],
+        "retroalimentacion": "Es verdadero: la suma da 450."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.duplicar-reiteradamente",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Multiplicación y división",
+    "nombre": "Doblar y dividir por 2 de forma reiterada",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Multiplica por 4 u 8 doblando varias veces y divide entre 4 u 8 sacando mitades sucesivas.",
+    "palabrasClave": [
+      "doblar",
+      "dividir",
+      "forma",
+      "reiterada"
+    ],
+    "prerrequisitos": [
+      "mat.p4.asociativa-multiplicacion"
+    ],
+    "ordenSugerido": 46,
+    "ideaCentral": "Doblar es multiplicar por 2 y hallar la mitad es dividir entre 2. Si repites la acción, usa el resultado de cada paso como punto de partida del siguiente.",
+    "pasos": [
+      "Decide si cada etapa dobla o reduce a la mitad.",
+      "Calcula la primera etapa.",
+      "Repite la misma operación tantas veces como se indica.",
+      "Comprueba la secuencia paso a paso."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Dobla 18 tres veces.",
+        "desarrollo": "18 → 36 → 72 → 144.",
+        "respuesta": "Se obtiene 144."
+      },
+      {
+        "situacion": "Halla la mitad de 160 dos veces.",
+        "desarrollo": "160 → 80 → 40.",
+        "respuesta": "Se obtiene 40."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Multiplicar por el número de repeticiones.",
+        "correccion": "Cada doble toma el resultado anterior y lo vuelve a multiplicar por 2."
+      },
+      {
+        "error": "Dividir una sola vez aunque se pida varias veces.",
+        "correccion": "Anota cada mitad en una secuencia hasta completar las etapas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Doblar",
+        "significado": "Multiplicar por 2."
+      },
+      {
+        "termino": "Mitad",
+        "significado": "Dividir en dos partes iguales."
+      },
+      {
+        "termino": "Reiterar",
+        "significado": "Repetir una acción con el resultado anterior."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Dobla 12 dos veces. ¿Qué número obtienes?",
+        "respuesta": 48,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer doble de 12 es 24.",
+          "Dobla ahora el 24.",
+          "24 × 2 = 48."
+        ],
+        "retroalimentacion": "Obtienes 48; 24 sería solo una duplicación."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Halla la mitad de 40 y luego la mitad del resultado.",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La primera mitad es 20.",
+          "La segunda mitad se aplica a 20.",
+          "20 ÷ 2 = 10."
+        ],
+        "retroalimentacion": "La segunda mitad es 10; 20 es solo el primer paso.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "20"
+          },
+          {
+            "id": "b",
+            "texto": "10"
+          },
+          {
+            "id": "c",
+            "texto": "5"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si doblas 5 tres veces, llegas a 40.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "5 se vuelve 10 en el primer paso.",
+          "Después llega a 20.",
+          "El tercer doble da 40."
+        ],
+        "retroalimentacion": "Es verdadero: 5 → 10 → 20 → 40."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "De 64 cuentas, toma la mitad dos veces. ¿Cuántas quedan en el último grupo?",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La primera mitad de 64 es 32.",
+          "Ahora toma la mitad de 32.",
+          "32 ÷ 2 = 16."
+        ],
+        "retroalimentacion": "Quedan 16 cuentas tras dos mitades."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Duplica 25 tres veces.",
+        "respuesta": 200,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empieza 25 → 50.",
+          "Sigue 50 → 100.",
+          "El tercer doble es 200."
+        ],
+        "retroalimentacion": "Obtienes 200; tres veces no significa multiplicar 25 por 3."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una cantidad pasa por tres mitades: 240 → 120 → 60 → __. ¿Qué falta?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La operación se repite con el resultado previo.",
+          "Después de 60 viene 60 ÷ 2.",
+          "La mitad de 60 es 30."
+        ],
+        "retroalimentacion": "Falta 30; 60 corresponde solo al segundo paso.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "15"
+          },
+          {
+            "id": "b",
+            "texto": "60"
+          },
+          {
+            "id": "c",
+            "texto": "120"
+          },
+          {
+            "id": "d",
+            "texto": "30"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El doble del doble de 37 es 148.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer doble de 37 es 74.",
+          "Vuelve a doblar 74.",
+          "74 × 2 = 148."
+        ],
+        "retroalimentacion": "Es verdadero: dos duplicaciones equivalen a multiplicar por cuatro."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un cultivo empieza con 18 plantones y se duplica cuatro veces. ¿Cuántos plantones hay?",
+        "respuesta": 288,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los primeros dobles son 36 y 72.",
+          "El tercero produce 144.",
+          "Dobla 144 una vez más."
+        ],
+        "retroalimentacion": "Hay 288 plantones; cuenta cuatro pasos completos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Divide 768 entre 2 tres veces seguidas.",
+        "respuesta": 96,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primera mitad: 384.",
+          "Segunda mitad: 192.",
+          "Tercera mitad: 96."
+        ],
+        "retroalimentacion": "El resultado es 96; 192 sería detenerse antes."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una cantidad se dobla tres veces y termina en 352. ¿Cuál era la inicial?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Deshaz los tres dobles con mitades.",
+          "352 → 176 → 88.",
+          "88 → 44."
+        ],
+        "retroalimentacion": "La cantidad inicial era 44; 88 es tras el primer doble.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "44"
+          },
+          {
+            "id": "b",
+            "texto": "88"
+          },
+          {
+            "id": "c",
+            "texto": "176"
+          },
+          {
+            "id": "d",
+            "texto": "22"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un número se reduce a la mitad cuatro veces y termina en 25. ¿Cuál era el número inicial?",
+        "respuesta": 400,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Deshaz cada mitad doblando.",
+          "25 → 50 → 100.",
+          "Continúa 100 → 200 → 400."
+        ],
+        "retroalimentacion": "El inicial era 400; cuatro mitades de 400 dan 25."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Doblar 45 tres veces y luego tomar una mitad da 180.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "45 → 90 → 180 → 360.",
+          "Después toma la mitad de 360.",
+          "360 ÷ 2 = 180."
+        ],
+        "retroalimentacion": "Es verdadero: la mitad final deshace uno de los dobles."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.descomposicion-multiplicativa",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Multiplicación y división",
+    "nombre": "Cálculo mental con descomposiciones multiplicativas",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Descompone un factor en otros dos para calcular, como 16 × 5 = 8 × 2 × 5.",
+    "palabrasClave": [
+      "cálculo",
+      "mental",
+      "descomposiciones",
+      "multiplicativas"
+    ],
+    "prerrequisitos": [
+      "mat.p4.asociativa-multiplicacion"
+    ],
+    "ordenSugerido": 47,
+    "ideaCentral": "Para calcular mentalmente un producto, puedes descomponer un factor en dos factores pequeños y reagruparlos. Por ejemplo, 12 = 3 × 4, así que 25 × 12 = (25 × 4) × 3.",
+    "pasos": [
+      "Busca un factor que se pueda escribir como producto de otros dos.",
+      "Elige uno que forme un producto fácil con el otro número.",
+      "Multiplica ese par primero.",
+      "Multiplica por el factor que queda y comprueba."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula 25 × 12 mentalmente.",
+        "desarrollo": "12 = 4 × 3; 25 × 4 = 100; 100 × 3 = 300.",
+        "respuesta": "300."
+      },
+      {
+        "situacion": "Calcula 50 × 18.",
+        "desarrollo": "18 = 2 × 9; 50 × 2 = 100; 100 × 9 = 900.",
+        "respuesta": "900."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Separar un factor en sumandos y luego usar solo uno.",
+        "correccion": "Aquí se descompone como producto y deben mantenerse ambos factores."
+      },
+      {
+        "error": "Olvidar el factor restante tras formar un producto redondo.",
+        "correccion": "El producto fácil es un paso intermedio; multiplica por el otro factor."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Descomposición multiplicativa",
+        "significado": "Escritura de un número como producto de factores."
+      },
+      {
+        "termino": "Factor",
+        "significado": "Número que participa en un producto."
+      },
+      {
+        "termino": "Reagrupar",
+        "significado": "Elegir qué factores multiplicar primero."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula mentalmente 25 × 8 usando 8 = 4 × 2.",
+        "respuesta": 200,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "25 × 4 forma 100.",
+          "Todavía queda el factor 2.",
+          "100 × 2 = 200."
+        ],
+        "retroalimentacion": "El producto es 200; 100 sería olvidar el último factor."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué descomposición ayuda a calcular 50 × 6 como 100 × 3?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca dos factores cuyo producto sea 6.",
+          "Uno debe ser 2 para que 50 × 2 = 100.",
+          "El otro factor es 3."
+        ],
+        "retroalimentacion": "6 = 2 × 3 permite hacer 50 × 2 × 3.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6 = 2 + 4"
+          },
+          {
+            "id": "b",
+            "texto": "6 = 2 × 3"
+          },
+          {
+            "id": "c",
+            "texto": "6 = 3 × 3"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para 20 × 15, escribir 15 = 5 × 3 permite hacer (20 × 5) × 3 = 300.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "15 se descompone como producto.",
+          "20 × 5 = 100.",
+          "100 × 3 = 300."
+        ],
+        "retroalimentacion": "Es verdadero: no cambia el producto original."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 125 × 4 usando 4 = 2 × 2.",
+        "respuesta": 500,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "125 × 2 = 250.",
+          "Todavía queda otro 2.",
+          "250 × 2 = 500."
+        ],
+        "retroalimentacion": "El resultado es 500."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Halla mentalmente 25 × 28 al escribir 28 como 4 × 7.",
+        "respuesta": 700,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "25 × 4 = 100.",
+          "El factor restante es 7.",
+          "100 × 7 = 700."
+        ],
+        "retroalimentacion": "El producto es 700; 28 se mantiene como 4 × 7."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para calcular 40 × 35 mentalmente, usa 35 = 5 × 7. ¿Qué resultado da?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "40 × 5 = 200.",
+          "Multiplica luego por 7.",
+          "200 × 7 = 1400."
+        ],
+        "retroalimentacion": "El resultado es 1400.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "200"
+          },
+          {
+            "id": "b",
+            "texto": "280"
+          },
+          {
+            "id": "c",
+            "texto": "1200"
+          },
+          {
+            "id": "d",
+            "texto": "1400"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 18 = 2 × 9, entonces 50 × 18 = (50 × 2) × 9 = 900.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "50 × 2 forma 100.",
+          "El 9 sigue como factor.",
+          "100 × 9 = 900."
+        ],
+        "retroalimentacion": "Es verdadero: la reagrupación facilita la cuenta."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 125 × 16 usando 16 = 8 × 2.",
+        "respuesta": 2000,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "125 × 8 = 1000.",
+          "Queda multiplicar por 2.",
+          "1000 × 2 = 2000."
+        ],
+        "retroalimentacion": "El producto es 2000; no te detengas en 1000."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Con la descomposición 36 = 4 × 9, ¿cuánto vale 25 × 36?",
+        "respuesta": 900,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Al descomponer 36, elige 4 × 9 para juntarlo con 25.",
+          "Conserva el factor 9.",
+          "Queda multiplicar la centena obtenida por nueve."
+        ],
+        "retroalimentacion": "El resultado es 900."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué producto obtienes con 48 × 125 si haces 48 = 8 × 6?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Descompón 48 en ocho grupos de seis.",
+          "Queda el factor 6.",
+          "1000 × 6 = 6000."
+        ],
+        "retroalimentacion": "48 × 125 = 6000.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6000"
+          },
+          {
+            "id": "b",
+            "texto": "1000"
+          },
+          {
+            "id": "c",
+            "texto": "4800"
+          },
+          {
+            "id": "d",
+            "texto": "8000"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Halla 75 × 24 usando 24 = 4 × 6.",
+        "respuesta": 1800,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "75 × 4 = 300.",
+          "Multiplica 300 por el 6 restante.",
+          "300 × 6 = 1800."
+        ],
+        "retroalimentacion": "El producto es 1800; no confundas el primer producto con el final."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Como 45 = 9 × 5, 20 × 45 se puede calcular como (20 × 5) × 9 = 900.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "20 × 5 forma 100.",
+          "El factor 9 sigue pendiente.",
+          "La centena formada con 20 × 5 debe repetirse nueve veces."
+        ],
+        "retroalimentacion": "Es verdadero: la descomposición conserva 45."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.division-exacta-inexacta",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-03",
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Multiplicación y división",
+    "nombre": "División exacta e inexacta",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Reconoce cuándo un reparto deja residuo y por qué el residuo es menor que el divisor.",
+    "palabrasClave": [
+      "división",
+      "exacta",
+      "inexacta"
+    ],
+    "prerrequisitos": [
+      "mat.p4.relacion-multiplicacion-division"
+    ],
+    "ordenSugerido": 48,
+    "ideaCentral": "Una división es exacta cuando el residuo es cero; es inexacta cuando sobra una cantidad menor que el divisor. Puedes comprobarlo escribiendo dividendo = divisor × cociente + residuo.",
+    "pasos": [
+      "Divide y encuentra el cociente entero.",
+      "Multiplica el cociente por el divisor.",
+      "Resta ese producto al dividendo para hallar el residuo.",
+      "Clasifica como exacta si sobra cero o inexacta si sobra algo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Clasifica 36 ÷ 6.",
+        "desarrollo": "6 × 6 = 36 y no sobra nada.",
+        "respuesta": "Es exacta; cociente 6 y residuo 0."
+      },
+      {
+        "situacion": "Clasifica 38 ÷ 6.",
+        "desarrollo": "6 × 6 = 36; sobran 2, que son menos que 6.",
+        "respuesta": "Es inexacta; cociente 6 y residuo 2."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Llamar exacta a una división con residuo distinto de cero.",
+        "correccion": "Exacta significa que no queda ningún objeto suelto."
+      },
+      {
+        "error": "Aceptar un residuo igual o mayor que el divisor.",
+        "correccion": "Si sobran tantos como el divisor, aún puedes formar otro grupo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "División exacta",
+        "significado": "División con residuo cero."
+      },
+      {
+        "termino": "División inexacta",
+        "significado": "División con residuo mayor que cero."
+      },
+      {
+        "termino": "Residuo",
+        "significado": "Cantidad sobrante menor que el divisor."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cómo se clasifica 24 ÷ 4?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "4 × 6 = 24.",
+          "No sobra ninguna unidad.",
+          "Residuo cero significa exacta."
+        ],
+        "retroalimentacion": "24 ÷ 4 es exacta; el cociente es 6.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "inexacta"
+          },
+          {
+            "id": "b",
+            "texto": "exacta"
+          },
+          {
+            "id": "c",
+            "texto": "imposible"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La división 25 ÷ 4 es inexacta porque sobra 1.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para 25 objetos, seis grupos de cuatro usan 24.",
+          "25 − 24 = 1.",
+          "El residuo no es cero."
+        ],
+        "retroalimentacion": "Es verdadero: cociente 6 y residuo 1."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Al dividir 19 entre 3, ¿cuál es el residuo?",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tres grupos de seis usan 18.",
+          "19 − 18 = 1.",
+          "El residuo es menor que 3."
+        ],
+        "retroalimentacion": "El residuo es 1; el cociente es 6."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué división es exacta?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca un dividendo múltiplo del divisor.",
+          "30 = 5 × 6.",
+          "Las otras dejan sobrantes."
+        ],
+        "retroalimentacion": "30 ÷ 5 es exacta, pues el residuo es cero.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "31 ÷ 5"
+          },
+          {
+            "id": "b",
+            "texto": "32 ÷ 5"
+          },
+          {
+            "id": "c",
+            "texto": "33 ÷ 5"
+          },
+          {
+            "id": "d",
+            "texto": "30 ÷ 5"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En 47 ÷ 5, ¿cuántas unidades sobran?",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "5 × 9 = 45.",
+          "47 − 45 = 2.",
+          "Dos es menor que el divisor cinco."
+        ],
+        "retroalimentacion": "Sobran 2 unidades; la división es inexacta."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La división 84 ÷ 7 es exacta.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "7 × 12 = 84.",
+          "El producto alcanza el dividendo.",
+          "No hay residuo."
+        ],
+        "retroalimentacion": "Es verdadero: 84 ÷ 7 = 12 exacto."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En 58 ÷ 6, ¿qué par cociente-residuo es correcto?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "6 × 9 = 54.",
+          "58 − 54 = 4.",
+          "El residuo 4 es menor que 6."
+        ],
+        "retroalimentacion": "Cociente 9 y residuo 4 cumplen 58 = 6 × 9 + 4.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9 y 4"
+          },
+          {
+            "id": "b",
+            "texto": "8 y 10"
+          },
+          {
+            "id": "c",
+            "texto": "10 y −2"
+          },
+          {
+            "id": "d",
+            "texto": "9 y 6"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Si 92 = 8 × 11 + __, ¿qué residuo completa la división?",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "8 × 11 = 88.",
+          "Resta 88 a 92.",
+          "El resto debe ser menor que 8."
+        ],
+        "retroalimentacion": "El residuo es 4; la división no es exacta."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Halla el residuo de 157 ÷ 12.",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "12 × 13 = 156.",
+          "157 − 156 = 1.",
+          "Ese valor es menor que 12."
+        ],
+        "retroalimentacion": "El residuo es 1; el cociente entero es 13."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál afirmación sobre 239 ÷ 15 es correcta?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "15 × 15 = 225.",
+          "239 − 225 = 14.",
+          "15 × 16 superaría 239."
+        ],
+        "retroalimentacion": "Es inexacta, con cociente 15 y residuo 14.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "exacta, cociente 15"
+          },
+          {
+            "id": "b",
+            "texto": "inexacta, residuo 15"
+          },
+          {
+            "id": "c",
+            "texto": "exacta, cociente 16"
+          },
+          {
+            "id": "d",
+            "texto": "inexacta, cociente 15 y residuo 14"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 301 = 25 × 12 + 1, entonces 301 ÷ 25 es inexacta y su residuo es 1.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "25 × 12 = 300.",
+          "Queda una unidad para llegar a 301.",
+          "Como queda una unidad, la división es inexacta."
+        ],
+        "retroalimentacion": "Es verdadero: cociente 12 y residuo 1."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "¿Qué residuo queda al dividir 403 entre 18?",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "18 × 22 = 396.",
+          "403 − 396 = 7.",
+          "18 × 23 ya supera 403."
+        ],
+        "retroalimentacion": "El residuo es 7; la división es inexacta."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.division-una-cifra",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Multiplicación y división",
+    "nombre": "División entre una cifra",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Divide números de hasta cuatro cifras entre un dígito con el algoritmo usual.",
+    "palabrasClave": [
+      "división",
+      "entre",
+      "cifra"
+    ],
+    "prerrequisitos": [
+      "mat.p4.division-exacta-inexacta"
+    ],
+    "ordenSugerido": 77,
+    "ideaCentral": "Dividir entre una cifra significa formar grupos iguales usando un divisor de 2 a 9. Puedes dividir de izquierda a derecha, llevando el resto de cada posición a la siguiente, y comprobar el cociente con una multiplicación.",
+    "pasos": [
+      "Empieza por la cifra o grupo de cifras de mayor valor.",
+      "Decide cuántas veces cabe el divisor.",
+      "Multiplica, resta y baja la cifra siguiente.",
+      "Continúa hasta el final y comprueba divisor × cociente más residuo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula 648 ÷ 3.",
+        "desarrollo": "6÷3=2 centenas; 4÷3=1 decena y sobra 1, que con 8 unidades da 18; 18÷3=6.",
+        "respuesta": "216."
+      },
+      {
+        "situacion": "Calcula 735 ÷ 5.",
+        "desarrollo": "7 centenas contienen 1 grupo de 5 y sobran 2; 23 decenas contienen 4 grupos y sobran 3; 35 unidades contienen 7 grupos.",
+        "respuesta": "147."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Omitir una cifra cero en el cociente.",
+        "correccion": "Si el divisor no cabe en una posición intermedia, escribe cero en esa posición."
+      },
+      {
+        "error": "Bajar la cifra siguiente sin unirla al resto anterior.",
+        "correccion": "El resto de una posición se convierte en diez de la siguiente."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Dividendo",
+        "significado": "Cantidad que se reparte."
+      },
+      {
+        "termino": "Divisor",
+        "significado": "Número de grupos o tamaño del grupo."
+      },
+      {
+        "termino": "Cociente",
+        "significado": "Resultado de dividir."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 84 ÷ 4.",
+        "respuesta": 21,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide primero 8 decenas entre 4.",
+          "Cada grupo recibe 2 decenas.",
+          "Luego 4 unidades entre 4 da 1."
+        ],
+        "retroalimentacion": "84 ÷ 4 = 21."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuánto vale 96 ÷ 3?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "9 decenas entre 3 son 3 decenas.",
+          "6 unidades entre 3 son 2 unidades.",
+          "Une 3 decenas y 2 unidades."
+        ],
+        "retroalimentacion": "96 ÷ 3 = 32.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "23"
+          },
+          {
+            "id": "b",
+            "texto": "32"
+          },
+          {
+            "id": "c",
+            "texto": "33"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La división 72 ÷ 8 da 9.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "8 × 9 = 72.",
+          "El cociente deshace esa multiplicación.",
+          "No sobra nada."
+        ],
+        "retroalimentacion": "Es verdadero: el cociente es 9."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una clase reparte 144 hojas entre 4 mesas. ¿Cuántas recibe cada mesa?",
+        "respuesta": 36,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El divisor es 4 mesas.",
+          "14 decenas entre 4 dejan un resto.",
+          "Comprueba 36 × 4 = 144."
+        ],
+        "retroalimentacion": "Cada mesa recibe 36 hojas."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Cuánto da 525 dividido entre 5?",
+        "respuesta": 105,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "5 centenas entre 5 dan 1 centena.",
+          "En decenas no cabe 5: escribe 0.",
+          "25 unidades entre 5 dan 5."
+        ],
+        "retroalimentacion": "525 ÷ 5 = 105; no omitas el cero intermedio."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja tiene 864 semillas para 6 sobres iguales. ¿Cuántas van en cada uno?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "8 centenas entre 6 dejan 2 centenas.",
+          "26 decenas entre 6 dan 4 decenas y resto 2.",
+          "24 unidades entre 6 dan 4."
+        ],
+        "retroalimentacion": "Cada sobre recibe 144 semillas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "164"
+          },
+          {
+            "id": "b",
+            "texto": "124"
+          },
+          {
+            "id": "c",
+            "texto": "146"
+          },
+          {
+            "id": "d",
+            "texto": "144"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El cociente de 936 ÷ 9 es 104.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "9 centenas entre 9 dan 1 centena.",
+          "En las decenas queda cero en el cociente.",
+          "36 unidades entre 9 dan 4."
+        ],
+        "retroalimentacion": "Es verdadero: 936 ÷ 9 = 104."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 728 ÷ 7.",
+        "respuesta": 104,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "7 centenas entre 7 dan 1 centena.",
+          "La decena 2 no alcanza: escribe 0.",
+          "28 unidades entre 7 dan 4."
+        ],
+        "retroalimentacion": "728 ÷ 7 = 104; el cero conserva la decena."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Reparte 4752 fichas en 8 grupos iguales. ¿Cuántas van en cada grupo?",
+        "respuesta": 594,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "47 centenas entre 8 dan 5 centenas y resto 7.",
+          "75 decenas entre 8 dan 9 decenas y resto 3.",
+          "32 unidades entre 8 dan 4."
+        ],
+        "retroalimentacion": "4752 ÷ 8 = 594."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué cociente produce 6048 ÷ 6?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "6 millares entre 6 dan un millar.",
+          "La centena 0 produce un cero en el cociente.",
+          "48 unidades entre 6 dan 8 tras las decenas."
+        ],
+        "retroalimentacion": "6048 ÷ 6 = 1008.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1008"
+          },
+          {
+            "id": "b",
+            "texto": "108"
+          },
+          {
+            "id": "c",
+            "texto": "1006"
+          },
+          {
+            "id": "d",
+            "texto": "10080"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Reparte 8352 fichas entre 8 grupos. ¿Cuántas fichas recibe cada grupo?",
+        "respuesta": 1044,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "8 millares entre 8 dan 1 millar.",
+          "La centena 3 no alcanza: el cociente lleva 0 centenas.",
+          "Después 35 decenas entre 8 y 32 unidades entre 8."
+        ],
+        "retroalimentacion": "Cada grupo recibe 1044 fichas; comprueba 1044 × 8 = 8352."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La división 9072 ÷ 9 tiene cociente 1008.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "9 millares entre 9 dan un millar.",
+          "Las centenas 0 producen cero en el cociente.",
+          "72 unidades entre 9 dan 8 tras las decenas."
+        ],
+        "retroalimentacion": "Es verdadero: 9 × 1008 = 9072."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.dividir-entre-10-100",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Multiplicación y división",
+    "nombre": "División entre 10, 100 y 1000",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Divide números terminados en ceros entre 10, 100 y 1000 y explica el resultado.",
+    "palabrasClave": [
+      "división",
+      "entre",
+      "1000"
+    ],
+    "prerrequisitos": [
+      "mat.p4.multiplicar-por-10-100-1000"
+    ],
+    "ordenSugerido": 81,
+    "ideaCentral": "Al dividir un múltiplo de 10, 100 o 1000 entre 10, 100 o 1000, cada cifra se mueve una, dos o tres posiciones a la derecha del valor posicional. Si la división es exacta, puedes retirar los ceros finales correspondientes.",
+    "pasos": [
+      "Comprueba que el dividendo sea múltiplo del divisor.",
+      "Cuenta si el divisor tiene uno, dos o tres ceros.",
+      "Reduce el valor posicional ese número de pasos.",
+      "Multiplica el cociente por el divisor para comprobar."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula 5600 ÷ 100.",
+        "desarrollo": "Cada grupo de cien contiene 100 unidades; al quitar dos ceros finales quedan 56 grupos.",
+        "respuesta": "56."
+      },
+      {
+        "situacion": "Calcula 9000 ÷ 1000.",
+        "desarrollo": "Nueve millares forman nueve grupos de mil.",
+        "respuesta": "9."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Retirar un solo cero al dividir entre 100.",
+        "correccion": "100 tiene dos ceros; en una división exacta se retiran dos ceros finales."
+      },
+      {
+        "error": "Confundir dividir entre 10 con multiplicar por 10.",
+        "correccion": "La división produce menos grupos que unidades; comprueba multiplicando el cociente."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Divisor",
+        "significado": "Número entre el cual se divide."
+      },
+      {
+        "termino": "Cociente",
+        "significado": "Resultado de la división."
+      },
+      {
+        "termino": "Múltiplo",
+        "significado": "Número obtenido al multiplicar otro por un entero."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 350 ÷ 10.",
+        "respuesta": 35,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El divisor 10 tiene un cero.",
+          "350 contiene 35 decenas.",
+          "Retira un cero final."
+        ],
+        "retroalimentacion": "350 ÷ 10 = 35."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuánto es 800 ÷ 100?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cien cabe ocho veces en ochocientos.",
+          "Retira dos ceros finales.",
+          "Comprueba 8 × 100 = 800."
+        ],
+        "retroalimentacion": "800 ÷ 100 = 8.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "80"
+          },
+          {
+            "id": "b",
+            "texto": "8"
+          },
+          {
+            "id": "c",
+            "texto": "8000"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "6000 ÷ 1000 = 6.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mil cabe seis veces en 6000.",
+          "Retira tres ceros finales.",
+          "Comprueba 6 × 1000."
+        ],
+        "retroalimentacion": "Es verdadero: el cociente es 6."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una imprenta guarda 420 hojas en paquetes de 10. ¿Cuántos paquetes llenos hay?",
+        "respuesta": 42,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada paquete contiene diez.",
+          "Divide 420 entre 10.",
+          "420 son 42 decenas."
+        ],
+        "retroalimentacion": "Hay 42 paquetes; 420 es el número de hojas."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántas centenas completas forman 7500 unidades?",
+        "respuesta": 75,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El divisor tiene dos ceros.",
+          "Retira dos ceros finales de 7500.",
+          "Comprueba 75 × 100 = 7500."
+        ],
+        "retroalimentacion": "7500 ÷ 100 = 75."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una escuela tiene 12000 fichas en bolsas de 1000. ¿Cuántas bolsas llena?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada bolsa requiere un millar.",
+          "Divide 12000 entre 1000.",
+          "En 12000, tres posiciones finales corresponden al millar de cada bolsa."
+        ],
+        "retroalimentacion": "Llena 12 bolsas; 120 sería dividir entre cien.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "120"
+          },
+          {
+            "id": "b",
+            "texto": "1200"
+          },
+          {
+            "id": "c",
+            "texto": "12000"
+          },
+          {
+            "id": "d",
+            "texto": "12"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 9300 unidades se agrupan de diez en diez, se forman 930 grupos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El divisor diez tiene un cero.",
+          "Retira un cero final del dividendo.",
+          "Comprueba 930 × 10."
+        ],
+        "retroalimentacion": "Es verdadero: el cociente es 930."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos grupos de 100 hay en 40500?",
+        "respuesta": 405,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total termina en dos ceros.",
+          "Divide 40500 entre 100.",
+          "Conserva el cero intermedio de 405."
+        ],
+        "retroalimentacion": "Hay 405 grupos de cien; 45 omitiría un lugar."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos millares hay en 180000 unidades?",
+        "respuesta": 180,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El divisor tiene tres ceros.",
+          "Retira tres ceros finales del dividendo.",
+          "Comprueba 180 × 1000 = 180000."
+        ],
+        "retroalimentacion": "El cociente es 180."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una cooperativa empaqueta 25600 granos en sacos de 100. ¿Cuántos sacos completa?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La división es 25600 ÷ 100.",
+          "Cada saco de cien toma dos posiciones del total 25600.",
+          "Quedan 256 sacos."
+        ],
+        "retroalimentacion": "Completa 256 sacos; 2560 usaría divisor 10.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "256"
+          },
+          {
+            "id": "b",
+            "texto": "2560"
+          },
+          {
+            "id": "c",
+            "texto": "25"
+          },
+          {
+            "id": "d",
+            "texto": "25600"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "¿Cuánto es 908000 ÷ 1000?",
+        "respuesta": 908,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mil tiene tres ceros.",
+          "Retira los tres últimos ceros.",
+          "Conserva el cero en medio de 908."
+        ],
+        "retroalimentacion": "El cociente es 908; no omitas el cero de las decenas."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al agrupar 77000 elementos de cien en cien, se forman 770 grupos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cien unidades forman cada grupo de la división.",
+          "De 77000, los dos ceros de la derecha corresponden al divisor cien.",
+          "Comprueba 770 × 100 = 77000."
+        ],
+        "retroalimentacion": "Es verdadero: 77000 ÷ 100 = 770."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.comprobar-division",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Multiplicación y división",
+    "nombre": "Comprobación de la división",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Verifica que el dividendo es igual al divisor por el cociente más el residuo.",
+    "palabrasClave": [
+      "comprobación",
+      "división"
+    ],
+    "prerrequisitos": [
+      "mat.p4.division-una-cifra"
+    ],
+    "ordenSugerido": 82,
+    "ideaCentral": "Para comprobar una división, multiplica divisor por cociente y añade el residuo. Si recuperas el dividendo y el residuo es menor que el divisor, la cuenta está bien.",
+    "pasos": [
+      "Anota dividendo, divisor, cociente y residuo.",
+      "Multiplica divisor × cociente.",
+      "Suma el residuo si lo hay.",
+      "Compara con el dividendo y revisa que el residuo sea menor que el divisor."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Comprueba 53 ÷ 7 = 7 y sobra 4.",
+        "desarrollo": "7 × 7 + 4 = 49 + 4 = 53; 4 < 7.",
+        "respuesta": "La división está comprobada."
+      },
+      {
+        "situacion": "Comprueba 96 ÷ 8 = 12.",
+        "desarrollo": "8 × 12 = 96 y el residuo es cero.",
+        "respuesta": "La división es correcta."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Olvidar sumar el residuo en una división inexacta.",
+        "correccion": "El producto de divisor y cociente cubre solo los grupos completos."
+      },
+      {
+        "error": "Aceptar un residuo igual o mayor que el divisor.",
+        "correccion": "En ese caso todavía cabe otro grupo; revisa el cociente."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Comprobación",
+        "significado": "Cuenta que confirma o corrige un resultado."
+      },
+      {
+        "termino": "Divisor",
+        "significado": "Número que multiplica al cociente para recuperar el total."
+      },
+      {
+        "termino": "Residuo",
+        "significado": "Cantidad sobrante, menor que el divisor."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para comprobar 36 ÷ 6 = 6, ¿qué multiplicación usas?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El divisor es 6.",
+          "El cociente también es 6.",
+          "Multiplica ambos para recuperar 36."
+        ],
+        "retroalimentacion": "6 × 6 = 36 comprueba la división.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "36 × 6 = 216"
+          },
+          {
+            "id": "b",
+            "texto": "6 × 6 = 36"
+          },
+          {
+            "id": "c",
+            "texto": "36 + 6 = 42"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La división 25 ÷ 4 = 6, sobra 1, se comprueba con 4 × 6 + 1 = 25.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica divisor por cociente.",
+          "4 × 6 = 24.",
+          "Añade el residuo 1."
+        ],
+        "retroalimentacion": "Es verdadero: la comprobación recupera 25."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Si 48 ÷ 8 = 6, ¿qué total recuperas al multiplicar divisor por cociente?",
+        "respuesta": 48,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 8 por 6.",
+          "El residuo es cero.",
+          "Compara con el dividendo 48."
+        ],
+        "retroalimentacion": "Recuperas 48, así que la cuenta es exacta."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué falta añadir a 7 × 5 para comprobar 38 ÷ 7 = 5, sobra 3?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "7 × 5 = 35.",
+          "El dividendo es 38.",
+          "La diferencia 38 − 35 es el residuo."
+        ],
+        "retroalimentacion": "Falta añadir 3; así 35 + 3 = 38.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7"
+          },
+          {
+            "id": "b",
+            "texto": "5"
+          },
+          {
+            "id": "c",
+            "texto": "35"
+          },
+          {
+            "id": "d",
+            "texto": "3"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una división propone 91 ÷ 8 = 11, sobra 3. ¿Qué dividendo da su comprobación?",
+        "respuesta": 91,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 8 × 11.",
+          "Obtienes 88.",
+          "Añade el residuo 3."
+        ],
+        "retroalimentacion": "La comprobación da 91; coincide con el dividendo."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La cuenta 75 ÷ 9 = 8, sobra 3, está bien porque 9 × 8 + 3 = 75.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "9 × 8 = 72.",
+          "Añade 3 y recupera 75.",
+          "El residuo 3 es menor que 9."
+        ],
+        "retroalimentacion": "Es verdadero: ambas condiciones se cumplen."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tarjeta dice 68 ÷ 6 = 10, sobra 8. ¿Qué problema detectas?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "6 × 10 + 8 sí da 68.",
+          "Pero el residuo debe ser menor que 6.",
+          "Ocho permite formar otro grupo de seis."
+        ],
+        "retroalimentacion": "El residuo 8 es demasiado grande para divisor 6; el cociente debe aumentar.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El residuo 8 es mayor que el divisor 6"
+          },
+          {
+            "id": "b",
+            "texto": "El producto 6 × 10 es 68"
+          },
+          {
+            "id": "c",
+            "texto": "El dividendo debería ser 60"
+          },
+          {
+            "id": "d",
+            "texto": "No hay ningún problema"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Para revisar 124 ÷ 7 = 17, sobra 5, calcula 7 × 17 + 5. ¿Cuánto obtienes?",
+        "respuesta": 124,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "7 × 17 = 119.",
+          "Añade las cinco unidades restantes.",
+          "Compara con 124."
+        ],
+        "retroalimentacion": "Obtienes 124 y el residuo es menor que 7."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En 257 ÷ 12 = 21, sobra 5, ¿qué dividendo recupera 12 × 21 + 5?",
+        "respuesta": 257,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "12 × 21 = 252.",
+          "Suma el residuo 5.",
+          "Comprueba que 5 < 12."
+        ],
+        "retroalimentacion": "Recuperas 257; la división está bien."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un alumno anotó 183 ÷ 11 = 16, sobra 7. ¿Qué revela la comprobación?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "11 × 16 = 176.",
+          "176 + 7 = 183.",
+          "Siete es menor que once."
+        ],
+        "retroalimentacion": "La división está correcta: recupera 183 y el residuo es válido.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El cociente debe ser 17"
+          },
+          {
+            "id": "b",
+            "texto": "El residuo debe ser 11"
+          },
+          {
+            "id": "c",
+            "texto": "La suma da 176"
+          },
+          {
+            "id": "d",
+            "texto": "La división está correcta"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La igualdad 345 ÷ 14 = 24, sobra 9, pasa la comprobación.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "14 × 24 = 336.",
+          "336 + 9 = 345.",
+          "El residuo 9 es menor que 14."
+        ],
+        "retroalimentacion": "Es verdadero: la comprobación coincide con el dividendo."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Se propone 407 ÷ 18 = 22, sobra 11. ¿Qué valor da 18 × 22 + 11 para comprobar?",
+        "respuesta": 407,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "18 × 22 = 396.",
+          "Añade las once unidades sobrantes.",
+          "396 + 11 = 407."
+        ],
+        "retroalimentacion": "Da 407; el residuo también es menor que 18."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]
