@@ -3,6 +3,8 @@ import { z } from "zod";
 import type { Nivel } from "@/generated/prisma/enums";
 import { areaPorClave, detectarArea } from "@/lib/cneb/catalogo";
 import { AREAS_NUDITO, esAreaNudito, type CursoNuditoVista } from "@/lib/nudito/contratos";
+import { cursoKhipu } from "@/lib/cursos-khipu/catalogo";
+import { claveCursoAsignado } from "@/lib/server/plan-anual/catalogo-curso";
 import { auditar } from "../auditoria";
 import { ErrorDeNegocio } from "../contexto-accion";
 import { db as dbGlobal, type DbTenant } from "../db";
@@ -70,27 +72,23 @@ export async function fijarAreaCurso(ctx: TenantContext, entrada: unknown): Prom
 /** Alias con el nombre del plan de trabajo de A. */
 export const asignarAreaCurso = fijarAreaCurso;
 
-/**
- * Cursos del salón del alumno con área de Nudito habilitada (una sola consulta). Una entrada por área: si el salón
- * tiene dos cursos de la misma área («Matemática» y «Razonamiento matemático»), gana el fijado a mano y luego el de
- * nombre más corto.
- */
+/** Una entrada por curso de Khipu del salón; conserva el id del curso real para la sesión. */
 export async function cursosNuditoDelAlumno(db: DbTenant, alumnoId: string, areas: readonly string[]): Promise<CursoNuditoVista[]> {
   const habilitadas = areas.filter(esAreaNudito);
-  if (habilitadas.length === 0) return [];
+  if (!habilitadas.length) return [];
   const alumno = await db.alumno.findFirst({
     where: { id: alumnoId },
-    select: { salon: { select: { cursos: { where: { areaCneb: { in: habilitadas } }, select: { id: true, nombre: true, areaCneb: true, areaCnebManual: true } } } } },
+    select: { salon: { select: { nivel: true, cursos: { select: { id: true, nombre: true, cursoColegio: { select: { cursoKhipu: true } } } } } } },
   });
   if (!alumno) return [];
-  const ordenados = [...alumno.salon.cursos].sort(
-    (a, b) => Number(b.areaCnebManual) - Number(a.areaCnebManual) || a.nombre.length - b.nombre.length || a.nombre.localeCompare(b.nombre, "es"),
-  );
-  const porArea = new Map<string, CursoNuditoVista>();
-  for (const c of ordenados) {
-    if (c.areaCneb && esAreaNudito(c.areaCneb) && !porArea.has(c.areaCneb)) porArea.set(c.areaCneb, { cursoId: c.id, nombre: c.nombre, area: c.areaCneb });
+  const porCurso = new Map<string, CursoNuditoVista>();
+  for (const c of alumno.salon.cursos) {
+    const clave = claveCursoAsignado(c, alumno.salon.nivel);
+    const curso = clave ? cursoKhipu(clave) : null;
+    if (curso && esAreaNudito(curso.area) && habilitadas.includes(curso.area) && !porCurso.has(clave!))
+      porCurso.set(clave!, { cursoId: c.id, nombre: c.nombre, area: curso.area });
   }
-  return AREAS_NUDITO.flatMap((a) => (porArea.has(a) ? [porArea.get(a)!] : []));
+  return [...porCurso.entries()].sort(([ka, a], [kb, b]) => AREAS_NUDITO.indexOf(a.area) - AREAS_NUDITO.indexOf(b.area) || Number(ka !== a.area) - Number(kb !== b.area) || ka.localeCompare(kb, "es")).map(([, curso]) => curso);
 }
 
 /** Igual que `cursosNuditoDelAlumno` con las 3 áreas, exigiendo que el alumno sea visible para quien pregunta. */

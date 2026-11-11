@@ -1,14 +1,17 @@
 "use client";
+import { Clock3 } from "lucide-react";
 import { useMemo, useState } from "react";
 import type { Tema } from "@/lib/nudito/contratos";
 import type { Resultado } from "@/lib/resultado";
 import { FormAccion } from "@/components/FormAccion";
 
 type Accion = (previo: Resultado | null, datos: FormData) => Promise<Resultado>;
-export function CatalogoTemario({ temas, competencias, elegidos, editar, accion }: { temas: Tema[]; competencias: Record<number, string>; elegidos: string[]; editar: boolean; accion: Accion }) {
+export function CatalogoTemario({ temas, competencias, elegidos, editar, borradores, sinPractica, accion }: { temas: Tema[]; competencias: Record<number, string>; elegidos: string[]; editar: boolean; borradores: string[]; sinPractica: string[]; accion: Accion }) {
   const [consulta, setConsulta] = useState("");
   const [pendientes, setPendientes] = useState<Set<string>>(new Set());
   const incluidos = useMemo(() => new Set(elegidos), [elegidos]);
+  const sinRevisar = useMemo(() => new Set(borradores), [borradores]);
+  const pendientesDePractica = useMemo(() => new Set(sinPractica), [sinPractica]);
   const grupos = useMemo(() => {
     const mapa = new Map<number, Map<string, Tema[]>>();
     for (const tema of temas) {
@@ -61,7 +64,7 @@ export function CatalogoTemario({ temas, competencias, elegidos, editar, accion 
                       return <li key={t.clave} className="min-w-0 py-2">
                         <label className="flex min-h-11 min-w-0 items-center gap-2">
                           <input type="checkbox" name="claves" value={t.clave} checked={incluido || pendientes.has(t.clave)} disabled={!editar || incluido} onChange={e => cambiar(t.clave, e.target.checked)} className="size-5 shrink-0" />
-                          <span className="min-w-0 break-words text-sm">{t.nombre}{incluido && <span className="block text-xs text-muted-foreground">Ya está en el temario</span>}</span>
+                          <span className="min-w-0 break-words text-sm">{t.nombre}{pendientesDePractica.has(t.clave) && <span className="ml-2 inline-flex items-center gap-1 rounded bg-slate-100 px-2 py-0.5 text-xs text-slate-900"><Clock3 className="size-3" strokeWidth={2} aria-hidden />Práctica en preparación</span>}{sinRevisar.has(t.clave) && <span className="ml-2 rounded bg-amber-100 px-2 py-0.5 text-xs text-amber-900">Borrador</span>}{incluido && <span className="block text-xs text-muted-foreground">Ya está en el temario</span>}</span>
                         </label>
                       </li>;
                     })}

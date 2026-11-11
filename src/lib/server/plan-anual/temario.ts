@@ -1,14 +1,15 @@
 import "server-only";
 import { notFound } from "next/navigation";
-import { AREAS_NUDITO, type AreaNudito } from "@/lib/nudito/contratos";
-import { temaPorClaveConBanco, temasDeConBanco } from "@/lib/nudito/conocimiento/servidor";
+import { cursoKhipu } from "@/lib/cursos-khipu/catalogo";
+import { catalogoDelCurso } from "./catalogo-curso";
+import { temaPorClaveConBanco } from "@/lib/nudito/conocimiento/servidor";
 import { clavesDeVersion } from "@/lib/nudito/plan-publicado-reglas";
 import { auditar } from "@/lib/server/auditoria";
 import { ErrorDeNegocio } from "@/lib/server/contexto-accion";
 import type { TenantContext } from "@/lib/server/tenant";
 import { docentesDelGrupo, gruposDelDocente, requireAccesoPlan, type GrupoCurricular } from "./acceso";
 
-export function areaPermitida(area: string): area is AreaNudito { return AREAS_NUDITO.some(a => a === area); }
+export function areaPermitida(area: string): boolean { return cursoKhipu(area)?.nudito === true; }
 export function aceptacionesCompletas(docentes: readonly string[], aceptaron: readonly string[]): boolean {
   return docentes.length > 0 && docentes.every(id => aceptaron.includes(id));
 }
@@ -22,7 +23,7 @@ async function accesoEdicion(ctx: TenantContext, id: string) {
 }
 export async function crearTemario(ctx: TenantContext, grupo: GrupoCurricular) {
   if (ctx.rol !== "profesor") notFound();
-  if (!areaPermitida(grupo.area)) throw new ErrorDeNegocio("Nudito solo admite Matemática, Comunicación y Ciencia y Tecnología.");
+  if (!areaPermitida(grupo.area)) throw new ErrorDeNegocio("Nudito solo admite cursos de Khipu habilitados.");
   if (!(await gruposDelDocente(ctx)).some(g => g.anio === grupo.anio && g.nivel === grupo.nivel && g.grado === grupo.grado && g.area === grupo.area)) notFound();
   const existente = await ctx.db.planAnual.findFirst({ where: { anio: grupo.anio, nivel: grupo.nivel, grado: grupo.grado, area: grupo.area } });
   if (existente) return existente;
@@ -88,7 +89,7 @@ export async function agregarTemasTemario(ctx: TenantContext, id: string, claves
   const plan = await accesoEdicion(ctx, id);
   const unicas = [...new Set(claves)];
   if (!unicas.length || unicas.length > 300) throw new ErrorDeNegocio("Elige entre 1 y 300 temas.");
-  const validas = new Set((await temasDeConBanco(plan.area as AreaNudito, plan.nivel as "primaria" | "secundaria", plan.grado)).map(t => t.clave));
+  const validas = new Set((await catalogoDelCurso(ctx.db, plan)).map(t => t.clave));
   if (unicas.some(c => !validas.has(c) || c.startsWith("col:"))) throw new ErrorDeNegocio("Elige temas del catálogo global de este grado y curso.");
   await cambiar(ctx, id, "agregar", unicas);
 }
@@ -130,7 +131,7 @@ export async function copiarTemarioAnterior(ctx: TenantContext, id: string) {
   if (!anterior) throw new ErrorDeNegocio("No hay temario del año anterior.");
   const foto = anterior.versionPublicada > 0 ? await ctx.db.planAnualVersion.findFirst({ where: { planId: anterior.id, numero: anterior.versionPublicada }, select: { temas: true } }) : null;
   const claves = foto ? clavesDeVersion(foto.temas) : (await ctx.db.planAnualTema.findMany({ where: { planId: anterior.id }, orderBy: { orden: "asc" } })).map(t => t.temaClave);
-  const validas = new Set((await temasDeConBanco(actual.area as AreaNudito, actual.nivel as "primaria" | "secundaria", actual.grado)).map(t => t.clave));
+  const validas = new Set((await catalogoDelCurso(ctx.db, actual)).map(t => t.clave));
   await agregarTemasTemario(ctx, id, claves.filter(c => validas.has(c)));
 }
 export async function nombreTemaTemario(clave: string) { return (await temaPorClaveConBanco(clave))?.nombre ?? clave; }

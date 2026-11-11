@@ -8,12 +8,12 @@ retroalimentación; nunca genera una clase por alumno.
 
 ## Reglas de negocio
 1. **Temas del alumno** = temas de la última `plan_anual_versiones` publicada del grupo `(tenant, salon.anio,
-   salon.nivel, salon.grado, area)` sin exigir una lección publicada; las claves `col:` históricas no se presentan.
+   salon.nivel, salon.grado, curso Khipu)` sin exigir una lección publicada; claves `col:` históricas no se presentan. El curso especializado y su área se consultan por separado. Los temas sin ficha ni generador histórico se muestran «Pronto» y no se pueden practicar.
    Todos disponibles desde el inicio: **sin bloqueo semanal ni por avance del docente**. Sin plan publicado: lista
    vacía y el mensaje «Tu colegio está preparando los temas de este curso.» (Nudito nunca da malas noticias).
 2. **Se elimina «Otro tema»**: `elegirTema` solo acepta `temaClave` y la rechaza si no está en la lista del punto 1
    (también para temas de grados anteriores o desbloqueados: el desbloqueo automático al grado superior queda inactivo).
-3. Áreas: Matemática, Comunicación, Ciencia y Tecnología, filtradas por la matrícula (cursos del salón, specs/42).
+3. Cursos: cada curso Khipu con Nudito de la matrícula aparece por separado; los cursos especializados filtran las disciplinas que reciben del área CNEB (specs/51).
 4. **Repaso** = contenido de la lección publicada cuando exista; en su ausencia, repaso del catálogo global. «Explícame otra vez» sigue usando la IA
    con caché y límites (specs/41).
 5. **Progreso**: estados del alumno por tema = `pendiente` (sin dominio) · `en_progreso` · `necesita_refuerzo` ·
