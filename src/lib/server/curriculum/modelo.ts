@@ -45,7 +45,7 @@ export interface OfertaCursoGrado {
   orden: number;
 }
 
-/** El profesor puede seleccionar borradores; el alumno solo recibe contenido revisado. */
-export function temaVisibleParaAlumno(estado: EstadoEditorialTema): boolean {
-  return estado === "revisado" || estado === "publicado";
+/** Alumno recibe solo contenido revisado cuya huella coincide con el código actual. */
+export function temaVisibleParaAlumno(estado: EstadoEditorialTema, huellaRevisada: string | null, huellaActual: string | null): boolean {
+  return (estado === "revisado" || estado === "publicado") && !!huellaActual && huellaRevisada === huellaActual;
 }

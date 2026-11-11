@@ -46,4 +46,8 @@ Integración: un índice global compartido por Matemática de A y Álgebra de B;
 
 ## Pendientes
 - `pnpm db:migrate` falla al reconstruir la base temporal por un problema previo a este modelo: `20261109120000_reporte_periodo_notificacion` ejecuta `ALTER TYPE "TipoNotificacion"` antes de que `20261112090100_bandeja_general` cree ese tipo. Se reprodujo P3006/P3018 en una base temporal aislada usando el esquema y las 53 migraciones anteriores, sin la migración curricular. La migración curricular se aplicó a la BD local con `pnpm db:deploy`; corregir el historial anterior queda fuera de esta subtarea.
-- Importador, sincronización de contenido, auditoría editorial, servicio de plan de estudios, migración idempotente de cursos antiguos y UI; son subtareas separadas.
+- Importador y sincronización de contenido, servicio de plan de estudios y migración idempotente de cursos antiguos siguen pendientes. La huella y el panel editorial están en specs/54.
+
+
+## Huella editorial (specs/54)
+La marca de revisión es global y permanente para todos los colegios. El hash se compara con el tema y ficha del repositorio al leer. Si ya no coincide, se deriva «Revisar de nuevo» y `temaVisibleParaAlumno` da falso hasta recapturar la huella con una revisión.

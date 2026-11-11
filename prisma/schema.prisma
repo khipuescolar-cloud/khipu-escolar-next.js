@@ -4150,6 +4150,7 @@ model TemaCurricular {
   version Int @default(1)
   revisadoPorId String? @map("revisado_por_id") @db.Uuid
   revisadoAt DateTime? @map("revisado_at") @db.Timestamptz
+  huellaContenidoRevisado String? @map("huella_contenido_revisado")
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz
   desempenosOficiales TemaDesempenoOficial[]
   @@index([areaCneb, nivel, grado, estado])

@@ -23,7 +23,7 @@ describe("seguridad del currículo en dos colegios", () => {
   });
 
   it("una foto publicada no concede permiso para leer un borrador", () => {
-    const temas = [{ clave: "tema-publicado", estadoEditorial: "borrador" as const }];
+    const temas = [{ clave: "tema-publicado", estado: "borrador" as const, huellaContenidoRevisado: null, huellaActual: "nueva" }];
     expect(filtrarVisibles("alumno", temas)).toEqual([]);
     expect(filtrarVisibles("profesor", temas)[0]?.marcaEditorial).toBe("Borrador");
   });

@@ -58,8 +58,9 @@ describe("modelo curricular global y oferta aislada", () => {
     expect(await db.temaCurricular.count({ where: { clave } })).toBe(1);
     expect((await a.db.curso.findUniqueOrThrow({ where: { id: a.cursoTutora.id } })).cursoColegioId).toBe(matematica.id);
     expect((await b.db.curso.findUniqueOrThrow({ where: { id: b.cursoTutora.id } })).cursoColegioId).toBe(algebra.id);
-    expect(temaVisibleParaAlumno(tema.estado)).toBe(false);
-    expect(temaVisibleParaAlumno("revisado")).toBe(true);
+    expect(temaVisibleParaAlumno(tema.estado, null, null)).toBe(false);
+    expect(temaVisibleParaAlumno("revisado", "huella-a", "huella-a")).toBe(true);
+    expect(temaVisibleParaAlumno("revisado", "huella-a", "huella-b")).toBe(false);
   });
 
   it("aísla la oferta por colegio y rechaza referencias cruzadas", async () => {
