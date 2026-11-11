@@ -16,6 +16,21 @@ type TemaPropuesto = { clave: string; nombre: string; disciplina?: string; desem
 type TemarioPropuesto = { competencias: { numero: number; capacidades: { bloques: { temas: TemaPropuesto[] }[] }[] }[] };
 const normalizar = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\s+/g, " ").trim();
 const forma = (s: string) => normalizar(s).replace(/\b\d+(?:[.,]\d+)?\b/g, "#");
+/** Palabras de contenido (sin números ni palabras cortas) para detectar enunciados casi iguales. */
+const COMUNES = new Set(["escribe", "solo", "numero", "cuantos", "cuantas", "cual", "cuales", "respuesta", "tiene", "razon"]);
+const palabras = (s: string) => new Set(normalizar(s).replace(/[^a-zñ ]/g, " ").split(" ").filter(w => w.length > 3 && !COMUNES.has(w)));
+const parecidos = (a: Set<string>, b: Set<string>) => { let c = 0; for (const w of a) if (b.has(w)) c++; return c / Math.max(1, Math.min(a.size, b.size)) >= 0.8 && Math.min(a.size, b.size) >= 6; };
+/** Mayor grupo de textos casi iguales (mismo cuerpo con otro contexto u otros números). */
+export function mayorGrupoParecido(textos: readonly string[]): number {
+  const conjuntos = textos.map(palabras);
+  let mayor = 1;
+  for (let i = 0; i < conjuntos.length; i++) {
+    let n = 1;
+    for (let j = 0; j < conjuntos.length; j++) if (i !== j && parecidos(conjuntos[i], conjuntos[j])) n++;
+    mayor = Math.max(mayor, n);
+  }
+  return mayor;
+}
 const archivosJson = (carpeta: string) => existsSync(carpeta) ? readdirSync(carpeta).filter(a => a.endsWith(".json")).sort() : [];
 
 function revisarCiclos(temas: TemaPropuesto[], prefijo: string, errores: string[]) {
@@ -126,6 +141,10 @@ export function validarBanco(): { fichas: FichaConocimiento[]; errores: string[]
       }
       if (![1, 2, 3].every(d => niveles.has(d))) errores.push(f.clave + ": faltan dificultades 1, 2 o 3");
       for (const [patron, n] of formas) if (n >= 3) errores.push(f.clave + ": plantilla de enunciado repetida " + n + " veces: " + patron);
+      const grupoEnunciados = mayorGrupoParecido(f.ejercicios.map(e => e.enunciado));
+      if (grupoEnunciados >= 6) errores.push(f.clave + ": " + grupoEnunciados + " enunciados casi iguales (plantilla con otro contexto)");
+      const grupoPistas = mayorGrupoParecido(f.ejercicios.map(e => e.pistas[0]));
+      if (grupoPistas >= 6) errores.push(f.clave + ": " + grupoPistas + " primeras pistas casi iguales");
       const texto = JSON.stringify(f);
       if (/[\w.+-]+@[\w.-]+\.[a-z]{2,}/i.test(texto) || /\b\d{8}\b/.test(texto)) errores.push(f.clave + ": posible dato personal");
     }

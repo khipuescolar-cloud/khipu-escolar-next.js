@@ -88,7 +88,7 @@ export async function sincronizarCursosDeSalones(
   validarMalla(anio, nivel, grado);
   const salones = await ctx.db.salon.findMany({
     where: { anio, nivel, grado, archivadoAt: null, ...(entrada.salonIds ? { id: { in: entrada.salonIds } } : {}) },
-    include: { cursos: { include: { _count: { select: { asistencias: true, evaluaciones: true, tareas: true } } } } },
+    include: { cursos: { include: { _count: { select: { asistencias: true, evaluaciones: true, tareas: true, nuditoSesiones: true, bloques: true, incidencias: true, cierres: true, enviosInformeProgreso: true, tareaCursos: true, materialSecciones: true, carpetasMaterial: true } } } } },
   });
   const oferta = await ctx.db.cursoColegioGrado.findMany({
     where: { anio, nivel, grado },
@@ -127,9 +127,9 @@ export async function sincronizarCursosDeSalones(
     }
     for (const curso of salon.cursos) {
       if (!curso.cursoColegioId || deseados.has(curso.cursoColegioId)) continue;
-      const usos = curso._count.asistencias + curso._count.evaluaciones + curso._count.tareas;
+      const usos = Object.values(curso._count).reduce((total, cantidad) => total + cantidad, 0);
       if (usos > 0) {
-        avisos.push(`«${curso.nombre}» de ${salon.nombre} conserva asistencia, notas o tareas; archívalo manualmente si ya no se dicta.`);
+        avisos.push(`«${curso.nombre}» de ${salon.nombre} conserva datos asociados; archívalo manualmente si ya no se dicta.`);
         continue;
       }
       await ctx.db.curso.delete({ where: { id: curso.id } });

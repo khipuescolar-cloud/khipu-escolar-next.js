@@ -1,8 +1,8 @@
 import "server-only";
-import { createHash } from "node:crypto";
 import { forbidden, notFound } from "next/navigation";
 import type { Rol, EstadoEditorialTema } from "@/generated/prisma/enums";
-import { fichaPorClave, temaPorClaveConBanco } from "@/lib/nudito/conocimiento/servidor";
+import { huellaActualDeTema } from "@/lib/curriculum/huella";
+export { huellaActualDeTema } from "@/lib/curriculum/huella";
 import { db } from "../db";
 import { temaVisibleParaAlumno } from "./modelo";
 import { requireFeature } from "../plan";
@@ -12,13 +12,6 @@ export type TemaEditorial = { estado: EstadoEditorialTema; huellaContenidoRevisa
 export type TemaVisible<T> = { tema: T; marcaEditorial: "Borrador" | "Revisar de nuevo" | null };
 
 /** Huella del contenido efectivo y de su ficha, sin depender de datos de un colegio. */
-export async function huellaActualDeTema(clave: string): Promise<string | null> {
-  const tema = await temaPorClaveConBanco(clave);
-  if (!tema) return null;
-  const ficha = await fichaPorClave(clave);
-  return createHash("sha256").update(JSON.stringify({ tema, ficha })).digest("hex");
-}
-
 export function requiereNuevaRevision(tema: TemaEditorial): boolean {
   return tema.estado !== "borrador" && (!tema.huellaActual || tema.huellaContenidoRevisado !== tema.huellaActual);
 }
