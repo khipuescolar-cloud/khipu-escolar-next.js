@@ -212,7 +212,8 @@ export async function pedirRepaso(ctx: TenantContext, acceso: AccesoNudito, entr
   await ctx.db.nuditoSesion.update({ where: { id: sesion.id }, data: { fase: sesion.fase === "bienvenida" || sesion.fase === "tema" ? "repaso" : sesion.fase, ultimaActividadAt: new Date() } });
   const leccion = await ctx.db.nuditoLeccion.findFirst({ where: { temaClave: tema.clave, estado: "publicada" }, orderBy: { version: "desc" }, select: { contenido: true, version: true } });
   const ficha = leccion ? null : await fichaPorClave(tema.clave);
-  if (!leccion && !ficha) throw new ErrorDeNegocio("Tu colegio está preparando este tema.");
+  // Sin lección publicada ni ficha del banco: repaso del catálogo (specs/48).
+  if (!leccion && !ficha) return { idea: tema.repaso.idea, ejemplo: tema.repaso.ejemplo, explicacion: tema.repaso.errorFrecuente ? "Cuidado: " + tema.repaso.errorFrecuente : "", recursos: tema.recursos.map(r => ({ tipo: "enlace" as const, titulo: r.titulo, valor: r.url })) };
   if (ficha) return { idea: ficha.ideaCentral, ejemplo: ficha.ejemplos.map(e => e.situacion + " " + e.desarrollo).join("\n"), explicacion: ficha.pasos.join("\n"), recursos: [] };
   if (!leccion) throw new ErrorDeNegocio("Tu colegio está preparando este tema.");
   const contenido = esquemaLeccion.parse(leccion.contenido);

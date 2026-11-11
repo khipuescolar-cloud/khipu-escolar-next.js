@@ -14,7 +14,7 @@ retroalimentación; nunca genera una clase por alumno.
 2. **Se elimina «Otro tema»**: `elegirTema` solo acepta `temaClave` y la rechaza si no está en la lista del punto 1
    (también para temas de grados anteriores o desbloqueados: el desbloqueo automático al grado superior queda inactivo).
 3. Cursos: cada curso Khipu con Nudito de la matrícula aparece por separado; los cursos especializados filtran las disciplinas que reciben del área CNEB (specs/51).
-4. **Repaso** = contenido de la lección publicada cuando exista; en su ausencia, repaso del catálogo global. «Explícame otra vez» sigue usando la IA
+4. **Repaso** = lección publicada si existe; si no, ficha del banco (specs/50); si no, repaso del catálogo global. «Explícame otra vez» sigue usando la IA
    con caché y límites (specs/41).
 5. **Progreso**: estados del alumno por tema = `pendiente` (sin dominio) · `en_progreso` · `necesita_refuerzo` ·
    `dominado`, mapeados desde `nudito_dominios.estado` (specs/43). Abrir un tema no lo completa; dominar exige la
