@@ -1,0 +1,412 @@
+[
+  {
+    "clave": "mat.p1.siempre-a-veces-nunca",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-P1-02"
+    ],
+    "bloque": "Nociones de azar",
+    "nombre": "Siempre, a veces y nunca",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Usa siempre, a veces y nunca para describir si ocurren hechos cotidianos.",
+    "palabrasClave": [
+      "siempre,",
+      "veces",
+      "nunca"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 56,
+    "ideaCentral": "«Siempre» indica que algo ocurre en todos los casos; «a veces», en algunos; «nunca», en ninguno. Mira qué opciones son posibles antes de responder.",
+    "pasos": [
+      "Identifica todos los resultados que pueden ocurrir.",
+      "Comprueba si el hecho ocurre en todos, algunos o ninguno.",
+      "Elige siempre, a veces o nunca."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una bolsa tiene solo canicas rojas. Si sacas una sin mirar, ¿saldrá roja?",
+        "desarrollo": "Lee qué objetos hay en la bolsa, caja o dado: Todas las canicas son rojas. Si todas las posibilidades cumplen, di siempre; si solo algunas, a veces.",
+        "respuesta": "siempre"
+      },
+      {
+        "situacion": "Hay canicas rojas y azules. Si sacas una sin mirar, ¿saldrá roja?",
+        "desarrollo": "Lee qué objetos hay en la bolsa, caja o dado: Puedes sacar una roja o una azul. Si todas las posibilidades cumplen, di siempre; si solo algunas, a veces.",
+        "respuesta": "a veces"
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir siempre porque algo ocurrió una sola vez.",
+        "correccion": "Revisa todas las posibilidades, no solo un intento."
+      },
+      {
+        "error": "Decir nunca cuando una de las opciones sí permite el hecho.",
+        "correccion": "Si puede ocurrir en algunos casos, corresponde a veces."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Siempre",
+        "significado": "Ocurre en todos los casos posibles."
+      },
+      {
+        "termino": "A veces",
+        "significado": "Ocurre en algunos casos, pero no en todos."
+      },
+      {
+        "termino": "Nunca",
+        "significado": "No ocurre en ninguno de los casos posibles."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una bolsa tiene solo canicas rojas. Si sacas una sin mirar, ¿saldrá roja?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee qué objetos hay en la bolsa, caja o dado: Todas las canicas son rojas.",
+          "Si todas las posibilidades cumplen, di siempre; si solo algunas, a veces. En este caso, todas las canicas son rojas.",
+          "Como todas las canicas son rojas. la respuesta es siempre."
+        ],
+        "retroalimentacion": "Corresponde «siempre». Todas las canicas son rojas. Revisa todas las posibilidades.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "siempre"
+          },
+          {
+            "id": "b",
+            "texto": "a veces"
+          },
+          {
+            "id": "c",
+            "texto": "nunca"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Hay canicas rojas y azules. Si sacas una sin mirar, ¿saldrá roja?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee qué objetos hay en la bolsa, caja o dado: Puedes sacar una roja o una azul.",
+          "Si todas las posibilidades cumplen, di siempre; si solo algunas, a veces. En este caso, puedes sacar una roja o una azul.",
+          "Como puedes sacar una roja o una azul. la respuesta es a veces."
+        ],
+        "retroalimentacion": "Corresponde «a veces». Puedes sacar una roja o una azul. Revisa todas las posibilidades.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "siempre"
+          },
+          {
+            "id": "b",
+            "texto": "nunca"
+          },
+          {
+            "id": "c",
+            "texto": "a veces"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una bolsa tiene solo canicas azules. ¿Saldrá una roja al sacar una?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee qué objetos hay en la bolsa, caja o dado: No hay canicas rojas.",
+          "Si todas las posibilidades cumplen, di siempre; si solo algunas, a veces. En este caso, no hay canicas rojas.",
+          "Como no hay canicas rojas. la respuesta es nunca."
+        ],
+        "retroalimentacion": "Corresponde «nunca». No hay canicas rojas. Revisa todas las posibilidades.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "a veces"
+          },
+          {
+            "id": "b",
+            "texto": "nunca"
+          },
+          {
+            "id": "c",
+            "texto": "siempre"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un dado tiene caras del 1 al 6. ¿Saldrá un número entre 1 y 6?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee qué objetos hay en la bolsa, caja o dado: Todas sus caras están entre 1 y 6.",
+          "Si todas las posibilidades cumplen, di siempre; si solo algunas, a veces. En este caso, todas sus caras están entre 1 y 6.",
+          "Como todas sus caras están entre 1 y 6. la respuesta es siempre."
+        ],
+        "retroalimentacion": "Corresponde «siempre». Todas sus caras están entre 1 y 6. Revisa todas las posibilidades.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "siempre"
+          },
+          {
+            "id": "b",
+            "texto": "a veces"
+          },
+          {
+            "id": "c",
+            "texto": "nunca"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Lanzas un dado de seis caras. ¿Saldrá el número 4?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee qué objetos hay en la bolsa, caja o dado: Hay una cara con 4 y otras sin 4.",
+          "Si todas las posibilidades cumplen, di siempre; si solo algunas, a veces. En este caso, hay una cara con 4 y otras sin 4.",
+          "Como hay una cara con 4 y otras sin 4. la respuesta es a veces."
+        ],
+        "retroalimentacion": "Corresponde «a veces». Hay una cara con 4 y otras sin 4. Revisa todas las posibilidades.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "siempre"
+          },
+          {
+            "id": "b",
+            "texto": "nunca"
+          },
+          {
+            "id": "c",
+            "texto": "a veces"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Lanzas un dado de seis caras. ¿Saldrá el número 8?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee qué objetos hay en la bolsa, caja o dado: El dado no tiene 8.",
+          "Si todas las posibilidades cumplen, di siempre; si solo algunas, a veces. En este caso, el dado no tiene 8.",
+          "Como el dado no tiene 8. la respuesta es nunca."
+        ],
+        "retroalimentacion": "Corresponde «nunca». El dado no tiene 8. Revisa todas las posibilidades.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "a veces"
+          },
+          {
+            "id": "b",
+            "texto": "nunca"
+          },
+          {
+            "id": "c",
+            "texto": "siempre"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos tarjetas dicen SOL. Sacas una. ¿Dirá SOL?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee qué objetos hay en la bolsa, caja o dado: Las dos tarjetas dicen SOL.",
+          "Si todas las posibilidades cumplen, di siempre; si solo algunas, a veces. En este caso, las dos tarjetas dicen SOL.",
+          "Como las dos tarjetas dicen sol. la respuesta es siempre."
+        ],
+        "retroalimentacion": "Corresponde «siempre». Las dos tarjetas dicen SOL. Revisa todas las posibilidades.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "siempre"
+          },
+          {
+            "id": "b",
+            "texto": "a veces"
+          },
+          {
+            "id": "c",
+            "texto": "nunca"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tarjeta dice SOL y otra LUNA. ¿Saldrá LUNA?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee qué objetos hay en la bolsa, caja o dado: Puedes tomar cualquiera de las dos tarjetas.",
+          "Si todas las posibilidades cumplen, di siempre; si solo algunas, a veces. En este caso, puedes tomar cualquiera de las dos tarjetas.",
+          "Como puedes tomar cualquiera de las dos tarjetas. la respuesta es a veces."
+        ],
+        "retroalimentacion": "Corresponde «a veces». Puedes tomar cualquiera de las dos tarjetas. Revisa todas las posibilidades.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "siempre"
+          },
+          {
+            "id": "b",
+            "texto": "nunca"
+          },
+          {
+            "id": "c",
+            "texto": "a veces"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Todas las tarjetas dicen SOL. ¿Saldrá LUNA?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee qué objetos hay en la bolsa, caja o dado: No hay ninguna tarjeta con LUNA.",
+          "Si todas las posibilidades cumplen, di siempre; si solo algunas, a veces. En este caso, no hay ninguna tarjeta con LUNA.",
+          "Como no hay ninguna tarjeta con luna. la respuesta es nunca."
+        ],
+        "retroalimentacion": "Corresponde «nunca». No hay ninguna tarjeta con LUNA. Revisa todas las posibilidades.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "a veces"
+          },
+          {
+            "id": "b",
+            "texto": "nunca"
+          },
+          {
+            "id": "c",
+            "texto": "siempre"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una caja solo hay tres cuyes de juguete. Sacas uno. ¿Será un cuy de juguete?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee qué objetos hay en la bolsa, caja o dado: Todos los juguetes de la caja son cuyes.",
+          "Si todas las posibilidades cumplen, di siempre; si solo algunas, a veces. En este caso, todos los juguetes de la caja son cuyes.",
+          "Como todos los juguetes de la caja son cuyes. la respuesta es siempre."
+        ],
+        "retroalimentacion": "Corresponde «siempre». Todos los juguetes de la caja son cuyes. Revisa todas las posibilidades.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "siempre"
+          },
+          {
+            "id": "b",
+            "texto": "a veces"
+          },
+          {
+            "id": "c",
+            "texto": "nunca"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja tiene dos mangos y dos plátanos. ¿Sacarás un mango sin mirar?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee qué objetos hay en la bolsa, caja o dado: Hay mangos y plátanos en la caja.",
+          "Si todas las posibilidades cumplen, di siempre; si solo algunas, a veces. En este caso, hay mangos y plátanos en la caja.",
+          "Como hay mangos y plátanos en la caja. la respuesta es a veces."
+        ],
+        "retroalimentacion": "Corresponde «a veces». Hay mangos y plátanos en la caja. Revisa todas las posibilidades.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "siempre"
+          },
+          {
+            "id": "b",
+            "texto": "nunca"
+          },
+          {
+            "id": "c",
+            "texto": "a veces"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja solo tiene cinco mangos. ¿Sacarás un plátano?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee qué objetos hay en la bolsa, caja o dado: La caja no contiene plátanos.",
+          "Si todas las posibilidades cumplen, di siempre; si solo algunas, a veces. En este caso, la caja no contiene plátanos.",
+          "Como la caja no contiene plátanos. la respuesta es nunca."
+        ],
+        "retroalimentacion": "Corresponde «nunca». La caja no contiene plátanos. Revisa todas las posibilidades.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "a veces"
+          },
+          {
+            "id": "b",
+            "texto": "nunca"
+          },
+          {
+            "id": "c",
+            "texto": "siempre"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]
