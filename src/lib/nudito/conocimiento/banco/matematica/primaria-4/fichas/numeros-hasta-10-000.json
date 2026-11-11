@@ -1,0 +1,302 @@
+[
+  {
+    "clave": "mat.p4.justificar-comparaciones",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P4-06"
+    ],
+    "bloque": "Números hasta 10 000",
+    "nombre": "Justificación de la conformación del millar y del orden",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Explica con material concreto por qué un número de cuatro cifras es mayor o menor que otro.",
+    "palabrasClave": [
+      "comparar",
+      "millar",
+      "valor posicional",
+      "justificar",
+      "mayor que"
+    ],
+    "prerrequisitos": [
+      "mat.p4.comparar-cuatro-cifras"
+    ],
+    "ordenSugerido": 12,
+    "ideaCentral": "Para explicar por qué un número es mayor, compara sus cifras de izquierda a derecha con material (placas de millar, centenas, decenas y unidades). El primer lugar donde se diferencian decide cuál es mayor.",
+    "pasos": [
+      "Representa cada número con material: placas de millar, centenas, decenas y unidades.",
+      "Compara primero los millares; si son iguales, pasa a las centenas.",
+      "Sigue con decenas y unidades hasta hallar la primera diferencia.",
+      "Explica con tus palabras: «es mayor porque tiene más…»."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Ana tiene 3 482 soles ahorrados y Beto 3 428. ¿Quién tiene más y por qué?",
+        "desarrollo": "Ambos tienen 3 millares y 4 centenas. Las decenas son 8 y 2: 8 > 2.",
+        "respuesta": "Ana tiene más porque tiene 8 decenas y Beto 2."
+      },
+      {
+        "situacion": "¿Es 5 000 mayor que 4 999?",
+        "desarrollo": "4 999 es 4 millares y 999 más. Al agregar 1 se completa otro millar: 5 000.",
+        "respuesta": "Sí, 5 000 es mayor porque tiene un millar más."
+      },
+      {
+        "situacion": "Compara 6 205 y 6 025 en Iquitos.",
+        "desarrollo": "Los millares son 6 y 6. Las centenas: 2 contra 0. 2 > 0.",
+        "respuesta": "6 205 es mayor porque tiene 2 centenas y el otro 0."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir que 3 999 > 4 000 porque 999 es mayor que 0.",
+        "correccion": "Se compara de izquierda a derecha. 3 millares < 4 millares, aunque lo demás sea grande."
+      },
+      {
+        "error": "Pensar que un número es mayor porque sus últimas cifras son mayores.",
+        "correccion": "Las cifras de la izquierda valen más. Solo si son iguales se mira la cifra siguiente."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Millar",
+        "significado": "Grupo de 1 000 unidades."
+      },
+      {
+        "termino": "Valor posicional",
+        "significado": "Lo que vale una cifra según el lugar donde está."
+      },
+      {
+        "termino": "Justificar",
+        "significado": "Dar razones que explican por qué algo es cierto."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ana tiene 3 482 soles y Beto 3 428. ¿Quién tiene más?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 482"
+          },
+          {
+            "id": "b",
+            "texto": "3 428"
+          },
+          {
+            "id": "c",
+            "texto": "Tienen lo mismo"
+          }
+        ],
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira primero los millares: ambos tienen 3.",
+          "Las centenas también son iguales; mira las decenas.",
+          "8 decenas contra 2 decenas."
+        ],
+        "retroalimentacion": "3 482 tiene 8 decenas y 3 428 tiene 2; por eso 3 482 es mayor."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "5 120 es mayor que 4 999 porque tiene más millares.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los millares de los dos números.",
+          "5 millares contra 4 millares.",
+          "Con más millares, el número es mayor."
+        ],
+        "retroalimentacion": "Es verdadero: 5 120 tiene 5 millares y 4 999 solo 4."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Dos números tienen 7 millares. Uno tiene 3 centenas y el otro 5 centenas. ¿Cuántas centenas tiene el número mayor? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Como los millares son iguales, mira las centenas.",
+          "Compara 3 y 5.",
+          "El número con más centenas es el mayor."
+        ],
+        "retroalimentacion": "Con los mismos millares, gana quien tiene más centenas: 5 > 3."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Cuál es menor: 6 001 o 5 999? Escribe el número.",
+        "respuesta": "5999",
+        "alternativasAceptadas": [
+          "5 999"
+        ],
+        "pistas": [
+          "Compara los millares de cada número.",
+          "Uno tiene 6 millares y el otro 5.",
+          "El que tiene menos millares es menor."
+        ],
+        "retroalimentacion": "5 999 tiene 5 millares y 6 001 tiene 6; por eso 5 999 es menor."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Por qué 6 205 es mayor que 6 025?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Porque tiene más cifras"
+          },
+          {
+            "id": "b",
+            "texto": "Porque tiene 2 centenas y el otro 0"
+          },
+          {
+            "id": "c",
+            "texto": "Porque termina en 5"
+          }
+        ],
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos tienen 6 millares.",
+          "Compara las centenas: 6 205 tiene 2 y 6 025 tiene ...",
+          "Mira en qué lugar aparece la primera diferencia."
+        ],
+        "retroalimentacion": "Las centenas son 2 y 0, y ahí ocurre la primera diferencia. No importa el 5 final ni la cantidad de cifras, que es la misma."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Ana representa 3 millares, 4 centenas y 5 decenas; Beto, 3 millares, 4 centenas y 8 decenas. ¿Cuántas decenas tiene el número mayor? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara primero millares y centenas: son iguales.",
+          "Pasa a las decenas: 5 y 8.",
+          "El mayor tiene más decenas."
+        ],
+        "retroalimentacion": "Los millares y centenas son iguales; el mayor es el de 8 decenas."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "3 999 es mayor que 4 000 porque 999 es mayor que 0.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda que se compara empezando por la izquierda.",
+          "3 millares contra 4 millares.",
+          "999 no alcanza para completar un millar más."
+        ],
+        "retroalimentacion": "Es falso: 3 999 tiene 3 millares y 4 000 tiene 4, así que 4 000 es mayor."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Al comparar 4 307 y 4 370, ¿en qué valor posicional se diferencian primero: millares, centenas, decenas o unidades?",
+        "respuesta": "decenas",
+        "alternativasAceptadas": [
+          "las decenas",
+          "decena",
+          "la decena"
+        ],
+        "pistas": [
+          "Compara los millares: 4 y 4, iguales.",
+          "Compara las centenas: 3 y 3, iguales.",
+          "Ahora mira la cifra siguiente: 0 y 7."
+        ],
+        "retroalimentacion": "Los millares y las centenas son iguales; la primera diferencia está en las decenas (0 y 7), así que 4 370 es mayor."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Mario escribe los números 5 480, 5 804, 5 840 y 4 999 en tarjetas. ¿Cuál es el mayor de todos? Escribe solo el número.",
+        "respuesta": 5840,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Elimina el que tiene menos millares.",
+          "Quedan 5 480, 5 804 y 5 840, con las mismas millares; compara las centenas.",
+          "Entre 5 804 y 5 840, compara las decenas."
+        ],
+        "retroalimentacion": "4 999 tiene menos millares; entre los demás, 5 480 tiene 4 centenas y los otros 8; entre 5 804 y 5 840 gana el de 4 decenas: 5 840."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Luis dice: «3 100 es mayor que 2 999 porque tiene más cifras». Marta dice: «porque tiene 3 millares y el otro 2». ¿Quién explica bien?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo Luis"
+          },
+          {
+            "id": "b",
+            "texto": "Ninguno de los dos"
+          },
+          {
+            "id": "c",
+            "texto": "Solo Marta"
+          }
+        ],
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las cifras de 3 100 y de 2 999.",
+          "Los dos tienen cuatro cifras, entonces no es por eso.",
+          "Revisa quién compara los millares."
+        ],
+        "retroalimentacion": "Los dos números tienen 4 cifras, así que el argumento de Luis es falso; Marta compara bien los millares: 3 > 2."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "¿Qué cifra completa el espacio en 6_40 para que sea mayor que 6 540 pero menor que 6 740? Escribe solo la cifra.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La cifra que falta está en las centenas.",
+          "Debe ser mayor que 5 y menor que 7.",
+          "Solo una cifra está entre 5 y 7."
+        ],
+        "retroalimentacion": "Las centenas deben ser mayores que 5 y menores que 7: solo sirve el 6, y el número es 6 640."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "4 999 + 1 = 5 000, por eso 5 000 es mayor que 4 999.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 4 999 + 1.",
+          "Al agregar 1 unidad, se completa un nuevo millar.",
+          "Si sumas 1, el número resultante es mayor que el de partida."
+        ],
+        "retroalimentacion": "Es verdadero: al sumar 1 a 4 999 se obtiene 5 000, que tiene un millar más."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

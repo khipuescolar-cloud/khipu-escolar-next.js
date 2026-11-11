@@ -1,0 +1,978 @@
+[
+  {
+    "clave": "mat.p4.seguro-mas-menos-probable",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-P4-02"
+    ],
+    "bloque": "Azar",
+    "nombre": "Sucesos seguros, más y menos probables en la vida diaria",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Clasifica sucesos cotidianos según su posibilidad de ocurrir.",
+    "palabrasClave": [
+      "azar",
+      "seguro",
+      "imposible",
+      "más probable",
+      "menos probable"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 109,
+    "ideaCentral": "Un suceso es seguro si siempre ocurre, imposible si nunca ocurre, y si puede ocurrir o no, es más probable cuando tiene más casos a su favor y menos probable cuando tiene menos.",
+    "pasos": [
+      "Lee con atención qué puede pasar y cuántos casos hay.",
+      "Si siempre pasa, es seguro; si nunca pasa, es imposible.",
+      "Si puede pasar o no, compara los casos: el que tiene más casos es más probable.",
+      "Di tu respuesta con las palabras seguro, imposible, más probable o menos probable."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En la chacra de don Julio hay una bolsa con 9 papas amarillas y 1 papa blanca. Sacas una sin mirar. ¿Qué es más probable?",
+        "desarrollo": "Hay 9 casos de papa amarilla y solo 1 de papa blanca. Más casos significa más probabilidad.",
+        "respuesta": "Es más probable sacar una papa amarilla; sacar la blanca es menos probable."
+      },
+      {
+        "situacion": "En el mercado de Cusco, Rita saca un grano de una bolsa que solo tiene quinua blanca. ¿Es seguro que sea blanco?",
+        "desarrollo": "Todos los granos son blancos, así que no hay otro color posible.",
+        "respuesta": "Sí, es seguro que el grano sea blanco."
+      },
+      {
+        "situacion": "Un niño de Iquitos dice: «Mañana un cuy se pondrá a volar». ¿Qué tipo de suceso es?",
+        "desarrollo": "Los cuyes no tienen alas ni pueden volar, entonces nunca va a ocurrir.",
+        "respuesta": "Es un suceso imposible."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que «poco probable» es lo mismo que «imposible».",
+        "correccion": "Poco probable puede ocurrir, aunque tenga pocos casos. Imposible no puede ocurrir nunca."
+      },
+      {
+        "error": "Creer que si algo ocurrió varias veces seguidas, ya es seguro que ocurra otra vez.",
+        "correccion": "El azar no recuerda lo anterior; solo cuentan los casos posibles que hay ahora."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Seguro",
+        "significado": "Suceso que siempre ocurre."
+      },
+      {
+        "termino": "Imposible",
+        "significado": "Suceso que nunca puede ocurrir."
+      },
+      {
+        "termino": "Más probable",
+        "significado": "El que tiene más casos a su favor."
+      },
+      {
+        "termino": "Menos probable",
+        "significado": "El que tiene menos casos a su favor."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Es seguro que después del lunes viene el martes.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en el orden de los días de la semana.",
+          "Después del lunes siempre sigue el martes.",
+          "Si siempre ocurre, el suceso se llama seguro."
+        ],
+        "retroalimentacion": "Es verdadero: el martes siempre viene después del lunes, por eso es un suceso seguro.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una bolsa hay 7 caramelos de naranja y 3 de limón. Sacas uno sin mirar. ¿Qué es más probable?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sacar uno de limón"
+          },
+          {
+            "id": "b",
+            "texto": "Sacar uno de naranja"
+          },
+          {
+            "id": "c",
+            "texto": "Ambos son igual de probables"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántos caramelos hay de cada sabor.",
+          "Hay 7 de naranja y 3 de limón.",
+          "Compara 7 con 3: el sabor con más caramelos es más probable."
+        ],
+        "retroalimentacion": "Hay 7 caramelos de naranja y solo 3 de limón; por eso es más probable sacar uno de naranja. Sacar uno de limón es menos probable.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una caja tiene solo cubitos azules. Sacas un cubito sin mirar. ¿Es seguro, probable o imposible que sea rojo? Escribe una palabra.",
+        "respuesta": "imposible",
+        "alternativasAceptadas": [
+          "es imposible",
+          "imposible."
+        ],
+        "pistas": [
+          "Fíjate qué colores hay dentro de la caja.",
+          "Solo hay cubitos azules, no hay ninguno rojo.",
+          "Si no hay ningún caso a favor, el suceso nunca ocurre."
+        ],
+        "retroalimentacion": "No hay cubitos rojos en la caja, así que sacar uno rojo es imposible.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estos sucesos es seguro?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Que mañana llueva en Iquitos"
+          },
+          {
+            "id": "b",
+            "texto": "Que un cuy se ponga a volar"
+          },
+          {
+            "id": "c",
+            "texto": "Que la semana tenga 7 días"
+          },
+          {
+            "id": "d",
+            "texto": "Que al lanzar una moneda salga cara"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un suceso seguro ocurre siempre, sin excepción.",
+          "Revisa cuál de las frases nunca puede fallar.",
+          "Una semana siempre tiene la misma cantidad de días."
+        ],
+        "retroalimentacion": "La semana siempre tiene 7 días, es seguro. Que llueva o que salga cara puede ocurrir o no, y que un cuy vuele es imposible.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una bolsa hay 2 caramelos de limón y 8 de fresa. Sacar uno de limón es más probable que sacar uno de fresa.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los caramelos de cada sabor.",
+          "Hay 2 de limón y 8 de fresa.",
+          "Gana en probabilidad el sabor que tiene más caramelos."
+        ],
+        "retroalimentacion": "Es falso: el limón tiene solo 2 caramelos y la fresa tiene 8. Sacar limón es menos probable.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Quieres que sacar una ficha azul sea imposible en una bolsa con 6 fichas. ¿Cuántas fichas azules debe tener la bolsa? Escribe solo el número.",
+        "respuesta": 0,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un suceso imposible es el que nunca ocurre.",
+          "Si sacar azul nunca debe pasar, no debe haber casos a favor.",
+          "Piensa cuántas fichas azules puedes poner para que jamás salga una."
+        ],
+        "retroalimentacion": "Para que sea imposible, la bolsa no debe tener ninguna ficha azul: 0.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En la ruleta de la feria hay 8 sectores iguales: 7 verdes y 1 rojo. ¿Es más probable o menos probable que salga rojo? Escribe «más» o «menos».",
+        "respuesta": "menos",
+        "alternativasAceptadas": [
+          "menos probable",
+          "es menos probable"
+        ],
+        "pistas": [
+          "Cuenta cuántos sectores son rojos y cuántos son verdes.",
+          "Hay 1 sector rojo frente a 7 verdes.",
+          "El color con menos sectores tiene menos probabilidad."
+        ],
+        "retroalimentacion": "Solo 1 de los 8 sectores es rojo, por eso salir rojo es menos probable que salir verde.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Marco lanza un dado de 6 caras. ¿Cuál de estos sucesos es el MENOS probable?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Que salga el 6"
+          },
+          {
+            "id": "b",
+            "texto": "Que salga un número par"
+          },
+          {
+            "id": "c",
+            "texto": "Que salga el 5 o el 6"
+          },
+          {
+            "id": "d",
+            "texto": "Que salga un número menor que 6"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántos números del dado cumplen cada suceso.",
+          "Par son 2, 4 y 6; el 5 o el 6 son 2 números; menor que 6 son 5 números.",
+          "Busca el suceso que tiene solo un caso a favor."
+        ],
+        "retroalimentacion": "Que salga el 6 tiene un solo caso, así que es el menos probable. Que salga par tiene 3 casos y menor que 6 tiene 5.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Hay cuatro bolsas con papas. ¿En cuál es MÁS probable sacar una papa amarilla sin mirar?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 amarillas y 8 moradas"
+          },
+          {
+            "id": "b",
+            "texto": "5 amarillas y 5 moradas"
+          },
+          {
+            "id": "c",
+            "texto": "9 amarillas y 1 morada"
+          },
+          {
+            "id": "d",
+            "texto": "Todas son igual de probables"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara en cada bolsa las amarillas con las moradas.",
+          "En una bolsa hay muchas más amarillas que moradas.",
+          "La bolsa con 9 amarillas y 1 morada tiene casi todo a su favor."
+        ],
+        "retroalimentacion": "En la bolsa de 9 amarillas y 1 morada hay más casos de amarilla. En la de 2 amarillas y 8 moradas es muy poco probable y en la de 5 y 5 es igual.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una bolsa tiene 3 bolitas azules y 7 rojas. Quieres que azul y rojo sean igual de probables sin sacar ninguna roja. ¿Cuántas bolitas azules debes agregar? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para ser igual de probables, debe haber la misma cantidad de azules y rojas.",
+          "Hay 7 rojas y solo 3 azules.",
+          "Calcula cuánto le falta a 3 para llegar a 7."
+        ],
+        "retroalimentacion": "Se necesitan 7 azules para igualar a las 7 rojas; como ya hay 3, se agregan 7 - 3 = 4.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una bolsa tiene 4 bolitas rojas, 4 azules y 2 verdes. Es seguro que al sacar una sin mirar no salga verde.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa si hay bolitas verdes dentro de la bolsa.",
+          "Hay 2 bolitas verdes, aunque son pocas.",
+          "Para ser seguro, no debería haber ningún caso de verde."
+        ],
+        "retroalimentacion": "Es falso: hay 2 verdes, entonces puede salir verde. Es poco probable, pero no imposible ni seguro que no salga.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Beto dice: «Salió cara tres veces seguidas, entonces es seguro que ahora salga cara». ¿Qué le respondes?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tiene razón, la moneda ya se acostumbró a la cara"
+          },
+          {
+            "id": "b",
+            "texto": "No es seguro: puede salir cara o sello, cada uno es posible"
+          },
+          {
+            "id": "c",
+            "texto": "Es seguro que salga sello"
+          },
+          {
+            "id": "d",
+            "texto": "Es imposible que salga cara otra vez"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda qué resultados tiene una moneda.",
+          "La moneda tiene cara y sello, y no recuerda lo que pasó antes.",
+          "Un suceso es seguro solo si no existe otro resultado posible."
+        ],
+        "retroalimentacion": "La moneda tiene dos resultados posibles cada vez: cara o sello. No es seguro que salga cara; tampoco es seguro que salga sello.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.resultados-posibles",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 25,
+    "capacidad": "Usa estrategias y procedimientos para recopilar y procesar datos",
+    "desempenosOrigen": [
+      "MAT-C25-P4-05"
+    ],
+    "bloque": "Azar",
+    "nombre": "Todos los resultados posibles de un experimento",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Enumera con listas o diagramas los resultados al lanzar dados, monedas o girar ruletas.",
+    "palabrasClave": [
+      "resultados posibles",
+      "dado",
+      "moneda",
+      "ruleta",
+      "lista"
+    ],
+    "prerrequisitos": [
+      "mat.p4.seguro-mas-menos-probable"
+    ],
+    "ordenSugerido": 122,
+    "ideaCentral": "Los resultados posibles son todo lo que puede salir en un experimento. Se escriben en una lista ordenada para no olvidar ninguno ni repetirlo.",
+    "pasos": [
+      "Identifica el experimento: dado, moneda o ruleta.",
+      "Escribe uno por uno lo que puede salir, siguiendo un orden.",
+      "Si hay dos pasos, combina cada resultado del primero con cada uno del segundo.",
+      "Cuenta tu lista y revisa que no falte ni sobre ninguno."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Lanzas una moneda. ¿Cuáles son los resultados posibles?",
+        "desarrollo": "Una moneda cae mostrando cara (C) o sello (S).",
+        "respuesta": "Hay 2 resultados: cara y sello."
+      },
+      {
+        "situacion": "En la feria de Lima giras una ruleta con los colores rojo, verde y amarillo. ¿Qué puede salir?",
+        "desarrollo": "La flecha puede detenerse en cada uno de los tres colores.",
+        "respuesta": "Los resultados son rojo, verde y amarillo: 3 en total."
+      },
+      {
+        "situacion": "Lanzas dos monedas, una tras otra. ¿Qué resultados puedes anotar?",
+        "desarrollo": "Primero cara: CC o CS. Primero sello: SC o SS.",
+        "respuesta": "Hay 4 resultados: CC, CS, SC y SS."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Olvidar un resultado, por ejemplo no anotar SC cuando ya anotó CS.",
+        "correccion": "Cuando el orden importa, CS y SC son resultados distintos; revisa cada combinación."
+      },
+      {
+        "error": "Escribir resultados que no pueden ocurrir, como el 7 en un dado de 6 caras.",
+        "correccion": "Un resultado posible debe estar en el experimento: el dado solo tiene los números del 1 al 6."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Resultado posible",
+        "significado": "Lo que puede salir al hacer un experimento."
+      },
+      {
+        "termino": "Experimento",
+        "significado": "Acción de azar, como lanzar un dado o girar una ruleta."
+      },
+      {
+        "termino": "Lista",
+        "significado": "Forma ordenada de escribir todos los resultados."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos resultados posibles tiene lanzar una moneda una vez? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa cómo puede caer una moneda.",
+          "La moneda muestra cara o sello.",
+          "Cuenta esas dos posibilidades."
+        ],
+        "retroalimentacion": "Una moneda puede caer en cara o en sello: 2 resultados posibles.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos resultados posibles tiene lanzar un dado de 6 caras? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira qué números tiene un dado.",
+          "Los números van del 1 al 6.",
+          "Cuenta cada cara del dado una vez."
+        ],
+        "retroalimentacion": "El dado tiene los números 1, 2, 3, 4, 5 y 6: son 6 resultados posibles.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al lanzar un dado de 6 caras, el 7 es un resultado posible.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda hasta qué número llega el dado.",
+          "El número más grande del dado es el 6.",
+          "Si el 7 no está en el dado, no puede salir."
+        ],
+        "retroalimentacion": "Es falso: el dado solo tiene los números 1 al 6, el 7 no puede salir.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una ruleta tiene 4 sectores: rojo, azul, verde y amarillo. ¿Qué lista muestra TODOS los resultados al girarla?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "rojo, azul"
+          },
+          {
+            "id": "b",
+            "texto": "rojo, azul, verde"
+          },
+          {
+            "id": "c",
+            "texto": "rojo, azul, verde, amarillo"
+          },
+          {
+            "id": "d",
+            "texto": "rojo, rojo, azul, verde"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los sectores de la ruleta.",
+          "Son 4 colores distintos, cada uno aparece una vez.",
+          "La lista debe tener los 4 colores, sin repetir ninguno."
+        ],
+        "retroalimentacion": "La lista «rojo, azul, verde, amarillo» tiene los 4 colores. La de dos colores o la de tres dejan colores fuera, y la que repite rojo nombra un resultado dos veces.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Lanzas un dado y solo te interesa si sale un número par. Escribe los números pares del dado de menor a mayor, separados por comas y un espacio.",
+        "respuesta": "2, 4, 6",
+        "alternativasAceptadas": [
+          "2,4,6",
+          "2 4 6",
+          "2, 4 y 6",
+          "2 y 4 y 6"
+        ],
+        "pistas": [
+          "Los números pares terminan en 0, 2, 4, 6 u 8.",
+          "El dado va del 1 al 6; busca los pares entre ellos.",
+          "Revisa el 1, 2, 3, 4, 5 y 6 y deja solo los que se pueden formar de dos en dos."
+        ],
+        "retroalimentacion": "Los pares del dado son 2, 4 y 6; el 1, 3 y 5 son impares.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Rosa lanza una moneda dos veces y anota en orden, por ejemplo CS. Ya anotó CC, CS y SC. ¿Cuántos resultados le faltan anotar? Escribe solo el número.",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe todas las combinaciones de dos lanzamientos.",
+          "Con dos monedas hay CC, CS, SC y SS.",
+          "Compara tu lista de cuatro con las tres que ya anotó Rosa."
+        ],
+        "retroalimentacion": "Hay 4 resultados en total y Rosa anotó 3; le falta SS, o sea 1.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Lanzas dos monedas, una tras otra (C = cara, S = sello). ¿Qué lista tiene TODOS los resultados?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "CC, SS"
+          },
+          {
+            "id": "b",
+            "texto": "CC, CS, SS"
+          },
+          {
+            "id": "c",
+            "texto": "CS, SC"
+          },
+          {
+            "id": "d",
+            "texto": "CC, CS, SC, SS"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero piensa en lo que sale en la primera moneda y luego en la segunda.",
+          "Si la primera es C, la segunda puede ser C o S; y si la primera es S, también.",
+          "Esa lista debe tener 4 elementos, uno por cada combinación."
+        ],
+        "retroalimentacion": "La lista completa es CC, CS, SC, SS. Las demás olvidan combinaciones, como CS y SC.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al lanzar un dado, que salga 2 y que salga 5 son resultados posibles distintos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira los números del dado.",
+          "El 2 y el 5 son dos caras diferentes.",
+          "Cada cara del dado es un resultado distinto."
+        ],
+        "retroalimentacion": "Es verdadero: el 2 y el 5 son caras distintas del dado, cada una es un resultado.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En la lista de resultados de un dado se olvidó uno: 1, 2, 3, 5, 6. ¿Qué número falta? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un dado tiene los números 1 al 6.",
+          "Mira qué número no aparece entre 3 y 5.",
+          "Escribe 1, 2, 3, ___, 5, 6 y completa."
+        ],
+        "retroalimentacion": "Falta el 4: la lista completa del dado es 1, 2, 3, 4, 5, 6.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Lanzas una moneda y luego giras una ruleta con 3 colores: rojo, verde y azul. Un resultado sería C-rojo. ¿Cuántos resultados posibles hay en total? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Haz una lista: primero con cara, luego con sello.",
+          "Con cara: C-rojo, C-verde, C-azul.",
+          "Con sello hay también 3 combinaciones; suma ambos grupos."
+        ],
+        "retroalimentacion": "Con cara hay 3 combinaciones y con sello otras 3: 3 + 3 = 6 resultados posibles.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Lanzas dos monedas. ¿En cuántos resultados posibles sale al menos una cara? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe los 4 resultados: CC, CS, SC y SS.",
+          "«Al menos una cara» quiere decir una o dos caras.",
+          "Tacha el resultado que no tiene ninguna cara."
+        ],
+        "retroalimentacion": "Salen caras en CC, CS y SC: son 3 resultados. Solo SS no tiene cara.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mateo dice que al lanzar dos monedas hay solo 3 resultados: dos caras, dos sellos y una de cada. ¿Qué le falta considerar?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Nada, su lista está completa"
+          },
+          {
+            "id": "b",
+            "texto": "Que cara-sello y sello-cara son distintos, así que hay 4 resultados"
+          },
+          {
+            "id": "c",
+            "texto": "Que hay 5 resultados"
+          },
+          {
+            "id": "d",
+            "texto": "Que dos sellos no puede ocurrir"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa cuál moneda cae primero y cuál después.",
+          "Si la primera moneda es cara y la segunda sello, es distinto a lo contrario.",
+          "Mateo juntó dos resultados diferentes en uno solo."
+        ],
+        "retroalimentacion": "Mateo unió CS y SC en un solo resultado. Como el orden cuenta, hay 4 resultados: CC, CS, SC y SS.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.predecir-suceso-probable",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 25,
+    "capacidad": "Sustenta conclusiones o decisiones con base en la información obtenida",
+    "desempenosOrigen": [
+      "MAT-C25-P4-06"
+    ],
+    "bloque": "Azar",
+    "nombre": "Predicción del suceso más probable",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Predice qué suceso es más probable comparando sus casos posibles.",
+    "palabrasClave": [
+      "predecir",
+      "más probable",
+      "casos posibles",
+      "bolsa",
+      "ruleta"
+    ],
+    "prerrequisitos": [
+      "mat.p4.resultados-posibles"
+    ],
+    "ordenSugerido": 123,
+    "ideaCentral": "Para predecir cuál suceso es más probable, cuentas los casos a favor de cada uno y comparas: el que tiene más casos es el más probable.",
+    "pasos": [
+      "Escribe o imagina todos los resultados posibles.",
+      "Cuenta cuántos casos tiene cada suceso.",
+      "Compara los números: el mayor es el más probable.",
+      "Explica tu predicción con los datos que contaste."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una bolsa hay 7 papas amarillas y 2 moradas. ¿Qué color es más probable sacar?",
+        "desarrollo": "Amarillas: 7 casos. Moradas: 2 casos. 7 es mayor que 2.",
+        "respuesta": "Es más probable sacar una papa amarilla."
+      },
+      {
+        "situacion": "En la feria de Cusco, una ruleta tiene 10 sectores: 4 rojos, 3 azules y 3 verdes. ¿Cuál color es más probable?",
+        "desarrollo": "Rojo: 4 sectores. Azul: 3. Verde: 3. El 4 es el mayor.",
+        "respuesta": "El rojo es el color más probable."
+      },
+      {
+        "situacion": "Lanzas un dado. ¿Es más probable que salga par o que salga el 6?",
+        "desarrollo": "Par: 2, 4 y 6, o sea 3 casos. El 6: 1 caso.",
+        "respuesta": "Es más probable que salga un número par."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Elegir el suceso por el color que más te gusta y no por los casos.",
+        "correccion": "Cuenta los casos: el más probable es el que más casos tiene, aunque no sea tu favorito."
+      },
+      {
+        "error": "Creer que el suceso más probable siempre va a ocurrir.",
+        "correccion": "Más probable no es seguro: solo tiene más posibilidades de ocurrir."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Predecir",
+        "significado": "Decir qué suceso crees que pasará, usando los datos."
+      },
+      {
+        "termino": "Caso a favor",
+        "significado": "Resultado que cumple lo que buscas."
+      },
+      {
+        "termino": "Casos posibles",
+        "significado": "Todos los resultados que pueden salir."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una bolsa tiene 7 caramelos de naranja y 3 de limón. ¿De qué sabor es más probable sacar uno?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Limón"
+          },
+          {
+            "id": "b",
+            "texto": "Naranja"
+          },
+          {
+            "id": "c",
+            "texto": "Los dos igual"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántos caramelos hay de cada sabor.",
+          "Son 7 de naranja y 3 de limón.",
+          "El sabor con más caramelos es el que tiene más posibilidades."
+        ],
+        "retroalimentacion": "Naranja tiene 7 caramelos y limón solo 3, así que sacar naranja es más probable.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una ruleta tiene 5 sectores azules y 1 rojo. Es más probable que caiga en azul.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los sectores de cada color.",
+          "Son 5 azules y 1 rojo.",
+          "Más sectores azules significa más posibilidades."
+        ],
+        "retroalimentacion": "Es verdadero: azul tiene 5 sectores y rojo 1, por eso azul es más probable.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En una caja hay 2 peluches de cuy y 6 de llama. Sacas uno sin mirar. ¿De qué animal es más probable que sea? Escribe el nombre del animal.",
+        "respuesta": "llama",
+        "alternativasAceptadas": [
+          "la llama",
+          "de llama",
+          "llamas"
+        ],
+        "pistas": [
+          "Cuenta cuántos peluches hay de cada animal.",
+          "Hay 2 cuyes y 6 llamas.",
+          "Compara 2 con 6."
+        ],
+        "retroalimentacion": "Hay 6 peluches de llama y solo 2 de cuy; por eso es más probable sacar una llama.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En una urna hay 6 fichas verdes y 3 amarillas. Quieres sacar una verde. ¿Cuántos casos a favor tienes? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los casos a favor son los que cumplen lo que buscas.",
+          "Buscas una ficha verde.",
+          "Cuenta las fichas verdes de la urna."
+        ],
+        "retroalimentacion": "Hay 6 fichas verdes, así que tienes 6 casos a favor.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Hay tres bolsas con 8 bolitas cada una. ¿En cuál es MÁS probable sacar una bolita roja?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La bolsa con 5 rojas y 3 azules"
+          },
+          {
+            "id": "b",
+            "texto": "La bolsa con 4 rojas y 4 azules"
+          },
+          {
+            "id": "c",
+            "texto": "La bolsa con 3 rojas y 5 azules"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En las tres bolsas hay el mismo total de bolitas.",
+          "Compara solo cuántas rojas tiene cada una.",
+          "La bolsa con más rojas es la de mayor probabilidad."
+        ],
+        "retroalimentacion": "Con 5 rojas de 8 bolitas hay más casos a favor que con 4 o con 3, así que esa bolsa es la mejor opción.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al lanzar un dado, es más probable sacar un número menor que 5 que un número mayor que 4.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe los números menores que 5.",
+          "Menores que 5: 1, 2, 3 y 4. Mayores que 4: 5 y 6.",
+          "Compara 4 casos con 2 casos."
+        ],
+        "retroalimentacion": "Es verdadero: hay 4 números menores que 5 y solo 2 mayores que 4.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una ruleta de 10 sectores tiene 4 rojos, 3 azules y 3 verdes. ¿Qué color es más probable que salga? Escribe el color.",
+        "respuesta": "rojo",
+        "alternativasAceptadas": [
+          "el rojo",
+          "color rojo"
+        ],
+        "pistas": [
+          "Cuenta cuántos sectores tiene cada color.",
+          "Rojo tiene 4; azul y verde tienen 3 cada uno.",
+          "El mayor de 4, 3 y 3 te dice cuál es."
+        ],
+        "retroalimentacion": "El rojo tiene 4 sectores, más que los 3 del azul o del verde, así que es el más probable.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una ruleta tiene 12 sectores: 5 rojos, 4 azules y el resto verdes. ¿Cuántos sectores son verdes? Con ese número sabrás qué color es el menos probable. Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero suma los sectores rojos y azules.",
+          "5 + 4 = 9 sectores ya contados.",
+          "Resta ese resultado al total de 12 sectores."
+        ],
+        "retroalimentacion": "5 + 4 = 9 sectores; 12 - 9 = 3 son verdes. Con solo 3, el verde es el menos probable.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Sofía lanza un dado. ¿Qué suceso es MÁS probable?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Que salga el 6"
+          },
+          {
+            "id": "b",
+            "texto": "Que salga el 1 o el 2"
+          },
+          {
+            "id": "c",
+            "texto": "Que salga el 5 o el 6"
+          },
+          {
+            "id": "d",
+            "texto": "Que salga un número par"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántos números del dado cumplen cada suceso.",
+          "El 6: 1 número. El 1 o 2: 2 números. El 5 o 6: 2 números.",
+          "Un número par puede ser 2, 4 o 6: cuenta esos casos."
+        ],
+        "retroalimentacion": "Que salga un número par tiene 3 casos (2, 4 y 6), más que cualquiera de las otras opciones.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Quieres sacar una bolita verde. La bolsa A tiene 4 verdes y 6 moradas. La bolsa B tiene 4 verdes y 2 moradas. ¿Qué eliges?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Es igual, las dos tienen 4 verdes"
+          },
+          {
+            "id": "b",
+            "texto": "La bolsa A, porque tiene más bolitas"
+          },
+          {
+            "id": "c",
+            "texto": "La bolsa B, porque los 4 verdes están entre menos bolitas"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuántas bolitas moradas hay en cada bolsa.",
+          "En A las verdes son menos que las moradas; en B son más que las moradas.",
+          "Cuantas menos bolitas distintas haya, más fácil es que salga verde."
+        ],
+        "retroalimentacion": "En la bolsa B hay solo 2 moradas contra 4 verdes, y en la A hay 6 moradas. Por eso es más probable sacar verde en la B, aunque ambas tengan 4 verdes.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una bolsa hay 3 bolitas rojas, 3 azules y 2 verdes. ¿Cuántas bolitas verdes debes agregar, como mínimo, para que el verde sea el color MÁS probable? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ahora el rojo y el azul tienen 3 y el verde tiene 2.",
+          "Si agregas 1 verde, quedan 3 verdes: igual que rojo y azul.",
+          "Prueba con una bolita verde más y compara de nuevo."
+        ],
+        "retroalimentacion": "Con 1 verde más hay 3 verdes, un empate. Con 2 verdes más hay 4, que supera a las 3 rojas y 3 azules.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una bolsa hay 5 bolitas amarillas y 3 negras. Como hay más amarillas, es seguro que la próxima bolita sea amarilla.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa si hay bolitas negras en la bolsa.",
+          "Hay 3 negras, así que todavía pueden salir.",
+          "Más probable no quiere decir seguro."
+        ],
+        "retroalimentacion": "Es falso: la amarilla es más probable, pero como hay 3 negras, puede salir una negra.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

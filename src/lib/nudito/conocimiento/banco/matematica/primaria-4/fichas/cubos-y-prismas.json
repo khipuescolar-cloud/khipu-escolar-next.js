@@ -1,0 +1,1259 @@
+[
+  {
+    "clave": "mat.p4.cubo-prisma-entorno",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P4-01"
+    ],
+    "bloque": "Cubos y prismas",
+    "nombre": "Cubos y prismas en el entorno",
+    "disciplina": "geometria",
+    "descripcionCorta": "Asocia cajas y objetos reales con cubos y prismas de base cuadrada.",
+    "palabrasClave": [
+      "cubo",
+      "prisma",
+      "base cuadrada",
+      "cajas",
+      "objetos"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 64,
+    "ideaCentral": "Muchos objetos que usas se parecen a un cubo, que tiene sus 6 caras cuadradas iguales, o a un prisma de base cuadrada, que tiene 2 caras cuadradas y 4 rectangulares.",
+    "pasos": [
+      "Mira todas las caras del objeto.",
+      "Si las 6 caras son cuadrados iguales, es un cubo.",
+      "Si dos caras son cuadrados y las otras cuatro son rectángulos, es un prisma de base cuadrada.",
+      "Si tiene partes redondas, como una pelota o una lata, no es cubo ni prisma."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un dado de juego, ¿qué forma tiene?",
+        "desarrollo": "Todas sus caras son cuadrados iguales.",
+        "respuesta": "Tiene forma de cubo."
+      },
+      {
+        "situacion": "En la tienda de Miraflores hay una caja larga con dos caras cuadradas y cuatro rectangulares. ¿Qué forma tiene?",
+        "desarrollo": "Dos cuadrados y cuatro rectángulos: es un prisma de base cuadrada.",
+        "respuesta": "Tiene forma de prisma de base cuadrada."
+      },
+      {
+        "situacion": "¿Una pelota de fútbol se parece a un cubo?",
+        "desarrollo": "La pelota es redonda, no tiene caras planas cuadradas.",
+        "respuesta": "No, no se parece a un cubo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir que una lata de leche es un prisma porque es una caja.",
+        "correccion": "La lata tiene partes redondas; el prisma de base cuadrada solo tiene caras planas."
+      },
+      {
+        "error": "Pensar que un prisma largo es un cubo.",
+        "correccion": "El cubo tiene todas las caras cuadradas e iguales; el prisma largo tiene caras rectangulares."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Cubo",
+        "significado": "Cuerpo con 6 caras cuadradas iguales."
+      },
+      {
+        "termino": "Prisma de base cuadrada",
+        "significado": "Cuerpo con dos caras cuadradas y cuatro caras rectangulares."
+      },
+      {
+        "termino": "Cara",
+        "significado": "Superficie plana de un cuerpo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué objeto tiene forma de cubo?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una pelota"
+          },
+          {
+            "id": "b",
+            "texto": "Un dado"
+          },
+          {
+            "id": "c",
+            "texto": "Una lata de atún"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un cubo tiene caras planas, no redondas.",
+          "La pelota y la lata tienen partes redondas.",
+          "Piensa en el objeto de juego que tiene caras cuadradas con puntos."
+        ],
+        "retroalimentacion": "El dado tiene 6 caras cuadradas iguales, es un cubo. La pelota y la lata son redondas.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una pelota de fútbol tiene forma de cubo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa si la pelota tiene caras planas.",
+          "Una pelota es redonda por todos lados.",
+          "El cubo tiene 6 caras cuadradas, la pelota no tiene caras."
+        ],
+        "retroalimentacion": "Es falso: la pelota es redonda, no tiene caras cuadradas como el cubo.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un dado de juego tiene todas sus caras cuadradas e iguales. ¿Qué forma tiene? Escribe cubo o prisma.",
+        "respuesta": "cubo",
+        "alternativasAceptadas": [
+          "un cubo",
+          "el cubo"
+        ],
+        "pistas": [
+          "Fíjate en cómo son las caras: ¿iguales o distintas?",
+          "Las 6 caras son cuadrados iguales.",
+          "Cuando todas las caras son cuadrados iguales, el cuerpo tiene un nombre especial."
+        ],
+        "retroalimentacion": "Si las 6 caras son cuadrados iguales, es un cubo; en un prisma de base cuadrada hay caras rectangulares.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja alta para guardar velas tiene dos caras cuadradas y cuatro caras rectangulares. ¿Con qué forma se parece?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cilindro"
+          },
+          {
+            "id": "b",
+            "texto": "Esfera"
+          },
+          {
+            "id": "c",
+            "texto": "Cono"
+          },
+          {
+            "id": "d",
+            "texto": "Prisma de base cuadrada"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los cuadrados y los rectángulos de sus caras.",
+          "Son 2 cuadrados y 4 rectángulos.",
+          "Las formas redondas no tienen cuadrados; la que busca es la de caras planas."
+        ],
+        "retroalimentacion": "La caja con 2 cuadrados y 4 rectángulos es un prisma de base cuadrada. El cilindro, la esfera y el cono tienen partes redondas.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estos objetos se parece a un prisma de base cuadrada?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una columna cuadrada de un puente"
+          },
+          {
+            "id": "b",
+            "texto": "Un cono de helado"
+          },
+          {
+            "id": "c",
+            "texto": "Una pelota"
+          },
+          {
+            "id": "d",
+            "texto": "Una lata de leche"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca un objeto con caras planas.",
+          "Descarta lo redondo: cono, pelota y lata.",
+          "Una columna con base cuadrada y caras largas tiene esa forma."
+        ],
+        "retroalimentacion": "La columna cuadrada tiene base cuadrada y caras laterales rectangulares, como un prisma. El cono, la pelota y la lata son redondos.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Todas las caras de un cubo tienen la misma forma y el mismo tamaño.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda cómo son las caras del dado.",
+          "Un cubo tiene 6 caras.",
+          "Todas son cuadrados del mismo tamaño."
+        ],
+        "retroalimentacion": "Es verdadero: las 6 caras de un cubo son cuadrados iguales.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Lista de objetos: dado, pelota, caja cuadrada de pañuelos con forma de cubo, naranja, lata de leche, cubo de hielo. ¿Cuántos tienen forma de cubo? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Marca solo los que tienen caras cuadradas iguales.",
+          "Descarta lo redondo: pelota, naranja y lata.",
+          "Quedan tres objetos de caras planas."
+        ],
+        "retroalimentacion": "El dado, la caja de pañuelos y el cubo de hielo son cubos: 3 objetos.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una caja larga tiene dos caras cuadradas arriba y abajo y cuatro caras rectangulares a los lados. ¿Qué forma tiene? Escribe cubo o prisma.",
+        "respuesta": "prisma",
+        "alternativasAceptadas": [
+          "un prisma",
+          "el prisma",
+          "prisma de base cuadrada"
+        ],
+        "pistas": [
+          "Cuenta cuántas caras son cuadrados y cuántas rectángulos.",
+          "Hay 2 cuadrados y 4 rectángulos.",
+          "Si no todas las caras son cuadradas, no puede ser cubo."
+        ],
+        "retroalimentacion": "Como tiene caras rectangulares, no es un cubo; es un prisma de base cuadrada.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja mide 10 cm de largo, 10 cm de ancho y 10 cm de alto. ¿Qué forma tiene?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Esfera"
+          },
+          {
+            "id": "b",
+            "texto": "Prisma largo"
+          },
+          {
+            "id": "c",
+            "texto": "Cubo"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las tres medidas de la caja.",
+          "Largo, ancho y alto son iguales.",
+          "Si todas las medidas son iguales, todas las caras son cuadrados iguales."
+        ],
+        "retroalimentacion": "Con 10 cm en las tres medidas, todas las caras son cuadrados iguales; es un cubo. No es esfera ni prisma largo.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Todo cubo es también un prisma de base cuadrada, pero no todo prisma de base cuadrada es un cubo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en un cubo: sus caras de arriba y abajo son cuadrados.",
+          "El cubo cumple con tener dos bases cuadradas.",
+          "Un prisma largo tiene bases cuadradas pero no es cubo."
+        ],
+        "retroalimentacion": "Es verdadero: un cubo tiene dos bases cuadradas, pero un prisma largo de base cuadrada tiene caras laterales rectangulares.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Cajas con sus medidas (largo × ancho × alto): A 5 × 5 × 5, B 5 × 5 × 9, C 5 × 7 × 9, D 9 × 9 × 9. ¿Cuáles son cubos?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "A y D"
+          },
+          {
+            "id": "b",
+            "texto": "Solo A"
+          },
+          {
+            "id": "c",
+            "texto": "B y C"
+          },
+          {
+            "id": "d",
+            "texto": "A, B y D"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un cubo tiene sus tres medidas iguales.",
+          "Revisa cada caja: ¿largo, ancho y alto son iguales?",
+          "A tiene 5, 5, 5 y D tiene 9, 9, 9; revisa si hay otra."
+        ],
+        "retroalimentacion": "Solo las cajas con las tres medidas iguales son cubos: 5 × 5 × 5 y 9 × 9 × 9. B y C tienen una medida distinta.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En la bodega hay: 2 dados, 3 cajas con forma de cubo, 4 latas, 1 pelota y 2 cajas largas de base cuadrada. ¿Cuántos objetos son cubos o prismas de base cuadrada? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Descarta las latas y la pelota, que son redondas.",
+          "Cuenta los cubos: dados y cajas cúbicas.",
+          "Suma los cubos y los prismas largos: 2 + 3 + 2."
+        ],
+        "retroalimentacion": "Los cubos son 2 + 3 = 5 y los prismas de base cuadrada son 2; en total 5 + 2 = 7 objetos.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.elementos-cubo-prisma",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P4-03"
+    ],
+    "bloque": "Cubos y prismas",
+    "nombre": "Elementos del cubo y del prisma de base cuadrada",
+    "disciplina": "geometria",
+    "descripcionCorta": "Cuenta y dibuja caras, aristas y vértices de cubos y prismas.",
+    "palabrasClave": [
+      "cara",
+      "arista",
+      "vértice",
+      "cubo",
+      "prisma"
+    ],
+    "prerrequisitos": [
+      "mat.p4.cubo-prisma-entorno"
+    ],
+    "ordenSugerido": 65,
+    "ideaCentral": "El cubo y el prisma de base cuadrada tienen 6 caras, 12 aristas y 8 vértices. Las caras son las superficies planas, las aristas son los bordes y los vértices son las esquinas.",
+    "pasos": [
+      "Cuenta las caras: las superficies planas del cuerpo.",
+      "Cuenta las aristas: los bordes donde se unen dos caras.",
+      "Cuenta los vértices: las esquinas donde se juntan las aristas.",
+      "Recuerda: 6 caras, 12 aristas y 8 vértices."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "¿Cuántas caras, aristas y vértices tiene un dado?",
+        "desarrollo": "Un dado es un cubo: 6 caras cuadradas, 12 bordes y 8 esquinas.",
+        "respuesta": "6 caras, 12 aristas y 8 vértices."
+      },
+      {
+        "situacion": "Una caja larga de base cuadrada se usa en una tienda de Lima. ¿Cuántas caras tiene?",
+        "desarrollo": "Tiene 2 caras cuadradas y 4 rectangulares: 2 + 4 = 6.",
+        "respuesta": "Tiene 6 caras."
+      },
+      {
+        "situacion": "Pegas cinta en todas las aristas de un cubo de 10 cm de arista. ¿Cuántos cm de cinta usas?",
+        "desarrollo": "Un cubo tiene 12 aristas; 12 × 10 = 120.",
+        "respuesta": "Usas 120 cm de cinta."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir vértices con aristas y decir que un cubo tiene 12 vértices.",
+        "correccion": "Los vértices son las esquinas (8) y las aristas son los bordes (12)."
+      },
+      {
+        "error": "Pensar que el prisma de base cuadrada tiene menos caras que el cubo.",
+        "correccion": "Los dos tienen 6 caras; solo cambia que el prisma tiene 4 caras rectangulares."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Cara",
+        "significado": "Superficie plana de un cuerpo."
+      },
+      {
+        "termino": "Arista",
+        "significado": "Borde donde se unen dos caras."
+      },
+      {
+        "termino": "Vértice",
+        "significado": "Esquina donde se juntan aristas."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántas caras tiene un cubo? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina un dado y cuenta cada lado plano.",
+          "Arriba, abajo y cuatro lados.",
+          "Suma 1 + 1 + 4."
+        ],
+        "retroalimentacion": "El cubo tiene 6 caras: arriba, abajo y 4 laterales.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántas aristas tiene un cubo? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las aristas son los bordes.",
+          "Cada cara cuadrada tiene 4 bordes, pero cada borde se comparte con otra cara.",
+          "Hay 4 bordes arriba, 4 abajo y 4 que los unen."
+        ],
+        "retroalimentacion": "Un cubo tiene 12 aristas: 4 arriba, 4 abajo y 4 verticales.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos vértices tiene un cubo? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los vértices son las esquinas.",
+          "Mira 4 esquinas arriba.",
+          "Suma las 4 esquinas de arriba con las 4 de abajo."
+        ],
+        "retroalimentacion": "Un cubo tiene 8 vértices: 4 en la cara de arriba y 4 en la de abajo.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un cubo tiene 6 caras que son cuadrados iguales.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en las caras de un dado.",
+          "Todas son cuadrados del mismo tamaño.",
+          "Cuenta las caras del dado."
+        ],
+        "retroalimentacion": "Es verdadero: el cubo tiene 6 caras cuadradas iguales.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cómo son las caras de un prisma de base cuadrada?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 cuadradas y 4 rectangulares"
+          },
+          {
+            "id": "b",
+            "texto": "6 cuadradas"
+          },
+          {
+            "id": "c",
+            "texto": "4 cuadradas y 2 rectangulares"
+          },
+          {
+            "id": "d",
+            "texto": "5 caras en total"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en una caja alta con base cuadrada.",
+          "La base de arriba y la de abajo son cuadrados.",
+          "Los lados son rectángulos: cuenta cuántos hay."
+        ],
+        "retroalimentacion": "Un prisma de base cuadrada tiene 2 caras cuadradas (las bases) y 4 rectangulares (los lados), 6 caras en total.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un prisma de base cuadrada, ¿cuántas aristas verticales unen la base de arriba con la base de abajo? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las aristas verticales salen de las esquinas.",
+          "Mira cuántas esquinas tiene la base cuadrada.",
+          "Cada esquina de la base tiene una arista que sube."
+        ],
+        "retroalimentacion": "La base cuadrada tiene 4 esquinas; de cada una sube una arista, o sea 4 aristas verticales.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un prisma de base cuadrada tiene más vértices que un cubo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las esquinas de un prisma largo.",
+          "Tiene 4 esquinas arriba y 4 abajo.",
+          "Compara 8 con los vértices del cubo, que también son 8."
+        ],
+        "retroalimentacion": "Es falso: el prisma de base cuadrada y el cubo tienen los dos 8 vértices.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El punto donde se juntan las aristas, una esquina del cubo, se llama cara, arista o vértice. Escribe el nombre.",
+        "respuesta": "vértice",
+        "alternativasAceptadas": [
+          "vertice",
+          "el vértice"
+        ],
+        "pistas": [
+          "Piensa si te preguntan por un punto, una línea o una superficie.",
+          "Una esquina es un punto, no un borde ni una superficie.",
+          "La palabra empieza con «vér»."
+        ],
+        "retroalimentacion": "La esquina se llama vértice. La arista es el borde y la cara es la superficie plana.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una caja tiene 6 caras. Pintas 2 de rojo y el resto de azul. ¿Cuántas caras quedan azules? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La caja tiene 6 caras en total.",
+          "Dos ya están pintadas de rojo.",
+          "Resta 6 - 2."
+        ],
+        "retroalimentacion": "6 - 2 = 4 caras quedan azules.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Pegas cinta en todas las aristas de un cubo de cartón; cada arista mide 10 cm. ¿Cuántos centímetros de cinta usas? Escribe solo el número.",
+        "respuesta": 120,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero recuerda cuántas aristas tiene un cubo.",
+          "Son 12 aristas, todas iguales.",
+          "Multiplica 12 × 10."
+        ],
+        "retroalimentacion": "El cubo tiene 12 aristas de 10 cm: 12 × 10 = 120 cm de cinta.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Armas el esqueleto de un prisma de base cuadrada con palitos: 8 palitos de 5 cm (las bases) y 4 palitos de 12 cm (las aristas verticales). ¿Cuántos centímetros de palitos usas en total? Escribe solo el número.",
+        "respuesta": 88,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula por separado los palitos cortos y los largos.",
+          "Cortos: 8 × 5 = 40 cm.",
+          "Largos: 4 × 12 = 48 cm; suma ambos resultados."
+        ],
+        "retroalimentacion": "8 × 5 = 40 cm y 4 × 12 = 48 cm; 40 + 48 = 88 cm.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mario dice que un cubo tiene 12 caras, porque tiene 12 aristas. ¿Qué le respondes?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tiene razón, tiene 12 caras"
+          },
+          {
+            "id": "b",
+            "texto": "El cubo tiene 6 caras; el 12 es el número de aristas"
+          },
+          {
+            "id": "c",
+            "texto": "El cubo tiene 8 caras"
+          },
+          {
+            "id": "d",
+            "texto": "El cubo tiene 4 caras"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mario confundió dos elementos distintos.",
+          "Las caras son las superficies y las aristas son los bordes.",
+          "Cuenta las caras de un dado para corregirlo."
+        ],
+        "retroalimentacion": "El cubo tiene 6 caras y 12 aristas; Mario mezcló los dos números. El 8 es el número de vértices.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.desarrollo-cubo",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 26,
+    "capacidad": "Argumenta afirmaciones sobre relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P4-07"
+    ],
+    "bloque": "Cubos y prismas",
+    "nombre": "Desarrollo plano del cubo",
+    "disciplina": "geometria",
+    "descripcionCorta": "Construye un cubo a partir de una plantilla de seis cuadrados y reconoce plantillas válidas.",
+    "palabrasClave": [
+      "desarrollo plano",
+      "plantilla",
+      "cubo",
+      "cuadrados",
+      "armar"
+    ],
+    "prerrequisitos": [
+      "mat.p4.elementos-cubo-prisma"
+    ],
+    "ordenSugerido": 100,
+    "ideaCentral": "El desarrollo plano de un cubo es una plantilla de 6 cuadrados iguales unidos por sus lados que, al doblarse, forma un cubo sin que se amontonen ni falten caras.",
+    "pasos": [
+      "Cuenta que haya 6 cuadrados iguales.",
+      "Revisa que estén unidos por sus lados, no solo por una esquina.",
+      "Imagina doblar la plantilla: ninguna cara debe quedar encima de otra.",
+      "Si al doblar se cierra el cubo con 6 caras distintas, la plantilla sirve."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una plantilla en cruz tiene una fila de 4 cuadrados y uno arriba y otro abajo del segundo. ¿Forma un cubo?",
+        "desarrollo": "Son 6 cuadrados. La fila de 4 forma el contorno y los dos extra cierran arriba y abajo.",
+        "respuesta": "Sí, forma un cubo."
+      },
+      {
+        "situacion": "Una fila de 6 cuadrados en línea recta, ¿forma un cubo?",
+        "desarrollo": "Al doblarla, los cuadrados se enrollan y se superponen; no cierran el cubo.",
+        "respuesta": "No, no forma un cubo."
+      },
+      {
+        "situacion": "Para armar un dado de cartulina en el colegio, ¿cuántos cuadrados recortas?",
+        "desarrollo": "Un cubo tiene 6 caras, necesitas un cuadrado por cada una.",
+        "respuesta": "Recortas 6 cuadrados."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que cualquier grupo de 6 cuadrados forma un cubo.",
+        "correccion": "Además de ser 6, deben doblar sin amontonarse; prueba imaginando el doblez."
+      },
+      {
+        "error": "Usar rectángulos o cuadrados de distinto tamaño.",
+        "correccion": "Todas las caras de un cubo son cuadrados iguales."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Desarrollo plano",
+        "significado": "Plantilla plana que al doblarse forma un cuerpo."
+      },
+      {
+        "termino": "Plantilla",
+        "significado": "Molde de cartulina para armar un cuerpo."
+      },
+      {
+        "termino": "Doblez",
+        "significado": "Línea por donde se dobla la plantilla."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos cuadrados tiene el desarrollo plano de un cubo? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa cuántas caras tiene un cubo.",
+          "Cada cara es un cuadrado.",
+          "Un dado tiene tantas caras como cuadrados necesitas."
+        ],
+        "retroalimentacion": "Un cubo tiene 6 caras, entonces su desarrollo plano tiene 6 cuadrados.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un cubo se puede armar doblando una plantilla de 6 cuadrados iguales unidos por sus lados.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cuántas caras tiene un cubo.",
+          "Cada cara es un cuadrado igual a las otras.",
+          "Al doblar los cuadrados unidos, forman las caras del cubo."
+        ],
+        "retroalimentacion": "Es verdadero: 6 cuadrados iguales unidos de forma adecuada se doblan para formar un cubo.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Quieres armar un cubo de cartulina. ¿Qué piezas recortas?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6 círculos iguales"
+          },
+          {
+            "id": "b",
+            "texto": "4 cuadrados iguales"
+          },
+          {
+            "id": "c",
+            "texto": "6 cuadrados iguales"
+          },
+          {
+            "id": "d",
+            "texto": "8 cuadrados iguales"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El cubo tiene tantas caras como piezas necesitas.",
+          "Un cubo tiene 6 caras y todas son cuadradas.",
+          "Busca la opción con 6 cuadrados."
+        ],
+        "retroalimentacion": "Un cubo tiene 6 caras cuadradas iguales; por eso recortas 6 cuadrados. Con 4 o 8 cuadrados no coincide con sus caras y los círculos no sirven.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Las caras de un cubo tienen la misma forma. Si dibujas su plantilla, ¿qué figura repites 6 veces? Escribe el nombre.",
+        "respuesta": "cuadrado",
+        "alternativasAceptadas": [
+          "cuadrados",
+          "el cuadrado"
+        ],
+        "pistas": [
+          "Piensa en la cara de un dado.",
+          "Las caras tienen 4 lados iguales y 4 esquinas rectas.",
+          "Esa figura se llama como el cuadrado de la pizarra."
+        ],
+        "retroalimentacion": "Las caras del cubo son cuadrados, entonces repites 6 cuadrados.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una fila de 6 cuadrados todos en línea recta se puede doblar para formar un cubo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina doblar la fila en forma de aro.",
+          "Con 4 cuadrados cierras el contorno y los otros 2 se amontonan.",
+          "Para tapar arriba y abajo necesitas cuadrados a los lados de la fila."
+        ],
+        "retroalimentacion": "Es falso: en una fila de 6, los cuadrados 5 y 6 caen sobre los primeros y no se pueden cerrar la tapa de arriba ni la de abajo.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué plantilla sí forma un cubo?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una fila de 6 cuadrados"
+          },
+          {
+            "id": "b",
+            "texto": "Dos filas de 3 cuadrados, una sobre la otra"
+          },
+          {
+            "id": "c",
+            "texto": "Fila de 4 cuadrados con dos cuadrados más arriba del segundo y del tercero"
+          },
+          {
+            "id": "d",
+            "texto": "Fila de 4 cuadrados, con un cuadrado arriba del primero y otro debajo del último"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En todas hay 6 cuadrados; revisa cómo se doblan.",
+          "En la fila de 4, los cuadrados extra deben ir uno arriba y otro abajo.",
+          "Si dos cuadrados quedan arriba juntos, se amontonan."
+        ],
+        "retroalimentacion": "Una fila de 4 con un cuadrado arriba y otro abajo cierra el cubo. En las otras, los cuadrados se amontonan o no cierran.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un cubo tiene aristas de 3 cm. ¿Cuánto mide, en centímetros, el lado de cada cuadrado de su plantilla? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada cara del cubo es un cuadrado.",
+          "El lado del cuadrado es una arista del cubo.",
+          "La arista mide 3 cm."
+        ],
+        "retroalimentacion": "El lado de cada cuadrado es igual a la arista del cubo: 3 cm.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Ya dibujaste 4 cuadrados de la plantilla de un cubo. ¿Cuántos cuadrados faltan? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La plantilla completa tiene 6 cuadrados.",
+          "Ya hay 4 dibujados.",
+          "Resta 6 - 4."
+        ],
+        "retroalimentacion": "6 - 4 = 2; faltan 2 cuadrados.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una plantilla en cruz (fila de 4 cuadrados, uno encima del 2.° y otro debajo del 2.°), al doblar sí se forma un cubo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los cuadrados de la cruz.",
+          "Hay 4 + 1 + 1 = 6 cuadrados.",
+          "Imagina doblar la fila de 4 como pared y los otros dos como tapa y fondo."
+        ],
+        "retroalimentacion": "Es verdadero: la fila forma las 4 paredes y los cuadrados de arriba y abajo hacen la tapa y el fondo.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Beto recortó una fila de 3 cuadrados y debajo otra fila de 3 cuadrados (2 filas de 3). ¿Puede armar un cubo?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sí, porque son 6 cuadrados"
+          },
+          {
+            "id": "b",
+            "texto": "No, porque al doblar las caras se amontonan y no se cierra el cubo"
+          },
+          {
+            "id": "c",
+            "texto": "Sí, si usa tijeras"
+          },
+          {
+            "id": "d",
+            "texto": "No, porque debería tener 8 cuadrados"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Contar 6 cuadrados no basta; piensa en cómo se doblan.",
+          "Al doblar las dos filas, caen cuadrados encima de otros.",
+          "Faltan caras del otro lado, porque dos filas de 3 no rodean el cubo."
+        ],
+        "retroalimentacion": "Aunque son 6 cuadrados, las dos filas de 3 se amontonan al doblar y quedan caras sin cubrir. Por eso no forma un cubo.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "La plantilla de un cubo tiene cuadrados de 2 cm de lado. La fila más larga mide 4 cuadrados y hay 1 cuadrado arriba y 1 abajo. ¿Cuántos centímetros mide de alto toda la plantilla? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántos cuadrados hay de arriba hacia abajo.",
+          "Son 1 arriba, 1 en la fila y 1 abajo: 3 cuadrados.",
+          "Cada cuadrado mide 2 cm: multiplica 3 × 2."
+        ],
+        "retroalimentacion": "En vertical hay 3 cuadrados de 2 cm cada uno: 3 × 2 = 6 cm.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Cualquier grupo de 6 cuadrados pegados por sus lados es una plantilla válida de un cubo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda la fila de 6 en línea.",
+          "Hay grupos de 6 cuadrados que no cierran el cubo.",
+          "Una fila recta o dos filas de 3 tienen 6 cuadrados pero no sirven."
+        ],
+        "retroalimentacion": "Es falso: hace falta que al doblar no se amontonen; por ejemplo una fila de 6 cuadrados no sirve.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.desarrollo-prisma",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 26,
+    "capacidad": "Argumenta afirmaciones sobre relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P4-07"
+    ],
+    "bloque": "Cubos y prismas",
+    "nombre": "Desarrollo plano del prisma de base cuadrada",
+    "disciplina": "geometria",
+    "descripcionCorta": "Arma un prisma desde su plantilla y explica en qué se parece y diferencia del cubo.",
+    "palabrasClave": [
+      "prisma",
+      "desarrollo plano",
+      "base cuadrada",
+      "caras",
+      "cubo"
+    ],
+    "prerrequisitos": [
+      "mat.p4.desarrollo-cubo"
+    ],
+    "ordenSugerido": 101,
+    "ideaCentral": "Un prisma de base cuadrada tiene 6 caras: 2 bases cuadradas iguales y 4 caras laterales rectangulares iguales. Su desarrollo plano es la plantilla que, al doblarla, forma el prisma. Se parece al cubo, pero sus caras laterales no son cuadrados.",
+    "pasos": [
+      "Dibuja las 4 caras laterales rectangulares una al lado de la otra, en fila.",
+      "Pega un cuadrado arriba y otro abajo, a una de las caras laterales: son las dos bases.",
+      "Revisa que las bases tengan el mismo tamaño que el lado corto de los rectángulos.",
+      "Dobla en la imaginación la plantilla y comprueba que cierra sin sobrar ni faltar caras."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Mateo arma una caja de zapatos de base cuadrada con una plantilla. ¿Cuántos rectángulos y cuántos cuadrados necesita?",
+        "desarrollo": "El prisma de base cuadrada tiene 4 caras laterales rectangulares y 2 bases cuadradas.",
+        "respuesta": "4 rectángulos y 2 cuadrados, 6 caras en total."
+      },
+      {
+        "situacion": "En Cusco, Ana compara una caja cúbica de alfajores con una caja larga de base cuadrada. ¿En qué se parecen?",
+        "desarrollo": "Las dos tienen 6 caras, 12 aristas y 8 vértices. La diferencia es que en el cubo las 6 caras son cuadrados y en el prisma solo las 2 bases.",
+        "respuesta": "Se parecen en caras, aristas y vértices; en el cubo todas son cuadradas y en el prisma 4 son rectángulos."
+      },
+      {
+        "situacion": "Una plantilla tiene 4 rectángulos en fila y 1 cuadrado pegado arriba. ¿Se puede armar un prisma de base cuadrada?",
+        "desarrollo": "Falta una base: el prisma necesita 2 cuadrados, uno arriba y otro abajo.",
+        "respuesta": "No, falta un cuadrado."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que un prisma de base cuadrada tiene 6 caras cuadradas.",
+        "correccion": "Solo las 2 bases son cuadradas; las 4 caras laterales son rectángulos."
+      },
+      {
+        "error": "Poner las dos bases del mismo lado de la plantilla.",
+        "correccion": "Una base va arriba y la otra abajo, para cerrar el prisma por ambos lados."
+      },
+      {
+        "error": "Dibujar rectángulos cuyo lado corto no mide igual que el lado de la base.",
+        "correccion": "El lado de la base cuadrada debe coincidir con el lado corto de cada rectángulo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Prisma",
+        "significado": "Cuerpo geométrico con dos bases iguales y caras laterales que son rectángulos."
+      },
+      {
+        "termino": "Desarrollo plano",
+        "significado": "Plantilla desplegada que se dobla para formar un cuerpo geométrico."
+      },
+      {
+        "termino": "Base",
+        "significado": "Cada una de las dos caras iguales, arriba y abajo del prisma."
+      },
+      {
+        "termino": "Cara lateral",
+        "significado": "Cara que une las dos bases."
+      }
+    ],
+    "ejercicios": [
+      {
+        "tipo": "numerico",
+        "dificultad": 1,
+        "enunciado": "¿Cuántas caras tiene un prisma de base cuadrada? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las bases y las caras laterales.",
+          "Hay 2 bases y 4 caras laterales.",
+          "Suma 2 y 4."
+        ],
+        "retroalimentacion": "2 bases y 4 caras laterales dan 6 caras en total. Un error típico es contar solo las 4 laterales.",
+        "id": "e01"
+      },
+      {
+        "tipo": "opcion_multiple",
+        "dificultad": 1,
+        "enunciado": "Las bases de un prisma de base cuadrada tienen forma de:",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Triángulo"
+          },
+          {
+            "id": "b",
+            "texto": "Rectángulo no cuadrado"
+          },
+          {
+            "id": "c",
+            "texto": "Cuadrado"
+          },
+          {
+            "id": "d",
+            "texto": "Círculo"
+          }
+        ],
+        "pistas": [
+          "Mira el nombre del prisma: base cuadrada.",
+          "Una base es la cara de arriba o la de abajo.",
+          "Cuadrado quiere decir cuatro lados iguales."
+        ],
+        "retroalimentacion": "Las bases son cuadrados; por eso se llama prisma de base cuadrada. Los rectángulos no cuadrados son las caras laterales.",
+        "id": "e02"
+      },
+      {
+        "tipo": "verdadero_falso",
+        "dificultad": 1,
+        "enunciado": "Las caras laterales de un prisma de base cuadrada son rectángulos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las caras laterales son las que unen las dos bases.",
+          "Piensa en una caja de zapatos o una caja de leche.",
+          "Tienen cuatro lados con dos pares iguales."
+        ],
+        "retroalimentacion": "Es verdadero: las 4 caras laterales son rectángulos.",
+        "id": "e03"
+      },
+      {
+        "tipo": "numerico",
+        "dificultad": 1,
+        "enunciado": "Una plantilla para armar un prisma de base cuadrada tiene 4 rectángulos y algunos cuadrados. ¿Cuántos cuadrados tiene? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en las bases del prisma: una arriba y otra abajo.",
+          "Los cuadrados de la plantilla son las bases.",
+          "Este prisma tiene solo 2 caras cuadradas, no 6 como el cubo."
+        ],
+        "retroalimentacion": "Las bases son 2 cuadrados. Los 4 rectángulos son las caras laterales.",
+        "id": "e04"
+      },
+      {
+        "tipo": "opcion_multiple",
+        "dificultad": 2,
+        "enunciado": "Sofía quiere armar una caja de base cuadrada. ¿Cuál plantilla le sirve?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6 cuadrados iguales"
+          },
+          {
+            "id": "b",
+            "texto": "4 rectángulos y 2 cuadrados"
+          },
+          {
+            "id": "c",
+            "texto": "4 cuadrados y 2 rectángulos"
+          },
+          {
+            "id": "d",
+            "texto": "6 rectángulos distintos"
+          }
+        ],
+        "pistas": [
+          "La caja tiene 2 bases cuadradas.",
+          "Las otras 4 caras son las laterales y no son cuadradas.",
+          "Elige la que tiene 4 rectángulos y 2 cuadrados."
+        ],
+        "retroalimentacion": "4 rectángulos y 2 cuadrados forman un prisma de base cuadrada. Con 6 cuadrados saldría un cubo.",
+        "id": "e05"
+      },
+      {
+        "tipo": "texto_corto",
+        "dificultad": 2,
+        "enunciado": "Un cubo tiene 6 caras cuadradas y un prisma de base cuadrada solo 2 cuadradas. ¿Cuántas caras rectangulares no cuadradas tiene el prisma? Escribe solo el número.",
+        "respuesta": "4",
+        "alternativasAceptadas": [
+          "cuatro"
+        ],
+        "pistas": [
+          "Hay 6 caras en total.",
+          "Resta las caras cuadradas, 2, de las 6 caras.",
+          "6 menos 2 es la respuesta."
+        ],
+        "retroalimentacion": "6 − 2 = 4 caras rectangulares. Son las caras laterales.",
+        "id": "e06"
+      },
+      {
+        "tipo": "numerico",
+        "dificultad": 2,
+        "enunciado": "Una caja de base cuadrada tiene 12 aristas, igual que un cubo. Si cada arista de la base mide 5 cm, ¿cuántas aristas miden 5 cm en las dos bases juntas? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada base cuadrada tiene 4 lados.",
+          "Hay 2 bases.",
+          "Multiplica 2 por 4."
+        ],
+        "retroalimentacion": "Cada base tiene 4 aristas de 5 cm; en dos bases hay 2 × 4 = 8 aristas. Las otras 4 aristas son las que unen las bases.",
+        "id": "e07"
+      },
+      {
+        "tipo": "verdadero_falso",
+        "dificultad": 2,
+        "enunciado": "Un cubo y un prisma de base cuadrada tienen la misma cantidad de vértices.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un vértice es una esquina.",
+          "Piensa en una caja de zapatos y en un dado.",
+          "Ambos tienen 4 esquinas arriba y 4 abajo."
+        ],
+        "retroalimentacion": "Es verdadero: los dos tienen 8 vértices. Cambia la forma de las caras laterales.",
+        "id": "e08"
+      },
+      {
+        "tipo": "opcion_multiple",
+        "dificultad": 3,
+        "enunciado": "Un desarrollo plano tiene 4 rectángulos en una fila y 2 cuadrados. Los cuadrados miden 3 cm de lado. ¿Cuánto debe medir el lado corto de cada rectángulo para que cierre?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 cm"
+          },
+          {
+            "id": "b",
+            "texto": "3 cm"
+          },
+          {
+            "id": "c",
+            "texto": "4 cm"
+          },
+          {
+            "id": "d",
+            "texto": "6 cm"
+          }
+        ],
+        "pistas": [
+          "El lado corto de un rectángulo pega con el lado de la base.",
+          "La base cuadrada mide 3 cm por lado.",
+          "El lado corto debe medir lo mismo que el lado del cuadrado."
+        ],
+        "retroalimentacion": "El lado corto debe medir 3 cm, lo mismo que el lado del cuadrado. Con otro tamaño, la plantilla no cerraría.",
+        "id": "e09"
+      },
+      {
+        "tipo": "texto_corto",
+        "dificultad": 3,
+        "enunciado": "Rita dibujó una plantilla con 4 rectángulos y 3 cuadrados. ¿Cuántos cuadrados sobran para armar un prisma de base cuadrada? Escribe solo el número.",
+        "respuesta": "1",
+        "alternativasAceptadas": [
+          "uno"
+        ],
+        "pistas": [
+          "Un prisma de base cuadrada necesita solo 2 cuadrados.",
+          "Rita dibujó 3 cuadrados.",
+          "Resta 3 menos 2."
+        ],
+        "retroalimentacion": "Sobra 3 − 2 = 1 cuadrado, porque un prisma de base cuadrada solo necesita 2 bases.",
+        "id": "e10"
+      },
+      {
+        "tipo": "verdadero_falso",
+        "dificultad": 3,
+        "enunciado": "Juan dice: «Con 4 rectángulos iguales y 2 cuadrados puedo armar un cubo, porque los dos tienen 6 caras». Juan tiene razón.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la forma de las caras del cubo y del prisma.",
+          "En el cubo todas las caras son cuadradas.",
+          "Con rectángulos que no son cuadrados no sale un cubo."
+        ],
+        "retroalimentacion": "Es falso: tener 6 caras no basta. El cubo exige 6 cuadrados iguales; con 4 rectángulos y 2 cuadrados sale un prisma.",
+        "id": "e11"
+      },
+      {
+        "tipo": "numerico",
+        "dificultad": 3,
+        "enunciado": "Una plantilla de prisma de base cuadrada tiene 4 rectángulos de 3 cm de ancho y 8 cm de alto, y 2 cuadrados de 3 cm de lado. Si pegas la plantilla en una fila con los 4 rectángulos uno al lado del otro, ¿cuántos cm de largo mide esa fila? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira el ancho de cada rectángulo: 3 cm.",
+          "Hay 4 rectángulos en fila.",
+          "Multiplica 4 por 3."
+        ],
+        "retroalimentacion": "4 × 3 = 12 cm de largo; los 8 cm son el alto y no entran en el largo de la fila.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

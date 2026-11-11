@@ -1,0 +1,1498 @@
+[
+  {
+    "clave": "mat.p4.suma-cuatro-cifras",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Suma con números de cuatro cifras",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Suma números de hasta cuatro cifras con canjes en cualquier orden.",
+    "palabrasClave": [
+      "suma",
+      "números",
+      "cuatro",
+      "cifras"
+    ],
+    "prerrequisitos": [
+      "mat.p4.descomponer-cuatro-cifras"
+    ],
+    "ordenSugerido": 13,
+    "ideaCentral": "Para sumar números de cuatro cifras, alinea unidades con unidades, decenas con decenas, centenas con centenas y millares con millares. Si una columna suma diez o más, canjea diez por una unidad de la columna siguiente.",
+    "pasos": [
+      "Escribe los sumandos alineados por la derecha.",
+      "Suma de unidades a millares.",
+      "Realiza los canjes necesarios en cada columna.",
+      "Comprueba el resultado con una estimación."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Suma 2345 + 1213.",
+        "desarrollo": "Unidades 5+3=8, decenas 4+1=5, centenas 3+2=5, millares 2+1=3.",
+        "respuesta": "3558."
+      },
+      {
+        "situacion": "Suma 3786 + 2457.",
+        "desarrollo": "Unidades 6+7=13, llevo 1; decenas 8+5+1=14, llevo 1; centenas 7+4+1=12, llevo 1; millares 3+2+1=6.",
+        "respuesta": "6243."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Desalinear un sumando de tres cifras.",
+        "correccion": "Alinea por las unidades a la derecha."
+      },
+      {
+        "error": "Olvidar sumar la decena o centena llevada.",
+        "correccion": "Anota cada canje encima de la columna siguiente."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Sumando",
+        "significado": "Cada número que participa en la suma."
+      },
+      {
+        "termino": "Canje",
+        "significado": "Cambio de diez unidades de una columna por una de la siguiente."
+      },
+      {
+        "termino": "Suma",
+        "significado": "Resultado de añadir los sumandos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 1234 + 2311.",
+        "respuesta": 3545,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Alinea las cuatro cifras.",
+          "Las unidades suman 4 + 1.",
+          "Suma después decenas, centenas y millares."
+        ],
+        "retroalimentacion": "1234 + 2311 = 3545."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué resultado tiene 4020 + 1050?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los millares 4 y 1.",
+          "Las decenas 2 y 5 forman 7 decenas.",
+          "No hay unidades."
+        ],
+        "retroalimentacion": "4020 + 1050 = 5070; 570 omite los millares.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "570"
+          },
+          {
+            "id": "b",
+            "texto": "5070"
+          },
+          {
+            "id": "c",
+            "texto": "5120"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La suma 2105 + 3204 es 5309.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las unidades son 5 + 4.",
+          "Las centenas son 1 + 2.",
+          "Los millares son 2 + 3."
+        ],
+        "retroalimentacion": "Es verdadero: 2105 + 3204 = 5309."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una columna muestra 3412 y otra 2286. ¿Cuál es la suma?",
+        "respuesta": 5698,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Alinea unidades de ambos números.",
+          "2 + 6 = 8 y 1 + 8 = 9.",
+          "Continúa con centenas y millares."
+        ],
+        "retroalimentacion": "La suma es 5698."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 2867 + 1458.",
+        "respuesta": 4325,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empieza por 7 + 8 = 15.",
+          "Lleva una decena a la columna siguiente.",
+          "Continúa los canjes hasta los millares."
+        ],
+        "retroalimentacion": "2867 + 1458 = 4325; revisa las llevadas."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al sumar 4780 + 3625, ¿cuál es el total?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma primero 0 + 5 unidades.",
+          "En centenas, 7 + 6 = 13 y se lleva un millar.",
+          "El millar queda 4 + 3 + 1."
+        ],
+        "retroalimentacion": "El total es 8405; 8305 omite el canje de centenas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8305"
+          },
+          {
+            "id": "b",
+            "texto": "7405"
+          },
+          {
+            "id": "c",
+            "texto": "8415"
+          },
+          {
+            "id": "d",
+            "texto": "8405"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La operación 5094 + 2078 da 7172.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "4 + 8 = 12 unidades.",
+          "9 + 7 + 1 = 17 decenas.",
+          "Completa centenas y millares."
+        ],
+        "retroalimentacion": "Es verdadero: la suma da 7172."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una tienda recibió 3985 cuadernos y luego 2476. ¿Cuántos recibió en total?",
+        "respuesta": 6461,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total pide sumar las dos entregas.",
+          "3985 + 2476 requiere canjes.",
+          "Empieza por 5 + 6 = 11."
+        ],
+        "retroalimentacion": "Recibió 6461 cuadernos; no olvides los canjes."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Suma 5876 + 3948.",
+        "respuesta": 9824,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Alinea cada posición.",
+          "6 + 8 = 14 y 7 + 4 + 1 = 12.",
+          "Tras el canje, suma 7 + 9 + 1 en las centenas."
+        ],
+        "retroalimentacion": "La suma es 9824; debe quedar bajo 10000."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuánto es 6759 + 2246?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las unidades 9 + 6 requieren canje.",
+          "Suma 5 + 4 + 1 decenas.",
+          "Las centenas 7 + 2 + 1 forman un nuevo millar."
+        ],
+        "retroalimentacion": "6759 + 2246 = 9005; el cero en centenas es parte del resultado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9005"
+          },
+          {
+            "id": "b",
+            "texto": "8905"
+          },
+          {
+            "id": "c",
+            "texto": "9015"
+          },
+          {
+            "id": "d",
+            "texto": "8005"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una colecta hay 4647 tapitas y llegan 4389. ¿Cuántas hay ahora?",
+        "respuesta": 9036,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Es una suma de dos cantidades.",
+          "7 + 9 = 16; continúa los canjes.",
+          "Los canjes forman nueve millares en total."
+        ],
+        "retroalimentacion": "Hay 9036 tapitas; revisa los canjes de unidades y decenas."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La suma 7777 + 1111 es 8888.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada columna tiene 7 + 1.",
+          "No hay canjes.",
+          "Las cuatro cifras del resultado son ochos."
+        ],
+        "retroalimentacion": "Es verdadero: 7777 + 1111 = 8888."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.resta-cuatro-cifras",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Resta con números de cuatro cifras",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Resta números de hasta cuatro cifras con canjes entre millares, centenas y decenas.",
+    "palabrasClave": [
+      "resta",
+      "números",
+      "cuatro",
+      "cifras"
+    ],
+    "prerrequisitos": [
+      "mat.p4.descomponer-cuatro-cifras"
+    ],
+    "ordenSugerido": 15,
+    "ideaCentral": "Para restar números de cuatro cifras, alinea cada posición y empieza por las unidades. Si una cifra de arriba es menor que la de abajo, toma una unidad de la columna izquierda y conviértela en diez de la columna actual.",
+    "pasos": [
+      "Escribe el minuendo arriba y el sustraendo abajo, alineados.",
+      "Resta desde las unidades hacia los millares.",
+      "Haz préstamos cuando no alcancen las unidades de una columna.",
+      "Comprueba sumando la diferencia al sustraendo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula 5784 − 2312.",
+        "desarrollo": "Resta cada columna sin préstamo: 4−2=2, 8−1=7, 7−3=4, 5−2=3.",
+        "respuesta": "3472."
+      },
+      {
+        "situacion": "Calcula 6432 − 2875.",
+        "desarrollo": "Pide una decena para 2−5, luego un centenar para 2−7 y un millar para 3−8; continúa por columnas.",
+        "respuesta": "3557."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Restar siempre cifra mayor menos cifra menor en cada columna.",
+        "correccion": "Respeta el orden del minuendo y pide un préstamo cuando falte."
+      },
+      {
+        "error": "Olvidar que la columna prestadora disminuye en una unidad.",
+        "correccion": "Tacha esa cifra y escribe su nuevo valor antes de seguir."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Minuendo",
+        "significado": "Cantidad de la que se quita."
+      },
+      {
+        "termino": "Sustraendo",
+        "significado": "Cantidad que se quita."
+      },
+      {
+        "termino": "Diferencia",
+        "significado": "Resultado de la resta."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 8654 − 3212.",
+        "respuesta": 5442,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Alinea los números por la derecha.",
+          "Resta cada columna desde unidades.",
+          "No se necesita préstamo."
+        ],
+        "retroalimentacion": "La diferencia es 5442."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuánto vale 7340 − 2100?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Quita dos millares de siete.",
+          "Quita una centena de tres.",
+          "Las decenas quedan igual."
+        ],
+        "retroalimentacion": "7340 − 2100 = 5240.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5340"
+          },
+          {
+            "id": "b",
+            "texto": "5240"
+          },
+          {
+            "id": "c",
+            "texto": "5440"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La resta 9705 − 4302 da 5403.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta unidades 5 − 2.",
+          "Las centenas son 7 − 3.",
+          "Los millares son 9 − 4."
+        ],
+        "retroalimentacion": "Es verdadero: el resultado es 5403."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una caja tenía 6849 fichas y se sacaron 1426. ¿Cuántas quedan?",
+        "respuesta": 5423,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sacar fichas pide restar.",
+          "Escribe 6849 − 1426.",
+          "Resta cada columna sin préstamos."
+        ],
+        "retroalimentacion": "Quedan 5423 fichas."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 7543 − 2867.",
+        "respuesta": 4676,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "3 no alcanza para quitar 7; pide una decena.",
+          "Luego continúa los préstamos por columnas.",
+          "Comprueba sumando 4676 + 2867."
+        ],
+        "retroalimentacion": "La diferencia es 4676; los préstamos afectan las columnas vecinas."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué diferencia da 9036 − 4258?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "6 − 8 necesita préstamo.",
+          "La decena 3 disminuye antes de restar 5.",
+          "Continúa desde unidades hasta millares."
+        ],
+        "retroalimentacion": "9036 − 4258 = 4778.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5878"
+          },
+          {
+            "id": "b",
+            "texto": "4788"
+          },
+          {
+            "id": "c",
+            "texto": "4772"
+          },
+          {
+            "id": "d",
+            "texto": "4778"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si restas 6241 − 1875, obtienes 4366.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "1 − 5 requiere préstamo.",
+          "Continúa por decenas y centenas.",
+          "Comprueba 4366 + 1875 = 6241."
+        ],
+        "retroalimentacion": "Es verdadero: la diferencia es 4366."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La escuela tenía 8316 cuadernos y entregó 2948. ¿Cuántos conserva?",
+        "respuesta": 5368,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Entregar reduce el total.",
+          "Calcula 8316 − 2948.",
+          "Comprueba 5368 + 2948 = 8316."
+        ],
+        "retroalimentacion": "Conserva 5368 cuadernos; revisa préstamos de unidades y centenas."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una ficha aparece 9482 − 6795. Halla la diferencia.",
+        "respuesta": 2687,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "2 − 5 necesita préstamo.",
+          "Después revisa si 7 decenas alcanzan para 9.",
+          "Comprueba 2687 + 6795."
+        ],
+        "retroalimentacion": "La diferencia es 2687; varios préstamos pueden aparecer."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuánto queda al restar 8756 − 4987?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La resta requiere préstamos en varias columnas.",
+          "Puedes comprobar cada opción sumándole 4987.",
+          "3769 + 4987 = 8756."
+        ],
+        "retroalimentacion": "Quedan 3769; la suma inversa confirma la diferencia.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3769"
+          },
+          {
+            "id": "b",
+            "texto": "3869"
+          },
+          {
+            "id": "c",
+            "texto": "4769"
+          },
+          {
+            "id": "d",
+            "texto": "3779"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un registro tenía 8004 entradas y se usaron 3579. ¿Cuántas quedan?",
+        "respuesta": 4425,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 4 no alcanza para quitar 9.",
+          "Hay que atravesar las columnas con ceros.",
+          "Comprueba 4425 + 3579 = 8004."
+        ],
+        "retroalimentacion": "Quedan 4425 entradas; los ceros requieren préstamos encadenados."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La diferencia entre 9999 y 4567 es 5432.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta cifra por cifra.",
+          "No hay que pedir préstamos.",
+          "9−7=2, 9−6=3, 9−5=4, 9−4=5."
+        ],
+        "retroalimentacion": "Es verdadero: 9999 − 4567 = 5432."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.resta-ceros-millar",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Resta con ceros en el minuendo",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Resta de números como 3000 o 5004 desagrupando millares y centenas.",
+    "palabrasClave": [
+      "resta",
+      "ceros",
+      "minuendo"
+    ],
+    "prerrequisitos": [
+      "mat.p4.resta-cuatro-cifras"
+    ],
+    "ordenSugerido": 17,
+    "ideaCentral": "Cuando el minuendo tiene ceros, puede ser necesario pedir un préstamo a una columna más lejana. Cada unidad prestada se convierte en diez de la posición siguiente hasta llegar a la columna que necesita restar.",
+    "pasos": [
+      "Alinea minuendo y sustraendo.",
+      "Si una columna con cero no puede restar, busca a la izquierda una cifra que pueda prestar.",
+      "Canjea paso a paso a través de los ceros.",
+      "Resta y comprueba sumando el resultado al sustraendo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula 3000 − 1256.",
+        "desarrollo": "El 3 presta hacia las centenas, estas hacia decenas y unidades. Después de los canjes, resta por columnas.",
+        "respuesta": "1744."
+      },
+      {
+        "situacion": "Calcula 5040 − 2187.",
+        "desarrollo": "La unidad 0 pide a la decena 4; para centenas 0 se pide al millar 5.",
+        "respuesta": "2853."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Tratar el cero como si pudiera prestar sin recibir.",
+        "correccion": "Busca a la izquierda una cifra distinta de cero y lleva el préstamo por cada columna."
+      },
+      {
+        "error": "Cambiar un cero a diez y olvidar reducirlo a nueve cuando presta a la derecha.",
+        "correccion": "Si recibe diez y presta uno, conserva nueve en esa columna."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Préstamo",
+        "significado": "Canje de una unidad de orden mayor por diez de orden menor."
+      },
+      {
+        "termino": "Minuendo",
+        "significado": "Número del que se resta."
+      },
+      {
+        "termino": "Cero intermedio",
+        "significado": "Posición sin unidades entre otras posiciones del número."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "De 2000 fichas se retiran 1001. ¿Cuántas quedan?",
+        "respuesta": 999,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero quita 1000 y quedan 1000.",
+          "Para quitar una unidad más, pide prestado a través de los ceros.",
+          "1000 − 1 = 999."
+        ],
+        "retroalimentacion": "Quedan 999 fichas; 1000 sería olvidar la última unidad retirada."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué resultado tiene 4000 − 1001?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay que quitar una unidad de 4000.",
+          "Pide un millar y pasa el préstamo por centenas y decenas.",
+          "Comprueba el resultado sumándole 1001."
+        ],
+        "retroalimentacion": "4000 − 1001 = 2999; 3999 olvidaría quitar el millar.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3999"
+          },
+          {
+            "id": "b",
+            "texto": "2999"
+          },
+          {
+            "id": "c",
+            "texto": "3001"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "De 5000 hojas se usan 2001; quedan 2999 hojas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Después de quitar 2000 quedan 3000.",
+          "Falta quitar una hoja más.",
+          "3000 − 1 atraviesa las columnas con ceros."
+        ],
+        "retroalimentacion": "Es verdadero: 5000 − 2001 = 2999 hojas."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una reserva tenía 6000 boletos y vendió 1200. ¿Cuántos quedan?",
+        "respuesta": 4800,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La venta reduce los boletos.",
+          "Calcula 6000 − 1200.",
+          "Canjea un millar para restar centenas."
+        ],
+        "retroalimentacion": "Quedan 4800 boletos; 5000 omitiría las dos centenas quitadas."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 7002 − 1356.",
+        "respuesta": 5646,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La unidad 2 necesita préstamo para quitar 6.",
+          "Atraviesa los ceros hasta el millar 7.",
+          "Comprueba 5646 + 1356 = 7002."
+        ],
+        "retroalimentacion": "La diferencia es 5646; cada cero atravesado cambia al prestar."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuánto es 9000 − 4587?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el préstamo desde el 9 de millares.",
+          "Centenas y decenas reciben y prestan.",
+          "Comprueba sumando 4413 + 4587."
+        ],
+        "retroalimentacion": "9000 − 4587 = 4413; 4513 olvidaría una centena.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5413"
+          },
+          {
+            "id": "b",
+            "texto": "4513"
+          },
+          {
+            "id": "c",
+            "texto": "4423"
+          },
+          {
+            "id": "d",
+            "texto": "4413"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El cálculo 8005 − 3247 da 4758.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "5 no alcanza para quitar 7.",
+          "Pide préstamo atravesando decenas y centenas.",
+          "Comprueba 4758 + 3247 = 8005."
+        ],
+        "retroalimentacion": "Es verdadero: 8005 − 3247 = 4758."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una biblioteca tenía 5030 etiquetas y usó 1785. ¿Cuántas tiene ahora?",
+        "respuesta": 3245,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La unidad 0 pide a la decena 3.",
+          "La centena 0 luego pide al millar 5.",
+          "Comprueba 3245 + 1785 = 5030."
+        ],
+        "retroalimentacion": "Tiene 3245 etiquetas; no ignores el cero de las centenas."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una caja tenía 10000 piezas y se sacaron 6738. ¿Cuántas piezas quedan?",
+        "respuesta": 3262,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay un 1 seguido de cuatro ceros.",
+          "El préstamo pasa por todas las posiciones.",
+          "Comprueba 3262 + 6738 = 10000."
+        ],
+        "retroalimentacion": "La diferencia es 3262; cada cero intermedio queda en nueve tras prestar."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué diferencia resulta de 9020 − 4876?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La unidad 0 pide a la decena 2.",
+          "Para quitar ocho centenas, atraviesa el cero de centenas.",
+          "Suma cada opción a 4876 para comprobar."
+        ],
+        "retroalimentacion": "9020 − 4876 = 4144.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4144"
+          },
+          {
+            "id": "b",
+            "texto": "4244"
+          },
+          {
+            "id": "c",
+            "texto": "4154"
+          },
+          {
+            "id": "d",
+            "texto": "5144"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un almacén anotó 6004 cajas y despachó 2879. ¿Cuántas conserva?",
+        "respuesta": 3125,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La unidad 4 necesita préstamo.",
+          "El millar debe prestar a través de los dos ceros.",
+          "Comprueba 3125 + 2879 = 6004."
+        ],
+        "retroalimentacion": "Conserva 3125 cajas; revisa los canjes encadenados."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al restar 4001 − 1999 se obtiene 2002.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los ceros requieren préstamo desde el 4.",
+          "Comprueba sumando 2002 + 1999.",
+          "La suma recupera 4001."
+        ],
+        "retroalimentacion": "Es verdadero: la diferencia es 2002."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.comprobar-suma-resta",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Comprobación de sumas y restas",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Verifica el resultado de una resta con una suma y viceversa.",
+    "palabrasClave": [
+      "comprobación",
+      "sumas",
+      "restas"
+    ],
+    "prerrequisitos": [
+      "mat.p4.resta-cuatro-cifras"
+    ],
+    "ordenSugerido": 18,
+    "ideaCentral": "Para comprobar una suma, resta uno de los sumandos al total y debe quedar el otro. Para comprobar una resta, suma la diferencia al sustraendo y debe recuperarse el minuendo.",
+    "pasos": [
+      "Identifica si quieres comprobar una suma o una resta.",
+      "Escribe la operación inversa correspondiente.",
+      "Calcula el resultado de la comprobación.",
+      "Compara con el número original y corrige si no coincide."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Comprueba 2450 + 1320 = 3770.",
+        "desarrollo": "Resta un sumando: 3770 − 1320 = 2450, el otro sumando.",
+        "respuesta": "La suma está comprobada."
+      },
+      {
+        "situacion": "Comprueba 5000 − 1725 = 3275.",
+        "desarrollo": "Suma sustraendo y diferencia: 1725 + 3275 = 5000.",
+        "respuesta": "La resta está comprobada."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Repetir la misma suma en vez de usar una operación inversa.",
+        "correccion": "Resta un sumando del total para recuperar el otro."
+      },
+      {
+        "error": "Sumar la diferencia al minuendo al comprobar una resta.",
+        "correccion": "Suma diferencia y sustraendo; deben formar el minuendo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Comprobación",
+        "significado": "Cuenta que verifica si un resultado es correcto."
+      },
+      {
+        "termino": "Operación inversa",
+        "significado": "Operación que recupera un dato inicial."
+      },
+      {
+        "termino": "Diferencia",
+        "significado": "Resultado de una resta."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué cuenta comprueba 1200 + 300 = 1500?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En una suma, resta un sumando al total.",
+          "Usa 1500 como número del que se resta.",
+          "Quita 300 y busca 1200."
+        ],
+        "retroalimentacion": "1500 − 300 = 1200 comprueba la suma.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1500 + 300 = 1800"
+          },
+          {
+            "id": "b",
+            "texto": "1500 − 300 = 1200"
+          },
+          {
+            "id": "c",
+            "texto": "1200 − 300 = 900"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La resta 900 − 400 = 500 se comprueba porque 500 + 400 = 900.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El resultado de la resta es 500.",
+          "Suma 500 y el sustraendo 400.",
+          "Debe recuperarse el minuendo 900."
+        ],
+        "retroalimentacion": "Es verdadero: la suma inversa recupera 900."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Para comprobar 3400 + 2100 = 5500, resta 2100 al total. ¿Qué número debes recuperar?",
+        "respuesta": 3400,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En la suma, el otro sumando es 3400.",
+          "Calcula 5500 − 2100.",
+          "Compara con ese sumando."
+        ],
+        "retroalimentacion": "Debes recuperar 3400; eso comprueba la suma."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un alumno dice 7000 − 2000 = 5000. ¿Qué suma lo comprueba?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La diferencia es 5000.",
+          "El sustraendo es 2000.",
+          "Júntalos para recuperar el minuendo."
+        ],
+        "retroalimentacion": "5000 + 2000 = 7000 comprueba la resta.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7000 + 2000 = 9000"
+          },
+          {
+            "id": "b",
+            "texto": "7000 + 5000 = 12000"
+          },
+          {
+            "id": "c",
+            "texto": "5000 − 2000 = 3000"
+          },
+          {
+            "id": "d",
+            "texto": "5000 + 2000 = 7000"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La igualdad 4560 + 2380 = 6940 está comprobada porque 6940 − 2380 = 4560.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta el segundo sumando al total.",
+          "6940 − 2380 = 4560.",
+          "Coincide con el primer sumando."
+        ],
+        "retroalimentacion": "Es verdadero: la operación inversa confirma la suma."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Se escribió 8320 − 2750 = 5570. Para comprobar, ¿cuánto da 5570 + 2750?",
+        "respuesta": 8320,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma diferencia y sustraendo.",
+          "5570 + 2750 incluye un canje en centenas.",
+          "Compara con el minuendo 8320."
+        ],
+        "retroalimentacion": "Da 8320; por eso la resta está comprobada."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tarjeta afirma 3725 + 1846 = 5571. ¿Qué operación inversa ayuda a verificarla?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total propuesto es 5571.",
+          "Resta uno de los sumandos.",
+          "Busca recuperar el otro."
+        ],
+        "retroalimentacion": "5571 − 1846 = 3725 verifica la tarjeta.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5571 − 1846 = 3725"
+          },
+          {
+            "id": "b",
+            "texto": "5571 + 1846 = 7417"
+          },
+          {
+            "id": "c",
+            "texto": "3725 − 1846 = 1879"
+          },
+          {
+            "id": "d",
+            "texto": "5571 − 3725 = 1845"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Para revisar 6003 − 2798 = 3205, suma la diferencia y el sustraendo. ¿Qué obtienes?",
+        "respuesta": 6003,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Junta 3205 y 2798.",
+          "La suma es 6003.",
+          "Ese debe ser el minuendo original."
+        ],
+        "retroalimentacion": "Obtienes 6003, así que la resta es correcta."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Alguien anota 7450 − 3865 = 3585. ¿Qué comprobación muestra que es correcta?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 3585 y 3865.",
+          "Revisa el canje de unidades y decenas.",
+          "El total debe ser 7450."
+        ],
+        "retroalimentacion": "3585 + 3865 = 7450 confirma la resta.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3585 − 3865 = 7450"
+          },
+          {
+            "id": "b",
+            "texto": "7450 + 3865 = 3585"
+          },
+          {
+            "id": "c",
+            "texto": "7450 − 3585 = 3864"
+          },
+          {
+            "id": "d",
+            "texto": "3585 + 3865 = 7450"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La suma 4896 + 2375 = 7271 queda comprobada si 7271 − 4896 = 2375.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta el primer sumando del total.",
+          "El resultado debe ser el segundo sumando.",
+          "Comprueba que la diferencia es 2375."
+        ],
+        "retroalimentacion": "Es verdadero: la resta inversa confirma la suma."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una suma se anotó 5689 + 1724 = 7413. Si restas 5689 al resultado, ¿qué debes obtener para comprobarla?",
+        "respuesta": 1724,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La resta inversa recupera el sumando omitido.",
+          "El total anotado es 7413.",
+          "7413 − 5689 = 1724."
+        ],
+        "retroalimentacion": "Debes obtener 1724; coincide con el segundo sumando."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La resta 9000 − 4678 = 4322 falla porque 4322 + 4678 no llega a 9000.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La comprobación suma diferencia y sustraendo.",
+          "4322 + 4678 = 9000.",
+          "La suma sí recupera el minuendo."
+        ],
+        "retroalimentacion": "Es falso: la resta es correcta porque la comprobación llega a 9000."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.compensacion-suma-resta",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Cálculo mental por compensación",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Suma o resta redondeando un número a la centena o millar y ajustando luego el resultado.",
+    "palabrasClave": [
+      "cálculo",
+      "mental",
+      "compensación"
+    ],
+    "prerrequisitos": [
+      "mat.p4.redondeo-centena-millar",
+      "mat.p4.suma-cuatro-cifras"
+    ],
+    "ordenSugerido": 36,
+    "ideaCentral": "La compensación cambia temporalmente un número por otro más fácil y luego corrige ese cambio. Si aumentas un sumando, resta lo añadido al final; si aumentas el sustraendo, vuelve a sumar lo que añadiste.",
+    "pasos": [
+      "Busca un número cercano a una decena, centena o millar exacto.",
+      "Haz el cambio que facilite la cuenta.",
+      "Calcula mentalmente con el número redondo.",
+      "Corrige exactamente lo que cambiaste y comprueba el resultado."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula 398 + 257.",
+        "desarrollo": "Sube 398 a 400: 400 + 257 = 657; resta los 2 añadidos.",
+        "respuesta": "655."
+      },
+      {
+        "situacion": "Calcula 720 − 198.",
+        "desarrollo": "Sube 198 a 200: 720 − 200 = 520; devuelve 2 porque quitaste dos de más.",
+        "respuesta": "522."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Olvidar corregir después de usar un número redondo.",
+        "correccion": "Anota cuánto cambiaste y haz la corrección final."
+      },
+      {
+        "error": "Corregir en la dirección equivocada al restar.",
+        "correccion": "Si restaste de más al subir el sustraendo, suma lo que sobró."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Compensar",
+        "significado": "Corregir un cambio temporal para conservar el resultado."
+      },
+      {
+        "termino": "Número redondo",
+        "significado": "Número fácil de usar, como una centena exacta."
+      },
+      {
+        "termino": "Sustraendo",
+        "significado": "Cantidad que se quita en una resta."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula mentalmente 299 + 41 usando 300.",
+        "respuesta": 340,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sube 299 a 300, un aumento de 1.",
+          "300 + 41 = 341.",
+          "Resta el 1 añadido."
+        ],
+        "retroalimentacion": "El resultado es 340; 341 olvida compensar."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para 500 − 99, ¿qué corrección haces tras calcular 500 − 100 = 400?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Restaste 100 en vez de 99.",
+          "Quitaste una unidad de más.",
+          "Devuelve esa unidad al resultado."
+        ],
+        "retroalimentacion": "Debes sumar 1; así obtienes 401.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "restar 1"
+          },
+          {
+            "id": "b",
+            "texto": "sumar 1"
+          },
+          {
+            "id": "c",
+            "texto": "sumar 100"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "199 + 30 se puede calcular como 200 + 30 − 1 = 229.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se subió 199 a 200.",
+          "Ese cambio añadió 1.",
+          "Compensa restando 1."
+        ],
+        "retroalimentacion": "Es verdadero: el resultado es 229."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 840 − 199 usando 200.",
+        "respuesta": 641,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Restar 200 es fácil.",
+          "840 − 200 = 640.",
+          "Como quitaste 1 de más, súmalo."
+        ],
+        "retroalimentacion": "El resultado es 641; 640 es la cuenta sin compensar."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 998 + 476 por compensación.",
+        "respuesta": 1474,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sube 998 a 1000.",
+          "1000 + 476 = 1476.",
+          "Resta las dos unidades añadidas."
+        ],
+        "retroalimentacion": "La suma es 1474."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué expresión conserva el valor de 675 + 299 usando 300?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "299 está a uno de 300.",
+          "Al subirlo, la suma aumenta uno.",
+          "Resta uno al final."
+        ],
+        "retroalimentacion": "675 + 300 − 1 conserva la suma original.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "675 + 300 + 1"
+          },
+          {
+            "id": "b",
+            "texto": "675 + 300"
+          },
+          {
+            "id": "c",
+            "texto": "675 − 300 + 1"
+          },
+          {
+            "id": "d",
+            "texto": "675 + 300 − 1"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para 1200 − 398, se puede hacer 1200 − 400 + 2.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "398 se sube a 400.",
+          "Se restan 2 de más.",
+          "Compensa devolviendo 2."
+        ],
+        "retroalimentacion": "Es verdadero: ambas cuentas dan 802."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula mentalmente 2500 − 997.",
+        "respuesta": 1503,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sube 997 a 1000.",
+          "2500 − 1000 = 1500.",
+          "Devuelve las tres unidades restadas de más."
+        ],
+        "retroalimentacion": "La diferencia es 1503."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Resuelve 3987 + 1998 usando millares cercanos.",
+        "respuesta": 5985,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sube 3987 a 4000 (+13).",
+          "Sube 1998 a 2000 (+2); suma 6000.",
+          "Resta los 15 añadidos en total."
+        ],
+        "retroalimentacion": "El resultado es 5985; hay que corregir ambos cambios."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para calcular 6005 − 2997, una alumna hace 6005 − 3000 = 3005. ¿Qué falta?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "2997 se subió tres unidades.",
+          "Se restaron tres de más.",
+          "Hay que devolver esas tres."
+        ],
+        "retroalimentacion": "Falta sumar 3, y el resultado correcto es 3008.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "sumar 3"
+          },
+          {
+            "id": "b",
+            "texto": "restar 3"
+          },
+          {
+            "id": "c",
+            "texto": "sumar 3000"
+          },
+          {
+            "id": "d",
+            "texto": "restar 2997"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula 7498 + 198 por compensación.",
+        "respuesta": 7696,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sube 7498 a 7500 (+2).",
+          "Sube 198 a 200 (+2); suma 7700.",
+          "Quita las cuatro unidades añadidas."
+        ],
+        "retroalimentacion": "La suma es 7696; 7700 es solo la cuenta redondeada."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La resta 4300 − 999 equivale a 4300 − 1000 + 1 = 3301.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "999 se subió una unidad.",
+          "Al restar 1000, se quitó una de más.",
+          "Devuelve esa unidad."
+        ],
+        "retroalimentacion": "Es verdadero: el resultado es 3301."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]
