@@ -1,0 +1,600 @@
+[
+  {
+    "clave": "mat.p4.completar-la-unidad",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-P4-02"
+    ],
+    "bloque": "Fracciones",
+    "nombre": "Cuánto falta para completar la unidad",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Calcula la fracción que falta para formar un entero en situaciones de partición.",
+    "palabrasClave": [
+      "cuánto",
+      "falta",
+      "para",
+      "completar",
+      "unidad"
+    ],
+    "prerrequisitos": [
+      "mat.p4.fraccion-todo-continuo"
+    ],
+    "ordenSugerido": 86,
+    "ideaCentral": "Una unidad completa contiene tantas partes iguales como indica el denominador. Para saber qué fracción falta, resta las partes usadas al total de partes iguales.",
+    "pasos": [
+      "Identifica en cuántas partes iguales se dividió la unidad.",
+      "Cuenta cuántas partes ya están ocupadas.",
+      "Resta esas partes del total indicado por el denominador.",
+      "Escribe la fracción que falta con el mismo denominador."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una cinta tiene 3/8 pintados. ¿Qué fracción falta por pintar?",
+        "desarrollo": "La cinta completa es 8/8; 8 − 3 = 5 partes.",
+        "respuesta": "Falta 5/8."
+      },
+      {
+        "situacion": "Se bebió 1/4 de una jarra. ¿Qué parte queda?",
+        "desarrollo": "Una jarra es 4/4; 4/4 − 1/4 = 3/4.",
+        "respuesta": "Queda 3/4 de la jarra."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Cambiar también el denominador al calcular lo que falta.",
+        "correccion": "Las partes siguen siendo del mismo tamaño; conserva el denominador."
+      },
+      {
+        "error": "Responder con la fracción ya usada.",
+        "correccion": "Resta al entero para obtener solo la parte pendiente."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Unidad",
+        "significado": "El entero que se dividió en partes iguales."
+      },
+      {
+        "termino": "Denominador",
+        "significado": "Número de partes iguales del entero."
+      },
+      {
+        "termino": "Complemento",
+        "significado": "Fracción que falta para completar una unidad."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "De una barra dividida en 4 partes iguales, 1 parte está coloreada. ¿Qué fracción falta? Escribe a/b.",
+        "respuesta": "3/4",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El entero contiene cuatro cuartos.",
+          "Ya está coloreado un cuarto.",
+          "4 − 1 = 3 cuartos sin colorear."
+        ],
+        "retroalimentacion": "Faltan 3/4; 1/4 es la parte ya coloreada."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si bebiste 1/2 de una botella, ¿qué fracción de esa botella queda?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La botella completa son dos mitades.",
+          "Una mitad se bebió.",
+          "Queda la otra mitad."
+        ],
+        "retroalimentacion": "Queda 1/2; 2/2 sería la botella completa.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2/2"
+          },
+          {
+            "id": "b",
+            "texto": "1/2"
+          },
+          {
+            "id": "c",
+            "texto": "1/4"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si se pintaron 2/4 de una pared, faltan 2/4 para terminarla.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La pared completa equivale a 4/4.",
+          "Quita los 2/4 pintados.",
+          "El complemento es 4/4 − 2/4."
+        ],
+        "retroalimentacion": "Es verdadero: faltan 2/4."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una hoja tiene 3 de sus 8 partes iguales marcadas. ¿Qué fracción falta marcar? Escribe a/b.",
+        "respuesta": "5/8",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La hoja completa tiene ocho octavos.",
+          "Tres partes ya están marcadas.",
+          "8 − 3 = 5 partes pendientes."
+        ],
+        "retroalimentacion": "Faltan 5/8; el denominador sigue siendo 8."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un camino se divide en 6 tramos iguales; recorriste 4. ¿Qué fracción del camino resta? Escribe a/b.",
+        "respuesta": "2/6",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El camino completo tiene seis sextos.",
+          "Cuatro sextos ya se recorrieron.",
+          "Resta 6 − 4 tramos."
+        ],
+        "retroalimentacion": "Resta 2/6 del camino; 4/6 es lo recorrido."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una tira de 8 partes iguales, se cortaron 5. ¿Qué fracción permanece?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La tira completa son 8/8.",
+          "Quedan 8 − 5 partes.",
+          "Escribe el número restante sobre 8."
+        ],
+        "retroalimentacion": "Permanece 3/8; 5/8 corresponde a la parte cortada.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5/8"
+          },
+          {
+            "id": "b",
+            "texto": "3/5"
+          },
+          {
+            "id": "c",
+            "texto": "5/3"
+          },
+          {
+            "id": "d",
+            "texto": "3/8"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una torta tiene 7/8 servidos, falta 2/8 para servirla entera.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La torta completa es 8/8.",
+          "Ya se sirvieron siete octavos.",
+          "Calcula 8 − 7."
+        ],
+        "retroalimentacion": "Es falso: falta 1/8; sumar 2/8 superaría una torta entera."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una cometa tiene 9 de 12 espacios iguales decorados. ¿Qué fracción falta decorar? Escribe a/b.",
+        "respuesta": "3/12",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una cometa completa representa 12/12.",
+          "Nueve espacios están decorados.",
+          "12 − 9 = 3 espacios pendientes."
+        ],
+        "retroalimentacion": "Faltan 3/12; también equivale a 1/4, pero aquí contamos los doce espacios de la cometa."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una tela muestra 11/16 de su superficie bordada. ¿Qué fracción falta bordar? Escribe a/b.",
+        "respuesta": "5/16",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La tela completa es 16/16.",
+          "Resta los once dieciseisavos bordados.",
+          "16 − 11 = 5."
+        ],
+        "retroalimentacion": "Faltan 5/16; el denominador no cambia."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una jarra tiene 13/20 de su capacidad llena. ¿Qué fracción de su capacidad falta?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La capacidad completa vale 20/20.",
+          "Hay trece partes llenas de veinte.",
+          "20 − 13 = 7 partes vacías."
+        ],
+        "retroalimentacion": "Falta 7/20 de la capacidad; 13/20 es lo que ya hay.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7/20"
+          },
+          {
+            "id": "b",
+            "texto": "13/20"
+          },
+          {
+            "id": "c",
+            "texto": "7/13"
+          },
+          {
+            "id": "d",
+            "texto": "20/7"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En un mural de 15 cuadros iguales, 6 están sin pintar. ¿Qué fracción del mural falta pintar? Escribe a/b.",
+        "respuesta": "6/15",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La pregunta pide la parte pendiente.",
+          "Seis cuadros están sin pintar.",
+          "Pon 6 sobre el total de 15."
+        ],
+        "retroalimentacion": "Falta 6/15; 9/15 sería la parte pintada."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un listón con 9/12 de su longitud cortada conserva 3/12 de la longitud original.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La longitud original equivale a 12/12.",
+          "Se cortaron nueve partes.",
+          "Calcula 12 − 9 partes conservadas."
+        ],
+        "retroalimentacion": "Es verdadero: conserva 3/12."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.problemas-suma-resta-fracciones",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-P4-02"
+    ],
+    "bloque": "Fracciones",
+    "nombre": "Problemas de suma y resta con fracciones usuales",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Traduce situaciones de juntar o quitar medios, cuartos u octavos de una unidad a sumas y restas de fracciones.",
+    "palabrasClave": [
+      "problemas",
+      "suma",
+      "resta",
+      "fracciones",
+      "usuales"
+    ],
+    "prerrequisitos": [
+      "mat.p4.suma-resta-fracciones-equivalentes"
+    ],
+    "ordenSugerido": 112,
+    "ideaCentral": "Para juntar o quitar partes de una misma unidad, expresa las fracciones como medios, cuartos u octavos compatibles. Después suma o resta los numeradores y conserva el denominador común.",
+    "pasos": [
+      "Comprueba que las fracciones hablan de la misma unidad.",
+      "Convierte medios o cuartos a cuartos u octavos si hace falta.",
+      "Suma o resta las partes indicadas por los numeradores.",
+      "Expresa el resultado como fracción de la unidad."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Se usan 1/4 de una cinta roja y 2/4 de la misma longitud de cinta azul. ¿Cuánta cinta se usa en total?",
+        "desarrollo": "Los cuartos son partes iguales: 1/4 + 2/4 = 3/4.",
+        "respuesta": "Se usan 3/4 de unidad de cinta."
+      },
+      {
+        "situacion": "De una jarra con 3/4 de litro se sirven 1/2 litro. ¿Cuánto queda?",
+        "desarrollo": "1/2 = 2/4; entonces 3/4 − 2/4 = 1/4.",
+        "respuesta": "Queda 1/4 de litro."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar los denominadores junto con los numeradores.",
+        "correccion": "Si las partes tienen el mismo tamaño, conserva ese denominador."
+      },
+      {
+        "error": "Restar 1/2 como si fuera 1/4.",
+        "correccion": "Cambia primero 1/2 por 2/4 para comparar partes iguales."
+      },
+      {
+        "error": "Juntar fracciones de unidades distintas sin aclararlo.",
+        "correccion": "Asegúrate de que todas las fracciones se refieren a la misma unidad. "
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Fracciones equivalentes",
+        "significado": "Fracciones que nombran la misma parte de una unidad."
+      },
+      {
+        "termino": "Denominador común",
+        "significado": "Número que indica partes iguales del mismo tamaño."
+      },
+      {
+        "termino": "Octavo",
+        "significado": "Una de ocho partes iguales de la unidad."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En una jarra se mezclan 1/4 de litro y 2/4 de litro de agua. ¿Cuánto hay en total? Escribe a/b.",
+        "respuesta": "3/4",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambas cantidades están en cuartos.",
+          "Suma 1 + 2 partes.",
+          "Conserva el denominador 4."
+        ],
+        "retroalimentacion": "Hay 3/4 de litro; sumar los denominadores daría partes de otro tamaño."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se come 1/8 de una torta por la mañana y 3/8 por la tarde. ¿Qué parte de la torta se comió?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambas porciones son octavos de la misma torta.",
+          "Suma los numeradores 1 y 3.",
+          "Conserva ocho partes como unidad."
+        ],
+        "retroalimentacion": "Se comió 4/8 de la torta; 4/16 cambia erróneamente el tamaño de las partes.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4/16"
+          },
+          {
+            "id": "b",
+            "texto": "2/8"
+          },
+          {
+            "id": "c",
+            "texto": "4/8"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "De 3/4 de una cinta se corta 1/4; quedan 2/4 de la cinta.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las dos medidas están en cuartos.",
+          "Resta 3 − 1 cuartos.",
+          "El denominador sigue siendo 4."
+        ],
+        "retroalimentacion": "Es verdadero: 3/4 − 1/4 = 2/4."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una niña tenía 7/8 de metro de hilo y usó 2/8. ¿Qué longitud conserva? Escribe a/b.",
+        "respuesta": "5/8",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El hilo inicial tiene siete octavos.",
+          "Quita dos de esos octavos.",
+          "7 − 2 = 5 partes de ocho."
+        ],
+        "retroalimentacion": "Conserva 5/8 de metro; 2/8 es lo que usó."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Se junta 1/2 litro de jugo con 1/4 litro más. ¿Cuántos cuartos de litro hay? Escribe a/b.",
+        "respuesta": "3/4",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte el medio litro a cuartos.",
+          "1/2 = 2/4.",
+          "2/4 + 1/4 = 3/4."
+        ],
+        "retroalimentacion": "Hay 3/4 de litro; no sumes 1 + 1 sobre 2 + 4."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tela mide 7/8 de metro; se recortan 1/4 de metro. ¿Cuánto queda?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El cuarto debe expresarse en octavos.",
+          "1/4 = 2/8.",
+          "Resta 7/8 − 2/8."
+        ],
+        "retroalimentacion": "Quedan 5/8 de metro; 6/8 trataría el cuarto como un solo octavo.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5/8"
+          },
+          {
+            "id": "b",
+            "texto": "6/8"
+          },
+          {
+            "id": "c",
+            "texto": "8/12"
+          },
+          {
+            "id": "d",
+            "texto": "5/4"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al sumar 1/2 y 3/8 de la misma unidad se obtienen 7/8.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte el medio a octavos.",
+          "1/2 equivale a 4/8.",
+          "Suma 4/8 + 3/8."
+        ],
+        "retroalimentacion": "Es verdadero: el total es 7/8."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una olla contiene 3/4 de litro de sopa y se sirve 1/2 litro. ¿Cuánto queda? Escribe a/b.",
+        "respuesta": "1/4",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte medio litro a cuartos.",
+          "Para servir medio litro, aparta dos de los cuatro cuartos.",
+          "3/4 − 2/4 = 1/4."
+        ],
+        "retroalimentacion": "Queda 1/4 de litro; restar solo los numeradores sin convertir confunde tamaños."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Se añaden 3/8 de litro de pintura a una mezcla con 1/2 litro. ¿Cuánto hay ahora? Escribe a/b.",
+        "respuesta": "7/8",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambas medidas se refieren a litros.",
+          "1/2 = 4/8.",
+          "4/8 + 3/8 = 7/8."
+        ],
+        "retroalimentacion": "Hay 7/8 de litro. Un medio representa cuatro octavos."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "De 7/8 de una cartulina se usan 1/2. ¿Qué fracción de la cartulina queda?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte la mitad a octavos.",
+          "La mitad usada ocupa cuatro de los ocho octavos.",
+          "Resta 7 − 4 octavos."
+        ],
+        "retroalimentacion": "Quedan 3/8 de cartulina; 6/8 restaría un octavo en vez de una mitad.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6/8"
+          },
+          {
+            "id": "b",
+            "texto": "8/10"
+          },
+          {
+            "id": "c",
+            "texto": "3/4"
+          },
+          {
+            "id": "d",
+            "texto": "3/8"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un recipiente recibe 1/4 de litro y luego 5/8 de litro. ¿Qué fracción de litro se agregó en total? Escribe a/b.",
+        "respuesta": "7/8",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Expresa el cuarto como octavos.",
+          "El primer cuarto ocupa dos octavos del litro.",
+          "2/8 + 5/8 = 7/8."
+        ],
+        "retroalimentacion": "Se agregaron 7/8 de litro; los denominadores no se suman."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si había 7/8 de metro de cuerda y se usó 3/4 de metro, queda 1/8 de metro.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 3/4 a octavos.",
+          "3/4 = 6/8.",
+          "7/8 − 6/8 = 1/8."
+        ],
+        "retroalimentacion": "Es verdadero: queda 1/8 de metro."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]
