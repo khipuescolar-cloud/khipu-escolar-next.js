@@ -1,0 +1,1153 @@
+[
+  {
+    "clave": "mat.p1.torres-que-crecen",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P1-02"
+    ],
+    "bloque": "Patrones aditivos",
+    "nombre": "Torres y filas que crecen",
+    "disciplina": "algebra",
+    "descripcionCorta": "Construye con cubos una secuencia de torres que aumentan de uno en uno.",
+    "palabrasClave": [
+      "torres",
+      "filas",
+      "que",
+      "crecen"
+    ],
+    "prerrequisitos": [
+      "mat.p1.contar-hasta-10"
+    ],
+    "ordenSugerido": 76,
+    "ideaCentral": "Construye con cubos una secuencia de torres que aumentan de uno en uno.",
+    "pasos": [
+      "Construye la primera torre con cubos.",
+      "Añade siempre el mismo número de cubos.",
+      "Cuenta los cubos de la torre siguiente."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una fila de torres tiene 2 cubos, luego 3 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
+        "desarrollo": "Compara la primera torre de 2 con la segunda de 3. Mira los tapitas en el aula. Cada torre agrega 1 cubos. Usa los datos de tapitas en el aula.",
+        "respuesta": "4"
+      },
+      {
+        "situacion": "Una fila de torres tiene 3 cubos, luego 5 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
+        "desarrollo": "Compara la primera torre de 3 con la segunda de 5. Mira los choclos en el patio. Cada torre agrega 2 cubos. Usa los datos de choclos en el patio.",
+        "respuesta": "7"
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Cambiar el aumento a mitad de la secuencia.",
+        "correccion": "Añade siempre el mismo número de cubos."
+      },
+      {
+        "error": "Contar el número inicial como un salto.",
+        "correccion": "Construye la primera torre con cubos. Cuenta los cubos de la torre siguiente."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Secuencia",
+        "significado": "Lista ordenada de números u objetos."
+      },
+      {
+        "termino": "Aumento",
+        "significado": "Cantidad que se añade en cada paso."
+      },
+      {
+        "termino": "Regla",
+        "significado": "Cambio que se repite en toda la secuencia."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un juego con dados en el aula, una fila de torres tiene 2 cubos, luego 3 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la primera torre de 2 con la segunda de 3. Mira los tapitas en el aula.",
+          "Cada torre agrega 1 cubos. Usa los datos de tapitas en el aula.",
+          "La siguiente tiene 4. Comprueba con los tapitas en el aula."
+        ],
+        "retroalimentacion": "La torre siguiente tiene 4 cubos. Mantén el crecimiento de 1 en 1."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un juego con choclos en el patio, una fila de torres tiene 3 cubos, luego 5 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la primera torre de 3 con la segunda de 5. Mira los choclos en el patio.",
+          "Cada torre agrega 2 cubos. Usa los datos de choclos en el patio.",
+          "La siguiente tiene 7. Comprueba con los choclos en el patio."
+        ],
+        "retroalimentacion": "La torre siguiente tiene 7 cubos. Mantén el crecimiento de 2 en 2."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un juego con cuentos en la chacra, una fila de torres tiene 4 cubos, luego 5 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la primera torre de 4 con la segunda de 5. Mira los cuentos en la chacra.",
+          "Cada torre agrega 1 cubos. Usa los datos de cuentos en la chacra.",
+          "La siguiente tiene 6. Comprueba con los cuentos en la chacra."
+        ],
+        "retroalimentacion": "La torre siguiente tiene 6 cubos. Mantén el crecimiento de 1 en 1."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un juego con lápices en la biblioteca, una fila de torres tiene 5 cubos, luego 7 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la primera torre de 5 con la segunda de 7. Mira los lápices en la biblioteca.",
+          "Cada torre agrega 2 cubos. Usa los datos de lápices en la biblioteca.",
+          "La siguiente tiene 9. Comprueba con los lápices en la biblioteca."
+        ],
+        "retroalimentacion": "La torre siguiente tiene 9 cubos. Mantén el crecimiento de 2 en 2."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un juego con cuyes en la mesa, una fila de torres tiene 6 cubos, luego 7 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la primera torre de 6 con la segunda de 7. Mira los cuyes en la mesa.",
+          "Cada torre agrega 1 cubos. Usa los datos de cuyes en la mesa.",
+          "La siguiente tiene 8. Comprueba con los cuyes en la mesa."
+        ],
+        "retroalimentacion": "La torre siguiente tiene 8 cubos. Mantén el crecimiento de 1 en 1."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un juego con mangos en la feria, una fila de torres tiene 7 cubos, luego 9 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la primera torre de 7 con la segunda de 9. Mira los semillas en la feria.",
+          "Cada torre agrega 2 cubos. Usa los datos de semillas en la feria.",
+          "La siguiente tiene 11. Comprueba con los semillas en la feria."
+        ],
+        "retroalimentacion": "La torre siguiente tiene 11 cubos. Mantén el crecimiento de 2 en 2."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un juego con caramelos en el jardín, una fila de torres tiene 8 cubos, luego 9 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la primera torre de 8 con la segunda de 9. Mira los caramelos en el jardín.",
+          "Cada torre agrega 1 cubos. Usa los datos de caramelos en el jardín.",
+          "La siguiente tiene 10. Comprueba con los caramelos en el jardín."
+        ],
+        "retroalimentacion": "La torre siguiente tiene 10 cubos. Mantén el crecimiento de 1 en 1."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un juego con vasos en la cocina, una fila de torres tiene 9 cubos, luego 11 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
+        "respuesta": 13,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la primera torre de 9 con la segunda de 11. Mira los piedritas en la cocina.",
+          "Cada torre agrega 2 cubos. Usa los datos de piedritas en la cocina.",
+          "La siguiente tiene 13. Comprueba con los piedritas en la cocina."
+        ],
+        "retroalimentacion": "La torre siguiente tiene 13 cubos. Mantén el crecimiento de 2 en 2."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un juego con libros en la mochila, una fila de torres tiene 10 cubos, luego 11 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la primera torre de 10 con la segunda de 11. Mira los flores en la mochila.",
+          "Cada torre agrega 1 cubos. Usa los datos de flores en la mochila.",
+          "La siguiente tiene 12. Comprueba con los flores en la mochila."
+        ],
+        "retroalimentacion": "La torre siguiente tiene 12 cubos. Mantén el crecimiento de 1 en 1."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un juego con tomates en el mercado, una fila de torres tiene 11 cubos, luego 13 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la primera torre de 11 con la segunda de 13. Mira los tizas en el mercado.",
+          "Cada torre agrega 2 cubos. Usa los datos de tizas en el mercado.",
+          "La siguiente tiene 15. Comprueba con los tizas en el mercado."
+        ],
+        "retroalimentacion": "La torre siguiente tiene 15 cubos. Mantén el crecimiento de 2 en 2."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un juego con plátanos en la canasta, una fila de torres tiene 12 cubos, luego 13 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
+        "respuesta": 14,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la primera torre de 12 con la segunda de 13. Mira los pelotas en la canasta.",
+          "Cada torre agrega 1 cubos. Usa los datos de pelotas en la canasta.",
+          "La siguiente tiene 14. Comprueba con los pelotas en la canasta."
+        ],
+        "retroalimentacion": "La torre siguiente tiene 14 cubos. Mantén el crecimiento de 1 en 1."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un juego con sombreros en la escuela, una fila de torres tiene 13 cubos, luego 15 y la siguiente crece igual. ¿Cuántos cubos tendrá?",
+        "respuesta": 17,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la primera torre de 13 con la segunda de 15. Mira los mandarinas en la escuela.",
+          "Cada torre agrega 2 cubos. Usa los datos de mandarinas en la escuela.",
+          "La siguiente tiene 17. Comprueba con los mandarinas en la escuela."
+        ],
+        "retroalimentacion": "La torre siguiente tiene 17 cubos. Mantén el crecimiento de 2 en 2."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p1.patrones-1-en-1-y-2-en-2",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-P1-03"
+    ],
+    "bloque": "Patrones aditivos",
+    "nombre": "Patrones que aumentan de 1 en 1 y de 2 en 2",
+    "disciplina": "algebra",
+    "descripcionCorta": "Describe cómo crece una secuencia numérica hasta 20 de uno en uno o de dos en dos.",
+    "palabrasClave": [
+      "patrones",
+      "que",
+      "aumentan"
+    ],
+    "prerrequisitos": [
+      "mat.p1.torres-que-crecen",
+      "mat.p1.numeros-11-al-20"
+    ],
+    "ordenSugerido": 78,
+    "ideaCentral": "Describe cómo crece una secuencia numérica hasta 20 de uno en uno o de dos en dos.",
+    "pasos": [
+      "Mira los números en orden.",
+      "Averigua si aumentan de uno en uno o de dos en dos.",
+      "Continúa la regla para encontrar o explicar el número buscado."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La secuencia 2, 3, __ crece de 1 en 1. ¿Qué número sigue?",
+        "desarrollo": "Mira la diferencia entre 2 y 3. Mira los tapitas en el aula. Avanza otros 1 desde 3. Usa los datos de tapitas en el aula.",
+        "respuesta": "4"
+      },
+      {
+        "situacion": "La secuencia 3, 5, __ crece de 2 en 2. ¿Qué número sigue?",
+        "desarrollo": "Mira la diferencia entre 3 y 5. Mira los choclos en el patio. Avanza otros 2 desde 5. Usa los datos de choclos en el patio.",
+        "respuesta": "7"
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Cambiar el aumento a mitad de la secuencia.",
+        "correccion": "Averigua si aumentan de uno en uno o de dos en dos."
+      },
+      {
+        "error": "Contar el número inicial como un salto.",
+        "correccion": "Mira los números en orden. Continúa la regla para encontrar o explicar el número buscado."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Secuencia",
+        "significado": "Lista ordenada de números u objetos."
+      },
+      {
+        "termino": "Aumento",
+        "significado": "Cantidad que se añade en cada paso."
+      },
+      {
+        "termino": "Regla",
+        "significado": "Cambio que se repite en toda la secuencia."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un juego con dados en el aula, la secuencia 2, 3, __ crece de 1 en 1. ¿Qué número sigue?",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la diferencia entre 2 y 3. Mira los tapitas en el aula.",
+          "Avanza otros 1 desde 3. Usa los datos de tapitas en el aula.",
+          "Llegas a 4. Comprueba con los tapitas en el aula."
+        ],
+        "retroalimentacion": "Sigue 4 porque se suma 1 cada vez."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un juego con choclos en el patio, la secuencia 3, 5, __ crece de 2 en 2. ¿Qué número sigue?",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la diferencia entre 3 y 5. Mira los choclos en el patio.",
+          "Avanza otros 2 desde 5. Usa los datos de choclos en el patio.",
+          "Llegas a 7. Comprueba con los choclos en el patio."
+        ],
+        "retroalimentacion": "Sigue 7 porque se suma 2 cada vez."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un juego con cuentos en la chacra, la secuencia 4, 5, __ crece de 1 en 1. ¿Qué número sigue?",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la diferencia entre 4 y 5. Mira los cuentos en la chacra.",
+          "Avanza otros 1 desde 5. Usa los datos de cuentos en la chacra.",
+          "Llegas a 6. Comprueba con los cuentos en la chacra."
+        ],
+        "retroalimentacion": "Sigue 6 porque se suma 1 cada vez."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un juego con lápices en la biblioteca, la secuencia 5, 7, __ crece de 2 en 2. ¿Qué número sigue?",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la diferencia entre 5 y 7. Mira los lápices en la biblioteca.",
+          "Avanza otros 2 desde 7. Usa los datos de lápices en la biblioteca.",
+          "Llegas a 9. Comprueba con los lápices en la biblioteca."
+        ],
+        "retroalimentacion": "Sigue 9 porque se suma 2 cada vez."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un juego con cuyes en la mesa, la secuencia 6, 7, __ crece de 1 en 1. ¿Qué número sigue?",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la diferencia entre 6 y 7. Mira los cuyes en la mesa.",
+          "Avanza otros 1 desde 7. Usa los datos de cuyes en la mesa.",
+          "Llegas a 8. Comprueba con los cuyes en la mesa."
+        ],
+        "retroalimentacion": "Sigue 8 porque se suma 1 cada vez."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un juego con mangos en la feria, la secuencia 7, 9, __ crece de 2 en 2. ¿Qué número sigue?",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la diferencia entre 7 y 9. Mira los semillas en la feria.",
+          "Avanza otros 2 desde 9. Usa los datos de semillas en la feria.",
+          "Llegas a 11. Comprueba con los semillas en la feria."
+        ],
+        "retroalimentacion": "Sigue 11 porque se suma 2 cada vez."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un juego con caramelos en el jardín, la secuencia 8, 9, __ crece de 1 en 1. ¿Qué número sigue?",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la diferencia entre 8 y 9. Mira los caramelos en el jardín.",
+          "Avanza otros 1 desde 9. Usa los datos de caramelos en el jardín.",
+          "Llegas a 10. Comprueba con los caramelos en el jardín."
+        ],
+        "retroalimentacion": "Sigue 10 porque se suma 1 cada vez."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un juego con vasos en la cocina, la secuencia 9, 11, __ crece de 2 en 2. ¿Qué número sigue?",
+        "respuesta": 13,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la diferencia entre 9 y 11. Mira los piedritas en la cocina.",
+          "Avanza otros 2 desde 11. Usa los datos de piedritas en la cocina.",
+          "Llegas a 13. Comprueba con los piedritas en la cocina."
+        ],
+        "retroalimentacion": "Sigue 13 porque se suma 2 cada vez."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un juego con libros en la mochila, la secuencia 10, 11, __ crece de 1 en 1. ¿Qué número sigue?",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la diferencia entre 10 y 11. Mira los flores en la mochila.",
+          "Avanza otros 1 desde 11. Usa los datos de flores en la mochila.",
+          "Llegas a 12. Comprueba con los flores en la mochila."
+        ],
+        "retroalimentacion": "Sigue 12 porque se suma 1 cada vez."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un juego con tomates en el mercado, la secuencia 11, 13, __ crece de 2 en 2. ¿Qué número sigue?",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la diferencia entre 11 y 13. Mira los tizas en el mercado.",
+          "Avanza otros 2 desde 13. Usa los datos de tizas en el mercado.",
+          "Llegas a 15. Comprueba con los tizas en el mercado."
+        ],
+        "retroalimentacion": "Sigue 15 porque se suma 2 cada vez."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un juego con plátanos en la canasta, la secuencia 12, 13, __ crece de 1 en 1. ¿Qué número sigue?",
+        "respuesta": 14,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la diferencia entre 12 y 13. Mira los pelotas en la canasta.",
+          "Avanza otros 1 desde 13. Usa los datos de pelotas en la canasta.",
+          "Llegas a 14. Comprueba con los pelotas en la canasta."
+        ],
+        "retroalimentacion": "Sigue 14 porque se suma 1 cada vez."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un juego con sombreros en la escuela, la secuencia 13, 15, __ crece de 2 en 2. ¿Qué número sigue?",
+        "respuesta": 17,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la diferencia entre 13 y 15. Mira los mandarinas en la escuela.",
+          "Avanza otros 2 desde 15. Usa los datos de mandarinas en la escuela.",
+          "Llegas a 17. Comprueba con los mandarinas en la escuela."
+        ],
+        "retroalimentacion": "Sigue 17 porque se suma 2 cada vez."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p1.numeros-que-faltan-secuencia",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-P1-04"
+    ],
+    "bloque": "Patrones aditivos",
+    "nombre": "Números que faltan en una secuencia creciente",
+    "disciplina": "algebra",
+    "descripcionCorta": "Completa los números que faltan en una secuencia que crece de 1 en 1 o de 2 en 2.",
+    "palabrasClave": [
+      "números",
+      "que",
+      "faltan",
+      "una",
+      "secuencia",
+      "creciente"
+    ],
+    "prerrequisitos": [
+      "mat.p1.patrones-1-en-1-y-2-en-2"
+    ],
+    "ordenSugerido": 106,
+    "ideaCentral": "Completa los números que faltan en una secuencia que crece de 1 en 1 o de 2 en 2.",
+    "pasos": [
+      "Mira los números en orden.",
+      "Averigua si aumentan de uno en uno o de dos en dos.",
+      "Continúa la regla para encontrar o explicar el número buscado."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Completa el número faltante entre 2 y 4 si la fila avanza de 1 en 1.",
+        "desarrollo": "La secuencia parte de 2. Mira los tapitas en el aula. Avanza 1 para hallar el lugar vacío. Usa los datos de tapitas en el aula.",
+        "respuesta": "3"
+      },
+      {
+        "situacion": "Completa el número faltante entre 3 y 7 si la fila avanza de 2 en 2.",
+        "desarrollo": "La secuencia parte de 3. Mira los choclos en el patio. Avanza 2 para hallar el lugar vacío. Usa los datos de choclos en el patio.",
+        "respuesta": "5"
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Cambiar el aumento a mitad de la secuencia.",
+        "correccion": "Averigua si aumentan de uno en uno o de dos en dos."
+      },
+      {
+        "error": "Contar el número inicial como un salto.",
+        "correccion": "Mira los números en orden. Continúa la regla para encontrar o explicar el número buscado."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Secuencia",
+        "significado": "Lista ordenada de números u objetos."
+      },
+      {
+        "termino": "Aumento",
+        "significado": "Cantidad que se añade en cada paso."
+      },
+      {
+        "termino": "Regla",
+        "significado": "Cambio que se repite en toda la secuencia."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un juego con dados en el aula, completa el número faltante entre 2 y 4 si la fila avanza de 1 en 1.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La secuencia parte de 2. Mira los tapitas en el aula.",
+          "Avanza 1 para hallar el lugar vacío. Usa los datos de tapitas en el aula.",
+          "Antes de 4 va 3. Comprueba con los tapitas en el aula."
+        ],
+        "retroalimentacion": "Falta 3. Comprueba 2, 3, 4."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un juego con choclos en el patio, completa el número faltante entre 3 y 7 si la fila avanza de 2 en 2.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La secuencia parte de 3. Mira los choclos en el patio.",
+          "Avanza 2 para hallar el lugar vacío. Usa los datos de choclos en el patio.",
+          "Antes de 7 va 5. Comprueba con los choclos en el patio."
+        ],
+        "retroalimentacion": "Falta 5. Comprueba 3, 5, 7."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un juego con cuentos en la chacra, completa el número faltante entre 4 y 6 si la fila avanza de 1 en 1.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La secuencia parte de 4. Mira los cuentos en la chacra.",
+          "Avanza 1 para hallar el lugar vacío. Usa los datos de cuentos en la chacra.",
+          "Antes de 6 va 5. Comprueba con los cuentos en la chacra."
+        ],
+        "retroalimentacion": "Falta 5. Comprueba 4, 5, 6."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un juego con lápices en la biblioteca, completa el número faltante entre 5 y 9 si la fila avanza de 2 en 2.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La secuencia parte de 5. Mira los lápices en la biblioteca.",
+          "Avanza 2 para hallar el lugar vacío. Usa los datos de lápices en la biblioteca.",
+          "Antes de 9 va 7. Comprueba con los lápices en la biblioteca."
+        ],
+        "retroalimentacion": "Falta 7. Comprueba 5, 7, 9."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un juego con cuyes en la mesa, completa el número faltante entre 6 y 8 si la fila avanza de 1 en 1.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La secuencia parte de 6. Mira los cuyes en la mesa.",
+          "Avanza 1 para hallar el lugar vacío. Usa los datos de cuyes en la mesa.",
+          "Antes de 8 va 7. Comprueba con los cuyes en la mesa."
+        ],
+        "retroalimentacion": "Falta 7. Comprueba 6, 7, 8."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un juego con mangos en la feria, completa el número faltante entre 7 y 11 si la fila avanza de 2 en 2.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La secuencia parte de 7. Mira los semillas en la feria.",
+          "Avanza 2 para hallar el lugar vacío. Usa los datos de semillas en la feria.",
+          "Antes de 11 va 9. Comprueba con los semillas en la feria."
+        ],
+        "retroalimentacion": "Falta 9. Comprueba 7, 9, 11."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un juego con caramelos en el jardín, completa el número faltante entre 8 y 10 si la fila avanza de 1 en 1.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La secuencia parte de 8. Mira los caramelos en el jardín.",
+          "Avanza 1 para hallar el lugar vacío. Usa los datos de caramelos en el jardín.",
+          "Antes de 10 va 9. Comprueba con los caramelos en el jardín."
+        ],
+        "retroalimentacion": "Falta 9. Comprueba 8, 9, 10."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un juego con vasos en la cocina, completa el número faltante entre 9 y 13 si la fila avanza de 2 en 2.",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La secuencia parte de 9. Mira los piedritas en la cocina.",
+          "Avanza 2 para hallar el lugar vacío. Usa los datos de piedritas en la cocina.",
+          "Antes de 13 va 11. Comprueba con los piedritas en la cocina."
+        ],
+        "retroalimentacion": "Falta 11. Comprueba 9, 11, 13."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un juego con libros en la mochila, completa el número faltante entre 10 y 12 si la fila avanza de 1 en 1.",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La secuencia parte de 10. Mira los flores en la mochila.",
+          "Avanza 1 para hallar el lugar vacío. Usa los datos de flores en la mochila.",
+          "Antes de 12 va 11. Comprueba con los flores en la mochila."
+        ],
+        "retroalimentacion": "Falta 11. Comprueba 10, 11, 12."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un juego con tomates en el mercado, completa el número faltante entre 11 y 15 si la fila avanza de 2 en 2.",
+        "respuesta": 13,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La secuencia parte de 11. Mira los tizas en el mercado.",
+          "Avanza 2 para hallar el lugar vacío. Usa los datos de tizas en el mercado.",
+          "Antes de 15 va 13. Comprueba con los tizas en el mercado."
+        ],
+        "retroalimentacion": "Falta 13. Comprueba 11, 13, 15."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un juego con plátanos en la canasta, completa el número faltante entre 12 y 14 si la fila avanza de 1 en 1.",
+        "respuesta": 13,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La secuencia parte de 12. Mira los pelotas en la canasta.",
+          "Avanza 1 para hallar el lugar vacío. Usa los datos de pelotas en la canasta.",
+          "Antes de 14 va 13. Comprueba con los pelotas en la canasta."
+        ],
+        "retroalimentacion": "Falta 13. Comprueba 12, 13, 14."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un juego con sombreros en la escuela, completa el número faltante entre 13 y 17 si la fila avanza de 2 en 2.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La secuencia parte de 13. Mira los mandarinas en la escuela.",
+          "Avanza 2 para hallar el lugar vacío. Usa los datos de mandarinas en la escuela.",
+          "Antes de 17 va 15. Comprueba con los mandarinas en la escuela."
+        ],
+        "retroalimentacion": "Falta 15. Comprueba 13, 15, 17."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p1.explicar-como-crece",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+    "desempenosOrigen": [
+      "MAT-C24-P1-05"
+    ],
+    "bloque": "Patrones aditivos",
+    "nombre": "Explicar cómo crece una secuencia",
+    "disciplina": "algebra",
+    "descripcionCorta": "Explica cuánto aumenta cada vez una secuencia numérica y qué número sigue.",
+    "palabrasClave": [
+      "explicar",
+      "cómo",
+      "crece",
+      "una",
+      "secuencia"
+    ],
+    "prerrequisitos": [
+      "mat.p1.patrones-1-en-1-y-2-en-2"
+    ],
+    "ordenSugerido": 109,
+    "ideaCentral": "Explica cuánto aumenta cada vez una secuencia numérica y qué número sigue.",
+    "pasos": [
+      "Mira los números en orden.",
+      "Averigua si aumentan de uno en uno o de dos en dos.",
+      "Continúa la regla para encontrar o explicar el número buscado."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La secuencia es 2, 3, 4. ¿Cómo crece?",
+        "desarrollo": "Compara 2 y 3. Mira los tapitas en el aula. Comprueba que de 3 a 4 ocurre el mismo cambio. Usa los datos de tapitas en el aula.",
+        "respuesta": "de 1 en 1"
+      },
+      {
+        "situacion": "La secuencia es 3, 5, 7. ¿Cómo crece?",
+        "desarrollo": "Compara 3 y 5. Mira los choclos en el patio. Comprueba que de 5 a 7 ocurre el mismo cambio. Usa los datos de choclos en el patio.",
+        "respuesta": "de 2 en 2"
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Cambiar el aumento a mitad de la secuencia.",
+        "correccion": "Averigua si aumentan de uno en uno o de dos en dos."
+      },
+      {
+        "error": "Contar el número inicial como un salto.",
+        "correccion": "Mira los números en orden. Continúa la regla para encontrar o explicar el número buscado."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Secuencia",
+        "significado": "Lista ordenada de números u objetos."
+      },
+      {
+        "termino": "Aumento",
+        "significado": "Cantidad que se añade en cada paso."
+      },
+      {
+        "termino": "Regla",
+        "significado": "Cambio que se repite en toda la secuencia."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un juego con dados en el aula, la secuencia es 2, 3, 4. ¿Cómo crece?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 2 y 3. Mira los tapitas en el aula.",
+          "Comprueba que de 3 a 4 ocurre el mismo cambio. Usa los datos de tapitas en el aula.",
+          "Aumenta 1 en cada paso. Comprueba con los tapitas en el aula."
+        ],
+        "retroalimentacion": "Crece de 1 en 1. No basta mirar un solo salto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "de 1 en 1"
+          },
+          {
+            "id": "b",
+            "texto": "de 2 en 2"
+          },
+          {
+            "id": "c",
+            "texto": "disminuye"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un juego con choclos en el patio, la secuencia es 3, 5, 7. ¿Cómo crece?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 3 y 5. Mira los choclos en el patio.",
+          "Comprueba que de 5 a 7 ocurre el mismo cambio. Usa los datos de choclos en el patio.",
+          "Aumenta 2 en cada paso. Comprueba con los choclos en el patio."
+        ],
+        "retroalimentacion": "Crece de 2 en 2. No basta mirar un solo salto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "de 1 en 1"
+          },
+          {
+            "id": "b",
+            "texto": "disminuye"
+          },
+          {
+            "id": "c",
+            "texto": "de 2 en 2"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un juego con cuentos en la chacra, la secuencia es 4, 5, 6. ¿Cómo crece?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 4 y 5. Mira los cuentos en la chacra.",
+          "Comprueba que de 5 a 6 ocurre el mismo cambio. Usa los datos de cuentos en la chacra.",
+          "Aumenta 1 en cada paso. Comprueba con los cuentos en la chacra."
+        ],
+        "retroalimentacion": "Crece de 1 en 1. No basta mirar un solo salto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "disminuye"
+          },
+          {
+            "id": "b",
+            "texto": "de 1 en 1"
+          },
+          {
+            "id": "c",
+            "texto": "de 2 en 2"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un juego con lápices en la biblioteca, la secuencia es 5, 7, 9. ¿Cómo crece?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 5 y 7. Mira los lápices en la biblioteca.",
+          "Comprueba que de 7 a 9 ocurre el mismo cambio. Usa los datos de lápices en la biblioteca.",
+          "Aumenta 2 en cada paso. Comprueba con los lápices en la biblioteca."
+        ],
+        "retroalimentacion": "Crece de 2 en 2. No basta mirar un solo salto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "de 2 en 2"
+          },
+          {
+            "id": "b",
+            "texto": "de 1 en 1"
+          },
+          {
+            "id": "c",
+            "texto": "disminuye"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un juego con cuyes en la mesa, la secuencia es 6, 7, 8. ¿Cómo crece?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 6 y 7. Mira los cuyes en la mesa.",
+          "Comprueba que de 7 a 8 ocurre el mismo cambio. Usa los datos de cuyes en la mesa.",
+          "Aumenta 1 en cada paso. Comprueba con los cuyes en la mesa."
+        ],
+        "retroalimentacion": "Crece de 1 en 1. No basta mirar un solo salto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "de 2 en 2"
+          },
+          {
+            "id": "b",
+            "texto": "disminuye"
+          },
+          {
+            "id": "c",
+            "texto": "de 1 en 1"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un juego con mangos en la feria, la secuencia es 7, 9, 11. ¿Cómo crece?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 7 y 9. Mira los semillas en la feria.",
+          "Comprueba que de 9 a 11 ocurre el mismo cambio. Usa los datos de semillas en la feria.",
+          "Aumenta 2 en cada paso. Comprueba con los semillas en la feria."
+        ],
+        "retroalimentacion": "Crece de 2 en 2. No basta mirar un solo salto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "disminuye"
+          },
+          {
+            "id": "b",
+            "texto": "de 2 en 2"
+          },
+          {
+            "id": "c",
+            "texto": "de 1 en 1"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un juego con caramelos en el jardín, la secuencia es 8, 9, 10. ¿Cómo crece?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 8 y 9. Mira los caramelos en el jardín.",
+          "Comprueba que de 9 a 10 ocurre el mismo cambio. Usa los datos de caramelos en el jardín.",
+          "Aumenta 1 en cada paso. Comprueba con los caramelos en el jardín."
+        ],
+        "retroalimentacion": "Crece de 1 en 1. No basta mirar un solo salto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "de 1 en 1"
+          },
+          {
+            "id": "b",
+            "texto": "de 2 en 2"
+          },
+          {
+            "id": "c",
+            "texto": "disminuye"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un juego con vasos en la cocina, la secuencia es 9, 11, 13. ¿Cómo crece?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 9 y 11. Mira los piedritas en la cocina.",
+          "Comprueba que de 11 a 13 ocurre el mismo cambio. Usa los datos de piedritas en la cocina.",
+          "Aumenta 2 en cada paso. Comprueba con los piedritas en la cocina."
+        ],
+        "retroalimentacion": "Crece de 2 en 2. No basta mirar un solo salto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "de 1 en 1"
+          },
+          {
+            "id": "b",
+            "texto": "disminuye"
+          },
+          {
+            "id": "c",
+            "texto": "de 2 en 2"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un juego con libros en la mochila, la secuencia es 10, 11, 12. ¿Cómo crece?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 10 y 11. Mira los flores en la mochila.",
+          "Comprueba que de 11 a 12 ocurre el mismo cambio. Usa los datos de flores en la mochila.",
+          "Aumenta 1 en cada paso. Comprueba con los flores en la mochila."
+        ],
+        "retroalimentacion": "Crece de 1 en 1. No basta mirar un solo salto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "disminuye"
+          },
+          {
+            "id": "b",
+            "texto": "de 1 en 1"
+          },
+          {
+            "id": "c",
+            "texto": "de 2 en 2"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un juego con tomates en el mercado, la secuencia es 11, 13, 15. ¿Cómo crece?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 11 y 13. Mira los tizas en el mercado.",
+          "Comprueba que de 13 a 15 ocurre el mismo cambio. Usa los datos de tizas en el mercado.",
+          "Aumenta 2 en cada paso. Comprueba con los tizas en el mercado."
+        ],
+        "retroalimentacion": "Crece de 2 en 2. No basta mirar un solo salto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "de 2 en 2"
+          },
+          {
+            "id": "b",
+            "texto": "de 1 en 1"
+          },
+          {
+            "id": "c",
+            "texto": "disminuye"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un juego con plátanos en la canasta, la secuencia es 12, 13, 14. ¿Cómo crece?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 12 y 13. Mira los pelotas en la canasta.",
+          "Comprueba que de 13 a 14 ocurre el mismo cambio. Usa los datos de pelotas en la canasta.",
+          "Aumenta 1 en cada paso. Comprueba con los pelotas en la canasta."
+        ],
+        "retroalimentacion": "Crece de 1 en 1. No basta mirar un solo salto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "de 2 en 2"
+          },
+          {
+            "id": "b",
+            "texto": "disminuye"
+          },
+          {
+            "id": "c",
+            "texto": "de 1 en 1"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un juego con sombreros en la escuela, la secuencia es 13, 15, 17. ¿Cómo crece?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 13 y 15. Mira los mandarinas en la escuela.",
+          "Comprueba que de 15 a 17 ocurre el mismo cambio. Usa los datos de mandarinas en la escuela.",
+          "Aumenta 2 en cada paso. Comprueba con los mandarinas en la escuela."
+        ],
+        "retroalimentacion": "Crece de 2 en 2. No basta mirar un solo salto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "disminuye"
+          },
+          {
+            "id": "b",
+            "texto": "de 2 en 2"
+          },
+          {
+            "id": "c",
+            "texto": "de 1 en 1"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]
