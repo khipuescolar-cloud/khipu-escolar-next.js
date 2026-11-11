@@ -15,6 +15,7 @@ import { restaurarPlantillaOficial } from "./curriculo";
 import { renderizarPlantilla } from "./email/plantillas";
 import { exigirAlumnosFamilias, exigirGestion } from "./gestion";
 import { areaDeCurso } from "./nudito/areas-cursos";
+import { sincronizarCursosDeSalones } from "./plan-estudios";
 import { whereSalonActivo } from "./salones-activos";
 import { supabaseAdmin } from "./supabase";
 import type { TenantContext } from "./tenant";
@@ -226,6 +227,13 @@ export async function importarSalones(ctx: TenantContext, tabla: Tabla): Promise
     if (c.areaCneb && nivel && esNivelCneb(nivel) && gradoValido(nivel, plan?.archivo.grado)) await restaurarPlantillaOficial(ctx, c.id);
   }
   for (const c of cursos) auditoria.push({ tenantId, actorId, accion: "crear", entidad: "curso", entidadId: c.id, detalle: { origen: "carga_masiva" } });
+  // Los salones nuevos heredan la malla anual del grado; los cursos cargados por archivo se enlazan por nombre.
+  for (const p of nuevos) if (p.archivo.grado !== null && p.archivo.grado > 0) {
+    const resultado = await sincronizarCursosDeSalones(ctx, {
+      anio: p.archivo.anio, nivel: p.archivo.nivel as Nivel, grado: p.archivo.grado, salonIds: [p.existenteId!],
+    });
+    if (resultado.creados) v.notas.push(`La malla agregó ${resultado.creados} curso(s) al salón «${p.archivo.nombre}».`);
+  }
 
   const porProfesor = new Map<string, string[]>();
   for (const c of planes.flatMap((p) => p.cursosProfesor)) porProfesor.set(c.profesorId, [...(porProfesor.get(c.profesorId) ?? []), c.id]);
