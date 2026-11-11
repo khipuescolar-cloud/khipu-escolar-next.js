@@ -944,46 +944,46 @@
       "mat.p1.formas-del-entorno"
     ],
     "ordenSugerido": 47,
-    "ideaCentral": "Reconoce y nombra las figuras planas básicas en objetos y dibujos.",
+    "ideaCentral": "Las figuras planas se reconocen por su contorno. El círculo es redondo; triángulo, cuadrado y rectángulo tienen lados rectos.",
     "pasos": [
-      "Observa la forma del objeto o de la figura.",
-      "Busca sus lados, caras, puntas o superficies curvas.",
-      "Compárala con una forma conocida y nómbrala."
+      "Mira el borde de la figura.",
+      "Cuenta lados y esquinas, si los tiene.",
+      "Compara esas propiedades con las figuras conocidas."
     ],
     "ejemplos": [
       {
-        "situacion": "Una figura plana tiene tres lados rectos. ¿Cómo se llama?",
-        "desarrollo": "Fíjate en tres lados rectos. Mira los tapitas en el aula. Compara con las figuras conocidas. Usa los datos de tapitas en el aula.",
-        "respuesta": "triángulo"
+        "situacion": "Un dibujo tiene tres lados rectos.",
+        "desarrollo": "Al contar tres segmentos que se unen, reconoces la figura de tres lados.",
+        "respuesta": "Es un triángulo."
       },
       {
-        "situacion": "Una figura plana tiene cuatro lados iguales. ¿Cómo se llama?",
-        "desarrollo": "Fíjate en cuatro lados iguales. Mira los choclos en el patio. Compara con las figuras conocidas. Usa los datos de choclos en el patio.",
-        "respuesta": "cuadrado"
+        "situacion": "Una tapa tiene borde redondo sin esquinas.",
+        "desarrollo": "El borde es curvo y cerrado.",
+        "respuesta": "Es un círculo."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Decidir solo por el tamaño o el color del objeto.",
-        "correccion": "Observa la forma del objeto o de la figura. Busca sus lados, caras, puntas o superficies curvas."
+        "error": "Llamar cuadrado a cualquier figura de cuatro lados.",
+        "correccion": "Comprueba si sus cuatro lados son iguales."
       },
       {
-        "error": "Confundir un cuerpo con el contorno de una de sus caras.",
-        "correccion": "Compárala con una forma conocida y nómbrala. Revisa si la pregunta pide cuerpo o figura plana."
+        "error": "Creer que una figura cambia de nombre al girarla.",
+        "correccion": "Mira el contorno: girar no cambia sus lados."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Forma",
-        "significado": "Aspecto geométrico de un objeto."
-      },
-      {
-        "termino": "Cara",
-        "significado": "Superficie de un cuerpo geométrico."
-      },
-      {
         "termino": "Contorno",
-        "significado": "Línea que rodea una figura."
+        "significado": "Línea que rodea la figura."
+      },
+      {
+        "termino": "Lado",
+        "significado": "Segmento recto de una figura."
+      },
+      {
+        "termino": "Esquina",
+        "significado": "Punto donde se unen dos lados."
       }
     ],
     "ejercicios": [
@@ -991,15 +991,9 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En el aula, durante la clase de formas, una figura plana tiene tres lados rectos. ¿Cómo se llama?",
-        "respuesta": "a",
+        "enunciado": "Dibujas una figura redonda como la boca de un vaso. ¿Cómo se llama?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Fíjate en tres lados rectos. Mira los tapitas en el aula.",
-          "Compara con las figuras conocidas. Usa los datos de tapitas en el aula.",
-          "La figura es triángulo. Comprueba con los tapitas en el aula."
-        ],
-        "retroalimentacion": "Es un triángulo porque tiene tres lados rectos.",
         "opciones": [
           {
             "id": "a",
@@ -1007,31 +1001,27 @@
           },
           {
             "id": "b",
-            "texto": "cuadrado"
+            "texto": "círculo"
           },
           {
             "id": "c",
             "texto": "rectángulo"
-          },
-          {
-            "id": "d",
-            "texto": "círculo"
           }
-        ]
+        ],
+        "pistas": [
+          "Piensa en el borde de la boca del vaso.",
+          "No tiene esquinas ni lados rectos.",
+          "Una figura plana redonda es un círculo."
+        ],
+        "retroalimentacion": "Es un círculo: su borde es curvo y cerrado."
       },
       {
         "id": "e02",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En el patio, durante la clase de formas, una figura plana tiene cuatro lados iguales. ¿Cómo se llama?",
-        "respuesta": "d",
+        "enunciado": "Un dibujo tiene tres lados rectos que se unen en tres puntas. ¿Qué figura es?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Fíjate en cuatro lados iguales. Mira los choclos en el patio.",
-          "Compara con las figuras conocidas. Usa los datos de choclos en el patio.",
-          "La figura es cuadrado. Comprueba con los choclos en el patio."
-        ],
-        "retroalimentacion": "Es un cuadrado porque tiene cuatro lados iguales.",
         "opciones": [
           {
             "id": "a",
@@ -1039,255 +1029,223 @@
           },
           {
             "id": "b",
-            "texto": "rectángulo"
+            "texto": "cuadrado"
           },
           {
             "id": "c",
             "texto": "círculo"
-          },
-          {
-            "id": "d",
-            "texto": "cuadrado"
           }
-        ]
+        ],
+        "pistas": [
+          "Cuenta los lados rectos: son tres.",
+          "Busca una figura con tres puntas.",
+          "Esa figura es un triángulo."
+        ],
+        "retroalimentacion": "El triángulo tiene tres lados rectos y tres puntas."
       },
       {
         "id": "e03",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En la chacra, durante la clase de formas, una figura plana tiene cuatro lados con dos largos y dos cortos. ¿Cómo se llama?",
+        "enunciado": "El marco de una tarjeta tiene cuatro lados iguales y cuatro esquinas. ¿Qué figura plana representa?",
         "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Fíjate en cuatro lados con dos largos y dos cortos. Mira los cuentos en la chacra.",
-          "Compara con las figuras conocidas. Usa los datos de cuentos en la chacra.",
-          "La figura es rectángulo. Comprueba con los cuentos en la chacra."
-        ],
-        "retroalimentacion": "Es un rectángulo porque tiene cuatro lados con dos largos y dos cortos.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cuadrado"
-          },
-          {
-            "id": "b",
             "texto": "círculo"
           },
           {
-            "id": "c",
-            "texto": "rectángulo"
+            "id": "b",
+            "texto": "rectángulo alargado"
           },
           {
-            "id": "d",
-            "texto": "triángulo"
+            "id": "c",
+            "texto": "cuadrado"
           }
-        ]
+        ],
+        "pistas": [
+          "El marco tiene cuatro lados.",
+          "Todos miden lo mismo.",
+          "La figura buscada es un cuadrado."
+        ],
+        "retroalimentacion": "El cuadrado tiene cuatro lados iguales; el círculo no tiene esquinas."
       },
       {
         "id": "e04",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En la biblioteca, durante la clase de formas, una figura plana tiene un borde redondo sin lados rectos. ¿Cómo se llama?",
+        "enunciado": "La tapa de un cuaderno es más larga que ancha y tiene cuatro esquinas. ¿Qué figura reconoces?",
         "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Fíjate en un borde redondo sin lados rectos. Mira los lápices en la biblioteca.",
-          "Compara con las figuras conocidas. Usa los datos de lápices en la biblioteca.",
-          "La figura es círculo. Comprueba con los lápices en la biblioteca."
-        ],
-        "retroalimentacion": "Es un círculo porque tiene un borde redondo sin lados rectos.",
         "opciones": [
           {
             "id": "a",
-            "texto": "rectángulo"
-          },
-          {
-            "id": "b",
-            "texto": "círculo"
-          },
-          {
-            "id": "c",
             "texto": "triángulo"
           },
           {
-            "id": "d",
-            "texto": "cuadrado"
+            "id": "b",
+            "texto": "rectángulo"
+          },
+          {
+            "id": "c",
+            "texto": "círculo"
           }
-        ]
+        ],
+        "pistas": [
+          "Hay cuatro lados rectos.",
+          "Dos lados son más largos que los otros dos.",
+          "Esa forma se llama rectángulo."
+        ],
+        "retroalimentacion": "La tapa se parece a un rectángulo alargado."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En la mesa, durante la clase de formas, una figura plana tiene tres lados rectos. ¿Cómo se llama?",
+        "enunciado": "Para hacer un banderín dibujas tres segmentos rectos y cierras la figura. ¿Qué obtienes?",
         "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Fíjate en tres lados rectos. Mira los cuyes en la mesa.",
-          "Compara con las figuras conocidas. Usa los datos de cuyes en la mesa.",
-          "La figura es triángulo. Comprueba con los cuyes en la mesa."
-        ],
-        "retroalimentacion": "Es un triángulo porque tiene tres lados rectos.",
         "opciones": [
           {
             "id": "a",
-            "texto": "triángulo"
+            "texto": "un triángulo"
           },
           {
             "id": "b",
-            "texto": "cuadrado"
+            "texto": "un círculo"
           },
           {
             "id": "c",
-            "texto": "rectángulo"
-          },
-          {
-            "id": "d",
-            "texto": "círculo"
+            "texto": "un cuadrado"
           }
-        ]
+        ],
+        "pistas": [
+          "Cada segmento será un lado.",
+          "La figura queda cerrada con tres lados.",
+          "Tres lados forman un triángulo."
+        ],
+        "retroalimentacion": "Con tres segmentos rectos unidos se forma un triángulo."
       },
       {
         "id": "e06",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En la feria, durante la clase de formas, una figura plana tiene cuatro lados iguales. ¿Cómo se llama?",
-        "respuesta": "d",
+        "enunciado": "En la mesa hay una moneda y una tarjeta cuadrada. ¿Cuál tiene un contorno sin esquinas?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Fíjate en cuatro lados iguales. Mira los semillas en la feria.",
-          "Compara con las figuras conocidas. Usa los datos de semillas en la feria.",
-          "La figura es cuadrado. Comprueba con los semillas en la feria."
-        ],
-        "retroalimentacion": "Es un cuadrado porque tiene cuatro lados iguales.",
         "opciones": [
           {
             "id": "a",
-            "texto": "triángulo"
+            "texto": "la tarjeta"
           },
           {
             "id": "b",
-            "texto": "rectángulo"
+            "texto": "la moneda"
           },
           {
             "id": "c",
-            "texto": "círculo"
-          },
-          {
-            "id": "d",
-            "texto": "cuadrado"
+            "texto": "las dos"
           }
-        ]
+        ],
+        "pistas": [
+          "Recorre el borde de la tarjeta: cambia de dirección en cuatro esquinas.",
+          "El borde de la moneda es redondo.",
+          "La moneda muestra un círculo."
+        ],
+        "retroalimentacion": "La moneda tiene contorno circular; la tarjeta cuadrada tiene esquinas."
       },
       {
         "id": "e07",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En el jardín, durante la clase de formas, una figura plana tiene cuatro lados con dos largos y dos cortos. ¿Cómo se llama?",
+        "enunciado": "Una niña gira un cuadrado y parece un rombo apoyado en una punta. ¿Qué figura sigue siendo?",
         "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Fíjate en cuatro lados con dos largos y dos cortos. Mira los caramelos en el jardín.",
-          "Compara con las figuras conocidas. Usa los datos de caramelos en el jardín.",
-          "La figura es rectángulo. Comprueba con los caramelos en el jardín."
-        ],
-        "retroalimentacion": "Es un rectángulo porque tiene cuatro lados con dos largos y dos cortos.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cuadrado"
-          },
-          {
-            "id": "b",
             "texto": "círculo"
           },
           {
-            "id": "c",
-            "texto": "rectángulo"
+            "id": "b",
+            "texto": "triángulo"
           },
           {
-            "id": "d",
-            "texto": "triángulo"
+            "id": "c",
+            "texto": "cuadrado"
           }
-        ]
+        ],
+        "pistas": [
+          "Girar el papel no cambia sus lados.",
+          "Todavía tiene cuatro lados iguales.",
+          "Sigue siendo un cuadrado."
+        ],
+        "retroalimentacion": "Un cuadrado sigue siendo cuadrado aunque esté girado."
       },
       {
         "id": "e08",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En la cocina, durante la clase de formas, una figura plana tiene un borde redondo sin lados rectos. ¿Cómo se llama?",
+        "enunciado": "Tienes un triángulo y un rectángulo dibujados. ¿Qué dato te permite diferenciarlos con seguridad?",
         "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Fíjate en un borde redondo sin lados rectos. Mira los piedritas en la cocina.",
-          "Compara con las figuras conocidas. Usa los datos de piedritas en la cocina.",
-          "La figura es círculo. Comprueba con los piedritas en la cocina."
-        ],
-        "retroalimentacion": "Es un círculo porque tiene un borde redondo sin lados rectos.",
         "opciones": [
           {
             "id": "a",
-            "texto": "rectángulo"
+            "texto": "El color de cada dibujo"
           },
           {
             "id": "b",
-            "texto": "círculo"
+            "texto": "La cantidad de lados rectos"
           },
           {
             "id": "c",
-            "texto": "triángulo"
-          },
-          {
-            "id": "d",
-            "texto": "cuadrado"
+            "texto": "El lugar de la hoja"
           }
-        ]
+        ],
+        "pistas": [
+          "El color puede cambiar sin cambiar la figura.",
+          "Cuenta tres lados en uno y cuatro en el otro.",
+          "La cantidad de lados los distingue."
+        ],
+        "retroalimentacion": "El triángulo tiene tres lados y el rectángulo cuatro; el color no define la forma."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "En la mochila, durante la clase de formas, una figura plana tiene tres lados rectos. ¿Cómo se llama?",
+        "enunciado": "Para clasificar figuras planas, una tiene borde curvo cerrado y otra cuatro lados rectos. ¿Cuál podría ser la primera?",
         "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Fíjate en tres lados rectos. Mira los flores en la mochila.",
-          "Compara con las figuras conocidas. Usa los datos de flores en la mochila.",
-          "La figura es triángulo. Comprueba con los flores en la mochila."
-        ],
-        "retroalimentacion": "Es un triángulo porque tiene tres lados rectos.",
         "opciones": [
           {
             "id": "a",
-            "texto": "triángulo"
+            "texto": "un círculo"
           },
           {
             "id": "b",
-            "texto": "cuadrado"
+            "texto": "un cuadrado"
           },
           {
             "id": "c",
-            "texto": "rectángulo"
-          },
-          {
-            "id": "d",
-            "texto": "círculo"
+            "texto": "un rectángulo"
           }
-        ]
+        ],
+        "pistas": [
+          "Busca la figura cuyo borde no tiene tramos rectos.",
+          "Cuadrado y rectángulo tienen lados rectos.",
+          "La figura curva cerrada es el círculo."
+        ],
+        "retroalimentacion": "El círculo tiene borde curvo cerrado; no posee lados rectos."
       },
       {
         "id": "e10",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "En el mercado, durante la clase de formas, una figura plana tiene cuatro lados iguales. ¿Cómo se llama?",
-        "respuesta": "d",
+        "enunciado": "Un cartel escolar tiene forma de rectángulo. Si lo haces más pequeño sin cambiar su contorno, ¿qué figura queda?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Fíjate en cuatro lados iguales. Mira los tizas en el mercado.",
-          "Compara con las figuras conocidas. Usa los datos de tizas en el mercado.",
-          "La figura es cuadrado. Comprueba con los tizas en el mercado."
-        ],
-        "retroalimentacion": "Es un cuadrado porque tiene cuatro lados iguales.",
         "opciones": [
           {
             "id": "a",
@@ -1300,58 +1258,50 @@
           {
             "id": "c",
             "texto": "círculo"
-          },
-          {
-            "id": "d",
-            "texto": "cuadrado"
           }
-        ]
+        ],
+        "pistas": [
+          "Cambiar el tamaño no añade ni quita lados.",
+          "El cartel conserva cuatro lados y cuatro esquinas.",
+          "Su forma sigue siendo rectangular."
+        ],
+        "retroalimentacion": "El cartel más pequeño sigue siendo un rectángulo."
       },
       {
         "id": "e11",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "En la canasta, durante la clase de formas, una figura plana tiene cuatro lados con dos largos y dos cortos. ¿Cómo se llama?",
-        "respuesta": "c",
+        "enunciado": "Ana afirma que un dibujo de cuatro lados iguales es un triángulo. ¿Qué corrección la ayuda?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Fíjate en cuatro lados con dos largos y dos cortos. Mira los pelotas en la canasta.",
-          "Compara con las figuras conocidas. Usa los datos de pelotas en la canasta.",
-          "La figura es rectángulo. Comprueba con los pelotas en la canasta."
-        ],
-        "retroalimentacion": "Es un rectángulo porque tiene cuatro lados con dos largos y dos cortos.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cuadrado"
+            "texto": "Es un círculo porque está cerrado"
           },
           {
             "id": "b",
-            "texto": "círculo"
+            "texto": "Es un cuadrado porque tiene cuatro lados iguales"
           },
           {
             "id": "c",
-            "texto": "rectángulo"
-          },
-          {
-            "id": "d",
-            "texto": "triángulo"
+            "texto": "Es un triángulo porque tiene puntas"
           }
-        ]
+        ],
+        "pistas": [
+          "Un triángulo tiene solo tres lados.",
+          "El dibujo descrito tiene cuatro lados iguales.",
+          "Nombra la figura que cumple esa propiedad."
+        ],
+        "retroalimentacion": "Es un cuadrado: cuatro lados iguales. El triángulo tiene tres."
       },
       {
         "id": "e12",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "En la escuela, durante la clase de formas, una figura plana tiene un borde redondo sin lados rectos. ¿Cómo se llama?",
-        "respuesta": "b",
+        "enunciado": "Para dibujar una casa sencilla usas un cuadrado para la pared y una figura de tres lados para el techo. ¿Qué figura es el techo?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Fíjate en un borde redondo sin lados rectos. Mira los mandarinas en la escuela.",
-          "Compara con las figuras conocidas. Usa los datos de mandarinas en la escuela.",
-          "La figura es círculo. Comprueba con los mandarinas en la escuela."
-        ],
-        "retroalimentacion": "Es un círculo porque tiene un borde redondo sin lados rectos.",
         "opciones": [
           {
             "id": "a",
@@ -1364,12 +1314,14 @@
           {
             "id": "c",
             "texto": "triángulo"
-          },
-          {
-            "id": "d",
-            "texto": "cuadrado"
           }
-        ]
+        ],
+        "pistas": [
+          "La pared ya está representada por el cuadrado.",
+          "Cuenta los lados pedidos para el techo: tres.",
+          "Elige un triángulo."
+        ],
+        "retroalimentacion": "Un triángulo tiene tres lados y puede representar el techo del dibujo."
       }
     ],
     "fuentes": [
@@ -1406,46 +1358,46 @@
       "mat.p1.cubo-esfera-cilindro"
     ],
     "ordenSugerido": 51,
-    "ideaCentral": "Prueba y explica qué objetos ruedan, cuáles se deslizan y cuáles se sostienen.",
+    "ideaCentral": "Una superficie curva puede permitir que un objeto ruede. Una cara plana facilita que se deslice o permanezca estable; la posición también importa.",
     "pasos": [
-      "Observa si el objeto tiene superficie curva.",
-      "Imagina cómo se mueve al empujarlo suavemente.",
-      "Decide si rueda o se desliza."
+      "Observa qué superficie toca el suelo.",
+      "Empuja suavemente y mira si el objeto gira.",
+      "Si gira mientras avanza, rueda; si avanza sin girar, se desliza."
     ],
     "ejemplos": [
       {
-        "situacion": "Colocas pelota en una mesa lisa y lo empujas suavemente. ¿Rueda o no rueda?",
-        "desarrollo": "Piensa si pelota tiene una superficie curva. Mira los tapitas en el aula. Las superficies curvas facilitan rodar. Usa los datos de tapitas en el aula.",
-        "respuesta": "rueda"
+        "situacion": "Una pelota se mueve por el piso.",
+        "desarrollo": "Su superficie redonda gira mientras avanza.",
+        "respuesta": "La pelota rueda."
       },
       {
-        "situacion": "Colocas dado en una mesa lisa y lo empujas suavemente. ¿Rueda o no rueda?",
-        "desarrollo": "Piensa si dado tiene una superficie curva. Mira los choclos en el patio. Las superficies curvas facilitan rodar. Usa los datos de choclos en el patio.",
-        "respuesta": "no rueda"
+        "situacion": "Una caja se empuja sobre su base.",
+        "desarrollo": "La cara plana sigue apoyada y la caja avanza sin girar.",
+        "respuesta": "La caja se desliza."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Decidir solo por el tamaño o el color del objeto.",
-        "correccion": "Observa si el objeto tiene superficie curva. Imagina cómo se mueve al empujarlo suavemente."
+        "error": "Decir que una caja rueda porque se mueve.",
+        "correccion": "Para rodar debe girar mientras avanza."
       },
       {
-        "error": "Confundir un cuerpo con el contorno de una de sus caras.",
-        "correccion": "Decide si rueda o se desliza. Revisa si la pregunta pide cuerpo o figura plana."
+        "error": "Olvidar la posición de un cilindro.",
+        "correccion": "Acostado puede rodar sobre su costado curvo; de pie apoya una base plana."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Forma",
-        "significado": "Aspecto geométrico de un objeto."
+        "termino": "Rodar",
+        "significado": "Avanzar girando."
       },
       {
-        "termino": "Cara",
-        "significado": "Superficie de un cuerpo geométrico."
+        "termino": "Deslizar",
+        "significado": "Avanzar sin girar sobre una superficie."
       },
       {
-        "termino": "Contorno",
-        "significado": "Línea que rodea una figura."
+        "termino": "Superficie curva",
+        "significado": "Parte redondeada de un objeto."
       }
     ],
     "ejercicios": [
@@ -1453,337 +1405,337 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Colocas pelota en una mesa lisa y lo empujas suavemente. ¿Rueda o no rueda?",
-        "respuesta": "a",
+        "enunciado": "Empujas una pelota sobre el piso liso. ¿Qué movimiento esperas?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa si pelota tiene una superficie curva. Mira los tapitas en el aula.",
-          "Las superficies curvas facilitan rodar. Usa los datos de tapitas en el aula.",
-          "Este objeto rueda. Comprueba con los tapitas en el aula."
-        ],
-        "retroalimentacion": "«pelota» rueda por su forma. Los cuerpos con caras planas pueden deslizarse.",
         "opciones": [
           {
             "id": "a",
-            "texto": "rueda"
+            "texto": "Se queda inmóvil"
           },
           {
             "id": "b",
-            "texto": "no rueda"
+            "texto": "Rueda porque su superficie es curva"
           },
           {
             "id": "c",
-            "texto": "flota"
+            "texto": "Se dobla como papel"
           }
-        ]
+        ],
+        "pistas": [
+          "Piensa en la forma redonda de la pelota.",
+          "Al tocar el piso, puede cambiar continuamente su punto de apoyo.",
+          "Ese movimiento se llama rodar."
+        ],
+        "retroalimentacion": "La pelota rueda por su superficie curva; no necesita una cara plana para avanzar."
       },
       {
         "id": "e02",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Colocas dado en una mesa lisa y lo empujas suavemente. ¿Rueda o no rueda?",
-        "respuesta": "c",
+        "enunciado": "Dejas un dado sobre una mesa y lo empujas suavemente sin levantarlo. ¿Qué puede hacer?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa si dado tiene una superficie curva. Mira los choclos en el patio.",
-          "Las superficies curvas facilitan rodar. Usa los datos de choclos en el patio.",
-          "Este objeto no rueda. Comprueba con los choclos en el patio."
-        ],
-        "retroalimentacion": "«dado» no rueda por su forma. Los cuerpos con caras planas pueden deslizarse.",
         "opciones": [
           {
             "id": "a",
-            "texto": "rueda"
+            "texto": "Deslizarse sobre una cara plana"
           },
           {
             "id": "b",
-            "texto": "flota"
+            "texto": "Rodar como una pelota redonda"
           },
           {
             "id": "c",
-            "texto": "no rueda"
+            "texto": "Convertirse en cilindro"
           }
-        ]
+        ],
+        "pistas": [
+          "Mira la cara del dado que toca la mesa.",
+          "Esa cara es plana y permanece apoyada al empujarlo suavemente.",
+          "Un movimiento posible es deslizarse."
+        ],
+        "retroalimentacion": "El dado puede deslizarse sobre su cara plana. Si lo empujas con fuerza podría volcarse, pero no rueda como una pelota."
       },
       {
         "id": "e03",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Colocas lata de leche de lado sobre una mesa lisa y lo empujas. ¿Rueda o no rueda?",
+        "enunciado": "Una lata está acostada de lado en el piso. ¿Qué pasa si la impulsas hacia adelante?",
         "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa si lata de leche tiene una superficie curva. Mira los cuentos en la chacra.",
-          "Las superficies curvas facilitan rodar. Usa los datos de cuentos en la chacra.",
-          "Este objeto rueda. Comprueba con los cuentos en la chacra."
-        ],
-        "retroalimentacion": "«lata de leche» rueda por su forma. Los cuerpos con caras planas pueden deslizarse.",
         "opciones": [
           {
             "id": "a",
-            "texto": "flota"
+            "texto": "Solo puede quedarse quieta"
           },
           {
             "id": "b",
-            "texto": "rueda"
+            "texto": "Rueda sobre su parte curva"
           },
           {
             "id": "c",
-            "texto": "no rueda"
+            "texto": "Tiene que saltar"
           }
-        ]
+        ],
+        "pistas": [
+          "La lata acostada apoya su costado redondeado.",
+          "Ese costado puede girar sobre el piso.",
+          "Por eso la lata rueda."
+        ],
+        "retroalimentacion": "La lata acostada rueda sobre la superficie curva de su costado."
       },
       {
         "id": "e04",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Colocas caja de zapatos en una mesa lisa y lo empujas suavemente. ¿Rueda o no rueda?",
-        "respuesta": "a",
+        "enunciado": "Para mover una caja de zapatos cerrada por el suelo, la empujas desde atrás. ¿Qué descripción es más precisa?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa si caja de zapatos tiene una superficie curva. Mira los lápices en la biblioteca.",
-          "Las superficies curvas facilitan rodar. Usa los datos de lápices en la biblioteca.",
-          "Este objeto no rueda. Comprueba con los lápices en la biblioteca."
-        ],
-        "retroalimentacion": "«caja de zapatos» no rueda por su forma. Los cuerpos con caras planas pueden deslizarse.",
         "opciones": [
           {
             "id": "a",
-            "texto": "no rueda"
+            "texto": "La caja rueda como una canica"
           },
           {
             "id": "b",
-            "texto": "rueda"
+            "texto": "La caja se desliza sobre su base plana"
           },
           {
             "id": "c",
-            "texto": "flota"
+            "texto": "La caja gira sola en círculos"
           }
-        ]
+        ],
+        "pistas": [
+          "La caja apoya una base rectangular.",
+          "Al empujarla, esa base puede desplazarse sin girar.",
+          "Eso es deslizarse."
+        ],
+        "retroalimentacion": "La caja se desliza sobre una cara plana; no rueda de modo continuo."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Colocas canica en una mesa lisa y lo empujas suavemente. ¿Rueda o no rueda?",
+        "enunciado": "En un juego pruebas una canica y un bloque de madera. ¿Cuál rueda con facilidad por su forma?",
         "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa si canica tiene una superficie curva. Mira los cuyes en la mesa.",
-          "Las superficies curvas facilitan rodar. Usa los datos de cuyes en la mesa.",
-          "Este objeto rueda. Comprueba con los cuyes en la mesa."
-        ],
-        "retroalimentacion": "«canica» rueda por su forma. Los cuerpos con caras planas pueden deslizarse.",
         "opciones": [
           {
             "id": "a",
-            "texto": "no rueda"
+            "texto": "El bloque, por sus esquinas"
           },
           {
             "id": "b",
-            "texto": "flota"
+            "texto": "Ambos porque son sólidos"
           },
           {
             "id": "c",
-            "texto": "rueda"
+            "texto": "La canica, por ser redonda"
           }
-        ]
+        ],
+        "pistas": [
+          "Compara la superficie que toca el piso.",
+          "La canica no tiene una cara plana que la frene en cada vuelta.",
+          "La canica rueda con facilidad."
+        ],
+        "retroalimentacion": "La canica rueda por su superficie redonda; el bloque suele deslizarse o volcarse."
       },
       {
         "id": "e06",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Colocas cubo de madera en una mesa lisa y lo empujas suavemente. ¿Rueda o no rueda?",
-        "respuesta": "b",
+        "enunciado": "Pones un tubo cilíndrico de pie sobre su base circular. Antes de probarlo, ¿qué cambio facilita que ruede?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa si cubo de madera tiene una superficie curva. Mira los semillas en la feria.",
-          "Las superficies curvas facilitan rodar. Usa los datos de semillas en la feria.",
-          "Este objeto no rueda. Comprueba con los semillas en la feria."
-        ],
-        "retroalimentacion": "«cubo de madera» no rueda por su forma. Los cuerpos con caras planas pueden deslizarse.",
         "opciones": [
           {
             "id": "a",
-            "texto": "flota"
+            "texto": "Acostarlo para apoyar el costado curvo"
           },
           {
             "id": "b",
-            "texto": "no rueda"
+            "texto": "Pintar de rojo la base"
           },
           {
             "id": "c",
-            "texto": "rueda"
+            "texto": "Colocarlo dentro de una caja"
           }
-        ]
+        ],
+        "pistas": [
+          "De pie, el tubo apoya una base plana.",
+          "Su costado curvo queda al aire.",
+          "Acostarlo permite que el costado curvo toque el suelo."
+        ],
+        "retroalimentacion": "El tubo rueda mejor acostado, cuando su costado curvo se apoya en el suelo."
       },
       {
         "id": "e07",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Colocas tubo cerrado de lado sobre una mesa lisa y lo empujas. ¿Rueda o no rueda?",
-        "respuesta": "a",
+        "enunciado": "Una niña dice: «Todo objeto redondo rueda». Piensa en una moneda puesta plana sobre la mesa. ¿Qué conviene hacer para comprobar su idea?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa si tubo cerrado tiene una superficie curva. Mira los caramelos en el jardín.",
-          "Las superficies curvas facilitan rodar. Usa los datos de caramelos en el jardín.",
-          "Este objeto rueda. Comprueba con los caramelos en el jardín."
-        ],
-        "retroalimentacion": "«tubo cerrado» rueda por su forma. Los cuerpos con caras planas pueden deslizarse.",
         "opciones": [
           {
             "id": "a",
-            "texto": "rueda"
+            "texto": "Mirar solo su color"
           },
           {
             "id": "b",
-            "texto": "no rueda"
+            "texto": "Probar cómo se mueve puesta plana y luego de canto"
           },
           {
             "id": "c",
-            "texto": "flota"
+            "texto": "Contar las letras de la palabra moneda"
           }
-        ]
+        ],
+        "pistas": [
+          "La posición de la moneda cambia qué superficie toca la mesa.",
+          "Plana toca una cara; de canto toca el borde.",
+          "Prueba ambas posiciones antes de concluir."
+        ],
+        "retroalimentacion": "La prueba en dos posiciones muestra que la forma y el apoyo influyen en cómo se mueve."
       },
       {
         "id": "e08",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Colocas caja de cereal en una mesa lisa y lo empujas suavemente. ¿Rueda o no rueda?",
+        "enunciado": "Una botella cilíndrica está cerrada y acostada. Al empujarla, recorre el piso girando. ¿Qué parte permite ese movimiento?",
         "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa si caja de cereal tiene una superficie curva. Mira los piedritas en la cocina.",
-          "Las superficies curvas facilitan rodar. Usa los datos de piedritas en la cocina.",
-          "Este objeto no rueda. Comprueba con los piedritas en la cocina."
-        ],
-        "retroalimentacion": "«caja de cereal» no rueda por su forma. Los cuerpos con caras planas pueden deslizarse.",
         "opciones": [
           {
             "id": "a",
-            "texto": "rueda"
+            "texto": "La tapa plana"
           },
           {
             "id": "b",
-            "texto": "flota"
+            "texto": "La etiqueta con letras"
           },
           {
             "id": "c",
-            "texto": "no rueda"
+            "texto": "El costado curvo"
           }
-        ]
+        ],
+        "pistas": [
+          "Observa qué parte toca el piso mientras gira.",
+          "No es la tapa: la botella está acostada.",
+          "El costado curvo permite rodar."
+        ],
+        "retroalimentacion": "La botella rueda sobre el costado curvo. La etiqueta no cambia la forma de apoyo."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Colocas balón en una mesa lisa y lo empujas suavemente. ¿Rueda o no rueda?",
+        "enunciado": "Colocas una pelota y una caja sobre una rampa suave. La pelota gira al bajar; la caja avanza sin girar. ¿Cómo se movió la caja?",
         "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa si balón tiene una superficie curva. Mira los flores en la mochila.",
-          "Las superficies curvas facilitan rodar. Usa los datos de flores en la mochila.",
-          "Este objeto rueda. Comprueba con los flores en la mochila."
-        ],
-        "retroalimentacion": "«balón» rueda por su forma. Los cuerpos con caras planas pueden deslizarse.",
         "opciones": [
           {
             "id": "a",
-            "texto": "flota"
+            "texto": "Rodó"
           },
           {
             "id": "b",
-            "texto": "rueda"
+            "texto": "Se deslizó"
           },
           {
             "id": "c",
-            "texto": "no rueda"
+            "texto": "Flotó"
           }
-        ]
+        ],
+        "pistas": [
+          "La caja avanzó sin dar vueltas.",
+          "Una cara plana siguió en contacto con la rampa.",
+          "Moverse así es deslizarse."
+        ],
+        "retroalimentacion": "La caja se deslizó. Rodar exige que el cuerpo gire mientras avanza."
       },
       {
         "id": "e10",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Colocas dado grande en una mesa lisa y lo empujas suavemente. ¿Rueda o no rueda?",
+        "enunciado": "Quieres elegir una pieza que ruede por un canal. Tienes una esfera, un cubo y una caja rectangular. ¿Cuál eliges y por qué?",
         "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa si dado grande tiene una superficie curva. Mira los tizas en el mercado.",
-          "Las superficies curvas facilitan rodar. Usa los datos de tizas en el mercado.",
-          "Este objeto no rueda. Comprueba con los tizas en el mercado."
-        ],
-        "retroalimentacion": "«dado grande» no rueda por su forma. Los cuerpos con caras planas pueden deslizarse.",
         "opciones": [
           {
             "id": "a",
-            "texto": "no rueda"
+            "texto": "La esfera, porque su superficie es curva"
           },
           {
             "id": "b",
-            "texto": "rueda"
+            "texto": "El cubo, porque tiene seis caras planas"
           },
           {
             "id": "c",
-            "texto": "flota"
+            "texto": "La caja, porque tiene esquinas"
           }
-        ]
+        ],
+        "pistas": [
+          "Piensa qué pieza puede girar sin tropezar con esquinas.",
+          "El cubo y la caja tienen caras planas.",
+          "La esfera es curva por todas partes."
+        ],
+        "retroalimentacion": "La esfera rueda con facilidad porque no presenta caras planas ni esquinas en su superficie."
       },
       {
         "id": "e11",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Colocas lata de atún de lado sobre una mesa lisa y lo empujas. ¿Rueda o no rueda?",
-        "respuesta": "c",
+        "enunciado": "Un cilindro acostado rueda hacia adelante, pero de pie queda estable sobre la mesa. ¿Qué cambió?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa si lata de atún tiene una superficie curva. Mira los pelotas en la canasta.",
-          "Las superficies curvas facilitan rodar. Usa los datos de pelotas en la canasta.",
-          "Este objeto rueda. Comprueba con los pelotas en la canasta."
-        ],
-        "retroalimentacion": "«lata de atún» rueda por su forma. Los cuerpos con caras planas pueden deslizarse.",
         "opciones": [
           {
             "id": "a",
-            "texto": "no rueda"
+            "texto": "Su color"
           },
           {
             "id": "b",
-            "texto": "flota"
+            "texto": "La superficie que toca la mesa"
           },
           {
             "id": "c",
-            "texto": "rueda"
+            "texto": "La cantidad de lados de la mesa"
           }
-        ]
+        ],
+        "pistas": [
+          "Es el mismo cilindro en ambas pruebas.",
+          "Acostado toca el costado curvo; de pie, la base plana.",
+          "El apoyo diferente cambia el movimiento."
+        ],
+        "retroalimentacion": "Cambió la superficie de apoyo: curva para rodar y plana para sostenerse."
       },
       {
         "id": "e12",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Colocas caja de libros en una mesa lisa y lo empujas suavemente. ¿Rueda o no rueda?",
-        "respuesta": "b",
+        "enunciado": "Dos objetos avanzan: una canica gira y un ladrillo se mueve sin girar. ¿Qué conclusión concuerda con lo observado?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa si caja de libros tiene una superficie curva. Mira los mandarinas en la escuela.",
-          "Las superficies curvas facilitan rodar. Usa los datos de mandarinas en la escuela.",
-          "Este objeto no rueda. Comprueba con los mandarinas en la escuela."
-        ],
-        "retroalimentacion": "«caja de libros» no rueda por su forma. Los cuerpos con caras planas pueden deslizarse.",
         "opciones": [
           {
             "id": "a",
-            "texto": "flota"
+            "texto": "Los dos rodaron"
           },
           {
             "id": "b",
-            "texto": "no rueda"
+            "texto": "El ladrillo rodó y la canica se deslizó"
           },
           {
             "id": "c",
-            "texto": "rueda"
+            "texto": "La canica rodó y el ladrillo se deslizó"
           }
-        ]
+        ],
+        "pistas": [
+          "Girar mientras se avanza es rodar.",
+          "La canica giró; el ladrillo no.",
+          "Nombra un movimiento distinto para cada objeto."
+        ],
+        "retroalimentacion": "La canica rodó y el ladrillo se deslizó. La observación del giro distingue ambos movimientos."
       }
     ],
     "fuentes": [
@@ -2231,46 +2183,46 @@
       "mat.p1.figuras-planas"
     ],
     "ordenSugerido": 53,
-    "ideaCentral": "Distingue líneas rectas y curvas en dibujos, figuras y objetos.",
+    "ideaCentral": "Una línea recta no se dobla entre sus extremos. Una curva cambia de dirección suavemente.",
     "pasos": [
-      "Observa la forma del objeto o de la figura.",
-      "Busca sus lados, caras, puntas o superficies curvas.",
-      "Compárala con una forma conocida y nómbrala."
+      "Imagina que sigues el trazo con el dedo.",
+      "Observa si se dobla o conserva una sola dirección.",
+      "Nombra la línea como recta o curva."
     ],
     "ejemplos": [
       {
-        "situacion": "Una línea va sin doblarse entre dos puntos. ¿Es recta o curva?",
-        "desarrollo": "Imagina la línea descrita. Mira los tapitas en el aula. Pregunta si cambia de dirección suavemente. Usa los datos de tapitas en el aula.",
-        "respuesta": "recta"
+        "situacion": "El borde de una regla une dos puntos.",
+        "desarrollo": "El trazo no se dobla.",
+        "respuesta": "Es una línea recta."
       },
       {
-        "situacion": "Una línea dobla suavemente como un arco. ¿Es recta o curva?",
-        "desarrollo": "Imagina la línea descrita. Mira los choclos en el patio. Pregunta si cambia de dirección suavemente. Usa los datos de choclos en el patio.",
-        "respuesta": "curva"
+        "situacion": "El borde de una moneda rodea su centro.",
+        "desarrollo": "Cambia de dirección suavemente hasta cerrar el contorno.",
+        "respuesta": "Es una línea curva cerrada."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Decidir solo por el tamaño o el color del objeto.",
-        "correccion": "Observa la forma del objeto o de la figura. Busca sus lados, caras, puntas o superficies curvas."
+        "error": "Llamar curva a dos rectas unidas en una esquina.",
+        "correccion": "La esquina es un cambio brusco; una curva suave no la tiene."
       },
       {
-        "error": "Confundir un cuerpo con el contorno de una de sus caras.",
-        "correccion": "Compárala con una forma conocida y nómbrala. Revisa si la pregunta pide cuerpo o figura plana."
+        "error": "Pensar que una línea cerrada siempre es curva.",
+        "correccion": "Un rectángulo es cerrado y está formado por tramos rectos."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Forma",
-        "significado": "Aspecto geométrico de un objeto."
+        "termino": "Recta",
+        "significado": "Línea que no se dobla."
       },
       {
-        "termino": "Cara",
-        "significado": "Superficie de un cuerpo geométrico."
+        "termino": "Curva",
+        "significado": "Línea que cambia suavemente de dirección."
       },
       {
-        "termino": "Contorno",
-        "significado": "Línea que rodea una figura."
+        "termino": "Esquina",
+        "significado": "Unión con cambio brusco de dirección."
       }
     ],
     "ejercicios": [
@@ -2278,43 +2230,37 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En el aula, durante la clase de formas, una línea va sin doblarse entre dos puntos. ¿Es recta o curva?",
+        "enunciado": "Un lápiz apoyado sobre la mesa marca un trazo sin doblarse. ¿Cómo es ese trazo?",
         "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la línea descrita. Mira los tapitas en el aula.",
-          "Pregunta si cambia de dirección suavemente. Usa los datos de tapitas en el aula.",
-          "Corresponde una línea recta. Comprueba con los tapitas en el aula."
-        ],
-        "retroalimentacion": "Es una línea recta. No confundas una curva con varias líneas rectas unidas.",
         "opciones": [
           {
             "id": "a",
-            "texto": "recta"
+            "texto": "recto"
           },
           {
             "id": "b",
-            "texto": "curva"
+            "texto": "curvo"
           },
           {
             "id": "c",
-            "texto": "cerrada"
+            "texto": "redondo y cerrado"
           }
-        ]
+        ],
+        "pistas": [
+          "Imagina el borde largo del lápiz.",
+          "Va en una sola dirección entre sus extremos.",
+          "Ese trazo es recto."
+        ],
+        "retroalimentacion": "El borde del lápiz muestra una línea recta porque no se dobla."
       },
       {
         "id": "e02",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En el patio, durante la clase de formas, una línea dobla suavemente como un arco. ¿Es recta o curva?",
-        "respuesta": "c",
+        "enunciado": "Dibujas el arco de un puente que sube y baja suavemente. ¿Qué tipo de línea forma?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la línea descrita. Mira los choclos en el patio.",
-          "Pregunta si cambia de dirección suavemente. Usa los datos de choclos en el patio.",
-          "Corresponde una línea curva. Comprueba con los choclos en el patio."
-        ],
-        "retroalimentacion": "Es una línea curva. No confundas una curva con varias líneas rectas unidas.",
         "opciones": [
           {
             "id": "a",
@@ -2322,55 +2268,55 @@
           },
           {
             "id": "b",
-            "texto": "cerrada"
+            "texto": "curva"
           },
           {
             "id": "c",
-            "texto": "curva"
+            "texto": "una esquina"
           }
-        ]
+        ],
+        "pistas": [
+          "Sigue el arco con el dedo en tu imaginación.",
+          "La dirección cambia poco a poco.",
+          "Eso describe una curva."
+        ],
+        "retroalimentacion": "El arco del puente es una línea curva: cambia de dirección sin formar esquinas."
       },
       {
         "id": "e03",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En la chacra, durante la clase de formas, una línea va sin doblarse entre dos puntos. ¿Es recta o curva?",
-        "respuesta": "b",
+        "enunciado": "La regla une dos puntos con un solo trazo sin desvíos. ¿Cuál es el nombre de esa línea?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la línea descrita. Mira los cuentos en la chacra.",
-          "Pregunta si cambia de dirección suavemente. Usa los datos de cuentos en la chacra.",
-          "Corresponde una línea recta. Comprueba con los cuentos en la chacra."
-        ],
-        "retroalimentacion": "Es una línea recta. No confundas una curva con varias líneas rectas unidas.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cerrada"
+            "texto": "espiral"
           },
           {
             "id": "b",
-            "texto": "recta"
+            "texto": "curva"
           },
           {
             "id": "c",
-            "texto": "curva"
+            "texto": "recta"
           }
-        ]
+        ],
+        "pistas": [
+          "Una regla tiene un borde que no se dobla.",
+          "El trazo sigue siempre ese borde.",
+          "La línea es recta."
+        ],
+        "retroalimentacion": "La regla ayuda a trazar una línea recta entre los puntos."
       },
       {
         "id": "e04",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En la biblioteca, durante la clase de formas, una línea dobla suavemente como un arco. ¿Es recta o curva?",
+        "enunciado": "El borde de un plato redondo no tiene esquinas. ¿De qué tipo es su línea?",
         "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la línea descrita. Mira los lápices en la biblioteca.",
-          "Pregunta si cambia de dirección suavemente. Usa los datos de lápices en la biblioteca.",
-          "Corresponde una línea curva. Comprueba con los lápices en la biblioteca."
-        ],
-        "retroalimentacion": "Es una línea curva. No confundas una curva con varias líneas rectas unidas.",
         "opciones": [
           {
             "id": "a",
@@ -2382,233 +2328,239 @@
           },
           {
             "id": "c",
-            "texto": "cerrada"
+            "texto": "quebrada"
           }
-        ]
+        ],
+        "pistas": [
+          "Recorre el borde circular.",
+          "Va cambiando suavemente de dirección.",
+          "Su contorno es curvo."
+        ],
+        "retroalimentacion": "El borde del plato forma una línea curva cerrada."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En la mesa, durante la clase de formas, una línea va sin doblarse entre dos puntos. ¿Es recta o curva?",
-        "respuesta": "c",
+        "enunciado": "Un camino dibujado va directamente de la puerta al árbol, sin vueltas. ¿Qué línea lo representa mejor?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la línea descrita. Mira los cuyes en la mesa.",
-          "Pregunta si cambia de dirección suavemente. Usa los datos de cuyes en la mesa.",
-          "Corresponde una línea recta. Comprueba con los cuyes en la mesa."
-        ],
-        "retroalimentacion": "Es una línea recta. No confundas una curva con varias líneas rectas unidas.",
         "opciones": [
           {
             "id": "a",
-            "texto": "curva"
+            "texto": "un arco"
           },
           {
             "id": "b",
-            "texto": "cerrada"
+            "texto": "un segmento recto"
           },
           {
             "id": "c",
-            "texto": "recta"
+            "texto": "una espiral"
           }
-        ]
+        ],
+        "pistas": [
+          "El camino no cambia de dirección.",
+          "Busca el trazo que une los extremos directamente.",
+          "Ese trazo es un segmento recto."
+        ],
+        "retroalimentacion": "Un segmento recto muestra el camino directo entre la puerta y el árbol."
       },
       {
         "id": "e06",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En la feria, durante la clase de formas, una línea dobla suavemente como un arco. ¿Es recta o curva?",
-        "respuesta": "b",
+        "enunciado": "Una serpiente se desplaza dejando una huella que se ondula. ¿Cómo describes la huella?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la línea descrita. Mira los semillas en la feria.",
-          "Pregunta si cambia de dirección suavemente. Usa los datos de semillas en la feria.",
-          "Corresponde una línea curva. Comprueba con los semillas en la feria."
-        ],
-        "retroalimentacion": "Es una línea curva. No confundas una curva con varias líneas rectas unidas.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cerrada"
+            "texto": "recta porque avanza"
           },
           {
             "id": "b",
-            "texto": "curva"
+            "texto": "cuadrada"
           },
           {
             "id": "c",
-            "texto": "recta"
+            "texto": "curva porque se dobla suavemente"
           }
-        ]
+        ],
+        "pistas": [
+          "Imagina las ondulaciones de la huella.",
+          "La línea cambia de dirección varias veces.",
+          "Por eso es curva."
+        ],
+        "retroalimentacion": "La huella ondulada forma una línea curva, aunque la serpiente avance."
       },
       {
         "id": "e07",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En el jardín, durante la clase de formas, una línea va sin doblarse entre dos puntos. ¿Es recta o curva?",
+        "enunciado": "Dos palitos se unen formando una esquina. ¿Es una sola línea curva suave?",
         "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la línea descrita. Mira los caramelos en el jardín.",
-          "Pregunta si cambia de dirección suavemente. Usa los datos de caramelos en el jardín.",
-          "Corresponde una línea recta. Comprueba con los caramelos en el jardín."
-        ],
-        "retroalimentacion": "Es una línea recta. No confundas una curva con varias líneas rectas unidas.",
         "opciones": [
           {
             "id": "a",
-            "texto": "recta"
+            "texto": "No; son dos tramos rectos que forman un ángulo"
           },
           {
             "id": "b",
-            "texto": "curva"
+            "texto": "Sí; cualquier unión es curva"
           },
           {
             "id": "c",
-            "texto": "cerrada"
+            "texto": "Sí; los palitos se vuelven redondos"
           }
-        ]
+        ],
+        "pistas": [
+          "Mira cada palito por separado: es recto.",
+          "En la unión hay un cambio brusco de dirección.",
+          "Una curva suave no tiene esa esquina."
+        ],
+        "retroalimentacion": "Son dos tramos rectos con una esquina, no una sola curva suave."
       },
       {
         "id": "e08",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En la cocina, durante la clase de formas, una línea dobla suavemente como un arco. ¿Es recta o curva?",
-        "respuesta": "c",
+        "enunciado": "El cordón de un zapato se estira bien tenso entre dos manos. ¿A qué línea se parece?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la línea descrita. Mira los piedritas en la cocina.",
-          "Pregunta si cambia de dirección suavemente. Usa los datos de piedritas en la cocina.",
-          "Corresponde una línea curva. Comprueba con los piedritas en la cocina."
-        ],
-        "retroalimentacion": "Es una línea curva. No confundas una curva con varias líneas rectas unidas.",
         "opciones": [
           {
             "id": "a",
-            "texto": "recta"
+            "texto": "a una curva cerrada"
           },
           {
             "id": "b",
-            "texto": "cerrada"
+            "texto": "a una recta"
           },
           {
             "id": "c",
-            "texto": "curva"
+            "texto": "a una espiral"
           }
-        ]
+        ],
+        "pistas": [
+          "Estirar el cordón quita sus dobleces.",
+          "Imagina el tramo tenso entre las manos.",
+          "Se parece a una recta."
+        ],
+        "retroalimentacion": "Un cordón tenso se parece a una línea recta."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "En la mochila, durante la clase de formas, una línea va sin doblarse entre dos puntos. ¿Es recta o curva?",
+        "enunciado": "Un mismo cordón se suelta sobre la mesa y queda formando una onda. ¿Qué cambió respecto del cordón tenso?",
         "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la línea descrita. Mira los flores en la mochila.",
-          "Pregunta si cambia de dirección suavemente. Usa los datos de flores en la mochila.",
-          "Corresponde una línea recta. Comprueba con los flores en la mochila."
-        ],
-        "retroalimentacion": "Es una línea recta. No confundas una curva con varias líneas rectas unidas.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cerrada"
+            "texto": "Ahora tiene lados de un cuadrado"
           },
           {
             "id": "b",
-            "texto": "recta"
+            "texto": "Ahora representa una curva"
           },
           {
             "id": "c",
-            "texto": "curva"
+            "texto": "Ahora no es una línea"
           }
-        ]
+        ],
+        "pistas": [
+          "Antes el cordón no se doblaba.",
+          "Ahora su trayectoria se ondula.",
+          "Una trayectoria ondulada es curva."
+        ],
+        "retroalimentacion": "Al quedar ondulado, el cordón representa una línea curva."
       },
       {
         "id": "e10",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "En el mercado, durante la clase de formas, una línea dobla suavemente como un arco. ¿Es recta o curva?",
-        "respuesta": "a",
+        "enunciado": "Para bordear una moneda con lápiz, ¿qué trazo necesitas seguir?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la línea descrita. Mira los tizas en el mercado.",
-          "Pregunta si cambia de dirección suavemente. Usa los datos de tizas en el mercado.",
-          "Corresponde una línea curva. Comprueba con los tizas en el mercado."
-        ],
-        "retroalimentacion": "Es una línea curva. No confundas una curva con varias líneas rectas unidas.",
         "opciones": [
           {
             "id": "a",
-            "texto": "curva"
+            "texto": "Una línea recta con esquinas"
           },
           {
             "id": "b",
-            "texto": "recta"
+            "texto": "Dos rectas cruzadas"
           },
           {
             "id": "c",
-            "texto": "cerrada"
+            "texto": "Una línea curva cerrada"
           }
-        ]
+        ],
+        "pistas": [
+          "La moneda es redonda.",
+          "Su borde no tiene segmentos rectos.",
+          "Debes seguir una curva que vuelve al inicio."
+        ],
+        "retroalimentacion": "La moneda se bordea con una línea curva cerrada."
       },
       {
         "id": "e11",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "En la canasta, durante la clase de formas, una línea va sin doblarse entre dos puntos. ¿Es recta o curva?",
-        "respuesta": "c",
+        "enunciado": "En un mapa, un sendero gira suavemente alrededor de una laguna. Otro llega directo a la plaza. ¿Cuál es curvo?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la línea descrita. Mira los pelotas en la canasta.",
-          "Pregunta si cambia de dirección suavemente. Usa los datos de pelotas en la canasta.",
-          "Corresponde una línea recta. Comprueba con los pelotas en la canasta."
-        ],
-        "retroalimentacion": "Es una línea recta. No confundas una curva con varias líneas rectas unidas.",
         "opciones": [
           {
             "id": "a",
-            "texto": "curva"
+            "texto": "El que rodea la laguna"
           },
           {
             "id": "b",
-            "texto": "cerrada"
+            "texto": "El que llega directo a la plaza"
           },
           {
             "id": "c",
-            "texto": "recta"
+            "texto": "Ambos son rectos"
           }
-        ]
+        ],
+        "pistas": [
+          "El sendero de la plaza no cambia de dirección.",
+          "El que rodea la laguna gira poco a poco.",
+          "Girar suavemente indica curva."
+        ],
+        "retroalimentacion": "El sendero que rodea la laguna es curvo; el directo puede representarse recto."
       },
       {
         "id": "e12",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "En la escuela, durante la clase de formas, una línea dobla suavemente como un arco. ¿Es recta o curva?",
+        "enunciado": "Un niño dice que el borde de una hoja rectangular es una sola curva porque rodea la hoja. ¿Cómo lo corriges?",
         "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Imagina la línea descrita. Mira los mandarinas en la escuela.",
-          "Pregunta si cambia de dirección suavemente. Usa los datos de mandarinas en la escuela.",
-          "Corresponde una línea curva. Comprueba con los mandarinas en la escuela."
-        ],
-        "retroalimentacion": "Es una línea curva. No confundas una curva con varias líneas rectas unidas.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cerrada"
+            "texto": "Es curva porque está cerrada"
           },
           {
             "id": "b",
-            "texto": "curva"
+            "texto": "Está formado por tramos rectos unidos en esquinas"
           },
           {
             "id": "c",
-            "texto": "recta"
+            "texto": "No tiene ningún borde"
           }
-        ]
+        ],
+        "pistas": [
+          "Observa los cuatro lados del rectángulo.",
+          "Cada lado es recto y en las esquinas cambia de dirección.",
+          "Un contorno cerrado puede estar hecho de rectas."
+        ],
+        "retroalimentacion": "El rectángulo tiene cuatro tramos rectos unidos en esquinas, aunque su borde sea cerrado."
       }
     ],
     "fuentes": [
@@ -2647,46 +2599,46 @@
       "mat.p1.figuras-planas"
     ],
     "ordenSugerido": 83,
-    "ideaCentral": "Descubre qué figura queda al marcar la cara de un cuerpo sobre el papel.",
+    "ideaCentral": "Una cara plana de un cuerpo puede dejar una huella con forma de figura plana. La base de una lata marca un círculo y la cara de un dado marca un cuadrado.",
     "pasos": [
-      "Elige una cara plana o una superficie del cuerpo.",
-      "Imagina la marca que deja al tocar el papel.",
-      "Nombra la figura del contorno obtenido."
+      "Elige la cara que vas a apoyar.",
+      "Imagina el borde de esa cara sobre el papel.",
+      "Nombra la figura plana que aparece."
     ],
     "ejemplos": [
       {
-        "situacion": "Apoyas pelota sobre papel y marcas una de sus caras redondeadas. ¿Qué figura aparece?",
-        "desarrollo": "Piensa qué parte de pelota toca el papel. Mira los tapitas en el aula. La huella se parece al contorno de esa parte. Usa los datos de tapitas en el aula.",
-        "respuesta": "círculo"
+        "situacion": "Apoyas la base de una lata en papel.",
+        "desarrollo": "La base tiene borde redondo.",
+        "respuesta": "La huella es un círculo."
       },
       {
-        "situacion": "Apoyas dado sobre papel y marcas una de sus caras planas. ¿Qué figura aparece?",
-        "desarrollo": "Piensa qué parte de dado toca el papel. Mira los choclos en el patio. La huella se parece al contorno de esa parte. Usa los datos de choclos en el patio.",
-        "respuesta": "cuadrado"
+        "situacion": "Estampas una cara de un dado cúbico.",
+        "desarrollo": "La cara tiene cuatro lados iguales.",
+        "respuesta": "La huella es un cuadrado."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Decidir solo por el tamaño o el color del objeto.",
-        "correccion": "Elige una cara plana o una superficie del cuerpo. Imagina la marca que deja al tocar el papel."
+        "error": "Decir que una pelota tiene una cara plana cuadrada.",
+        "correccion": "La esfera no tiene caras planas."
       },
       {
-        "error": "Confundir un cuerpo con el contorno de una de sus caras.",
-        "correccion": "Nombra la figura del contorno obtenido. Revisa si la pregunta pide cuerpo o figura plana."
+        "error": "Confundir la huella con el cuerpo completo.",
+        "correccion": "El cuerpo ocupa espacio; la marca sobre el papel es plana."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Forma",
-        "significado": "Aspecto geométrico de un objeto."
-      },
-      {
         "termino": "Cara",
-        "significado": "Superficie de un cuerpo geométrico."
+        "significado": "Superficie plana de un cuerpo."
       },
       {
-        "termino": "Contorno",
-        "significado": "Línea que rodea una figura."
+        "termino": "Huella",
+        "significado": "Marca que deja una superficie."
+      },
+      {
+        "termino": "Figura plana",
+        "significado": "Forma dibujada sobre una superficie."
       }
     ],
     "ejercicios": [
@@ -2694,83 +2646,69 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Presionas suavemente pelota en plastilina. ¿Qué forma tiene el contorno de su marca?",
-        "respuesta": "a",
+        "enunciado": "Pintas una cara de un dado cúbico y la apoyas en papel. ¿Qué figura deja?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa qué parte de pelota toca el papel. Mira los tapitas en el aula.",
-          "La huella se parece al contorno de esa parte. Usa los datos de tapitas en el aula.",
-          "La figura marcada es círculo. Comprueba con los tapitas en el aula."
-        ],
-        "retroalimentacion": "La huella de pelota puede verse como círculo. Para una esfera, se considera el contorno circular de contacto.",
         "opciones": [
           {
             "id": "a",
-            "texto": "círculo"
+            "texto": "un círculo"
           },
           {
             "id": "b",
-            "texto": "cuadrado"
+            "texto": "un cuadrado"
           },
           {
             "id": "c",
-            "texto": "rectángulo"
-          },
-          {
-            "id": "d",
-            "texto": "triángulo"
+            "texto": "un triángulo"
           }
-        ]
+        ],
+        "pistas": [
+          "Mira la cara plana del dado.",
+          "Tiene cuatro lados iguales.",
+          "Su huella es un cuadrado."
+        ],
+        "retroalimentacion": "La cara de un cubo deja una huella cuadrada."
       },
       {
         "id": "e02",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Apoyas dado sobre papel y marcas una de sus caras planas. ¿Qué figura aparece?",
-        "respuesta": "d",
+        "enunciado": "Apoyas la base de una lata cilíndrica sobre una hoja. ¿Cómo es su contorno?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa qué parte de dado toca el papel. Mira los choclos en el patio.",
-          "La huella se parece al contorno de esa parte. Usa los datos de choclos en el patio.",
-          "La figura marcada es cuadrado. Comprueba con los choclos en el patio."
-        ],
-        "retroalimentacion": "La huella de dado puede verse como cuadrado. Para una esfera, se considera el contorno circular de contacto.",
         "opciones": [
           {
             "id": "a",
-            "texto": "círculo"
+            "texto": "circular"
           },
           {
             "id": "b",
-            "texto": "rectángulo"
+            "texto": "triangular"
           },
           {
             "id": "c",
-            "texto": "triángulo"
-          },
-          {
-            "id": "d",
-            "texto": "cuadrado"
+            "texto": "rectangular"
           }
-        ]
+        ],
+        "pistas": [
+          "Mira la tapa o base de la lata.",
+          "Su borde es redondo y cerrado.",
+          "La huella es un círculo."
+        ],
+        "retroalimentacion": "La base plana de la lata deja un contorno circular."
       },
       {
         "id": "e03",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Apoyas lata de leche sobre papel y marcas una de sus caras planas. ¿Qué figura aparece?",
+        "enunciado": "Una caja de cereal tiene una cara grande con dos lados largos y dos cortos. ¿Qué figura imprime esa cara?",
         "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa qué parte de lata de leche toca el papel. Mira los cuentos en la chacra.",
-          "La huella se parece al contorno de esa parte. Usa los datos de cuentos en la chacra.",
-          "La figura marcada es círculo. Comprueba con los cuentos en la chacra."
-        ],
-        "retroalimentacion": "La huella de lata de leche puede verse como círculo. Para una esfera, se considera el contorno circular de contacto.",
         "opciones": [
           {
             "id": "a",
-            "texto": "rectángulo"
+            "texto": "círculo"
           },
           {
             "id": "b",
@@ -2778,301 +2716,267 @@
           },
           {
             "id": "c",
-            "texto": "círculo"
-          },
-          {
-            "id": "d",
-            "texto": "cuadrado"
+            "texto": "rectángulo"
           }
-        ]
+        ],
+        "pistas": [
+          "La cara grande es plana.",
+          "Tiene cuatro lados y no todos son iguales.",
+          "La figura es un rectángulo."
+        ],
+        "retroalimentacion": "La cara grande de la caja deja una huella rectangular."
       },
       {
         "id": "e04",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Apoyas caja de zapatos sobre papel y marcas una de sus caras planas. ¿Qué figura aparece?",
-        "respuesta": "b",
+        "enunciado": "Presionas una cara plana de un cubo de madera en plastilina. ¿Qué borde podrías marcar?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa qué parte de caja de zapatos toca el papel. Mira los lápices en la biblioteca.",
-          "La huella se parece al contorno de esa parte. Usa los datos de lápices en la biblioteca.",
-          "La figura marcada es rectángulo. Comprueba con los lápices en la biblioteca."
-        ],
-        "retroalimentacion": "La huella de caja de zapatos puede verse como rectángulo. Para una esfera, se considera el contorno circular de contacto.",
         "opciones": [
           {
             "id": "a",
-            "texto": "triángulo"
+            "texto": "un cuadrado"
           },
           {
             "id": "b",
-            "texto": "rectángulo"
+            "texto": "una espiral"
           },
           {
             "id": "c",
-            "texto": "círculo"
-          },
-          {
-            "id": "d",
-            "texto": "cuadrado"
+            "texto": "una línea abierta"
           }
-        ]
+        ],
+        "pistas": [
+          "Imagina el borde de la cara que toca la plastilina.",
+          "Las cuatro aristas de esa cara son iguales.",
+          "El borde resultante es cuadrado."
+        ],
+        "retroalimentacion": "Una cara del cubo puede marcar el borde de un cuadrado."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Presionas suavemente canica en plastilina. ¿Qué forma tiene el contorno de su marca?",
-        "respuesta": "a",
+        "enunciado": "Tienes un cilindro y quieres obtener una huella circular. ¿Qué parte debes apoyar?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa qué parte de canica toca el papel. Mira los cuyes en la mesa.",
-          "La huella se parece al contorno de esa parte. Usa los datos de cuyes en la mesa.",
-          "La figura marcada es círculo. Comprueba con los cuyes en la mesa."
-        ],
-        "retroalimentacion": "La huella de canica puede verse como círculo. Para una esfera, se considera el contorno circular de contacto.",
         "opciones": [
           {
             "id": "a",
-            "texto": "círculo"
+            "texto": "el costado curvo"
           },
           {
             "id": "b",
-            "texto": "cuadrado"
+            "texto": "una base plana"
           },
           {
             "id": "c",
-            "texto": "rectángulo"
-          },
-          {
-            "id": "d",
-            "texto": "triángulo"
+            "texto": "una esquina"
           }
-        ]
+        ],
+        "pistas": [
+          "Busca en el cilindro una superficie plana redonda.",
+          "El costado curvo no es una base.",
+          "Apoya una de sus bases circulares."
+        ],
+        "retroalimentacion": "La base plana del cilindro permite marcar un círculo."
       },
       {
         "id": "e06",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Apoyas cubo de madera sobre papel y marcas una de sus caras planas. ¿Qué figura aparece?",
-        "respuesta": "d",
+        "enunciado": "Una niña apoyó el lado ancho de una caja de zapatos. La huella tiene cuatro esquinas. ¿Cuál figura es más probable?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa qué parte de cubo de madera toca el papel. Mira los semillas en la feria.",
-          "La huella se parece al contorno de esa parte. Usa los datos de semillas en la feria.",
-          "La figura marcada es cuadrado. Comprueba con los semillas en la feria."
-        ],
-        "retroalimentacion": "La huella de cubo de madera puede verse como cuadrado. Para una esfera, se considera el contorno circular de contacto.",
         "opciones": [
           {
             "id": "a",
-            "texto": "círculo"
+            "texto": "esfera"
           },
           {
             "id": "b",
-            "texto": "rectángulo"
+            "texto": "círculo"
           },
           {
             "id": "c",
-            "texto": "triángulo"
-          },
-          {
-            "id": "d",
-            "texto": "cuadrado"
+            "texto": "rectángulo"
           }
-        ]
+        ],
+        "pistas": [
+          "Piensa en la cara ancha de una caja.",
+          "Tiene lados rectos y cuatro esquinas.",
+          "Su contorno se parece a un rectángulo."
+        ],
+        "retroalimentacion": "La cara ancha de la caja deja una huella rectangular."
       },
       {
         "id": "e07",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Apoyas tubo cerrado sobre papel y marcas una de sus caras planas. ¿Qué figura aparece?",
-        "respuesta": "c",
+        "enunciado": "Giraste un dado para apoyar otra cara distinta. ¿Qué sucede con la forma de la nueva huella?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa qué parte de tubo cerrado toca el papel. Mira los caramelos en el jardín.",
-          "La huella se parece al contorno de esa parte. Usa los datos de caramelos en el jardín.",
-          "La figura marcada es círculo. Comprueba con los caramelos en el jardín."
-        ],
-        "retroalimentacion": "La huella de tubo cerrado puede verse como círculo. Para una esfera, se considera el contorno circular de contacto.",
         "opciones": [
           {
             "id": "a",
-            "texto": "rectángulo"
+            "texto": "Sigue siendo un cuadrado"
           },
           {
             "id": "b",
-            "texto": "triángulo"
+            "texto": "Se vuelve círculo"
           },
           {
             "id": "c",
-            "texto": "círculo"
-          },
-          {
-            "id": "d",
-            "texto": "cuadrado"
+            "texto": "Se vuelve triángulo"
           }
-        ]
+        ],
+        "pistas": [
+          "Todas las caras de un dado cúbico tienen la misma forma.",
+          "Cambiar de cara no cambia sus cuatro lados iguales.",
+          "La nueva huella también es cuadrada."
+        ],
+        "retroalimentacion": "Otra cara del cubo deja igualmente un cuadrado."
       },
       {
         "id": "e08",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Apoyas caja de cereal sobre papel y marcas una de sus caras planas. ¿Qué figura aparece?",
+        "enunciado": "Un niño quiere estampar una pelota como si tuviera una cara plana. ¿Qué debes decirle?",
         "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa qué parte de caja de cereal toca el papel. Mira los piedritas en la cocina.",
-          "La huella se parece al contorno de esa parte. Usa los datos de piedritas en la cocina.",
-          "La figura marcada es rectángulo. Comprueba con los piedritas en la cocina."
-        ],
-        "retroalimentacion": "La huella de caja de cereal puede verse como rectángulo. Para una esfera, se considera el contorno circular de contacto.",
         "opciones": [
           {
             "id": "a",
-            "texto": "triángulo"
+            "texto": "Que elija una esquina de la pelota"
           },
           {
             "id": "b",
-            "texto": "rectángulo"
+            "texto": "Que la pelota no tiene caras planas para estampar como un cubo"
           },
           {
             "id": "c",
-            "texto": "círculo"
-          },
-          {
-            "id": "d",
-            "texto": "cuadrado"
+            "texto": "Que todas las pelotas son cubos"
           }
-        ]
+        ],
+        "pistas": [
+          "Toca mentalmente la superficie de la pelota.",
+          "Es curva por todas partes.",
+          "No posee una cara plana como el dado."
+        ],
+        "retroalimentacion": "La pelota es esférica y no tiene una cara plana que produzca una huella como la del cubo."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Presionas suavemente balón en plastilina. ¿Qué forma tiene el contorno de su marca?",
-        "respuesta": "a",
+        "enunciado": "Dos cuerpos dejan huellas distintas: una circular y otra cuadrada. ¿Qué pareja podría haberlas producido con sus bases o caras planas?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa qué parte de balón toca el papel. Mira los flores en la mochila.",
-          "La huella se parece al contorno de esa parte. Usa los datos de flores en la mochila.",
-          "La figura marcada es círculo. Comprueba con los flores en la mochila."
-        ],
-        "retroalimentacion": "La huella de balón puede verse como círculo. Para una esfera, se considera el contorno circular de contacto.",
         "opciones": [
           {
             "id": "a",
-            "texto": "círculo"
+            "texto": "dos pelotas"
           },
           {
             "id": "b",
-            "texto": "cuadrado"
+            "texto": "una caja rectangular y una pelota"
           },
           {
             "id": "c",
-            "texto": "rectángulo"
-          },
-          {
-            "id": "d",
-            "texto": "triángulo"
+            "texto": "una lata y un dado"
           }
-        ]
+        ],
+        "pistas": [
+          "Para la huella circular busca una base redonda.",
+          "Para la cuadrada busca una cara de cuatro lados iguales.",
+          "La lata y el dado cumplen esas formas."
+        ],
+        "retroalimentacion": "La base de la lata deja círculo y la cara del dado deja cuadrado."
       },
       {
         "id": "e10",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Apoyas dado grande sobre papel y marcas una de sus caras planas. ¿Qué figura aparece?",
-        "respuesta": "d",
+        "enunciado": "Al apoyar una caja rectangular sobre su cara más larga aparece un rectángulo. ¿Qué cambia si usas una cara más pequeña de la misma caja?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa qué parte de dado grande toca el papel. Mira los tizas en el mercado.",
-          "La huella se parece al contorno de esa parte. Usa los datos de tizas en el mercado.",
-          "La figura marcada es cuadrado. Comprueba con los tizas en el mercado."
-        ],
-        "retroalimentacion": "La huella de dado grande puede verse como cuadrado. Para una esfera, se considera el contorno circular de contacto.",
         "opciones": [
           {
             "id": "a",
-            "texto": "círculo"
+            "texto": "La huella puede ser otro rectángulo de distinto tamaño"
           },
           {
             "id": "b",
-            "texto": "rectángulo"
+            "texto": "La huella siempre será un círculo"
           },
           {
             "id": "c",
-            "texto": "triángulo"
-          },
-          {
-            "id": "d",
-            "texto": "cuadrado"
+            "texto": "Desaparece el contorno"
           }
-        ]
+        ],
+        "pistas": [
+          "La caja tiene varias caras planas.",
+          "Una cara más pequeña puede conservar cuatro lados rectos.",
+          "Cambiará el tamaño de la huella, no necesariamente su tipo."
+        ],
+        "retroalimentacion": "Otra cara de la caja puede dejar un rectángulo de distinto tamaño."
       },
       {
         "id": "e11",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Apoyas lata de atún sobre papel y marcas una de sus caras planas. ¿Qué figura aparece?",
-        "respuesta": "c",
+        "enunciado": "En una mesa hay un cubo y un cilindro. Necesitas una huella con borde curvo cerrado. ¿Qué cuerpo y qué parte eliges?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa qué parte de lata de atún toca el papel. Mira los pelotas en la canasta.",
-          "La huella se parece al contorno de esa parte. Usa los datos de pelotas en la canasta.",
-          "La figura marcada es círculo. Comprueba con los pelotas en la canasta."
-        ],
-        "retroalimentacion": "La huella de lata de atún puede verse como círculo. Para una esfera, se considera el contorno circular de contacto.",
         "opciones": [
           {
             "id": "a",
-            "texto": "rectángulo"
+            "texto": "El cubo por una cara"
           },
           {
             "id": "b",
-            "texto": "triángulo"
+            "texto": "El cilindro por su base circular"
           },
           {
             "id": "c",
-            "texto": "círculo"
-          },
-          {
-            "id": "d",
-            "texto": "cuadrado"
+            "texto": "El cubo por una esquina"
           }
-        ]
+        ],
+        "pistas": [
+          "El cubo tiene caras cuadradas.",
+          "El cilindro tiene bases redondas.",
+          "Apoya la base del cilindro."
+        ],
+        "retroalimentacion": "La base circular del cilindro produce una huella de borde curvo cerrado."
       },
       {
         "id": "e12",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Apoyas caja de libros sobre papel y marcas una de sus caras planas. ¿Qué figura aparece?",
-        "respuesta": "b",
+        "enunciado": "Pablo afirma: «La huella cuadrada del dado es un cuerpo». ¿Cuál es la corrección?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa qué parte de caja de libros toca el papel. Mira los mandarinas en la escuela.",
-          "La huella se parece al contorno de esa parte. Usa los datos de mandarinas en la escuela.",
-          "La figura marcada es rectángulo. Comprueba con los mandarinas en la escuela."
-        ],
-        "retroalimentacion": "La huella de caja de libros puede verse como rectángulo. Para una esfera, se considera el contorno circular de contacto.",
         "opciones": [
           {
             "id": "a",
-            "texto": "triángulo"
+            "texto": "La huella es una figura plana; el dado es el cuerpo"
           },
           {
             "id": "b",
-            "texto": "rectángulo"
+            "texto": "La huella y el dado son dos cuerpos iguales"
           },
           {
             "id": "c",
-            "texto": "círculo"
-          },
-          {
-            "id": "d",
-            "texto": "cuadrado"
+            "texto": "La huella es una esfera"
           }
-        ]
+        ],
+        "pistas": [
+          "El dado ocupa espacio: es un cuerpo.",
+          "La marca queda sobre el papel: es plana.",
+          "Nombra la huella como figura plana cuadrada."
+        ],
+        "retroalimentacion": "El dado es un cuerpo geométrico; su huella cuadrada es una figura plana."
       }
     ],
     "fuentes": [
@@ -3597,46 +3501,46 @@
       "mat.p1.cubo-esfera-cilindro"
     ],
     "ordenSugerido": 89,
-    "ideaCentral": "Construye torres, casas y otros objetos con cuerpos geométricos y explica qué piezas usó.",
+    "ideaCentral": "Puedes construir objetos al unir cuerpos geométricos. Las caras planas ayudan a apilar y las partes curvas pueden servir para ruedas.",
     "pasos": [
-      "Identifica las piezas disponibles.",
-      "Imagina cómo unirlas o apilarlas.",
-      "Nombra la forma que necesitas para la construcción."
+      "Imagina qué objeto quieres construir.",
+      "Elige cuerpos que representen sus partes.",
+      "Une o apila las piezas y explica cuál cumple cada función."
     ],
     "ejemplos": [
       {
-        "situacion": "Para construir una torre con piezas como pelota, ¿qué cuerpo geométrico debes buscar?",
-        "desarrollo": "Observa la pieza modelo: pelota. Mira los tapitas en el aula. Relaciona su forma con un cuerpo geométrico. Usa los datos de tapitas en el aula.",
-        "respuesta": "esfera"
+        "situacion": "Quieres hacer una torre de tres piezas.",
+        "desarrollo": "Los cubos tienen caras planas que se apoyan unas sobre otras.",
+        "respuesta": "Apilas tres cubos."
       },
       {
-        "situacion": "Para construir una torre con piezas como dado, ¿qué cuerpo geométrico debes buscar?",
-        "desarrollo": "Observa la pieza modelo: dado. Mira los choclos en el patio. Relaciona su forma con un cuerpo geométrico. Usa los datos de choclos en el patio.",
-        "respuesta": "cubo"
+        "situacion": "Harás un tren con un cuerpo alargado y ruedas.",
+        "desarrollo": "Una caja forma el cuerpo; cilindros cortos pueden representar las ruedas.",
+        "respuesta": "Usas una caja y cilindros."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Decidir solo por el tamaño o el color del objeto.",
-        "correccion": "Identifica las piezas disponibles. Imagina cómo unirlas o apilarlas."
+        "error": "Elegir una esfera como pared plana.",
+        "correccion": "Una caja tiene caras planas que pueden representar la pared."
       },
       {
-        "error": "Confundir un cuerpo con el contorno de una de sus caras.",
-        "correccion": "Nombra la forma que necesitas para la construcción. Revisa si la pregunta pide cuerpo o figura plana."
+        "error": "Llamar rueda a cualquier pieza redonda sin mirar cómo se coloca.",
+        "correccion": "Un cilindro corto con su costado curvo puede girar como rueda."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Forma",
-        "significado": "Aspecto geométrico de un objeto."
+        "termino": "Cuerpo",
+        "significado": "Objeto que ocupa espacio."
       },
       {
-        "termino": "Cara",
-        "significado": "Superficie de un cuerpo geométrico."
+        "termino": "Cara plana",
+        "significado": "Superficie lisa que puede servir de apoyo."
       },
       {
-        "termino": "Contorno",
-        "significado": "Línea que rodea una figura."
+        "termino": "Pieza",
+        "significado": "Parte que se une a otras en una construcción."
       }
     ],
     "ejercicios": [
@@ -3644,385 +3548,337 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Para construir una torre con piezas como pelota, ¿qué cuerpo geométrico debes buscar?",
-        "respuesta": "a",
+        "enunciado": "Quieres hacer una torre con tres piezas que se apoyen una sobre otra. ¿Qué piezas son más fáciles de apilar?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa la pieza modelo: pelota. Mira los tapitas en el aula.",
-          "Relaciona su forma con un cuerpo geométrico. Usa los datos de tapitas en el aula.",
-          "La pieza es como esfera. Comprueba con los tapitas en el aula."
-        ],
-        "retroalimentacion": "Una pieza como pelota tiene forma de esfera.",
         "opciones": [
           {
             "id": "a",
-            "texto": "esfera"
+            "texto": "pelotas"
           },
           {
             "id": "b",
-            "texto": "cubo"
+            "texto": "cubos"
           },
           {
             "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "prisma rectangular"
+            "texto": "canicas"
           }
-        ]
+        ],
+        "pistas": [
+          "Piensa en la parte que tocará la pieza de abajo.",
+          "Una cara plana da apoyo estable.",
+          "Los cubos tienen caras planas."
+        ],
+        "retroalimentacion": "Los cubos se apilan fácilmente por sus caras planas."
       },
       {
         "id": "e02",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Para construir una torre con piezas como dado, ¿qué cuerpo geométrico debes buscar?",
-        "respuesta": "d",
+        "enunciado": "Para formar una columna como una lata alta eliges una pieza. ¿Cuál tiene dos bases circulares?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa la pieza modelo: dado. Mira los choclos en el patio.",
-          "Relaciona su forma con un cuerpo geométrico. Usa los datos de choclos en el patio.",
-          "La pieza es como cubo. Comprueba con los choclos en el patio."
-        ],
-        "retroalimentacion": "Una pieza como dado tiene forma de cubo.",
         "opciones": [
           {
             "id": "a",
-            "texto": "esfera"
+            "texto": "un cilindro"
           },
           {
             "id": "b",
-            "texto": "cilindro"
+            "texto": "un cubo"
           },
           {
             "id": "c",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
+            "texto": "una esfera"
           }
-        ]
+        ],
+        "pistas": [
+          "La columna necesita una base redonda abajo y otra arriba.",
+          "Una lata tiene esas dos bases.",
+          "La pieza es un cilindro."
+        ],
+        "retroalimentacion": "El cilindro tiene dos bases circulares y puede representar una columna."
       },
       {
         "id": "e03",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Para construir una torre con piezas como lata de leche, ¿qué cuerpo geométrico debes buscar?",
+        "enunciado": "Una pelota rueda cada vez que intentas poner otra pieza encima. ¿Qué conviene usar como base de tu construcción?",
         "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa la pieza modelo: lata de leche. Mira los cuentos en la chacra.",
-          "Relaciona su forma con un cuerpo geométrico. Usa los datos de cuentos en la chacra.",
-          "La pieza es como cilindro. Comprueba con los cuentos en la chacra."
-        ],
-        "retroalimentacion": "Una pieza como lata de leche tiene forma de cilindro.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cubo"
+            "texto": "otra pelota"
           },
           {
             "id": "b",
-            "texto": "prisma rectangular"
+            "texto": "una canica"
           },
           {
             "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "esfera"
+            "texto": "una caja con cara plana"
           }
-        ]
+        ],
+        "pistas": [
+          "La pelota tiene superficie curva.",
+          "Una base plana ayuda a que la pieza superior no ruede.",
+          "Elige la caja apoyada en su cara plana."
+        ],
+        "retroalimentacion": "La caja con una cara plana da una base más estable que una pelota."
       },
       {
         "id": "e04",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Para construir una torre con piezas como caja de zapatos, ¿qué cuerpo geométrico debes buscar?",
-        "respuesta": "b",
+        "enunciado": "Harás una casa pequeña con bloques: un cuerpo para las paredes y una pieza arriba. ¿Qué cuerpo puede representar las paredes?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa la pieza modelo: caja de zapatos. Mira los lápices en la biblioteca.",
-          "Relaciona su forma con un cuerpo geométrico. Usa los datos de lápices en la biblioteca.",
-          "La pieza es como prisma rectangular. Comprueba con los lápices en la biblioteca."
-        ],
-        "retroalimentacion": "Una pieza como caja de zapatos tiene forma de prisma rectangular.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cilindro"
+            "texto": "una caja rectangular"
           },
           {
             "id": "b",
-            "texto": "prisma rectangular"
+            "texto": "una esfera"
           },
           {
             "id": "c",
-            "texto": "esfera"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
+            "texto": "una canica"
           }
-        ]
+        ],
+        "pistas": [
+          "Las paredes forman caras planas.",
+          "Busca una pieza con varias caras rectangulares.",
+          "Una caja rectangular sirve como cuerpo de la casa."
+        ],
+        "retroalimentacion": "Una caja rectangular puede formar el cuerpo de la casa por sus caras planas."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Para construir una torre con piezas como canica, ¿qué cuerpo geométrico debes buscar?",
-        "respuesta": "a",
+        "enunciado": "En tu modelo, dos cubos iguales se unen cara con cara. ¿Qué parte de cada cubo debe tocar la otra?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa la pieza modelo: canica. Mira los cuyes en la mesa.",
-          "Relaciona su forma con un cuerpo geométrico. Usa los datos de cuyes en la mesa.",
-          "La pieza es como esfera. Comprueba con los cuyes en la mesa."
-        ],
-        "retroalimentacion": "Una pieza como canica tiene forma de esfera.",
         "opciones": [
           {
             "id": "a",
-            "texto": "esfera"
+            "texto": "solo una punta"
           },
           {
             "id": "b",
-            "texto": "cubo"
+            "texto": "una cara plana"
           },
           {
             "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "prisma rectangular"
+            "texto": "una superficie curva"
           }
-        ]
+        ],
+        "pistas": [
+          "Los cubos no tienen superficie curva.",
+          "Una unión cara con cara usa dos superficies planas.",
+          "Haz coincidir una cara de cada cubo."
+        ],
+        "retroalimentacion": "Para unir cubos cara con cara, juntas dos caras planas."
       },
       {
         "id": "e06",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Para construir una torre con piezas como cubo de madera, ¿qué cuerpo geométrico debes buscar?",
-        "respuesta": "d",
+        "enunciado": "Construyes un tren de juguete con una caja alargada y ruedas redondas. ¿Qué cuerpo representa mejor cada rueda?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa la pieza modelo: cubo de madera. Mira los semillas en la feria.",
-          "Relaciona su forma con un cuerpo geométrico. Usa los datos de semillas en la feria.",
-          "La pieza es como cubo. Comprueba con los semillas en la feria."
-        ],
-        "retroalimentacion": "Una pieza como cubo de madera tiene forma de cubo.",
         "opciones": [
           {
             "id": "a",
-            "texto": "esfera"
+            "texto": "cubo"
           },
           {
             "id": "b",
-            "texto": "cilindro"
+            "texto": "caja rectangular"
           },
           {
             "id": "c",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
+            "texto": "cilindro"
           }
-        ]
+        ],
+        "pistas": [
+          "Una rueda tiene borde circular.",
+          "También tiene ancho, por eso es un cuerpo y no solo un círculo dibujado.",
+          "Un cilindro corto puede representar la rueda."
+        ],
+        "retroalimentacion": "Una rueda de juguete puede representarse con un cilindro corto."
       },
       {
         "id": "e07",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Para construir una torre con piezas como tubo cerrado, ¿qué cuerpo geométrico debes buscar?",
-        "respuesta": "c",
+        "enunciado": "Apilas una caja, luego un cubo y finalmente una pelota. ¿Qué pieza está arriba de toda la construcción?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa la pieza modelo: tubo cerrado. Mira los caramelos en el jardín.",
-          "Relaciona su forma con un cuerpo geométrico. Usa los datos de caramelos en el jardín.",
-          "La pieza es como cilindro. Comprueba con los caramelos en el jardín."
-        ],
-        "retroalimentacion": "Una pieza como tubo cerrado tiene forma de cilindro.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cubo"
+            "texto": "la pelota"
           },
           {
             "id": "b",
-            "texto": "prisma rectangular"
+            "texto": "el cubo"
           },
           {
             "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "esfera"
+            "texto": "la caja"
           }
-        ]
+        ],
+        "pistas": [
+          "Sigue el orden en que se colocaron las piezas.",
+          "La pelota se puso después del cubo.",
+          "La última pieza queda arriba."
+        ],
+        "retroalimentacion": "La pelota queda arriba porque fue la última pieza colocada."
       },
       {
         "id": "e08",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Para construir una torre con piezas como caja de cereal, ¿qué cuerpo geométrico debes buscar?",
+        "enunciado": "Una niña necesita dos columnas iguales para sostener un techo de cartón. ¿Qué par de piezas le conviene elegir?",
         "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa la pieza modelo: caja de cereal. Mira los piedritas en la cocina.",
-          "Relaciona su forma con un cuerpo geométrico. Usa los datos de piedritas en la cocina.",
-          "La pieza es como prisma rectangular. Comprueba con los piedritas en la cocina."
-        ],
-        "retroalimentacion": "Una pieza como caja de cereal tiene forma de prisma rectangular.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cilindro"
+            "texto": "una esfera y un cubo"
           },
           {
             "id": "b",
-            "texto": "prisma rectangular"
+            "texto": "dos cilindros iguales"
           },
           {
             "id": "c",
-            "texto": "esfera"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
+            "texto": "una pelota y una canica"
           }
-        ]
+        ],
+        "pistas": [
+          "Las columnas deben tener la misma altura.",
+          "Dos cilindros iguales pueden ponerse de pie sobre sus bases.",
+          "Elige el par que cumple ambas condiciones."
+        ],
+        "retroalimentacion": "Dos cilindros iguales pueden servir como columnas de igual altura."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Para construir una torre con piezas como balón, ¿qué cuerpo geométrico debes buscar?",
-        "respuesta": "a",
+        "enunciado": "En una maqueta, la base es una caja de cereal y encima hay un cubo. ¿Cómo describirías las piezas?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa la pieza modelo: balón. Mira los flores en la mochila.",
-          "Relaciona su forma con un cuerpo geométrico. Usa los datos de flores en la mochila.",
-          "La pieza es como esfera. Comprueba con los flores en la mochila."
-        ],
-        "retroalimentacion": "Una pieza como balón tiene forma de esfera.",
         "opciones": [
           {
             "id": "a",
-            "texto": "esfera"
+            "texto": "Dos esferas"
           },
           {
             "id": "b",
-            "texto": "cubo"
+            "texto": "Dos cilindros"
           },
           {
             "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "prisma rectangular"
+            "texto": "Una caja rectangular y un cubo"
           }
-        ]
+        ],
+        "pistas": [
+          "La caja de cereal tiene caras rectangulares.",
+          "La pieza superior tiene caras cuadradas iguales.",
+          "Nombra ambos cuerpos en el orden descrito."
+        ],
+        "retroalimentacion": "La maqueta usa una caja rectangular como base y un cubo encima."
       },
       {
         "id": "e10",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Para construir una torre con piezas como dado grande, ¿qué cuerpo geométrico debes buscar?",
-        "respuesta": "d",
+        "enunciado": "Quieres construir una fila recta de cuatro bloques sin huecos. ¿Cómo colocas los cubos?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa la pieza modelo: dado grande. Mira los tizas en el mercado.",
-          "Relaciona su forma con un cuerpo geométrico. Usa los datos de tizas en el mercado.",
-          "La pieza es como cubo. Comprueba con los tizas en el mercado."
-        ],
-        "retroalimentacion": "Una pieza como dado grande tiene forma de cubo.",
         "opciones": [
           {
             "id": "a",
-            "texto": "esfera"
+            "texto": "Unes una cara de cada cubo con la cara del siguiente"
           },
           {
             "id": "b",
-            "texto": "cilindro"
+            "texto": "Pones cada cubo a distinta distancia"
           },
           {
             "id": "c",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
+            "texto": "Apilas los cuatro en el mismo lugar"
           }
-        ]
+        ],
+        "pistas": [
+          "Una fila avanza hacia un lado, no hacia arriba.",
+          "Para que no haya huecos, las piezas deben tocarse.",
+          "Junta caras laterales consecutivas."
+        ],
+        "retroalimentacion": "La fila se forma uniendo una cara lateral de cada cubo con el siguiente."
       },
       {
         "id": "e11",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Para construir una torre con piezas como lata de atún, ¿qué cuerpo geométrico debes buscar?",
-        "respuesta": "c",
+        "enunciado": "Un modelo tiene una torre de dos cajas y una pelota al costado. ¿Cuántas piezas forman la torre?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa la pieza modelo: lata de atún. Mira los pelotas en la canasta.",
-          "Relaciona su forma con un cuerpo geométrico. Usa los datos de pelotas en la canasta.",
-          "La pieza es como cilindro. Comprueba con los pelotas en la canasta."
-        ],
-        "retroalimentacion": "Una pieza como lata de atún tiene forma de cilindro.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cubo"
+            "texto": "tres, porque la pelota está cerca"
           },
           {
             "id": "b",
-            "texto": "prisma rectangular"
+            "texto": "dos, porque solo las cajas están apiladas"
           },
           {
             "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "esfera"
+            "texto": "una, porque las cajas se ven juntas"
           }
-        ]
+        ],
+        "pistas": [
+          "Distingue las piezas apiladas de la que está al costado.",
+          "La pelota no forma parte de la torre.",
+          "Cuenta las dos cajas."
+        ],
+        "retroalimentacion": "La torre tiene dos cajas apiladas; la pelota está al costado."
       },
       {
         "id": "e12",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Para construir una torre con piezas como caja de libros, ¿qué cuerpo geométrico debes buscar?",
-        "respuesta": "b",
+        "enunciado": "Pablo dice que necesita una esfera para formar una pared plana en su casa de bloques. ¿Qué cambio mejora su plan?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Observa la pieza modelo: caja de libros. Mira los mandarinas en la escuela.",
-          "Relaciona su forma con un cuerpo geométrico. Usa los datos de mandarinas en la escuela.",
-          "La pieza es como prisma rectangular. Comprueba con los mandarinas en la escuela."
-        ],
-        "retroalimentacion": "Una pieza como caja de libros tiene forma de prisma rectangular.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cilindro"
+            "texto": "Pintar la esfera"
           },
           {
             "id": "b",
-            "texto": "prisma rectangular"
+            "texto": "Usar otra esfera más grande"
           },
           {
             "id": "c",
-            "texto": "esfera"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
+            "texto": "Elegir una caja con una cara plana"
           }
-        ]
+        ],
+        "pistas": [
+          "Una pared necesita una superficie plana.",
+          "La esfera es curva por todas partes.",
+          "Una caja aporta caras planas."
+        ],
+        "retroalimentacion": "Una caja sirve mejor para representar una pared plana que una esfera."
       }
     ],
     "fuentes": [
@@ -4519,46 +4375,46 @@
       "mat.p1.figuras-planas"
     ],
     "ordenSugerido": 111,
-    "ideaCentral": "Forma dibujos y figuras juntando piezas planas como triángulos y cuadrados.",
+    "ideaCentral": "Las piezas planas se pueden juntar para crear un dibujo o una figura nueva. Mira el contorno exterior después de unirlas.",
     "pasos": [
-      "Identifica las piezas disponibles.",
-      "Imagina cómo unirlas o apilarlas.",
-      "Nombra la forma que necesitas para la construcción."
+      "Reconoce la forma de cada pieza.",
+      "Colócalas lado con lado según el dibujo que quieres.",
+      "Observa el contorno que forman juntas."
     ],
     "ejemplos": [
       {
-        "situacion": "Quieres armar un dibujo que incluya un triángulo. ¿Qué pieza plana necesitas?",
-        "desarrollo": "Piensa en la silueta del triángulo. Mira los tapitas en el aula. Busca la pieza con ese contorno. Usa los datos de tapitas en el aula.",
-        "respuesta": "triángulo"
+        "situacion": "Unes dos cuadrados iguales por un lado.",
+        "desarrollo": "La nueva figura es más larga que alta y tiene cuatro lados rectos.",
+        "respuesta": "Formas un rectángulo."
       },
       {
-        "situacion": "Quieres armar un dibujo que incluya un cuadrado. ¿Qué pieza plana necesitas?",
-        "desarrollo": "Piensa en la silueta del cuadrado. Mira los choclos en el patio. Busca la pieza con ese contorno. Usa los datos de choclos en el patio.",
-        "respuesta": "cuadrado"
+        "situacion": "Pones un triángulo sobre un cuadrado.",
+        "desarrollo": "El cuadrado representa la pared y el triángulo, el techo.",
+        "respuesta": "Formas una casa sencilla."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Decidir solo por el tamaño o el color del objeto.",
-        "correccion": "Identifica las piezas disponibles. Imagina cómo unirlas o apilarlas."
+        "error": "Nombrar la figura final mirando solo una pieza.",
+        "correccion": "Observa el contorno de todas las piezas unidas."
       },
       {
-        "error": "Confundir un cuerpo con el contorno de una de sus caras.",
-        "correccion": "Nombra la forma que necesitas para la construcción. Revisa si la pregunta pide cuerpo o figura plana."
+        "error": "Dejar espacios cuando las piezas deben formar una figura cerrada.",
+        "correccion": "Junta los lados que corresponden sin huecos."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Forma",
-        "significado": "Aspecto geométrico de un objeto."
+        "termino": "Pieza",
+        "significado": "Figura plana que puedes mover y juntar."
       },
       {
-        "termino": "Cara",
-        "significado": "Superficie de un cuerpo geométrico."
+        "termino": "Unir",
+        "significado": "Poner piezas en contacto."
       },
       {
         "termino": "Contorno",
-        "significado": "Línea que rodea una figura."
+        "significado": "Borde exterior de la figura armada."
       }
     ],
     "ejercicios": [
@@ -4566,385 +4422,337 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En el aula, durante la clase de formas, quieres armar un dibujo que incluya un triángulo. ¿Qué pieza plana necesitas?",
+        "enunciado": "Pones un triángulo sobre un cuadrado, sin taparlo. ¿Qué dibujo sencillo puedes formar?",
         "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa en la silueta del triángulo. Mira los tapitas en el aula.",
-          "Busca la pieza con ese contorno. Usa los datos de tapitas en el aula.",
-          "Necesitas un triángulo. Comprueba con los tapitas en el aula."
-        ],
-        "retroalimentacion": "La pieza plana es un triángulo. Las piezas se pueden juntar para formar dibujos.",
         "opciones": [
           {
             "id": "a",
-            "texto": "triángulo"
+            "texto": "una casa con techo"
           },
           {
             "id": "b",
-            "texto": "cuadrado"
+            "texto": "una pelota redonda"
           },
           {
             "id": "c",
-            "texto": "rectángulo"
-          },
-          {
-            "id": "d",
-            "texto": "círculo"
+            "texto": "una sola línea"
           }
-        ]
+        ],
+        "pistas": [
+          "El cuadrado puede ser la pared.",
+          "El triángulo colocado arriba se parece al techo.",
+          "Juntos forman una casa."
+        ],
+        "retroalimentacion": "Un cuadrado con un triángulo arriba puede representar una casa con techo."
       },
       {
         "id": "e02",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En el patio, durante la clase de formas, quieres armar un dibujo que incluya un cuadrado. ¿Qué pieza plana necesitas?",
-        "respuesta": "d",
+        "enunciado": "Unes dos cuadrados iguales por un lado completo, uno junto al otro. ¿Qué contorno exterior aparece?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa en la silueta del cuadrado. Mira los choclos en el patio.",
-          "Busca la pieza con ese contorno. Usa los datos de choclos en el patio.",
-          "Necesitas un cuadrado. Comprueba con los choclos en el patio."
-        ],
-        "retroalimentacion": "La pieza plana es un cuadrado. Las piezas se pueden juntar para formar dibujos.",
         "opciones": [
           {
             "id": "a",
-            "texto": "triángulo"
+            "texto": "un círculo"
           },
           {
             "id": "b",
-            "texto": "rectángulo"
+            "texto": "un rectángulo alargado"
           },
           {
             "id": "c",
-            "texto": "círculo"
-          },
-          {
-            "id": "d",
-            "texto": "cuadrado"
+            "texto": "un triángulo"
           }
-        ]
+        ],
+        "pistas": [
+          "Cada cuadrado tiene lados rectos.",
+          "Al unirlos lado con lado, el contorno se alarga.",
+          "La figura exterior es un rectángulo."
+        ],
+        "retroalimentacion": "Dos cuadrados iguales unidos lado con lado forman un rectángulo alargado."
       },
       {
         "id": "e03",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En la chacra, durante la clase de formas, quieres armar un dibujo que incluya un rectángulo. ¿Qué pieza plana necesitas?",
+        "enunciado": "Tienes dos triángulos que salieron al cortar un cuadrado por una diagonal. Si los vuelves a juntar por el corte, ¿qué recuperas?",
         "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa en la silueta del rectángulo. Mira los cuentos en la chacra.",
-          "Busca la pieza con ese contorno. Usa los datos de cuentos en la chacra.",
-          "Necesitas un rectángulo. Comprueba con los cuentos en la chacra."
-        ],
-        "retroalimentacion": "La pieza plana es un rectángulo. Las piezas se pueden juntar para formar dibujos.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cuadrado"
+            "texto": "un círculo"
           },
           {
             "id": "b",
-            "texto": "círculo"
+            "texto": "un cilindro"
           },
           {
             "id": "c",
-            "texto": "rectángulo"
-          },
-          {
-            "id": "d",
-            "texto": "triángulo"
+            "texto": "el cuadrado original"
           }
-        ]
+        ],
+        "pistas": [
+          "Los dos triángulos eran partes del mismo cuadrado.",
+          "El corte diagonal es la unión entre las piezas.",
+          "Al unirlas recuperas el contorno inicial."
+        ],
+        "retroalimentacion": "Al juntar las dos piezas por la diagonal recuperas el cuadrado original."
       },
       {
         "id": "e04",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En la biblioteca, durante la clase de formas, quieres armar un dibujo que incluya un círculo. ¿Qué pieza plana necesitas?",
-        "respuesta": "b",
+        "enunciado": "Para dibujar un cohete sencillo, colocas un triángulo encima de un rectángulo largo. ¿Qué pieza es la punta?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa en la silueta del círculo. Mira los lápices en la biblioteca.",
-          "Busca la pieza con ese contorno. Usa los datos de lápices en la biblioteca.",
-          "Necesitas un círculo. Comprueba con los lápices en la biblioteca."
-        ],
-        "retroalimentacion": "La pieza plana es un círculo. Las piezas se pueden juntar para formar dibujos.",
         "opciones": [
           {
             "id": "a",
-            "texto": "rectángulo"
+            "texto": "el triángulo"
           },
           {
             "id": "b",
-            "texto": "círculo"
+            "texto": "el rectángulo"
           },
           {
             "id": "c",
-            "texto": "triángulo"
-          },
-          {
-            "id": "d",
-            "texto": "cuadrado"
+            "texto": "ninguna"
           }
-        ]
+        ],
+        "pistas": [
+          "La punta va en la parte superior del cohete.",
+          "Arriba se colocó el triángulo.",
+          "Esa pieza forma la punta."
+        ],
+        "retroalimentacion": "El triángulo colocado arriba representa la punta del cohete."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En la mesa, durante la clase de formas, quieres armar un dibujo que incluya un triángulo. ¿Qué pieza plana necesitas?",
-        "respuesta": "a",
+        "enunciado": "Ana tiene cuatro cuadrados pequeños y quiere un cuadrado grande. ¿Cómo debe ordenarlos?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa en la silueta del triángulo. Mira los cuyes en la mesa.",
-          "Busca la pieza con ese contorno. Usa los datos de cuyes en la mesa.",
-          "Necesitas un triángulo. Comprueba con los cuyes en la mesa."
-        ],
-        "retroalimentacion": "La pieza plana es un triángulo. Las piezas se pueden juntar para formar dibujos.",
         "opciones": [
           {
             "id": "a",
-            "texto": "triángulo"
+            "texto": "En una sola fila de cuatro"
           },
           {
             "id": "b",
-            "texto": "cuadrado"
+            "texto": "En dos filas de dos"
           },
           {
             "id": "c",
-            "texto": "rectángulo"
-          },
-          {
-            "id": "d",
-            "texto": "círculo"
+            "texto": "Uno encima de otro tapándose"
           }
-        ]
+        ],
+        "pistas": [
+          "Un cuadrado grande necesita igual ancho y alto.",
+          "Dos piezas por fila y dos filas dan la misma medida en ambos sentidos.",
+          "Forma un arreglo de dos por dos."
+        ],
+        "retroalimentacion": "Cuatro cuadrados en dos filas de dos forman un cuadrado mayor."
       },
       {
         "id": "e06",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En la feria, durante la clase de formas, quieres armar un dibujo que incluya un cuadrado. ¿Qué pieza plana necesitas?",
-        "respuesta": "d",
+        "enunciado": "Haces una figura con un círculo como cabeza y un triángulo como cuerpo. ¿Qué pieza debes colocar arriba para representar la cabeza?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa en la silueta del cuadrado. Mira los semillas en la feria.",
-          "Busca la pieza con ese contorno. Usa los datos de semillas en la feria.",
-          "Necesitas un cuadrado. Comprueba con los semillas en la feria."
-        ],
-        "retroalimentacion": "La pieza plana es un cuadrado. Las piezas se pueden juntar para formar dibujos.",
         "opciones": [
           {
             "id": "a",
-            "texto": "triángulo"
+            "texto": "el triángulo"
           },
           {
             "id": "b",
-            "texto": "rectángulo"
+            "texto": "un cuadrado"
           },
           {
             "id": "c",
-            "texto": "círculo"
-          },
-          {
-            "id": "d",
-            "texto": "cuadrado"
+            "texto": "el círculo"
           }
-        ]
+        ],
+        "pistas": [
+          "La cabeza del dibujo es redonda.",
+          "Entre las piezas, solo una tiene borde curvo.",
+          "Coloca el círculo arriba."
+        ],
+        "retroalimentacion": "El círculo representa la cabeza redonda en ese dibujo."
       },
       {
         "id": "e07",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En el jardín, durante la clase de formas, quieres armar un dibujo que incluya un rectángulo. ¿Qué pieza plana necesitas?",
-        "respuesta": "c",
+        "enunciado": "En una mesa hay un cuadrado, dos triángulos y un círculo. Quieres armar una casa con techo y sol. ¿Qué pieza sirve para el sol?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa en la silueta del rectángulo. Mira los caramelos en el jardín.",
-          "Busca la pieza con ese contorno. Usa los datos de caramelos en el jardín.",
-          "Necesitas un rectángulo. Comprueba con los caramelos en el jardín."
-        ],
-        "retroalimentacion": "La pieza plana es un rectángulo. Las piezas se pueden juntar para formar dibujos.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cuadrado"
+            "texto": "el círculo"
           },
           {
             "id": "b",
-            "texto": "círculo"
+            "texto": "uno de los triángulos"
           },
           {
             "id": "c",
-            "texto": "rectángulo"
-          },
-          {
-            "id": "d",
-            "texto": "triángulo"
+            "texto": "el cuadrado"
           }
-        ]
+        ],
+        "pistas": [
+          "El sol se suele dibujar redondo.",
+          "Busca la pieza con borde circular.",
+          "Elige el círculo."
+        ],
+        "retroalimentacion": "El círculo puede representar el sol mientras el cuadrado y un triángulo forman la casa."
       },
       {
         "id": "e08",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En la cocina, durante la clase de formas, quieres armar un dibujo que incluya un círculo. ¿Qué pieza plana necesitas?",
+        "enunciado": "Dos rectángulos iguales se colocan uno encima del otro, unidos por su lado largo. ¿Qué sucede con la altura del contorno?",
         "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa en la silueta del círculo. Mira los piedritas en la cocina.",
-          "Busca la pieza con ese contorno. Usa los datos de piedritas en la cocina.",
-          "Necesitas un círculo. Comprueba con los piedritas en la cocina."
-        ],
-        "retroalimentacion": "La pieza plana es un círculo. Las piezas se pueden juntar para formar dibujos.",
         "opciones": [
           {
             "id": "a",
-            "texto": "rectángulo"
+            "texto": "Desaparece"
           },
           {
             "id": "b",
-            "texto": "círculo"
+            "texto": "Aumenta"
           },
           {
             "id": "c",
-            "texto": "triángulo"
-          },
-          {
-            "id": "d",
-            "texto": "cuadrado"
+            "texto": "Se convierte en círculo"
           }
-        ]
+        ],
+        "pistas": [
+          "La segunda pieza añade espacio arriba.",
+          "El ancho puede mantenerse, pero la figura ocupa más hacia arriba.",
+          "La altura aumenta."
+        ],
+        "retroalimentacion": "Al poner un rectángulo encima de otro, el contorno total es más alto."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "En la mochila, durante la clase de formas, quieres armar un dibujo que incluya un triángulo. ¿Qué pieza plana necesitas?",
-        "respuesta": "a",
+        "enunciado": "Tienes una pieza triangular y otra cuadrada. ¿Cuál unión forma una silueta con una punta arriba y cuatro esquinas en la parte inferior?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa en la silueta del triángulo. Mira los flores en la mochila.",
-          "Busca la pieza con ese contorno. Usa los datos de flores en la mochila.",
-          "Necesitas un triángulo. Comprueba con los flores en la mochila."
-        ],
-        "retroalimentacion": "La pieza plana es un triángulo. Las piezas se pueden juntar para formar dibujos.",
         "opciones": [
           {
             "id": "a",
-            "texto": "triángulo"
+            "texto": "Poner el cuadrado sobre el triángulo"
           },
           {
             "id": "b",
-            "texto": "cuadrado"
+            "texto": "Separarlas en dos extremos de la mesa"
           },
           {
             "id": "c",
-            "texto": "rectángulo"
-          },
-          {
-            "id": "d",
-            "texto": "círculo"
+            "texto": "Poner el triángulo sobre el cuadrado"
           }
-        ]
+        ],
+        "pistas": [
+          "La punta pertenece al triángulo.",
+          "La parte inferior con lados rectos pertenece al cuadrado.",
+          "Coloca el triángulo arriba."
+        ],
+        "retroalimentacion": "Triángulo arriba y cuadrado abajo producen esa silueta de casa."
       },
       {
         "id": "e10",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "En el mercado, durante la clase de formas, quieres armar un dibujo que incluya un cuadrado. ¿Qué pieza plana necesitas?",
-        "respuesta": "d",
+        "enunciado": "Pablo afirma que con dos círculos separados construyó un rectángulo. ¿Qué debe comprobar?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa en la silueta del cuadrado. Mira los tizas en el mercado.",
-          "Busca la pieza con ese contorno. Usa los datos de tizas en el mercado.",
-          "Necesitas un cuadrado. Comprueba con los tizas en el mercado."
-        ],
-        "retroalimentacion": "La pieza plana es un cuadrado. Las piezas se pueden juntar para formar dibujos.",
         "opciones": [
           {
             "id": "a",
-            "texto": "triángulo"
+            "texto": "Si el contorno final tiene cuatro lados rectos"
           },
           {
             "id": "b",
-            "texto": "rectángulo"
+            "texto": "Si los círculos son del mismo color"
           },
           {
             "id": "c",
-            "texto": "círculo"
-          },
-          {
-            "id": "d",
-            "texto": "cuadrado"
+            "texto": "Si la mesa es rectangular"
           }
-        ]
+        ],
+        "pistas": [
+          "Un rectángulo se reconoce por sus lados rectos.",
+          "Dos círculos tienen bordes curvos.",
+          "Mira el contorno exterior de la unión."
+        ],
+        "retroalimentacion": "Un rectángulo necesita cuatro lados rectos; dos círculos separados no forman ese contorno."
       },
       {
         "id": "e11",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "En la canasta, durante la clase de formas, quieres armar un dibujo que incluya un rectángulo. ¿Qué pieza plana necesitas?",
-        "respuesta": "c",
+        "enunciado": "Para armar una flecha con piezas planas, tienes un rectángulo delgado y un triángulo. ¿Dónde colocas el triángulo?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa en la silueta del rectángulo. Mira los pelotas en la canasta.",
-          "Busca la pieza con ese contorno. Usa los datos de pelotas en la canasta.",
-          "Necesitas un rectángulo. Comprueba con los pelotas en la canasta."
-        ],
-        "retroalimentacion": "La pieza plana es un rectángulo. Las piezas se pueden juntar para formar dibujos.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cuadrado"
+            "texto": "Debajo como sombra"
           },
           {
             "id": "b",
-            "texto": "círculo"
+            "texto": "En un extremo como punta"
           },
           {
             "id": "c",
-            "texto": "rectángulo"
-          },
-          {
-            "id": "d",
-            "texto": "triángulo"
+            "texto": "Dentro del rectángulo tapado"
           }
-        ]
+        ],
+        "pistas": [
+          "El rectángulo puede ser el cuerpo de la flecha.",
+          "La punta debe indicar hacia dónde señala.",
+          "Une el triángulo a un extremo."
+        ],
+        "retroalimentacion": "El triángulo en un extremo forma la punta de la flecha."
       },
       {
         "id": "e12",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "En la escuela, durante la clase de formas, quieres armar un dibujo que incluya un círculo. ¿Qué pieza plana necesitas?",
-        "respuesta": "b",
+        "enunciado": "Una figura hecha con tres cuadrados parece una letra L: dos están en fila y el tercero debajo del primero. ¿Qué pieza debes mover si quieres una fila recta de tres?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Piensa en la silueta del círculo. Mira los mandarinas en la escuela.",
-          "Busca la pieza con ese contorno. Usa los datos de mandarinas en la escuela.",
-          "Necesitas un círculo. Comprueba con los mandarinas en la escuela."
-        ],
-        "retroalimentacion": "La pieza plana es un círculo. Las piezas se pueden juntar para formar dibujos.",
         "opciones": [
           {
             "id": "a",
-            "texto": "rectángulo"
+            "texto": "Ninguna; ya están en fila"
           },
           {
             "id": "b",
-            "texto": "círculo"
+            "texto": "El segundo cuadrado hacia arriba"
           },
           {
             "id": "c",
-            "texto": "triángulo"
-          },
-          {
-            "id": "d",
-            "texto": "cuadrado"
+            "texto": "El cuadrado de abajo al extremo de la fila"
           }
-        ]
+        ],
+        "pistas": [
+          "En la L hay un cuadrado fuera de la fila horizontal.",
+          "Es el que está debajo del primero.",
+          "Ponlo junto al cuadrado del extremo."
+        ],
+        "retroalimentacion": "Mover el cuadrado de abajo al extremo forma una fila recta de tres piezas."
       }
     ],
     "fuentes": [
@@ -4980,46 +4788,46 @@
       "mat.p1.clasificar-por-forma"
     ],
     "ordenSugerido": 114,
-    "ideaCentral": "Afirma que dos objetos tienen la misma forma aunque sean de distinto tamaño, como una pelota y una canica, y lo prueba.",
+    "ideaCentral": "Dos objetos pueden tener la misma forma aunque cambien de tamaño, color o posición. Compara sus bordes y superficies.",
     "pasos": [
-      "Observa la forma del objeto o de la figura.",
-      "Busca sus lados, caras, puntas o superficies curvas.",
-      "Compárala con una forma conocida y nómbrala."
+      "Observa el contorno o las superficies de cada objeto.",
+      "Deja de lado el color, el tamaño y la orientación.",
+      "Decide si conservan la misma forma geométrica."
     ],
     "ejemplos": [
       {
-        "situacion": "Una versión pequeña y otra grande de pelota tienen la misma forma. ¿Cuál es?",
-        "desarrollo": "Mira la forma de pelota. Mira los tapitas en el aula. El tamaño no cambia el tipo de cuerpo. Usa los datos de tapitas en el aula.",
-        "respuesta": "esfera"
+        "situacion": "Una canica y una pelota tienen distinto tamaño.",
+        "desarrollo": "Ambas son redondas por todas partes.",
+        "respuesta": "Comparten forma esférica."
       },
       {
-        "situacion": "Una versión pequeña y otra grande de dado tienen la misma forma. ¿Cuál es?",
-        "desarrollo": "Mira la forma de dado. Mira los choclos en el patio. El tamaño no cambia el tipo de cuerpo. Usa los datos de choclos en el patio.",
-        "respuesta": "cubo"
+        "situacion": "Giras una tarjeta cuadrada.",
+        "desarrollo": "Sus cuatro lados siguen siendo iguales.",
+        "respuesta": "Sigue siendo cuadrada."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Decidir solo por el tamaño o el color del objeto.",
-        "correccion": "Observa la forma del objeto o de la figura. Busca sus lados, caras, puntas o superficies curvas."
+        "error": "Decir que objetos del mismo color tienen la misma forma.",
+        "correccion": "Compara contornos: una pelota y una caja pueden ser verdes y tener formas distintas."
       },
       {
-        "error": "Confundir un cuerpo con el contorno de una de sus caras.",
-        "correccion": "Compárala con una forma conocida y nómbrala. Revisa si la pregunta pide cuerpo o figura plana."
+        "error": "Creer que girar un cuadrado cambia sus lados.",
+        "correccion": "La orientación cambia la vista, pero no la forma."
       }
     ],
     "vocabulario": [
       {
         "termino": "Forma",
-        "significado": "Aspecto geométrico de un objeto."
+        "significado": "Estructura geométrica de un objeto."
       },
       {
-        "termino": "Cara",
-        "significado": "Superficie de un cuerpo geométrico."
+        "termino": "Tamaño",
+        "significado": "Qué tan grande o pequeño es."
       },
       {
-        "termino": "Contorno",
-        "significado": "Línea que rodea una figura."
+        "termino": "Orientación",
+        "significado": "Posición en que se presenta un objeto."
       }
     ],
     "ejercicios": [
@@ -5027,385 +4835,337 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Una versión pequeña y otra grande de pelota tienen la misma forma. ¿Cuál es?",
+        "enunciado": "Una canica pequeña y una pelota grande son redondas por todas partes. ¿Qué comparten?",
         "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la forma de pelota. Mira los tapitas en el aula.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de tapitas en el aula.",
-          "Corresponde al grupo esfera. Comprueba con los tapitas en el aula."
-        ],
-        "retroalimentacion": "«pelota» tiene forma de esfera aunque cambie su tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "esfera"
+            "texto": "la misma forma esférica"
           },
           {
             "id": "b",
-            "texto": "cubo"
+            "texto": "el mismo tamaño"
           },
           {
             "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "prisma rectangular"
+            "texto": "el mismo peso"
           }
-        ]
+        ],
+        "pistas": [
+          "Una es pequeña y la otra grande.",
+          "Las dos son redondas en todas direcciones.",
+          "Comparten forma de esfera."
+        ],
+        "retroalimentacion": "Canica y pelota tienen forma esférica aunque difieran en tamaño y peso."
       },
       {
         "id": "e02",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Una versión pequeña y otra grande de dado tienen la misma forma. ¿Cuál es?",
-        "respuesta": "d",
+        "enunciado": "Dos dados tienen distinta altura, pero cada uno conserva seis caras cuadradas iguales. ¿Qué puedes decir de su forma?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la forma de dado. Mira los choclos en el patio.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de choclos en el patio.",
-          "Corresponde al grupo cubo. Comprueba con los choclos en el patio."
-        ],
-        "retroalimentacion": "«dado» tiene forma de cubo aunque cambie su tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "esfera"
+            "texto": "Uno es círculo"
           },
           {
             "id": "b",
-            "texto": "cilindro"
+            "texto": "Los dos son cubos"
           },
           {
             "id": "c",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
+            "texto": "Uno se vuelve cilindro"
           }
-        ]
+        ],
+        "pistas": [
+          "El tamaño cambia, pero las caras siguen siendo cuadradas.",
+          "Seis caras cuadradas forman un cubo.",
+          "Ambos tienen la misma forma cúbica."
+        ],
+        "retroalimentacion": "Los dados siguen siendo cubos aunque uno sea más grande."
       },
       {
         "id": "e03",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Una versión pequeña y otra grande de lata de leche tienen la misma forma. ¿Cuál es?",
+        "enunciado": "Una lata chica y una lata grande tienen bases circulares y costado curvo. ¿Cómo se comparan sus formas?",
         "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la forma de lata de leche. Mira los cuentos en la chacra.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de cuentos en la chacra.",
-          "Corresponde al grupo cilindro. Comprueba con los cuentos en la chacra."
-        ],
-        "retroalimentacion": "«lata de leche» tiene forma de cilindro aunque cambie su tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cubo"
+            "texto": "Una es esfera"
           },
           {
             "id": "b",
-            "texto": "prisma rectangular"
+            "texto": "Una es cubo"
           },
           {
             "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "esfera"
+            "texto": "Ambas son cilindros"
           }
-        ]
+        ],
+        "pistas": [
+          "Mira las bases redondas de ambas.",
+          "Las dos tienen un costado curvo entre sus bases.",
+          "Comparten forma de cilindro."
+        ],
+        "retroalimentacion": "Ambas latas son cilíndricas; el tamaño no cambia esa forma."
       },
       {
         "id": "e04",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Una versión pequeña y otra grande de caja de zapatos tienen la misma forma. ¿Cuál es?",
-        "respuesta": "b",
+        "enunciado": "Tienes dos tarjetas cuadradas, una roja y otra azul. ¿Qué dato no cambia su forma?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la forma de caja de zapatos. Mira los lápices en la biblioteca.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de lápices en la biblioteca.",
-          "Corresponde al grupo prisma rectangular. Comprueba con los lápices en la biblioteca."
-        ],
-        "retroalimentacion": "«caja de zapatos» tiene forma de prisma rectangular aunque cambie su tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cilindro"
+            "texto": "El color"
           },
           {
             "id": "b",
-            "texto": "prisma rectangular"
+            "texto": "La cantidad de lados"
           },
           {
             "id": "c",
-            "texto": "esfera"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
+            "texto": "La presencia de esquinas"
           }
-        ]
+        ],
+        "pistas": [
+          "La forma se reconoce por el contorno.",
+          "Ambas conservan cuatro lados iguales.",
+          "Rojo y azul son colores, no formas."
+        ],
+        "retroalimentacion": "Cambiar el color no modifica la forma cuadrada."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Una versión pequeña y otra grande de canica tienen la misma forma. ¿Cuál es?",
-        "respuesta": "a",
+        "enunciado": "Una ventana rectangular está acostada y otra está de pie. ¿Qué figura plana representan las dos?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la forma de canica. Mira los cuyes en la mesa.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de cuyes en la mesa.",
-          "Corresponde al grupo esfera. Comprueba con los cuyes en la mesa."
-        ],
-        "retroalimentacion": "«canica» tiene forma de esfera aunque cambie su tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "esfera"
+            "texto": "círculo"
           },
           {
             "id": "b",
-            "texto": "cubo"
+            "texto": "rectángulo"
           },
           {
             "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "prisma rectangular"
+            "texto": "triángulo"
           }
-        ]
+        ],
+        "pistas": [
+          "Girar una ventana cambia su orientación.",
+          "Su contorno aún tiene cuatro lados y cuatro esquinas.",
+          "Las dos son rectangulares."
+        ],
+        "retroalimentacion": "Las dos ventanas tienen forma de rectángulo aunque una esté girada."
       },
       {
         "id": "e06",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Una versión pequeña y otra grande de cubo de madera tienen la misma forma. ¿Cuál es?",
-        "respuesta": "d",
+        "enunciado": "Una caja de cereal pequeña y otra grande tienen caras rectangulares. ¿Qué propiedad debes comparar para decidir si tienen la misma forma?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la forma de cubo de madera. Mira los semillas en la feria.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de semillas en la feria.",
-          "Corresponde al grupo cubo. Comprueba con los semillas en la feria."
-        ],
-        "retroalimentacion": "«cubo de madera» tiene forma de cubo aunque cambie su tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "esfera"
+            "texto": "La marca impresa"
           },
           {
             "id": "b",
-            "texto": "cilindro"
+            "texto": "El peso exacto"
           },
           {
             "id": "c",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
+            "texto": "El contorno de sus caras"
           }
-        ]
+        ],
+        "pistas": [
+          "El tamaño y la marca pueden variar.",
+          "La forma se observa en bordes y caras.",
+          "Compara los contornos rectangulares."
+        ],
+        "retroalimentacion": "Las caras rectangulares permiten reconocer la misma forma en cajas de distinto tamaño."
       },
       {
         "id": "e07",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Una versión pequeña y otra grande de tubo cerrado tienen la misma forma. ¿Cuál es?",
-        "respuesta": "c",
+        "enunciado": "Un niño dice que una pelota de playa ya no es esfera porque es mucho mayor que una canica. ¿Qué le respondes?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la forma de tubo cerrado. Mira los caramelos en el jardín.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de caramelos en el jardín.",
-          "Corresponde al grupo cilindro. Comprueba con los caramelos en el jardín."
-        ],
-        "retroalimentacion": "«tubo cerrado» tiene forma de cilindro aunque cambie su tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cubo"
+            "texto": "Las dos conservan forma esférica"
           },
           {
             "id": "b",
-            "texto": "prisma rectangular"
+            "texto": "Solo la canica tiene forma"
           },
           {
             "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "esfera"
+            "texto": "La pelota es un cubo grande"
           }
-        ]
+        ],
+        "pistas": [
+          "El tamaño no define si algo es esfera.",
+          "Ambos objetos son redondos por todas partes.",
+          "La forma esférica se conserva."
+        ],
+        "retroalimentacion": "Pelota y canica tienen la misma forma esférica pese a la diferencia de tamaño."
       },
       {
         "id": "e08",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Una versión pequeña y otra grande de caja de cereal tienen la misma forma. ¿Cuál es?",
+        "enunciado": "Un cuadrado dibujado de lado parece un rombo. Si no cambian sus cuatro lados iguales, ¿qué figura sigue siendo?",
         "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la forma de caja de cereal. Mira los piedritas en la cocina.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de piedritas en la cocina.",
-          "Corresponde al grupo prisma rectangular. Comprueba con los piedritas en la cocina."
-        ],
-        "retroalimentacion": "«caja de cereal» tiene forma de prisma rectangular aunque cambie su tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cilindro"
+            "texto": "triángulo"
           },
           {
             "id": "b",
-            "texto": "prisma rectangular"
+            "texto": "cuadrado"
           },
           {
             "id": "c",
-            "texto": "esfera"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
+            "texto": "círculo"
           }
-        ]
+        ],
+        "pistas": [
+          "Girar el dibujo no añade lados.",
+          "Los cuatro lados siguen siendo iguales.",
+          "Sigue siendo un cuadrado."
+        ],
+        "retroalimentacion": "La orientación no cambia la forma cuadrada."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Una versión pequeña y otra grande de balón tienen la misma forma. ¿Cuál es?",
-        "respuesta": "a",
+        "enunciado": "Una moneda grande y una ficha redonda pequeña tienen contornos circulares. ¿Qué cambia entre ellas?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la forma de balón. Mira los flores en la mochila.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de flores en la mochila.",
-          "Corresponde al grupo esfera. Comprueba con los flores en la mochila."
-        ],
-        "retroalimentacion": "«balón» tiene forma de esfera aunque cambie su tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "esfera"
+            "texto": "La forma circular"
           },
           {
             "id": "b",
-            "texto": "cubo"
+            "texto": "La cantidad de esquinas"
           },
           {
             "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "prisma rectangular"
+            "texto": "El tamaño"
           }
-        ]
+        ],
+        "pistas": [
+          "Ambas no tienen esquinas.",
+          "Sus bordes siguen siendo círculos.",
+          "La diferencia descrita es su tamaño."
+        ],
+        "retroalimentacion": "La moneda y la ficha comparten forma circular; cambia el tamaño."
       },
       {
         "id": "e10",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Una versión pequeña y otra grande de dado grande tienen la misma forma. ¿Cuál es?",
-        "respuesta": "d",
+        "enunciado": "Dos objetos son verdes: una pelota y una caja. ¿El color basta para afirmar que tienen la misma forma?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la forma de dado grande. Mira los tizas en el mercado.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de tizas en el mercado.",
-          "Corresponde al grupo cubo. Comprueba con los tizas en el mercado."
-        ],
-        "retroalimentacion": "«dado grande» tiene forma de cubo aunque cambie su tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "esfera"
+            "texto": "No, porque una es redonda y la otra tiene caras planas"
           },
           {
             "id": "b",
-            "texto": "cilindro"
+            "texto": "Sí, verde significa forma igual"
           },
           {
             "id": "c",
-            "texto": "prisma rectangular"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
+            "texto": "Sí, si están en la misma mesa"
           }
-        ]
+        ],
+        "pistas": [
+          "El color es igual, pero mira sus superficies.",
+          "La pelota es curva; la caja tiene caras planas.",
+          "No tienen la misma forma."
+        ],
+        "retroalimentacion": "Compartir color no basta: pelota y caja tienen formas diferentes."
       },
       {
         "id": "e11",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Una versión pequeña y otra grande de lata de atún tienen la misma forma. ¿Cuál es?",
-        "respuesta": "c",
+        "enunciado": "Un vaso pequeño y otro grande tienen costado cilíndrico. ¿Qué prueba mejor que sus formas se parecen?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la forma de lata de atún. Mira los pelotas en la canasta.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de pelotas en la canasta.",
-          "Corresponde al grupo cilindro. Comprueba con los pelotas en la canasta."
-        ],
-        "retroalimentacion": "«lata de atún» tiene forma de cilindro aunque cambie su tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cubo"
+            "texto": "Tienen exactamente la misma capacidad"
           },
           {
             "id": "b",
-            "texto": "prisma rectangular"
+            "texto": "Ambos muestran base circular y costado curvo"
           },
           {
             "id": "c",
-            "texto": "cilindro"
-          },
-          {
-            "id": "d",
-            "texto": "esfera"
+            "texto": "Están llenos de la misma bebida"
           }
-        ]
+        ],
+        "pistas": [
+          "La capacidad puede ser distinta.",
+          "Compara la base y el costado de ambos vasos.",
+          "Esas partes muestran forma cilíndrica."
+        ],
+        "retroalimentacion": "La base circular y el costado curvo muestran una forma cilíndrica semejante."
       },
       {
         "id": "e12",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Una versión pequeña y otra grande de caja de libros tienen la misma forma. ¿Cuál es?",
-        "respuesta": "b",
+        "enunciado": "Una caja rectangular se gira y se mira desde otro lado. ¿Qué conclusión sobre su forma es correcta?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Mira la forma de caja de libros. Mira los mandarinas en la escuela.",
-          "El tamaño no cambia el tipo de cuerpo. Usa los datos de mandarinas en la escuela.",
-          "Corresponde al grupo prisma rectangular. Comprueba con los mandarinas en la escuela."
-        ],
-        "retroalimentacion": "«caja de libros» tiene forma de prisma rectangular aunque cambie su tamaño.",
         "opciones": [
           {
             "id": "a",
-            "texto": "cilindro"
+            "texto": "Se convierte en esfera"
           },
           {
             "id": "b",
-            "texto": "prisma rectangular"
+            "texto": "Pierde sus caras planas"
           },
           {
             "id": "c",
-            "texto": "esfera"
-          },
-          {
-            "id": "d",
-            "texto": "cubo"
+            "texto": "Conserva su forma aunque cambie la vista"
           }
-        ]
+        ],
+        "pistas": [
+          "Girar no corta ni añade partes al objeto.",
+          "Las caras planas siguen estando ahí.",
+          "La forma permanece."
+        ],
+        "retroalimentacion": "La caja conserva su forma al girarla; solo cambia la vista."
       }
     ],
     "fuentes": [
