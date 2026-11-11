@@ -1,0 +1,2426 @@
+[
+  {
+    "clave": "mat.p4.patrones-repeticion-simetria",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P4-02"
+    ],
+    "bloque": "Patrones",
+    "nombre": "Patrones de repetición con simetría",
+    "disciplina": "algebra",
+    "descripcionCorta": "Identifica y continúa patrones que combinan color o forma con una figura y su reflejo.",
+    "palabrasClave": [
+      "patrón",
+      "repetición",
+      "simetría",
+      "reflejo",
+      "núcleo"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 23,
+    "ideaCentral": "Un patrón de repetición tiene un grupo de figuras, el núcleo, que se repite una y otra vez. Cuando una figura va seguida de su reflejo, como en un espejo, el patrón tiene simetría.",
+    "pasos": [
+      "Busca el grupo de figuras que se repite: ese es el núcleo.",
+      "Fíjate en el color y en la forma de cada figura del núcleo.",
+      "Si una figura mira a un lado y la siguiente a su reflejo, el patrón tiene simetría.",
+      "Repite el núcleo completo para saber qué figura sigue o qué figura ocupa una posición."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una cenefa de Cusco ves ◀ ▶ ◀ ▶ ◀ ▶. ¿Qué figura sigue?",
+        "desarrollo": "El núcleo es ◀ ▶: una flecha y su reflejo. Después de ▶ vuelve a empezar el núcleo.",
+        "respuesta": "Sigue ◀."
+      },
+      {
+        "situacion": "Una faja tiene rojo ◀, azul ▶, rojo ◀, azul ▶, rojo ◀. ¿Cuál sigue?",
+        "desarrollo": "El núcleo es «rojo ◀, azul ▶». Ya apareció rojo ◀, ahora toca azul ▶.",
+        "respuesta": "Sigue azul ▶."
+      },
+      {
+        "situacion": "Un ceramista de Chulucanas pinta ◀ ● ▶ ● y repite. ¿Cuántas figuras hay en 3 repeticiones?",
+        "desarrollo": "El núcleo tiene 4 figuras. Tres repeticiones son 3 × 4 = 12.",
+        "respuesta": "Hay 12 figuras."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Mirar solo el color y olvidar hacia dónde apunta la figura.",
+        "correccion": "Revisa color y dirección. Dos figuras del mismo color pueden ser reflejo una de otra."
+      },
+      {
+        "error": "Empezar el núcleo en un lugar cualquiera y repetirlo mal.",
+        "correccion": "Marca dónde empieza y termina el núcleo antes de continuar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Núcleo",
+        "significado": "El grupo de figuras que se repite en el patrón."
+      },
+      {
+        "termino": "Reflejo",
+        "significado": "La imagen de una figura como se vería en un espejo."
+      },
+      {
+        "termino": "Simetría",
+        "significado": "Cuando una figura y su reflejo se corresponden como en un espejo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el reflejo de la flecha ◀ en un espejo vertical?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "▲"
+          },
+          {
+            "id": "b",
+            "texto": "▶"
+          },
+          {
+            "id": "c",
+            "texto": "◀"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina un espejo parado a la derecha de la flecha.",
+          "La flecha ◀ apunta a la izquierda; en el espejo mira hacia el lado contrario.",
+          "Busca la flecha que apunta a la derecha."
+        ],
+        "retroalimentacion": "El reflejo de ◀ es ▶, porque en el espejo cambia de lado. ▲ apunta hacia arriba y ◀ es la misma figura sin reflejar.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En el patrón ◀ ▶ ◀ ▶, la figura ▶ es el reflejo de ◀.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara hacia dónde apunta cada figura.",
+          "Una apunta a la izquierda y la otra a la derecha.",
+          "Dos figuras iguales que miran a lados contrarios son reflejo una de otra."
+        ],
+        "retroalimentacion": "Es verdadero: ▶ es ◀ reflejada, y por eso el patrón tiene simetría.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "El núcleo ◀ ▶ se repite 4 veces en la cenefa de un mantel. ¿Cuántas figuras hay en total? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántas figuras tiene un núcleo.",
+          "El núcleo ◀ ▶ tiene 2 figuras y se repite 4 veces.",
+          "Multiplica 2 figuras por 4 repeticiones."
+        ],
+        "retroalimentacion": "2 figuras × 4 repeticiones = 8 figuras. Un error típico es contar solo 4 y olvidar que cada núcleo tiene dos.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "El patrón es ◀ ▶ ◀ ▶ ◀. ¿Hacia dónde apunta la siguiente flecha? Escribe izquierda o derecha.",
+        "respuesta": "derecha",
+        "alternativasAceptadas": [
+          "a la derecha",
+          "▶",
+          "flecha derecha"
+        ],
+        "pistas": [
+          "Mira cómo se alternan las flechas.",
+          "Después de ◀ siempre viene ▶.",
+          "La última flecha que ves es ◀, así que toca la del otro lado."
+        ],
+        "retroalimentacion": "La siguiente apunta a la derecha: el núcleo ◀ ▶ vuelve a empezar y tras ◀ va ▶.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una faja de Cusco tiene: rojo ◀, azul ▶, rojo ◀, azul ▶, rojo ◀. ¿Qué figura sigue?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Rojo ◀"
+          },
+          {
+            "id": "b",
+            "texto": "Azul ▶"
+          },
+          {
+            "id": "c",
+            "texto": "Azul ◀"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero halla el núcleo: dos figuras que se repiten.",
+          "El núcleo es «rojo ◀, azul ▶» y ya apareció el rojo ◀ al final.",
+          "Falta la segunda figura del núcleo: su color y su dirección."
+        ],
+        "retroalimentacion": "Sigue azul ▶. «Rojo ◀» ya está en el último lugar y «azul ◀» no existe en el núcleo, porque el azul siempre mira a la derecha.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Rosa teje una cinta con ▲ ▼ ▲ ▼ y sigue así hasta tener 12 figuras. ¿Cuántas figuras ▼ tiene? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cómo se alternan ▲ y ▼.",
+          "Cada núcleo ▲ ▼ tiene 2 figuras; en 12 figuras caben varios núcleos.",
+          "12 figuras entre 2 por núcleo da el número de núcleos, y cada uno tiene una ▼."
+        ],
+        "retroalimentacion": "Hay 12 ÷ 2 = 6 núcleos y cada uno tiene 1 figura ▼: son 6.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En el patrón ◀ ◀ ▶ ◀ ◀ ▶, el núcleo tiene 2 figuras.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el grupo que se repite exactamente.",
+          "Lee las primeras figuras: ◀ ◀ ▶ y luego otra vez ◀ ◀ ▶.",
+          "Cuenta cuántas figuras hay en ese grupo."
+        ],
+        "retroalimentacion": "Es falso: el núcleo es ◀ ◀ ▶ y tiene 3 figuras, no 2.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un artesano repite este núcleo: ◀ ● ▶ ●. ¿Qué figura está en la posición 7? Escribe «flecha izquierda», «flecha derecha» o «círculo».",
+        "respuesta": "flecha derecha",
+        "alternativasAceptadas": [
+          "derecha",
+          "flecha a la derecha",
+          "▶"
+        ],
+        "pistas": [
+          "Numera las figuras del núcleo: 1 ◀, 2 ●, 3 ▶, 4 ●.",
+          "Después de 4 el núcleo vuelve a empezar: 5 ◀, 6 ●, 7 ...",
+          "La posición 7 es la tercera del segundo núcleo."
+        ],
+        "retroalimentacion": "La posición 7 es la tercera figura del segundo núcleo, que es ▶: flecha derecha.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El núcleo ◀ ● ▶ ● se repite sin parar en la cenefa de un poncho. En las primeras 40 figuras, ¿cuántas flechas ▶ hay? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero cuenta cuántas figuras tiene un núcleo.",
+          "El núcleo tiene 4 figuras: entran 40 ÷ 4 núcleos en las 40 figuras.",
+          "Cada núcleo tiene una sola flecha ▶; cuenta los núcleos."
+        ],
+        "retroalimentacion": "Hay 40 ÷ 4 = 10 núcleos y cada uno trae una ▶: son 10. Un error es contar todas las flechas, ◀ y ▶ juntas.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "El núcleo ◀ ▶ ▶ se repite. ¿Cuáles son las primeras 7 figuras del patrón?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "◀ ▶ ◀ ▶ ▶ ◀ ▶"
+          },
+          {
+            "id": "b",
+            "texto": "◀ ▶ ▶ ▶ ◀ ▶ ▶"
+          },
+          {
+            "id": "c",
+            "texto": "◀ ▶ ▶ ◀ ▶ ▶ ◀"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El núcleo tiene 3 figuras: ◀ ▶ ▶.",
+          "Escribe el núcleo dos veces y agrega la primera figura del tercero.",
+          "Compara cada opción figura por figura con ◀ ▶ ▶ ◀ ▶ ▶ ◀."
+        ],
+        "retroalimentacion": "La opción «◀ ▶ ▶ ◀ ▶ ▶ ◀» repite el núcleo ◀ ▶ ▶ dos veces y empieza el tercero. En las otras opciones el núcleo se rompe.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En el patrón ◀ ▶ ◀ ▶ ◀ ▶ ..., la figura 25 apunta a la izquierda.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las figuras en lugar impar y en lugar par apuntan distinto.",
+          "La 1 es ◀, la 2 es ▶, la 3 es ◀: las impares miran a la izquierda.",
+          "Revisa si 25 es un número impar."
+        ],
+        "retroalimentacion": "Es verdadero: 25 es impar y todas las figuras en lugar impar son ◀, que apunta a la izquierda.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una faja repite: azul ◀, amarillo ▶, rojo ◀. ¿De qué color y hacia dónde apunta la figura 8? Escribe color y dirección (por ejemplo: rojo izquierda).",
+        "respuesta": "amarillo derecha",
+        "alternativasAceptadas": [
+          "amarillo a la derecha",
+          "amarillo ▶",
+          "amarillo flecha derecha"
+        ],
+        "pistas": [
+          "El núcleo tiene 3 figuras: azul, amarillo y rojo.",
+          "Las figuras 1 a 3 son el primer núcleo y 4 a 6 el segundo; la 7 empieza el tercero.",
+          "La 7 es azul ◀, así que la 8 es la segunda figura del núcleo."
+        ],
+        "retroalimentacion": "La figura 8 es la segunda del tercer núcleo: amarillo ▶, es decir, amarillo derecha. Un error es dividir 8 entre 2 en vez de entre 3.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.patrones-aditivos-10000",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-P4-05"
+    ],
+    "bloque": "Patrones",
+    "nombre": "Patrones aditivos con números hasta 10 000",
+    "disciplina": "algebra",
+    "descripcionCorta": "Continúa y completa términos faltantes en secuencias que suman o restan un mismo número.",
+    "palabrasClave": [
+      "patrón aditivo",
+      "miles",
+      "secuencia",
+      "término faltante",
+      "suma y resta"
+    ],
+    "prerrequisitos": [
+      "mat.p4.recta-numerica-10000"
+    ],
+    "ordenSugerido": 24,
+    "ideaCentral": "En un patrón aditivo con números hasta 10 000, cada término se obtiene sumando o restando siempre el mismo número. Si lo descubres, puedes continuar la secuencia y completar los términos que faltan.",
+    "pasos": [
+      "Resta dos términos seguidos para hallar cuánto sube o baja.",
+      "Comprueba que la diferencia sea la misma entre todos los pares.",
+      "Si sube, suma esa cantidad; si baja, réstala.",
+      "Para un término que falta, suma o resta el mismo número al término vecino."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un bus de Lima a Huancayo anota los kilómetros 1000, 2000, 3000, 4000. ¿Cuál sigue?",
+        "desarrollo": "Cada término suma 1000: 4000 + 1000.",
+        "respuesta": "Sigue 5000."
+      },
+      {
+        "situacion": "Una tienda de Cusco registra 8000, 7500, 7000, 6500 latas. ¿Cuál es el siguiente?",
+        "desarrollo": "Baja 500 cada vez. 6500 − 500 = 6000.",
+        "respuesta": "El siguiente es 6000."
+      },
+      {
+        "situacion": "En 3450, 3460, __, 3480 falta un número.",
+        "desarrollo": "Sube 10 cada vez: 3460 + 10.",
+        "respuesta": "Falta 3470."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar un número distinto en cada paso.",
+        "correccion": "Calcula todas las diferencias: deben dar el mismo número."
+      },
+      {
+        "error": "Confundir cuánto sube con el último término.",
+        "correccion": "La regla es la diferencia entre términos, no el último número."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Patrón aditivo",
+        "significado": "Secuencia que se forma sumando o restando siempre lo mismo."
+      },
+      {
+        "termino": "Término faltante",
+        "significado": "Número que falta en una secuencia y que se halla con la regla."
+      },
+      {
+        "termino": "Diferencia",
+        "significado": "Resultado de restar dos términos seguidos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La secuencia de kilómetros de un bus es 1000, 2000, 3000, 4000. ¿Qué número sigue? Escribe solo el número.",
+        "respuesta": 5000,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuánto sube cada vez.",
+          "Sube 1000 en cada paso.",
+          "Suma 1000 al último término."
+        ],
+        "retroalimentacion": "4000 + 1000 = 5000. Si respondes 4001 sumas 1 en vez de 1000.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la secuencia 9000, 8000, 7000, 6000, ¿qué número sigue?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5500"
+          },
+          {
+            "id": "b",
+            "texto": "6500"
+          },
+          {
+            "id": "c",
+            "texto": "5000"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira si los números suben o bajan.",
+          "Bajan 1000 cada vez.",
+          "Resta 1000 a 6000."
+        ],
+        "retroalimentacion": "6000 − 1000 = 5000. 6500 sube en vez de bajar y 5500 resta solo 500.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la secuencia 2000, 2500, 3000, 3500 se suma 500 cada vez.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 2500 − 2000.",
+          "Haz lo mismo con 3000 − 2500 y 3500 − 3000.",
+          "Si siempre da igual, es aditivo."
+        ],
+        "retroalimentacion": "Es verdadero: la diferencia es siempre 500.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una tienda registra 8000, 7500, 7000, 6500 latas. ¿Se suma o se resta? Escribe suma o resta.",
+        "respuesta": "resta",
+        "alternativasAceptadas": [
+          "restar",
+          "se resta",
+          "resta 500"
+        ],
+        "pistas": [
+          "Compara 8000 con 7500.",
+          "Los números van bajando.",
+          "Cada término es 500 menos que el anterior."
+        ],
+        "retroalimentacion": "Se resta 500 cada vez: 8000 − 500 = 7500, y así sigue.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Falta un número en esta secuencia: 3450, 3460, __, 3480. Escribe el número que falta.",
+        "respuesta": 3470,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 3460 − 3450.",
+          "Sube 10 cada vez.",
+          "Suma 10 a 3460."
+        ],
+        "retroalimentacion": "3460 + 10 = 3470, y 3470 + 10 = 3480 lo confirma.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un bus de Lima a Cusco recorre 350 km la primera hora, 700 km en dos horas y 1050 km en tres horas. Si sigue igual, ¿cuántos km habrá recorrido en 4 horas? Escribe solo el número.",
+        "respuesta": 1400,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cuánto sube cada hora.",
+          "Sube 350 km: 700 − 350.",
+          "Suma 350 a 1050."
+        ],
+        "retroalimentacion": "1050 + 350 = 1400 km. Un error es sumar 100 en vez de 350.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué número falta en la secuencia 5200, __, 5800, 6100?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5400"
+          },
+          {
+            "id": "b",
+            "texto": "5500"
+          },
+          {
+            "id": "c",
+            "texto": "5600"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 6100 − 5800.",
+          "Se suma 300 cada vez.",
+          "Suma 300 a 5200 o resta 300 a 5800."
+        ],
+        "retroalimentacion": "5200 + 300 = 5500 y 5500 + 300 = 5800. 5400 suma 200 y 5600 suma 400.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la secuencia 4500, 4000, 3500, 3000 se suma 500 cada vez.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 4500 con 4000.",
+          "Mira si el 4000 es mayor o menor que el 4500.",
+          "Si bajan, no se suma: se resta."
+        ],
+        "retroalimentacion": "Es falso: baja 500 cada vez, es decir, se resta 500.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Luis tiene S/ 1850 ahorrados y cada mes agrega S/ 250. ¿Cuántos soles tendrá dentro de 6 meses? Escribe solo el número.",
+        "respuesta": 3350,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cuánto agrega en 6 meses.",
+          "6 meses × 250 soles son 1500 soles.",
+          "Suma lo ahorrado al principio, 1850, a lo agregado."
+        ],
+        "retroalimentacion": "6 × 250 = 1500 y 1850 + 1500 = 3350 soles.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una secuencia aditiva baja: 7800, __, __, 6900. ¿Qué número va en el tercer lugar? Escribe solo el número.",
+        "respuesta": 7200,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Del 7800 al 6900 hay 3 saltos iguales.",
+          "Resta 6900 a 7800 y reparte entre 3.",
+          "Cada salto es 300: 7800, 7500, 7200, 6900."
+        ],
+        "retroalimentacion": "7800 − 6900 = 900 y 900 ÷ 3 = 300. La secuencia es 7800, 7500, 7200, 6900, y el tercer lugar es 7200.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "La secuencia 1250, 1750, 2250 sigue su regla. ¿Cuál de estos números pertenece a la secuencia?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4250"
+          },
+          {
+            "id": "b",
+            "texto": "4100"
+          },
+          {
+            "id": "c",
+            "texto": "4350"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la regla: 1750 − 1250.",
+          "Se suma 500 cada vez.",
+          "Los números terminan en 250 o 750, alternando."
+        ],
+        "retroalimentacion": "4250 está en la secuencia: 1250, 1750, 2250, 2750, 3250, 3750, 4250. 4100 y 4350 no terminan en 250 ni 750.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Rosa dice que 4000, 4200, 4500 es un patrón aditivo. ¿Tiene razón? Escribe sí o no.",
+        "respuesta": "no",
+        "alternativasAceptadas": [
+          "no tiene razón"
+        ],
+        "pistas": [
+          "Calcula 4200 − 4000.",
+          "Ahora calcula 4500 − 4200.",
+          "Compara las dos diferencias."
+        ],
+        "retroalimentacion": "No: sube 200 y luego 300. En un patrón aditivo la diferencia debe ser siempre la misma.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.patrones-aditivos-multiplicativos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P4-02"
+    ],
+    "bloque": "Patrones",
+    "nombre": "Patrones aditivos y patrones multiplicativos",
+    "disciplina": "algebra",
+    "descripcionCorta": "Distingue si una secuencia aumenta sumando o multiplicando por un mismo número.",
+    "palabrasClave": [
+      "patrón aditivo",
+      "patrón multiplicativo",
+      "sumar",
+      "multiplicar",
+      "secuencia"
+    ],
+    "prerrequisitos": [
+      "mat.p4.patrones-aditivos-10000"
+    ],
+    "ordenSugerido": 57,
+    "ideaCentral": "En un patrón aditivo, cada número se obtiene sumando siempre el mismo número. En un patrón multiplicativo, cada número se obtiene multiplicando siempre por el mismo número.",
+    "pasos": [
+      "Resta cada número al siguiente para ver si la diferencia siempre es la misma: patrón aditivo.",
+      "Si la diferencia cambia, divide cada número entre el anterior para ver si siempre se multiplica por lo mismo.",
+      "Comprueba tu idea con todos los términos, no solo con los dos primeros.",
+      "Di la regla: «se suma ...» o «se multiplica por ...»."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La secuencia 5, 10, 15, 20 es de las monedas que junta Ana. ¿Suma o multiplica?",
+        "desarrollo": "10 − 5 = 5, 15 − 10 = 5 y 20 − 15 = 5. Siempre aumenta 5.",
+        "respuesta": "Es aditivo: se suma 5."
+      },
+      {
+        "situacion": "Una cuyera tiene 2, 6, 18, 54 cuyes en distintos meses. ¿Cómo crece?",
+        "desarrollo": "2 × 3 = 6, 6 × 3 = 18 y 18 × 3 = 54. Cada término es el triple del anterior.",
+        "respuesta": "Es multiplicativo: se multiplica por 3."
+      },
+      {
+        "situacion": "¿Qué pasa en 1, 2, 4, 7?",
+        "desarrollo": "Las diferencias son 1, 2 y 3: no son iguales. Tampoco se multiplica siempre por lo mismo.",
+        "respuesta": "No es ni aditivo ni multiplicativo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir que 2, 4, 8 es aditivo porque 2 + 2 = 4.",
+        "correccion": "Comprueba el siguiente paso: 4 + 2 = 6, no 8. En realidad se multiplica por 2."
+      },
+      {
+        "error": "Revisar solo los dos primeros números.",
+        "correccion": "Prueba la regla con todos los términos de la secuencia."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Patrón aditivo",
+        "significado": "Secuencia en la que se suma siempre el mismo número."
+      },
+      {
+        "termino": "Patrón multiplicativo",
+        "significado": "Secuencia en la que se multiplica siempre por el mismo número."
+      },
+      {
+        "termino": "Término",
+        "significado": "Cada número de una secuencia."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Los números 2, 4, 6, 8, 10 forman una secuencia. ¿Cómo crece?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Multiplica por 2"
+          },
+          {
+            "id": "b",
+            "texto": "Suma 2"
+          },
+          {
+            "id": "c",
+            "texto": "Resta 2"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la diferencia entre dos números seguidos.",
+          "4 − 2 = 2 y 6 − 4 = 2.",
+          "Los números suben, y siempre lo mismo."
+        ],
+        "retroalimentacion": "Crece sumando 2. Multiplicar por 2 daría 2, 4, 8, 16, y restar haría bajar los números.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La secuencia 3, 6, 9, 12 crece sumando 3 cada vez.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 6 − 3.",
+          "Haz lo mismo con 9 − 6 y 12 − 9.",
+          "Si todas las diferencias son iguales, es aditivo."
+        ],
+        "retroalimentacion": "Es verdadero: 3, 6, 9, 12 suma 3 en cada paso.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En una secuencia de monedas de S/ 1 juntas por Mateo: 5, 10, 15, 20. ¿Qué número se suma cada vez? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta el primer número al segundo.",
+          "10 − 5 es lo que sube de un día al siguiente.",
+          "Comprueba que 15 − 10 y 20 − 15 dan igual."
+        ],
+        "retroalimentacion": "Se suma 5 cada vez. Un error es responder 20, que es el último término.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La secuencia 1, 2, 4, 8, 16: ¿se suma o se multiplica? Escribe suma o multiplica.",
+        "respuesta": "multiplica",
+        "alternativasAceptadas": [
+          "multiplicar",
+          "multiplicación",
+          "multiplicando",
+          "se multiplica"
+        ],
+        "pistas": [
+          "Resta números seguidos: 2 − 1, 4 − 2, 8 − 4.",
+          "Las diferencias son 1, 2, 4: cambian.",
+          "Cada número es el doble del anterior."
+        ],
+        "retroalimentacion": "Se multiplica por 2: 1 × 2 = 2, 2 × 2 = 4, 4 × 2 = 8 y 8 × 2 = 16.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas secuencias crece multiplicando por 3?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2, 6, 18, 54"
+          },
+          {
+            "id": "b",
+            "texto": "2, 5, 8, 11"
+          },
+          {
+            "id": "c",
+            "texto": "3, 6, 9, 12"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica el primer número por 3 y compara con el segundo.",
+          "Comprueba la secuencia completa, no solo dos números.",
+          "En «2, 5, 8, 11» y «3, 6, 9, 12» se suma, no se multiplica."
+        ],
+        "retroalimentacion": "«2, 6, 18, 54»: 2 × 3 = 6, 6 × 3 = 18 y 18 × 3 = 54. Las otras dos suman 3.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Don Lucho cuenta sus cuyes mes a mes: 3, 6, 12, 24. ¿Por cuánto número se multiplica cada vez? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide el segundo término entre el primero.",
+          "6 ÷ 3 es lo que se multiplica.",
+          "Comprueba con 12 ÷ 6 y 24 ÷ 12."
+        ],
+        "retroalimentacion": "Se multiplica por 2: 3 × 2 = 6, 6 × 2 = 12 y 12 × 2 = 24.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La secuencia 2, 4, 8, 14 se forma sumando siempre el mismo número.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 4 − 2, 8 − 4 y 14 − 8.",
+          "Las diferencias son 2, 4 y 6.",
+          "Para que sea aditivo todas las diferencias deben ser iguales."
+        ],
+        "retroalimentacion": "Es falso: se suma 2, luego 4 y luego 6, así que no hay un mismo número que se sume.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Marco ahorra en su alcancía: S/ 15, S/ 25, S/ 35, S/ 45. Si sigue igual, ¿cuántos soles tendrá en el quinto momento? Escribe solo el número.",
+        "respuesta": 55,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cuánto sube de uno a otro.",
+          "Sube S/ 10 cada vez.",
+          "Suma 10 al último término, que es 45."
+        ],
+        "retroalimentacion": "Suma 10 cada vez: 45 + 10 = 55 soles. Un error es multiplicar 45 por 10.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la secuencia 3, 9, 27, Juan dice «se suma 6» y Ana dice «se multiplica por 3». ¿Quién tiene razón?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo Juan"
+          },
+          {
+            "id": "b",
+            "texto": "Ambos"
+          },
+          {
+            "id": "c",
+            "texto": "Solo Ana"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguno"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Prueba «se suma 6»: 3 + 6 da 9, pero sigue con 9 + 6.",
+          "9 + 6 = 15, no 27, así que revisa si Juan acierta.",
+          "Prueba «por 3» con todos los pasos: 3 × 3 y 9 × 3."
+        ],
+        "retroalimentacion": "Solo Ana: 3 × 3 = 9 y 9 × 3 = 27. La regla de Juan funciona en el primer paso, pero 9 + 6 = 15, no 27.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una secuencia aditiva empieza 12, __, __, 33. ¿Qué número va en el tercer lugar? Escribe solo el número.",
+        "respuesta": 26,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Del 12 al 33 hay 3 saltos iguales.",
+          "Calcula 33 − 12 y reparte entre 3 saltos.",
+          "Cada salto es 7: suma 7 dos veces al 12."
+        ],
+        "retroalimentacion": "33 − 12 = 21 y 21 ÷ 3 = 7 por salto. La secuencia es 12, 19, 26, 33, y el tercer lugar es 26.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una secuencia empieza 2, 6. Si es aditiva, el siguiente número es 10. Si es multiplicativa, ¿cuántas unidades más grande es el siguiente número multiplicativo que el aditivo? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla el siguiente número si se suma 4 a 6.",
+          "Si se multiplica por 3: 2 × 3 = 6, entonces el siguiente es 6 × 3.",
+          "Resta el aditivo al multiplicativo: 18 − 10."
+        ],
+        "retroalimentacion": "El aditivo es 6 + 4 = 10 y el multiplicativo 6 × 3 = 18. La diferencia es 18 − 10 = 8.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una secuencia baja: 100, 90, 80, 70. Escribe la regla como «resta 10» o «suma 10».",
+        "respuesta": "resta 10",
+        "alternativasAceptadas": [
+          "restar 10",
+          "se resta 10",
+          "-10",
+          "menos 10"
+        ],
+        "pistas": [
+          "Compara 100 con 90.",
+          "Los números van bajando, así que no se suma.",
+          "Cada término es 10 menos que el anterior."
+        ],
+        "retroalimentacion": "La regla es «resta 10»: 100 − 10 = 90, 90 − 10 = 80 y 80 − 10 = 70. También es un patrón aditivo, pero con resta.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.regla-formacion-patron",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-P4-03"
+    ],
+    "bloque": "Patrones",
+    "nombre": "Regla de formación de un patrón aditivo o multiplicativo",
+    "disciplina": "algebra",
+    "descripcionCorta": "Expresa con palabras y operaciones la regla que genera un patrón.",
+    "palabrasClave": [
+      "regla",
+      "patrón",
+      "suma",
+      "multiplica",
+      "término"
+    ],
+    "prerrequisitos": [
+      "mat.p4.patrones-aditivos-multiplicativos"
+    ],
+    "ordenSugerido": 58,
+    "ideaCentral": "La regla de formación dice cómo pasar de un número al siguiente: «se suma ...» o «se multiplica por ...». Con la regla y el primer número puedes escribir toda la secuencia.",
+    "pasos": [
+      "Mira los primeros números y calcula cómo pasas del primero al segundo.",
+      "Comprueba que esa operación sirve también para el resto.",
+      "Escribe la regla con palabras: «suma ...» o «multiplica por ...».",
+      "Usa la regla para hallar los términos que faltan."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La secuencia 7, 12, 17, 22 es de las cuotas de una combi. ¿Cuál es la regla?",
+        "desarrollo": "12 − 7 = 5, 17 − 12 = 5 y 22 − 17 = 5.",
+        "respuesta": "La regla es «suma 5»."
+      },
+      {
+        "situacion": "Un puesto del mercado vende 2, 10, 50 paltas en tres días. ¿Cuál es la regla?",
+        "desarrollo": "2 × 5 = 10 y 10 × 5 = 50.",
+        "respuesta": "La regla es «multiplica por 5»."
+      },
+      {
+        "situacion": "La regla es «suma 6» y empieza en 10. ¿Cuáles son los primeros 4 términos?",
+        "desarrollo": "10, 10 + 6 = 16, 16 + 6 = 22, 22 + 6 = 28.",
+        "respuesta": "10, 16, 22, 28."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Escribir solo el resultado de un paso, como «es 5», sin decir la operación.",
+        "correccion": "Di la operación completa: «se suma 5» o «se multiplica por 5»."
+      },
+      {
+        "error": "Usar la regla que sirve para dos números y no para todos.",
+        "correccion": "Pruébala en todos los pasos de la secuencia."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Regla de formación",
+        "significado": "Instrucción que dice cómo obtener cada término a partir del anterior."
+      },
+      {
+        "termino": "Término",
+        "significado": "Cada número de una secuencia."
+      },
+      {
+        "termino": "Secuencia",
+        "significado": "Lista de números ordenados que siguen una regla."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Los números 4, 8, 12, 16 forman una secuencia. ¿Cuál es su regla?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Suma 2"
+          },
+          {
+            "id": "b",
+            "texto": "Suma 4"
+          },
+          {
+            "id": "c",
+            "texto": "Multiplica por 4"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta 8 − 4.",
+          "Comprueba con 12 − 8 y 16 − 12.",
+          "Si siempre sube lo mismo, se suma ese número."
+        ],
+        "retroalimentacion": "La regla es «suma 4». «Multiplica por 4» daría 4, 16, 64.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Las monedas de una alcancía son 7, 12, 17, 22. Escribe la regla como «suma ...».",
+        "respuesta": "suma 5",
+        "alternativasAceptadas": [
+          "+5",
+          "sumar 5",
+          "se suma 5",
+          "más 5"
+        ],
+        "pistas": [
+          "Calcula 12 − 7.",
+          "Comprueba con 17 − 12 y 22 − 17.",
+          "Siempre sube 5."
+        ],
+        "retroalimentacion": "La regla es «suma 5»: 7 + 5 = 12, 12 + 5 = 17 y 17 + 5 = 22.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La regla «multiplica por 2» forma la secuencia 3, 6, 12, 24.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 3 × 2.",
+          "Sigue con 6 × 2 y 12 × 2.",
+          "Compara con los números de la secuencia."
+        ],
+        "retroalimentacion": "Es verdadero: 3 × 2 = 6, 6 × 2 = 12 y 12 × 2 = 24.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La regla es «suma 6» y el primer término es 10. ¿Cuál es el tercer término? Escribe solo el número.",
+        "respuesta": 22,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El segundo término es 10 + 6.",
+          "El segundo es 16.",
+          "El tercero es el segundo más 6."
+        ],
+        "retroalimentacion": "10, 16, 22: el tercer término es 22. Quien responde 16 se queda en el segundo.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué regla forma la secuencia 2, 6, 18, 54?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Suma 4"
+          },
+          {
+            "id": "b",
+            "texto": "Multiplica por 2"
+          },
+          {
+            "id": "c",
+            "texto": "Multiplica por 3"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Prueba «suma 4»: 2 + 4 = 6 pero 6 + 4 = 10, no 18.",
+          "Prueba «por 2»: 2 × 2 = 4, que no es 6.",
+          "Prueba «por 3»: 2 × 3, 6 × 3, 18 × 3."
+        ],
+        "retroalimentacion": "La regla es «multiplica por 3»: 2 × 3 = 6, 6 × 3 = 18, 18 × 3 = 54.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un puesto del mercado de Surquillo, la regla es «multiplica por 5» y el primer término es 2. ¿Cuál es el cuarto término? Escribe solo el número.",
+        "respuesta": 250,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla el segundo término: 2 × 5.",
+          "El segundo es 10; el tercero es 10 × 5.",
+          "El tercero es 50; multiplica otra vez por 5."
+        ],
+        "retroalimentacion": "2, 10, 50, 250: el cuarto término es 250.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El número de latas de una tienda baja así: 100, 90, 80, 70. Escribe la regla como «resta ...».",
+        "respuesta": "resta 10",
+        "alternativasAceptadas": [
+          "restar 10",
+          "se resta 10",
+          "-10",
+          "menos 10"
+        ],
+        "pistas": [
+          "Compara 100 con 90.",
+          "Los números bajan, así que se resta.",
+          "Siempre baja 10."
+        ],
+        "retroalimentacion": "La regla es «resta 10»: 100 − 10 = 90, 90 − 10 = 80 y 80 − 10 = 70.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los números 1, 4, 9, 16 se forman sumando siempre 3.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 4 − 1.",
+          "Sigue con 9 − 4 y 16 − 9.",
+          "Las diferencias deben ser iguales para que se sume siempre lo mismo."
+        ],
+        "retroalimentacion": "Es falso: se suma 3, luego 5 y luego 7. No hay una regla de sumar siempre lo mismo.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un patrón la regla es «suma 8» y el tercer término es 31. ¿Cuál es el primer término? Escribe solo el número.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ve hacia atrás: el segundo término es 31 − 8.",
+          "El segundo es 23.",
+          "El primero es 23 − 8."
+        ],
+        "retroalimentacion": "31 − 8 = 23 y 23 − 8 = 15. La secuencia es 15, 23, 31, y el primer término es 15.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Las secuencias 3, 7, 11, 15 y 4, 8, 12, 16 son diferentes. ¿Qué tienen en común?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Empiezan en el mismo número"
+          },
+          {
+            "id": "b",
+            "texto": "Ninguna sigue regla"
+          },
+          {
+            "id": "c",
+            "texto": "Tienen la misma regla «suma 4» pero empiezan distinto"
+          },
+          {
+            "id": "d",
+            "texto": "Se multiplican por 4"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula las diferencias en la primera: 7 − 3, 11 − 7.",
+          "Haz lo mismo en la segunda: 8 − 4, 12 − 8.",
+          "Compara las diferencias y los primeros números."
+        ],
+        "retroalimentacion": "Las dos suman 4, pero una empieza en 3 y la otra en 4. No se multiplican por 4 (3 × 4 = 12, no 7).",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una chacra, el primer día se cosechan 2 sacos de quinua y cada día se cosecha el triple que el anterior: 2, 6, 18, 54. Si sigue la regla, ¿cuántos sacos habrá el quinto día? Escribe solo el número.",
+        "respuesta": 162,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla la regla: 6 ÷ 2.",
+          "La regla es multiplicar por 3.",
+          "Multiplica 54 por 3."
+        ],
+        "retroalimentacion": "54 × 3 = 162 sacos el quinto día. Un error es sumar 3 a 54.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El patrón 2, 5, 8, 11 sigue la regla «suma 3». ¿Cuál es el término 10? Escribe solo el número.",
+        "respuesta": 29,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Del término 1 al 10 hay 9 saltos.",
+          "9 saltos de 3 son 9 × 3.",
+          "Suma ese resultado al primer término, 2."
+        ],
+        "retroalimentacion": "9 × 3 = 27 y 2 + 27 = 29: el término 10 es 29. Un error es calcular 10 × 3 = 30.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.patrones-multiplicativos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-P4-05"
+    ],
+    "bloque": "Patrones",
+    "nombre": "Patrones multiplicativos por 2, 3, 5 o 10",
+    "disciplina": "algebra",
+    "descripcionCorta": "Continúa y crea secuencias que multiplican por 2, 3, 5 o 10.",
+    "palabrasClave": [
+      "multiplicar por 2",
+      "multiplicar por 3",
+      "multiplicar por 5",
+      "multiplicar por 10",
+      "secuencia"
+    ],
+    "prerrequisitos": [
+      "mat.p4.patrones-aditivos-multiplicativos"
+    ],
+    "ordenSugerido": 59,
+    "ideaCentral": "En un patrón multiplicativo cada término se obtiene multiplicando el anterior por el mismo número, por ejemplo 2, 3, 5 o 10. Si conoces la regla, puedes continuar la secuencia o crear una propia.",
+    "pasos": [
+      "Divide un término entre el anterior para hallar por cuánto se multiplica.",
+      "Comprueba con todos los términos.",
+      "Multiplica el último término por ese número para continuar.",
+      "Para crear una secuencia, elige un número inicial y un multiplicador."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un cuy tiene crías y la cuyera cuenta 2, 4, 8, 16. ¿Cuál sigue?",
+        "desarrollo": "Se multiplica por 2: 16 × 2.",
+        "respuesta": "Sigue 32."
+      },
+      {
+        "situacion": "La secuencia 4, 40, 400 se forma en una bodega. ¿Cuál sigue?",
+        "desarrollo": "Se multiplica por 10: 400 × 10.",
+        "respuesta": "Sigue 4000."
+      },
+      {
+        "situacion": "Creo una secuencia que empiece en 1 y se multiplique por 3.",
+        "desarrollo": "1, 1 × 3 = 3, 3 × 3 = 9, 9 × 3 = 27.",
+        "respuesta": "1, 3, 9, 27."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar en lugar de multiplicar por 10 y escribir 400, 410.",
+        "correccion": "Multiplicar por 10 agrega un cero: 400 × 10 = 4000."
+      },
+      {
+        "error": "Multiplicar solo por 2 cuando la regla es por 3.",
+        "correccion": "Halla la regla dividiendo el segundo término entre el primero."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Multiplicador",
+        "significado": "El número por el que se multiplica en cada paso."
+      },
+      {
+        "termino": "Patrón multiplicativo",
+        "significado": "Secuencia que se forma multiplicando siempre por el mismo número."
+      },
+      {
+        "termino": "Término",
+        "significado": "Cada número de la secuencia."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En la secuencia 2, 4, 8, 16, ¿qué número sigue? Escribe solo el número.",
+        "respuesta": 32,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula por cuánto se multiplica: 4 ÷ 2.",
+          "Se multiplica por 2.",
+          "Multiplica 16 por 2."
+        ],
+        "retroalimentacion": "16 × 2 = 32. Si responde 18 suma 2 en lugar de multiplicar.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la secuencia 3, 30, 300, __, ¿qué número va?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3000"
+          },
+          {
+            "id": "b",
+            "texto": "600"
+          },
+          {
+            "id": "c",
+            "texto": "330"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 3 con 30.",
+          "Se multiplica por 10.",
+          "Multiplica 300 por 10."
+        ],
+        "retroalimentacion": "300 × 10 = 3000. 600 es 300 × 2 y 330 es 300 + 30.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La secuencia 5, 25, 125 se forma multiplicando por 5.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 5 × 5.",
+          "Sigue con 25 × 5.",
+          "Compara con el término 125."
+        ],
+        "retroalimentacion": "Es verdadero: 5 × 5 = 25 y 25 × 5 = 125.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una secuencia empieza en 1 y se multiplica por 3 cada vez: 1, 3, 9, ... ¿Cuál es el cuarto término? Escribe solo el número.",
+        "respuesta": 27,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El segundo término es 1 × 3.",
+          "El tercer término es 9.",
+          "El cuarto es el tercero por 3."
+        ],
+        "retroalimentacion": "9 × 3 = 27. La secuencia es 1, 3, 9, 27.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un puesto de quinua vende 5 bolsas el primer día, 25 el segundo y 125 el tercero. Si sigue igual, ¿cuántas bolsas vende el cuarto día? Escribe solo el número.",
+        "respuesta": 625,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla por cuánto se multiplica: 25 ÷ 5.",
+          "Se multiplica por 5.",
+          "Multiplica 125 por 5."
+        ],
+        "retroalimentacion": "125 × 5 = 625 bolsas. Un error es sumar 100 y poner 225.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas secuencias se forma multiplicando por 10?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6, 16, 26"
+          },
+          {
+            "id": "b",
+            "texto": "4, 8, 12"
+          },
+          {
+            "id": "c",
+            "texto": "4, 40, 400"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica el primer número por 10.",
+          "Mira si el segundo término es 10 veces el primero.",
+          "Las otras dos suman 10 o suman 4."
+        ],
+        "retroalimentacion": "«4, 40, 400»: cada término es 10 veces el anterior. «6, 16, 26» suma 10 y «4, 8, 12» suma 4.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Falta un término en la secuencia 2, 6, __, 54, que se multiplica por 3. Escribe el número.",
+        "respuesta": "18",
+        "alternativasAceptadas": [
+          "18 "
+        ],
+        "pistas": [
+          "Multiplica 2 por 3 para ver el segundo.",
+          "6 × 3 es el término que falta.",
+          "Comprueba que 18 × 3 sea 54."
+        ],
+        "retroalimentacion": "6 × 3 = 18 y 18 × 3 = 54: el número que falta es 18.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La secuencia 3, 6, 12, 24 se forma multiplicando por 3.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 3 × 3.",
+          "Compara con el segundo término, que es 6.",
+          "Prueba con 3 × 2."
+        ],
+        "retroalimentacion": "Es falso: se multiplica por 2, porque 3 × 2 = 6 y 6 × 2 = 12.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una secuencia empieza en 2 y se multiplica por 3: 2, 6, 18, 54, 162, ... ¿Cuántos términos hay hasta llegar a 162, contando el primero? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe la secuencia término por término.",
+          "Después de 54 viene 162.",
+          "Cuenta los números: 2, 6, 18, 54, 162."
+        ],
+        "retroalimentacion": "La secuencia es 2, 6, 18, 54, 162: hay 5 términos.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Ana empieza en 1 y multiplica por 2: 1, 2, 4, ... Luis empieza en 1 y suma 2: 1, 3, 5, ... ¿Cuántas unidades más tiene el quinto término de Ana que el de Luis? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe los 5 términos de Ana.",
+          "Ana: 1, 2, 4, 8, 16; Luis: 1, 3, 5, 7, 9.",
+          "Resta el quinto de Luis al quinto de Ana."
+        ],
+        "retroalimentacion": "Ana llega a 16 y Luis a 9. La diferencia es 16 − 9 = 7.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la secuencia 4, __, __, 500 se multiplica siempre por el mismo número. ¿Cuál es ese número?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Multiplica por 5"
+          },
+          {
+            "id": "b",
+            "texto": "Multiplica por 10"
+          },
+          {
+            "id": "c",
+            "texto": "Multiplica por 4"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay tres saltos entre el 4 y el 500.",
+          "Prueba con 5: 4 × 5, ×5, ×5.",
+          "4, 20, 100, 500."
+        ],
+        "retroalimentacion": "4 × 5 = 20, 20 × 5 = 100 y 100 × 5 = 500. Por 10 daría 4, 40, 400, 4000.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Crea una secuencia que empiece en 5 y se multiplique por 2. Escribe los cuatro primeros términos separados por comas (por ejemplo: 1, 2, 3, 4).",
+        "respuesta": "5, 10, 20, 40",
+        "alternativasAceptadas": [
+          "5,10,20,40",
+          "5 10 20 40"
+        ],
+        "pistas": [
+          "El primer término es 5.",
+          "El segundo es 5 × 2.",
+          "Sigue duplicando el resultado."
+        ],
+        "retroalimentacion": "5, 10, 20, 40: cada término es el doble del anterior.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.patrones-tabla-numerica",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-P4-05"
+    ],
+    "bloque": "Patrones",
+    "nombre": "Patrones en tablas numéricas y calendarios",
+    "disciplina": "algebra",
+    "descripcionCorta": "Descubre regularidades en la tabla de multiplicar, el tablero del 100 y el calendario.",
+    "palabrasClave": [
+      "tabla de multiplicar",
+      "tablero del 100",
+      "calendario",
+      "regularidad",
+      "patrón"
+    ],
+    "prerrequisitos": [
+      "mat.p4.patrones-aditivos-10000"
+    ],
+    "ordenSugerido": 60,
+    "ideaCentral": "Las tablas y los calendarios esconden patrones: en la tabla del 5 los resultados terminan en 0 o 5, en el tablero del 100 bajar una fila suma 10 y en el calendario cada semana suma 7.",
+    "pasos": [
+      "Mira una fila, columna o diagonal de la tabla.",
+      "Calcula cuánto cambia de un número al siguiente.",
+      "Describe la regularidad con palabras.",
+      "Úsala para encontrar números que faltan."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Tabla del 5: 5, 10, 15, 20, 25. ¿Cómo terminan los resultados?",
+        "desarrollo": "Terminan en 5 y en 0, alternando.",
+        "respuesta": "Siempre en 0 o en 5."
+      },
+      {
+        "situacion": "En el tablero del 100, ¿qué número está debajo del 23?",
+        "desarrollo": "Bajar una fila suma 10: 23 + 10.",
+        "respuesta": "Debajo está el 33."
+      },
+      {
+        "situacion": "En un calendario, el 4 cae lunes. ¿Qué fecha cae el siguiente lunes?",
+        "desarrollo": "Una semana tiene 7 días: 4 + 7.",
+        "respuesta": "El 11."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que bajar una fila en el tablero suma 1.",
+        "correccion": "Cada fila tiene 10 números: bajar una fila suma 10."
+      },
+      {
+        "error": "Contar mal los días de una semana en el calendario.",
+        "correccion": "De un lunes al siguiente lunes pasan 7 días."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Tablero del 100",
+        "significado": "Tabla con los números del 1 al 100 en 10 filas."
+      },
+      {
+        "termino": "Regularidad",
+        "significado": "Algo que se repite de forma ordenada."
+      },
+      {
+        "termino": "Columna",
+        "significado": "Fila vertical de números en una tabla."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En la tabla del 3: 3, 6, 9, 12, 15, ... ¿qué número sigue? Escribe solo el número.",
+        "respuesta": 18,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuánto sube cada vez.",
+          "Sube de 3 en 3.",
+          "Suma 3 a 15."
+        ],
+        "retroalimentacion": "15 + 3 = 18. Es el siguiente de la tabla del 3.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la tabla del 10, todos los resultados terminan en 0.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe 10, 20, 30, 40.",
+          "Mira la última cifra de cada resultado.",
+          "Siempre es 0."
+        ],
+        "retroalimentacion": "Es verdadero: 10, 20, 30, ... todos terminan en 0.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En el tablero del 100 bajas una fila desde el 14 y llegas al 24. ¿Cuánto aumenta el número cuando bajas una fila?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1"
+          },
+          {
+            "id": "b",
+            "texto": "100"
+          },
+          {
+            "id": "c",
+            "texto": "10"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 24 − 14.",
+          "El tablero tiene 10 números por fila.",
+          "Bajar una fila suma ese número de columnas."
+        ],
+        "retroalimentacion": "Aumenta 10, porque cada fila tiene 10 números. 1 es lo que sube al mover a la derecha.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un calendario, ¿cuántos días pasan de un lunes al siguiente lunes? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los días de la semana.",
+          "Lunes, martes, miércoles, jueves, viernes, sábado, domingo.",
+          "La semana completa tiene esa cantidad de días."
+        ],
+        "retroalimentacion": "De un lunes al siguiente pasan 7 días. Un error es contar 6 y olvidar el día de llegada.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En el calendario de noviembre el 3 cae lunes. ¿Qué fecha cae el siguiente lunes después del 17? Escribe solo el número.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los lunes son 3, 10, 17, ...",
+          "Suma 7 cada vez.",
+          "Suma 7 a 17."
+        ],
+        "retroalimentacion": "3, 10, 17, 24: el siguiente lunes es el 24. Cada semana suma 7.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En el tablero del 100 bajas 2 filas desde el 14. ¿En qué número llegas?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "34"
+          },
+          {
+            "id": "b",
+            "texto": "24"
+          },
+          {
+            "id": "c",
+            "texto": "16"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada fila que bajas suma 10.",
+          "Dos filas suman 10 + 10.",
+          "Suma 20 a 14."
+        ],
+        "retroalimentacion": "14 + 20 = 34. 24 es una fila y 16 es avanzar 2 casillas.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En la tabla del 9 los resultados son 9, 18, 27, 36, 45. La suma de las cifras de cada uno es 9. ¿Cuál es el siguiente resultado de dos cifras? Escribe solo el número.",
+        "respuesta": 54,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El siguiente es 45 + 9.",
+          "Comprueba que las cifras sumen 9.",
+          "5 + 4 = 9."
+        ],
+        "retroalimentacion": "45 + 9 = 54 y 5 + 4 = 9, como pide el patrón.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la tabla del 6, todos los resultados son números impares.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 6 × 1, 6 × 2 y 6 × 3.",
+          "Los resultados son 6, 12 y 18.",
+          "Mira la cifra final de cada uno."
+        ],
+        "retroalimentacion": "Es falso: 6, 12, 18, ... son pares porque 6 es par.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El 2 de un mes es miércoles. Si el mes tiene 31 días, ¿cuántos miércoles tiene ese mes? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los miércoles son el 2 y cada 7 días.",
+          "2, 9, 16, 23, ...",
+          "Sigue hasta pasar de 31."
+        ],
+        "retroalimentacion": "2, 9, 16, 23, 30: son 5 miércoles. El 37 ya no existe en un mes de 31 días.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En el tablero del 100 la diagonal que baja a la derecha desde el 3 es 3, 14, 25, 36. ¿Qué número sigue?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "46"
+          },
+          {
+            "id": "b",
+            "texto": "47"
+          },
+          {
+            "id": "c",
+            "texto": "57"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 14 − 3 y 25 − 14.",
+          "Cada paso suma 11.",
+          "Suma 11 a 36."
+        ],
+        "retroalimentacion": "36 + 11 = 47. 46 suma 10 y 57 suma 21.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un número de la tabla del 8 termina en 6 y es mayor que 40 y menor que 60. ¿Cuál es? Escribe solo el número.",
+        "respuesta": 56,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe la tabla del 8 desde el 40.",
+          "40, 48, 56, ...",
+          "Mira cuál termina en 6."
+        ],
+        "retroalimentacion": "Los de la tabla del 8 entre 40 y 60 son 40, 48 y 56. El único que termina en 6 es 56.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "El 15 de mayo cae viernes. ¿Qué día de la semana cae el 29 de mayo? Escribe el día.",
+        "respuesta": "viernes",
+        "alternativasAceptadas": [
+          "el viernes",
+          "Viernes"
+        ],
+        "pistas": [
+          "Calcula cuántos días hay del 15 al 29.",
+          "Son 14 días, es decir, 2 semanas.",
+          "Cada 7 días cae el mismo día de la semana."
+        ],
+        "retroalimentacion": "Del 15 al 29 pasan 14 días, que son 2 semanas exactas, así que cae viernes.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.patrones-graficos-crecientes",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P4-02"
+    ],
+    "bloque": "Patrones",
+    "nombre": "Patrones gráficos que crecen",
+    "disciplina": "algebra",
+    "descripcionCorta": "Traduce una secuencia de figuras que crecen a una sucesión numérica.",
+    "palabrasClave": [
+      "figuras que crecen",
+      "sucesión numérica",
+      "patrón gráfico",
+      "término",
+      "regla"
+    ],
+    "prerrequisitos": [
+      "mat.p4.patrones-aditivos-10000"
+    ],
+    "ordenSugerido": 96,
+    "ideaCentral": "En una secuencia de figuras que crece, cuentas cuántos elementos tiene cada figura y escribes esos números en orden. Así conviertes los dibujos en una sucesión y descubres cuánto aumenta cada vez.",
+    "pasos": [
+      "Cuenta cuántos puntos, palitos o cuadrados tiene cada figura.",
+      "Escribe los números en orden: figura 1, figura 2, figura 3.",
+      "Calcula cuánto aumenta de una figura a la siguiente.",
+      "Usa ese aumento para hallar una figura más lejana."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Fig. 1: ● ; Fig. 2: ● ● ; Fig. 3: ● ● ●. ¿Cuántos ● tendrá la figura 5?",
+        "desarrollo": "Los números son 1, 2, 3: sube 1 cada vez. Fig. 4 tiene 4 y fig. 5 tiene 5.",
+        "respuesta": "La figura 5 tiene 5 ●."
+      },
+      {
+        "situacion": "Mesas de un restaurante en Iquitos: 1 mesa tiene 4 sillas, 2 mesas juntas 6 sillas, 3 mesas juntas 8 sillas. ¿Cuántas sillas con 5 mesas?",
+        "desarrollo": "La sucesión es 4, 6, 8: sube 2. Con 4 mesas hay 10 y con 5 mesas, 12.",
+        "respuesta": "Con 5 mesas hay 12 sillas."
+      },
+      {
+        "situacion": "Casas de palitos: 1 casa usa 5 palitos, 2 casas usan 9, 3 casas usan 13. ¿Cuántos palitos para 4 casas?",
+        "desarrollo": "Sube 4 cada vez: 5, 9, 13, 17.",
+        "respuesta": "Para 4 casas se usan 17 palitos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar la figura entera y olvidar mirar cuánto crece.",
+        "correccion": "Compara una figura con la siguiente: la diferencia es la regla del patrón."
+      },
+      {
+        "error": "Multiplicar el número de la figura por el aumento sin revisar la primera.",
+        "correccion": "Comprueba con la figura 1: puede empezar con más o menos elementos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Sucesión",
+        "significado": "Lista de números en un orden determinado."
+      },
+      {
+        "termino": "Figura",
+        "significado": "Cada dibujo de la secuencia, numerado 1, 2, 3, ..."
+      },
+      {
+        "termino": "Aumento",
+        "significado": "Cantidad que se agrega de una figura a la siguiente."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Fig. 1: ●, Fig. 2: ● ●, Fig. 3: ● ● ●. ¿Cuántos ● tendrá la figura 5? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántos ● tiene cada figura.",
+          "Tienen 1, 2 y 3: cada una tiene 1 más.",
+          "Sigue la sucesión hasta la figura 5."
+        ],
+        "retroalimentacion": "La sucesión es 1, 2, 3, 4, 5: la figura 5 tiene 5 ●.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Fig. 1: ★★, Fig. 2: ★★★★, Fig. 3: ★★★★★★. ¿Qué sucesión numérica forman?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2, 3, 4"
+          },
+          {
+            "id": "b",
+            "texto": "3, 6, 9"
+          },
+          {
+            "id": "c",
+            "texto": "2, 4, 6"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las ★ de cada figura.",
+          "La primera figura tiene 2 ★ y la segunda 4 ★.",
+          "La tercera tiene 6: sube de 2 en 2."
+        ],
+        "retroalimentacion": "Las figuras tienen 2, 4 y 6 ★: la sucesión es 2, 4, 6. «2, 3, 4» sube de 1 en 1 y «3, 6, 9» de 3 en 3.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Fig. 1: ||, Fig. 2: ||||, Fig. 3: ||||||. Cada figura tiene 2 palitos más que la anterior.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los palitos de la figura 1: son 2.",
+          "La figura 2 tiene 4 palitos y la figura 3 tiene 6.",
+          "Compara 4 − 2 y 6 − 4."
+        ],
+        "retroalimentacion": "Es verdadero: 2, 4, 6; en cada figura se agregan 2 palitos.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una torre de bloques en el colegio: el piso 1 tiene 3 bloques, el piso 2 tiene 6 y el piso 3 tiene 9. ¿Cuántos bloques tiene el piso 4? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira los números 3, 6 y 9.",
+          "Cada piso suma 3 bloques más.",
+          "Suma 3 al piso 3, que tiene 9."
+        ],
+        "retroalimentacion": "9 + 3 = 12 bloques en el piso 4. La sucesión sube de 3 en 3.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un restaurante de Iquitos, 1 mesa tiene 4 sillas, 2 mesas juntas tienen 6 sillas y 3 mesas juntas tienen 8 sillas. ¿Cuántas sillas hay con 6 mesas juntas? Escribe solo el número.",
+        "respuesta": 14,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe la sucesión 4, 6, 8, ...",
+          "Se agregan 2 sillas por cada mesa nueva.",
+          "Sigue la sucesión: 10 con 4 mesas, 12 con 5 mesas y ... con 6 mesas."
+        ],
+        "retroalimentacion": "4, 6, 8, 10, 12, 14: con 6 mesas hay 14 sillas. Un error es calcular 6 × 4 = 24 y olvidar que las mesas juntas comparten lados.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Con palitos se arman cuadrados juntos: 1 cuadrado usa 4 palitos, 2 cuadrados usan 7 y 3 cuadrados usan 10. ¿Cuántos palitos para 4 cuadrados?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10"
+          },
+          {
+            "id": "b",
+            "texto": "12"
+          },
+          {
+            "id": "c",
+            "texto": "13"
+          },
+          {
+            "id": "d",
+            "texto": "16"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe la sucesión 4, 7, 10.",
+          "Sube 3 palitos por cada cuadrado nuevo.",
+          "Suma 3 al término de 3 cuadrados."
+        ],
+        "retroalimentacion": "10 + 3 = 13 palitos. Quien responde 16 multiplica 4 × 4 sin ver que los cuadrados comparten un palito.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Cada figura de la fila tiene 1 triángulo más que la anterior y la primera tiene 3. Escribe los números de las 4 primeras figuras separados por comas (como 1, 2, 3, 4).",
+        "respuesta": "3, 4, 5, 6",
+        "alternativasAceptadas": [
+          "3,4,5,6",
+          "3 4 5 6"
+        ],
+        "pistas": [
+          "La primera figura tiene 3 triángulos.",
+          "Cada figura agrega 1: la segunda tiene 3 + 1.",
+          "Sigue sumando 1 dos veces más."
+        ],
+        "retroalimentacion": "3, 4, 5, 6: se parte de 3 y se agrega 1 triángulo en cada figura.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Fig. 1 tiene 5 ●, Fig. 2 tiene 8 ● y Fig. 3 tiene 11 ●. La figura 4 tiene 15 ●.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cuánto aumenta: 8 − 5 y 11 − 8.",
+          "Aumenta 3 cada vez.",
+          "Suma 3 a 11."
+        ],
+        "retroalimentacion": "Es falso: 11 + 3 = 14, no 15. La figura 4 tiene 14 ●.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una cenefa de Cusco, el diseño 1 usa 5 cuentas, el diseño 2 usa 9 y el diseño 3 usa 13. ¿Cuántas cuentas usa el diseño 7? Escribe solo el número.",
+        "respuesta": 29,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla cuánto aumenta de un diseño al siguiente.",
+          "Aumenta 4: 5, 9, 13, ...",
+          "Sigue sumando 4 hasta llegar al diseño 7: 17, 21, 25 ..."
+        ],
+        "retroalimentacion": "5, 9, 13, 17, 21, 25, 29: el diseño 7 usa 29 cuentas.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Fig. 1 tiene 1 ●, Fig. 2 tiene 3 ●, Fig. 3 tiene 6 ● y Fig. 4 tiene 10 ●. ¿Cuántos ● tendrá la figura 5?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "13"
+          },
+          {
+            "id": "b",
+            "texto": "14"
+          },
+          {
+            "id": "c",
+            "texto": "16"
+          },
+          {
+            "id": "d",
+            "texto": "15"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cuánto aumenta cada vez: 3 − 1, 6 − 3, 10 − 6.",
+          "Los aumentos son 2, 3 y 4: el aumento mismo crece.",
+          "El siguiente aumento es 5."
+        ],
+        "retroalimentacion": "Los aumentos son 2, 3, 4, y el siguiente es 5: 10 + 5 = 15 ●. Quien responde 14 suma 4 otra vez, pero el aumento crece.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un patrón de ● la figura 1 tiene 7, la figura 2 tiene 10 y la figura 3 tiene 13. ¿En qué figura habrá 25 ●? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el aumento: 10 − 7 y 13 − 10.",
+          "Aumenta 3 cada vez. Sigue: 16, 19, 22, ...",
+          "Cuenta qué figura da 25."
+        ],
+        "retroalimentacion": "7, 10, 13, 16, 19, 22, 25: el 25 es el séptimo término, es decir, la figura 7.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Fig. 1 tiene 6 ●, Fig. 2 tiene 11 ● y Fig. 3 tiene 16 ●. Escribe cuántos ● se agregan cada vez y cuántos tiene la figura 4, separados por coma (por ejemplo: 3, 9).",
+        "respuesta": "5, 21",
+        "alternativasAceptadas": [
+          "5,21",
+          "5 21"
+        ],
+        "pistas": [
+          "Resta 11 − 6 para ver cuántos se agregan.",
+          "Se agregan 5. Comprueba con 16 − 11.",
+          "La figura 4 es la figura 3 más lo que se agrega."
+        ],
+        "retroalimentacion": "Se agregan 5 y la figura 4 tiene 16 + 5 = 21 ●.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.elemento-siguiente-patron",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+    "desempenosOrigen": [
+      "MAT-C24-P4-07"
+    ],
+    "bloque": "Patrones",
+    "nombre": "Predicción de elementos de un patrón",
+    "disciplina": "algebra",
+    "descripcionCorta": "Anticipa qué elemento ocupa una posición dada y justifica su respuesta con la regla.",
+    "palabrasClave": [
+      "predecir",
+      "posición",
+      "regla",
+      "patrón",
+      "justificar"
+    ],
+    "prerrequisitos": [
+      "mat.p4.regla-formacion-patron"
+    ],
+    "ordenSugerido": 97,
+    "ideaCentral": "Para saber qué elemento ocupa una posición, usa la regla del patrón: en los patrones de repetición mira dónde cae la posición dentro del núcleo; en los numéricos, aplica la regla paso a paso.",
+    "pasos": [
+      "Descubre la regla o el núcleo del patrón.",
+      "Marca el lugar que pide el problema.",
+      "Aplica la regla hasta llegar a esa posición.",
+      "Explica tu respuesta con la regla."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "El patrón es ▲ ● ▲ ● ▲ ●. ¿Qué figura está en la posición 7?",
+        "desarrollo": "El núcleo ▲ ● tiene 2 figuras. Las posiciones impares son ▲.",
+        "respuesta": "Es ▲."
+      },
+      {
+        "situacion": "El patrón numérico 3, 8, 13 suma 5. ¿Cuál es el término 5?",
+        "desarrollo": "Suma 5 tres veces más: 18, 23.",
+        "respuesta": "Es 23."
+      },
+      {
+        "situacion": "A B C se repite. ¿Qué letra va en la posición 10?",
+        "desarrollo": "El núcleo tiene 3 letras. 10 = 3 + 3 + 3 + 1.",
+        "respuesta": "Es A."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar los términos pero no usar la regla.",
+        "correccion": "Usa la regla; contar a mano falla en posiciones grandes."
+      },
+      {
+        "error": "Dividir entre 2 cuando el núcleo tiene 3 figuras.",
+        "correccion": "Divide entre el número de figuras del núcleo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Posición",
+        "significado": "Lugar que ocupa un elemento en la secuencia."
+      },
+      {
+        "termino": "Núcleo",
+        "significado": "Grupo de elementos que se repite."
+      },
+      {
+        "termino": "Justificar",
+        "significado": "Explicar por qué una respuesta es correcta."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "El patrón es ▲ ● ▲ ● ▲ ● ▲ ... ¿Qué figura está en la posición 8?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "■"
+          },
+          {
+            "id": "b",
+            "texto": "●"
+          },
+          {
+            "id": "c",
+            "texto": "▲"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Numera las figuras: 1 ▲, 2 ●, 3 ▲, ...",
+          "Las posiciones pares son iguales entre sí.",
+          "La posición 8 es par."
+        ],
+        "retroalimentacion": "Las posiciones pares son ●, así que en la 8 está ●. ■ ni aparece en el patrón.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En el patrón 2, 4, 6, 8, ... ¿qué número sigue? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuánto sube cada vez.",
+          "Sube 2.",
+          "Suma 2 al último."
+        ],
+        "retroalimentacion": "8 + 2 = 10.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En el patrón ▲ ● ▲ ● ▲ ●, la figura 6 es ●.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Numera las figuras.",
+          "Las pares son ●.",
+          "6 es par."
+        ],
+        "retroalimentacion": "Es verdadero: las posiciones pares tienen ●.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "El patrón de banderines es rojo, azul, rojo, azul, ... ¿De qué color es el banderín de la posición 9?",
+        "respuesta": "rojo",
+        "alternativasAceptadas": [
+          "rojo "
+        ],
+        "pistas": [
+          "Las posiciones impares tienen un mismo color.",
+          "1 es rojo, 3 es rojo.",
+          "9 es impar."
+        ],
+        "retroalimentacion": "El 9 es impar y las impares son rojas: rojo.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El patrón 3, 8, 13, ... sigue sumando 5. ¿Cuál es el término 5? Escribe solo el número.",
+        "respuesta": 23,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe los términos: 3, 8, 13, ...",
+          "Cuarto término: 13 + 5.",
+          "Quinto término: 18 + 5."
+        ],
+        "retroalimentacion": "3, 8, 13, 18, 23: el término 5 es 23.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El núcleo ▲ ● ■ se repite. ¿Qué figura está en la posición 10?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "▲"
+          },
+          {
+            "id": "b",
+            "texto": "●"
+          },
+          {
+            "id": "c",
+            "texto": "■"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El núcleo tiene 3 figuras.",
+          "Las posiciones 1, 4, 7 son ▲.",
+          "10 sigue el mismo lugar."
+        ],
+        "retroalimentacion": "10 = 3 × 3 + 1, así que es la primera figura del núcleo: ▲.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la secuencia 5, 10, 15, 20 el término 7 es 30.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La regla es sumar 5.",
+          "El término n es 5 por n.",
+          "Calcula 5 × 7."
+        ],
+        "retroalimentacion": "Es falso: el término 7 es 5 × 7 = 35.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El patrón A B C se repite sin parar. ¿Qué letra está en la posición 15?",
+        "respuesta": "C",
+        "alternativasAceptadas": [
+          "c"
+        ],
+        "pistas": [
+          "El núcleo tiene 3 letras.",
+          "Las letras C están en 3, 6, 9, ...",
+          "15 es múltiplo de 3."
+        ],
+        "retroalimentacion": "15 es múltiplo de 3, así que cae en la última letra del núcleo: C.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El núcleo A B C D se repite sin parar. ¿Cuántas veces aparece la letra B en las primeras 50 letras? Escribe solo el número.",
+        "respuesta": 13,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada núcleo tiene 4 letras: 50 ÷ 4.",
+          "Hay 12 núcleos completos y sobran 2 letras.",
+          "Esas 2 letras son A y B: otra B."
+        ],
+        "retroalimentacion": "12 núcleos dan 12 B y las 2 letras sobrantes son A y B: son 13.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "El núcleo ▲ ● ■ se repite. ¿Qué figura está en la posición 20?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "▲"
+          },
+          {
+            "id": "b",
+            "texto": "■"
+          },
+          {
+            "id": "c",
+            "texto": "●"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántas figuras forman cada grupo ▲ ● ■.",
+          "20 = 3 × 6 + 2.",
+          "Sobran 2 después de 6 núcleos."
+        ],
+        "retroalimentacion": "20 = 6 núcleos completos y sobran 2, por lo que es la segunda figura del núcleo: ●.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El patrón 4, 11, 18, 25 sigue su regla. ¿Qué número ocupa el lugar 8? Escribe solo el número.",
+        "respuesta": 53,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla la regla: 11 − 4.",
+          "Suma 7 cada vez.",
+          "Del lugar 1 al 8 hay 7 saltos de 7."
+        ],
+        "retroalimentacion": "7 saltos × 7 = 49 y 4 + 49 = 53.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "El patrón 3, 6, 12, 24, ... se multiplica por 2. ¿Cuál es el término 7? Escribe solo el número.",
+        "respuesta": "192",
+        "alternativasAceptadas": [
+          "192 "
+        ],
+        "pistas": [
+          "La regla es multiplicar por 2.",
+          "3, 6, 12, 24, 48, 96, ...",
+          "Sigue hasta el séptimo."
+        ],
+        "retroalimentacion": "3, 6, 12, 24, 48, 96, 192: el término 7 es 192.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

@@ -1,0 +1,901 @@
+[
+  {
+    "clave": "mat.p4.problemas-aditivos-10000",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-P4-01"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Problemas de juntar, agregar y quitar hasta 10 000",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Traduce situaciones de combinación y cambio con cantidades de cuatro cifras a sumas y restas.",
+    "palabrasClave": [
+      "problemas",
+      "juntar,",
+      "agregar",
+      "quitar",
+      "hasta"
+    ],
+    "prerrequisitos": [
+      "mat.p4.suma-cuatro-cifras"
+    ],
+    "ordenSugerido": 14,
+    "ideaCentral": "Si juntas dos cantidades, las sumas; si llegan más, agregas; si se retira una parte, restas. Primero reconoce qué cambia y después elige la operación.",
+    "pasos": [
+      "Ubica la cantidad inicial y lo que llega o sale.",
+      "Decide si el total aumenta o disminuye.",
+      "Escribe una suma o resta con las cantidades del problema.",
+      "Calcula por columnas y comprueba que el resultado tenga sentido."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una biblioteca tiene 2345 libros y recibe 1204 más. ¿Cuántos tiene ahora?",
+        "desarrollo": "Recibir aumenta la colección: 2345 + 1204 = 3549.",
+        "respuesta": "Tiene 3549 libros."
+      },
+      {
+        "situacion": "Un almacén tenía 7050 cuadernos y entregó 2130. ¿Cuántos quedan?",
+        "desarrollo": "Entregar disminuye la cantidad: 7050 − 2130 = 4920.",
+        "respuesta": "Quedan 4920 cuadernos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Restar cuando llegan objetos nuevos.",
+        "correccion": "Si la cantidad aumenta, suma lo que llega a lo que ya había."
+      },
+      {
+        "error": "Sumar lo retirado a la cantidad inicial.",
+        "correccion": "Si una parte sale del total, réstala para hallar lo que queda."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Cantidad inicial",
+        "significado": "Número de objetos antes del cambio."
+      },
+      {
+        "termino": "Agregar",
+        "significado": "Añadir objetos a una cantidad."
+      },
+      {
+        "termino": "Quitar",
+        "significado": "Retirar objetos de una cantidad."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En la biblioteca había 2410 cuentos y llegaron 1205 nuevos. ¿Cuántos cuentos hay ahora?",
+        "respuesta": 3615,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La llegada aumenta la colección de cuentos.",
+          "Escribe 2410 + 1205.",
+          "Suma unidades, decenas, centenas y millares en su columna."
+        ],
+        "retroalimentacion": "Hay 3615 cuentos. Si restaste, recuerda que llegaron más."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tienda tenía 6300 lápices y vendió 2000. ¿Qué operación representa los lápices que quedan?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Vender hace que la cantidad baje.",
+          "Parte de los 6300 lápices iniciales.",
+          "Busca la expresión que quita 2000 de 6300."
+        ],
+        "retroalimentacion": "La operación correcta es 6300 − 2000; sumar contaría lápices vendidos como si siguieran en la tienda.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6300 + 2000"
+          },
+          {
+            "id": "b",
+            "texto": "2000 − 6300"
+          },
+          {
+            "id": "c",
+            "texto": "6300 − 2000"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una chacra cosechó 3100 papas en un terreno y 2400 en otro; juntar ambas cosechas se representa con 3100 + 2400.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay dos cosechas distintas.",
+          "Se pregunta por todas juntas.",
+          "Piensa si el signo + une las dos cantidades."
+        ],
+        "retroalimentacion": "Es verdadero: 3100 + 2400 reúne ambas cosechas."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "De 4820 panes horneados, 1100 se repartieron en el barrio. ¿Cuántos panes permanecen en la panadería?",
+        "respuesta": 3720,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los panes repartidos ya no están en la panadería.",
+          "Resta 1100 a la producción inicial.",
+          "4820 − 1000 − 100 te da el resultado."
+        ],
+        "retroalimentacion": "Quedan 3720 panes; agregar los repartidos aumenta el total por error."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un vivero había 3785 plantones; una familia donó 1268 más. ¿Cuántos plantones tiene el vivero?",
+        "respuesta": 5053,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Donar plantones aumenta el vivero.",
+          "Coloca 3785 + 1268 alineando las unidades.",
+          "5 + 8 produce una decena que debes llevar."
+        ],
+        "retroalimentacion": "El vivero tiene 5053 plantones. Recuerda llevar la decena de las unidades."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una campaña reunió 4540 botellas el lunes y 2360 el martes. ¿Cuántas reunió entre ambos días?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La expresión «entre ambos días» pide juntar.",
+          "Calcula 4540 + 2360.",
+          "40 + 60 forma una centena nueva."
+        ],
+        "retroalimentacion": "Se reunieron 6900 botellas; 2180 sería una diferencia entre días.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6900"
+          },
+          {
+            "id": "b",
+            "texto": "6800"
+          },
+          {
+            "id": "c",
+            "texto": "2180"
+          },
+          {
+            "id": "d",
+            "texto": "6910"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El museo tenía 8000 entradas impresas y usó 3750 durante la semana. ¿Cuántas entradas sin usar quedan?",
+        "respuesta": 4250,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las entradas usadas salen del total disponible.",
+          "Calcula 8000 − 3750.",
+          "Puedes contar de 3750 hasta 8000 para comprobar."
+        ],
+        "retroalimentacion": "Quedan 4250 entradas; no confundas las usadas con las disponibles."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una feria tenía 6250 vasos y compró 1725 adicionales, quedan 4525 vasos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La feria compró vasos, así que ahora tiene más.",
+          "La cifra 4525 sale de una resta.",
+          "Comprueba 6250 + 1725 y compara con la afirmación."
+        ],
+        "retroalimentacion": "Es falso: compró más vasos y tiene 7975, no 4525."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un colegio guardó 5687 hojas blancas y 2946 de colores para un taller. ¿Cuántas hojas reunió en total?",
+        "respuesta": 8633,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las hojas de ambos tipos forman el total.",
+          "Suma 5687 + 2946.",
+          "En unidades 7 + 6 = 13; lleva una decena y continúa."
+        ],
+        "retroalimentacion": "Reunió 8633 hojas. Si obtuviste 8533, revisa el canje de unidades."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Había 9050 semillas en sobres y se entregaron 4875 para sembrar. ¿Cuántas siguen guardadas?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Entregar semillas reduce las guardadas.",
+          "La cuenta es 9050 − 4875.",
+          "De 4875 a 9050 faltan 4175."
+        ],
+        "retroalimentacion": "Siguen guardadas 4175 semillas. 13925 sería sumar lo entregado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "13925"
+          },
+          {
+            "id": "b",
+            "texto": "4275"
+          },
+          {
+            "id": "c",
+            "texto": "5175"
+          },
+          {
+            "id": "d",
+            "texto": "4175"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una librería recibió 7308 cuadernos y luego devolvió 2689 por fallas. ¿Cuántos cuadernos conserva?",
+        "respuesta": 4619,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La devolución quita cuadernos de los recibidos.",
+          "Plantea 7308 − 2689.",
+          "Comprueba tu respuesta sumándole 2689: debe dar 7308."
+        ],
+        "retroalimentacion": "Conserva 4619 cuadernos. Revisa los préstamos al restar."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un concurso, 4865 puntos de un equipo y 3120 de otro se juntan para obtener 7985 puntos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se suman los puntos de dos equipos.",
+          "Calcula 4865 + 3120 por valores posicionales.",
+          "Compara la suma con 7985."
+        ],
+        "retroalimentacion": "Es verdadero: 4865 + 3120 = 7985 puntos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.problemas-comparar-igualar-10000",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-P4-01"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Problemas de comparar e igualar hasta 10 000",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Halla diferencias y cantidades para igualar en situaciones con números de cuatro cifras.",
+    "palabrasClave": [
+      "problemas",
+      "comparar",
+      "igualar",
+      "hasta"
+    ],
+    "prerrequisitos": [
+      "mat.p4.resta-cuatro-cifras"
+    ],
+    "ordenSugerido": 16,
+    "ideaCentral": "Para comparar dos cantidades, resta la menor de la mayor: la diferencia dice cuánto más tiene una. Para igualarlas, esa misma diferencia indica cuánto debes agregar a la menor o quitar de la mayor.",
+    "pasos": [
+      "Identifica qué dos cantidades se comparan.",
+      "Ubica cuál es mayor y cuál menor.",
+      "Resta mayor menos menor para obtener la diferencia.",
+      "Interpreta si la pregunta pide cuánto más hay o cuánto falta para igualar."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Dos aulas juntaron 3240 y 2815 tapitas. ¿Cuántas más juntó la primera?",
+        "desarrollo": "3240 es mayor. La diferencia es 3240 − 2815 = 425.",
+        "respuesta": "La primera juntó 425 tapitas más."
+      },
+      {
+        "situacion": "Ana tiene 4560 puntos y quiere llegar a los 5000 de Luis. ¿Cuántos le faltan?",
+        "desarrollo": "Para igualar 5000, calculo 5000 − 4560 = 440.",
+        "respuesta": "Le faltan 440 puntos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar las dos cantidades al leer «cuántos más».",
+        "correccion": "«Cuántos más» compara; resta la menor de la mayor."
+      },
+      {
+        "error": "Restar la mayor de la menor y obtener un número negativo.",
+        "correccion": "En estas situaciones de objetos, quita la cantidad menor de la mayor."
+      },
+      {
+        "error": "Confundir lo que falta para igualar con el total final.",
+        "correccion": "El aumento necesario es solo la diferencia entre ambas cantidades."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Comparar",
+        "significado": "Observar cuánto se diferencian dos cantidades."
+      },
+      {
+        "termino": "Diferencia",
+        "significado": "Cantidad que separa dos números."
+      },
+      {
+        "termino": "Igualar",
+        "significado": "Hacer que dos cantidades tengan el mismo valor."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una clase recogió 3400 tapitas y otra 2100. ¿Cuántas más recogió la primera?",
+        "respuesta": 1300,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las dos recolecciones.",
+          "La mayor es 3400 y la menor 2100.",
+          "Calcula 3400 − 2100."
+        ],
+        "retroalimentacion": "La primera recogió 1300 más; sumar daría el total de ambas clases."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "María tiene 4500 puntos y José 4000. ¿Cuántos puntos necesita José para igualar a María?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "José parte de 4000.",
+          "Debe llegar a 4500.",
+          "La distancia de 4000 a 4500 es 500."
+        ],
+        "retroalimentacion": "José necesita 500 puntos; 8500 sería la suma de los dos puntajes.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8500"
+          },
+          {
+            "id": "b",
+            "texto": "500"
+          },
+          {
+            "id": "c",
+            "texto": "4500"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un estante tiene 2600 libros y otro 2300; al segundo le faltan 300 libros para igualar al primero.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El segundo estante tiene menos.",
+          "Calcula 2600 − 2300.",
+          "Verifica que 2300 + 300 = 2600."
+        ],
+        "retroalimentacion": "Es verdadero: necesita 300 libros para igualar al primero."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En una feria se vendieron 5800 choclos y 5300 panes. ¿Cuántos choclos más que panes se vendieron?",
+        "respuesta": 500,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La pregunta busca una diferencia, no un total.",
+          "Resta las ventas de panes a las de choclos.",
+          "5800 − 5300 conserva solo las centenas distintas."
+        ],
+        "retroalimentacion": "Se vendieron 500 choclos más."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un equipo recorrió 6750 metros y otro 4890. ¿Cuántos metros separan sus recorridos?",
+        "respuesta": 1860,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la distancia entre 6750 y 4890.",
+          "Resta 6750 − 4890.",
+          "Comprueba sumando 4890 a tu diferencia."
+        ],
+        "retroalimentacion": "Los recorridos difieren en 1860 metros; al comprobar, 4890 + 1860 = 6750."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una biblioteca tiene 7280 libros; la meta es tener los 9000 de otra sede. ¿Cuántos faltan para igualarla?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La meta es 9000.",
+          "Calcula 9000 − 7280.",
+          "De 7280 a 9000 faltan 1720."
+        ],
+        "retroalimentacion": "Faltan 1720 libros; 16280 sería juntar las dos bibliotecas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "16280"
+          },
+          {
+            "id": "b",
+            "texto": "2820"
+          },
+          {
+            "id": "c",
+            "texto": "2720"
+          },
+          {
+            "id": "d",
+            "texto": "1720"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una niña tiene 3645 canicas y su amigo 4120; la diferencia es 475 canicas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El amigo tiene más canicas.",
+          "Resta 4120 − 3645.",
+          "Suma 3645 + 475 para comprobar."
+        ],
+        "retroalimentacion": "Es verdadero: 4120 − 3645 = 475 canicas."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una comunidad reunió 8040 botellas y otra 7655. ¿Cuántas botellas debe reunir la segunda para alcanzarla?",
+        "respuesta": 385,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La segunda comunidad tiene menos.",
+          "Calcula 8040 − 7655.",
+          "Desde 7655 suma 345 para llegar a 8000 y 40 más para 8040."
+        ],
+        "retroalimentacion": "Necesita 385 botellas; 345 solo la lleva hasta 8000."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un bus recorrió 9385 km y otro 6748 km. ¿Cuántos kilómetros más recorrió el primero?",
+        "respuesta": 2637,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los recorridos de ambos buses.",
+          "Resta 9385 − 6748.",
+          "Comprueba: 6748 más tu diferencia debe ser 9385."
+        ],
+        "retroalimentacion": "El primero recorrió 2637 km más; verifica los canjes de centenas y decenas."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una escuela tiene 5955 cuadernos y otra 8230. ¿Qué cantidad necesita la primera para quedar igual?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La primera escuela tiene menos.",
+          "Calcula 8230 − 5955.",
+          "5955 + 2275 = 8230."
+        ],
+        "retroalimentacion": "Necesita 2275 cuadernos. 14185 es la suma de ambas cantidades.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2275"
+          },
+          {
+            "id": "b",
+            "texto": "3275"
+          },
+          {
+            "id": "c",
+            "texto": "14185"
+          },
+          {
+            "id": "d",
+            "texto": "2175"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una caja guarda 7098 fichas y otra 9860. ¿Cuántas fichas habría que pasar de la segunda a la primera para que ambas tengan 8479?",
+        "respuesta": 1381,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La primera debe subir de 7098 a 8479.",
+          "Calcula 8479 − 7098.",
+          "Comprueba que la segunda también baje: 9860 − 1381 = 8479."
+        ],
+        "retroalimentacion": "Hay que pasar 1381 fichas. La diferencia total entre cajas es el doble de lo transferido."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Con 6785 puntos, a un equipo le faltan 1215 para igualar los 8000 puntos del líder.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara el puntaje actual con 8000.",
+          "Calcula 8000 − 6785.",
+          "Verifica que 6785 + 1215 alcanza 8000."
+        ],
+        "retroalimentacion": "Es verdadero: la diferencia es 1215 puntos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.problemas-aditivos-varias-etapas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-P4-01",
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Adición y sustracción",
+    "nombre": "Problemas aditivos de varias etapas",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Resuelve situaciones que encadenan dos o más sumas y restas con números hasta 10 000.",
+    "palabrasClave": [
+      "problemas",
+      "aditivos",
+      "varias",
+      "etapas"
+    ],
+    "prerrequisitos": [
+      "mat.p4.problemas-aditivos-10000",
+      "mat.p4.problemas-comparar-igualar-10000"
+    ],
+    "ordenSugerido": 35,
+    "ideaCentral": "En un problema de varias etapas, una suma o resta produce el dato que necesitas para la siguiente. Sigue el orden de los cambios y comprueba que tu respuesta explique la situación completa.",
+    "pasos": [
+      "Lee los cambios en el orden en que suceden.",
+      "Escribe una suma o resta para el primer cambio.",
+      "Usa ese resultado como punto de partida del siguiente cambio.",
+      "Realiza todas las operaciones pendientes y responde la pregunta final."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Había 3250 entradas; imprimieron 1400 más y entregaron 850. ¿Cuántas quedan?",
+        "desarrollo": "Primero 3250 + 1400 = 4650; después 4650 − 850 = 3800.",
+        "respuesta": "Quedan 3800 entradas."
+      },
+      {
+        "situacion": "Una campaña reunió 2100 tapitas el lunes, 1750 el martes y regaló 900. ¿Cuántas conserva?",
+        "desarrollo": "Junto las recolecciones: 2100 + 1750 = 3850. Quito las entregadas: 3850 − 900 = 2950.",
+        "respuesta": "Conserva 2950 tapitas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Usar solo la primera operación y detenerse.",
+        "correccion": "Relee la pregunta final y marca cada cambio antes de responder."
+      },
+      {
+        "error": "Restar lo que llega y sumar lo que sale.",
+        "correccion": "Haz un registro ordenado: entradas suman y salidas restan."
+      },
+      {
+        "error": "Cambiar el orden temporal de los datos cuando eso altera la cantidad disponible.",
+        "correccion": "Calcula cada etapa y usa su resultado para la etapa siguiente."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Etapa",
+        "significado": "Cada cambio que ocurre en la situación."
+      },
+      {
+        "termino": "Resultado intermedio",
+        "significado": "Cantidad obtenida antes de terminar todos los cambios."
+      },
+      {
+        "termino": "Saldo",
+        "significado": "Cantidad que queda después de entradas y salidas."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una escuela tenía 2300 hojas, recibió 1200 y usó 500. ¿Cuántas hojas le quedan?",
+        "respuesta": 3000,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero entran 1200 hojas.",
+          "2300 + 1200 = 3500.",
+          "Ahora quita las 500 usadas."
+        ],
+        "retroalimentacion": "Quedan 3000 hojas. 3500 es solo el resultado intermedio."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la feria había 1800 naranjas. Llegaron 700 y se vendieron 400. ¿Qué secuencia calcula las restantes?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Llegar aumenta la cantidad.",
+          "Vender la disminuye después.",
+          "Busca primero una suma y luego una resta."
+        ],
+        "retroalimentacion": "La secuencia 1800 + 700 − 400 representa los dos cambios.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1800 − 700 + 400"
+          },
+          {
+            "id": "b",
+            "texto": "1800 + 700 + 400"
+          },
+          {
+            "id": "c",
+            "texto": "1800 + 700 − 400"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si hay 4000 vasos, llegan 500 y luego se usan 300, quedan 4200.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer cambio aumenta el total.",
+          "4000 + 500 = 4500.",
+          "Resta los 300 vasos usados al resultado intermedio."
+        ],
+        "retroalimentacion": "Es verdadero: 4000 + 500 − 300 = 4200."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una biblioteca prestó 600 de sus 2500 libros y recibió 300 devoluciones. ¿Cuántos libros tiene ahora?",
+        "respuesta": 2200,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Prestar saca libros de la biblioteca.",
+          "2500 − 600 = 1900.",
+          "Las devoluciones vuelven a sumar 300."
+        ],
+        "retroalimentacion": "Tiene 2200 libros. Si obtuviste 1600, restaste también las devoluciones."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una colecta había 3275 cuadernos. Llegaron 1840 y se repartieron 1265. ¿Cuántos quedan?",
+        "respuesta": 3850,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Junta primero lo que había y lo que llegó.",
+          "3275 + 1840 = 5115.",
+          "Resta 1265 repartidos a 5115."
+        ],
+        "retroalimentacion": "Quedan 3850 cuadernos. El total 5115 todavía incluye los repartidos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un almacén guardaba 7600 botellas, envió 2450 y recibió 1800. ¿Cuál es su saldo final?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El envío reduce las botellas guardadas.",
+          "7600 − 2450 = 5150.",
+          "La recepción vuelve a aumentar el saldo."
+        ],
+        "retroalimentacion": "El saldo es 6950 botellas: 5150 + 1800.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3350"
+          },
+          {
+            "id": "b",
+            "texto": "6950"
+          },
+          {
+            "id": "c",
+            "texto": "11850"
+          },
+          {
+            "id": "d",
+            "texto": "5150"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una campaña empezó con 1850 tapitas, juntó 2750 más y entregó 900; terminó con 3700 tapitas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero junta las tapitas iniciales y las nuevas.",
+          "1850 + 2750 = 4600.",
+          "Quita las 900 entregadas."
+        ],
+        "retroalimentacion": "Es verdadero: 4600 − 900 = 3700 tapitas."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una panadería horneó 4250 panes, vendió 1375 por la mañana y 1625 por la tarde. ¿Cuántos panes quedan?",
+        "respuesta": 1250,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay dos ventas que reducen el inventario.",
+          "Las ventas suman 1375 + 1625 = 3000.",
+          "Resta 3000 a los 4250 panes horneados."
+        ],
+        "retroalimentacion": "Quedan 1250 panes. No olvides la venta de la tarde."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una feria recibió 2835 frutas el lunes, 1975 el martes y donó 1460. Después compró 850 más. ¿Cuántas frutas tiene?",
+        "respuesta": 4200,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Agrupa las dos primeras entradas.",
+          "2835 + 1975 = 4810; luego quita la donación.",
+          "4810 − 1460 = 3350; suma la compra final."
+        ],
+        "retroalimentacion": "Tiene 4200 frutas. Una donación sale y la compra entra."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una biblioteca había 9000 fichas. Se usaron 2850, llegaron 1325 y se descartaron 475. ¿Cuántas quedan?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Registra las tres etapas en orden.",
+          "9000 − 2850 = 6150; después entran 1325.",
+          "6150 + 1325 = 7475; quita 475 descartadas."
+        ],
+        "retroalimentacion": "Quedan 7000 fichas; 7475 omite el último descarte.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6050"
+          },
+          {
+            "id": "b",
+            "texto": "6525"
+          },
+          {
+            "id": "c",
+            "texto": "7475"
+          },
+          {
+            "id": "d",
+            "texto": "7000"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una caja tenía 6780 semillas, se plantaron 1535, se añadieron 940 y se plantaron otras 785. ¿Cuántas quedan?",
+        "respuesta": 5400,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las siembras son dos salidas distintas.",
+          "6780 − 1535 = 5245; suma 940 semillas nuevas.",
+          "6185 − 785 da el saldo final."
+        ],
+        "retroalimentacion": "Quedan 5400 semillas. Si obtuviste 6185, faltó la segunda siembra."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un taller recibió 3600 cuentas, usó 875, recibió 1240 y usó 965 más; al final tiene 3000 cuentas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sigue las entradas y salidas de una en una.",
+          "3600 − 875 = 2725; luego 2725 + 1240 = 3965.",
+          "Quita las últimas 965 cuentas."
+        ],
+        "retroalimentacion": "Es verdadero: 3965 − 965 = 3000 cuentas."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

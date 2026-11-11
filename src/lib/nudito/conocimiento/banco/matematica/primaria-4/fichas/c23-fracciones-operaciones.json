@@ -1,0 +1,1543 @@
+[
+  {
+    "clave": "mat.p4.amplificar-fracciones",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Fracciones",
+    "nombre": "Amplificación de fracciones",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Obtiene fracciones equivalentes multiplicando numerador y denominador por un mismo número.",
+    "palabrasClave": [
+      "amplificación",
+      "fracciones"
+    ],
+    "prerrequisitos": [
+      "mat.p4.fracciones-equivalentes"
+    ],
+    "ordenSugerido": 87,
+    "ideaCentral": "Amplificar una fracción es multiplicar su numerador y denominador por el mismo número distinto de cero. Obtienes más partes pequeñas, pero la porción de la unidad conserva el mismo valor.",
+    "pasos": [
+      "Elige por cuánto dividirás cada parte de la unidad.",
+      "Multiplica el numerador por ese número.",
+      "Multiplica también el denominador por el mismo número.",
+      "Comprueba que las dos fracciones cubran igual porción."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Amplifica 1/2 por 3.",
+        "desarrollo": "Multiplica arriba y abajo: (1×3)/(2×3) = 3/6.",
+        "respuesta": "1/2 = 3/6."
+      },
+      {
+        "situacion": "Lleva 2/5 a denominador 20.",
+        "desarrollo": "5×4=20, así que 2×4=8.",
+        "respuesta": "2/5 = 8/20."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Multiplicar solo el numerador.",
+        "correccion": "Multiplica numerador y denominador por el mismo factor para conservar el valor."
+      },
+      {
+        "error": "Sumar el factor a ambas partes en vez de multiplicar.",
+        "correccion": "Amplificar requiere multiplicar; sumar no conserva la fracción en general."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Amplificar",
+        "significado": "Crear una fracción equivalente con más partes iguales."
+      },
+      {
+        "termino": "Factor de amplificación",
+        "significado": "Número por el que se multiplican numerador y denominador."
+      },
+      {
+        "termino": "Equivalente",
+        "significado": "Que representa la misma parte de la unidad."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Amplifica 1/2 por 2. Escribe la fracción resultante a/b.",
+        "respuesta": "2/4",
+        "alternativasAceptadas": [
+          "2 cuartos"
+        ],
+        "pistas": [
+          "Multiplica el numerador 1 por 2.",
+          "Multiplica también el denominador 2 por 2.",
+          "Escribe ambos productos como fracción."
+        ],
+        "retroalimentacion": "Resulta 2/4; 2/2 cambiaría el valor."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué fracción obtienes al amplificar 2/3 por 2?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El nuevo numerador es 2 × 2.",
+          "El nuevo denominador es 3 × 2.",
+          "Forma la fracción con 4 y 6."
+        ],
+        "retroalimentacion": "Obtienes 4/6; 4/3 modifica solo el numerador.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4/3"
+          },
+          {
+            "id": "b",
+            "texto": "4/6"
+          },
+          {
+            "id": "c",
+            "texto": "2/6"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "3/4 amplificada por 2 se escribe 6/8.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica el 3 por 2.",
+          "Multiplica el 4 por 2.",
+          "Compara con 6/8."
+        ],
+        "retroalimentacion": "Es verdadero: ambas fracciones representan la misma parte."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Completa 1/3 = __/9 con una fracción a/b.",
+        "respuesta": "3/9",
+        "alternativasAceptadas": [
+          "3 novenos"
+        ],
+        "pistas": [
+          "El denominador 3 se multiplica por 3.",
+          "Haz lo mismo con el numerador 1.",
+          "1 × 3 = 3."
+        ],
+        "retroalimentacion": "1/3 se amplifica a 3/9."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Amplifica 3/5 por 4. Escribe a/b.",
+        "respuesta": "12/20",
+        "alternativasAceptadas": [
+          "12 veinteavos"
+        ],
+        "pistas": [
+          "Multiplica 3 × 4.",
+          "Multiplica 5 × 4.",
+          "Pon 12 sobre 20."
+        ],
+        "retroalimentacion": "Resulta 12/20; conserva la proporción."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para convertir 2/7 a denominador 21, ¿qué fracción equivalente obtienes?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "7 debe multiplicarse por 3.",
+          "El numerador 2 también se multiplica por 3.",
+          "Busca 6/21."
+        ],
+        "retroalimentacion": "2/7 = 6/21; 2/21 cubre una porción menor.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2/21"
+          },
+          {
+            "id": "b",
+            "texto": "6/7"
+          },
+          {
+            "id": "c",
+            "texto": "4/21"
+          },
+          {
+            "id": "d",
+            "texto": "6/21"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al multiplicar arriba y abajo 4/9 por 3, resulta 12/27.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El numerador se vuelve 4 × 3.",
+          "El denominador se vuelve 9 × 3.",
+          "Ambos cambian por el mismo factor."
+        ],
+        "retroalimentacion": "Es verdadero: 4/9 = 12/27."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una tira marca 5/8. Si cada octavo se parte en 2, ¿qué fracción marca la misma longitud? Escribe a/b.",
+        "respuesta": "10/16",
+        "alternativasAceptadas": [
+          "10 dieciseisavos"
+        ],
+        "pistas": [
+          "Cada parte se divide en dos.",
+          "El total de partes pasa de 8 a 16.",
+          "Las 5 marcadas pasan a 10."
+        ],
+        "retroalimentacion": "La marca equivalente es 10/16."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Amplifica 7/12 por 3. Escribe a/b.",
+        "respuesta": "21/36",
+        "alternativasAceptadas": [
+          "21 treinta y seisavos"
+        ],
+        "pistas": [
+          "Multiplica 7 por 3.",
+          "Multiplica 12 por 3.",
+          "Pon ambos productos en el mismo orden."
+        ],
+        "retroalimentacion": "7/12 = 21/36."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué numerador necesita 3/8 para tener denominador 40 sin cambiar su valor?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "8 × 5 = 40.",
+          "Multiplica también 3 por 5.",
+          "El nuevo numerador es 15."
+        ],
+        "retroalimentacion": "El numerador es 15; 3/40 ya no equivale a 3/8.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "15"
+          },
+          {
+            "id": "b",
+            "texto": "8"
+          },
+          {
+            "id": "c",
+            "texto": "24"
+          },
+          {
+            "id": "d",
+            "texto": "5"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En dos regletas iguales, una marca 4/6. Amplifica por 5 para expresar esa marca con denominador 30. Escribe a/b.",
+        "respuesta": "20/30",
+        "alternativasAceptadas": [
+          "20 treintavos"
+        ],
+        "pistas": [
+          "6 × 5 = 30 partes.",
+          "4 × 5 = 20 partes marcadas.",
+          "La longitud cubierta se conserva."
+        ],
+        "retroalimentacion": "La fracción equivalente es 20/30."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La fracción 6/10 amplificada por 4 da 24/40.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 6 y 10 por 4.",
+          "Obtienes 24 y 40.",
+          "La proporción marcada no cambia."
+        ],
+        "retroalimentacion": "Es verdadero: 6/10 = 24/40."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.simplificar-fracciones",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Fracciones",
+    "nombre": "Simplificación de fracciones",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Obtiene la fracción equivalente con términos menores dividiendo entre un mismo número.",
+    "palabrasClave": [
+      "simplificación",
+      "fracciones"
+    ],
+    "prerrequisitos": [
+      "mat.p4.amplificar-fracciones"
+    ],
+    "ordenSugerido": 88,
+    "ideaCentral": "Simplificar una fracción es dividir numerador y denominador entre el mismo número mayor que uno. La nueva fracción usa menos partes, pero representa la misma porción.",
+    "pasos": [
+      "Busca un número que divida exactamente numerador y denominador.",
+      "Divide ambos por ese número.",
+      "Escribe la nueva fracción.",
+      "Comprueba que al amplificarla recuperas la original."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Simplifica 2/4.",
+        "desarrollo": "Divide arriba y abajo entre 2: 2÷2=1 y 4÷2=2.",
+        "respuesta": "2/4 = 1/2."
+      },
+      {
+        "situacion": "Simplifica 6/9.",
+        "desarrollo": "Ambos números se dividen entre 3: 6÷3=2, 9÷3=3.",
+        "respuesta": "6/9 = 2/3."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dividir solo el numerador.",
+        "correccion": "Divide numerador y denominador por el mismo número."
+      },
+      {
+        "error": "Elegir un divisor que no cabe exactamente en ambas partes.",
+        "correccion": "Busca un factor común; la división debe dar enteros arriba y abajo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Simplificar",
+        "significado": "Escribir una fracción equivalente con números menores."
+      },
+      {
+        "termino": "Factor común",
+        "significado": "Número que divide exactamente numerador y denominador."
+      },
+      {
+        "termino": "Equivalente",
+        "significado": "Que cubre la misma parte de la unidad."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Simplifica 2/4 dividiendo arriba y abajo entre 2. Escribe a/b.",
+        "respuesta": "1/2",
+        "alternativasAceptadas": [
+          "1 medios"
+        ],
+        "pistas": [
+          "2 ÷ 2 = 1.",
+          "4 ÷ 2 = 2.",
+          "Coloca 1 sobre 2."
+        ],
+        "retroalimentacion": "2/4 se simplifica a 1/2."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es una forma simplificada de 4/8?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El numerador y denominador son pares.",
+          "Divide ambos entre 4.",
+          "Resultan 1 y 2."
+        ],
+        "retroalimentacion": "4/8 = 1/2; 4/4 alteraría la porción.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4/4"
+          },
+          {
+            "id": "b",
+            "texto": "1/2"
+          },
+          {
+            "id": "c",
+            "texto": "2/8"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "6/8 se puede simplificar a 3/4 dividiendo por 2.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "6 ÷ 2 = 3.",
+          "8 ÷ 2 = 4.",
+          "Ambas partes se dividieron igual."
+        ],
+        "retroalimentacion": "Es verdadero: 6/8 = 3/4."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Reduce 3/6 a una fracción con numerador 1. Escribe a/b.",
+        "respuesta": "1/2",
+        "alternativasAceptadas": [
+          "1 medios"
+        ],
+        "pistas": [
+          "Divide 3 entre 3.",
+          "Divide también 6 entre 3.",
+          "El denominador queda 2."
+        ],
+        "retroalimentacion": "3/6 = 1/2."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Simplifica 8/12 dividiendo ambas partes entre 4. Escribe a/b.",
+        "respuesta": "2/3",
+        "alternativasAceptadas": [
+          "2 tercios"
+        ],
+        "pistas": [
+          "8 ÷ 4 = 2.",
+          "12 ÷ 4 = 3.",
+          "Forma la fracción con esos resultados."
+        ],
+        "retroalimentacion": "8/12 = 2/3."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué fracción resulta de simplificar 9/15 entre 3?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "9 ÷ 3 = 3.",
+          "15 ÷ 3 = 5.",
+          "Pon 3 sobre 5."
+        ],
+        "retroalimentacion": "9/15 = 3/5; 9/5 cambiaría solo el denominador.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9/5"
+          },
+          {
+            "id": "b",
+            "texto": "6/12"
+          },
+          {
+            "id": "c",
+            "texto": "3/15"
+          },
+          {
+            "id": "d",
+            "texto": "3/5"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "10/25 se simplifica a 2/5 al dividir ambas partes entre 5.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "10 ÷ 5 = 2.",
+          "25 ÷ 5 = 5.",
+          "Ambas divisiones son exactas."
+        ],
+        "retroalimentacion": "Es verdadero: 10/25 = 2/5."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una tira marca 12/16 de su largo. Expresa la misma marca en cuartos. Escribe a/b.",
+        "respuesta": "3/4",
+        "alternativasAceptadas": [
+          "3 cuartos"
+        ],
+        "pistas": [
+          "Dieciséis partes pasan a cuatro al dividir por 4.",
+          "Haz 12 ÷ 4 también.",
+          "Quedan tres partes de cuatro."
+        ],
+        "retroalimentacion": "La marca equivalente es 3/4."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Simplifica 18/24 dividiendo por un factor común hasta obtener cuartos. Escribe a/b.",
+        "respuesta": "3/4",
+        "alternativasAceptadas": [
+          "3 cuartos"
+        ],
+        "pistas": [
+          "24 ÷ 6 = 4.",
+          "18 ÷ 6 = 3.",
+          "Divide arriba y abajo por 6."
+        ],
+        "retroalimentacion": "18/24 = 3/4."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál fracción es la forma más simple de 21/28?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambos números se dividen entre 7.",
+          "21 ÷ 7 = 3.",
+          "28 ÷ 7 = 4."
+        ],
+        "retroalimentacion": "21/28 = 3/4; 6/8 es equivalente pero todavía se puede reducir.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3/4"
+          },
+          {
+            "id": "b",
+            "texto": "6/8"
+          },
+          {
+            "id": "c",
+            "texto": "7/14"
+          },
+          {
+            "id": "d",
+            "texto": "21/7"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una regleta tiene 15/20 marcados. Reduce a una fracción con denominador 4. Escribe a/b.",
+        "respuesta": "3/4",
+        "alternativasAceptadas": [
+          "3 cuartos"
+        ],
+        "pistas": [
+          "20 ÷ 5 = 4.",
+          "15 ÷ 5 = 3.",
+          "Ambos se reducen por el mismo factor."
+        ],
+        "retroalimentacion": "15/20 = 3/4."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La fracción 14/35 se reduce a 2/5 usando el factor 7.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "14 ÷ 7 = 2.",
+          "35 ÷ 7 = 5.",
+          "Los dos números admiten el mismo divisor."
+        ],
+        "retroalimentacion": "Es verdadero: 14/35 = 2/5."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.suma-fracciones-homogeneas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-03",
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Fracciones",
+    "nombre": "Suma de fracciones con igual denominador",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Suma fracciones homogéneas con material concreto y luego de forma simbólica.",
+    "palabrasClave": [
+      "suma",
+      "fracciones",
+      "igual",
+      "denominador"
+    ],
+    "prerrequisitos": [
+      "mat.p4.fracciones-homogeneas-heterogeneas"
+    ],
+    "ordenSugerido": 89,
+    "ideaCentral": "Para sumar fracciones de la misma unidad con igual denominador, suma los numeradores y conserva ese denominador. Las partes siguen teniendo el mismo tamaño.",
+    "pasos": [
+      "Comprueba que las fracciones tienen el mismo denominador.",
+      "Suma los numeradores.",
+      "Escribe el resultado sobre el denominador común.",
+      "Revisa si el resultado alcanza o supera una unidad."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Suma 2/7 + 3/7.",
+        "desarrollo": "Son séptimos de la misma unidad; 2 + 3 = 5.",
+        "respuesta": "5/7."
+      },
+      {
+        "situacion": "Suma 4/8 + 3/8.",
+        "desarrollo": "Juntas siete partes de ocho: 4 + 3 = 7.",
+        "respuesta": "7/8."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar también los denominadores.",
+        "correccion": "El denominador común indica el tamaño de parte y permanece igual."
+      },
+      {
+        "error": "Mezclar fracciones de unidades diferentes.",
+        "correccion": "Asegúrate de que ambas partes se refieren al mismo entero."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Homogéneas",
+        "significado": "Fracciones con igual denominador."
+      },
+      {
+        "termino": "Numerador",
+        "significado": "Número de partes tomadas."
+      },
+      {
+        "termino": "Denominador común",
+        "significado": "Número de partes iguales de la unidad compartido."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Suma 1/5 + 2/5. Escribe a/b.",
+        "respuesta": "3/5",
+        "alternativasAceptadas": [
+          "3 quintos"
+        ],
+        "pistas": [
+          "Ambas son quintos.",
+          "Suma las partes 1 + 2.",
+          "Conserva el denominador 5."
+        ],
+        "retroalimentacion": "La suma es 3/5; 3/10 cambiaría el tamaño de la parte."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuánto es 3/8 + 2/8?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los octavos son iguales.",
+          "Suma 3 + 2.",
+          "Escribe cinco octavos."
+        ],
+        "retroalimentacion": "La suma es 5/8; 5/16 suma erróneamente denominadores.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5/16"
+          },
+          {
+            "id": "b",
+            "texto": "5/8"
+          },
+          {
+            "id": "c",
+            "texto": "1/8"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "2/6 + 1/6 = 3/6.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los numeradores 2 y 1.",
+          "El denominador permanece 6.",
+          "Compara con 3/6."
+        ],
+        "retroalimentacion": "Es verdadero: se juntan tres sextos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una tira tiene 1/4 pintado de rojo y 2/4 de azul. ¿Qué fracción está pintada? Escribe a/b.",
+        "respuesta": "3/4",
+        "alternativasAceptadas": [
+          "3 cuartos"
+        ],
+        "pistas": [
+          "Se trata de la misma tira.",
+          "Junta 1 y 2 cuartos.",
+          "La unidad sigue dividida en cuatro."
+        ],
+        "retroalimentacion": "Está pintado 3/4 de la tira."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Calcula 4/9 + 3/9. Escribe a/b.",
+        "respuesta": "7/9",
+        "alternativasAceptadas": [
+          "7 novenos"
+        ],
+        "pistas": [
+          "El denominador común es 9.",
+          "4 + 3 = 7 partes.",
+          "Pon 7 sobre 9."
+        ],
+        "retroalimentacion": "La suma es 7/9."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "De una jarra se usan 5/12 de litro y luego 4/12. ¿Cuánto se usó?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambas medidas están en doceavos de litro.",
+          "Suma 5 + 4.",
+          "Conserva 12 como denominador."
+        ],
+        "retroalimentacion": "Se usaron 9/12 de litro; no son 9/24.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/12"
+          },
+          {
+            "id": "b",
+            "texto": "9/24"
+          },
+          {
+            "id": "c",
+            "texto": "8/12"
+          },
+          {
+            "id": "d",
+            "texto": "9/12"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si juntas 6/10 y 3/10 de la misma unidad, obtienes 9/10.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los décimos de ambas partes.",
+          "6 + 3 = 9.",
+          "El total de partes de la unidad sigue siendo diez."
+        ],
+        "retroalimentacion": "Es verdadero: la suma es 9/10."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una cuerda tiene 3/8 de metro en un tramo y 4/8 en otro. ¿Cuánto miden juntos? Escribe a/b.",
+        "respuesta": "7/8",
+        "alternativasAceptadas": [
+          "7 octavos"
+        ],
+        "pistas": [
+          "Son dos longitudes en octavos de metro.",
+          "Junta 3 + 4 octavos.",
+          "El denominador no cambia."
+        ],
+        "retroalimentacion": "Juntos miden 7/8 de metro."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Suma 7/15 + 5/15. Escribe a/b sin simplificar.",
+        "respuesta": "12/15",
+        "alternativasAceptadas": [
+          "12 quinceavos"
+        ],
+        "pistas": [
+          "Los quinceavos son partes iguales.",
+          "7 + 5 = 12 partes.",
+          "Conserva el 15 debajo."
+        ],
+        "retroalimentacion": "El total es 12/15; se pidió sin simplificar."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una regleta marca 11/20 y luego se añade 7/20 de su largo. ¿Qué fracción queda marcada?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las dos marcas están en veinteavos.",
+          "Suma 11 + 7.",
+          "La unidad permanece en veinte partes."
+        ],
+        "retroalimentacion": "Quedan marcados 18/20; 18/40 altera el tamaño de parte.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "18/20"
+          },
+          {
+            "id": "b",
+            "texto": "18/40"
+          },
+          {
+            "id": "c",
+            "texto": "4/20"
+          },
+          {
+            "id": "d",
+            "texto": "19/20"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Calcula 5/13 + 6/13. Escribe a/b.",
+        "respuesta": "11/13",
+        "alternativasAceptadas": [
+          "11 treceavos"
+        ],
+        "pistas": [
+          "El denominador compartido es 13.",
+          "Los numeradores suman 11.",
+          "Expresa once treceavos."
+        ],
+        "retroalimentacion": "El resultado es 11/13."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La suma de 8/17 y 7/17 de una misma tira es 15/17.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos denominadores son 17.",
+          "Suma 8 + 7.",
+          "El numerador resultante es 15."
+        ],
+        "retroalimentacion": "Es verdadero: 8/17 + 7/17 = 15/17."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.resta-fracciones-homogeneas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-03",
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Fracciones",
+    "nombre": "Resta de fracciones con igual denominador",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Resta fracciones homogéneas con material concreto y luego de forma simbólica.",
+    "palabrasClave": [
+      "resta",
+      "fracciones",
+      "igual",
+      "denominador"
+    ],
+    "prerrequisitos": [
+      "mat.p4.suma-fracciones-homogeneas"
+    ],
+    "ordenSugerido": 90,
+    "ideaCentral": "Para restar fracciones de una misma unidad con igual denominador, quita los numeradores y conserva el denominador. Así cuentas cuántas partes iguales quedan.",
+    "pasos": [
+      "Comprueba que ambas fracciones usan la misma unidad y denominador.",
+      "Resta el numerador que se quita del numerador inicial.",
+      "Conserva el denominador común.",
+      "Comprueba sumando lo quitado a lo que queda."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula 5/8 − 2/8.",
+        "desarrollo": "Quito dos de cinco octavos: 5 − 2 = 3.",
+        "respuesta": "3/8."
+      },
+      {
+        "situacion": "De 7/10 de una tira se recortan 4/10.",
+        "desarrollo": "Quedan 7 − 4 = 3 partes de diez.",
+        "respuesta": "Queda 3/10."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Restar los denominadores.",
+        "correccion": "Las partes siguen teniendo el mismo tamaño; conserva ese denominador."
+      },
+      {
+        "error": "Restar en orden inverso y obtener una parte negativa.",
+        "correccion": "Quita la fracción usada de la cantidad inicial."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Diferencia",
+        "significado": "Fracción que queda tras quitar otra."
+      },
+      {
+        "termino": "Denominador común",
+        "significado": "Número de partes iguales de la unidad."
+      },
+      {
+        "termino": "Sustraendo",
+        "significado": "Fracción que se quita."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Resta 4/5 − 1/5. Escribe a/b.",
+        "respuesta": "3/5",
+        "alternativasAceptadas": [
+          "3 quintos"
+        ],
+        "pistas": [
+          "Las partes son quintos.",
+          "Quita uno de los cuatro quintos.",
+          "4 − 1 = 3 quintos."
+        ],
+        "retroalimentacion": "La diferencia es 3/5; el denominador no cambia."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuánto queda de 6/8 al quitar 2/8?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambas fracciones son octavos.",
+          "Resta 6 − 2.",
+          "Conserva ocho partes de la unidad."
+        ],
+        "retroalimentacion": "Queda 4/8; 4/16 cambia el tamaño de cada parte.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4/16"
+          },
+          {
+            "id": "b",
+            "texto": "4/8"
+          },
+          {
+            "id": "c",
+            "texto": "8/8"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "5/7 − 3/7 = 2/7.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Quita tres de cinco séptimos.",
+          "5 − 3 = 2.",
+          "El denominador sigue en 7."
+        ],
+        "retroalimentacion": "Es verdadero: quedan dos séptimos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un listón tiene 7/9 de metro y se corta 4/9. ¿Cuánto queda? Escribe a/b.",
+        "respuesta": "3/9",
+        "alternativasAceptadas": [
+          "3 novenos"
+        ],
+        "pistas": [
+          "La medida inicial es siete novenos.",
+          "Se quitan cuatro novenos.",
+          "7 − 4 = 3 novenos."
+        ],
+        "retroalimentacion": "Queda 3/9 de metro."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Calcula 11/12 − 5/12. Escribe a/b sin simplificar.",
+        "respuesta": "6/12",
+        "alternativasAceptadas": [
+          "6 doceavos"
+        ],
+        "pistas": [
+          "Los doceavos tienen igual tamaño.",
+          "Resta 11 − 5.",
+          "Conserva 12 como denominador."
+        ],
+        "retroalimentacion": "La diferencia es 6/12; equivale a 1/2."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "De 9/10 de litro se sirven 7/10. ¿Cuánto queda?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se quitan siete décimos de nueve.",
+          "9 − 7 = 2.",
+          "La unidad sigue en décimos."
+        ],
+        "retroalimentacion": "Quedan 2/10 de litro; 2/20 alteraría el denominador.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2/20"
+          },
+          {
+            "id": "b",
+            "texto": "7/10"
+          },
+          {
+            "id": "c",
+            "texto": "16/10"
+          },
+          {
+            "id": "d",
+            "texto": "2/10"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "8/13 − 3/13 = 5/13.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta numeradores 8 − 3.",
+          "El resultado es 5.",
+          "Conserva el denominador 13."
+        ],
+        "retroalimentacion": "Es verdadero: la diferencia es cinco treceavos."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una cuerda mide 10/15 de metro y se usan 6/15. ¿Qué fracción de metro queda? Escribe a/b.",
+        "respuesta": "4/15",
+        "alternativasAceptadas": [
+          "4 quinceavos"
+        ],
+        "pistas": [
+          "Ambas medidas están en quinceavos.",
+          "Quita seis de los diez tramos.",
+          "10 − 6 = 4."
+        ],
+        "retroalimentacion": "Quedan 4/15 de metro."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Calcula 16/20 − 9/20. Escribe a/b.",
+        "respuesta": "7/20",
+        "alternativasAceptadas": [
+          "7 veinteavos"
+        ],
+        "pistas": [
+          "Las partes son veinteavos.",
+          "Resta 16 − 9.",
+          "Conserva el denominador veinte."
+        ],
+        "retroalimentacion": "El resultado es 7/20."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tira tiene 14/18 coloreados y se borra 11/18. ¿Qué fracción sigue coloreada?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Quita once de catorce dieciochoavos.",
+          "14 − 11 = 3.",
+          "El denominador permanece 18."
+        ],
+        "retroalimentacion": "Sigue coloreado 3/18 de la tira.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3/18"
+          },
+          {
+            "id": "b",
+            "texto": "3/36"
+          },
+          {
+            "id": "c",
+            "texto": "11/18"
+          },
+          {
+            "id": "d",
+            "texto": "25/18"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una jarra contiene 17/24 de litro y se usan 8/24. ¿Qué fracción de litro permanece? Escribe a/b.",
+        "respuesta": "9/24",
+        "alternativasAceptadas": [
+          "9 veinticuatroavos"
+        ],
+        "pistas": [
+          "La unidad son veinticuatroavos de litro.",
+          "Resta 17 − 8.",
+          "Escribe nueve partes de veinticuatro."
+        ],
+        "retroalimentacion": "Permanece 9/24 de litro."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si de 19/25 de una banda retiras 12/25, quedan 7/25.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambas fracciones son veinticincoavos.",
+          "19 − 12 = 7.",
+          "El denominador común no cambia."
+        ],
+        "retroalimentacion": "Es verdadero: quedan 7/25."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.suma-resta-fracciones-equivalentes",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-03",
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Fracciones",
+    "nombre": "Suma y resta de fracciones usuales con equivalentes",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Suma o resta medios, cuartos y octavos convirtiéndolos antes a fracciones equivalentes.",
+    "palabrasClave": [
+      "suma",
+      "resta",
+      "fracciones",
+      "usuales",
+      "equivalentes"
+    ],
+    "prerrequisitos": [
+      "mat.p4.amplificar-fracciones",
+      "mat.p4.resta-fracciones-homogeneas"
+    ],
+    "ordenSugerido": 111,
+    "ideaCentral": "Para sumar o restar medios, cuartos y octavos, conviértelos primero a partes del mismo tamaño. Un medio son dos cuartos o cuatro octavos; un cuarto son dos octavos.",
+    "pasos": [
+      "Comprueba que las fracciones se refieren a la misma unidad.",
+      "Elige un denominador común entre 2, 4 y 8.",
+      "Convierte cada fracción a partes de ese tamaño.",
+      "Suma o resta numeradores y conserva el denominador común."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula 1/2 + 1/4.",
+        "desarrollo": "1/2 = 2/4; 2/4 + 1/4 = 3/4.",
+        "respuesta": "3/4."
+      },
+      {
+        "situacion": "Calcula 7/8 − 1/4.",
+        "desarrollo": "1/4 = 2/8; 7/8 − 2/8 = 5/8.",
+        "respuesta": "5/8."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Operar numeradores antes de igualar los denominadores.",
+        "correccion": "Convierte primero a cuartos u octavos del mismo tamaño."
+      },
+      {
+        "error": "Cambiar solo el denominador al buscar equivalentes.",
+        "correccion": "Multiplica arriba y abajo por el mismo número."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Denominador común",
+        "significado": "Tamaño compartido de las partes."
+      },
+      {
+        "termino": "Equivalencia",
+        "significado": "Otra escritura de la misma porción."
+      },
+      {
+        "termino": "Octavo",
+        "significado": "Una de ocho partes iguales de la unidad."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Suma 1/2 + 1/4. Escribe a/b.",
+        "respuesta": "3/4",
+        "alternativasAceptadas": [
+          "3 cuartos"
+        ],
+        "pistas": [
+          "1/2 son 2/4.",
+          "Suma 2/4 + 1/4.",
+          "Juntas tres cuartos."
+        ],
+        "retroalimentacion": "La suma es 3/4; 2/6 sumaría denominadores."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuánto es 3/4 − 1/2?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte la mitad a cuartos.",
+          "1/2 = 2/4.",
+          "Resta 3 − 2 cuartos."
+        ],
+        "retroalimentacion": "La diferencia es 1/4.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2/4"
+          },
+          {
+            "id": "b",
+            "texto": "1/4"
+          },
+          {
+            "id": "c",
+            "texto": "2/2"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "1/2 + 1/8 = 5/8.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un medio equivale a cuatro octavos.",
+          "Suma 4/8 + 1/8.",
+          "Obtienes cinco octavos."
+        ],
+        "retroalimentacion": "Es verdadero: 1/2 + 1/8 = 5/8."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "De 5/8 de litro se usa 1/4. ¿Cuánto queda? Escribe a/b.",
+        "respuesta": "3/8",
+        "alternativasAceptadas": [
+          "3 octavos"
+        ],
+        "pistas": [
+          "El cuarto equivale a dos octavos.",
+          "Resta 5/8 − 2/8.",
+          "Quedan tres octavos."
+        ],
+        "retroalimentacion": "Queda 3/8 de litro."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Calcula 1/4 + 3/8. Escribe a/b.",
+        "respuesta": "5/8",
+        "alternativasAceptadas": [
+          "5 octavos"
+        ],
+        "pistas": [
+          "Un cuarto equivale a dos octavos.",
+          "Suma 2/8 + 3/8.",
+          "Conserva el denominador 8."
+        ],
+        "retroalimentacion": "La suma es 5/8."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una cinta mide 7/8 de metro y se recortan 1/2 metro. ¿Qué queda?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un medio son cuatro octavos.",
+          "Resta 7/8 − 4/8.",
+          "Tras quitar cuatro de los siete octavos, quedan tres partes iguales."
+        ],
+        "retroalimentacion": "Quedan 3/8 de metro; 6/8 trataría la mitad como un octavo.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6/8"
+          },
+          {
+            "id": "b",
+            "texto": "3/4"
+          },
+          {
+            "id": "c",
+            "texto": "5/8"
+          },
+          {
+            "id": "d",
+            "texto": "3/8"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "3/4 + 1/8 = 7/8.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tres cuartos equivalen a seis octavos.",
+          "Suma 6/8 + 1/8.",
+          "El total es siete octavos."
+        ],
+        "retroalimentacion": "Es verdadero: 3/4 + 1/8 = 7/8."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Calcula 5/8 − 1/2. Escribe a/b.",
+        "respuesta": "1/8",
+        "alternativasAceptadas": [
+          "1 octavos"
+        ],
+        "pistas": [
+          "Para restar de 5/8, expresa la mitad como cuatro partes de ocho.",
+          "Resta 5 − 4 octavos.",
+          "Queda un octavo."
+        ],
+        "retroalimentacion": "La diferencia es 1/8."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Suma 1/2 + 1/4 + 1/8 de la misma unidad. Escribe a/b.",
+        "respuesta": "7/8",
+        "alternativasAceptadas": [
+          "7 octavos"
+        ],
+        "pistas": [
+          "Convierte todo a octavos.",
+          "1/2 = 4/8 y 1/4 = 2/8.",
+          "4 + 2 + 1 = 7 octavos."
+        ],
+        "retroalimentacion": "La suma es 7/8."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "De 7/8 de una tira se quitan 1/4 y luego 1/8. ¿Qué fracción queda?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "1/4 equivale a 2/8.",
+          "Se quitan 2/8 + 1/8 = 3/8.",
+          "Resta 7/8 − 3/8."
+        ],
+        "retroalimentacion": "Queda 4/8 de la tira, equivalente a la mitad.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4/8"
+          },
+          {
+            "id": "b",
+            "texto": "5/8"
+          },
+          {
+            "id": "c",
+            "texto": "6/8"
+          },
+          {
+            "id": "d",
+            "texto": "3/8"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Calcula 3/4 − 1/8 + 1/4. Escribe a/b.",
+        "respuesta": "7/8",
+        "alternativasAceptadas": [
+          "7 octavos"
+        ],
+        "pistas": [
+          "Convierte los cuartos a octavos.",
+          "3/4 = 6/8 y 1/4 = 2/8.",
+          "6 − 1 + 2 = 7 octavos."
+        ],
+        "retroalimentacion": "El resultado es 7/8."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "1/2 + 3/8 − 1/4 = 5/8.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte medio a 4/8 y cuarto a 2/8.",
+          "Calcula 4/8 + 3/8 − 2/8.",
+          "El numerador final es cinco."
+        ],
+        "retroalimentacion": "Es verdadero: el resultado es 5/8."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

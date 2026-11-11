@@ -1,0 +1,1185 @@
+[
+  {
+    "clave": "mat.p4.llenar-recipientes",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P4-04"
+    ],
+    "bloque": "Capacidad",
+    "nombre": "Cuántas veces se llena un recipiente con otro",
+    "disciplina": "geometria",
+    "descripcionCorta": "Compara capacidades contando cuántas veces un recipiente llena a otro.",
+    "palabrasClave": [
+      "capacidad",
+      "recipiente",
+      "llenar",
+      "comparar",
+      "vasos"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 117,
+    "ideaCentral": "La capacidad es lo que cabe dentro de un recipiente. Para compararla usas un recipiente pequeño como medida y cuentas cuántas veces lo llenas dentro del otro.",
+    "pasos": [
+      "Elige un recipiente pequeño como medida, por ejemplo un vaso.",
+      "Llena con ese recipiente cada recipiente grande y cuenta las veces.",
+      "Compara los números: más veces significa más capacidad.",
+      "Usa siempre el mismo recipiente medida para comparar."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La olla de doña Rosa se llena con 5 tazas de agua y su jarra con 3 tazas iguales. ¿Cuál tiene más capacidad?",
+        "desarrollo": "La olla necesita 5 tazas y la jarra 3 tazas. 5 es mayor que 3.",
+        "respuesta": "La olla tiene más capacidad."
+      },
+      {
+        "situacion": "Un balde se llena con 4 jarras. Una jarra se llena con 2 vasos. ¿Cuántos vasos llenan el balde?",
+        "desarrollo": "Cada jarra son 2 vasos y son 4 jarras: 4 × 2 = 8.",
+        "respuesta": "El balde se llena con 8 vasos."
+      },
+      {
+        "situacion": "En la chacra, un tanque se llena con 12 baldes y un pozo con 9 baldes iguales. ¿Cuál es menor?",
+        "desarrollo": "12 es mayor que 9, así que el pozo necesita menos baldes.",
+        "respuesta": "El pozo tiene menor capacidad."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Comparar usando recipientes de medida distinta, como 6 vasos con 3 jarras.",
+        "correccion": "Para comparar, ambos deben llenarse con el mismo recipiente medida."
+      },
+      {
+        "error": "Pensar que el recipiente que se llena con menos veces es el más grande cuando se usan medidas distintas.",
+        "correccion": "Si usas la misma medida, menos veces es menos capacidad; con medidas distintas hay que convertir."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Capacidad",
+        "significado": "Cantidad que cabe dentro de un recipiente."
+      },
+      {
+        "termino": "Recipiente",
+        "significado": "Objeto que sirve para guardar líquidos, como una jarra o un balde."
+      },
+      {
+        "termino": "Medida",
+        "significado": "Recipiente que se usa para comparar capacidades."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Echas agua con un vaso en una jarra: 1, 2, 3 y 4. Con el cuarto vaso la jarra se llena. ¿Cuántos vasos caben en la jarra? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las veces que echaste el vaso.",
+          "Fueron el vaso 1, 2, 3 y 4.",
+          "La jarra se llenó justo al terminar el último vaso."
+        ],
+        "retroalimentacion": "Como la jarra se llenó con el cuarto vaso, caben 4 vasos.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una olla se llena con 5 tazas y una jarra se llena con 3 tazas iguales. La olla tiene más capacidad que la jarra.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuántas tazas necesita cada recipiente.",
+          "La olla necesita 5 tazas y la jarra 3.",
+          "Más tazas significa más capacidad."
+        ],
+        "retroalimentacion": "Es verdadero: 5 tazas es más que 3 tazas, así que la olla tiene más capacidad.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una botella se llena con 2 vasos y un balde se llena con 10 vasos iguales. ¿Cuál tiene mayor capacidad?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La botella"
+          },
+          {
+            "id": "b",
+            "texto": "El balde"
+          },
+          {
+            "id": "c",
+            "texto": "Los dos tienen la misma"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 2 vasos con 10 vasos.",
+          "Los vasos son del mismo tamaño en los dos casos.",
+          "El recipiente que necesita más vasos es el de mayor capacidad."
+        ],
+        "retroalimentacion": "El balde se llena con 10 vasos y la botella con 2; por eso el balde tiene mayor capacidad.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un tazón se llena con 3 cucharones y una olla con 8 cucharones iguales. ¿Cuál tiene menor capacidad? Escribe tazón u olla.",
+        "respuesta": "tazón",
+        "alternativasAceptadas": [
+          "el tazón",
+          "tazon"
+        ],
+        "pistas": [
+          "Fíjate en cuántos cucharones lleva cada uno.",
+          "El tazón lleva 3 y la olla 8.",
+          "El recipiente con menos cucharones es el de menor capacidad."
+        ],
+        "retroalimentacion": "El tazón se llena con solo 3 cucharones, menos que los 8 de la olla; entonces tiene menor capacidad.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una jarra se llena con 4 vasos. Un balde se llena con 3 jarras. ¿Cuántos vasos llenan el balde? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada jarra equivale a 4 vasos.",
+          "El balde tiene 3 jarras, entonces repites 4 vasos tres veces.",
+          "Calcula 4 + 4 + 4 o 3 × 4."
+        ],
+        "retroalimentacion": "3 jarras de 4 vasos cada una son 3 × 4 = 12 vasos.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Rosa llenó dos botellas con el mismo vaso: la botella A con 7 vasos y la botella B con 5 vasos. ¿Qué es correcto?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Las dos tienen la misma capacidad"
+          },
+          {
+            "id": "b",
+            "texto": "La botella B tiene mayor capacidad"
+          },
+          {
+            "id": "c",
+            "texto": "La botella A tiene mayor capacidad"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El vaso es el mismo, así que puedes comparar los números.",
+          "A usó 7 vasos y B usó 5 vasos.",
+          "7 es mayor que 5; ese número mayor indica la botella más grande."
+        ],
+        "retroalimentacion": "La botella A necesitó 7 vasos, más que los 5 de B; por eso A tiene mayor capacidad.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Se necesitan 10 tazas para llenar una olla y 5 tazas para llenar otra olla. La segunda olla tiene el doble de capacidad que la primera.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 10 con 5.",
+          "10 es el doble de 5.",
+          "La olla que necesita más tazas es la que tiene mayor capacidad; ¿cuál es?"
+        ],
+        "retroalimentacion": "Es falso: la primera olla, con 10 tazas, es el doble de la segunda, que usa 5 tazas.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El tanque se llena con 9 baldes iguales y el pozo con 12 de esos mismos baldes. ¿Cuál tiene mayor capacidad? Escribe tanque o pozo.",
+        "respuesta": "pozo",
+        "alternativasAceptadas": [
+          "el pozo",
+          "pozo."
+        ],
+        "pistas": [
+          "Compara 9 baldes con 12 baldes.",
+          "Los baldes son iguales en los dos casos.",
+          "Cuantos más baldes se necesitan, mayor es la capacidad."
+        ],
+        "retroalimentacion": "El pozo necesita 12 baldes y el tanque solo 9; por eso el pozo tiene mayor capacidad.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una olla se llena con 8 vasos y otra olla con 14 vasos iguales. ¿Cuántos vasos más caben en la segunda olla? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La segunda olla necesita 14 vasos y la primera 8.",
+          "Para saber cuántos más, busca la diferencia.",
+          "Resta 14 - 8."
+        ],
+        "retroalimentacion": "14 - 8 = 6; en la segunda olla caben 6 vasos más.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "El vaso A llena una jarra con 5 veces. El vaso B, de otro tamaño, llena la misma jarra con 3 veces. ¿Qué vaso tiene mayor capacidad?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El vaso A, porque se usó 5 veces"
+          },
+          {
+            "id": "b",
+            "texto": "Tienen la misma capacidad"
+          },
+          {
+            "id": "c",
+            "texto": "El vaso B, porque con menos veces llena la misma jarra"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La jarra es la misma en los dos casos, así que tiene la misma capacidad.",
+          "A necesita 5 vasos y B necesita 3 vasos para llenarla.",
+          "Si con menos vasos llenas lo mismo, cada vaso es más grande."
+        ],
+        "retroalimentacion": "Con 3 vasos B se llena la misma jarra que A con 5 vasos; por eso cada vaso B contiene más, y el vaso B tiene mayor capacidad.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una jarra pequeña llena un balde en 12 veces y una jarra grande llena el mismo balde en 4 veces. ¿Cuántas jarras pequeñas llenan lo mismo que una jarra grande? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El balde es el mismo, entonces 12 jarras pequeñas son lo mismo que 4 grandes.",
+          "Reparte 12 jarras pequeñas entre las 4 grandes.",
+          "Calcula 12 ÷ 4."
+        ],
+        "retroalimentacion": "12 jarras pequeñas equivalen a 4 jarras grandes; así que 12 ÷ 4 = 3 jarras pequeñas son iguales a una grande.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para llenar un balde, Pedro usó 6 vasos y Ana usó 3 jarras. Como 6 es mayor que 3, el balde de Pedro tenía más capacidad.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fíjate si Pedro y Ana usaron el mismo recipiente medida.",
+          "Pedro usó vasos y Ana usó jarras, que son distintos.",
+          "Solo puedes comparar números de veces cuando la medida es la misma."
+        ],
+        "retroalimentacion": "Es falso: Pedro y Ana usaron medidas diferentes (vasos y jarras), y no se puede decidir solo comparando 6 con 3.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.el-litro",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P4-06"
+    ],
+    "bloque": "Capacidad",
+    "nombre": "El litro",
+    "disciplina": "geometria",
+    "descripcionCorta": "Mide la capacidad de recipientes con el litro como unidad convencional.",
+    "palabrasClave": [
+      "litro",
+      "capacidad",
+      "unidad de medida",
+      "botella",
+      "bidón"
+    ],
+    "prerrequisitos": [
+      "mat.p4.llenar-recipientes"
+    ],
+    "ordenSugerido": 118,
+    "ideaCentral": "El litro (L) es una unidad que se usa para medir la capacidad de los recipientes. Una botella grande de gaseosa suele tener 1 litro, y así puedes contar litros en lugar de vasos.",
+    "pasos": [
+      "Mira cuántos litros dice el recipiente o la etiqueta.",
+      "Si hay varios recipientes iguales, multiplica los litros de uno por la cantidad.",
+      "Para saber cuánto falta, resta los litros que ya tienes.",
+      "Compara siempre litros con litros."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un bidón de agua tiene 5 litros. Don Mario compra 3 bidones. ¿Cuántos litros lleva?",
+        "desarrollo": "Cada bidón tiene 5 litros y son 3: 5 × 3 = 15.",
+        "respuesta": "Lleva 15 litros."
+      },
+      {
+        "situacion": "Un balde de 10 litros ya tiene 6 litros de agua. ¿Cuántos litros faltan para llenarlo?",
+        "desarrollo": "Capacidad total: 10 litros. Ya hay 6. Faltan 10 - 6 = 4.",
+        "respuesta": "Faltan 4 litros."
+      },
+      {
+        "situacion": "En una tienda del Callao hay una botella de 1 litro, otra de 2 litros y otra de 3 litros. ¿Cuál tiene mayor capacidad?",
+        "desarrollo": "Comparas los números de litros: 1, 2 y 3. El mayor es 3.",
+        "respuesta": "La botella de 3 litros."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir litros con kilos, por ejemplo decir «5 kilos de agua» al hablar de capacidad.",
+        "correccion": "La capacidad de recipientes se mide en litros; los kilos miden masa o peso."
+      },
+      {
+        "error": "Sumar litros de recipientes sin multiplicar por la cantidad de recipientes iguales.",
+        "correccion": "Si hay 3 bidones de 5 litros, usa 5 × 3 = 15 litros, no solo 5."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Litro (L)",
+        "significado": "Unidad para medir la capacidad de un recipiente."
+      },
+      {
+        "termino": "Capacidad",
+        "significado": "Cantidad de líquido que cabe en un recipiente."
+      },
+      {
+        "termino": "Bidón",
+        "significado": "Recipiente grande para guardar agua u otros líquidos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una botella de gaseosa trae 1 litro. ¿Cuántos litros hay en 4 botellas iguales? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada botella trae la misma cantidad de litros.",
+          "Cada botella tiene 1 litro y son 4 botellas.",
+          "Suma 1 + 1 + 1 + 1."
+        ],
+        "retroalimentacion": "4 botellas de 1 litro dan 4 × 1 = 4 litros.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El litro sirve para medir cuánto líquido cabe en un recipiente.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en lo que mide el litro: ¿largo, peso o capacidad?",
+          "El litro mide cuánto cabe en un recipiente.",
+          "Un recipiente grande, como un balde, se mide en litros."
+        ],
+        "retroalimentacion": "Es verdadero: el litro es una unidad de capacidad, se usa para medir cuánto cabe en una botella, balde o bidón.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué objeto tiene una capacidad cercana a 1 litro?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una cucharita"
+          },
+          {
+            "id": "b",
+            "texto": "Una piscina"
+          },
+          {
+            "id": "c",
+            "texto": "Una botella grande de gaseosa"
+          },
+          {
+            "id": "d",
+            "texto": "Una gota de agua"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en un recipiente que puedas sostener con una mano o dos.",
+          "Una cucharita y una gota son muy pequeñas; una piscina es enorme.",
+          "La capacidad de 1 litro es la de una botella de gaseosa grande."
+        ],
+        "retroalimentacion": "Una botella grande de gaseosa tiene cerca de 1 litro. La cucharita y la gota son mucho menores y la piscina mucho mayor.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Con qué unidad medimos cuánta chicha cabe en un balde? Escribe la unidad (metro, kilo o litro).",
+        "respuesta": "litro",
+        "alternativasAceptadas": [
+          "litros",
+          "el litro",
+          "l"
+        ],
+        "pistas": [
+          "Piensa si te preguntan por largo, peso o cuánto cabe.",
+          "La pregunta es sobre cuánto cabe en el balde.",
+          "La unidad que mide cuánto líquido cabe es la que termina en «-itro»."
+        ],
+        "retroalimentacion": "Para medir cuánta chicha cabe en un balde se usa el litro; el metro mide largo y el kilo mide peso.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un bidón de agua tiene 5 litros. ¿Cuántos litros hay en 3 bidones iguales? Escribe solo el número.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los 3 bidones tienen los mismos litros.",
+          "Cada bidón tiene 5 litros.",
+          "Suma 5 + 5 + 5 o multiplica 3 × 5."
+        ],
+        "retroalimentacion": "3 bidones de 5 litros: 3 × 5 = 15 litros.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un balde tiene capacidad de 10 litros y Rosa ya echó 6 litros de agua. ¿Cuántos litros faltan para llenarlo? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la capacidad total con lo que ya hay.",
+          "Capacidad: 10 litros. Ya echó: 6 litros.",
+          "Resta 10 - 6."
+        ],
+        "retroalimentacion": "10 - 6 = 4; faltan 4 litros.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una jarra de 2 litros tiene mayor capacidad que una olla de 5 litros.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 2 litros con 5 litros.",
+          "5 es mayor que 2.",
+          "Mayor capacidad es la que tiene más litros: ¿es la jarra o la olla?"
+        ],
+        "retroalimentacion": "Es falso: la olla de 5 litros tiene mayor capacidad que la jarra de 2 litros.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estos recipientes tiene la MAYOR capacidad?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una jarra de 1 litro"
+          },
+          {
+            "id": "b",
+            "texto": "Una botella de 2 litros"
+          },
+          {
+            "id": "c",
+            "texto": "Un balde de 5 litros"
+          },
+          {
+            "id": "d",
+            "texto": "Un bidón de 8 litros"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los números de litros de cada recipiente.",
+          "Los números son 1, 2, 5 y 8.",
+          "El mayor número de litros es el recipiente con mayor capacidad."
+        ],
+        "retroalimentacion": "El bidón de 8 litros tiene el mayor número de litros; el balde de 5, la botella de 2 y la jarra de 1 caben menos.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Para llenar un balde de 12 litros usas botellas de 2 litros. ¿Cuántas botellas llenas necesitas? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada botella aporta 2 litros.",
+          "Piensa cuántos grupos de 2 litros hacen 12 litros.",
+          "Calcula 12 ÷ 2."
+        ],
+        "retroalimentacion": "12 ÷ 2 = 6; necesitas 6 botellas de 2 litros.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En casa de Pablo cada persona toma 2 litros de agua al día. Son 5 personas. ¿Cuántos litros toman en 3 días? Escribe solo el número.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero calcula los litros que toman todos en un día.",
+          "En un día son 5 personas con 2 litros cada una: 10 litros.",
+          "Ahora multiplica esos litros por los 3 días."
+        ],
+        "retroalimentacion": "En un día toman 5 × 2 = 10 litros; en 3 días, 10 × 3 = 30 litros.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mamá necesita 9 litros de chicha y solo tiene jarras de 2 litros. ¿Cuántas jarras llenas necesita como mínimo?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4 jarras, porque 4 × 2 = 8 y casi alcanza"
+          },
+          {
+            "id": "b",
+            "texto": "5 jarras, porque 5 × 2 = 10, que es más de 9"
+          },
+          {
+            "id": "c",
+            "texto": "9 jarras, una por cada litro"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Con cada jarra llevas 2 litros.",
+          "Prueba 4 jarras: 8 litros; ¿alcanza para 9?",
+          "Si 8 no alcanza, prueba con una jarra más."
+        ],
+        "retroalimentacion": "Con 4 jarras tienes 8 litros, que no alcanza. Con 5 jarras tienes 10 litros y sí cubre los 9 litros.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un bidón de 5 litros se llena con 5 botellas de 1 litro. Si usas botellas de 2 litros, también necesitas 5 botellas para llenarlo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa cuánto aporta cada botella de 2 litros.",
+          "Cada botella de 2 litros trae el doble que una de 1 litro.",
+          "Para llegar a 5 litros, necesitarás menos botellas de 2 litros que de 1 litro."
+        ],
+        "retroalimentacion": "Es falso: cada botella de 2 litros aporta más, así que bastan 3 botellas (2 + 2 + 2 = 6 litros), no 5.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.medio-cuarto-litro",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P4-06"
+    ],
+    "bloque": "Capacidad",
+    "nombre": "Medio litro y cuarto de litro",
+    "disciplina": "geometria",
+    "descripcionCorta": "Expresa capacidades con fracciones de litro y calcula cuántas forman un litro.",
+    "palabrasClave": [
+      "medio litro",
+      "cuarto de litro",
+      "fracciones",
+      "1/2 L",
+      "1/4 L"
+    ],
+    "prerrequisitos": [
+      "mat.p4.el-litro",
+      "mat.p4.fraccion-todo-continuo"
+    ],
+    "ordenSugerido": 119,
+    "ideaCentral": "Medio litro (1/2 L) es la mitad de un litro y cuarto de litro (1/4 L) es una de las cuatro partes iguales de un litro. Dos medios o cuatro cuartos forman 1 litro.",
+    "pasos": [
+      "Imagina un litro dividido en partes iguales.",
+      "Si lo divides en 2 partes iguales, cada parte es medio litro.",
+      "Si lo divides en 4 partes iguales, cada parte es un cuarto de litro.",
+      "Cuenta cuántas partes necesitas para llenar el litro."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "¿Cuántas botellas de medio litro llenan 1 litro?",
+        "desarrollo": "Cada botella es la mitad del litro, así que dos botellas completan el litro.",
+        "respuesta": "Se necesitan 2 botellas."
+      },
+      {
+        "situacion": "Doña Lucía sirve jugo de maracuyá en vasos de un cuarto de litro. ¿Cuántos vasos llenan una jarra de 1 litro?",
+        "desarrollo": "Un litro tiene 4 partes iguales de un cuarto.",
+        "respuesta": "Se llenan 4 vasos."
+      },
+      {
+        "situacion": "En un puesto de Cusco hay un vaso de 1/2 L y otro de 1/4 L. ¿Cuál es mayor?",
+        "desarrollo": "Medio litro se obtiene con 2 cuartos, así que 1/2 es mayor que 1/4.",
+        "respuesta": "El vaso de medio litro."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que 1/4 es mayor que 1/2 porque 4 es mayor que 2.",
+        "correccion": "Cuando el litro se parte en más partes, cada parte es más pequeña: 1/4 es menor que 1/2."
+      },
+      {
+        "error": "Creer que dos vasos de un cuarto de litro forman un litro.",
+        "correccion": "Se necesitan 4 vasos de un cuarto para 1 litro; dos de ellos forman medio litro."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Medio litro",
+        "significado": "La mitad de un litro; se escribe 1/2 L."
+      },
+      {
+        "termino": "Cuarto de litro",
+        "significado": "Una de las cuatro partes iguales de un litro; se escribe 1/4 L."
+      },
+      {
+        "termino": "Fracción",
+        "significado": "Número que expresa partes iguales de un todo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántas botellas de medio litro llenan 1 litro? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Medio litro es la mitad de un litro.",
+          "Dos mitades forman un entero.",
+          "Imagina un litro partido en dos partes iguales."
+        ],
+        "retroalimentacion": "Dos botellas de medio litro llenan 1 litro.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos vasos de un cuarto de litro llenan una botella de 1 litro? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un cuarto significa que el litro se divide en 4 partes iguales.",
+          "Cada vaso es una de esas partes.",
+          "Cuenta las partes que tiene el litro."
+        ],
+        "retroalimentacion": "El litro tiene 4 partes de un cuarto cada una, entonces se llenan 4 vasos.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Medio litro es la mitad de un litro.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa qué significa «medio».",
+          "Medio es una de dos partes iguales.",
+          "Si repartes 1 litro en dos partes iguales, cada una es medio litro."
+        ],
+        "retroalimentacion": "Es verdadero: medio litro (1/2 L) es la mitad de un litro.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cómo se escribe «un cuarto de litro» con números?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/2 L"
+          },
+          {
+            "id": "b",
+            "texto": "1/4 L"
+          },
+          {
+            "id": "c",
+            "texto": "1/3 L"
+          },
+          {
+            "id": "d",
+            "texto": "4 L"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un cuarto significa una de cuatro partes.",
+          "La fracción tiene el 1 arriba y el 4 abajo.",
+          "Busca la opción con un 1 sobre un 4 y la L de litro."
+        ],
+        "retroalimentacion": "Un cuarto de litro se escribe 1/4 L: una de cuatro partes iguales. 1/2 L es medio litro y 4 L son cuatro litros enteros.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Lucía quiere llenar una jarra de 1 litro y ya sirvió 2 vasos de un cuarto de litro. ¿Cuántos vasos de un cuarto de litro faltan? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una jarra de 1 litro se llena con 4 vasos de un cuarto.",
+          "Ya sirvió 2 de esos vasos.",
+          "Resta 4 - 2."
+        ],
+        "retroalimentacion": "La jarra se llena con 4 vasos; ya hay 2, faltan 4 - 2 = 2.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Para llenar un bidón de 2 litros, ¿cuántas botellas de medio litro necesitas? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada litro se llena con 2 botellas de medio litro.",
+          "El bidón tiene 2 litros.",
+          "Calcula 2 litros × 2 botellas por litro."
+        ],
+        "retroalimentacion": "Cada litro necesita 2 botellas; en 2 litros se usan 2 × 2 = 4 botellas.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos vasos de un cuarto de litro juntos son iguales a medio litro.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un cuarto más un cuarto.",
+          "Dos de cuatro partes del litro es la mitad.",
+          "Compara con las dos mitades del litro: 2 de 4 es lo mismo que 1 de 2."
+        ],
+        "retroalimentacion": "Es verdadero: 1/4 + 1/4 = 2/4, que es igual a 1/2 litro.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuántos vasos de un cuarto de litro llenan una jarra de medio litro?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1 vaso"
+          },
+          {
+            "id": "b",
+            "texto": "3 vasos"
+          },
+          {
+            "id": "c",
+            "texto": "2 vasos"
+          },
+          {
+            "id": "d",
+            "texto": "4 vasos"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Medio litro son 2 cuartos de litro.",
+          "Un litro son 4 cuartos; la jarra tiene la mitad.",
+          "La mitad de 4 vasos es la respuesta."
+        ],
+        "retroalimentacion": "Medio litro equivale a 2 cuartos, así que una jarra de medio litro se llena con 2 vasos de un cuarto.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "¿Cuál es mayor: un cuarto de litro o medio litro? Escribe «un cuarto» o «medio».",
+        "respuesta": "medio",
+        "alternativasAceptadas": [
+          "medio litro",
+          "1/2",
+          "1/2 litro",
+          "1/2 l",
+          "el medio"
+        ],
+        "pistas": [
+          "Piensa en un litro partido en 2 partes y en 4 partes.",
+          "Con 2 partes, cada pedazo es más grande que con 4 partes.",
+          "Medio litro equivale a 2 cuartos."
+        ],
+        "retroalimentacion": "Medio litro equivale a 2 cuartos de litro, así que medio litro es mayor que un cuarto de litro.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Con 3 botellas de medio litro, mamá llena todas las jarras de 1 litro que puede. ¿Cuántas botellas de medio litro le sobran? Escribe solo el número.",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada jarra de 1 litro necesita 2 botellas de medio litro.",
+          "Con 3 botellas puedes llenar una jarra completa.",
+          "Resta las botellas usadas: 3 - 2."
+        ],
+        "retroalimentacion": "Con 2 botellas llena una jarra de 1 litro, y de las 3 botellas le sobra 3 - 2 = 1.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un bidón de 2 litros se llena con botellas de medio litro y vasos de un cuarto de litro. Ya tiene 3 botellas de medio litro. ¿Cuántos vasos de un cuarto de litro faltan? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero cuánto líquido hay con las 3 botellas: 1 litro y medio.",
+          "Al bidón de 2 litros le falta medio litro.",
+          "Medio litro son 2 vasos de un cuarto."
+        ],
+        "retroalimentacion": "Con 3 botellas de medio litro hay 1 1/2 L; para 2 L falta 1/2 L, que son 2 vasos de un cuarto.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Tres vasos de un cuarto de litro es más que medio litro.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Medio litro equivale a 2 vasos de un cuarto.",
+          "Compara 3 vasos con 2 vasos de un cuarto.",
+          "3 cuartos y 2 cuartos: ¿cuál cantidad es mayor?"
+        ],
+        "retroalimentacion": "Es verdadero: 3 vasos de un cuarto son 3/4 L y medio litro son 2 vasos de un cuarto; 3/4 es mayor que 1/2.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.capacidad-cubos-prismas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-P4-01"
+    ],
+    "bloque": "Capacidad",
+    "nombre": "Capacidad de cajas con forma de cubo o prisma",
+    "disciplina": "geometria",
+    "descripcionCorta": "Calcula cuántos cubitos caben en una caja con forma de cubo o prisma.",
+    "palabrasClave": [
+      "capacidad",
+      "cubitos",
+      "caja",
+      "capas",
+      "prisma"
+    ],
+    "prerrequisitos": [
+      "mat.p4.elementos-cubo-prisma"
+    ],
+    "ordenSugerido": 120,
+    "ideaCentral": "La capacidad de una caja se puede medir contando los cubitos iguales que caben dentro. Cuentas los cubitos de una capa y los multiplicas por las capas.",
+    "pasos": [
+      "Cuenta los cubitos del largo y los del ancho: así sabes cuántos hay en una capa.",
+      "Multiplica largo por ancho para tener los cubitos de una capa.",
+      "Cuenta cuántas capas hay (el alto).",
+      "Multiplica los cubitos de una capa por el número de capas."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una caja tiene 4 cubitos de largo, 3 de ancho y 2 de alto. ¿Cuántos cubitos caben?",
+        "desarrollo": "Una capa tiene 4 × 3 = 12 cubitos y hay 2 capas: 12 × 2 = 24.",
+        "respuesta": "Caben 24 cubitos."
+      },
+      {
+        "situacion": "Una caja de quinua tiene una capa con 3 filas de 4 cubitos y una sola capa. ¿Cuántos cubitos entran?",
+        "desarrollo": "3 filas de 4 cubitos: 3 × 4 = 12.",
+        "respuesta": "Entran 12 cubitos."
+      },
+      {
+        "situacion": "Un cubo mide 3 cubitos de largo, 3 de ancho y 3 de alto. ¿Cuántos cubitos tiene?",
+        "desarrollo": "Una capa: 3 × 3 = 9. Hay 3 capas: 9 × 3 = 27.",
+        "respuesta": "Tiene 27 cubitos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar solo los cubitos que se ven por fuera de la caja.",
+        "correccion": "Dentro también hay cubitos: calcula todas las capas, no solo la de arriba."
+      },
+      {
+        "error": "Sumar largo + ancho + alto en vez de multiplicar.",
+        "correccion": "Debes multiplicar: cubitos de una capa × número de capas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Capacidad",
+        "significado": "Cantidad de cubitos u otra unidad que caben dentro de un cuerpo."
+      },
+      {
+        "termino": "Capa",
+        "significado": "Un piso de cubitos que cubre el fondo de la caja."
+      },
+      {
+        "termino": "Prisma",
+        "significado": "Cuerpo con dos bases iguales y caras laterales rectangulares."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una caja tiene una capa de 3 filas con 4 cubitos cada fila. ¿Cuántos cubitos hay en esa capa? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada fila tiene la misma cantidad de cubitos.",
+          "Son 3 filas con 4 cubitos cada una.",
+          "Calcula 3 × 4."
+        ],
+        "retroalimentacion": "3 filas de 4 cubitos: 3 × 4 = 12 cubitos.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La capacidad de una caja se puede medir contando cuántos cubitos iguales caben en ella.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa cómo se llena una caja con cubitos.",
+          "Cada cubito ocupa un lugar dentro de la caja.",
+          "Contar los cubitos que caben es una forma de medir su capacidad."
+        ],
+        "retroalimentacion": "Es verdadero: contar los cubitos iguales que caben en una caja es una forma de medir su capacidad.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una caja tiene 2 capas y cada capa tiene 5 cubitos. ¿Cuántos cubitos caben en total? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay dos capas iguales.",
+          "Cada capa tiene 5 cubitos.",
+          "Suma 5 + 5 o multiplica 2 × 5."
+        ],
+        "retroalimentacion": "2 capas de 5 cubitos: 2 × 5 = 10 cubitos.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja mide 2 cubitos de largo, 2 de ancho y 1 de alto. ¿Cuántos cubitos caben?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "3"
+          },
+          {
+            "id": "c",
+            "texto": "4"
+          },
+          {
+            "id": "d",
+            "texto": "8"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Solo hay una capa, porque el alto es 1.",
+          "En esa capa hay 2 filas de 2 cubitos.",
+          "Calcula 2 × 2 × 1."
+        ],
+        "retroalimentacion": "En la capa hay 2 × 2 = 4 cubitos y solo hay 1 capa, así que caben 4. Los números 2, 3 y 8 salen de sumar mal o multiplicar de más.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una caja mide 4 cubitos de largo, 3 de ancho y 2 de alto. ¿Cuántos cubitos caben? Escribe solo el número.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero halla los cubitos de una capa con el largo y el ancho.",
+          "Una capa tiene 4 × 3 cubitos.",
+          "Multiplica el resultado de una capa por las 2 capas."
+        ],
+        "retroalimentacion": "Una capa tiene 4 × 3 = 12 cubitos y hay 2 capas: 12 × 2 = 24.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un cubo mide 3 cubitos de largo, 3 de ancho y 3 de alto. ¿Cuántos cubitos caben? Escribe solo el número.",
+        "respuesta": 27,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En un cubo los tres lados son iguales.",
+          "Una capa tiene 3 × 3 = 9 cubitos.",
+          "Hay 3 capas de 9 cubitos."
+        ],
+        "retroalimentacion": "Una capa tiene 9 cubitos y hay 3 capas: 9 × 3 = 27 cubitos.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué caja tiene mayor capacidad? Cajas: 2 de largo, 2 de ancho y 5 de alto; 3 de largo, 3 de ancho y 2 de alto; 4 de largo, 2 de ancho y 2 de alto.",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 de largo, 2 de ancho y 5 de alto"
+          },
+          {
+            "id": "b",
+            "texto": "3 de largo, 3 de ancho y 2 de alto"
+          },
+          {
+            "id": "c",
+            "texto": "4 de largo, 2 de ancho y 2 de alto"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la capacidad de cada caja multiplicando sus tres medidas.",
+          "Las tres cuentas son 2 × 2 × 5, 3 × 3 × 2 y 4 × 2 × 2.",
+          "Los resultados son 20, 18 y 16; elige el mayor."
+        ],
+        "retroalimentacion": "La caja de 2 × 2 × 5 tiene 20 cubitos, la de 3 × 3 × 2 tiene 18 y la de 4 × 2 × 2 tiene 16; la mayor capacidad es 20.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una caja de 5 cubitos de largo, 2 de ancho y 2 de alto tiene capacidad para 20 cubitos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica las tres medidas.",
+          "Una capa: 5 × 2 = 10 cubitos.",
+          "Hay 2 capas: 10 × 2."
+        ],
+        "retroalimentacion": "Es verdadero: 5 × 2 = 10 en una capa y 10 × 2 = 20 cubitos en total.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una caja con 24 cubitos tiene 4 de largo y 3 de ancho. ¿Cuántas capas tiene? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cuántos cubitos hay en una capa.",
+          "4 × 3 = 12 cubitos por capa.",
+          "Divide los 24 cubitos entre los 12 de cada capa."
+        ],
+        "retroalimentacion": "Cada capa tiene 4 × 3 = 12 cubitos; 24 ÷ 12 = 2 capas.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una caja mide 4 cubitos de largo, 3 de ancho y 3 de alto. Ya pusiste 20 cubitos dentro. ¿Cuántos faltan para llenarla? Escribe solo el número.",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero calcula cuántos cubitos caben en total.",
+          "Una capa: 4 × 3 = 12 y hay 3 capas: 36 en total.",
+          "Resta los que ya pusiste: 36 - 20."
+        ],
+        "retroalimentacion": "Caben 4 × 3 × 3 = 36 cubitos; si ya hay 20, faltan 36 - 20 = 16.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "La caja A mide 3 cubitos de largo, 3 de ancho y 4 de alto. La caja B es un cubo de 3 cubitos por lado. ¿Cuántos cubitos más caben en A que en B? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la capacidad de cada caja por separado.",
+          "A: 3 × 3 × 4 = 36. B: 3 × 3 × 3 = 27.",
+          "Resta las dos capacidades."
+        ],
+        "retroalimentacion": "A tiene 36 cubitos y B tiene 27; la diferencia es 36 - 27 = 9.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una caja de 6 cubitos de largo, 2 de ancho y 1 de alto tiene la misma capacidad que otra de 3 de largo, 2 de ancho y 2 de alto.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la capacidad de cada caja.",
+          "La primera: 6 × 2 × 1.",
+          "La segunda: 3 × 2 × 2; compara los resultados."
+        ],
+        "retroalimentacion": "Es verdadero: 6 × 2 × 1 = 12 y 3 × 2 × 2 = 12; las dos tienen 12 cubitos aunque tengan formas distintas.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

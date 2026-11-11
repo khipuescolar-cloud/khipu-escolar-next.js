@@ -1,0 +1,2802 @@
+[
+  {
+    "clave": "mat.p4.igualdades-suma-resta",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P4-01"
+    ],
+    "bloque": "Igualdades y equivalencias",
+    "nombre": "Igualdades con dos equivalencias de suma y resta",
+    "disciplina": "algebra",
+    "descripcionCorta": "Expresa con una igualdad dos situaciones equivalentes, como 25 + 15 = 50 − 10.",
+    "palabrasClave": [
+      "igualdad",
+      "equivalencia",
+      "suma",
+      "resta",
+      "mismo valor"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 20,
+    "ideaCentral": "Una igualdad dice que dos cálculos valen lo mismo. Puedes escribir 25 + 15 = 50 − 10 porque los dos lados dan 40.",
+    "pasos": [
+      "Calcula el lado izquierdo de la igualdad.",
+      "Calcula el lado derecho.",
+      "Compara: si los dos resultados son iguales, la igualdad es verdadera.",
+      "Si falta un número, pruébalo hasta que ambos lados den lo mismo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Rosa gasta 25 soles en quinua y 15 en papas. Su hermano paga con 50 soles y le dan 10 de vuelto. ¿Gastaron lo mismo?",
+        "desarrollo": "Rosa: 25 + 15 = 40. Hermano: 50 − 10 = 40. Los dos valen 40.",
+        "respuesta": "Sí: 25 + 15 = 50 − 10."
+      },
+      {
+        "situacion": "En la chacra hay 30 gallinas y se compran 20 más. Otra chacra tiene 60 y se venden 10. ¿Tienen igual cantidad?",
+        "desarrollo": "30 + 20 = 50 y 60 − 10 = 50.",
+        "respuesta": "Sí: 30 + 20 = 60 − 10."
+      },
+      {
+        "situacion": "¿Qué número falta en 12 + 8 = 30 − □?",
+        "desarrollo": "12 + 8 = 20. Para que 30 − □ sea 20, □ debe ser 10.",
+        "respuesta": "□ = 10."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que lo que está después del = siempre es el resultado de la suma.",
+        "correccion": "El = también une dos cálculos distintos que valen lo mismo, como 25 + 15 = 50 − 10."
+      },
+      {
+        "error": "Sumar los números de los dos lados entre sí.",
+        "correccion": "Calcula cada lado por separado y luego compáralos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Igualdad",
+        "significado": "Dos expresiones unidas por = que valen lo mismo."
+      },
+      {
+        "termino": "Equivalente",
+        "significado": "Que tiene el mismo valor."
+      },
+      {
+        "termino": "Lado",
+        "significado": "Cada parte a un lado del signo =."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Completa la igualdad: 20 + 10 = 40 − □. Escribe solo el número.",
+        "respuesta": 10,
+        "pistas": [
+          "Calcula primero 20 + 10.",
+          "El lado izquierdo vale 30; el derecho es 40 − □.",
+          "¿Qué número restas a 40 para llegar a 30?"
+        ],
+        "retroalimentacion": "20 + 10 = 30 y 40 − 10 = 30. Falta el 10.",
+        "alternativasAceptadas": [],
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La igualdad 30 + 20 = 60 − 10 es verdadera.",
+        "respuesta": true,
+        "pistas": [
+          "Resuelve 30 + 20 con tus dedos o en una recta.",
+          "30 + 20 da 50; ahora calcula 60 − 10.",
+          "Si ambos lados dan 50, coinciden."
+        ],
+        "retroalimentacion": "Es verdadera: 30 + 20 = 50 y 60 − 10 = 50.",
+        "alternativasAceptadas": [],
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas igualdades es verdadera?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "15 + 5 = 30 − 5"
+          },
+          {
+            "id": "b",
+            "texto": "12 + 8 = 30 − 10"
+          },
+          {
+            "id": "c",
+            "texto": "10 + 10 = 15 + 10"
+          }
+        ],
+        "pistas": [
+          "Calcula los dos lados de cada igualdad.",
+          "En una de ellas los dos lados dan 20.",
+          "12 + 8 es 20 y 30 − 10 también."
+        ],
+        "retroalimentacion": "12 + 8 = 30 − 10 vale 20 en ambos lados. En 15 + 5 = 30 − 5 el lado izquierdo es 20 y el derecho 25.",
+        "alternativasAceptadas": [],
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En la bodega, 18 + 7 = 30 − □. ¿Qué número falta? Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "Suma primero 18 + 7.",
+          "18 + 7 es 25; el otro lado debe valer 25.",
+          "30 menos ¿qué número da 25?"
+        ],
+        "retroalimentacion": "18 + 7 = 25 y 30 − 5 = 25.",
+        "alternativasAceptadas": [],
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Completa: 40 + 10 = 70 − □. Escribe solo el número.",
+        "respuesta": 20,
+        "pistas": [
+          "Empieza por 40 + 10.",
+          "El lado izquierdo da 50.",
+          "Piensa: 70 − □ = 50."
+        ],
+        "retroalimentacion": "40 + 10 = 50 y 70 − 20 = 50.",
+        "alternativasAceptadas": [],
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Doña Rosa paga 25 soles por quinua y 15 por papas. Su hijo paga con un billete de 50 soles y recibe 10 de vuelto. ¿Qué igualdad dice que gastaron lo mismo?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "25 + 15 = 50 + 10"
+          },
+          {
+            "id": "b",
+            "texto": "25 + 15 = 15 − 50"
+          },
+          {
+            "id": "c",
+            "texto": "25 + 15 = 50 − 10"
+          }
+        ],
+        "pistas": [
+          "Calcula cuánto gastó doña Rosa: 25 + 15.",
+          "Su hijo gastó lo que pagó menos el vuelto.",
+          "El gasto del hijo es 50 − 10, igual que 40."
+        ],
+        "retroalimentacion": "Doña Rosa gastó 40 y su hijo 50 − 10 = 40, así que sirve 25 + 15 = 50 − 10. Con 50 + 10 saldría 60.",
+        "alternativasAceptadas": [],
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La igualdad 45 − 5 = 30 + 15 es verdadera.",
+        "respuesta": false,
+        "pistas": [
+          "Mira el signo de cada lado: uno resta y el otro suma.",
+          "45 − 5 da 40.",
+          "30 + 15 da 45, ¿es igual a 40?"
+        ],
+        "retroalimentacion": "Es falsa: 45 − 5 = 40 pero 30 + 15 = 45.",
+        "alternativasAceptadas": [],
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Mario tiene 36 gallinas y vende 6. Su vecino Luis tiene 20 gallinas y compra algunas hasta tener tantas como Mario ahora. ¿Cuántas compra Luis? Escribe solo el número.",
+        "respuesta": 10,
+        "pistas": [
+          "Averigua cuántas gallinas le quedan a Mario.",
+          "A Mario le quedan 36 − 6 = 30.",
+          "Luis debe llegar a 30 empezando con 20."
+        ],
+        "retroalimentacion": "Mario queda con 30. Luis: 20 + 10 = 30, entonces compra 10.",
+        "alternativasAceptadas": [],
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Completa: 28 + □ = 60 − 12. Escribe solo el número.",
+        "respuesta": 20,
+        "pistas": [
+          "Calcula primero el lado que no tiene vacío: 60 − 12.",
+          "El lado derecho da 48.",
+          "28 más ¿qué número da 48?"
+        ],
+        "retroalimentacion": "60 − 12 = 48 y 28 + 20 = 48.",
+        "alternativasAceptadas": [],
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas expresiones NO vale lo mismo que 70 − 20?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "30 + 20"
+          },
+          {
+            "id": "b",
+            "texto": "100 − 50"
+          },
+          {
+            "id": "c",
+            "texto": "25 + 25"
+          },
+          {
+            "id": "d",
+            "texto": "40 + 20"
+          }
+        ],
+        "pistas": [
+          "Calcula cuánto vale 70 − 20.",
+          "70 − 20 es 50; calcula cada opción y busca la que no sea 50.",
+          "Una de las sumas da 60 y no 50."
+        ],
+        "retroalimentacion": "70 − 20 = 50. 30 + 20, 100 − 50 y 25 + 25 dan 50; 40 + 20 da 60, por eso no es equivalente.",
+        "alternativasAceptadas": [],
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Ana escribió 25 + 15 = 50 + 10, pero está mal. ¿Qué signo debes poner en lugar del + del lado derecho para que sea verdadera? Escribe + o −.",
+        "respuesta": "−",
+        "alternativasAceptadas": [
+          "-",
+          "menos",
+          "resta"
+        ],
+        "pistas": [
+          "Calcula cuánto vale 25 + 15.",
+          "El lado izquierdo da 40; 50 + 10 da 60, que es demasiado.",
+          "Para bajar de 50 a 40 hay que quitar 10."
+        ],
+        "retroalimentacion": "25 + 15 = 40 y 50 − 10 = 40. Con + el lado derecho daría 60.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 35 + 15 = 80 − 30, entonces también es verdadero que 35 + 15 = 70 − 20.",
+        "respuesta": true,
+        "pistas": [
+          "Primero comprueba cuánto vale 35 + 15.",
+          "35 + 15 da 50; ahora mira cada resta.",
+          "80 − 30 y 70 − 20 dan lo mismo."
+        ],
+        "retroalimentacion": "35 + 15 = 50, 80 − 30 = 50 y 70 − 20 = 50. Los tres valen igual.",
+        "alternativasAceptadas": [],
+        "id": "e12"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p4.equivalencias-balanza",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P4-01"
+    ],
+    "bloque": "Igualdades y equivalencias",
+    "nombre": "Equivalencias con la balanza",
+    "disciplina": "algebra",
+    "descripcionCorta": "Representa con una balanza en equilibrio dos grupos de objetos de igual masa.",
+    "palabrasClave": [
+      "balanza",
+      "equilibrio",
+      "equivalencia",
+      "masa",
+      "kilogramos"
+    ],
+    "prerrequisitos": [
+      "mat.p4.igualdades-suma-resta"
+    ],
+    "ordenSugerido": 21,
+    "ideaCentral": "Una balanza está en equilibrio cuando los dos platillos tienen la misma masa. Eso es una igualdad: lo de un lado equivale a lo del otro.",
+    "pasos": [
+      "Mira cuánto pesa lo que hay en el platillo izquierdo.",
+      "Averigua cuánto pesa lo que hay en el derecho.",
+      "Si ambos pesos son iguales, hay equilibrio; si no, baja el más pesado.",
+      "Si falta un peso, calcula cuánto debe tener para igualar."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En un platillo hay 8 kg de arroz y en el otro 3 kg de azúcar y una bolsa de sal. La balanza está en equilibrio. ¿Cuánto pesa la sal?",
+        "desarrollo": "8 = 3 + □. Como 3 + 5 = 8, la sal pesa 5 kg.",
+        "respuesta": "5 kg."
+      },
+      {
+        "situacion": "Un platillo tiene 2 sacos de 5 kg y el otro un saco de 10 kg. ¿Hay equilibrio?",
+        "desarrollo": "2 × 5 = 10 y el otro lado también pesa 10 kg.",
+        "respuesta": "Sí, ambos lados pesan 10 kg."
+      },
+      {
+        "situacion": "Izquierda: 12 kg. Derecha: 7 kg. ¿Qué platillo baja?",
+        "desarrollo": "12 es mayor que 7, así que el más pesado baja.",
+        "respuesta": "Baja el izquierdo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que hay equilibrio si hay el mismo número de objetos en cada lado.",
+        "correccion": "Lo que importa es la masa total, no cuántos objetos hay."
+      },
+      {
+        "error": "Creer que baja el platillo más liviano.",
+        "correccion": "Baja el platillo que tiene más masa."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Equilibrio",
+        "significado": "Cuando los dos platillos tienen la misma masa."
+      },
+      {
+        "termino": "Masa",
+        "significado": "La cantidad de materia de un objeto, que se mide en gramos o kilogramos."
+      },
+      {
+        "termino": "Platillo",
+        "significado": "Cada plato de la balanza donde se colocan los objetos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si en un platillo hay 5 kg de papas y en el otro 5 kg de quinua, la balanza queda en equilibrio.",
+        "respuesta": true,
+        "pistas": [
+          "Mira cuántos kilogramos hay en cada platillo.",
+          "Hay 5 kg en uno y 5 kg en el otro.",
+          "Cuando las masas son iguales, no baja ningún platillo."
+        ],
+        "retroalimentacion": "Es verdadera: 5 kg y 5 kg pesan lo mismo, aunque sean papas y quinua.",
+        "alternativasAceptadas": [],
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una balanza está en equilibrio. A la izquierda hay 8 kg de arroz. A la derecha hay 3 kg de azúcar y una bolsa de sal. ¿Cuántos kg pesa la sal? Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "En equilibrio, ambos lados pesan 8 kg.",
+          "Del lado derecho ya tienes 3 kg de azúcar.",
+          "Piensa: 3 más ¿cuánto da 8?"
+        ],
+        "retroalimentacion": "8 = 3 + 5, la sal pesa 5 kg.",
+        "alternativasAceptadas": [],
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas balanzas queda en equilibrio?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Izquierda 6 kg, derecha 4 kg"
+          },
+          {
+            "id": "b",
+            "texto": "Izquierda 7 kg, derecha 7 kg"
+          },
+          {
+            "id": "c",
+            "texto": "Izquierda 9 kg, derecha 5 kg"
+          }
+        ],
+        "pistas": [
+          "Compara los dos pesos de cada balanza.",
+          "Busca la balanza cuyos dos números son iguales.",
+          "Dos platillos con 7 kg pesan lo mismo."
+        ],
+        "retroalimentacion": "La de 7 kg y 7 kg está en equilibrio. En las otras un lado pesa más que el otro.",
+        "alternativasAceptadas": [],
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En el mercado, a la izquierda de la balanza se ponen 4 kg y 2 kg de camote. A la derecha hay una sola bolsa y la balanza está en equilibrio. ¿Cuántos kg pesa la bolsa? Escribe solo el número.",
+        "respuesta": 6,
+        "pistas": [
+          "Primero junta lo que hay a la izquierda.",
+          "4 kg y 2 kg juntos pesan lo que pesa la bolsa.",
+          "Suma 4 + 2."
+        ],
+        "retroalimentacion": "4 + 2 = 6, la bolsa pesa 6 kg.",
+        "alternativasAceptadas": [],
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una balanza está en equilibrio. A la izquierda hay un saco de 20 kg de maíz. A la derecha hay 12 kg de frijol y una bolsa de lentejas. ¿Cuántos kg pesa la bolsa de lentejas? Escribe solo el número.",
+        "respuesta": 8,
+        "pistas": [
+          "A la izquierda el peso total es 20 kg.",
+          "A la derecha ya tienes 12 kg.",
+          "¿Cuánto le falta a 12 para llegar a 20?"
+        ],
+        "retroalimentacion": "20 = 12 + 8, las lentejas pesan 8 kg.",
+        "alternativasAceptadas": [],
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Cada cubito de metal pesa 5 g. En el platillo izquierdo hay 3 cubitos. ¿Qué pesa hay que poner en el derecho para que haya equilibrio?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8 g"
+          },
+          {
+            "id": "b",
+            "texto": "10 g"
+          },
+          {
+            "id": "c",
+            "texto": "15 g"
+          },
+          {
+            "id": "d",
+            "texto": "20 g"
+          }
+        ],
+        "pistas": [
+          "Primero calcula cuánto pesan los 3 cubitos juntos.",
+          "Cada cubito pesa 5 g, así que son 3 veces 5 g.",
+          "3 × 5 = 15; busca esa masa entre las opciones."
+        ],
+        "retroalimentacion": "3 cubitos de 5 g pesan 15 g. Los 8 g salen de sumar 3 + 5, un error común.",
+        "alternativasAceptadas": [],
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una balanza hay 9 kg a la izquierda y 4 kg + 4 kg a la derecha, por eso está en equilibrio.",
+        "respuesta": false,
+        "pistas": [
+          "Suma los dos pesos del lado derecho.",
+          "4 kg + 4 kg es 8 kg.",
+          "Compara 8 kg con 9 kg."
+        ],
+        "retroalimentacion": "Es falsa: 8 kg es menos que 9 kg, así que baja el platillo izquierdo.",
+        "alternativasAceptadas": [],
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En una balanza hay 12 kg en el platillo izquierdo y 7 kg en el derecho. ¿Qué platillo baja? Escribe izquierdo o derecho.",
+        "respuesta": "izquierdo",
+        "alternativasAceptadas": [
+          "izquierda",
+          "el izquierdo",
+          "platillo izquierdo",
+          "el platillo izquierdo"
+        ],
+        "pistas": [
+          "Compara 12 kg con 7 kg.",
+          "Baja el lado que tiene más masa.",
+          "12 es mayor que 7, ¿en qué lado está el 12?"
+        ],
+        "retroalimentacion": "12 kg pesa más que 7 kg, por eso baja el platillo izquierdo.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una balanza en equilibrio tiene 3 sacos iguales a la izquierda y 12 kg + 6 kg a la derecha. ¿Cuánto pesa cada saco? Escribe solo el número de kg.",
+        "respuesta": 6,
+        "pistas": [
+          "Primero calcula cuánto pesa todo el lado derecho.",
+          "12 + 6 = 18 kg, y eso pesan los 3 sacos juntos.",
+          "Reparte 18 kg en 3 sacos iguales."
+        ],
+        "retroalimentacion": "El lado derecho pesa 18 kg y 18 ÷ 3 = 6, cada saco pesa 6 kg.",
+        "alternativasAceptadas": [],
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Doña Elena pone en un platillo 25 kg de maíz y 15 kg de frijol. ¿Qué podría poner en el otro platillo para que haya equilibrio?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "18 kg y 22 kg"
+          },
+          {
+            "id": "b",
+            "texto": "30 kg y 5 kg"
+          },
+          {
+            "id": "c",
+            "texto": "20 kg, 10 kg y 5 kg"
+          },
+          {
+            "id": "d",
+            "texto": "45 kg"
+          }
+        ],
+        "pistas": [
+          "Calcula cuánto pesan en total el maíz y el frijol.",
+          "25 + 15 = 40 kg.",
+          "Busca la opción cuyo total sea 40 kg."
+        ],
+        "retroalimentacion": "25 + 15 = 40 kg. 18 + 22 = 40 sirve; 30 + 5 y 20 + 10 + 5 dan 35 y 45 da 45, no coinciden.",
+        "alternativasAceptadas": [],
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una balanza está en equilibrio. A la izquierda hay 24 kg. A la derecha hay una bolsa A de 9 kg, una bolsa B de 8 kg y una bolsa C. ¿Cuántos kg pesa la bolsa C? Escribe solo el número.",
+        "respuesta": 7,
+        "pistas": [
+          "Junta primero las bolsas del lado derecho que sí conoces.",
+          "Las bolsas A y B juntas pesan 9 + 8 = 17 kg.",
+          "Para llegar a 24 kg desde 17 kg, ¿cuánto falta?"
+        ],
+        "retroalimentacion": "A y B pesan 17 kg y 24 − 17 = 7, la bolsa C pesa 7 kg.",
+        "alternativasAceptadas": [],
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una balanza está en equilibrio. A la izquierda hay 5 sacos de 6 kg. A la derecha hay 2 sacos de 12 kg y un saco más. ¿Cuántos kg pesa ese saco? Escribe solo el número.",
+        "respuesta": 6,
+        "pistas": [
+          "Calcula el peso total de la izquierda: 5 veces 6.",
+          "Son 30 kg. A la derecha, 2 sacos de 12 kg pesan 24 kg.",
+          "Faltan kg para llegar de 24 a 30."
+        ],
+        "retroalimentacion": "5 × 6 = 30 y 2 × 12 = 24, el saco que falta pesa 30 − 24 = 6 kg.",
+        "alternativasAceptadas": [],
+        "id": "e12"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una balanza tiene 14 kg en cada platillo. Si agregas 3 kg solo al platillo izquierdo, la balanza sigue en equilibrio.",
+        "respuesta": false,
+        "pistas": [
+          "Calcula cuánto pesa ahora el platillo izquierdo.",
+          "14 + 3 = 17 kg, y el derecho sigue en 14 kg.",
+          "Pregúntate si 17 y 14 son iguales."
+        ],
+        "retroalimentacion": "Es falsa: 17 kg contra 14 kg, así que baja el platillo izquierdo.",
+        "alternativasAceptadas": [],
+        "id": "e13"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p4.signo-igual-dos-usos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-P4-03"
+    ],
+    "bloque": "Igualdades y equivalencias",
+    "nombre": "El signo igual: resultado o equivalencia",
+    "disciplina": "algebra",
+    "descripcionCorta": "Distingue el = que anuncia un resultado del = que relaciona dos expresiones equivalentes.",
+    "palabrasClave": [
+      "signo igual",
+      "resultado",
+      "equivalencia",
+      "igualdad",
+      "expresión"
+    ],
+    "prerrequisitos": [
+      "mat.p4.igualdades-suma-resta"
+    ],
+    "ordenSugerido": 22,
+    "ideaCentral": "El signo = tiene dos usos: anunciar un resultado (7 + 5 = 12) o unir dos expresiones que valen lo mismo (9 + 1 = 5 + 5).",
+    "pasos": [
+      "Mira qué hay a cada lado del signo =.",
+      "Si a la derecha hay un solo número, el = anuncia el resultado.",
+      "Si a la derecha hay otra operación, el = dice que ambos lados valen lo mismo.",
+      "Comprueba calculando cada lado."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En 7 + 5 = 12, ¿qué uso tiene el signo igual?",
+        "desarrollo": "A la derecha solo hay el número 12, que es lo que da la suma.",
+        "respuesta": "Anuncia el resultado."
+      },
+      {
+        "situacion": "En 9 + 1 = 5 + 5, ¿qué uso tiene el signo igual?",
+        "desarrollo": "9 + 1 = 10 y 5 + 5 = 10: son dos expresiones con el mismo valor.",
+        "respuesta": "Relaciona dos expresiones equivalentes."
+      },
+      {
+        "situacion": "¿Es verdadera 12 + 3 = 9 + 6?",
+        "desarrollo": "12 + 3 = 15 y 9 + 6 = 15.",
+        "respuesta": "Sí, ambos lados valen 15."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que el = siempre significa «escribe aquí el resultado».",
+        "correccion": "También puede ir entre dos operaciones que valen lo mismo."
+      },
+      {
+        "error": "Pensar que 8 + 4 = 6 + 6 está mal porque «a la derecha no hay un solo número».",
+        "correccion": "Calcula cada lado: ambos dan 12, así que está bien."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Resultado",
+        "significado": "El número que se obtiene al hacer una operación."
+      },
+      {
+        "termino": "Expresión",
+        "significado": "Una operación o número escrito, como 5 + 5."
+      },
+      {
+        "termino": "Equivalencia",
+        "significado": "Dos expresiones que valen lo mismo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué uso tiene el signo = en 7 + 5 = 12?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Relaciona dos operaciones distintas"
+          },
+          {
+            "id": "b",
+            "texto": "Anuncia el resultado de la suma"
+          },
+          {
+            "id": "c",
+            "texto": "Indica que hay que restar"
+          }
+        ],
+        "pistas": [
+          "Mira qué hay a la derecha del signo =.",
+          "A la derecha hay un solo número.",
+          "Ese número es lo que da 7 + 5."
+        ],
+        "retroalimentacion": "En 7 + 5 = 12 el = anuncia el resultado. No hay una segunda operación al otro lado.",
+        "alternativasAceptadas": [],
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué uso tiene el signo = en 9 + 1 = 5 + 5?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Relaciona dos expresiones que valen lo mismo"
+          },
+          {
+            "id": "b",
+            "texto": "Anuncia el resultado de 9 + 1"
+          },
+          {
+            "id": "c",
+            "texto": "Indica que debes multiplicar"
+          }
+        ],
+        "pistas": [
+          "Fíjate que a cada lado hay una suma.",
+          "Calcula 9 + 1 y luego 5 + 5.",
+          "Las dos dan 10: el signo las une."
+        ],
+        "retroalimentacion": "Las dos sumas valen 10, así que el = relaciona dos expresiones equivalentes.",
+        "alternativasAceptadas": [],
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 3 + 4 = 7, el signo = anuncia el resultado.",
+        "respuesta": true,
+        "pistas": [
+          "Mira cuántos números hay después del signo =.",
+          "Después del = hay solo el 7.",
+          "3 + 4 da 7."
+        ],
+        "retroalimentacion": "Es verdadera: 7 es el resultado de 3 + 4.",
+        "alternativasAceptadas": [],
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Completa: 8 + 4 = 6 + □. Escribe solo el número.",
+        "respuesta": 6,
+        "pistas": [
+          "Calcula primero el lado izquierdo.",
+          "8 + 4 da 12.",
+          "6 más ¿cuánto da 12?"
+        ],
+        "retroalimentacion": "8 + 4 = 12 y 6 + 6 = 12.",
+        "alternativasAceptadas": [],
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 10 − 2 = 4 + 4, el signo = solo anuncia un resultado.",
+        "respuesta": false,
+        "pistas": [
+          "Mira qué hay a la derecha del =.",
+          "A la derecha hay una suma, no un solo número.",
+          "Calcula los dos lados y compáralos."
+        ],
+        "retroalimentacion": "Es falsa: 10 − 2 = 8 y 4 + 4 = 8, así que el = une dos expresiones equivalentes.",
+        "alternativasAceptadas": [],
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Gaby escribió 12 + 3 = 9 + 6. ¿Cuánto vale cada lado? Escribe solo el número.",
+        "respuesta": 15,
+        "pistas": [
+          "Calcula el lado izquierdo, 12 + 3.",
+          "Comprueba el derecho: 9 + 6.",
+          "Si la igualdad es verdadera, los dos lados dan el mismo número."
+        ],
+        "retroalimentacion": "12 + 3 = 15 y 9 + 6 = 15.",
+        "alternativasAceptadas": [],
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿En cuál de estas igualdades el signo = une dos operaciones que valen lo mismo?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4 + 4 = 9"
+          },
+          {
+            "id": "b",
+            "texto": "4 + 4 = 8"
+          },
+          {
+            "id": "c",
+            "texto": "4 + 4 = 5 + 3"
+          }
+        ],
+        "pistas": [
+          "Busca la que tenga una operación a cada lado.",
+          "Solo una igualdad tiene dos sumas.",
+          "5 + 3 y 4 + 4 valen 8."
+        ],
+        "retroalimentacion": "En 4 + 4 = 5 + 3 ambos lados valen 8. En 4 + 4 = 8 el = solo anuncia el resultado y 4 + 4 = 9 es falsa.",
+        "alternativasAceptadas": [],
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tulio escribe 5 × 4 = 10 + □. ¿Qué número va en □? Escribe solo el número.",
+        "respuesta": 10,
+        "pistas": [
+          "Calcula 5 × 4.",
+          "5 × 4 es 20.",
+          "10 más ¿cuánto da 20?"
+        ],
+        "retroalimentacion": "5 × 4 = 20 y 10 + 10 = 20.",
+        "alternativasAceptadas": [],
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Lucía escribió 15 + 5 = 20 y luego 20 = 12 + 8. En la segunda igualdad, ¿el signo = anuncia un resultado o relaciona equivalentes? Escribe una palabra: resultado o equivalentes.",
+        "respuesta": "equivalentes",
+        "alternativasAceptadas": [
+          "equivalente",
+          "equivalencia",
+          "relaciona"
+        ],
+        "pistas": [
+          "Mira lo que hay a la izquierda del segundo =: es solo un número.",
+          "A la derecha hay una suma que se debe comprobar.",
+          "12 + 8 es otra expresión que también vale 20."
+        ],
+        "retroalimentacion": "En 20 = 12 + 8 el = relaciona dos expresiones equivalentes, ya que 12 + 8 también vale 20.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Si 7 + □ = 15 − 3, ¿qué número va en □? Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "Resuelve primero 15 − 3.",
+          "15 − 3 da 12.",
+          "7 más ¿qué número da 12?"
+        ],
+        "retroalimentacion": "15 − 3 = 12 y 7 + 5 = 12.",
+        "alternativasAceptadas": [],
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La igualdad 4 + 3 = 7 + 2 es verdadera porque después del igual siempre va el resultado.",
+        "respuesta": false,
+        "pistas": [
+          "Calcula 4 + 3 y luego 7 + 2.",
+          "4 + 3 da 7 pero 7 + 2 da 9.",
+          "¿Son iguales 7 y 9?"
+        ],
+        "retroalimentacion": "Es falsa: 4 + 3 = 7 y 7 + 2 = 9. Además, después del = puede ir otra operación.",
+        "alternativasAceptadas": [],
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué afirmación es correcta sobre 8 + 2 = 6 + 4?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Es falsa: después del = debe ir un solo número"
+          },
+          {
+            "id": "b",
+            "texto": "Es falsa: 8 + 2 y 6 + 4 son operaciones distintas"
+          },
+          {
+            "id": "c",
+            "texto": "Es verdadera, pero solo si resuelves una operación"
+          },
+          {
+            "id": "d",
+            "texto": "Es verdadera: ambos lados valen 10"
+          }
+        ],
+        "pistas": [
+          "Calcula cada lado por separado.",
+          "8 + 2 da 10; calcula 6 + 4.",
+          "Si los dos lados dan 10, ¿importa que las operaciones sean distintas?"
+        ],
+        "retroalimentacion": "8 + 2 = 10 y 6 + 4 = 10, entonces es verdadera. Que las operaciones sean distintas no la hace falsa.",
+        "alternativasAceptadas": [],
+        "id": "e12"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p4.igualdades-dos-equivalencias",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P4-01"
+    ],
+    "bloque": "Igualdades y equivalencias",
+    "nombre": "Igualdades con multiplicación y división",
+    "disciplina": "algebra",
+    "descripcionCorta": "Expresa equivalencias como 4 × 6 = 3 × 8 o 24 ÷ 2 = 6 × 2.",
+    "palabrasClave": [
+      "igualdad",
+      "multiplicación",
+      "división",
+      "equivalencia",
+      "producto"
+    ],
+    "prerrequisitos": [
+      "mat.p4.igualdades-suma-resta",
+      "mat.p4.relacion-multiplicacion-division"
+    ],
+    "ordenSugerido": 54,
+    "ideaCentral": "Dos cálculos de multiplicar o dividir pueden dar lo mismo aunque tengan números distintos. Por ejemplo 4 × 6 = 3 × 8, porque ambos dan 24.",
+    "pasos": [
+      "Calcula el producto o cociente de un lado.",
+      "Calcula el otro lado.",
+      "Compara: si dan lo mismo, hay igualdad.",
+      "Si falta un número, busca el que haga que ambos lados valgan igual."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "¿Qué número falta en 4 × 6 = 3 × □?",
+        "desarrollo": "4 × 6 = 24. Para 3 × □ = 24, □ es 8.",
+        "respuesta": "□ = 8."
+      },
+      {
+        "situacion": "Verifica 24 ÷ 2 = 6 × 2.",
+        "desarrollo": "24 ÷ 2 = 12 y 6 × 2 = 12.",
+        "respuesta": "Es verdadera."
+      },
+      {
+        "situacion": "Don Pepe pone 3 cajas de 8 cuyes; doña Rita pone 4 cajas iguales. ¿Cuántos cuyes por caja para tener los mismos?",
+        "desarrollo": "3 × 8 = 24 y 24 ÷ 4 = 6.",
+        "respuesta": "6 cuyes por caja."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Comparar solo un número de cada lado, como 4 y 3, y decir que no es igual.",
+        "correccion": "Calcula todo el producto de cada lado antes de comparar."
+      },
+      {
+        "error": "Confundir dividir con restar en 24 ÷ 2.",
+        "correccion": "Dividir es repartir en partes iguales: 24 ÷ 2 = 12."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Producto",
+        "significado": "El resultado de una multiplicación."
+      },
+      {
+        "termino": "Cociente",
+        "significado": "El resultado de una división."
+      },
+      {
+        "termino": "Equivalente",
+        "significado": "Que vale lo mismo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Completa: 4 × 6 = 3 × □. Escribe solo el número.",
+        "respuesta": 8,
+        "pistas": [
+          "Calcula primero 4 × 6.",
+          "4 × 6 da 24.",
+          "3 por ¿qué número da 24?"
+        ],
+        "retroalimentacion": "4 × 6 = 24 y 3 × 8 = 24.",
+        "alternativasAceptadas": [],
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La igualdad 2 × 9 = 3 × 6 es verdadera.",
+        "respuesta": true,
+        "pistas": [
+          "Calcula 2 × 9.",
+          "2 × 9 es 18; calcula 3 × 6.",
+          "¿Los dos productos son iguales?"
+        ],
+        "retroalimentacion": "Es verdadera: ambos productos valen 18.",
+        "alternativasAceptadas": [],
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas igualdades es verdadera?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 × 4 = 2 × 8"
+          },
+          {
+            "id": "b",
+            "texto": "24 ÷ 2 = 6 × 2"
+          },
+          {
+            "id": "c",
+            "texto": "10 ÷ 5 = 3 × 3"
+          }
+        ],
+        "pistas": [
+          "Calcula los dos lados de cada una.",
+          "En 24 ÷ 2 = 6 × 2 uno es una división.",
+          "24 ÷ 2 da 12 y 6 × 2 también."
+        ],
+        "retroalimentacion": "24 ÷ 2 = 12 y 6 × 2 = 12. En 5 × 4 = 2 × 8 salen 20 y 16, y en 10 ÷ 5 = 3 × 3 salen 2 y 9.",
+        "alternativasAceptadas": [],
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Completa: 12 ÷ 2 = 3 × □. Escribe solo el número.",
+        "respuesta": 2,
+        "pistas": [
+          "Calcula 12 ÷ 2.",
+          "12 ÷ 2 da 6.",
+          "3 por ¿qué número da 6?"
+        ],
+        "retroalimentacion": "12 ÷ 2 = 6 y 3 × 2 = 6.",
+        "alternativasAceptadas": [],
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una vendedora del mercado arma 4 bolsas con 5 caramelos cada una. Otra vendedora quiere tener los mismos caramelos usando bolsas de 10 caramelos. ¿Cuántas bolsas de 10 necesita? Escribe solo el número.",
+        "respuesta": 2,
+        "pistas": [
+          "Primero halla cuántos caramelos hay en 4 bolsas de 5.",
+          "4 × 5 = 20 caramelos. Ahora piensa cuántas bolsas de 10 caben en 20.",
+          "Hay 20 caramelos y cada bolsa lleva 10: 20 ÷ 10."
+        ],
+        "retroalimentacion": "Las dos vendedoras deben tener 20 caramelos. Con bolsas de 10 se necesitan 2 bolsas, porque 10 × 2 = 20.",
+        "alternativasAceptadas": [],
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas expresiones es equivalente a 30 ÷ 5?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 × 3"
+          },
+          {
+            "id": "b",
+            "texto": "3 × 3"
+          },
+          {
+            "id": "c",
+            "texto": "2 × 4"
+          },
+          {
+            "id": "d",
+            "texto": "1 × 7"
+          }
+        ],
+        "pistas": [
+          "Divide 30 entre 5.",
+          "30 ÷ 5 da 6.",
+          "Busca la multiplicación que dé 6."
+        ],
+        "retroalimentacion": "30 ÷ 5 = 6 y 2 × 3 = 6. 3 × 3 da 9, 2 × 4 da 8 y 1 × 7 da 7.",
+        "alternativasAceptadas": [],
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La igualdad 36 ÷ 6 = 9 × 1 es verdadera.",
+        "respuesta": false,
+        "pistas": [
+          "Resuelve 36 ÷ 6.",
+          "36 ÷ 6 da 6.",
+          "Compara con 9 × 1, que da 9."
+        ],
+        "retroalimentacion": "Es falsa: 36 ÷ 6 = 6 y 9 × 1 = 9.",
+        "alternativasAceptadas": [],
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En el mercado, 3 bolsas con 8 manzanas cada una tienen las mismas manzanas que 4 bolsas iguales. ¿Cuántas manzanas hay en cada una de esas 4 bolsas? Escribe solo el número.",
+        "respuesta": 6,
+        "pistas": [
+          "Calcula cuántas manzanas hay en las 3 bolsas.",
+          "3 × 8 son 24 manzanas.",
+          "Reparte 24 en 4 bolsas iguales."
+        ],
+        "retroalimentacion": "3 × 8 = 24 y 24 ÷ 4 = 6 manzanas por bolsa.",
+        "alternativasAceptadas": [],
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una chacra se plantan 6 filas de 8 papas. Luego se quiere sembrar las mismas papas en 12 filas iguales. ¿Cuántas papas lleva cada fila nueva? Escribe solo el número.",
+        "respuesta": 4,
+        "pistas": [
+          "Cuenta primero cuántas papas hay en total con las 6 filas de 8.",
+          "El total es 6 × 8 = 48. Ese total se reparte en 12 filas iguales.",
+          "48 papas repartidas en 12 filas: 48 ÷ 12."
+        ],
+        "retroalimentacion": "El total de papas no cambia: 6 × 8 = 48. En 12 filas iguales van 4 papas por fila, porque 12 × 4 = 48.",
+        "alternativasAceptadas": [],
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas expresiones NO es equivalente a 5 × 6?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10 × 3"
+          },
+          {
+            "id": "b",
+            "texto": "15 × 2"
+          },
+          {
+            "id": "c",
+            "texto": "7 × 4"
+          },
+          {
+            "id": "d",
+            "texto": "60 ÷ 2"
+          }
+        ],
+        "pistas": [
+          "Calcula 5 × 6.",
+          "Vale 30; revisa las opciones.",
+          "Tres opciones dan 30 y una da otro número."
+        ],
+        "retroalimentacion": "5 × 6 = 30. 10 × 3, 15 × 2 y 60 ÷ 2 también dan 30; 7 × 4 da 28.",
+        "alternativasAceptadas": [],
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Si 24 ÷ □ = 4 × 2, ¿qué número va en □? Escribe solo el número.",
+        "respuesta": 3,
+        "pistas": [
+          "Resuelve primero el lado donde no falta nada.",
+          "4 × 2 da 8.",
+          "¿Entre qué número divides 24 para obtener 8?"
+        ],
+        "retroalimentacion": "4 × 2 = 8 y 24 ÷ 3 = 8.",
+        "alternativasAceptadas": [],
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 8 × 3 = 6 × 4, entonces también es verdadero que 8 × 3 = 48 ÷ 2.",
+        "respuesta": true,
+        "pistas": [
+          "Calcula 8 × 3.",
+          "Ese producto es 24.",
+          "Comprueba que 6 × 4 y 48 ÷ 2 también dan 24."
+        ],
+        "retroalimentacion": "8 × 3 = 24, 6 × 4 = 24 y 48 ÷ 2 = 24. Todo vale lo mismo.",
+        "alternativasAceptadas": [],
+        "id": "e12"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Completa: 2 × 18 = 4 × □. Escribe solo el número.",
+        "respuesta": 9,
+        "pistas": [
+          "Calcula 2 × 18.",
+          "El producto es 36.",
+          "4 por ¿cuánto da 36?"
+        ],
+        "retroalimentacion": "2 × 18 = 36 y 4 × 9 = 36.",
+        "alternativasAceptadas": [],
+        "id": "e13"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p4.termino-desconocido-icono",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-P4-03"
+    ],
+    "bloque": "Igualdades y equivalencias",
+    "nombre": "Igualdad con un término desconocido",
+    "disciplina": "algebra",
+    "descripcionCorta": "Representa con un ícono o casilla el valor que falta en una igualdad.",
+    "palabrasClave": [
+      "término desconocido",
+      "ícono",
+      "casilla",
+      "igualdad",
+      "valor que falta"
+    ],
+    "prerrequisitos": [
+      "mat.p4.signo-igual-dos-usos"
+    ],
+    "ordenSugerido": 55,
+    "ideaCentral": "Cuando falta un número en una igualdad, puedes poner una casilla □ o un ícono como ★ en su lugar. Tu trabajo es hallar el valor que hace verdadera la igualdad.",
+    "pasos": [
+      "Lee la igualdad y encuentra el ícono o la casilla.",
+      "Calcula el lado que sí conoces.",
+      "Piensa qué número en el ícono hace que el otro lado valga lo mismo.",
+      "Comprueba reemplazando el ícono por tu número."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En □ + 6 = 10, ¿qué valor tiene □?",
+        "desarrollo": "Piensa: ¿qué número más 6 da 10?",
+        "respuesta": "□ = 4."
+      },
+      {
+        "situacion": "Don Luis llevó cuyes al mercado, vendió 7 y le quedan 9. ¿Cuántos llevó? Usa ★ − 7 = 9.",
+        "desarrollo": "★ es el número que, al quitarle 7, deja 9. Eso es 16.",
+        "respuesta": "★ = 16."
+      },
+      {
+        "situacion": "En ▲ + ▲ = 10, ¿cuánto vale ▲?",
+        "desarrollo": "Los dos ▲ valen lo mismo; 5 + 5 = 10.",
+        "respuesta": "▲ = 5."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Poner en la casilla el resultado del otro lado, como □ = 10 en □ + 6 = 10.",
+        "correccion": "El 10 es el total; la casilla es solo una parte. Pregúntate qué número más 6 da 10."
+      },
+      {
+        "error": "Pensar que dos íconos iguales pueden valer números distintos.",
+        "correccion": "Un mismo ícono en una igualdad vale siempre lo mismo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Término desconocido",
+        "significado": "El número que falta en una igualdad."
+      },
+      {
+        "termino": "Casilla",
+        "significado": "El cuadrito □ que se usa para señalar el número que falta."
+      },
+      {
+        "termino": "Ícono",
+        "significado": "Un dibujo o símbolo, como ★, que ocupa el lugar de un número."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Halla el valor de □ en □ + 6 = 10. Escribe solo el número.",
+        "respuesta": 4,
+        "pistas": [
+          "El □ es una parte de 10; la otra parte es 6.",
+          "Piensa en 6 más cuánto es 10.",
+          "Cuenta desde 6 hasta 10."
+        ],
+        "retroalimentacion": "4 + 6 = 10, así que □ = 4.",
+        "alternativasAceptadas": [],
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la igualdad 5 + □ = 9, ¿qué representa el □?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El resultado de 5 + 9"
+          },
+          {
+            "id": "b",
+            "texto": "El número que falta"
+          },
+          {
+            "id": "c",
+            "texto": "Una resta que hay que hacer"
+          }
+        ],
+        "pistas": [
+          "Mira la forma de la igualdad: tiene un hueco.",
+          "El cuadrito ocupa el lugar de un número.",
+          "Es el número que debes descubrir."
+        ],
+        "retroalimentacion": "El □ es el número que falta, no un resultado ni una resta.",
+        "alternativasAceptadas": [],
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En ★ + 3 = 8, el valor de ★ es 5.",
+        "respuesta": true,
+        "pistas": [
+          "Reemplaza ★ por 5.",
+          "5 + 3 da...",
+          "¿Ese resultado es 8?"
+        ],
+        "retroalimentacion": "Es verdadera: 5 + 3 = 8.",
+        "alternativasAceptadas": [],
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En la igualdad 12 − ▲ = 7, ¿cuánto vale ▲? Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "Debes quitar algo a 12 para llegar a 7.",
+          "Cuenta hacia atrás desde 12 hasta 7.",
+          "Entre 7 y 12 hay una diferencia de ¿cuánto?"
+        ],
+        "retroalimentacion": "12 − 5 = 7, entonces ▲ = 5.",
+        "alternativasAceptadas": [],
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Doña Rosa tiene algunos soles y recibe 8 soles más; ahora tiene 20. Si □ son los soles que tenía, ¿qué igualdad la representa?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "□ + 8 = 20"
+          },
+          {
+            "id": "b",
+            "texto": "□ − 8 = 20"
+          },
+          {
+            "id": "c",
+            "texto": "8 + 20 = □"
+          }
+        ],
+        "pistas": [
+          "Ella tenía □ y le dieron más.",
+          "Recibir dinero se representa con una suma.",
+          "Lo que tenía más 8 da lo que tiene ahora: 20."
+        ],
+        "retroalimentacion": "Tenía □ y recibió 8, así que □ + 8 = 20. Con □ − 8 se estaría quitando dinero.",
+        "alternativasAceptadas": [],
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Don Luis llevó cuyes al mercado, vendió 7 y le quedan 9. Si ★ son los cuyes que llevó, ¿cuánto vale ★? Escribe solo el número.",
+        "respuesta": 16,
+        "pistas": [
+          "Los cuyes que llevó se redujeron al venderlos.",
+          "Lo que tenía menos 7 es lo que le queda: 9.",
+          "Si le quedan 9 y vendió 7, ¿cuántos había al comienzo?"
+        ],
+        "retroalimentacion": "★ − 7 = 9, entonces ★ = 16.",
+        "alternativasAceptadas": [],
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 4 × □ = 20, el valor de □ es 16.",
+        "respuesta": false,
+        "pistas": [
+          "Prueba reemplazando □ por 16.",
+          "4 × 16 es mucho más que 20.",
+          "Piensa cuántos grupos de 4 forman 20."
+        ],
+        "retroalimentacion": "Es falsa: □ = 5 porque 4 × 5 = 20. El 16 sale de restar 20 − 4.",
+        "alternativasAceptadas": [],
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En el mercado, □ ÷ 3 = 4. ¿Qué número es □? Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "Un número repartido en 3 partes da 4 en cada una.",
+          "Si cada parte es 4 y hay 3 partes, ¿cuánto hay en total?",
+          "Piensa en 3 veces 4."
+        ],
+        "retroalimentacion": "12 ÷ 3 = 4, así que □ = 12.",
+        "alternativasAceptadas": [],
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En la igualdad □ + 9 = 3 × 5, ¿cuánto vale □? Escribe solo el número.",
+        "respuesta": 6,
+        "pistas": [
+          "Calcula primero el lado donde no falta nada.",
+          "3 × 5 da 15.",
+          "¿Qué número más 9 da 15?"
+        ],
+        "retroalimentacion": "3 × 5 = 15 y 6 + 9 = 15, así que □ = 6.",
+        "alternativasAceptadas": [],
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mario compró 3 bolsas iguales con □ caramelos cada una, más 5 caramelos sueltos, y en total tiene 26. ¿Qué igualdad lo representa?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 + □ + 5 = 26"
+          },
+          {
+            "id": "b",
+            "texto": "3 × 5 + □ = 26"
+          },
+          {
+            "id": "c",
+            "texto": "3 × □ + 5 = 26"
+          },
+          {
+            "id": "d",
+            "texto": "□ + 5 = 3 × 26"
+          }
+        ],
+        "pistas": [
+          "Hay bolsas iguales: eso es una multiplicación.",
+          "Las 3 bolsas con □ caramelos cada una son 3 × □.",
+          "A eso se le suman los 5 sueltos y el total es 26."
+        ],
+        "retroalimentacion": "3 bolsas de □ caramelos son 3 × □; con los 5 sueltos queda 3 × □ + 5 = 26.",
+        "alternativasAceptadas": [],
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En 15 − □ = 4 + 3, ¿qué número va en □? Escribe solo el número.",
+        "respuesta": 8,
+        "pistas": [
+          "Resuelve primero 4 + 3.",
+          "El lado derecho vale 7.",
+          "15 menos ¿qué número da 7?"
+        ],
+        "retroalimentacion": "4 + 3 = 7 y 15 − 8 = 7.",
+        "alternativasAceptadas": [],
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Se sabe que ▲ + ▲ = 10 + 4. ¿Cuánto vale ▲? Escribe solo el número.",
+        "respuesta": "7",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el lado derecho: 10 + 4.",
+          "Los dos ▲ juntos valen 14.",
+          "¿Qué número sumado a sí mismo da 14?"
+        ],
+        "retroalimentacion": "10 + 4 = 14 y 7 + 7 = 14, entonces ▲ = 7.",
+        "id": "e12"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En □ + 8 = 8 + 5, el valor de □ es 5.",
+        "respuesta": true,
+        "pistas": [
+          "Mira que a los dos lados aparece el 8.",
+          "Calcula 8 + 5.",
+          "Prueba con □ = 5."
+        ],
+        "retroalimentacion": "Es verdadera: 5 + 8 = 13 y 8 + 5 = 13.",
+        "alternativasAceptadas": [],
+        "id": "e13"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p4.operacion-inversa-igualdad",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-P4-05"
+    ],
+    "bloque": "Igualdades y equivalencias",
+    "nombre": "Término desconocido con la operación inversa",
+    "disciplina": "algebra",
+    "descripcionCorta": "Halla el valor que falta en una igualdad usando la operación contraria.",
+    "palabrasClave": [
+      "operación inversa",
+      "término desconocido",
+      "suma y resta",
+      "multiplicación y división",
+      "igualdad"
+    ],
+    "prerrequisitos": [
+      "mat.p4.termino-desconocido-icono"
+    ],
+    "ordenSugerido": 56,
+    "ideaCentral": "Para hallar el número que falta puedes usar la operación contraria: la resta deshace la suma y la división deshace la multiplicación (y al revés).",
+    "pasos": [
+      "Identifica qué operación aparece junto al número que falta.",
+      "Usa la operación contraria con los otros dos números.",
+      "Escribe el valor hallado.",
+      "Comprueba reemplazándolo en la igualdad."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Halla □ en □ + 7 = 15.",
+        "desarrollo": "Para deshacer la suma, resta: 15 − 7.",
+        "respuesta": "□ = 8."
+      },
+      {
+        "situacion": "Halla □ en □ × 4 = 20.",
+        "desarrollo": "Para deshacer la multiplicación, divide: 20 ÷ 4.",
+        "respuesta": "□ = 5."
+      },
+      {
+        "situacion": "Doña Rosa gastó 18 soles y le quedan 27. ¿Cuánto tenía?",
+        "desarrollo": "□ − 18 = 27. Para deshacer la resta, suma: 27 + 18.",
+        "respuesta": "Tenía 45 soles."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Usar la misma operación que aparece, como sumar 15 + 7 en □ + 7 = 15.",
+        "correccion": "Usa la operación contraria: si hay suma, resta; si hay multiplicación, divide."
+      },
+      {
+        "error": "Dividir al revés, como 4 ÷ 20, en □ × 4 = 20.",
+        "correccion": "Divide el total entre el número conocido: 20 ÷ 4."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Operación inversa",
+        "significado": "La operación que deshace a otra, como restar deshace sumar."
+      },
+      {
+        "termino": "Término desconocido",
+        "significado": "El número que falta en una igualdad."
+      },
+      {
+        "termino": "Comprobar",
+        "significado": "Reemplazar el valor hallado y verificar que ambos lados valgan lo mismo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Halla □ en □ + 7 = 15. Escribe solo el número.",
+        "respuesta": 8,
+        "pistas": [
+          "La suma se deshace con una resta.",
+          "Resta el 7 del total que es 15.",
+          "15 − 7 es el valor de □."
+        ],
+        "retroalimentacion": "15 − 7 = 8, así que □ = 8.",
+        "alternativasAceptadas": [],
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Halla □ en □ − 6 = 9. Escribe solo el número.",
+        "respuesta": 15,
+        "pistas": [
+          "Aquí a □ se le quitó 6 y quedó 9.",
+          "La resta se deshace con una suma.",
+          "Suma 9 + 6."
+        ],
+        "retroalimentacion": "9 + 6 = 15, así que □ = 15.",
+        "alternativasAceptadas": [],
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para hallar □ en □ + 7 = 15, ¿qué cálculo usas?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "15 + 7"
+          },
+          {
+            "id": "b",
+            "texto": "15 − 7"
+          },
+          {
+            "id": "c",
+            "texto": "15 × 7"
+          }
+        ],
+        "pistas": [
+          "Hay una suma, así que usa su operación contraria.",
+          "La contraria de sumar es restar.",
+          "Al total 15 le quitas el 7 que ya conoces."
+        ],
+        "retroalimentacion": "Debes restar: 15 − 7 = 8. Sumar 15 + 7 daría 22, que es un error.",
+        "alternativasAceptadas": [],
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En □ × 4 = 20, para hallar □ se hace 20 ÷ 4.",
+        "respuesta": true,
+        "pistas": [
+          "Mira la operación que aparece junto a □: multiplicación.",
+          "La división deshace la multiplicación.",
+          "El total es 20 y el número conocido es 4."
+        ],
+        "retroalimentacion": "Es verdadera: 20 ÷ 4 = 5 y 5 × 4 = 20.",
+        "alternativasAceptadas": [],
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Halla □ en □ × 6 = 42. Escribe solo el número.",
+        "respuesta": 7,
+        "pistas": [
+          "La multiplicación se deshace con una división.",
+          "Divide el total 42 entre 6.",
+          "¿Cuántas veces cabe el 6 en 42?"
+        ],
+        "retroalimentacion": "42 ÷ 6 = 7, entonces □ = 7.",
+        "alternativasAceptadas": [],
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En □ ÷ 5 = 8, ¿cuál cálculo te da el valor de □?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8 + 5"
+          },
+          {
+            "id": "b",
+            "texto": "8 ÷ 5"
+          },
+          {
+            "id": "c",
+            "texto": "8 × 5"
+          }
+        ],
+        "pistas": [
+          "Aquí □ se repartió entre 5 y cada parte fue 8.",
+          "La división se deshace con una multiplicación.",
+          "Multiplica el 8 por el 5."
+        ],
+        "retroalimentacion": "8 × 5 = 40, así que □ = 40. Dividir 8 ÷ 5 no da un número entero.",
+        "alternativasAceptadas": [],
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Doña Rosa gastó 18 soles en el mercado y le quedaron 27. ¿Cuántos soles tenía antes de comprar? Escribe solo el número.",
+        "respuesta": 45,
+        "pistas": [
+          "Antes de gastar tenía más dinero que ahora.",
+          "Lo que tenía menos 18 es 27.",
+          "Deshaz la resta sumando 27 + 18."
+        ],
+        "retroalimentacion": "□ − 18 = 27, entonces □ = 27 + 18 = 45.",
+        "alternativasAceptadas": [],
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 30 − □ = 12, el valor de □ es 42 porque 30 + 12 = 42.",
+        "respuesta": false,
+        "pistas": [
+          "Reemplaza □ por 42 y calcula 30 − 42.",
+          "No se puede quitar 42 a 30 en este caso.",
+          "El 12 es lo que queda; ¿cuánto se quitó de 30?"
+        ],
+        "retroalimentacion": "Es falsa: □ = 30 − 12 = 18. Sumar solo funciona cuando el desconocido es el primer número.",
+        "alternativasAceptadas": [],
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En □ ÷ 4 = 12 + 3, ¿cuánto vale □? Escribe solo el número.",
+        "respuesta": 60,
+        "pistas": [
+          "Calcula primero 12 + 3.",
+          "El lado derecho vale 15.",
+          "Para deshacer ÷ 4, multiplica 15 por 4."
+        ],
+        "retroalimentacion": "12 + 3 = 15 y 15 × 4 = 60, entonces □ = 60.",
+        "alternativasAceptadas": [],
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja con 90 papas se reparte en 6 bolsas iguales, y □ es lo que lleva cada bolsa. ¿Qué igualdad se resuelve con 90 ÷ 6?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "□ ÷ 6 = 90"
+          },
+          {
+            "id": "b",
+            "texto": "□ + 6 = 90"
+          },
+          {
+            "id": "c",
+            "texto": "90 × □ = 6"
+          },
+          {
+            "id": "d",
+            "texto": "□ × 6 = 90"
+          }
+        ],
+        "pistas": [
+          "Cada bolsa tiene □ papas y hay 6 bolsas.",
+          "Las 6 bolsas juntas tienen 90 papas.",
+          "Eso se escribe con una multiplicación igual a 90."
+        ],
+        "retroalimentacion": "6 bolsas de □ papas son □ × 6 = 90, que se resuelve con 90 ÷ 6 = 15.",
+        "alternativasAceptadas": [],
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Halla □ en 40 − □ = 3 × 9. Escribe solo el número.",
+        "respuesta": 13,
+        "pistas": [
+          "Calcula primero 3 × 9.",
+          "El lado derecho vale 27.",
+          "Pregúntate cuánto le quitas a 40 para llegar a 27."
+        ],
+        "retroalimentacion": "3 × 9 = 27 y 40 − 13 = 27, así que □ = 13.",
+        "alternativasAceptadas": [],
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Para hallar □ en 17 + □ = 45, ¿qué operación usas con 45 y 17? Escribe suma o resta.",
+        "respuesta": "resta",
+        "alternativasAceptadas": [
+          "restar",
+          "la resta",
+          "una resta",
+          "−",
+          "-"
+        ],
+        "pistas": [
+          "Hay una suma con un número que falta.",
+          "La suma se deshace con la operación contraria.",
+          "Al total 45 le quitas el 17 conocido."
+        ],
+        "retroalimentacion": "Se resta: 45 − 17 = 28, así que □ = 28.",
+        "id": "e12"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Halla □ en □ × 9 = 6 × 6. Escribe solo el número.",
+        "respuesta": 4,
+        "pistas": [
+          "Calcula primero 6 × 6.",
+          "El producto del lado derecho es 36.",
+          "Divide 36 entre 9."
+        ],
+        "retroalimentacion": "6 × 6 = 36 y 36 ÷ 9 = 4, así que □ = 4.",
+        "alternativasAceptadas": [],
+        "id": "e13"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p4.duplicar-repartir-lados",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-P4-05"
+    ],
+    "bloque": "Igualdades y equivalencias",
+    "nombre": "Duplicar o repartir en ambos lados de la igualdad",
+    "disciplina": "algebra",
+    "descripcionCorta": "Mantiene una igualdad al duplicar o dividir en partes iguales sus dos lados.",
+    "palabrasClave": [
+      "igualdad",
+      "duplicar",
+      "dividir en partes iguales",
+      "ambos lados",
+      "equivalencia"
+    ],
+    "prerrequisitos": [
+      "mat.p4.igualdades-dos-equivalencias"
+    ],
+    "ordenSugerido": 93,
+    "ideaCentral": "Si duplicas los dos lados de una igualdad, o los repartes en partes iguales, la igualdad se mantiene. Pero debes hacerlo en los dos lados.",
+    "pasos": [
+      "Mira la igualdad y comprueba que sea verdadera.",
+      "Duplica (×2) o divide (÷ un número) el lado izquierdo.",
+      "Haz exactamente lo mismo en el lado derecho.",
+      "Comprueba que los dos lados nuevos valen lo mismo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "4 + 6 = 10. ¿Qué pasa si duplicas los dos lados?",
+        "desarrollo": "Duplicar 4 + 6 da 8 + 12 = 20 y duplicar 10 da 20.",
+        "respuesta": "Queda 8 + 12 = 20, sigue siendo verdadera."
+      },
+      {
+        "situacion": "12 = 6 + 6. Divide ambos lados entre 2.",
+        "desarrollo": "12 ÷ 2 = 6 y (6 + 6) ÷ 2 = 3 + 3.",
+        "respuesta": "Queda 6 = 3 + 3."
+      },
+      {
+        "situacion": "En una balanza hay 20 = 12 + 8 y repartes entre 4 amigos. ¿Qué queda?",
+        "desarrollo": "20 ÷ 4 = 5; 12 ÷ 4 = 3; 8 ÷ 4 = 2.",
+        "respuesta": "5 = 3 + 2."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Duplicar solo un lado de la igualdad.",
+        "correccion": "Si duplicas el izquierdo, duplica también el derecho."
+      },
+      {
+        "error": "Duplicar solo uno de los sumandos, como 8 + 6 = 14.",
+        "correccion": "Duplica cada parte: 4 + 6 pasa a 8 + 12."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Duplicar",
+        "significado": "Multiplicar por 2."
+      },
+      {
+        "termino": "Repartir",
+        "significado": "Dividir en partes iguales."
+      },
+      {
+        "termino": "Ambos lados",
+        "significado": "El lado izquierdo y el derecho del signo =."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Tienes 5 + 3 = 8. Si duplicas ambos lados, el lado derecho queda en □. Escribe solo el número.",
+        "respuesta": 16,
+        "pistas": [
+          "Duplicar es multiplicar por 2.",
+          "El lado derecho es 8.",
+          "El doble de 8 es..."
+        ],
+        "retroalimentacion": "El doble de 8 es 16, y 10 + 6 = 16.",
+        "alternativasAceptadas": [],
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 4 + 6 = 10 y duplicas ambos lados, queda 8 + 12 = 20.",
+        "respuesta": true,
+        "pistas": [
+          "Duplica cada sumando: el doble de 4 y el doble de 6.",
+          "El doble de 4 es 8 y el de 6 es 12.",
+          "Duplica también el 10 y compáralo con 8 + 12."
+        ],
+        "retroalimentacion": "Es verdadera: 8 + 12 = 20 y el doble de 10 es 20.",
+        "alternativasAceptadas": [],
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tienes 12 = 6 + 6. Si divides ambos lados entre 2, ¿qué igualdad queda?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6 = 3 + 3"
+          },
+          {
+            "id": "b",
+            "texto": "6 = 6 + 6"
+          },
+          {
+            "id": "c",
+            "texto": "12 = 3 + 3"
+          }
+        ],
+        "pistas": [
+          "Divide entre 2 el 12 y también cada 6.",
+          "12 ÷ 2 es la mitad de 12.",
+          "Cada 6 se convierte en 3."
+        ],
+        "retroalimentacion": "La mitad de 12 es 6 y la mitad de cada 6 es 3, queda 6 = 3 + 3.",
+        "alternativasAceptadas": [],
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Tienes 20 = 12 + 8. Si divides ambos lados entre 4, queda 5 = 3 + □. ¿Qué número va en □? Escribe solo el número.",
+        "respuesta": 2,
+        "pistas": [
+          "Divide cada número entre 4.",
+          "12 ÷ 4 es 3.",
+          "¿Cuánto es 8 ÷ 4?"
+        ],
+        "retroalimentacion": "8 ÷ 4 = 2, y 3 + 2 = 5.",
+        "alternativasAceptadas": [],
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tienes 9 + 3 = 12. Duplicas ambos lados y queda 18 + 6 = □. ¿Cuánto vale □? Escribe solo el número.",
+        "respuesta": 24,
+        "pistas": [
+          "El nuevo lado derecho es el doble de 12.",
+          "Duplicar 12 es 12 × 2.",
+          "También puedes sumar 18 + 6."
+        ],
+        "retroalimentacion": "18 + 6 = 24, que es el doble de 12.",
+        "alternativasAceptadas": [],
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué resultado se obtiene al duplicar los dos lados de 7 = 3 + 4?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "14 = 3 + 4"
+          },
+          {
+            "id": "b",
+            "texto": "7 = 6 + 8"
+          },
+          {
+            "id": "c",
+            "texto": "14 = 6 + 8"
+          }
+        ],
+        "pistas": [
+          "Debes duplicar el 7 y también las dos partes del otro lado.",
+          "El doble de 7 es 14.",
+          "Los dobles de 3 y 4 son 6 y 8."
+        ],
+        "retroalimentacion": "El doble de 7 es 14 y los dobles de 3 y 4 son 6 y 8: 14 = 6 + 8. Si duplicas solo un lado, deja de ser igualdad.",
+        "alternativasAceptadas": [],
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 18 = 10 + 8 y divides entre 2 solo el lado izquierdo, la igualdad se mantiene.",
+        "respuesta": false,
+        "pistas": [
+          "Divide entre 2 el 18.",
+          "Queda 9, pero el lado derecho sigue en 18.",
+          "¿Es 9 igual a 10 + 8?"
+        ],
+        "retroalimentacion": "Es falsa: hay que dividir también el lado derecho: 9 = 5 + 4.",
+        "alternativasAceptadas": [],
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En el mercado, 40 soles = 25 soles + 15 soles. Se reparte todo en 5 partes iguales y queda 8 = 5 + □. ¿Qué número va en □? Escribe solo el número.",
+        "respuesta": 3,
+        "pistas": [
+          "Divide cada cantidad entre 5.",
+          "25 ÷ 5 es 5.",
+          "Calcula 15 ÷ 5."
+        ],
+        "retroalimentacion": "15 ÷ 5 = 3, y 5 + 3 = 8.",
+        "alternativasAceptadas": [],
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Si 18 = 2 × 9 y repartes ambos lados entre 3, el lado izquierdo queda en □. Escribe solo el número.",
+        "respuesta": 6,
+        "pistas": [
+          "Divide entre 3 solo el lado izquierdo para ver cuánto vale.",
+          "El lado izquierdo es 18.",
+          "18 ÷ 3 es el valor que buscas."
+        ],
+        "retroalimentacion": "18 ÷ 3 = 6, y el lado derecho queda 2 × 3 = 6.",
+        "alternativasAceptadas": [],
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para pasar de 10 + 14 = 24 a 5 + 7 = 12, ¿qué se hizo?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Duplicar ambos lados"
+          },
+          {
+            "id": "b",
+            "texto": "Dividir ambos lados entre 2"
+          },
+          {
+            "id": "c",
+            "texto": "Dividir solo el lado derecho entre 2"
+          }
+        ],
+        "pistas": [
+          "Compara 24 con 12.",
+          "12 es la mitad de 24, y 5 es la mitad de 10.",
+          "La mitad de 14 es 7."
+        ],
+        "retroalimentacion": "Todos los números pasaron a su mitad: se dividieron ambos lados entre 2.",
+        "alternativasAceptadas": [],
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Tras duplicar ambos lados de una igualdad, el lado derecho quedó en 36. ¿Cuánto valía antes de duplicar? Escribe solo el número.",
+        "respuesta": 18,
+        "pistas": [
+          "Duplicar fue multiplicar por 2.",
+          "Para volver atrás, usa la operación contraria.",
+          "Divide 36 entre 2."
+        ],
+        "retroalimentacion": "36 ÷ 2 = 18, el lado derecho valía 18.",
+        "alternativasAceptadas": [],
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Alguien duplicó 12 = 5 + 7 y escribió 24 = 5 + 14. ¿Qué número se le olvidó duplicar? Escribe solo el número.",
+        "respuesta": "5",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 5 + 7 con lo que escribió.",
+          "El 7 pasó a 14, el doble.",
+          "¿Quién se quedó igual?"
+        ],
+        "retroalimentacion": "Falta duplicar el 5: debía quedar 24 = 10 + 14.",
+        "id": "e12"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al dividir entre 4 ambos lados de 8 + 12 = 20 se obtiene 2 + 3 = 5.",
+        "respuesta": true,
+        "pistas": [
+          "Divide entre 4 cada número.",
+          "8 ÷ 4 = 2 y 12 ÷ 4 = 3.",
+          "Divide también 20 ÷ 4 y compáralo con 2 + 3."
+        ],
+        "retroalimentacion": "Es verdadera: 20 ÷ 4 = 5 y 2 + 3 = 5.",
+        "alternativasAceptadas": [],
+        "id": "e13"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p4.uniformidad-igualdad",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+    "desempenosOrigen": [
+      "MAT-C24-P4-06"
+    ],
+    "bloque": "Igualdades y equivalencias",
+    "nombre": "Propiedad de uniformidad de la igualdad con la balanza",
+    "disciplina": "algebra",
+    "descripcionCorta": "Explica con la balanza que una igualdad se mantiene si se hace la misma operación en ambos lados.",
+    "palabrasClave": [
+      "balanza",
+      "equilibrio",
+      "uniformidad",
+      "misma operación",
+      "igualdad"
+    ],
+    "prerrequisitos": [
+      "mat.p4.duplicar-repartir-lados"
+    ],
+    "ordenSugerido": 94,
+    "ideaCentral": "Una balanza en equilibrio sigue en equilibrio si haces la misma operación en los dos platillos: agregar, quitar, duplicar o repartir lo mismo.",
+    "pasos": [
+      "Comprueba que la balanza esté en equilibrio.",
+      "Haz la misma operación con el mismo número en los dos platillos.",
+      "Calcula el peso nuevo de cada lado.",
+      "Verifica que siguen siendo iguales."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Hay 10 kg a cada lado. Agregas 3 kg a cada platillo. ¿Sigue el equilibrio?",
+        "desarrollo": "10 + 3 = 13 en un lado y 10 + 3 = 13 en el otro.",
+        "respuesta": "Sí, queda 13 kg y 13 kg."
+      },
+      {
+        "situacion": "Equilibrio con 12 kg y 12 kg. Quitas 5 kg de cada lado.",
+        "desarrollo": "12 − 5 = 7 en cada lado.",
+        "respuesta": "Sigue en equilibrio, con 7 kg y 7 kg."
+      },
+      {
+        "situacion": "Equilibrio con 20 kg y 12 kg + 8 kg. Divides cada lado entre 2.",
+        "desarrollo": "20 ÷ 2 = 10 y 12 ÷ 2 + 8 ÷ 2 = 6 + 4 = 10.",
+        "respuesta": "Sigue en equilibrio con 10 kg y 6 kg + 4 kg."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Agregar un peso a un solo platillo y esperar que siga en equilibrio.",
+        "correccion": "Hay que agregar lo mismo en ambos lados."
+      },
+      {
+        "error": "Agregar cantidades distintas a cada lado, como 5 kg y 3 kg.",
+        "correccion": "Deben ser iguales: así ambos lados aumentan igual."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Uniformidad",
+        "significado": "Hacer la misma operación en ambos lados de la igualdad."
+      },
+      {
+        "termino": "Equilibrio",
+        "significado": "Cuando los dos platillos tienen la misma masa."
+      },
+      {
+        "termino": "Operación",
+        "significado": "Sumar, restar, multiplicar o dividir."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una balanza tiene 5 kg en cada platillo. Si agregas 2 kg a cada platillo, sigue en equilibrio.",
+        "respuesta": true,
+        "pistas": [
+          "Calcula cuánto hay en cada platillo después de agregar.",
+          "Cada platillo pasa de 5 kg a 5 + 2 kg.",
+          "Compara los dos resultados."
+        ],
+        "retroalimentacion": "Es verdadera: cada lado queda con 7 kg.",
+        "alternativasAceptadas": [],
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una balanza tiene 10 kg en cada platillo. Agregas 3 kg a cada lado. ¿Cuántos kg hay ahora en cada platillo? Escribe solo el número.",
+        "respuesta": 13,
+        "pistas": [
+          "Parte de 10 kg en un platillo.",
+          "Agrega los 3 kg nuevos.",
+          "10 + 3 es el nuevo peso."
+        ],
+        "retroalimentacion": "10 + 3 = 13 kg en cada platillo.",
+        "alternativasAceptadas": [],
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una balanza está en equilibrio. ¿Qué haces para que siga así?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Agregar 4 kg solo a la izquierda"
+          },
+          {
+            "id": "b",
+            "texto": "Agregar 4 kg a los dos platillos"
+          },
+          {
+            "id": "c",
+            "texto": "Quitar 4 kg solo a la derecha"
+          }
+        ],
+        "pistas": [
+          "Piensa qué pasaría si cambias solo un lado.",
+          "Para mantener la igualdad hay que tratar igual ambos lados.",
+          "Agrega el mismo peso en los dos platillos."
+        ],
+        "retroalimentacion": "Agregar 4 kg a ambos platillos conserva el equilibrio; si solo cambias un lado, baja ese lado.",
+        "alternativasAceptadas": [],
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una balanza tiene 12 kg en cada platillo. Quitas 5 kg de cada lado. ¿Cuántos kg quedan en cada platillo? Escribe solo el número.",
+        "respuesta": 7,
+        "pistas": [
+          "Empieza con 12 kg en un platillo.",
+          "Quita 5 kg.",
+          "12 − 5."
+        ],
+        "retroalimentacion": "12 − 5 = 7 kg en cada platillo.",
+        "alternativasAceptadas": [],
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una balanza está en equilibrio. Si agregas 5 kg al platillo izquierdo y 3 kg al derecho, sigue en equilibrio.",
+        "respuesta": false,
+        "pistas": [
+          "Los dos números que agregas son distintos.",
+          "El izquierdo sube 5 kg y el derecho 3 kg.",
+          "¿Quién pesa más ahora?"
+        ],
+        "retroalimentacion": "Es falsa: el izquierdo pesa 2 kg más, así que baja.",
+        "alternativasAceptadas": [],
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una balanza tiene 8 kg en cada platillo. Si pones el doble de peso en cada platillo, ¿cuántos kg hay en uno de ellos? Escribe solo el número.",
+        "respuesta": 16,
+        "pistas": [
+          "Duplicar es multiplicar por 2.",
+          "Un platillo pesa 8 kg.",
+          "8 × 2 te da el peso nuevo."
+        ],
+        "retroalimentacion": "8 × 2 = 16 kg en cada platillo.",
+        "alternativasAceptadas": [],
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una balanza tiene 20 kg a la izquierda y 12 kg + 8 kg a la derecha. Divides el peso de cada lado entre 2. ¿Qué queda?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "20 kg y 6 kg + 4 kg"
+          },
+          {
+            "id": "b",
+            "texto": "10 kg y 12 kg + 4 kg"
+          },
+          {
+            "id": "c",
+            "texto": "10 kg y 6 kg + 4 kg"
+          }
+        ],
+        "pistas": [
+          "Parte cada número por la mitad.",
+          "20 ÷ 2 es 10.",
+          "12 ÷ 2 es 6 y 8 ÷ 2 es 4."
+        ],
+        "retroalimentacion": "Los dos lados se parten a la mitad: 10 kg y 6 kg + 4 kg, que sigue en equilibrio.",
+        "alternativasAceptadas": [],
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una balanza tiene 15 kg a la izquierda y 9 kg + 6 kg a la derecha. Si agregas 5 kg a cada lado, ¿sigue en equilibrio? Escribe sí o no.",
+        "respuesta": "sí",
+        "alternativasAceptadas": [
+          "si"
+        ],
+        "pistas": [
+          "Primero comprueba que hoy hay equilibrio: 9 + 6.",
+          "Ambos lados valen 15 kg.",
+          "Agregas lo mismo a los dos lados."
+        ],
+        "retroalimentacion": "Sí, porque se agrega lo mismo en ambos lados: 20 kg y 20 kg.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una balanza tiene 18 kg a la izquierda y 12 kg + 6 kg a la derecha. Quitas la mitad de cada lado y luego agregas 4 kg a cada lado. ¿Cuántos kg hay ahora en el platillo izquierdo? Escribe solo el número.",
+        "respuesta": 13,
+        "pistas": [
+          "Primero reduce cada lado a la mitad.",
+          "La mitad de 18 es 9.",
+          "Ahora suma los 4 kg que agregas."
+        ],
+        "retroalimentacion": "9 + 4 = 13 kg, y el lado derecho también queda en 13 kg.",
+        "alternativasAceptadas": [],
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una balanza tiene 16 kg a la izquierda y 10 kg + 6 kg a la derecha. Juan quita 4 kg del izquierdo y 2 kg del derecho. ¿Qué pasa?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Baja el platillo izquierdo"
+          },
+          {
+            "id": "b",
+            "texto": "Baja el platillo derecho"
+          },
+          {
+            "id": "c",
+            "texto": "Sigue en equilibrio"
+          }
+        ],
+        "pistas": [
+          "Calcula cuánto queda en cada lado.",
+          "Izquierdo: 16 − 4.",
+          "Derecho: 16 − 2."
+        ],
+        "retroalimentacion": "Queda 12 kg a la izquierda y 14 kg a la derecha: baja el derecho porque no se quitó lo mismo.",
+        "alternativasAceptadas": [],
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una balanza está en equilibrio y multiplicas por 3 el peso de ambos platillos, sigue en equilibrio.",
+        "respuesta": true,
+        "pistas": [
+          "Prueba con un ejemplo: 4 kg y 4 kg.",
+          "Multiplica por 3 cada platillo.",
+          "Compara 12 kg con 12 kg."
+        ],
+        "retroalimentacion": "Es verdadera: multiplicar por el mismo número en ambos lados conserva la igualdad.",
+        "alternativasAceptadas": [],
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una balanza está en equilibrio: 24 kg a la izquierda y 3 sacos de 8 kg a la derecha. Divides ambos lados entre 4 y a la derecha sigues con 3 sacos iguales. ¿Cuántos kg pesa ahora cada saco? Escribe solo el número.",
+        "respuesta": 2,
+        "pistas": [
+          "Primero calcula cuánto queda a la izquierda al dividir 24 entre 4.",
+          "A la izquierda quedan 6 kg.",
+          "A la derecha 3 sacos iguales deben pesar 6 kg."
+        ],
+        "retroalimentacion": "24 ÷ 4 = 6 y 6 ÷ 3 = 2, cada saco pesa ahora 2 kg.",
+        "alternativasAceptadas": [],
+        "id": "e12"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Equilibrio con 10 kg y 10 kg. Agregas 3 kg a un lado y 3 kg al otro. ¿Qué se conserva? Escribe una palabra: equilibrio o desequilibrio.",
+        "respuesta": "equilibrio",
+        "alternativasAceptadas": [
+          "el equilibrio",
+          "la igualdad",
+          "igualdad"
+        ],
+        "pistas": [
+          "Piensa en lo que hiciste en los dos platillos.",
+          "Agregaste el mismo peso a cada lado.",
+          "Después de agregar, cada lado pesa 13 kg."
+        ],
+        "retroalimentacion": "Se conserva el equilibrio, porque hiciste la misma operación en ambos lados.",
+        "id": "e13"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p4.cancelativa-igualdad",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 24,
+    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+    "desempenosOrigen": [
+      "MAT-C24-P4-06"
+    ],
+    "bloque": "Igualdades y equivalencias",
+    "nombre": "Propiedad cancelativa de la igualdad con la balanza",
+    "disciplina": "algebra",
+    "descripcionCorta": "Explica con la balanza que al quitar lo mismo de ambos lados la igualdad se conserva.",
+    "palabrasClave": [
+      "balanza",
+      "propiedad cancelativa",
+      "quitar lo mismo",
+      "igualdad",
+      "equilibrio"
+    ],
+    "prerrequisitos": [
+      "mat.p4.uniformidad-igualdad"
+    ],
+    "ordenSugerido": 95,
+    "ideaCentral": "Si quitas lo mismo de los dos lados de una igualdad, la igualdad se conserva. Así puedes cancelar lo que se repite en ambos lados y ver qué falta.",
+    "pasos": [
+      "Mira qué cantidad se repite en los dos lados.",
+      "Quita esa cantidad de ambos lados.",
+      "Compara lo que queda.",
+      "Usa lo que queda para hallar el valor que falta."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Hay 7 + □ = 7 + 4. ¿Cuánto vale □?",
+        "desarrollo": "Quita el 7 de ambos lados: queda □ = 4.",
+        "respuesta": "□ = 4."
+      },
+      {
+        "situacion": "Izquierda: 4 cuyes y 5 kg de alfalfa. Derecha: los mismos 4 cuyes y una bolsa de maíz. Hay equilibrio. ¿Cuánto pesa el maíz?",
+        "desarrollo": "Los 4 cuyes están en los dos lados; se cancelan. Queda 5 kg = maíz.",
+        "respuesta": "El maíz pesa 5 kg."
+      },
+      {
+        "situacion": "¿Es verdadera 8 + 6 = 8 + 9?",
+        "desarrollo": "Quitando 8 de ambos lados queda 6 = 9, que es falso.",
+        "respuesta": "No, es falsa."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Quitar una cantidad solo de un lado.",
+        "correccion": "Quita la misma cantidad de ambos lados."
+      },
+      {
+        "error": "Quitar números distintos en cada lado, como 6 de la izquierda y 4 de la derecha.",
+        "correccion": "Debe ser el mismo número en los dos lados para no romper la igualdad."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Cancelar",
+        "significado": "Quitar de ambos lados la misma cantidad que se repite."
+      },
+      {
+        "termino": "Propiedad cancelativa",
+        "significado": "Si quitas lo mismo en ambos lados, la igualdad se mantiene."
+      },
+      {
+        "termino": "Equilibrio",
+        "significado": "Cuando los platillos de una balanza pesan lo mismo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Halla el valor de □ en 7 + □ = 7 + 4. Escribe solo el número.",
+        "respuesta": 4,
+        "pistas": [
+          "Fíjate qué número aparece en los dos lados.",
+          "El 7 está a los dos lados.",
+          "Si los quitas, ¿qué queda?"
+        ],
+        "retroalimentacion": "Quitando 7 de ambos lados, □ = 4.",
+        "alternativasAceptadas": [],
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una balanza en equilibrio hay una pesa de 5 kg en cada platillo. Al quitar esa pesa de ambos platillos, la balanza sigue en equilibrio.",
+        "respuesta": true,
+        "pistas": [
+          "Piensa qué pasa si quitas lo mismo de los dos lados.",
+          "Lo que quitas es igual en cada platillo.",
+          "Lo demás no cambia."
+        ],
+        "retroalimentacion": "Es verdadera: si quitas lo mismo de ambos lados, el equilibrio se conserva.",
+        "alternativasAceptadas": [],
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué número va en □ en 12 + 5 = 12 + □?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12"
+          },
+          {
+            "id": "b",
+            "texto": "17"
+          },
+          {
+            "id": "c",
+            "texto": "5"
+          }
+        ],
+        "pistas": [
+          "En los dos lados aparece el 12.",
+          "Quita el 12 de ambos lados.",
+          "Lo que queda es 5 = □."
+        ],
+        "retroalimentacion": "Al quitar 12 de ambos lados queda 5 = □. El 17 es el total de un lado.",
+        "alternativasAceptadas": [],
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En una balanza hay 4 cuyes y 5 kg de alfalfa a la izquierda. A la derecha están esos mismos 4 cuyes y una bolsa de maíz. Hay equilibrio. ¿Cuántos kg pesa el maíz? Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "Los 4 cuyes están en los dos platillos.",
+          "Quita esos cuyes de ambos lados.",
+          "¿Qué queda a la izquierda y qué a la derecha?"
+        ],
+        "retroalimentacion": "Los cuyes se cancelan y el maíz pesa lo mismo que la alfalfa: 5 kg.",
+        "alternativasAceptadas": [],
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En equilibrio: a la izquierda hay 20 kg y 9 kg, y a la derecha 20 kg, 3 kg y una bolsa más. ¿Cuántos kg pesa esa bolsa? Escribe solo el número.",
+        "respuesta": 6,
+        "pistas": [
+          "Cancela los 20 kg que aparecen en ambos lados.",
+          "Queda 9 = 3 + bolsa.",
+          "¿Cuánto le falta a 3 para llegar a 9?"
+        ],
+        "retroalimentacion": "Quitando 20 de cada lado queda 9 = 3 + 6, la bolsa pesa 6 kg.",
+        "alternativasAceptadas": [],
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al quitar 10 de ambos lados de 10 + 9 = 10 + 4 + 5, ¿qué igualdad queda?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "19 = 4 + 5"
+          },
+          {
+            "id": "b",
+            "texto": "9 = 4 + 5"
+          },
+          {
+            "id": "c",
+            "texto": "9 = 14"
+          }
+        ],
+        "pistas": [
+          "Quita el 10 que está a la izquierda.",
+          "Quita también el 10 de la derecha.",
+          "Quedan 9 y 4 + 5."
+        ],
+        "retroalimentacion": "Quitar 10 de cada lado deja 9 = 4 + 5, que es verdadera.",
+        "alternativasAceptadas": [],
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La igualdad 8 + 6 = 8 + 9 es falsa porque al quitar 8 de ambos lados queda 6 = 9.",
+        "respuesta": true,
+        "pistas": [
+          "Quita 8 de cada lado.",
+          "Quedan 6 de un lado y 9 del otro.",
+          "Compara 6 y 9."
+        ],
+        "retroalimentacion": "Es verdadera la afirmación: 6 y 9 no son iguales, así que 8 + 6 = 8 + 9 es falsa.",
+        "alternativasAceptadas": [],
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Don Pedro tiene a la izquierda una bolsa de 12 kg y una caja de 7 kg. A la derecha están esa misma bolsa de 12 kg, 4 kg y una caja más. Hay equilibrio. ¿Cuántos kg pesa la caja de la derecha? Escribe solo el número.",
+        "respuesta": 3,
+        "pistas": [
+          "La bolsa de 12 kg se repite en ambos lados.",
+          "Cancélala: queda 7 = 4 + caja.",
+          "¿Cuánto falta a 4 para llegar a 7?"
+        ],
+        "retroalimentacion": "Cancelando la bolsa queda 7 = 4 + 3, la caja pesa 3 kg.",
+        "alternativasAceptadas": [],
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En equilibrio: 25 kg + 9 kg = 25 kg + 4 kg + □ kg + 2 kg. ¿Cuántos kg vale □? Escribe solo el número.",
+        "respuesta": 3,
+        "pistas": [
+          "Cancela los 25 kg de ambos lados.",
+          "Queda 9 = 4 + □ + 2.",
+          "Suma primero 4 + 2."
+        ],
+        "retroalimentacion": "Cancelando 25 queda 9 = 6 + □, entonces □ = 3.",
+        "alternativasAceptadas": [],
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Pedro dice que para no romper el equilibrio basta quitar 6 kg del platillo izquierdo y 4 kg del derecho. ¿Qué piensas?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "No, hay que quitar lo mismo de ambos lados"
+          },
+          {
+            "id": "b",
+            "texto": "Sí, porque se quita algo de cada lado"
+          },
+          {
+            "id": "c",
+            "texto": "No, solo hay que quitar del lado más pesado"
+          }
+        ],
+        "pistas": [
+          "Compara cuánto quita de cada lado: 6 y 4.",
+          "Si quitas más de un lado, ese lado queda más liviano.",
+          "La regla pide quitar la misma cantidad."
+        ],
+        "retroalimentacion": "Quitar 6 kg y 4 kg rompe el equilibrio; hay que quitar la misma cantidad de ambos lados.",
+        "alternativasAceptadas": [],
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 30 + 12 = 30 + 5 + 7, al quitar 30 de ambos lados se obtiene 12 = 5 + 7, que es verdadera.",
+        "respuesta": true,
+        "pistas": [
+          "Cancela el 30 en los dos lados.",
+          "Quedan 12 y 5 + 7.",
+          "Suma 5 + 7."
+        ],
+        "retroalimentacion": "Es verdadera: 5 + 7 = 12.",
+        "alternativasAceptadas": [],
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En 14 + 6 = 14 + 2 + □, ¿qué número va en □? Escribe solo el número.",
+        "respuesta": "4",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Quita el 14 de ambos lados.",
+          "Queda 6 = 2 + □.",
+          "¿Cuánto le falta a 2 para llegar a 6?"
+        ],
+        "retroalimentacion": "Quitando 14, 6 = 2 + 4, así que □ = 4.",
+        "id": "e12"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  }
+]
