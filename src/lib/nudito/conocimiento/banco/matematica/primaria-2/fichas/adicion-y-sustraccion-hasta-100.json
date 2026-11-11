@@ -70,18 +70,18 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En la feria del colegio hay 12 mandarinas y 5 manzanas. ¿Cuántos objetos hay entre los dos grupos?",
-        "respuesta": 17,
+        "enunciado": "Lucía junta 8 tapitas verdes y 5 amarillas en una sola bolsa. ¿Cuántas tapitas guarda?",
+        "respuesta": 13,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la feria del colegio: Distingue el grupo inicial de 12 y el cambio de 5 en en la feria del colegio.",
-          "En la feria del colegio: Si se juntan o agregan, usa suma.",
-          "En la feria del colegio: Calcula 12 + 5 y comprueba qué cantidad pide la pregunta."
+          "Identifica los dos colores que entran a la bolsa.",
+          "Ninguna tapita sale: reúne 8 y 5.",
+          "Cuenta desde 8 cinco tapitas más."
         ],
-        "retroalimentacion": "12 + 5 = 17. Revisa si la historia junta para elegir la operación correcta.",
+        "retroalimentacion": "Al juntar ambos colores hay 13 tapitas. Restar serviría si alguna saliera.",
         "operacion": {
           "tipo": "suma",
-          "a": 12,
+          "a": 8,
           "b": 5
         }
       },
@@ -89,151 +89,164 @@
         "id": "e02",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En una caja de material del aula había 23 cuentos; se separaron 14 para otra mesa. ¿Cuántos quedaron en el primer grupo?",
-        "respuesta": 9,
+        "enunciado": "De los 17 lápices de un estuche, el profesor aparta 6 para otra mesa. ¿Cuántos permanecen en el estuche?",
+        "respuesta": 11,
         "alternativasAceptadas": [],
         "pistas": [
-          "En una caja de material del aula: Distingue el grupo inicial de 23 y el cambio de 14 en en una caja de material del aula.",
-          "En una caja de material del aula: Si se separan o quitan, usa resta.",
-          "En una caja de material del aula: Calcula 23 − 14 y comprueba qué cantidad pide la pregunta."
+          "Busca la cantidad que había antes de apartar lápices.",
+          "Los 6 lápices retirados ya no están en el estuche.",
+          "Quita 6 a 17 y cuenta los que permanecen."
         ],
-        "retroalimentacion": "23 − 14 = 9. Revisa si la historia quita para elegir la operación correcta.",
+        "retroalimentacion": "Permanecen 11 lápices: 17 − 6 = 11. El grupo retirado no se suma al que queda.",
         "operacion": {
           "tipo": "resta",
-          "a": 23,
-          "b": 14
+          "a": 17,
+          "b": 6
         }
       },
       {
         "id": "e03",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Durante una visita a la biblioteca hay 36 semillas y 12 frejoles. ¿Cuántos objetos hay entre los dos grupos?",
-        "respuesta": 48,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la biblioteca hay 9 cuentos en un estante y 4 en otro. Quieres saber cuántos cuentos hay entre ambos. ¿Qué cuenta escribirías?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Durante una visita a la biblioteca: Distingue el grupo inicial de 36 y el cambio de 12 en durante una visita a la biblioteca.",
-          "Durante una visita a la biblioteca: Si se juntan o agregan, usa suma.",
-          "Durante una visita a la biblioteca: Calcula 36 + 12 y comprueba qué cantidad pide la pregunta."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9 − 4"
+          },
+          {
+            "id": "b",
+            "texto": "9 + 4"
+          },
+          {
+            "id": "c",
+            "texto": "4 − 9"
+          }
         ],
-        "retroalimentacion": "36 + 12 = 48. Revisa si la historia junta para elegir la operación correcta.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 36,
-          "b": 12
-        }
+        "pistas": [
+          "Los cuentos de los dos estantes forman un solo grupo.",
+          "La pregunta pide el total, no la diferencia entre estantes.",
+          "Elige la cuenta que une 9 y 4."
+        ],
+        "retroalimentacion": "«9 + 4» junta ambos estantes. «9 − 4» compararía o quitaría cuentos."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En el mercado del barrio había 50 choclos; se separaron 8 para otra mesa. ¿Cuántos quedaron en el primer grupo?",
-        "respuesta": 42,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una canasta tenía 15 panes. Separaron 5 para el desayuno y quedaron 10 en la canasta.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el mercado del barrio: Distingue el grupo inicial de 50 y el cambio de 8 en en el mercado del barrio.",
-          "En el mercado del barrio: Si se separan o quitan, usa resta.",
-          "En el mercado del barrio: Calcula 50 − 8 y comprueba qué cantidad pide la pregunta."
+          "Distingue los panes separados de los que permanecen.",
+          "Los 15 panes iniciales se reparten en dos partes: 5 y 10.",
+          "Comprueba si 5 + 10 reconstruye el grupo inicial."
         ],
-        "retroalimentacion": "50 − 8 = 42. Revisa si la historia quita para elegir la operación correcta.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 50,
-          "b": 8
-        }
+        "retroalimentacion": "Es verdadero: 15 − 5 = 10. Las dos partes juntas vuelven a formar 15 panes."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En la chacra de la familia hay 27 cuyes y 16 gallinas. ¿Cuántos objetos hay entre los dos grupos?",
-        "respuesta": 43,
+        "enunciado": "En la chacra se reúnen 24 choclos blancos y 13 morados para llevarlos al mercado. ¿Cuántos choclos salen juntos?",
+        "respuesta": 37,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la chacra de la familia: Distingue el grupo inicial de 27 y el cambio de 16 en en la chacra de la familia.",
-          "En la chacra de la familia: Si se juntan o agregan, usa suma.",
-          "En la chacra de la familia: Calcula 27 + 16 y comprueba qué cantidad pide la pregunta."
+          "Las variedades son distintas, pero todas son choclos.",
+          "Forma un solo grupo con 24 blancos y 13 morados.",
+          "Suma decenas con decenas y unidades con unidades."
         ],
-        "retroalimentacion": "27 + 16 = 43. Revisa si la historia junta para elegir la operación correcta.",
+        "retroalimentacion": "Salen 37 choclos: 24 + 13 = 37. Contar solo una variedad deja fuera parte del grupo.",
         "operacion": {
           "tipo": "suma",
-          "a": 27,
-          "b": 16
+          "a": 24,
+          "b": 13
         }
       },
       {
         "id": "e06",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En el juego de tarjetas había 42 tarjetas rojas; se separaron 25 para otra mesa. ¿Cuántos quedaron en el primer grupo?",
-        "respuesta": 17,
+        "enunciado": "Una caja tenía 36 fichas. Después de separar 14 para un juego, ¿cuántas siguen dentro?",
+        "respuesta": 22,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el juego de tarjetas: Distingue el grupo inicial de 42 y el cambio de 25 en en el juego de tarjetas.",
-          "En el juego de tarjetas: Si se separan o quitan, usa resta.",
-          "En el juego de tarjetas: Calcula 42 − 25 y comprueba qué cantidad pide la pregunta."
+          "La caja empieza con 36 fichas.",
+          "Las 14 usadas forman la parte que salió.",
+          "Resta 14 de 36; revisa decenas y unidades."
         ],
-        "retroalimentacion": "42 − 25 = 17. Revisa si la historia quita para elegir la operación correcta.",
+        "retroalimentacion": "Siguen 22 fichas en la caja. Si sumaste, contaste también las que ya salieron.",
         "operacion": {
           "tipo": "resta",
-          "a": 42,
-          "b": 25
+          "a": 36,
+          "b": 14
         }
       },
       {
         "id": "e07",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En el patio de la escuela hay 58 tizas y 14 plumones. ¿Cuántos objetos hay entre los dos grupos?",
-        "respuesta": 72,
+        "enunciado": "Dos aulas reunirán sus plantas. Una aporta 15 y al terminar cuentan 28 en total. ¿Cuántas aportó la otra aula?",
+        "respuesta": 13,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el patio de la escuela: Distingue el grupo inicial de 58 y el cambio de 14 en en el patio de la escuela.",
-          "En el patio de la escuela: Si se juntan o agregan, usa suma.",
-          "En el patio de la escuela: Calcula 58 + 14 y comprueba qué cantidad pide la pregunta."
+          "Una de las dos partes es 15 plantas.",
+          "El total de ambas aulas es 28; falta encontrar la otra parte.",
+          "Desde 15 cuenta hasta 28, o calcula 28 − 15."
         ],
-        "retroalimentacion": "58 + 14 = 72. Revisa si la historia junta para elegir la operación correcta.",
+        "retroalimentacion": "La otra aula aportó 13 plantas, porque 15 + 13 = 28. No sumes 15 y 28: 28 ya es el total.",
         "operacion": {
-          "tipo": "suma",
-          "a": 58,
-          "b": 14
+          "tipo": "resta",
+          "a": 28,
+          "b": 15
         }
       },
       {
         "id": "e08",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Al ordenar semillas había 71 chapas; se separaron 18 para otra mesa. ¿Cuántos quedaron en el primer grupo?",
-        "respuesta": 53,
+        "tipo": "opcion_multiple",
+        "enunciado": "En el festival había 50 banderines. Se reparten 18 a un salón y el resto queda para otro. ¿Qué expresión representa los banderines que quedan?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Al ordenar semillas: Distingue el grupo inicial de 71 y el cambio de 18 en al ordenar semillas.",
-          "Al ordenar semillas: Si se separan o quitan, usa resta.",
-          "Al ordenar semillas: Calcula 71 − 18 y comprueba qué cantidad pide la pregunta."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "50 + 18"
+          },
+          {
+            "id": "b",
+            "texto": "18 − 50"
+          },
+          {
+            "id": "c",
+            "texto": "50 − 18"
+          }
         ],
-        "retroalimentacion": "71 − 18 = 53. Revisa si la historia quita para elegir la operación correcta.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 71,
-          "b": 18
-        }
+        "pistas": [
+          "Los 50 banderines se dividen en dos partes.",
+          "Ya conoces la parte de 18 que recibió un salón.",
+          "Para hallar la parte restante, quita 18 del total."
+        ],
+        "retroalimentacion": "«50 − 18» representa lo que queda. «50 + 18» agregaría banderines que no había."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En la tienda de la esquina hay 34 panes y 27 queques. ¿Cuántos objetos hay entre los dos grupos?",
-        "respuesta": 61,
+        "enunciado": "En la kermés, una mesa aporta 38 vasos y otra 27. El cartel menciona también 12 cucharas. ¿Cuántos vasos se juntaron?",
+        "respuesta": 65,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la tienda de la esquina: Distingue el grupo inicial de 34 y el cambio de 27 en en la tienda de la esquina.",
-          "En la tienda de la esquina: Si se juntan o agregan, usa suma.",
-          "En la tienda de la esquina: Calcula 34 + 27 y comprueba qué cantidad pide la pregunta."
+          "La pregunta es solo por vasos; las cucharas no forman parte del total.",
+          "Reúne los 38 vasos de la primera mesa con los 27 de la segunda.",
+          "Las unidades 8 + 7 hacen 15: canjea una decena."
         ],
-        "retroalimentacion": "34 + 27 = 61. Revisa si la historia junta para elegir la operación correcta.",
+        "retroalimentacion": "Se juntaron 65 vasos. Los 12 cubiertos son un dato ajeno a la pregunta.",
         "operacion": {
           "tipo": "suma",
-          "a": 34,
+          "a": 38,
           "b": 27
         }
       },
@@ -241,58 +254,67 @@
         "id": "e10",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En una ruta por el pueblo había 63 pasos; se separaron 19 para otra mesa. ¿Cuántos quedaron en el primer grupo?",
-        "respuesta": 44,
+        "enunciado": "El colegio tenía 74 libros para donar. Separó 29 para una comunidad y guardó los demás para otra. ¿Cuántos libros guardó?",
+        "respuesta": 45,
         "alternativasAceptadas": [],
         "pistas": [
-          "En una ruta por el pueblo: Distingue el grupo inicial de 63 y el cambio de 19 en en una ruta por el pueblo.",
-          "En una ruta por el pueblo: Si se separan o quitan, usa resta.",
-          "En una ruta por el pueblo: Calcula 63 − 19 y comprueba qué cantidad pide la pregunta."
+          "Los libros guardados y los enviados forman los 74 iniciales.",
+          "Quita del total los 29 que ya se separaron.",
+          "Para restar 4 − 9, cambia una decena por diez unidades."
         ],
-        "retroalimentacion": "63 − 19 = 44. Revisa si la historia quita para elegir la operación correcta.",
+        "retroalimentacion": "Guardó 45 libros: 74 − 29 = 45. Si obtuviste 55, revisa el canje de las unidades.",
         "operacion": {
           "tipo": "resta",
-          "a": 63,
-          "b": 19
+          "a": 74,
+          "b": 29
         }
       },
       {
         "id": "e11",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "Al preparar una kermés hay 75 globos y 16 banderines. ¿Cuántos objetos hay entre los dos grupos?",
-        "respuesta": 91,
+        "enunciado": "En dos sacos hay 26 y 35 papas. Para cocinar se apartan 8 de un tercer saco que no se mezcló. ¿Cuántas papas hay en los dos primeros sacos juntos?",
+        "respuesta": 61,
         "alternativasAceptadas": [],
         "pistas": [
-          "Al preparar una kermés: Distingue el grupo inicial de 75 y el cambio de 16 en al preparar una kermés.",
-          "Al preparar una kermés: Si se juntan o agregan, usa suma.",
-          "Al preparar una kermés: Calcula 75 + 16 y comprueba qué cantidad pide la pregunta."
+          "Nombra los sacos que sí pregunta el problema: primero y segundo.",
+          "El tercer saco no entra en el grupo que debes juntar.",
+          "Suma 26 + 35; las 8 papas apartadas no cambian ese total."
         ],
-        "retroalimentacion": "75 + 16 = 91. Revisa si la historia junta para elegir la operación correcta.",
+        "retroalimentacion": "Hay 61 papas en los dos primeros sacos. Usar las 8 del tercero cambia la pregunta.",
         "operacion": {
           "tipo": "suma",
-          "a": 75,
-          "b": 16
+          "a": 26,
+          "b": 35
         }
       },
       {
         "id": "e12",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En una colección de figuritas había 48 figuritas; se separaron 29 para otra mesa. ¿Cuántos quedaron en el primer grupo?",
-        "respuesta": 19,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una artesana tenía 63 cuentas. Tras separar las que usó en un collar, le quedaron 38. ¿Qué cuenta permite hallar cuántas separó?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "En una colección de figuritas: Distingue el grupo inicial de 48 y el cambio de 29 en en una colección de figuritas.",
-          "En una colección de figuritas: Si se separan o quitan, usa resta.",
-          "En una colección de figuritas: Calcula 48 − 29 y comprueba qué cantidad pide la pregunta."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "63 − 38"
+          },
+          {
+            "id": "b",
+            "texto": "63 + 38"
+          },
+          {
+            "id": "c",
+            "texto": "38 − 63"
+          }
         ],
-        "retroalimentacion": "48 − 29 = 19. Revisa si la historia quita para elegir la operación correcta.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 48,
-          "b": 29
-        }
+        "pistas": [
+          "Los 63 iniciales se repartieron entre usadas y restantes.",
+          "Conoces el total y la parte que quedó: 38.",
+          "Resta la parte que quedó del total inicial."
+        ],
+        "retroalimentacion": "«63 − 38» da 25 cuentas separadas. Sumar daría más cuentas que las iniciales."
       }
     ],
     "fuentes": [
@@ -375,91 +397,95 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En la feria del colegio tenías 12 mandarinas y agregaste 5. ¿Cuántos tienes ahora?",
-        "respuesta": 17,
+        "enunciado": "María tenía 7 semillas de huayruro y encontró 4 más en su caja. ¿Cuántas tiene ahora?",
+        "respuesta": 11,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la feria del colegio: Distingue el grupo inicial de 12 y el cambio de 5 en en la feria del colegio.",
-          "En la feria del colegio: Si se juntan o agregan, usa suma.",
-          "En la feria del colegio: Calcula 12 + 5 y comprueba qué cantidad pide la pregunta."
+          "Comienza con las 7 semillas que ya tenía María.",
+          "Encontrar 4 más aumenta la colección.",
+          "Cuenta cuatro después de 7."
         ],
-        "retroalimentacion": "12 + 5 = 17. Revisa si la historia junta para elegir la operación correcta.",
+        "retroalimentacion": "Ahora tiene 11 semillas: 7 + 4 = 11. Si restaste, hiciste menor una colección que aumentó.",
         "operacion": {
           "tipo": "suma",
-          "a": 12,
-          "b": 5
+          "a": 7,
+          "b": 4
         }
       },
       {
         "id": "e02",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En una caja de material del aula guardaste 23 cuentos y quitaste 14. ¿Cuántos permanecen?",
-        "respuesta": 9,
+        "enunciado": "En una bandeja había 18 mandarinas. Se comieron 6 durante el recreo. ¿Cuántas quedaron?",
+        "respuesta": 12,
         "alternativasAceptadas": [],
         "pistas": [
-          "En una caja de material del aula: Distingue el grupo inicial de 23 y el cambio de 14 en en una caja de material del aula.",
-          "En una caja de material del aula: Si se separan o quitan, usa resta.",
-          "En una caja de material del aula: Calcula 23 − 14 y comprueba qué cantidad pide la pregunta."
+          "Las 18 mandarinas estaban antes del recreo.",
+          "Comer 6 hace que la cantidad en la bandeja disminuya.",
+          "Quita seis a 18 y revisa las que permanecen."
         ],
-        "retroalimentacion": "23 − 14 = 9. Revisa si la historia quita para elegir la operación correcta.",
+        "retroalimentacion": "Quedaron 12 mandarinas. La resta representa lo que salió de la bandeja.",
         "operacion": {
           "tipo": "resta",
-          "a": 23,
-          "b": 14
+          "a": 18,
+          "b": 6
         }
       },
       {
         "id": "e03",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Durante una visita a la biblioteca tenías 36 semillas y agregaste 12. ¿Cuántos tienes ahora?",
-        "respuesta": 48,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un florero tenía 9 flores y le colocaron 3 más. Entonces hay 6 flores.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Durante una visita a la biblioteca: Distingue el grupo inicial de 36 y el cambio de 12 en durante una visita a la biblioteca.",
-          "Durante una visita a la biblioteca: Si se juntan o agregan, usa suma.",
-          "Durante una visita a la biblioteca: Calcula 36 + 12 y comprueba qué cantidad pide la pregunta."
+          "La palabra «más» indica que llegaron flores.",
+          "Una cantidad que aumenta debe ser mayor que 9.",
+          "Comprueba 9 + 3 antes de decidir."
         ],
-        "retroalimentacion": "36 + 12 = 48. Revisa si la historia junta para elegir la operación correcta.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 36,
-          "b": 12
-        }
+        "retroalimentacion": "Es falso: 9 + 3 = 12 flores. Se obtuvo 6 al quitar, pero aquí se agregaron."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En el mercado del barrio guardaste 50 choclos y quitaste 8. ¿Cuántos permanecen?",
-        "respuesta": 42,
+        "tipo": "opcion_multiple",
+        "enunciado": "Había 13 lápices en un portalápices y se retiraron 5. ¿Cuál cuenta muestra lo que ocurre?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "En el mercado del barrio: Distingue el grupo inicial de 50 y el cambio de 8 en en el mercado del barrio.",
-          "En el mercado del barrio: Si se separan o quitan, usa resta.",
-          "En el mercado del barrio: Calcula 50 − 8 y comprueba qué cantidad pide la pregunta."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "13 − 5"
+          },
+          {
+            "id": "b",
+            "texto": "13 + 5"
+          },
+          {
+            "id": "c",
+            "texto": "5 − 13"
+          }
         ],
-        "retroalimentacion": "50 − 8 = 42. Revisa si la historia quita para elegir la operación correcta.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 50,
-          "b": 8
-        }
+        "pistas": [
+          "Identifica el grupo inicial de 13 lápices.",
+          "Cinco salieron; no llegaron lápices nuevos.",
+          "Busca la operación que reduce el grupo inicial."
+        ],
+        "retroalimentacion": "«13 − 5» representa retirar cinco lápices. «13 + 5» representaría agregarlos."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En la chacra de la familia tenías 27 cuyes y agregaste 16. ¿Cuántos tienes ahora?",
+        "enunciado": "La profesora pegó 27 estrellas en un mural. Por la tarde añadió 16. ¿Cuántas estrellas muestra ahora?",
         "respuesta": 43,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la chacra de la familia: Distingue el grupo inicial de 27 y el cambio de 16 en en la chacra de la familia.",
-          "En la chacra de la familia: Si se juntan o agregan, usa suma.",
-          "En la chacra de la familia: Calcula 27 + 16 y comprueba qué cantidad pide la pregunta."
+          "Las 27 estrellas ya estaban pegadas.",
+          "Las 16 nuevas se añaden a las anteriores.",
+          "Suma 27 + 16 y canjea diez unidades si hace falta."
         ],
-        "retroalimentacion": "27 + 16 = 43. Revisa si la historia junta para elegir la operación correcta.",
+        "retroalimentacion": "El mural tiene 43 estrellas. Si dijiste 16, contaste solo las recién pegadas.",
         "operacion": {
           "tipo": "suma",
           "a": 27,
@@ -470,134 +496,152 @@
         "id": "e06",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En el juego de tarjetas guardaste 42 tarjetas rojas y quitaste 25. ¿Cuántos permanecen?",
-        "respuesta": 17,
+        "enunciado": "Un quiosco empezó con 52 panes y vendió 19 antes del almuerzo. ¿Cuántos panes conserva?",
+        "respuesta": 33,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el juego de tarjetas: Distingue el grupo inicial de 42 y el cambio de 25 en en el juego de tarjetas.",
-          "En el juego de tarjetas: Si se separan o quitan, usa resta.",
-          "En el juego de tarjetas: Calcula 42 − 25 y comprueba qué cantidad pide la pregunta."
+          "El inventario inicial es 52 panes.",
+          "Vender 19 reduce el número que queda en el quiosco.",
+          "Calcula 52 − 19 usando un canje en las unidades."
         ],
-        "retroalimentacion": "42 − 25 = 17. Revisa si la historia quita para elegir la operación correcta.",
+        "retroalimentacion": "Conserva 33 panes. Sumar las ventas al inventario daría una cantidad incorrecta.",
         "operacion": {
           "tipo": "resta",
-          "a": 42,
-          "b": 25
+          "a": 52,
+          "b": 19
         }
       },
       {
         "id": "e07",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En el patio de la escuela tenías 58 tizas y agregaste 14. ¿Cuántos tienes ahora?",
-        "respuesta": 72,
+        "enunciado": "Un bus escolar llevaba 24 personas y, después de una parada, llevaba 37. ¿Cuántas subieron en esa parada?",
+        "respuesta": 13,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el patio de la escuela: Distingue el grupo inicial de 58 y el cambio de 14 en en el patio de la escuela.",
-          "En el patio de la escuela: Si se juntan o agregan, usa suma.",
-          "En el patio de la escuela: Calcula 58 + 14 y comprueba qué cantidad pide la pregunta."
+          "El bus tenía 24 personas antes de detenerse.",
+          "Después hay 37; el aumento es la cantidad que subió.",
+          "Busca qué debes sumar a 24 para llegar a 37."
         ],
-        "retroalimentacion": "58 + 14 = 72. Revisa si la historia junta para elegir la operación correcta.",
+        "retroalimentacion": "Subieron 13 personas, porque 24 + 13 = 37. El 37 ya incluye a quienes estaban dentro.",
         "operacion": {
-          "tipo": "suma",
-          "a": 58,
-          "b": 14
+          "tipo": "resta",
+          "a": 37,
+          "b": 24
         }
       },
       {
         "id": "e08",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Al ordenar semillas guardaste 71 chapas y quitaste 18. ¿Cuántos permanecen?",
-        "respuesta": 53,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja tenía 41 tizas. Tras usar algunas, quedan 28. ¿Qué operación calcula cuántas tizas se usaron?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Al ordenar semillas: Distingue el grupo inicial de 71 y el cambio de 18 en al ordenar semillas.",
-          "Al ordenar semillas: Si se separan o quitan, usa resta.",
-          "Al ordenar semillas: Calcula 71 − 18 y comprueba qué cantidad pide la pregunta."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "28 + 41"
+          },
+          {
+            "id": "b",
+            "texto": "41 − 28"
+          },
+          {
+            "id": "c",
+            "texto": "41 + 28"
+          }
         ],
-        "retroalimentacion": "71 − 18 = 53. Revisa si la historia quita para elegir la operación correcta.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 71,
-          "b": 18
-        }
+        "pistas": [
+          "Las tizas usadas son la parte que falta del grupo inicial.",
+          "Sabes que había 41 y permanecen 28.",
+          "Quita las 28 restantes de las 41 iniciales."
+        ],
+        "retroalimentacion": "«41 − 28» calcula las 13 tizas usadas. Sumar 41 y 28 contaría dos veces las restantes."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En la tienda de la esquina tenías 34 panes y agregaste 27. ¿Cuántos tienes ahora?",
-        "respuesta": 61,
+        "enunciado": "Una biblioteca tenía 68 revistas y donó 25. También recibió 14 cuentos, que se guardan en otro estante. ¿Cuántas revistas conserva?",
+        "respuesta": 43,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la tienda de la esquina: Distingue el grupo inicial de 34 y el cambio de 27 en en la tienda de la esquina.",
-          "En la tienda de la esquina: Si se juntan o agregan, usa suma.",
-          "En la tienda de la esquina: Calcula 34 + 27 y comprueba qué cantidad pide la pregunta."
+          "El problema pregunta por revistas, no por cuentos.",
+          "Las 25 revistas donadas ya no están en el estante.",
+          "Resta 25 de 68 y no uses el dato de los cuentos."
         ],
-        "retroalimentacion": "34 + 27 = 61. Revisa si la historia junta para elegir la operación correcta.",
+        "retroalimentacion": "Conserva 43 revistas: 68 − 25 = 43. Sumar los 14 cuentos mezclaría dos colecciones distintas.",
         "operacion": {
-          "tipo": "suma",
-          "a": 34,
-          "b": 27
+          "tipo": "resta",
+          "a": 68,
+          "b": 25
         }
       },
       {
         "id": "e10",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En una ruta por el pueblo guardaste 63 pasos y quitaste 19. ¿Cuántos permanecen?",
-        "respuesta": 44,
+        "enunciado": "Para la feria, el salón tenía 46 vasos y recibió 29 vasos más. En la misma caja había 8 servilletas. ¿Cuántos vasos tiene ahora?",
+        "respuesta": 75,
         "alternativasAceptadas": [],
         "pistas": [
-          "En una ruta por el pueblo: Distingue el grupo inicial de 63 y el cambio de 19 en en una ruta por el pueblo.",
-          "En una ruta por el pueblo: Si se separan o quitan, usa resta.",
-          "En una ruta por el pueblo: Calcula 63 − 19 y comprueba qué cantidad pide la pregunta."
+          "Solo cuenta los objetos llamados vasos.",
+          "Los 29 vasos recibidos aumentan los 46 iniciales.",
+          "Suma 46 + 29; las servilletas no cambian la cantidad de vasos."
         ],
-        "retroalimentacion": "63 − 19 = 44. Revisa si la historia quita para elegir la operación correcta.",
+        "retroalimentacion": "Ahora hay 75 vasos. Si incluiste las 8 servilletas, respondiste por objetos mezclados.",
         "operacion": {
-          "tipo": "resta",
-          "a": 63,
-          "b": 19
+          "tipo": "suma",
+          "a": 46,
+          "b": 29
         }
       },
       {
         "id": "e11",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "Al preparar una kermés tenías 75 globos y agregaste 16. ¿Cuántos tienes ahora?",
-        "respuesta": 91,
+        "enunciado": "Al terminar el juego hay 39 canicas en una caja. Durante el juego se retiraron 24 y no se añadió ninguna. ¿Cuántas había al comienzo?",
+        "respuesta": 63,
         "alternativasAceptadas": [],
         "pistas": [
-          "Al preparar una kermés: Distingue el grupo inicial de 75 y el cambio de 16 en al preparar una kermés.",
-          "Al preparar una kermés: Si se juntan o agregan, usa suma.",
-          "Al preparar una kermés: Calcula 75 + 16 y comprueba qué cantidad pide la pregunta."
+          "La cantidad inicial era mayor que las 39 que quedaron.",
+          "Las 24 retiradas formaban parte del grupo inicial.",
+          "Reconstruye el comienzo juntando 39 + 24."
         ],
-        "retroalimentacion": "75 + 16 = 91. Revisa si la historia junta para elegir la operación correcta.",
+        "retroalimentacion": "Había 63 canicas al comienzo. Restar 24 a 39 haría todavía menor la cantidad inicial.",
         "operacion": {
           "tipo": "suma",
-          "a": 75,
-          "b": 16
+          "a": 39,
+          "b": 24
         }
       },
       {
         "id": "e12",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En una colección de figuritas guardaste 48 figuritas y quitaste 29. ¿Cuántos permanecen?",
-        "respuesta": 19,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un vivero tenía 75 plantones y después de una venta quedaron 58. ¿Qué cálculo permite saber cuántos se vendieron?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "En una colección de figuritas: Distingue el grupo inicial de 48 y el cambio de 29 en en una colección de figuritas.",
-          "En una colección de figuritas: Si se separan o quitan, usa resta.",
-          "En una colección de figuritas: Calcula 48 − 29 y comprueba qué cantidad pide la pregunta."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "75 + 58"
+          },
+          {
+            "id": "b",
+            "texto": "58 − 75"
+          },
+          {
+            "id": "c",
+            "texto": "75 − 58"
+          }
         ],
-        "retroalimentacion": "48 − 29 = 19. Revisa si la historia quita para elegir la operación correcta.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 48,
-          "b": 29
-        }
+        "pistas": [
+          "Los plantones vendidos son la parte que ya no está en el vivero.",
+          "Tienes el número inicial, 75, y el número final, 58.",
+          "Resta lo que quedó del total que había."
+        ],
+        "retroalimentacion": "«75 − 58» da 17 plantones vendidos. Sumar 75 y 58 no representa el cambio."
       }
     ],
     "fuentes": [
@@ -681,91 +725,95 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "Estás en la casilla 12 del camino hacia en la feria del colegio. Avanzas 5 casillas. ¿Dónde llegas?",
-        "respuesta": 17,
+        "enunciado": "En un camino numerado, Diego está en la casilla 6 y avanza 4 espacios. ¿En qué casilla termina?",
+        "respuesta": 10,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la feria del colegio: Ubica la casilla de salida 12.",
-          "En la feria del colegio: Un paso por casilla: avanza 5 lugares.",
-          "En la feria del colegio: Calcula 12 + 5 y comprueba la dirección."
+          "Ubica primero la casilla 6.",
+          "Avanzar significa ir hacia números mayores.",
+          "Cuenta cuatro casillas después del 6: 7, 8, 9 y 10."
         ],
-        "retroalimentacion": "12 + 5 = 17. Revisa si la historia junta para elegir la operación correcta.",
+        "retroalimentacion": "Diego termina en la casilla 10. Contar el 6 como primer paso daría una menos.",
         "operacion": {
           "tipo": "suma",
-          "a": 12,
-          "b": 5
+          "a": 6,
+          "b": 4
         }
       },
       {
         "id": "e02",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "Desde la casilla 23 retrocedes 14 lugares en el tablero de cuentos. ¿En qué casilla terminas?",
-        "respuesta": 9,
+        "enunciado": "La ficha de Ana estaba en el 15. Retrocedió 3 lugares en el tablero. ¿Dónde quedó?",
+        "respuesta": 12,
         "alternativasAceptadas": [],
         "pistas": [
-          "En una caja de material del aula: Ubica la casilla de salida 23.",
-          "En una caja de material del aula: Un paso por casilla: retrocede 14 lugares.",
-          "En una caja de material del aula: Calcula 23 − 14 y comprueba la dirección."
+          "Parte del 15, donde estaba la ficha.",
+          "Al retroceder, los números se hacen menores.",
+          "Da tres saltos hacia atrás: 14, 13 y 12."
         ],
-        "retroalimentacion": "23 − 14 = 9. Revisa si la historia quita para elegir la operación correcta.",
+        "retroalimentacion": "Quedó en 12. Si sumaste, moviste la ficha en dirección contraria.",
         "operacion": {
           "tipo": "resta",
-          "a": 23,
-          "b": 14
+          "a": 15,
+          "b": 3
         }
       },
       {
         "id": "e03",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Estás en la casilla 36 del camino hacia durante una visita a la biblioteca. Avanzas 12 casillas. ¿Dónde llegas?",
-        "respuesta": 48,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un peón sale del 8 y debe llegar al 13. ¿Qué movimiento lo lleva allí?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Durante una visita a la biblioteca: Ubica la casilla de salida 36.",
-          "Durante una visita a la biblioteca: Un paso por casilla: avanza 12 lugares.",
-          "Durante una visita a la biblioteca: Calcula 36 + 12 y comprueba la dirección."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Avanzar 5 casillas"
+          },
+          {
+            "id": "b",
+            "texto": "Retroceder 5 casillas"
+          },
+          {
+            "id": "c",
+            "texto": "Avanzar 13 casillas"
+          }
         ],
-        "retroalimentacion": "36 + 12 = 48. Revisa si la historia junta para elegir la operación correcta.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 36,
-          "b": 12
-        }
+        "pistas": [
+          "El destino 13 está después del 8.",
+          "Cuenta los espacios entre 8 y 13.",
+          "El camino es 9, 10, 11, 12 y 13."
+        ],
+        "retroalimentacion": "«Avanzar 5 casillas» llega a 13. Retroceder lo alejaría del destino."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Desde la casilla 50 retrocedes 8 lugares en el tablero de choclos. ¿En qué casilla terminas?",
-        "respuesta": 42,
+        "tipo": "verdadero_falso",
+        "enunciado": "Desde la casilla 18, un salto de 6 lugares hacia atrás termina en la casilla 12.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el mercado del barrio: Ubica la casilla de salida 50.",
-          "En el mercado del barrio: Un paso por casilla: retrocede 8 lugares.",
-          "En el mercado del barrio: Calcula 50 − 8 y comprueba la dirección."
+          "Hacia atrás indica retroceder desde 18.",
+          "Cuenta las posiciones anteriores, sin incluir la casilla inicial.",
+          "Comprueba 18 − 6."
         ],
-        "retroalimentacion": "50 − 8 = 42. Revisa si la historia quita para elegir la operación correcta.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 50,
-          "b": 8
-        }
+        "retroalimentacion": "Es verdadero: 18 − 6 = 12. La casilla inicial no se cuenta como un salto."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "Estás en la casilla 27 del camino hacia en la chacra de la familia. Avanzas 16 casillas. ¿Dónde llegas?",
+        "enunciado": "En una recta del 0 al 100, una hormiga parte de 27 y avanza 16 marcas. ¿Qué número alcanza?",
         "respuesta": 43,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la chacra de la familia: Ubica la casilla de salida 27.",
-          "En la chacra de la familia: Un paso por casilla: avanza 16 lugares.",
-          "En la chacra de la familia: Calcula 27 + 16 y comprueba la dirección."
+          "La hormiga comienza en 27.",
+          "Avanza diez marcas hasta 37 y luego seis más.",
+          "Suma 27 + 16 para confirmar el destino."
         ],
-        "retroalimentacion": "27 + 16 = 43. Revisa si la historia junta para elegir la operación correcta.",
+        "retroalimentacion": "Alcanza 43. Si te salió 33, contaste solo seis de los dieciséis pasos.",
         "operacion": {
           "tipo": "suma",
           "a": 27,
@@ -776,134 +824,137 @@
         "id": "e06",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "Desde la casilla 42 retrocedes 25 lugares en el tablero de tarjetas rojas. ¿En qué casilla terminas?",
-        "respuesta": 17,
+        "enunciado": "Un jugador está en la casilla 54 y la tarjeta dice «retrocede 18». ¿Cuál será su nueva posición?",
+        "respuesta": 36,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el juego de tarjetas: Ubica la casilla de salida 42.",
-          "En el juego de tarjetas: Un paso por casilla: retrocede 25 lugares.",
-          "En el juego de tarjetas: Calcula 42 − 25 y comprueba la dirección."
+          "Retroceder desde 54 reduce la posición.",
+          "Puedes volver primero diez lugares: 54 a 44.",
+          "Retrocede ocho más desde 44."
         ],
-        "retroalimentacion": "42 − 25 = 17. Revisa si la historia quita para elegir la operación correcta.",
+        "retroalimentacion": "La nueva posición es 36: 54 − 18 = 36. Avanzar habría aumentado el número.",
         "operacion": {
           "tipo": "resta",
-          "a": 42,
-          "b": 25
+          "a": 54,
+          "b": 18
         }
       },
       {
         "id": "e07",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "Estás en la casilla 58 del camino hacia en el patio de la escuela. Avanzas 14 casillas. ¿Dónde llegas?",
-        "respuesta": 72,
+        "enunciado": "En el juego de la rayuela, Luz avanzó 9 casillas y llegó a la 38. ¿En qué casilla empezó?",
+        "respuesta": 29,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el patio de la escuela: Ubica la casilla de salida 58.",
-          "En el patio de la escuela: Un paso por casilla: avanza 14 lugares.",
-          "En el patio de la escuela: Calcula 58 + 14 y comprueba la dirección."
+          "El punto de llegada es 38, no el de salida.",
+          "Para deshacer nueve avances, retrocede nueve.",
+          "Cuenta de 38 hacia atrás hasta 29."
         ],
-        "retroalimentacion": "58 + 14 = 72. Revisa si la historia junta para elegir la operación correcta.",
+        "retroalimentacion": "Empezó en 29 porque 29 + 9 = 38. Sumar otra vez los nueve daría un punto posterior.",
         "operacion": {
-          "tipo": "suma",
-          "a": 58,
-          "b": 14
+          "tipo": "resta",
+          "a": 38,
+          "b": 9
         }
       },
       {
         "id": "e08",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Desde la casilla 71 retrocedes 18 lugares en el tablero de chapas. ¿En qué casilla terminas?",
-        "respuesta": 53,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un robot está en 42 y debe alcanzar 36. ¿Cuál instrucción es correcta?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Al ordenar semillas: Ubica la casilla de salida 71.",
-          "Al ordenar semillas: Un paso por casilla: retrocede 18 lugares.",
-          "Al ordenar semillas: Calcula 71 − 18 y comprueba la dirección."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Avanza 6"
+          },
+          {
+            "id": "b",
+            "texto": "Retrocede 6"
+          },
+          {
+            "id": "c",
+            "texto": "Retrocede 36"
+          }
         ],
-        "retroalimentacion": "71 − 18 = 53. Revisa si la historia quita para elegir la operación correcta.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 71,
-          "b": 18
-        }
+        "pistas": [
+          "El 36 está antes del 42 en la recta.",
+          "La distancia entre ambos números es seis.",
+          "Necesitas moverte hacia atrás esa distancia."
+        ],
+        "retroalimentacion": "«Retrocede 6» lleva de 42 a 36. Avanzar 6 llevaría a 48."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "Estás en la casilla 34 del camino hacia en la tienda de la esquina. Avanzas 27 casillas. ¿Dónde llegas?",
-        "respuesta": 61,
+        "enunciado": "Un recorrido escolar comienza en la marca 34. Primero avanzas 20 y luego retrocedes 7 para recoger una tarjeta. ¿En qué marca terminas?",
+        "respuesta": 47,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la tienda de la esquina: Ubica la casilla de salida 34.",
-          "En la tienda de la esquina: Un paso por casilla: avanza 27 lugares.",
-          "En la tienda de la esquina: Calcula 34 + 27 y comprueba la dirección."
+          "Haz los movimientos en el orden narrado.",
+          "Desde 34, avanzar 20 te deja en 54.",
+          "Desde 54 retrocede 7 marcas."
         ],
-        "retroalimentacion": "34 + 27 = 61. Revisa si la historia junta para elegir la operación correcta.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 34,
-          "b": 27
-        }
+        "retroalimentacion": "Terminas en 47. Si respondiste 54, olvidaste el regreso para recoger la tarjeta."
       },
       {
         "id": "e10",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "Desde la casilla 63 retrocedes 19 lugares en el tablero de pasos. ¿En qué casilla terminas?",
-        "respuesta": 44,
+        "enunciado": "En una pista numerada, el equipo sale del 76, retrocede 18 para buscar una señal y después avanza 9. ¿Qué número ocupa al final?",
+        "respuesta": 67,
         "alternativasAceptadas": [],
         "pistas": [
-          "En una ruta por el pueblo: Ubica la casilla de salida 63.",
-          "En una ruta por el pueblo: Un paso por casilla: retrocede 19 lugares.",
-          "En una ruta por el pueblo: Calcula 63 − 19 y comprueba la dirección."
+          "El primer movimiento baja desde 76.",
+          "76 − 18 = 58; ese es el punto intermedio.",
+          "Desde 58 suma los nueve pasos finales."
         ],
-        "retroalimentacion": "63 − 19 = 44. Revisa si la historia quita para elegir la operación correcta.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 63,
-          "b": 19
-        }
+        "retroalimentacion": "Ocupa 67: 76 − 18 + 9 = 67. No sumes ambos movimientos como si fueran hacia delante."
       },
       {
         "id": "e11",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "Estás en la casilla 75 del camino hacia al preparar una kermés. Avanzas 16 casillas. ¿Dónde llegas?",
-        "respuesta": 91,
+        "enunciado": "Nora está en la casilla 63. Una tarjeta dice «avanza 12» y otra «retrocede 12»; debe usar ambas en ese orden. ¿Dónde termina?",
+        "respuesta": 63,
         "alternativasAceptadas": [],
         "pistas": [
-          "Al preparar una kermés: Ubica la casilla de salida 75.",
-          "Al preparar una kermés: Un paso por casilla: avanza 16 lugares.",
-          "Al preparar una kermés: Calcula 75 + 16 y comprueba la dirección."
+          "Los dos desplazamientos tienen la misma longitud.",
+          "Primero llega de 63 a 75.",
+          "Luego vuelve doce lugares desde 75."
         ],
-        "retroalimentacion": "75 + 16 = 91. Revisa si la historia junta para elegir la operación correcta.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 75,
-          "b": 16
-        }
+        "retroalimentacion": "Termina otra vez en 63. Los avances y retrocesos iguales se deshacen."
       },
       {
         "id": "e12",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Desde la casilla 48 retrocedes 29 lugares en el tablero de figuritas. ¿En qué casilla terminas?",
-        "respuesta": 19,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un peón empezó en 29, avanzó 15 casillas y retrocedió 6. ¿Qué recorrido numérico describe sus paradas?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "En una colección de figuritas: Ubica la casilla de salida 48.",
-          "En una colección de figuritas: Un paso por casilla: retrocede 29 lugares.",
-          "En una colección de figuritas: Calcula 48 − 29 y comprueba la dirección."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "29 → 44 → 38"
+          },
+          {
+            "id": "b",
+            "texto": "29 → 14 → 8"
+          },
+          {
+            "id": "c",
+            "texto": "29 → 44 → 50"
+          }
         ],
-        "retroalimentacion": "48 − 29 = 19. Revisa si la historia quita para elegir la operación correcta.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 48,
-          "b": 29
-        }
+        "pistas": [
+          "Primero representa los quince lugares hacia delante.",
+          "29 + 15 = 44 es la parada intermedia.",
+          "Después de 44, vuelve seis para llegar a 38."
+        ],
+        "retroalimentacion": "«29 → 44 → 38» respeta ambas direcciones; «29 → 44 → 50» avanza también en el segundo paso."
       }
     ],
     "fuentes": [
@@ -982,94 +1033,98 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En la feria del colegio, Rosa cuenta 17 mandarinas y Luis cuenta 12 mandarinas. ¿Cuántos mandarinas más tiene Rosa?",
-        "respuesta": 5,
+        "enunciado": "Rosa tiene 9 botones y Leo 6. ¿Cuántos botones más tiene Rosa?",
+        "respuesta": 3,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la feria del colegio: Identifica el grupo mayor (17) y el menor (12).",
-          "En la feria del colegio: Para hallar lo que los separa, busca cuánto falta desde 12 hasta 17.",
-          "En la feria del colegio: Haz 17 − 12; la diferencia es la cantidad que se compara."
+          "Compara solo las colecciones de Rosa y Leo.",
+          "Busca la distancia de 6 hasta 9.",
+          "Quita 6 de 9 para hallar la diferencia."
         ],
-        "retroalimentacion": "17 − 12 = 5. Si sumaste los grupos, obtuviste un total, no la diferencia.",
+        "retroalimentacion": "Rosa tiene 3 botones más: 9 − 6 = 3. Sumar daría todos los botones juntos.",
         "operacion": {
           "tipo": "resta",
-          "a": 17,
-          "b": 12
+          "a": 9,
+          "b": 6
         }
       },
       {
         "id": "e02",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En una caja de material del aula, Rosa cuenta 37 cuentos y Luis cuenta 23 cuentos. ¿Cuántos cuentos más tiene Rosa?",
-        "respuesta": 14,
+        "enunciado": "En dos macetas crecieron 18 y 13 flores. ¿Cuántas flores menos tiene la segunda maceta?",
+        "respuesta": 5,
         "alternativasAceptadas": [],
         "pistas": [
-          "En una caja de material del aula: Identifica el grupo mayor (37) y el menor (23).",
-          "En una caja de material del aula: Para hallar lo que los separa, busca cuánto falta desde 23 hasta 37.",
-          "En una caja de material del aula: Haz 37 − 23; la diferencia es la cantidad que se compara."
+          "La segunda maceta tiene 13 flores.",
+          "Compara 13 con las 18 de la primera.",
+          "Cuenta desde 13 hasta 18."
         ],
-        "retroalimentacion": "37 − 23 = 14. Si sumaste los grupos, obtuviste un total, no la diferencia.",
+        "retroalimentacion": "La segunda tiene 5 flores menos. La diferencia es la misma que «5 más» en la primera.",
         "operacion": {
           "tipo": "resta",
-          "a": 37,
-          "b": 23
+          "a": 18,
+          "b": 13
         }
       },
       {
         "id": "e03",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Durante una visita a la biblioteca, Rosa cuenta 48 semillas y Luis cuenta 36 semillas. ¿Cuántos semillas más tiene Rosa?",
-        "respuesta": 12,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un equipo reunió 12 chapas y otro 8. ¿Qué cuenta permite saber la diferencia entre ellos?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Durante una visita a la biblioteca: Identifica el grupo mayor (48) y el menor (36).",
-          "Durante una visita a la biblioteca: Para hallar lo que los separa, busca cuánto falta desde 36 hasta 48.",
-          "Durante una visita a la biblioteca: Haz 48 − 36; la diferencia es la cantidad que se compara."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12 + 8"
+          },
+          {
+            "id": "b",
+            "texto": "12 − 8"
+          },
+          {
+            "id": "c",
+            "texto": "8 + 8"
+          }
         ],
-        "retroalimentacion": "48 − 36 = 12. Si sumaste los grupos, obtuviste un total, no la diferencia.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 48,
-          "b": 36
-        }
+        "pistas": [
+          "La pregunta no pide reunir las chapas de ambos equipos.",
+          "La diferencia es lo que excede el grupo de 12 al de 8.",
+          "Resta la cantidad menor de la mayor."
+        ],
+        "retroalimentacion": "«12 − 8» halla la diferencia de 4 chapas. «12 + 8» halla un total distinto."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En el mercado del barrio, Rosa cuenta 58 choclos y Luis cuenta 50 choclos. ¿Cuántos choclos más tiene Rosa?",
-        "respuesta": 8,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una niña tiene 15 figuritas y su hermano 11. Ella tiene 4 figuritas más.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el mercado del barrio: Identifica el grupo mayor (58) y el menor (50).",
-          "En el mercado del barrio: Para hallar lo que los separa, busca cuánto falta desde 50 hasta 58.",
-          "En el mercado del barrio: Haz 58 − 50; la diferencia es la cantidad que se compara."
+          "Identifica quién posee la cantidad mayor.",
+          "Desde 11 cuenta cuatro pasos: 12, 13, 14 y 15.",
+          "Comprueba 15 − 11."
         ],
-        "retroalimentacion": "58 − 50 = 8. Si sumaste los grupos, obtuviste un total, no la diferencia.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 58,
-          "b": 50
-        }
+        "retroalimentacion": "Es verdadero: la diferencia entre 15 y 11 es 4."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En la chacra de la familia, Rosa cuenta 43 cuyes y Luis cuenta 27 cuyes. ¿Cuántos cuyes más tiene Rosa?",
-        "respuesta": 16,
+        "enunciado": "La biblioteca de 2.° A prestó 34 libros y la de 2.° B, 27. ¿Por cuántos préstamos superó 2.° A a 2.° B?",
+        "respuesta": 7,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la chacra de la familia: Identifica el grupo mayor (43) y el menor (27).",
-          "En la chacra de la familia: Para hallar lo que los separa, busca cuánto falta desde 27 hasta 43.",
-          "En la chacra de la familia: Haz 43 − 27; la diferencia es la cantidad que se compara."
+          "Compara los préstamos de las dos aulas, no los juntes.",
+          "34 es mayor que 27.",
+          "Resta 34 − 27; puedes canjear una decena."
         ],
-        "retroalimentacion": "43 − 27 = 16. Si sumaste los grupos, obtuviste un total, no la diferencia.",
+        "retroalimentacion": "2.° A superó por 7 préstamos. Si obtuviste 61, hallaste el total de ambas aulas.",
         "operacion": {
           "tipo": "resta",
-          "a": 43,
+          "a": 34,
           "b": 27
         }
       },
@@ -1077,18 +1132,18 @@
         "id": "e06",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En el juego de tarjetas, Rosa cuenta 67 tarjetas rojas y Luis cuenta 42 tarjetas rojas. ¿Cuántos tarjetas rojas más tiene Rosa?",
-        "respuesta": 25,
+        "enunciado": "Una vendedora llevó 56 choclos; su vecina llevó 42. ¿Cuántos choclos menos llevó la vecina?",
+        "respuesta": 14,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el juego de tarjetas: Identifica el grupo mayor (67) y el menor (42).",
-          "En el juego de tarjetas: Para hallar lo que los separa, busca cuánto falta desde 42 hasta 67.",
-          "En el juego de tarjetas: Haz 67 − 42; la diferencia es la cantidad que se compara."
+          "La vecina es quien llevó 42.",
+          "La pregunta compara su cantidad con 56.",
+          "Calcula cuánto separa 42 de 56."
         ],
-        "retroalimentacion": "67 − 42 = 25. Si sumaste los grupos, obtuviste un total, no la diferencia.",
+        "retroalimentacion": "Llevó 14 menos: 56 − 42 = 14. La frase «menos» expresa la misma diferencia.",
         "operacion": {
           "tipo": "resta",
-          "a": 67,
+          "a": 56,
           "b": 42
         }
       },
@@ -1096,115 +1151,133 @@
         "id": "e07",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En el patio de la escuela, Rosa cuenta 72 tizas y Luis cuenta 58 tizas. ¿Cuántos tizas más tiene Rosa?",
-        "respuesta": 14,
+        "enunciado": "En la feria, el puesto azul vendió 25 jugos. El rojo vendió 9 más. ¿Cuántos jugos vendió el rojo?",
+        "respuesta": 34,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el patio de la escuela: Identifica el grupo mayor (72) y el menor (58).",
-          "En el patio de la escuela: Para hallar lo que los separa, busca cuánto falta desde 58 hasta 72.",
-          "En el patio de la escuela: Haz 72 − 58; la diferencia es la cantidad que se compara."
+          "Los 25 jugos pertenecen al puesto azul.",
+          "«9 más» indica que el rojo supera al azul por 9.",
+          "Agrega la diferencia a 25."
         ],
-        "retroalimentacion": "72 − 58 = 14. Si sumaste los grupos, obtuviste un total, no la diferencia.",
+        "retroalimentacion": "El rojo vendió 34 jugos: 25 + 9 = 34. Aquí se pide la cantidad mayor, no la diferencia.",
         "operacion": {
-          "tipo": "resta",
-          "a": 72,
-          "b": 58
+          "tipo": "suma",
+          "a": 25,
+          "b": 9
         }
       },
       {
         "id": "e08",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Al ordenar semillas, Rosa cuenta 89 chapas y Luis cuenta 71 chapas. ¿Cuántos chapas más tiene Rosa?",
-        "respuesta": 18,
+        "tipo": "opcion_multiple",
+        "enunciado": "El grupo de Carmen tiene 41 semillas y el de Ana 29. ¿Qué frase compara correctamente ambos grupos?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Al ordenar semillas: Identifica el grupo mayor (89) y el menor (71).",
-          "Al ordenar semillas: Para hallar lo que los separa, busca cuánto falta desde 71 hasta 89.",
-          "Al ordenar semillas: Haz 89 − 71; la diferencia es la cantidad que se compara."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Carmen tiene 12 semillas más que Ana"
+          },
+          {
+            "id": "b",
+            "texto": "Ana tiene 12 semillas más que Carmen"
+          },
+          {
+            "id": "c",
+            "texto": "Entre las dos tienen 12 semillas"
+          }
         ],
-        "retroalimentacion": "89 − 71 = 18. Si sumaste los grupos, obtuviste un total, no la diferencia.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 89,
-          "b": 71
-        }
+        "pistas": [
+          "El grupo de Carmen es el mayor.",
+          "Busca cuánto hay entre 29 y 41.",
+          "41 − 29 = 12; nombra quién tiene más."
+        ],
+        "retroalimentacion": "«Carmen tiene 12 semillas más que Ana» compara correctamente. Las dos juntas tienen 70."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En la tienda de la esquina, Rosa cuenta 61 panes y Luis cuenta 34 panes. ¿Cuántos panes más tiene Rosa?",
-        "respuesta": 27,
+        "enunciado": "En una campaña, una clase recolectó 63 botellas y otra 38; también juntaron 14 tapas. ¿Cuántas botellas más reunió la primera clase?",
+        "respuesta": 25,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la tienda de la esquina: Identifica el grupo mayor (61) y el menor (34).",
-          "En la tienda de la esquina: Para hallar lo que los separa, busca cuánto falta desde 34 hasta 61.",
-          "En la tienda de la esquina: Haz 61 − 34; la diferencia es la cantidad que se compara."
+          "La pregunta es por botellas; deja fuera las 14 tapas.",
+          "Compara las 63 botellas con las 38.",
+          "Haz 63 − 38 usando canje en las unidades."
         ],
-        "retroalimentacion": "61 − 34 = 27. Si sumaste los grupos, obtuviste un total, no la diferencia.",
+        "retroalimentacion": "La primera reunió 25 botellas más. Contar tapas o sumar botellas no responde la comparación.",
         "operacion": {
           "tipo": "resta",
-          "a": 61,
-          "b": 34
+          "a": 63,
+          "b": 38
         }
       },
       {
         "id": "e10",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En una ruta por el pueblo, Rosa cuenta 82 pasos y Luis cuenta 63 pasos. ¿Cuántos pasos más tiene Rosa?",
-        "respuesta": 19,
+        "enunciado": "La ruta de Julia mide 74 pasos y la de Omar 49. ¿Cuántos pasos más corta es la ruta de Omar?",
+        "respuesta": 25,
         "alternativasAceptadas": [],
         "pistas": [
-          "En una ruta por el pueblo: Identifica el grupo mayor (82) y el menor (63).",
-          "En una ruta por el pueblo: Para hallar lo que los separa, busca cuánto falta desde 63 hasta 82.",
-          "En una ruta por el pueblo: Haz 82 − 63; la diferencia es la cantidad que se compara."
+          "«Más corta» pide la diferencia entre las dos rutas.",
+          "74 pasos corresponden al recorrido largo.",
+          "Resta 49 de 74 y comprueba que 49 + tu respuesta sea 74."
         ],
-        "retroalimentacion": "82 − 63 = 19. Si sumaste los grupos, obtuviste un total, no la diferencia.",
+        "retroalimentacion": "La ruta de Omar es 25 pasos más corta. Si sumaste, obtuviste la longitud de ambas rutas juntas.",
         "operacion": {
           "tipo": "resta",
-          "a": 82,
-          "b": 63
+          "a": 74,
+          "b": 49
         }
       },
       {
         "id": "e11",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "Al preparar una kermés, Rosa cuenta 91 globos y Luis cuenta 75 globos. ¿Cuántos globos más tiene Rosa?",
-        "respuesta": 16,
+        "enunciado": "Un comedor preparó 58 porciones el lunes. El martes preparó 17 porciones menos. ¿Cuántas preparó el martes?",
+        "respuesta": 41,
         "alternativasAceptadas": [],
         "pistas": [
-          "Al preparar una kermés: Identifica el grupo mayor (91) y el menor (75).",
-          "Al preparar una kermés: Para hallar lo que los separa, busca cuánto falta desde 75 hasta 91.",
-          "Al preparar una kermés: Haz 91 − 75; la diferencia es la cantidad que se compara."
+          "El lunes se prepararon 58 porciones.",
+          "«17 menos» describe una cantidad menor para el martes.",
+          "Resta 17 a 58 para obtener la cantidad del martes."
         ],
-        "retroalimentacion": "91 − 75 = 16. Si sumaste los grupos, obtuviste un total, no la diferencia.",
+        "retroalimentacion": "El martes preparó 41 porciones. Si respondiste 17, diste solo la diferencia.",
         "operacion": {
           "tipo": "resta",
-          "a": 91,
-          "b": 75
+          "a": 58,
+          "b": 17
         }
       },
       {
         "id": "e12",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En una colección de figuritas, Rosa cuenta 77 figuritas y Luis cuenta 48 figuritas. ¿Cuántos figuritas más tiene Rosa?",
-        "respuesta": 29,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una tabla, la fila de mangos marca 86 y la de plátanos 57. ¿Cuál afirmación usa correctamente «cuántos más»?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "En una colección de figuritas: Identifica el grupo mayor (77) y el menor (48).",
-          "En una colección de figuritas: Para hallar lo que los separa, busca cuánto falta desde 48 hasta 77.",
-          "En una colección de figuritas: Haz 77 − 48; la diferencia es la cantidad que se compara."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Hay 143 mangos más"
+          },
+          {
+            "id": "b",
+            "texto": "Hay 29 mangos más que plátanos"
+          },
+          {
+            "id": "c",
+            "texto": "Hay 29 plátanos más que mangos"
+          }
         ],
-        "retroalimentacion": "77 − 48 = 29. Si sumaste los grupos, obtuviste un total, no la diferencia.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 77,
-          "b": 48
-        }
+        "pistas": [
+          "La cantidad mayor corresponde a los mangos.",
+          "Resta 86 − 57 para medir cuánto supera a 57.",
+          "Después del cálculo, nombra la fruta que tiene la cantidad mayor."
+        ],
+        "retroalimentacion": "«Hay 29 mangos más que plátanos» expresa la comparación. 143 sería el total, no «cuántos más»."
       }
     ],
     "fuentes": [
@@ -1283,94 +1356,98 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En la feria del colegio, un grupo tiene 17 mandarinas y otro 12. ¿Cuántos necesita el grupo menor para tener lo mismo?",
-        "respuesta": 5,
+        "enunciado": "Un vaso tiene 6 palitos y otro 9. ¿Cuántos palitos debes agregar al primero para que ambos tengan 9?",
+        "respuesta": 3,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la feria del colegio: Identifica el grupo mayor (17) y el menor (12).",
-          "En la feria del colegio: Para hallar lo que los separa, busca cuánto falta desde 12 hasta 17.",
-          "En la feria del colegio: Haz 17 − 12; la diferencia es la cantidad que se compara."
+          "El vaso que recibirá palitos es el de 6.",
+          "Debe llegar al mismo número que el vaso de 9.",
+          "Cuenta 7, 8 y 9: son tres palitos nuevos."
         ],
-        "retroalimentacion": "17 − 12 = 5. Si sumaste los grupos, obtuviste un total, no la diferencia.",
+        "retroalimentacion": "Agrega 3 palitos. Con 6 + 3, los dos vasos tendrán 9.",
         "operacion": {
           "tipo": "resta",
-          "a": 17,
-          "b": 12
+          "a": 9,
+          "b": 6
         }
       },
       {
         "id": "e02",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En una caja de material del aula, un grupo tiene 37 cuentos y otro 23. ¿Cuántos necesita el grupo menor para tener lo mismo?",
-        "respuesta": 14,
+        "enunciado": "Hay 15 bloques en una torre y 11 en otra. ¿Cuántos debes quitar de la torre alta para que tengan la misma cantidad?",
+        "respuesta": 4,
         "alternativasAceptadas": [],
         "pistas": [
-          "En una caja de material del aula: Identifica el grupo mayor (37) y el menor (23).",
-          "En una caja de material del aula: Para hallar lo que los separa, busca cuánto falta desde 23 hasta 37.",
-          "En una caja de material del aula: Haz 37 − 23; la diferencia es la cantidad que se compara."
+          "La torre alta tiene 15 bloques.",
+          "La otra tiene 11 y no cambiará.",
+          "Quita la diferencia entre 15 y 11."
         ],
-        "retroalimentacion": "37 − 23 = 14. Si sumaste los grupos, obtuviste un total, no la diferencia.",
+        "retroalimentacion": "Debes quitar 4 bloques: 15 − 4 = 11. Sumar haría más alta la torre.",
         "operacion": {
           "tipo": "resta",
-          "a": 37,
-          "b": 23
+          "a": 15,
+          "b": 11
         }
       },
       {
         "id": "e03",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Durante una visita a la biblioteca, un grupo tiene 48 semillas y otro 36. ¿Cuántos necesita el grupo menor para tener lo mismo?",
-        "respuesta": 12,
+        "tipo": "opcion_multiple",
+        "enunciado": "Lina guardó 8 canicas y Tomás 12. Lina quiere tener tantas como Tomás sin quitarle ninguna. ¿Qué debe hacer?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Durante una visita a la biblioteca: Identifica el grupo mayor (48) y el menor (36).",
-          "Durante una visita a la biblioteca: Para hallar lo que los separa, busca cuánto falta desde 36 hasta 48.",
-          "Durante una visita a la biblioteca: Haz 48 − 36; la diferencia es la cantidad que se compara."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Agregar 4 canicas a su grupo"
+          },
+          {
+            "id": "b",
+            "texto": "Quitar 4 de su grupo"
+          },
+          {
+            "id": "c",
+            "texto": "Agregar 12 a su grupo"
+          }
         ],
-        "retroalimentacion": "48 − 36 = 12. Si sumaste los grupos, obtuviste un total, no la diferencia.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 48,
-          "b": 36
-        }
+        "pistas": [
+          "Lina tiene menos canicas: empieza en 8.",
+          "La meta es llegar a 12.",
+          "Cuenta cuatro canicas desde 8 hasta 12."
+        ],
+        "retroalimentacion": "«Agregar 4 canicas a su grupo» iguala 8 con 12. Quitar aumentaría la diferencia."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En el mercado del barrio, un grupo tiene 58 choclos y otro 50. ¿Cuántos necesita el grupo menor para tener lo mismo?",
-        "respuesta": 8,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos bandejas tienen 18 y 13 galletas. Si quitas 5 de la primera, ambas quedan con 13.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el mercado del barrio: Identifica el grupo mayor (58) y el menor (50).",
-          "En el mercado del barrio: Para hallar lo que los separa, busca cuánto falta desde 50 hasta 58.",
-          "En el mercado del barrio: Haz 58 − 50; la diferencia es la cantidad que se compara."
+          "Compara las dos cantidades iniciales.",
+          "La bandeja de 18 es la que puede disminuir.",
+          "Comprueba 18 − 5."
         ],
-        "retroalimentacion": "58 − 50 = 8. Si sumaste los grupos, obtuviste un total, no la diferencia.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 58,
-          "b": 50
-        }
+        "retroalimentacion": "Es verdadero: después de quitar 5, la primera también tiene 13 galletas."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En la chacra de la familia, un grupo tiene 43 cuyes y otro 27. ¿Cuántos necesita el grupo menor para tener lo mismo?",
-        "respuesta": 16,
+        "enunciado": "En un cajón hay 27 cuadernos y en otro 41. ¿Cuántos cuadernos nuevos necesita el primero para igualar al segundo?",
+        "respuesta": 14,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la chacra de la familia: Identifica el grupo mayor (43) y el menor (27).",
-          "En la chacra de la familia: Para hallar lo que los separa, busca cuánto falta desde 27 hasta 43.",
-          "En la chacra de la familia: Haz 43 − 27; la diferencia es la cantidad que se compara."
+          "La meta del primer cajón es 41.",
+          "Comienza con 27 y encuentra cuánto le falta.",
+          "Calcula 41 − 27; verifica con una suma."
         ],
-        "retroalimentacion": "43 − 27 = 16. Si sumaste los grupos, obtuviste un total, no la diferencia.",
+        "retroalimentacion": "Necesita 14 cuadernos nuevos: 27 + 14 = 41.",
         "operacion": {
           "tipo": "resta",
-          "a": 43,
+          "a": 41,
           "b": 27
         }
       },
@@ -1378,134 +1455,152 @@
         "id": "e06",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En el juego de tarjetas, un grupo tiene 67 tarjetas rojas y otro 42. ¿Cuántos necesita el grupo menor para tener lo mismo?",
-        "respuesta": 25,
+        "enunciado": "Un estante sostiene 52 libros y otro 36. ¿Cuántos deben retirarse del primero para que ambos muestren 36?",
+        "respuesta": 16,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el juego de tarjetas: Identifica el grupo mayor (67) y el menor (42).",
-          "En el juego de tarjetas: Para hallar lo que los separa, busca cuánto falta desde 42 hasta 67.",
-          "En el juego de tarjetas: Haz 67 − 42; la diferencia es la cantidad que se compara."
+          "Solo cambiará el estante de 52 libros.",
+          "Después debe quedar con los mismos 36 que el otro.",
+          "La cantidad retirada es 52 − 36."
         ],
-        "retroalimentacion": "67 − 42 = 25. Si sumaste los grupos, obtuviste un total, no la diferencia.",
+        "retroalimentacion": "Retira 16 libros. Si retiraras 36, quedarían 16 y no estarían iguales.",
         "operacion": {
           "tipo": "resta",
-          "a": 67,
-          "b": 42
+          "a": 52,
+          "b": 36
         }
       },
       {
         "id": "e07",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En el patio de la escuela, un grupo tiene 72 tizas y otro 58. ¿Cuántos necesita el grupo menor para tener lo mismo?",
-        "respuesta": 14,
+        "enunciado": "En dos equipos hay 24 y 39 puntos. El equipo menor recibe puntos hasta empatar. ¿Cuántos puntos debe recibir?",
+        "respuesta": 15,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el patio de la escuela: Identifica el grupo mayor (72) y el menor (58).",
-          "En el patio de la escuela: Para hallar lo que los separa, busca cuánto falta desde 58 hasta 72.",
-          "En el patio de la escuela: Haz 72 − 58; la diferencia es la cantidad que se compara."
+          "La puntuación menor es 24.",
+          "Busca cuántos pasos hay de 24 a 39.",
+          "Puedes llegar a 30 con 6 y luego a 39 con 9."
         ],
-        "retroalimentacion": "72 − 58 = 14. Si sumaste los grupos, obtuviste un total, no la diferencia.",
+        "retroalimentacion": "Debe recibir 15 puntos: 6 + 9 = 15. El empate queda en 39.",
         "operacion": {
           "tipo": "resta",
-          "a": 72,
-          "b": 58
+          "a": 39,
+          "b": 24
         }
       },
       {
         "id": "e08",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Al ordenar semillas, un grupo tiene 89 chapas y otro 71. ¿Cuántos necesita el grupo menor para tener lo mismo?",
-        "respuesta": 18,
+        "tipo": "opcion_multiple",
+        "enunciado": "Hay 46 semillas en un frasco y 31 en otro. ¿Cuál acción iguala los frascos sin agregar semillas nuevas?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Al ordenar semillas: Identifica el grupo mayor (89) y el menor (71).",
-          "Al ordenar semillas: Para hallar lo que los separa, busca cuánto falta desde 71 hasta 89.",
-          "Al ordenar semillas: Haz 89 − 71; la diferencia es la cantidad que se compara."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Quitar 15 del frasco de 46"
+          },
+          {
+            "id": "b",
+            "texto": "Quitar 15 del frasco de 31"
+          },
+          {
+            "id": "c",
+            "texto": "Quitar 31 del frasco de 46"
+          }
         ],
-        "retroalimentacion": "89 − 71 = 18. Si sumaste los grupos, obtuviste un total, no la diferencia.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 89,
-          "b": 71
-        }
+        "pistas": [
+          "Sin semillas nuevas, solo puedes reducir un grupo.",
+          "El frasco mayor tiene 46 y debe llegar a 31.",
+          "46 − 31 = 15 indica cuántas quitar."
+        ],
+        "retroalimentacion": "«Quitar 15 del frasco de 46» deja 31 en cada uno. Quitar del frasco menor aumenta la diferencia."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En la tienda de la esquina, un grupo tiene 61 panes y otro 34. ¿Cuántos necesita el grupo menor para tener lo mismo?",
-        "respuesta": 27,
+        "enunciado": "Una caja tiene 63 lápices y otra 48. También hay 12 borradores en una mesa. ¿Cuántos lápices debes agregar a la segunda caja para igualarlas?",
+        "respuesta": 15,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la tienda de la esquina: Identifica el grupo mayor (61) y el menor (34).",
-          "En la tienda de la esquina: Para hallar lo que los separa, busca cuánto falta desde 34 hasta 61.",
-          "En la tienda de la esquina: Haz 61 − 34; la diferencia es la cantidad que se compara."
+          "Compara solo las cajas de lápices; los borradores no se usan.",
+          "La segunda caja parte de 48 y debe llegar a 63.",
+          "Resta 63 − 48 para hallar lo que falta."
         ],
-        "retroalimentacion": "61 − 34 = 27. Si sumaste los grupos, obtuviste un total, no la diferencia.",
+        "retroalimentacion": "Se agregan 15 lápices: 48 + 15 = 63. Los borradores no afectan el empate.",
         "operacion": {
           "tipo": "resta",
-          "a": 61,
-          "b": 34
+          "a": 63,
+          "b": 48
         }
       },
       {
         "id": "e10",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En una ruta por el pueblo, un grupo tiene 82 pasos y otro 63. ¿Cuántos necesita el grupo menor para tener lo mismo?",
-        "respuesta": 19,
+        "enunciado": "Para que dos puestos tengan 72 panes, uno con 45 debe recibir una entrega. ¿De cuántos panes será esa entrega?",
+        "respuesta": 27,
         "alternativasAceptadas": [],
         "pistas": [
-          "En una ruta por el pueblo: Identifica el grupo mayor (82) y el menor (63).",
-          "En una ruta por el pueblo: Para hallar lo que los separa, busca cuánto falta desde 63 hasta 82.",
-          "En una ruta por el pueblo: Haz 82 − 63; la diferencia es la cantidad que se compara."
+          "El objetivo es que el puesto de 45 llegue a 72.",
+          "Puedes avanzar de 45 a 50 y luego de 50 a 72.",
+          "Suma los faltantes 5 y 22, o resta 72 − 45."
         ],
-        "retroalimentacion": "82 − 63 = 19. Si sumaste los grupos, obtuviste un total, no la diferencia.",
+        "retroalimentacion": "La entrega debe ser de 27 panes. Dar 72 panes nuevos superaría la meta.",
         "operacion": {
           "tipo": "resta",
-          "a": 82,
-          "b": 63
+          "a": 72,
+          "b": 45
         }
       },
       {
         "id": "e11",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "Al preparar una kermés, un grupo tiene 91 globos y otro 75. ¿Cuántos necesita el grupo menor para tener lo mismo?",
-        "respuesta": 16,
+        "enunciado": "Una mesa tenía 84 vasos. Se retiraron algunos y ahora tiene tantos como otra mesa con 59. ¿Cuántos se retiraron?",
+        "respuesta": 25,
         "alternativasAceptadas": [],
         "pistas": [
-          "Al preparar una kermés: Identifica el grupo mayor (91) y el menor (75).",
-          "Al preparar una kermés: Para hallar lo que los separa, busca cuánto falta desde 75 hasta 91.",
-          "Al preparar una kermés: Haz 91 − 75; la diferencia es la cantidad que se compara."
+          "La primera mesa empezó con 84 vasos.",
+          "La cantidad final es 59, igual que la otra mesa.",
+          "Busca la parte que salió: 84 − 59."
         ],
-        "retroalimentacion": "91 − 75 = 16. Si sumaste los grupos, obtuviste un total, no la diferencia.",
+        "retroalimentacion": "Se retiraron 25 vasos, porque 84 − 25 = 59.",
         "operacion": {
           "tipo": "resta",
-          "a": 91,
-          "b": 75
+          "a": 84,
+          "b": 59
         }
       },
       {
         "id": "e12",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En una colección de figuritas, un grupo tiene 77 figuritas y otro 48. ¿Cuántos necesita el grupo menor para tener lo mismo?",
-        "respuesta": 29,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos salones tienen 38 y 67 cartulinas. ¿Cuál de estas acciones los deja con igual cantidad?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "En una colección de figuritas: Identifica el grupo mayor (77) y el menor (48).",
-          "En una colección de figuritas: Para hallar lo que los separa, busca cuánto falta desde 48 hasta 77.",
-          "En una colección de figuritas: Haz 77 − 48; la diferencia es la cantidad que se compara."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Agregar 29 al salón de 38"
+          },
+          {
+            "id": "b",
+            "texto": "Quitar 29 al salón de 38"
+          },
+          {
+            "id": "c",
+            "texto": "Agregar 67 al salón de 38"
+          }
         ],
-        "retroalimentacion": "77 − 48 = 29. Si sumaste los grupos, obtuviste un total, no la diferencia.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 77,
-          "b": 48
-        }
+        "pistas": [
+          "El salón de 38 necesita alcanzar al de 67.",
+          "La diferencia es 67 − 38 = 29.",
+          "Agrega esa diferencia al grupo menor."
+        ],
+        "retroalimentacion": "«Agregar 29 al salón de 38» deja 67 en ambos. Quitar 29 del menor lo alejaría del empate."
       }
     ],
     "fuentes": [
@@ -1590,169 +1685,211 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En la feria del colegio había 12 mandarinas; llegaron 5 más y luego se llevaron 2. ¿Cuántos quedan?",
-        "respuesta": 15,
+        "enunciado": "Nina tenía 6 canicas. Ganó 4 en una ronda y regaló 2 a su primo. ¿Con cuántas terminó?",
+        "respuesta": 8,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la feria del colegio: Sigue las dos acciones en el orden del relato de en la feria del colegio.",
-          "En la feria del colegio: Primero junta 12 y 5; después quita 2.",
-          "En la feria del colegio: Calcula 12 + 5 y a ese total réstale 2."
+          "Empieza con las seis canicas de Nina.",
+          "Después de ganar cuatro, tiene diez.",
+          "De esas diez, aparta las dos que regaló."
         ],
-        "retroalimentacion": "Primero 12 + 5 = 17; luego 17 − 2 = 15. Si te salió 17, faltó la segunda acción."
+        "retroalimentacion": "Terminó con 8 canicas: 6 + 4 − 2 = 8. Diez es solo el resultado intermedio."
       },
       {
         "id": "e02",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En una caja de material del aula había 23 cuentos; llegaron 14 más y luego se llevaron 7. ¿Cuántos quedan?",
-        "respuesta": 30,
+        "enunciado": "En una mesa había 15 panes. Vendieron 5 y luego pusieron 3 recién horneados. ¿Cuántos hay ahora?",
+        "respuesta": 13,
         "alternativasAceptadas": [],
         "pistas": [
-          "En una caja de material del aula: Sigue las dos acciones en el orden del relato de en una caja de material del aula.",
-          "En una caja de material del aula: Primero junta 23 y 14; después quita 7.",
-          "En una caja de material del aula: Calcula 23 + 14 y a ese total réstale 7."
+          "La venta ocurre antes de la llegada de panes nuevos.",
+          "Primero quedan 15 − 5 = 10.",
+          "Suma los tres panes recién horneados a esos diez."
         ],
-        "retroalimentacion": "Primero 23 + 14 = 37; luego 37 − 7 = 30. Si te salió 37, faltó la segunda acción."
+        "retroalimentacion": "Ahora hay 13 panes. Si sumaste primero y restaste después, revisa el orden de la historia."
       },
       {
         "id": "e03",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "Durante una visita a la biblioteca había 36 semillas; llegaron 12 más y luego se llevaron 6. ¿Cuántos quedan?",
-        "respuesta": 42,
+        "enunciado": "Una planta tenía 12 hojas. Se cayeron 3 y brotaron 2 nuevas. ¿Cuántas hojas tiene al final?",
+        "respuesta": 11,
         "alternativasAceptadas": [],
         "pistas": [
-          "Durante una visita a la biblioteca: Sigue las dos acciones en el orden del relato de durante una visita a la biblioteca.",
-          "Durante una visita a la biblioteca: Primero junta 36 y 12; después quita 6.",
-          "Durante una visita a la biblioteca: Calcula 36 + 12 y a ese total réstale 6."
+          "Las hojas caídas salen del conteo.",
+          "Después de perder tres, quedan nueve.",
+          "Agrega las dos hojas que brotaron."
         ],
-        "retroalimentacion": "Primero 36 + 12 = 48; luego 48 − 6 = 42. Si te salió 48, faltó la segunda acción."
+        "retroalimentacion": "La planta termina con 11 hojas: 12 − 3 + 2 = 11."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En el mercado del barrio había 50 choclos; llegaron 8 más y luego se llevaron 4. ¿Cuántos quedan?",
-        "respuesta": 54,
+        "tipo": "opcion_multiple",
+        "enunciado": "Había 8 niñas jugando. Llegaron 5 niños y luego 4 estudiantes se fueron. ¿Qué cuenta sigue el orden de los hechos?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "En el mercado del barrio: Sigue las dos acciones en el orden del relato de en el mercado del barrio.",
-          "En el mercado del barrio: Primero junta 50 y 8; después quita 4.",
-          "En el mercado del barrio: Calcula 50 + 8 y a ese total réstale 4."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8 + 5 − 4"
+          },
+          {
+            "id": "b",
+            "texto": "8 − 5 + 4"
+          },
+          {
+            "id": "c",
+            "texto": "8 + 5 + 4"
+          }
         ],
-        "retroalimentacion": "Primero 50 + 8 = 58; luego 58 − 4 = 54. Si te salió 58, faltó la segunda acción."
+        "pistas": [
+          "Primero se incorporan cinco estudiantes.",
+          "Después se retiran cuatro del grupo reunido.",
+          "Busca una suma seguida de una resta."
+        ],
+        "retroalimentacion": "«8 + 5 − 4» respeta las dos acciones. Sumar también los cuatro que se fueron los dejaría en el juego."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En la chacra de la familia había 27 cuyes; llegaron 16 más y luego se llevaron 8. ¿Cuántos quedan?",
-        "respuesta": 35,
+        "enunciado": "La biblioteca guardaba 27 cuentos. Prestó 9 por la mañana y recibió 14 de otra aula por la tarde. ¿Cuántos tiene al cerrar?",
+        "respuesta": 32,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la chacra de la familia: Sigue las dos acciones en el orden del relato de en la chacra de la familia.",
-          "En la chacra de la familia: Primero junta 27 y 16; después quita 8.",
-          "En la chacra de la familia: Calcula 27 + 16 y a ese total réstale 8."
+          "El préstamo reduce los 27 cuentos iniciales.",
+          "Por la mañana quedan 27 − 9 = 18.",
+          "Por la tarde agrega 14 a los 18 restantes."
         ],
-        "retroalimentacion": "Primero 27 + 16 = 43; luego 43 − 8 = 35. Si te salió 43, faltó la segunda acción."
+        "retroalimentacion": "Al cerrar tiene 32 cuentos. Si contestaste 18, faltó la segunda acción."
       },
       {
         "id": "e06",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En el juego de tarjetas había 42 tarjetas rojas; llegaron 25 más y luego se llevaron 9. ¿Cuántos quedan?",
-        "respuesta": 58,
+        "enunciado": "Se prepararon 34 bolsas de mote. Se entregaron 16 a un grupo y 8 a otro. ¿Cuántas bolsas quedan?",
+        "respuesta": 10,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el juego de tarjetas: Sigue las dos acciones en el orden del relato de en el juego de tarjetas.",
-          "En el juego de tarjetas: Primero junta 42 y 25; después quita 9.",
-          "En el juego de tarjetas: Calcula 42 + 25 y a ese total réstale 9."
+          "Hay dos entregas que reducen el mismo lote.",
+          "Después de la primera entrega quedan 18.",
+          "Quita las otras ocho bolsas de esas 18."
         ],
-        "retroalimentacion": "Primero 42 + 25 = 67; luego 67 − 9 = 58. Si te salió 67, faltó la segunda acción."
+        "retroalimentacion": "Quedan 10 bolsas: 34 − 16 − 8 = 10. Restar solo una entrega deja demasiadas."
       },
       {
         "id": "e07",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En el patio de la escuela había 58 tizas; llegaron 14 más y luego se llevaron 7. ¿Cuántos quedan?",
-        "respuesta": 65,
+        "enunciado": "En un vivero había 42 plantones. Llegaron 18 nuevos y se vendieron 25. ¿Cuántos plantones conserva?",
+        "respuesta": 35,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el patio de la escuela: Sigue las dos acciones en el orden del relato de en el patio de la escuela.",
-          "En el patio de la escuela: Primero junta 58 y 14; después quita 7.",
-          "En el patio de la escuela: Calcula 58 + 14 y a ese total réstale 7."
+          "Los 18 nuevos se suman a los 42 del vivero.",
+          "Antes de vender hay 60 plantones.",
+          "Quita 25 de 60 para hallar los restantes."
         ],
-        "retroalimentacion": "Primero 58 + 14 = 72; luego 72 − 7 = 65. Si te salió 72, faltó la segunda acción."
+        "retroalimentacion": "Conserva 35 plantones. Sesenta es la cantidad antes de vender."
       },
       {
         "id": "e08",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Al ordenar semillas había 71 chapas; llegaron 18 más y luego se llevaron 9. ¿Cuántos quedan?",
-        "respuesta": 80,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un equipo anotó 21 puntos, sumó 14 en el segundo juego y perdió 6 por una falta. ¿Cuál expresión calcula su marcador final?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Al ordenar semillas: Sigue las dos acciones en el orden del relato de al ordenar semillas.",
-          "Al ordenar semillas: Primero junta 71 y 18; después quita 9.",
-          "Al ordenar semillas: Calcula 71 + 18 y a ese total réstale 9."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "21 − 14 + 6"
+          },
+          {
+            "id": "b",
+            "texto": "21 + 14 − 6"
+          },
+          {
+            "id": "c",
+            "texto": "21 + 14 + 6"
+          }
         ],
-        "retroalimentacion": "Primero 71 + 18 = 89; luego 89 − 9 = 80. Si te salió 89, faltó la segunda acción."
+        "pistas": [
+          "Los puntos del segundo juego aumentan el marcador.",
+          "La penalización de seis se quita al final.",
+          "Elige el cálculo que suma y después resta."
+        ],
+        "retroalimentacion": "«21 + 14 − 6» da 29 puntos. La falta no puede aumentar el marcador."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En la tienda de la esquina había 34 panes; llegaron 27 más y luego se llevaron 9. ¿Cuántos quedan?",
+        "enunciado": "Para una colecta había 56 cuadernos. Donaron 18 y luego llegaron dos cajas con 7 cuadernos cada una. ¿Cuántos hay ahora?",
         "respuesta": 52,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la tienda de la esquina: Sigue las dos acciones en el orden del relato de en la tienda de la esquina.",
-          "En la tienda de la esquina: Primero junta 34 y 27; después quita 9.",
-          "En la tienda de la esquina: Calcula 34 + 27 y a ese total réstale 9."
+          "Primero quita los 18 cuadernos donados.",
+          "Las dos cajas nuevas aportan 7 + 7 = 14.",
+          "Suma esas 14 unidades a los 38 cuadernos restantes."
         ],
-        "retroalimentacion": "Primero 34 + 27 = 61; luego 61 − 9 = 52. Si te salió 61, faltó la segunda acción."
+        "retroalimentacion": "Ahora hay 52 cuadernos: 56 − 18 + 14. Si agregaste solo una caja, te faltan siete."
       },
       {
         "id": "e10",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En una ruta por el pueblo había 63 pasos; llegaron 19 más y luego se llevaron 9. ¿Cuántos quedan?",
-        "respuesta": 73,
+        "enunciado": "Un quiosco empezó con 73 frutas. Vendió 28 en la mañana y 17 en la tarde; por la noche no recibió más. ¿Cuántas frutas le quedaron?",
+        "respuesta": 28,
         "alternativasAceptadas": [],
         "pistas": [
-          "En una ruta por el pueblo: Sigue las dos acciones en el orden del relato de en una ruta por el pueblo.",
-          "En una ruta por el pueblo: Primero junta 63 y 19; después quita 9.",
-          "En una ruta por el pueblo: Calcula 63 + 19 y a ese total réstale 9."
+          "Las dos ventas quitan frutas del mismo inventario.",
+          "Después de la mañana quedan 73 − 28 = 45.",
+          "Resta las 17 vendidas por la tarde de las 45."
         ],
-        "retroalimentacion": "Primero 63 + 19 = 82; luego 82 − 9 = 73. Si te salió 82, faltó la segunda acción."
+        "retroalimentacion": "Quedaron 28 frutas. Si respondiste 45, calculaste solo la primera venta."
       },
       {
         "id": "e11",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "Al preparar una kermés había 75 globos; llegaron 16 más y luego se llevaron 8. ¿Cuántos quedan?",
-        "respuesta": 83,
+        "enunciado": "En una campaña juntaron 38 botellas el lunes y 27 el martes. El miércoles separaron 19 para reciclar. ¿Cuántas botellas siguen sin separar?",
+        "respuesta": 46,
         "alternativasAceptadas": [],
         "pistas": [
-          "Al preparar una kermés: Sigue las dos acciones en el orden del relato de al preparar una kermés.",
-          "Al preparar una kermés: Primero junta 75 y 16; después quita 8.",
-          "Al preparar una kermés: Calcula 75 + 16 y a ese total réstale 8."
+          "Junta primero las botellas de los dos días.",
+          "38 + 27 = 65 antes de separar.",
+          "Resta las 19 recicladas del total de 65."
         ],
-        "retroalimentacion": "Primero 75 + 16 = 91; luego 91 − 8 = 83. Si te salió 91, faltó la segunda acción."
+        "retroalimentacion": "Quedan 46 botellas sin separar. Restar 19 solo de un día omite el otro."
       },
       {
         "id": "e12",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En una colección de figuritas había 48 figuritas; llegaron 29 más y luego se llevaron 9. ¿Cuántos quedan?",
-        "respuesta": 68,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja tenía 65 tizas. Sacaron 24 para dos salones y luego guardaron 13 nuevas. ¿Qué plan da el resultado final?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "En una colección de figuritas: Sigue las dos acciones en el orden del relato de en una colección de figuritas.",
-          "En una colección de figuritas: Primero junta 48 y 29; después quita 9.",
-          "En una colección de figuritas: Calcula 48 + 29 y a ese total réstale 9."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Calcular 65 − 24 y después sumar 13"
+          },
+          {
+            "id": "b",
+            "texto": "Calcular 65 + 24 y después restar 13"
+          },
+          {
+            "id": "c",
+            "texto": "Calcular 65 − 13 y después sumar 24"
+          }
         ],
-        "retroalimentacion": "Primero 48 + 29 = 77; luego 77 − 9 = 68. Si te salió 77, faltó la segunda acción."
+        "pistas": [
+          "La primera acción saca 24 tizas de la caja.",
+          "La segunda acción agrega 13 tizas nuevas.",
+          "Sigue las acciones en el orden en que ocurrieron."
+        ],
+        "retroalimentacion": "«Calcular 65 − 24 y después sumar 13» da 54 tizas. Los otros planes invierten las acciones."
       }
     ],
     "fuentes": [
@@ -1834,337 +1971,283 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En la feria del colegio: Quieres inventar un problema para 8 + 5. ¿Qué historia y pregunta sí corresponden a esa operación?",
+        "enunciado": "Datos para tu problema: hay 8 panes en una canasta y llegan 5 más. ¿Qué pregunta puedes añadir para que se resuelva con 8 + 5?",
         "respuesta": "a",
         "alternativasAceptadas": [],
         "opciones": [
           {
             "id": "a",
-            "texto": "En la feria del colegio hay 8 mandarinas y llegan 5 más. ¿Cuántos hay en total?"
+            "texto": "¿Cuántos panes hay ahora?"
           },
           {
             "id": "b",
-            "texto": "En la feria del colegio hay 8 mandarinas y se retiran 5. ¿Cuántos quedan?"
+            "texto": "¿Cuántos panes se comieron?"
           },
           {
             "id": "c",
-            "texto": "En la feria del colegio hay 8 mandarinas y 5 manzanas. ¿Cuántas mandarinas había primero?"
+            "texto": "¿Cuánto cuesta cada pan?"
           }
         ],
         "pistas": [
-          "En la feria del colegio: Piensa qué hace el signo + con una cantidad.",
-          "En la feria del colegio: En la historia correcta, llegan 5 mandarinas.",
-          "En la feria del colegio: Comprueba que la pregunta pide el total después del cambio."
+          "Los panes nuevos se juntan con los que ya había.",
+          "La pregunta debe pedir la cantidad después de la llegada.",
+          "No se habla de precios ni de panes comidos."
         ],
-        "retroalimentacion": "«En la feria del colegio hay 8 mandarinas y llegan 5 más. ¿Cuántos hay en total?» corresponde a 8 + 5; la otra acción usaría el signo contrario."
+        "retroalimentacion": "«¿Cuántos panes hay ahora?» completa una historia de suma: 8 + 5 = 13."
       },
       {
         "id": "e02",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En una caja de material del aula: Quieres inventar un problema para 17 − 4. ¿Qué historia y pregunta sí corresponden a esa operación?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "En una caja de material del aula hay 17 cuentos y llegan 4 más. ¿Cuántos hay?"
-          },
-          {
-            "id": "b",
-            "texto": "En una caja de material del aula hay 17 cuentos y se retiran 4. ¿Cuántos quedan?"
-          },
-          {
-            "id": "c",
-            "texto": "En una caja de material del aula hay 17 cuentos y 4 revistas. ¿Cuántos cuentos había primero?"
-          }
+        "tipo": "texto_corto",
+        "enunciado": "Completa una historia para 17 − 4 con la palabra que falta: «Había 17 lápices y se ____ 4. ¿Cuántos quedaron?»",
+        "respuesta": "retiraron",
+        "alternativasAceptadas": [
+          "sacaron",
+          "quitaron",
+          "usaron"
         ],
         "pistas": [
-          "En una caja de material del aula: Piensa qué hace el signo − con una cantidad.",
-          "En una caja de material del aula: En la historia correcta, se retiran 4 cuentos.",
-          "En una caja de material del aula: Comprueba que la pregunta pide lo que queda después del cambio."
+          "El grupo final debe ser menor que 17.",
+          "La acción de cuatro lápices tiene que hacerlos salir.",
+          "Busca un verbo como retirar o quitar."
         ],
-        "retroalimentacion": "«En una caja de material del aula hay 17 cuentos y se retiran 4. ¿Cuántos quedan?» corresponde a 17 − 4; la otra acción usaría el signo contrario."
+        "retroalimentacion": "«Retiraron» hace que la pregunta se resuelva con 17 − 4 = 13."
       },
       {
         "id": "e03",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Durante una visita a la biblioteca: Quieres inventar un problema para 20 + 7. ¿Qué historia y pregunta sí corresponden a esa operación?",
-        "respuesta": "c",
+        "enunciado": "Quieres inventar un problema que use 6 + 7. ¿Cuál situación representa una suma?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
         "opciones": [
           {
             "id": "a",
-            "texto": "Durante una visita a la biblioteca hay 20 semillas y se retiran 7. ¿Cuántos quedan?"
+            "texto": "Tengo 6 tazas y regalo 7. ¿Cuántas quedan?"
           },
           {
             "id": "b",
-            "texto": "Durante una visita a la biblioteca hay 20 semillas y 7 frejoles. ¿Cuántos semillas había primero?"
+            "texto": "Hay 6 tazas en una mesa y 7 en otra. ¿Cuántas hay juntas?"
           },
           {
             "id": "c",
-            "texto": "Durante una visita a la biblioteca hay 20 semillas y llegan 7 más. ¿Cuántos hay en total?"
+            "texto": "Una taza cuesta 6 soles. ¿Cuánto cuestan 7?"
           }
         ],
         "pistas": [
-          "Durante una visita a la biblioteca: Piensa qué hace el signo + con una cantidad.",
-          "Durante una visita a la biblioteca: En la historia correcta, llegan 7 semillas.",
-          "Durante una visita a la biblioteca: Comprueba que la pregunta pide el total después del cambio."
+          "Los dos sumandos son cantidades de tazas.",
+          "Una suma puede juntar tazas de dos mesas.",
+          "Descarta la historia donde se regalan tazas."
         ],
-        "retroalimentacion": "«Durante una visita a la biblioteca hay 20 semillas y llegan 7 más. ¿Cuántos hay en total?» corresponde a 20 + 7; la otra acción usaría el signo contrario."
+        "retroalimentacion": "«Hay 6 tazas en una mesa y 7 en otra. ¿Cuántas hay juntas?» representa 6 + 7."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En el mercado del barrio: Quieres inventar un problema para 14 − 6. ¿Qué historia y pregunta sí corresponden a esa operación?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "En el mercado del barrio hay 14 choclos y se retiran 6. ¿Cuántos quedan?"
-          },
-          {
-            "id": "b",
-            "texto": "En el mercado del barrio hay 14 choclos y llegan 6 más. ¿Cuántos hay?"
-          },
-          {
-            "id": "c",
-            "texto": "En el mercado del barrio hay 14 choclos y 6 camotes. ¿Cuántos choclos había primero?"
-          }
+        "tipo": "texto_corto",
+        "enunciado": "Para inventar un problema con 14 − 6, completa la pregunta: «Tengo 14 flores y regalo 6. ¿Cuántas flores ____?»",
+        "respuesta": "quedan",
+        "alternativasAceptadas": [
+          "me quedan",
+          "quedaron"
         ],
         "pistas": [
-          "En el mercado del barrio: Piensa qué hace el signo − con una cantidad.",
-          "En el mercado del barrio: En la historia correcta, se retiran 6 choclos.",
-          "En el mercado del barrio: Comprueba que la pregunta pide lo que queda después del cambio."
+          "Regalar seis flores disminuye las que conservas.",
+          "La pregunta debe pedir la cantidad final.",
+          "Completa «¿Cuántas flores quedan?»."
         ],
-        "retroalimentacion": "«En el mercado del barrio hay 14 choclos y se retiran 6. ¿Cuántos quedan?» corresponde a 14 − 6; la otra acción usaría el signo contrario."
+        "retroalimentacion": "«Quedan» pregunta por 14 − 6 = 8 flores."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En la chacra de la familia: Quieres inventar un problema para 25 + 12. ¿Qué historia y pregunta sí corresponden a esa operación?",
+        "enunciado": "Alguien escribió 25 + 12. ¿Cuál relato usa ambos números como partes de un mismo total?",
         "respuesta": "b",
         "alternativasAceptadas": [],
         "opciones": [
           {
             "id": "a",
-            "texto": "En la chacra de la familia hay 25 cuyes y se retiran 12. ¿Cuántos quedan?"
+            "texto": "Había 25 cuadernos y se prestaron 12. ¿Cuántos quedan?"
           },
           {
             "id": "b",
-            "texto": "En la chacra de la familia hay 25 cuyes y llegan 12 más. ¿Cuántos hay en total?"
+            "texto": "Hay 25 cuadernos rojos y 12 azules. ¿Cuántos hay entre todos?"
           },
           {
             "id": "c",
-            "texto": "En la chacra de la familia hay 25 cuyes y 12 gallinas. ¿Cuántos cuyes había primero?"
+            "texto": "El cuaderno 25 está en la página 12. ¿Qué número sigue?"
           }
         ],
         "pistas": [
-          "En la chacra de la familia: Piensa qué hace el signo + con una cantidad.",
-          "En la chacra de la familia: En la historia correcta, llegan 12 cuyes.",
-          "En la chacra de la familia: Comprueba que la pregunta pide el total después del cambio."
+          "Busca dos grupos de cuadernos.",
+          "La pregunta debe pedirlos juntos.",
+          "La historia del préstamo separa, no junta."
         ],
-        "retroalimentacion": "«En la chacra de la familia hay 25 cuyes y llegan 12 más. ¿Cuántos hay en total?» corresponde a 25 + 12; la otra acción usaría el signo contrario."
+        "retroalimentacion": "«Hay 25 cuadernos rojos y 12 azules. ¿Cuántos hay entre todos?» usa 25 + 12."
       },
       {
         "id": "e06",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En el juego de tarjetas: Quieres inventar un problema para 36 − 13. ¿Qué historia y pregunta sí corresponden a esa operación?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "En el juego de tarjetas hay 36 tarjetas rojas y llegan 13 más. ¿Cuántos hay?"
-          },
-          {
-            "id": "b",
-            "texto": "En el juego de tarjetas hay 36 tarjetas rojas y 13 tarjetas azules. ¿Cuántas tarjetas rojas había primero?"
-          },
-          {
-            "id": "c",
-            "texto": "En el juego de tarjetas hay 36 tarjetas rojas y se retiran 13. ¿Cuántos quedan?"
-          }
+        "tipo": "texto_corto",
+        "enunciado": "Escribe el signo que falta para terminar tu problema: «En un estante había 36 libros; prestaron 13. Para saber los que quedan hago 36 __ 13».",
+        "respuesta": "−",
+        "alternativasAceptadas": [
+          "-"
         ],
         "pistas": [
-          "En el juego de tarjetas: Piensa qué hace el signo − con una cantidad.",
-          "En el juego de tarjetas: En la historia correcta, se retiran 13 tarjetas rojas.",
-          "En el juego de tarjetas: Comprueba que la pregunta pide lo que queda después del cambio."
+          "Prestar saca libros del estante.",
+          "La cantidad final debe ser menor que 36.",
+          "El signo de quitar es la resta."
         ],
-        "retroalimentacion": "«En el juego de tarjetas hay 36 tarjetas rojas y se retiran 13. ¿Cuántos quedan?» corresponde a 36 − 13; la otra acción usaría el signo contrario."
+        "retroalimentacion": "«−» corresponde a 36 − 13 = 23 libros. «+» contaría los prestados como si llegaran."
       },
       {
         "id": "e07",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "En el patio de la escuela: Quieres inventar un problema para 47 + 21. ¿Qué historia y pregunta sí corresponden a esa operación?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "En el patio de la escuela hay 47 tizas y llegan 21 más. ¿Cuántos hay en total?"
-          },
-          {
-            "id": "b",
-            "texto": "En el patio de la escuela hay 47 tizas y se retiran 21. ¿Cuántos quedan?"
-          },
-          {
-            "id": "c",
-            "texto": "En el patio de la escuela hay 47 tizas y 21 plumones. ¿Cuántas tizas había primero?"
-          }
-        ],
-        "pistas": [
-          "En el patio de la escuela: Piensa qué hace el signo + con una cantidad.",
-          "En el patio de la escuela: En la historia correcta, llegan 21 tizas.",
-          "En el patio de la escuela: Comprueba que la pregunta pide el total después del cambio."
-        ],
-        "retroalimentacion": "«En el patio de la escuela hay 47 tizas y llegan 21 más. ¿Cuántos hay en total?» corresponde a 47 + 21; la otra acción usaría el signo contrario."
-      },
-      {
-        "id": "e08",
-        "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "Al ordenar semillas: Quieres inventar un problema para 58 − 14. ¿Qué historia y pregunta sí corresponden a esa operación?",
+        "enunciado": "Tienes los datos «47 semillas guardadas» y «21 semillas nuevas». ¿Qué frase convierte esos datos en un problema de 47 + 21?",
         "respuesta": "b",
         "alternativasAceptadas": [],
         "opciones": [
           {
             "id": "a",
-            "texto": "Al ordenar semillas hay 58 chapas y llegan 14 más. ¿Cuántos hay?"
+            "texto": "Se perdieron 21 semillas; ¿cuántas quedan?"
           },
           {
             "id": "b",
-            "texto": "Al ordenar semillas hay 58 chapas y se retiran 14. ¿Cuántos quedan?"
+            "texto": "Llegaron 21 semillas; ¿cuántas se guardan ahora?"
           },
           {
             "id": "c",
-            "texto": "Al ordenar semillas hay 58 chapas y 14 piedritas. ¿Cuántas chapas había primero?"
+            "texto": "Cada bolsa tiene 21 semillas; ¿cuántas bolsas hay?"
           }
         ],
         "pistas": [
-          "Al ordenar semillas: Piensa qué hace el signo − con una cantidad.",
-          "Al ordenar semillas: En la historia correcta, se retiran 14 chapas.",
-          "Al ordenar semillas: Comprueba que la pregunta pide lo que queda después del cambio."
+          "El segundo dato debe agregarse a las 47 guardadas.",
+          "La pregunta necesita pedir el nuevo total.",
+          "«Llegaron» expresa aumento de la colección."
         ],
-        "retroalimentacion": "«Al ordenar semillas hay 58 chapas y se retiran 14. ¿Cuántos quedan?» corresponde a 58 − 14; la otra acción usaría el signo contrario."
+        "retroalimentacion": "«Llegaron 21 semillas; ¿cuántas se guardan ahora?» forma un problema de suma."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Para una historia de 58 − 14, completa la acción: «En una bandeja había 58 choclos. Se ____ 14 para la cocina. ¿Cuántos siguen en la bandeja?»",
+        "respuesta": "separaron",
+        "alternativasAceptadas": [
+          "retiraron",
+          "sacaron",
+          "llevaron"
+        ],
+        "pistas": [
+          "El relato termina preguntando por lo que sigue en la bandeja.",
+          "Los 14 choclos deben salir de ella.",
+          "Usa un verbo que indique apartar."
+        ],
+        "retroalimentacion": "«Separaron» hace coherente la resta 58 − 14 = 44."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "En la tienda de la esquina: Quieres inventar un problema para 63 + 20. ¿Qué historia y pregunta sí corresponden a esa operación?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "En la tienda de la esquina hay 63 panes y se retiran 20. ¿Cuántos quedan?"
-          },
-          {
-            "id": "b",
-            "texto": "En la tienda de la esquina hay 63 panes y 20 queques. ¿Cuántos panes había primero?"
-          },
-          {
-            "id": "c",
-            "texto": "En la tienda de la esquina hay 63 panes y llegan 20 más. ¿Cuántos hay en total?"
-          }
-        ],
-        "pistas": [
-          "En la tienda de la esquina: Piensa qué hace el signo + con una cantidad.",
-          "En la tienda de la esquina: En la historia correcta, llegan 20 panes.",
-          "En la tienda de la esquina: Comprueba que la pregunta pide el total después del cambio."
-        ],
-        "retroalimentacion": "«En la tienda de la esquina hay 63 panes y llegan 20 más. ¿Cuántos hay en total?» corresponde a 63 + 20; la otra acción usaría el signo contrario."
-      },
-      {
-        "id": "e10",
-        "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En una ruta por el pueblo: Quieres inventar un problema para 70 − 18. ¿Qué historia y pregunta sí corresponden a esa operación?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "En una ruta por el pueblo hay 70 pasos y se retiran 18. ¿Cuántos quedan?"
-          },
-          {
-            "id": "b",
-            "texto": "En una ruta por el pueblo hay 70 pasos y llegan 18 más. ¿Cuántos hay?"
-          },
-          {
-            "id": "c",
-            "texto": "En una ruta por el pueblo hay 70 pasos y 18 casilleros. ¿Cuántos pasos había primero?"
-          }
-        ],
-        "pistas": [
-          "En una ruta por el pueblo: Piensa qué hace el signo − con una cantidad.",
-          "En una ruta por el pueblo: En la historia correcta, se retiran 18 pasos.",
-          "En una ruta por el pueblo: Comprueba que la pregunta pide lo que queda después del cambio."
-        ],
-        "retroalimentacion": "«En una ruta por el pueblo hay 70 pasos y se retiran 18. ¿Cuántos quedan?» corresponde a 70 − 18; la otra acción usaría el signo contrario."
-      },
-      {
-        "id": "e11",
-        "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "Al preparar una kermés: Quieres inventar un problema para 82 + 11. ¿Qué historia y pregunta sí corresponden a esa operación?",
+        "enunciado": "Inventas una historia para 63 + 20. Además, sabes que la tienda tiene 5 bolsas vacías. ¿Qué pregunta mantiene solo los datos necesarios?",
         "respuesta": "b",
         "alternativasAceptadas": [],
         "opciones": [
           {
             "id": "a",
-            "texto": "Al preparar una kermés hay 82 globos y se retiran 11. ¿Cuántos quedan?"
+            "texto": "¿Cuántas bolsas y panes hay juntos?"
           },
           {
             "id": "b",
-            "texto": "Al preparar una kermés hay 82 globos y llegan 11 más. ¿Cuántos hay en total?"
+            "texto": "Si había 63 panes y llegaron 20, ¿cuántos panes hay?"
           },
           {
             "id": "c",
-            "texto": "Al preparar una kermés hay 82 globos y 11 banderines. ¿Cuántos globos había primero?"
+            "texto": "Si había 63 panes y vendieron 20, ¿cuántos panes quedan?"
           }
         ],
         "pistas": [
-          "Al preparar una kermés: Piensa qué hace el signo + con una cantidad.",
-          "Al preparar una kermés: En la historia correcta, llegan 11 globos.",
-          "Al preparar una kermés: Comprueba que la pregunta pide el total después del cambio."
+          "Las cinco bolsas vacías no son panes.",
+          "La operación suma 20 panes a los 63 iniciales.",
+          "Elige una pregunta solo por el nuevo total de panes."
         ],
-        "retroalimentacion": "«Al preparar una kermés hay 82 globos y llegan 11 más. ¿Cuántos hay en total?» corresponde a 82 + 11; la otra acción usaría el signo contrario."
+        "retroalimentacion": "«Si había 63 panes y llegaron 20, ¿cuántos panes hay?» usa 63 + 20 sin mezclar bolsas."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Completa la pregunta de tu problema para 70 − 18: «Había 70 entradas y se vendieron 18. ¿Cuántas entradas ____?»",
+        "respuesta": "quedan",
+        "alternativasAceptadas": [
+          "quedaron",
+          "siguen disponibles"
+        ],
+        "pistas": [
+          "Las entradas vendidas ya no están disponibles.",
+          "Se pregunta por la parte restante de las 70.",
+          "La palabra final debe referirse a lo que permanece."
+        ],
+        "retroalimentacion": "«Quedan» convierte el relato en un problema de 70 − 18 = 52."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Te dan 82 figuritas, 11 nuevas y una caja con capacidad para 100. ¿Qué problema se resuelve exactamente con 82 + 11?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "¿Cuántas figuritas tienes tras recibir las 11 nuevas?"
+          },
+          {
+            "id": "b",
+            "texto": "¿Cuántas caben en la caja después de llenarla?"
+          },
+          {
+            "id": "c",
+            "texto": "¿Cuántas figuritas faltan desde 82 hasta 100?"
+          }
+        ],
+        "pistas": [
+          "El cálculo dado suma las figuritas iniciales y las nuevas.",
+          "El dato 100 es una capacidad que no entra en esa suma.",
+          "Busca la pregunta por las figuritas que tienes ahora."
+        ],
+        "retroalimentacion": "«¿Cuántas figuritas tienes tras recibir las 11 nuevas?» corresponde a 82 + 11 = 93."
       },
       {
         "id": "e12",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "En una colección de figuritas: Quieres inventar un problema para 91 − 27. ¿Qué historia y pregunta sí corresponden a esa operación?",
-        "respuesta": "c",
+        "enunciado": "Para representar 91 − 27 inventas un relato. ¿Cuál incluye cantidad inicial, acción de quitar y pregunta por el resto?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
         "opciones": [
           {
             "id": "a",
-            "texto": "En una colección de figuritas hay 91 figuritas y llegan 27 más. ¿Cuántos hay?"
+            "texto": "Tenía 91 globos; llegaron 27. ¿Cuántos hay?"
           },
           {
             "id": "b",
-            "texto": "En una colección de figuritas hay 91 figuritas y 27 canicas. ¿Cuántas figuritas había primero?"
+            "texto": "Tenía 91 globos; se reventaron 27. ¿Cuántos siguen inflados?"
           },
           {
             "id": "c",
-            "texto": "En una colección de figuritas hay 91 figuritas y se retiran 27. ¿Cuántos quedan?"
+            "texto": "Tenía 27 globos; compré 91. ¿Cuántos hay?"
           }
         ],
         "pistas": [
-          "En una colección de figuritas: Piensa qué hace el signo − con una cantidad.",
-          "En una colección de figuritas: En la historia correcta, se retiran 27 figuritas.",
-          "En una colección de figuritas: Comprueba que la pregunta pide lo que queda después del cambio."
+          "La cantidad inicial debe ser 91 globos.",
+          "La acción sobre 27 globos debe reducir ese grupo.",
+          "La pregunta final debe pedir los que permanecen."
         ],
-        "retroalimentacion": "«En una colección de figuritas hay 91 figuritas y se retiran 27. ¿Cuántos quedan?» corresponde a 91 − 27; la otra acción usaría el signo contrario."
+        "retroalimentacion": "«Tenía 91 globos; se reventaron 27. ¿Cuántos siguen inflados?» representa 91 − 27."
       }
     ],
     "fuentes": [
@@ -2243,229 +2326,246 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En el cuaderno de Micaela resuelve 21 + 13 sin hacer canjes. ¿Qué resultado obtienes?",
-        "respuesta": 34,
+        "enunciado": "En una caja hay 23 clips y llegan 14 más. Suma sin canje: ¿cuántos clips hay?",
+        "respuesta": 37,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el cuaderno de Micaela: Alinea las unidades de ambos números. En este caso mira 21 + 13.",
-          "En el cuaderno de Micaela: Calcula primero las unidades y luego las decenas. Trabaja con 21 y 13.",
-          "En el cuaderno de Micaela: 21 + 13 da 34; comprueba cada decena y unidad."
+          "Separa 23 en dos decenas y tres unidades.",
+          "Agrega una decena y cuatro unidades.",
+          "Las unidades 3 + 4 dan 7; las decenas 2 + 1 dan 3."
         ],
-        "retroalimentacion": "21 + 13 = 34. Coloca cada cifra bajo otra del mismo valor.",
+        "retroalimentacion": "Hay 37 clips: 23 + 14 = 37. Ninguna columna llega a diez unidades.",
         "operacion": {
           "tipo": "suma",
-          "a": 21,
-          "b": 13
+          "a": 23,
+          "b": 14
         }
       },
       {
         "id": "e02",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "Para el reto de la biblioteca resuelve 36 − 12 sin hacer canjes. ¿Qué resultado obtienes?",
-        "respuesta": 24,
+        "enunciado": "De 57 hojas de papel, se usan 24. ¿Cuántas quedan si restas unidades y decenas por separado?",
+        "respuesta": 33,
         "alternativasAceptadas": [],
         "pistas": [
-          "Para el reto de la biblioteca: Alinea las unidades de ambos números. En este caso mira 36 − 12.",
-          "Para el reto de la biblioteca: Calcula primero las unidades y luego las decenas. Trabaja con 36 y 12.",
-          "Para el reto de la biblioteca: 36 − 12 da 24; comprueba cada decena y unidad."
+          "Resta las unidades: de 7 quita 4.",
+          "Resta las decenas: de 5 quita 2.",
+          "Une tres decenas y tres unidades."
         ],
-        "retroalimentacion": "36 − 12 = 24. Si la suma de unidades es menor que diez, conserva las columnas.",
+        "retroalimentacion": "Quedan 33 hojas. No hace falta canjear porque 7 alcanza para quitar 4.",
         "operacion": {
           "tipo": "resta",
-          "a": 36,
-          "b": 12
+          "a": 57,
+          "b": 24
         }
       },
       {
         "id": "e03",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En la pizarra del salón resuelve 48 + 11 sin hacer canjes. ¿Qué resultado obtienes?",
-        "respuesta": 59,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una suma sin canje, 42 + 16 = 58.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la pizarra del salón: Alinea las unidades de ambos números. En este caso mira 48 + 11.",
-          "En la pizarra del salón: Calcula primero las unidades y luego las decenas. Trabaja con 48 y 11.",
-          "En la pizarra del salón: 48 + 11 da 59; comprueba cada decena y unidad."
+          "En las unidades calcula 2 + 6.",
+          "En las decenas calcula 4 + 1.",
+          "Forma el número con cinco decenas y ocho unidades."
         ],
-        "retroalimentacion": "48 + 11 = 59. Coloca cada cifra bajo otra del mismo valor.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 48,
-          "b": 11
-        }
+        "retroalimentacion": "Es verdadero: 42 + 16 = 58. Las columnas se suman sin cambiar unidades por decenas."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Durante un juego de cálculo resuelve 70 − 20 sin hacer canjes. ¿Qué resultado obtienes?",
-        "respuesta": 50,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para resolver 64 − 31 sin canje, ¿qué cálculo de columnas es correcto?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Durante un juego de cálculo: Alinea las unidades de ambos números. En este caso mira 70 − 20.",
-          "Durante un juego de cálculo: Calcula primero las unidades y luego las decenas. Trabaja con 70 y 20.",
-          "Durante un juego de cálculo: 70 − 20 da 50; comprueba cada decena y unidad."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6 − 3 decenas y 4 − 1 unidades"
+          },
+          {
+            "id": "b",
+            "texto": "6 − 1 decenas y 4 − 3 unidades"
+          },
+          {
+            "id": "c",
+            "texto": "6 + 3 decenas y 4 + 1 unidades"
+          }
         ],
-        "retroalimentacion": "70 − 20 = 50. Si la suma de unidades es menor que diez, conserva las columnas.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 70,
-          "b": 20
-        }
+        "pistas": [
+          "El 6 de 64 representa decenas.",
+          "El 3 de 31 también representa decenas.",
+          "Las unidades son 4 y 1."
+        ],
+        "retroalimentacion": "«6 − 3 decenas y 4 − 1 unidades» da 33. Cruzar columnas cambia el valor de las cifras."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En la feria de la escuela resuelve 24 + 12 sin hacer canjes. ¿Qué resultado obtienes?",
-        "respuesta": 36,
+        "enunciado": "En la biblioteca hay 35 libros de animales y 42 de plantas. ¿Cuántos libros hay en esas dos secciones?",
+        "respuesta": 77,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la feria de la escuela: Alinea las unidades de ambos números. En este caso mira 24 + 12.",
-          "En la feria de la escuela: Calcula primero las unidades y luego las decenas. Trabaja con 24 y 12.",
-          "En la feria de la escuela: 24 + 12 da 36; comprueba cada decena y unidad."
+          "Alinea 35 y 42 por las unidades de la derecha.",
+          "Suma 5 + 2 unidades.",
+          "Suma 3 + 4 decenas y junta el resultado."
         ],
-        "retroalimentacion": "24 + 12 = 36. Coloca cada cifra bajo otra del mismo valor.",
+        "retroalimentacion": "Hay 77 libros. La suma de unidades es 7, así que no se canjea.",
         "operacion": {
           "tipo": "suma",
-          "a": 24,
-          "b": 12
+          "a": 35,
+          "b": 42
         }
       },
       {
         "id": "e06",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "Para contar fichas en casa resuelve 53 − 21 sin hacer canjes. ¿Qué resultado obtienes?",
-        "respuesta": 32,
+        "enunciado": "Un salón guardaba 87 témperas y entregó 25. ¿Cuántas conserva?",
+        "respuesta": 62,
         "alternativasAceptadas": [],
         "pistas": [
-          "Para contar fichas en casa: Alinea las unidades de ambos números. En este caso mira 53 − 21.",
-          "Para contar fichas en casa: Calcula primero las unidades y luego las decenas. Trabaja con 53 y 21.",
-          "Para contar fichas en casa: 53 − 21 da 32; comprueba cada decena y unidad."
+          "Compara las unidades 7 y 5; puedes restarlas directamente.",
+          "Quita dos decenas de las ocho iniciales.",
+          "Une seis decenas con dos unidades."
         ],
-        "retroalimentacion": "53 − 21 = 32. Si la suma de unidades es menor que diez, conserva las columnas.",
+        "retroalimentacion": "Conserva 62 témperas: 87 − 25 = 62. No se necesita préstamo.",
         "operacion": {
           "tipo": "resta",
-          "a": 53,
-          "b": 21
+          "a": 87,
+          "b": 25
         }
       },
       {
         "id": "e07",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En una tarjeta de la kermés resuelve 67 + 12 sin hacer canjes. ¿Qué resultado obtienes?",
-        "respuesta": 79,
+        "enunciado": "La profesora escribió 27 + __ = 59. ¿Qué número de dos cifras completa la suma sin canje?",
+        "respuesta": 32,
         "alternativasAceptadas": [],
         "pistas": [
-          "En una tarjeta de la kermés: Alinea las unidades de ambos números. En este caso mira 67 + 12.",
-          "En una tarjeta de la kermés: Calcula primero las unidades y luego las decenas. Trabaja con 67 y 12.",
-          "En una tarjeta de la kermés: 67 + 12 da 79; comprueba cada decena y unidad."
+          "Mira las unidades: de 7 a 9 faltan 2.",
+          "Mira las decenas: de 2 a 5 faltan 3.",
+          "Forma el número con tres decenas y dos unidades."
         ],
-        "retroalimentacion": "67 + 12 = 79. Coloca cada cifra bajo otra del mismo valor.",
+        "retroalimentacion": "Falta 32 porque 27 + 32 = 59. Si escribiste 59, repetiste el total.",
         "operacion": {
-          "tipo": "suma",
-          "a": 67,
-          "b": 12
+          "tipo": "resta",
+          "a": 59,
+          "b": 27
         }
       },
       {
         "id": "e08",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Al revisar una cuenta del mercado resuelve 89 − 34 sin hacer canjes. ¿Qué resultado obtienes?",
-        "respuesta": 55,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un niño resolvió 48 + 21 y escribió 69. ¿Cómo puedes comprobar su cálculo sin hacer canje?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Al revisar una cuenta del mercado: Alinea las unidades de ambos números. En este caso mira 89 − 34.",
-          "Al revisar una cuenta del mercado: Calcula primero las unidades y luego las decenas. Trabaja con 89 y 34.",
-          "Al revisar una cuenta del mercado: 89 − 34 da 55; comprueba cada decena y unidad."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4 + 2 decenas y 8 + 1 unidades"
+          },
+          {
+            "id": "b",
+            "texto": "4 + 1 decenas y 8 + 2 unidades"
+          },
+          {
+            "id": "c",
+            "texto": "8 + 2 decenas y 4 + 1 unidades"
+          }
         ],
-        "retroalimentacion": "89 − 34 = 55. Si la suma de unidades es menor que diez, conserva las columnas.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 89,
-          "b": 34
-        }
+        "pistas": [
+          "Identifica las decenas de ambos números: 4 y 2.",
+          "Las unidades son 8 y 1, cuya suma es 9.",
+          "Junta seis decenas y nueve unidades."
+        ],
+        "retroalimentacion": "«4 + 2 decenas y 8 + 1 unidades» confirma 69. Mezclar columnas lleva a otro resultado."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En la libreta de matemática resuelve 32 + 20 sin hacer canjes. ¿Qué resultado obtienes?",
-        "respuesta": 52,
+        "enunciado": "Una caja de la feria contiene 61 vasos rojos y 28 azules. Calcula el total sin canjear.",
+        "respuesta": 89,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la libreta de matemática: Alinea las unidades de ambos números. En este caso mira 32 + 20.",
-          "En la libreta de matemática: Calcula primero las unidades y luego las decenas. Trabaja con 32 y 20.",
-          "En la libreta de matemática: 32 + 20 da 52; comprueba cada decena y unidad."
+          "Suma las unidades 1 + 8; obtienes 9.",
+          "Suma las decenas 6 + 2; obtienes 8.",
+          "Une las cifras en el orden decenas, unidades."
         ],
-        "retroalimentacion": "32 + 20 = 52. Coloca cada cifra bajo otra del mismo valor.",
+        "retroalimentacion": "Hay 89 vasos. Si colocas 9 en decenas y 8 en unidades, inviertes sus valores.",
         "operacion": {
           "tipo": "suma",
-          "a": 32,
-          "b": 20
+          "a": 61,
+          "b": 28
         }
       },
       {
         "id": "e10",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "Para ayudar a un compañero resuelve 46 − 14 sin hacer canjes. ¿Qué resultado obtienes?",
-        "respuesta": 32,
+        "enunciado": "En un almacén había 98 cajas pequeñas. Se retiraron 46. ¿Cuántas quedaron?",
+        "respuesta": 52,
         "alternativasAceptadas": [],
         "pistas": [
-          "Para ayudar a un compañero: Alinea las unidades de ambos números. En este caso mira 46 − 14.",
-          "Para ayudar a un compañero: Calcula primero las unidades y luego las decenas. Trabaja con 46 y 14.",
-          "Para ayudar a un compañero: 46 − 14 da 32; comprueba cada decena y unidad."
+          "Las unidades 8 − 6 dejan 2.",
+          "Las decenas 9 − 4 dejan 5.",
+          "Comprueba que 52 + 46 reconstruya 98."
         ],
-        "retroalimentacion": "46 − 14 = 32. Si la suma de unidades es menor que diez, conserva las columnas.",
+        "retroalimentacion": "Quedaron 52 cajas. Esta resta es sin canje: ocho unidades alcanzan para quitar seis.",
         "operacion": {
           "tipo": "resta",
-          "a": 46,
-          "b": 14
+          "a": 98,
+          "b": 46
         }
       },
       {
         "id": "e11",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En una práctica del aula resuelve 72 + 16 sin hacer canjes. ¿Qué resultado obtienes?",
-        "respuesta": 88,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para calcular 75 − 32 sin canje, se puede restar 7 − 3 en las decenas y 5 − 2 en las unidades; el resultado es 43.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "En una práctica del aula: Alinea las unidades de ambos números. En este caso mira 72 + 16.",
-          "En una práctica del aula: Calcula primero las unidades y luego las decenas. Trabaja con 72 y 16.",
-          "En una práctica del aula: 72 + 16 da 88; comprueba cada decena y unidad."
+          "Revisa si 5 unidades alcanzan para quitar 2.",
+          "En decenas, 7 menos 3 deja 4.",
+          "Une cuatro decenas con tres unidades."
         ],
-        "retroalimentacion": "72 + 16 = 88. Coloca cada cifra bajo otra del mismo valor.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 72,
-          "b": 16
-        }
+        "retroalimentacion": "Es verdadero: 75 − 32 = 43. Las cifras se restan según su posición."
       },
       {
         "id": "e12",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Al comprobar una respuesta resuelve 95 − 43 sin hacer canjes. ¿Qué resultado obtienes?",
-        "respuesta": 52,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un estudiante calculó 53 + 24 = 77. ¿Qué explicación muestra por qué no hizo canje?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Al comprobar una respuesta: Alinea las unidades de ambos números. En este caso mira 95 − 43.",
-          "Al comprobar una respuesta: Calcula primero las unidades y luego las decenas. Trabaja con 95 y 43.",
-          "Al comprobar una respuesta: 95 − 43 da 52; comprueba cada decena y unidad."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 + 4 unidades son 7, menos de diez"
+          },
+          {
+            "id": "b",
+            "texto": "5 + 2 decenas son 7, así que las unidades no importan"
+          },
+          {
+            "id": "c",
+            "texto": "3 + 4 unidades son 12 y se lleva una decena"
+          }
         ],
-        "retroalimentacion": "95 − 43 = 52. Si la suma de unidades es menor que diez, conserva las columnas.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 95,
-          "b": 43
-        }
+        "pistas": [
+          "El canje depende de la suma de unidades.",
+          "En 53 y 24, las unidades son 3 y 4.",
+          "Siete unidades no completan una decena."
+        ],
+        "retroalimentacion": "«3 + 4 unidades son 7, menos de diez» explica por qué 53 + 24 se resuelve sin canje."
       }
     ],
     "fuentes": [
