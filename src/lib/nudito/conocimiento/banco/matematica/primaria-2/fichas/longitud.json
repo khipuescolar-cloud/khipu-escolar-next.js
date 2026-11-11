@@ -1,0 +1,2182 @@
+[
+  {
+    "clave": "mat.p2.largo-y-ancho",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-P2-01",
+      "MAT-C26-P2-04"
+    ],
+    "bloque": "Longitud",
+    "nombre": "Largo y ancho de los objetos",
+    "disciplina": "geometria",
+    "descripcionCorta": "Distingue el largo y el ancho de objetos como mesas, cuadernos y puertas.",
+    "palabrasClave": [
+      "largo",
+      "ancho",
+      "medidas",
+      "objetos",
+      "longitud"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 17,
+    "ideaCentral": "En muchos objetos hay dos medidas: el largo, que es el lado más largo, y el ancho, que es el lado más corto. Por ejemplo, un cuaderno mide más de largo que de ancho.",
+    "pasos": [
+      "Mira el objeto y busca sus dos lados distintos.",
+      "El lado que mide más es el largo.",
+      "El lado que mide menos es el ancho.",
+      "Si te dan números, el número mayor es el largo y el menor es el ancho."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un cuaderno mide 30 cm por un lado y 21 cm por el otro. ¿Cuál es el largo?",
+        "desarrollo": "30 es mayor que 21. El lado más largo es el largo.",
+        "respuesta": "El largo mide 30 cm y el ancho 21 cm."
+      },
+      {
+        "situacion": "Una mesa mide 60 cm y 40 cm. ¿Cuál es el ancho?",
+        "desarrollo": "El lado más corto es el ancho. 40 es menor que 60.",
+        "respuesta": "El ancho es 40 cm."
+      },
+      {
+        "situacion": "Una tabla mide 90 cm y 25 cm. ¿Cuánto más largo es el largo que el ancho?",
+        "desarrollo": "90 − 25 = 65.",
+        "respuesta": "Mide 65 cm más."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Llamar largo al lado que tiene el número menor.",
+        "correccion": "El largo es el lado que mide más."
+      },
+      {
+        "error": "Creer que el largo siempre es el que está de pie.",
+        "correccion": "Si giras el objeto, el lado más largo sigue siendo el largo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Largo",
+        "significado": "El lado que mide más en un objeto."
+      },
+      {
+        "termino": "Ancho",
+        "significado": "El lado que mide menos."
+      },
+      {
+        "termino": "Medida",
+        "significado": "El número que dice cuánto mide algo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un cuaderno mide 30 cm por un lado y 21 cm por el otro. ¿Cuál es su largo?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "21 cm"
+          },
+          {
+            "id": "b",
+            "texto": "30 cm"
+          },
+          {
+            "id": "c",
+            "texto": "51 cm"
+          },
+          {
+            "id": "d",
+            "texto": "9 cm"
+          }
+        ],
+        "pistas": [
+          "El largo es el lado que mide más.",
+          "Compara 30 cm con 21 cm.",
+          "30 es mayor que 21."
+        ],
+        "retroalimentacion": "El largo del cuaderno es 30 cm porque es el lado que mide más.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una mesa, el lado más corto es el ancho.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cuál lado de la mesa mide menos.",
+          "El lado que mide menos tiene un nombre.",
+          "Ese lado se llama ancho."
+        ],
+        "retroalimentacion": "Es verdadero: el lado más corto es el ancho.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una mesa de colegio mide 60 cm de largo y 40 cm de ancho. ¿Cuántos centímetros mide su ancho? Escribe solo el número.",
+        "respuesta": 40,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee el enunciado: dice cuánto mide de largo y de ancho.",
+          "Hay dos números: 60 y 40.",
+          "El ancho es el que dice «de ancho»."
+        ],
+        "retroalimentacion": "El ancho es 40 cm. El largo mide 60 cm.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una tabla mide 90 cm por un lado y 20 cm por el otro. ¿El lado de 20 cm es el largo o el ancho? Escribe una palabra.",
+        "respuesta": "ancho",
+        "alternativasAceptadas": [
+          "el ancho",
+          "es el ancho"
+        ],
+        "pistas": [
+          "Compara 90 cm con 20 cm.",
+          "20 es menor que 90.",
+          "El lado que mide menos es…"
+        ],
+        "retroalimentacion": "El lado de 20 cm es el ancho porque mide menos que el lado de 90 cm.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tabla mide 90 cm de un lado y 25 cm del otro. ¿Qué afirmación es correcta?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El ancho mide 90 cm"
+          },
+          {
+            "id": "b",
+            "texto": "El largo mide 25 cm"
+          },
+          {
+            "id": "c",
+            "texto": "El largo mide 90 cm"
+          },
+          {
+            "id": "d",
+            "texto": "El largo y el ancho miden lo mismo"
+          }
+        ],
+        "pistas": [
+          "Compara 90 con 25.",
+          "90 es el lado que mide más.",
+          "El lado que mide más es el largo."
+        ],
+        "retroalimentacion": "El largo mide 90 cm porque es el lado mayor. El ancho mide 25 cm.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un pañuelo cusqueño mide 30 cm de ancho y 50 cm de largo. ¿Cuántos centímetros más largo es que ancho? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tienes dos medidas: 50 cm y 30 cm.",
+          "Para saber cuánto más, resta.",
+          "50 − 30."
+        ],
+        "retroalimentacion": "El pañuelo mide 50 − 30 = 20 cm más de largo que de ancho.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un cuaderno mide 30 cm y 21 cm. Al girar el cuaderno, el lado de 30 cm deja de ser el largo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Pregunta: ¿cambia lo que mide el lado al girar el cuaderno?",
+          "El lado de 30 cm sigue midiendo 30 cm.",
+          "Y 30 sigue siendo mayor que 21."
+        ],
+        "retroalimentacion": "Es falso: girar el cuaderno no cambia las medidas. El lado de 30 cm sigue siendo el largo.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una carpeta mide 70 cm por un lado y 45 cm por el otro. Escribe solo el número que mide su largo.",
+        "respuesta": "70",
+        "alternativasAceptadas": [
+          "70 cm",
+          "setenta"
+        ],
+        "pistas": [
+          "Compara 70 con 45.",
+          "70 es el número mayor.",
+          "Ese número mayor es la medida del lado más largo de la carpeta."
+        ],
+        "retroalimentacion": "El largo de la carpeta es 70 cm, el lado mayor. El ancho es 45 cm.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El largo de una mesa de Iquitos mide 20 cm más que su ancho. Si el ancho mide 50 cm, ¿cuántos centímetros mide el largo? Escribe solo el número.",
+        "respuesta": 70,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tienes el ancho: 50 cm.",
+          "El largo es mayor que el ancho, entonces se suma.",
+          "Suma 50 + 20."
+        ],
+        "retroalimentacion": "El largo mide 20 cm más que el ancho: 50 + 20 = 70 cm.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tres tablas: la A mide 80 cm y 30 cm; la B mide 60 cm y 60 cm; la C mide 40 cm y 90 cm. ¿En cuál el largo y el ancho miden lo mismo?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "En la tabla C"
+          },
+          {
+            "id": "b",
+            "texto": "En ninguna"
+          },
+          {
+            "id": "c",
+            "texto": "En la tabla A"
+          },
+          {
+            "id": "d",
+            "texto": "En la tabla B"
+          }
+        ],
+        "pistas": [
+          "Busca la tabla que tenga dos números iguales.",
+          "La A tiene 80 y 30. La C tiene 40 y 90.",
+          "La B tiene 60 y 60."
+        ],
+        "retroalimentacion": "En la tabla B los dos lados miden 60 cm. En las otras tablas los lados son distintos.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un tablón mide 40 cm por un lado y 90 cm por el otro. Su ancho mide 90 cm.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 40 con 90.",
+          "El ancho es el lado que mide menos.",
+          "El lado que mide menos es el de 40 cm."
+        ],
+        "retroalimentacion": "Es falso: el ancho mide 40 cm. Los 90 cm son el largo.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El largo de una ventana mide 100 cm. Su ancho mide la mitad del largo. ¿Cuántos centímetros mide el ancho? Escribe solo el número.",
+        "respuesta": 50,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La mitad es una de dos partes iguales.",
+          "Parte 100 en dos partes iguales.",
+          "50 + 50 = 100."
+        ],
+        "retroalimentacion": "La mitad de 100 es 50, así que el ancho mide 50 cm.",
+        "id": "e12"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.medir-longitudes",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P2-06"
+    ],
+    "bloque": "Longitud",
+    "nombre": "Medir longitudes con unidades no convencionales",
+    "disciplina": "geometria",
+    "descripcionCorta": "Mide el largo y el ancho de objetos con manos, pasos, pies u objetos y expresa la medida con un número.",
+    "palabrasClave": [
+      "medir",
+      "palmos",
+      "pasos",
+      "clips",
+      "unidad"
+    ],
+    "prerrequisitos": [
+      "mat.p2.largo-y-ancho"
+    ],
+    "ordenSugerido": 57,
+    "ideaCentral": "Medir es contar cuántas veces cabe una unidad en un objeto. La unidad puede ser un palmo, un paso o un clip. El resultado es un número con el nombre de la unidad.",
+    "pasos": [
+      "Elige una unidad para medir: mano, paso, pie o un objeto.",
+      "Colócala al inicio del objeto y sigue seguido, sin dejar huecos ni pasarte.",
+      "Cuenta cuántas veces cabe la unidad.",
+      "Escribe el número con el nombre de la unidad, por ejemplo 6 palmos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Mides una mesa con tu mano y cabe 6 veces. ¿Cuánto mide?",
+        "desarrollo": "Cuentas una mano por cada vez.",
+        "respuesta": "La mesa mide 6 manos."
+      },
+      {
+        "situacion": "Ana mide su mesa: 7 palmos de largo y 4 de ancho. ¿Cuántos palmos más tiene de largo?",
+        "desarrollo": "7 − 4 = 3.",
+        "respuesta": "3 palmos más."
+      },
+      {
+        "situacion": "Luis midió una puerta con pies y salieron 9. Rosa con pasos y salieron 3. ¿Por qué distinto?",
+        "desarrollo": "Cada uno usó una unidad de distinto tamaño.",
+        "respuesta": "Porque las unidades son distintas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dejar huecos o pasarse al colocar la unidad.",
+        "correccion": "La unidad va pegada a la anterior, sin huecos ni encimarse."
+      },
+      {
+        "error": "Dar solo el número sin la unidad.",
+        "correccion": "Escribe «6 palmos» y no solo «6»."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Unidad no convencional",
+        "significado": "Algo que no es regla ni metro, como una mano, un paso o un clip."
+      },
+      {
+        "termino": "Palmo",
+        "significado": "Lo que mide tu mano abierta."
+      },
+      {
+        "termino": "Medir",
+        "significado": "Contar cuántas veces cabe una unidad."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Mides una mesa con tu mano abierta y la mano cabe 6 veces seguidas. ¿Cuántas manos mide la mesa? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada vez que colocas la mano cuentas una.",
+          "La mano cabe 6 veces.",
+          "El número de veces es la medida."
+        ],
+        "retroalimentacion": "La mesa mide 6 manos porque la mano cabe 6 veces.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para medir con manos, no debo dejar huecos entre una mano y la siguiente.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina que dejas un hueco: ¿lo contarías?",
+          "Si hay huecos, la medida sale menor.",
+          "Debo colocar cada mano pegada a la anterior."
+        ],
+        "retroalimentacion": "Es verdadero: sin huecos se mide bien. Con huecos la cuenta no es exacta.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mides un cuaderno con clips y salen 8 clips. ¿Cuál es la forma correcta de decirlo?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8 minutos"
+          },
+          {
+            "id": "b",
+            "texto": "8 soles"
+          },
+          {
+            "id": "c",
+            "texto": "8 clips de largo"
+          },
+          {
+            "id": "d",
+            "texto": "8 kilos"
+          }
+        ],
+        "pistas": [
+          "La medida lleva el nombre de la unidad que usaste.",
+          "Usaste clips para medir.",
+          "Hay que decir 8 y el nombre de la unidad."
+        ],
+        "retroalimentacion": "Se dice «8 clips de largo»: el número con el nombre de la unidad usada.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Para medir el largo de un pasillo caminando, ¿qué cuentas: «pasos» o «litros»? Escribe la palabra.",
+        "respuesta": "pasos",
+        "alternativasAceptadas": [
+          "paso",
+          "los pasos"
+        ],
+        "pistas": [
+          "Caminar usa los pies.",
+          "Medir a pie se cuenta en una unidad de caminata.",
+          "Cuentas cada vez que das uno."
+        ],
+        "retroalimentacion": "Se cuentan los pasos. Los litros sirven para medir líquidos, no largos.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Ana mide su mesa con palmos: 7 palmos de largo y 4 palmos de ancho. ¿Cuántos palmos más mide el largo que el ancho? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 7 palmos con 4 palmos.",
+          "Para saber cuántos más, resta.",
+          "7 − 4."
+        ],
+        "retroalimentacion": "7 − 4 = 3: el largo mide 3 palmos más que el ancho.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Luis midió una puerta con sus pies y salieron 9 pies. Rosa midió la misma puerta con pasos y salieron 3 pasos. ¿Por qué salieron números distintos?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Porque la puerta cambió"
+          },
+          {
+            "id": "b",
+            "texto": "Porque usaron unidades distintas"
+          },
+          {
+            "id": "c",
+            "texto": "Porque Luis se equivocó"
+          },
+          {
+            "id": "d",
+            "texto": "Porque Rosa midió menos puerta"
+          }
+        ],
+        "pistas": [
+          "La puerta es la misma para los dos.",
+          "Luis contó pies y Rosa contó pasos.",
+          "Un paso es más grande que un pie."
+        ],
+        "retroalimentacion": "Salieron números distintos porque usaron unidades distintas: un paso mide más que un pie.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si mido la misma mesa con una unidad más grande, me sale un número mayor de veces.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa: con una unidad grande, ¿cuántas veces cabe en la mesa?",
+          "Una unidad grande cabe pocas veces.",
+          "Con unidades chicas, el número de veces es mayor."
+        ],
+        "retroalimentacion": "Es falso: con una unidad más grande cabe menos veces y sale un número menor.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El largo de un salón mide 15 pasos. Pedro ya dio 4 pasos desde la puerta. ¿Cuántos pasos le faltan para llegar al fondo? Escribe solo el número.",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Pedro ya recorrió 4 pasos de los 15.",
+          "Para hallar lo que falta, resta.",
+          "15 − 4."
+        ],
+        "retroalimentacion": "Le faltan 15 − 4 = 11 pasos.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El palmo de Rosa es la mitad de grande que el palmo de Juan. Juan midió una tabla y le salieron 6 palmos. ¿Cuántos palmos de Rosa mide la tabla? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El palmo de Rosa es más chico, entonces caben más.",
+          "Cada palmo de Juan equivale a 2 palmos de Rosa.",
+          "6 palmos de Juan son 6 veces 2."
+        ],
+        "retroalimentacion": "Cada palmo de Juan son 2 de Rosa, así que 6 + 6 = 12 palmos de Rosa.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mides el ancho de una mesa con lápices iguales en fila. Caben 3 lápices y sobra un pedacito de mesa. ¿Cómo lo dices?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Digo que mide 4 lápices exactos"
+          },
+          {
+            "id": "b",
+            "texto": "Digo que mide 3 lápices exactos"
+          },
+          {
+            "id": "c",
+            "texto": "No se puede medir"
+          },
+          {
+            "id": "d",
+            "texto": "Digo que mide 3 lápices y un poco más"
+          }
+        ],
+        "pistas": [
+          "Cuenta cuántos lápices enteros caben.",
+          "Caben 3 enteros, pero sobra un poco.",
+          "La medida no es exacta: hay que decir que sobra un poco."
+        ],
+        "retroalimentacion": "Se dice «3 lápices y un poco más» porque sobra un pedacito. No es 3 exactos ni 4 exactos.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Ana midió su mesa con 10 clips y Beto midió su mesa con 10 palmos. Entonces las dos mesas miden lo mismo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos números son 10, pero ¿las unidades son iguales?",
+          "Un clip es mucho más chico que un palmo.",
+          "Con unidades distintas no se puede comparar."
+        ],
+        "retroalimentacion": "Es falso: 10 clips son menos largos que 10 palmos, así que las unidades no son iguales.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Para medir la cancha, Teo dio 8 pasos hasta el árbol, luego 11 pasos más hasta la piedra y 6 pasos más hasta el arco. ¿Cuántos pasos mide la cancha en total? Escribe solo el número.",
+        "respuesta": 25,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La cancha es la suma de los tres tramos.",
+          "Suma primero 8 + 11.",
+          "8 + 11 = 19. Falta sumar 6."
+        ],
+        "retroalimentacion": "8 + 11 + 6 = 25 pasos.",
+        "id": "e12"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.cuantas-veces-mas-largo",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P2-04"
+    ],
+    "bloque": "Longitud",
+    "nombre": "¿Cuántas veces más largo?",
+    "disciplina": "geometria",
+    "descripcionCorta": "Determina cuántas veces cabe un objeto en la longitud de otro.",
+    "palabrasClave": [
+      "veces más largo",
+      "cabe",
+      "unidad",
+      "longitud",
+      "comparar"
+    ],
+    "prerrequisitos": [
+      "mat.p2.medir-longitudes"
+    ],
+    "ordenSugerido": 89,
+    "ideaCentral": "Para saber cuántas veces más largo es un objeto, ves cuántas veces cabe el objeto pequeño dentro del grande. Si cabe 3 veces, el grande mide 3 veces el pequeño.",
+    "pasos": [
+      "Elige el objeto pequeño como unidad.",
+      "Colócalo muchas veces seguidas sobre el objeto grande, sin dejar espacios ni pasarte.",
+      "Cuenta cuántas veces cabe.",
+      "Ese número dice cuántas veces más largo es el objeto grande."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una tira mide 2 clips y otra mide 6 clips. ¿Cuántas veces cabe la tira corta en la larga?",
+        "desarrollo": "Cuenta de 2 en 2 hasta 6: 2, 4, 6. Son 3 veces.",
+        "respuesta": "Cabe 3 veces."
+      },
+      {
+        "situacion": "El palito de Ana cabe 5 veces en una cinta. ¿Qué es más largo?",
+        "desarrollo": "Si el palito cabe 5 veces, la cinta es mayor.",
+        "respuesta": "La cinta es más larga."
+      },
+      {
+        "situacion": "Una cinta mide 4 cm. Otra es 2 veces más larga. ¿Cuánto mide?",
+        "desarrollo": "4 + 4 = 8.",
+        "respuesta": "Mide 8 cm."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar los espacios entre objetos y no los objetos.",
+        "correccion": "Cuenta cuántas veces cabe el objeto pequeño, no los huecos."
+      },
+      {
+        "error": "Dejar espacios al colocar la unidad.",
+        "correccion": "Coloca la unidad seguida, sin huecos y sin pasarte."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Unidad",
+        "significado": "Lo que usas para medir, como un clip o un palmo."
+      },
+      {
+        "termino": "Veces",
+        "significado": "Cuántas veces cabe una medida en otra."
+      },
+      {
+        "termino": "Cabe",
+        "significado": "Entra completo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una tira de papel mide 2 clips. Otra tira mide 6 clips. ¿Cuántas veces cabe la tira corta en la tira larga? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta de 2 en 2, como si pusieras la tira corta una tras otra.",
+          "2, 4, 6: ¿cuántos saltos hiciste?",
+          "Hiciste 3 saltos para llegar a 6."
+        ],
+        "retroalimentacion": "La tira corta cabe 3 veces porque 2 + 2 + 2 = 6.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una vara mide 5 palmos y otra vara mide 10 palmos. La segunda es 2 veces más larga que la primera.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa: ¿cuántas varas de 5 palmos necesito para llegar a 10?",
+          "5 + 5 es…",
+          "5 + 5 = 10, o sea 2 varas de 5."
+        ],
+        "retroalimentacion": "Es verdadero: 5 + 5 = 10, la vara de 10 palmos mide 2 veces la de 5.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un lápiz mide 1 unidad. La tabla de Rosa mide 4 lápices de largo, uno tras otro. ¿Cuántas veces más larga es la tabla que el lápiz?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 veces"
+          },
+          {
+            "id": "b",
+            "texto": "4 veces"
+          },
+          {
+            "id": "c",
+            "texto": "5 veces"
+          },
+          {
+            "id": "d",
+            "texto": "1 vez"
+          }
+        ],
+        "pistas": [
+          "Mira cuántos lápices caben en la tabla.",
+          "La tabla mide 4 lápices.",
+          "Si caben 4 lápices, es 4 veces."
+        ],
+        "retroalimentacion": "La tabla es 4 veces más larga que el lápiz porque caben 4 lápices.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "El palito de Ana cabe 5 veces en una cinta. ¿La cinta es más larga o más corta que el palito? Responde «larga» o «corta».",
+        "respuesta": "larga",
+        "alternativasAceptadas": [
+          "más larga",
+          "mas larga",
+          "es más larga"
+        ],
+        "pistas": [
+          "Piensa: ¿puede 5 palitos caber en algo que mide menos que 1 palito?",
+          "Si caben 5 palitos, la cinta mide 5 palitos.",
+          "5 palitos es más que 1 palito."
+        ],
+        "retroalimentacion": "La cinta es más larga: en ella caben 5 palitos.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Mi paso mide 1 unidad. Para cruzar la sala doy 5 pasos y para cruzar el patio doy 15 pasos. ¿Cuántas veces más largo es el patio que la sala? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 15 pasos con 5 pasos.",
+          "Cuenta cuántos grupos de 5 hay en 15: 5, 10, 15.",
+          "Hay 3 grupos de 5."
+        ],
+        "retroalimentacion": "El patio tiene 3 veces los pasos de la sala porque 5 + 5 + 5 = 15.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caña mide 18 cm y una pajita mide 6 cm. ¿Cuántas pajitas pongo en fila para que midan lo mismo que la caña?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 pajitas"
+          },
+          {
+            "id": "b",
+            "texto": "6 pajitas"
+          },
+          {
+            "id": "c",
+            "texto": "3 pajitas"
+          },
+          {
+            "id": "d",
+            "texto": "12 pajitas"
+          }
+        ],
+        "pistas": [
+          "Cuenta de 6 en 6 hasta 18.",
+          "6, 12, 18.",
+          "Dijiste tres números."
+        ],
+        "retroalimentacion": "Cabe 3 veces: 6 + 6 + 6 = 18. Con 2 pajitas solo llegas a 12 cm.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una cinta de 9 cm mide 2 veces lo que mide una cinta de 4 cm.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Dos veces 4 es 4 + 4.",
+          "4 + 4 = 8.",
+          "8 no es 9."
+        ],
+        "retroalimentacion": "Es falso: 2 veces 4 cm son 8 cm, no 9 cm.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una mesa mide 20 cm de largo en un dibujo. Un lápiz del dibujo mide 5 cm. ¿Cuántos lápices en fila miden lo mismo que la mesa? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta de 5 en 5 hasta 20.",
+          "5, 10, 15, 20.",
+          "Dijiste cuatro números."
+        ],
+        "retroalimentacion": "Caben 4 lápices porque 5 + 5 + 5 + 5 = 20.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un camino mide 24 unidades. Rosa lo recorre con pasos de 4 unidades cada uno. ¿Cuántos pasos da Rosa? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada paso suma 4 unidades.",
+          "Cuenta de 4 en 4 hasta 24.",
+          "4, 8, 12, 16, 20, 24."
+        ],
+        "retroalimentacion": "Rosa da 6 pasos porque 4 + 4 + 4 + 4 + 4 + 4 = 24.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "La soga A mide 5 palmos, la soga B mide 10 palmos y la soga C mide 15 palmos. ¿Cuál mide 3 veces lo que mide la soga A?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La soga B"
+          },
+          {
+            "id": "b",
+            "texto": "La soga A"
+          },
+          {
+            "id": "c",
+            "texto": "Ninguna"
+          },
+          {
+            "id": "d",
+            "texto": "La soga C"
+          }
+        ],
+        "pistas": [
+          "Tres veces 5 es 5 + 5 + 5.",
+          "5 + 5 + 5 = 15.",
+          "Busca la soga que mide 15 palmos."
+        ],
+        "retroalimentacion": "La soga C mide 15 palmos y 5 + 5 + 5 = 15. La soga B mide solo 2 veces la A.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La cuerda de Luis cabe 3 veces en una cinta de 12 cm, así que la cuerda de Luis mide 5 cm.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Si la cuerda cabe 3 veces, 3 cuerdas juntas miden 12 cm.",
+          "Prueba con 5: 5 + 5 + 5.",
+          "5 + 5 + 5 = 15, y no es 12."
+        ],
+        "retroalimentacion": "Es falso: la cuerda mide 4 cm porque 4 + 4 + 4 = 12.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "La cinta roja mide 4 cm. La cinta azul mide 2 veces la roja. La cinta verde mide 2 veces la azul. ¿Cuántos centímetros mide la cinta verde? Escribe solo el número.",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla primero cuánto mide la cinta azul: 2 veces 4.",
+          "La azul mide 4 + 4 = 8 cm.",
+          "La verde es 2 veces la azul: 8 + 8."
+        ],
+        "retroalimentacion": "La azul mide 8 cm y la verde 8 + 8 = 16 cm.",
+        "id": "e12"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.conservacion-longitud",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P2-04"
+    ],
+    "bloque": "Longitud",
+    "nombre": "La longitud no cambia al doblar o enrollar",
+    "disciplina": "geometria",
+    "descripcionCorta": "Comprueba que un objeto mantiene su longitud aunque se doble, enrolle o cambie de lugar.",
+    "palabrasClave": [
+      "longitud",
+      "doblar",
+      "enrollar",
+      "estirar",
+      "no cambia"
+    ],
+    "prerrequisitos": [
+      "mat.p2.largo-y-ancho"
+    ],
+    "ordenSugerido": 90,
+    "ideaCentral": "Un objeto mantiene su longitud aunque lo dobles, lo enrolles o lo cambies de lugar. Solo cambia si lo cortas o le agregas un pedazo.",
+    "pasos": [
+      "Mide el objeto estirado y anota su longitud.",
+      "Cambia su forma: dóblalo, enróllalo o muévelo, sin cortarlo.",
+      "Recuerda que la longitud sigue siendo la misma.",
+      "Si lo vuelves a estirar, comprueba que mide igual."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Rosa tiene una cinta de 40 cm y la enrolla. ¿Cuánto mide al estirarla?",
+        "desarrollo": "No la cortó ni le agregó nada.",
+        "respuesta": "Sigue midiendo 40 cm."
+      },
+      {
+        "situacion": "Una cuerda de 60 cm se dobla en forma de U. ¿Cambia su longitud?",
+        "desarrollo": "Solo cambió la forma, no su tamaño real.",
+        "respuesta": "No, sigue midiendo 60 cm."
+      },
+      {
+        "situacion": "Una tira de 25 cm se corta en dos pedazos. Uno mide 10 cm. ¿Cuánto mide el otro?",
+        "desarrollo": "Al cortar, la longitud total se reparte: 25 − 10 = 15.",
+        "respuesta": "El otro mide 15 cm."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que un objeto doblado o enrollado es más corto.",
+        "correccion": "Doblar solo lo acomoda en menos espacio. Su longitud es la misma."
+      },
+      {
+        "error": "Pensar que un objeto cambia de longitud al moverlo.",
+        "correccion": "Mover un objeto no cambia cuánto mide."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Longitud",
+        "significado": "Cuánto mide algo de largo."
+      },
+      {
+        "termino": "Estirar",
+        "significado": "Poner algo recto."
+      },
+      {
+        "termino": "Enrollar",
+        "significado": "Dar vueltas a algo, como una cinta o una soga."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una cuerda de 50 cm que se dobla por la mitad vuelve a medir 50 cm cuando se estira otra vez.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Pregunta: ¿le quitaron o le pusieron un pedazo a la cuerda?",
+          "No, solo se dobló.",
+          "Al estirarla vuelve a su longitud de 50 cm."
+        ],
+        "retroalimentacion": "Es verdadero: doblar no cambia la longitud, la cuerda vuelve a medir 50 cm.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Rosa enrolla una cinta de 40 cm. Cuando la estira otra vez, ¿cuánto mide?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "20 cm"
+          },
+          {
+            "id": "b",
+            "texto": "40 cm"
+          },
+          {
+            "id": "c",
+            "texto": "80 cm"
+          },
+          {
+            "id": "d",
+            "texto": "10 cm"
+          }
+        ],
+        "pistas": [
+          "¿Rosa cortó la cinta o le agregó algo?",
+          "No: solo la enrolló.",
+          "Entonces mide lo mismo que antes: 40."
+        ],
+        "retroalimentacion": "La cinta mide 40 cm. Enrollarla no la hace más corta.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una soga mide 30 cm. La llevas a otra mesa sin cortarla. ¿Cuántos centímetros mide en la mesa nueva? Escribe solo el número.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa si cambiar de mesa cambia la soga.",
+          "No cortaste la soga ni le pusiste más.",
+          "Sigue midiendo lo mismo que antes."
+        ],
+        "retroalimentacion": "La soga sigue midiendo 30 cm. Cambiarla de lugar no cambia su longitud.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un lápiz de 15 cm primero está de pie y luego acostado. ¿Cambia su longitud? Responde sí o no.",
+        "respuesta": "no",
+        "alternativasAceptadas": [
+          "no cambia"
+        ],
+        "pistas": [
+          "Piensa en el tamaño del lápiz, no en cómo está puesto.",
+          "De pie o acostado, es el mismo lápiz.",
+          "Su tamaño no cambia."
+        ],
+        "retroalimentacion": "No cambia: el lápiz mide 15 cm de pie y acostado.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una tira de papel mide 25 cm. Se corta en dos pedazos. Un pedazo mide 10 cm. ¿Cuántos centímetros mide el otro pedazo? Escribe solo el número.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos pedazos juntos miden lo que medía la tira.",
+          "La tira medía 25 cm y un pedazo mide 10.",
+          "Resta 25 − 10."
+        ],
+        "retroalimentacion": "La longitud total sigue siendo 25 cm, así que el otro pedazo mide 25 − 10 = 15 cm.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una cuerda de 60 cm se dobla en forma de U. ¿Qué afirmación es correcta?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La cuerda ahora mide 30 cm"
+          },
+          {
+            "id": "b",
+            "texto": "La cuerda mide 120 cm"
+          },
+          {
+            "id": "c",
+            "texto": "La cuerda sigue midiendo 60 cm"
+          },
+          {
+            "id": "d",
+            "texto": "La cuerda ya no tiene longitud"
+          }
+        ],
+        "pistas": [
+          "Doblar una cuerda cambia su forma, no su tamaño.",
+          "Si estiras la cuerda, vuelve a ser larga.",
+          "No le quitaron ni le agregaron nada."
+        ],
+        "retroalimentacion": "La cuerda sigue midiendo 60 cm. Solo parece más corta porque está doblada.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una tira de 15 cm se enrolla. Ahora es más corta que un lápiz de 15 cm.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la tira enrollada con el lápiz: ¿mide menos de verdad?",
+          "La tira enrollada sigue teniendo 15 cm de largo.",
+          "El lápiz también mide 15 cm."
+        ],
+        "retroalimentacion": "Es falso: la tira enrollada mide 15 cm, igual que el lápiz.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Dos cintas miden 20 cm cada una. Una está enrollada y la otra estirada. ¿Cuál es más larga? Responde «la enrollada», «la estirada» o «ninguna».",
+        "respuesta": "ninguna",
+        "alternativasAceptadas": [
+          "ninguna es más larga",
+          "las dos miden igual",
+          "miden lo mismo",
+          "son iguales"
+        ],
+        "pistas": [
+          "Mira lo que dice el enunciado: las dos miden 20 cm.",
+          "Enrollar no cambia el largo de una cinta.",
+          "Las dos tienen la misma longitud."
+        ],
+        "retroalimentacion": "Ninguna es más larga: las dos miden 20 cm, aunque una esté enrollada.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Doña Rosa tiene una cinta de 45 cm. Corta 20 cm para un lazo y enrolla lo que queda. Después estira la parte enrollada. ¿Cuántos centímetros mide? Escribe solo el número.",
+        "respuesta": 25,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero mira qué se cortó: 20 cm.",
+          "Quedan 45 − 20 centímetros.",
+          "Enrollar y estirar no cambia lo que mide la parte que quedó."
+        ],
+        "retroalimentacion": "Quedaron 45 − 20 = 25 cm y esa parte sigue midiendo 25 cm al estirarla.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ana y Pedro tenían dos cintas iguales de 30 cm. Pedro enrolló la suya. ¿Qué afirmación es correcta?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "No se puede saber"
+          },
+          {
+            "id": "b",
+            "texto": "Pedro tiene una cinta más corta"
+          },
+          {
+            "id": "c",
+            "texto": "Ana tiene una cinta más larga"
+          },
+          {
+            "id": "d",
+            "texto": "Las dos cintas miden lo mismo: 30 cm"
+          }
+        ],
+        "pistas": [
+          "Las dos cintas eran iguales al principio.",
+          "Pedro no le quitó nada a su cinta.",
+          "Enrollar solo cambia la forma."
+        ],
+        "retroalimentacion": "Las dos cintas miden 30 cm. La cinta enrollada se ve más corta, pero no lo es.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una cuerda de 70 cm que se pone en zigzag mide menos de 70 cm porque ocupa menos espacio en la mesa.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un zigzag es una forma de acomodar la cuerda.",
+          "No hay cortes ni pedazos nuevos.",
+          "Ocupar menos espacio no es medir menos."
+        ],
+        "retroalimentacion": "Es falso: la cuerda sigue midiendo 70 cm aunque en zigzag se vea más corta.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Luis tiene una cinta de 36 cm. La corta en 3 pedazos iguales y los pone en fila, uno tras otro, sobre la mesa. ¿Cuántos centímetros mide toda la fila? Escribe solo el número.",
+        "respuesta": 36,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los pedazos son partes de la cinta original.",
+          "No se perdió ni se agregó cinta.",
+          "Juntos vuelven a medir lo mismo que la cinta."
+        ],
+        "retroalimentacion": "La fila mide 36 cm: los 3 pedazos juntos miden lo que medía la cinta.",
+        "id": "e12"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.ordenar-longitudes",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P2-04"
+    ],
+    "bloque": "Longitud",
+    "nombre": "Ordenar objetos por su longitud",
+    "disciplina": "geometria",
+    "descripcionCorta": "Ordena varios objetos del más largo al más corto y viceversa.",
+    "palabrasClave": [
+      "ordenar",
+      "más largo",
+      "más corto",
+      "longitud",
+      "comparar"
+    ],
+    "prerrequisitos": [
+      "mat.p2.conservacion-longitud"
+    ],
+    "ordenSugerido": 91,
+    "ideaCentral": "Para ordenar objetos por su longitud comparas sus medidas. De más corto a más largo empiezas por el menor número; de más largo a más corto empiezas por el mayor.",
+    "pasos": [
+      "Anota la medida de cada objeto.",
+      "Busca la medida mayor y la menor.",
+      "Escribe las medidas en orden, sea de menor a mayor o al revés.",
+      "Revisa que no falte ni sobre ninguna."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Tres lápices miden 8 cm, 5 cm y 12 cm. ¿Cómo se ordenan de más corto a más largo?",
+        "desarrollo": "El menor es 5, luego 8 y el mayor es 12.",
+        "respuesta": "5 cm, 8 cm, 12 cm."
+      },
+      {
+        "situacion": "Cuatro cañas miden 40, 25, 60 y 35 cm. ¿Cuál queda en segundo lugar de más corta a más larga?",
+        "desarrollo": "Orden: 25, 35, 40, 60.",
+        "respuesta": "La de 35 cm."
+      },
+      {
+        "situacion": "Tiras de 45, 28, 60 y 33 cm. ¿Cuánto más larga es la mayor que la menor?",
+        "desarrollo": "La mayor es 60 y la menor 28. 60 − 28 = 32.",
+        "respuesta": "32 cm más."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Ordenar sin mirar cuál es la medida mayor.",
+        "correccion": "Busca primero la medida mayor y la menor."
+      },
+      {
+        "error": "Confundir «de más corto a más largo» con «de más largo a más corto».",
+        "correccion": "De más corto a más largo: se empieza por el menor."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Ordenar",
+        "significado": "Poner en fila según una regla."
+      },
+      {
+        "termino": "Más largo",
+        "significado": "El que mide más."
+      },
+      {
+        "termino": "Más corto",
+        "significado": "El que mide menos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tres lápices miden 8 cm, 5 cm y 12 cm. ¿Cuál es el más largo?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 cm"
+          },
+          {
+            "id": "b",
+            "texto": "12 cm"
+          },
+          {
+            "id": "c",
+            "texto": "8 cm"
+          },
+          {
+            "id": "d",
+            "texto": "Todos miden igual"
+          }
+        ],
+        "pistas": [
+          "El más largo es el que mide más.",
+          "Compara 8, 5 y 12.",
+          "12 es el mayor de los tres números."
+        ],
+        "retroalimentacion": "El lápiz de 12 cm es el más largo porque 12 es el número mayor.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Tres cintas miden 6 cm, 9 cm y 4 cm. Escribe la medida de la más corta.",
+        "respuesta": "4",
+        "alternativasAceptadas": [
+          "4 cm",
+          "cuatro"
+        ],
+        "pistas": [
+          "La más corta es la que mide menos.",
+          "Compara 6, 9 y 4.",
+          "El menor de los tres números es el que busca."
+        ],
+        "retroalimentacion": "La cinta más corta mide 4 cm, el menor de los tres números.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si ordeno 3 cm, 7 cm y 5 cm de menor a mayor queda: 3 cm, 5 cm, 7 cm.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "De menor a mayor se empieza por el número más pequeño.",
+          "El más pequeño es 3. Luego busca el siguiente.",
+          "Después de 3 sigue 5 y al final 7."
+        ],
+        "retroalimentacion": "Es verdadero: de menor a mayor es 3 cm, 5 cm, 7 cm.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Cuatro varas de la chacra miden 20 cm, 35 cm, 15 cm y 50 cm. ¿Cuántos centímetros mide la más larga? Escribe solo el número.",
+        "respuesta": 50,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La más larga es la de mayor medida.",
+          "Compara 20, 35, 15 y 50.",
+          "50 es más que los otros tres."
+        ],
+        "retroalimentacion": "La vara más larga mide 50 cm.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ordena de la más corta a la más larga: 14 cm, 9 cm, 21 cm y 17 cm.",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "21 cm, 17 cm, 14 cm, 9 cm"
+          },
+          {
+            "id": "b",
+            "texto": "9 cm, 17 cm, 14 cm, 21 cm"
+          },
+          {
+            "id": "c",
+            "texto": "14 cm, 9 cm, 17 cm, 21 cm"
+          },
+          {
+            "id": "d",
+            "texto": "9 cm, 14 cm, 17 cm, 21 cm"
+          }
+        ],
+        "pistas": [
+          "Empieza por la que mide menos.",
+          "La más corta es 9 cm. Busca la siguiente más pequeña.",
+          "Después de 9 siguen 14, 17 y 21."
+        ],
+        "retroalimentacion": "9 cm, 14 cm, 17 cm, 21 cm va de menor a mayor. La opción que empieza por 21 cm va al revés.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Cuatro cañas miden 40 cm, 25 cm, 60 cm y 35 cm. Si las ordeno de la más corta a la más larga, ¿cuántos centímetros mide la que queda en segundo lugar? Escribe solo el número.",
+        "respuesta": 35,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ordena las medidas: busca primero la menor.",
+          "La menor es 25. La siguiente más pequeña ocupa el segundo lugar.",
+          "Después de 25 sigue 35, luego 40 y 60."
+        ],
+        "retroalimentacion": "El orden es 25, 35, 40, 60. En segundo lugar queda la de 35 cm.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Ordenadas de más larga a más corta, las medidas 80 cm, 65 cm, 70 cm y 40 cm quedan bien puestas.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "De más larga a más corta, cada medida debe ser menor que la anterior.",
+          "80 es mayor que 65, pero ¿65 es mayor que 70?",
+          "65 es menor que 70, pero está antes."
+        ],
+        "retroalimentacion": "Es falso: 65 cm está antes de 70 cm, y 70 es mayor. Debe ser 80, 70, 65, 40.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Rosa tiene cintas de 18 cm, 30 cm y 24 cm. Si las ordena, ¿qué medida queda en el medio? Escribe solo el número.",
+        "respuesta": "24",
+        "alternativasAceptadas": [
+          "24 cm",
+          "veinticuatro"
+        ],
+        "pistas": [
+          "Ordena las tres cintas de menor a mayor.",
+          "El orden es 18, 24 y 30.",
+          "La del medio queda entre la menor y la mayor."
+        ],
+        "retroalimentacion": "El orden es 18 cm, 24 cm, 30 cm; en el medio queda la de 24 cm.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Tiras de papel miden 45 cm, 28 cm, 60 cm y 33 cm. ¿Cuántos centímetros más larga es la tira más larga que la más corta? Escribe solo el número.",
+        "respuesta": 32,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero busca la más larga y la más corta.",
+          "La más larga mide 60 cm y la más corta 28 cm.",
+          "Resta 60 − 28."
+        ],
+        "retroalimentacion": "La más larga mide 60 cm y la más corta 28 cm. La diferencia es 60 − 28 = 32 cm.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mediste tres sogas con el mismo palmo: la de Ana tiene 4 palmos, la de Beto 7 palmos y la de Carla 5 palmos. ¿Cuál es el orden de la más larga a la más corta?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Beto, Carla, Ana"
+          },
+          {
+            "id": "b",
+            "texto": "Ana, Carla, Beto"
+          },
+          {
+            "id": "c",
+            "texto": "Carla, Beto, Ana"
+          },
+          {
+            "id": "d",
+            "texto": "Beto, Ana, Carla"
+          }
+        ],
+        "pistas": [
+          "Como se usó el mismo palmo, puedes comparar los números.",
+          "Los números son 7 para Beto, 5 para Carla y 4 para Ana.",
+          "De más larga a más corta se empieza por el 7."
+        ],
+        "retroalimentacion": "7, 5 y 4 palmos ordenados de mayor a menor dan Beto, Carla, Ana.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para comparar bien dos longitudes con números, hay que medirlas con la misma unidad.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina medir una con pasos y otra con clips.",
+          "Un paso y un clip no miden lo mismo.",
+          "Con la misma unidad, el número mayor es la longitud mayor."
+        ],
+        "retroalimentacion": "Es verdadero: con unidades distintas, los números no se pueden comparar.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Pedro ordena 4 tiras de la más corta a la más larga. La primera mide 12 cm y cada tira siguiente mide 5 cm más que la anterior. ¿Cuántos centímetros mide la cuarta tira? Escribe solo el número.",
+        "respuesta": 27,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La segunda mide 5 cm más que la primera: 12 + 5.",
+          "La segunda mide 17 cm. La tercera mide 17 + 5.",
+          "La tercera mide 22 cm. Falta sumar 5 más para la cuarta."
+        ],
+        "retroalimentacion": "Las tiras miden 12, 17, 22 y 27 cm. La cuarta mide 27 cm.",
+        "id": "e12"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.que-camino-es-mas-largo",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P2-04",
+      "MAT-C26-P2-06"
+    ],
+    "bloque": "Longitud",
+    "nombre": "¿Qué camino es más largo?",
+    "disciplina": "geometria",
+    "descripcionCorta": "Compara la longitud de dos recorridos en la cuadrícula contando casilleros.",
+    "palabrasClave": [
+      "camino",
+      "cuadrícula",
+      "casilleros",
+      "recorrido",
+      "comparar"
+    ],
+    "prerrequisitos": [
+      "mat.p2.recorridos-cuadricula"
+    ],
+    "ordenSugerido": 111,
+    "ideaCentral": "En una cuadrícula, la longitud de un camino es el número de casilleros que recorres. El camino con más casilleros es el más largo.",
+    "pasos": [
+      "Anota cuántos casilleros avanzas en cada tramo del camino.",
+      "Suma los casilleros de todos los tramos.",
+      "Haz lo mismo con el otro camino.",
+      "Compara los dos números: el mayor es el camino más largo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "El camino A es →3 ↓2 (3 casilleros a la derecha y 2 hacia abajo). ¿Cuánto mide?",
+        "desarrollo": "3 + 2 = 5.",
+        "respuesta": "Mide 5 casilleros."
+      },
+      {
+        "situacion": "A: →6 ↓2. B: →2 ↓3 →4. ¿Cuál es más largo?",
+        "desarrollo": "A: 6 + 2 = 8. B: 2 + 3 + 4 = 9.",
+        "respuesta": "B es más largo por 1 casillero."
+      },
+      {
+        "situacion": "Dos caminos del mercado a la plaza: uno recto de 8 casilleros y otro con vueltas de 10.",
+        "desarrollo": "10 es mayor que 8.",
+        "respuesta": "El camino con vueltas es más largo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar solo los giros y no los casilleros.",
+        "correccion": "Cuenta todos los casilleros que recorres, no las vueltas."
+      },
+      {
+        "error": "Creer que el camino con más curvas siempre es más largo.",
+        "correccion": "Cuenta los casilleros de cada camino y compara los números."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Cuadrícula",
+        "significado": "Dibujo de casilleros en filas y columnas."
+      },
+      {
+        "termino": "Casillero",
+        "significado": "Cada cuadradito de la cuadrícula."
+      },
+      {
+        "termino": "Recorrido",
+        "significado": "El camino que sigues de un lugar a otro."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un camino en la cuadrícula es →3 ↓2: 3 casilleros a la derecha y 2 hacia abajo. ¿Cuántos casilleros tiene el camino? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay dos tramos: uno de 3 casilleros y otro de 2.",
+          "Los casilleros de los tramos se suman.",
+          "3 + 2."
+        ],
+        "retroalimentacion": "3 + 2 = 5: el camino tiene 5 casilleros.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El camino A tiene 4 casilleros y el camino B tiene 6. El camino B es más largo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los dos números: 4 y 6.",
+          "6 es mayor que 4.",
+          "El camino con más casilleros es más largo."
+        ],
+        "retroalimentacion": "Es verdadero: 6 casilleros son más que 4, por eso B es más largo.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "El camino A es →5. El camino B es →3 ↑1. ¿Cuál es más largo?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Camino B"
+          },
+          {
+            "id": "b",
+            "texto": "Camino A"
+          },
+          {
+            "id": "c",
+            "texto": "Son iguales"
+          },
+          {
+            "id": "d",
+            "texto": "No se puede saber"
+          }
+        ],
+        "pistas": [
+          "Cuenta los casilleros de cada camino.",
+          "A tiene 5. B tiene 3 + 1.",
+          "3 + 1 = 4, y 5 es mayor que 4."
+        ],
+        "retroalimentacion": "El camino A tiene 5 casilleros y el camino B tiene 4, por eso el más largo es el camino A.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "El camino de Ana mide 7 casilleros y el de Luis mide 9 casilleros. ¿Quién recorre el camino más largo? Escribe el nombre.",
+        "respuesta": "Luis",
+        "alternativasAceptadas": [
+          "luis"
+        ],
+        "pistas": [
+          "Compara 7 y 9.",
+          "9 es mayor que 7.",
+          "El camino más largo es el que tiene más casilleros."
+        ],
+        "retroalimentacion": "Luis recorre el camino más largo porque 9 es mayor que 7.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Rosa va a la bodega por este camino: →4 ↓3 →2. ¿Cuántos casilleros recorre? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay tres tramos: 4, 3 y 2 casilleros.",
+          "Suma 4 + 3.",
+          "4 + 3 = 7. Falta sumar 2."
+        ],
+        "retroalimentacion": "4 + 3 + 2 = 9 casilleros.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El camino A es →6 ↓2 y el camino B es →2 ↓3 →4. ¿Cuál es más largo y por cuántos casilleros?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "A, por 1 casillero"
+          },
+          {
+            "id": "b",
+            "texto": "B, por 2 casilleros"
+          },
+          {
+            "id": "c",
+            "texto": "B, por 1 casillero"
+          },
+          {
+            "id": "d",
+            "texto": "Son iguales"
+          }
+        ],
+        "pistas": [
+          "Calcula cada camino: A tiene 6 + 2 casilleros.",
+          "A tiene 8 casilleros. B tiene 2 + 3 + 4.",
+          "B tiene 9. Compara 9 con 8."
+        ],
+        "retroalimentacion": "A tiene 8 casilleros y B tiene 9: B es más largo por 1 casillero.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos caminos que van del mismo punto al mismo punto siempre tienen el mismo número de casilleros.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en un camino recto y otro con muchas vueltas.",
+          "Uno puede dar más vueltas y tener más casilleros.",
+          "Llegar al mismo punto no obliga a recorrer lo mismo."
+        ],
+        "retroalimentacion": "Es falso: un camino con vueltas puede tener más casilleros que uno recto.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un camino hace este recorrido: →5 ↑2 ←3. ¿Cuántos casilleros tiene? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Aunque cambie de dirección, se cuentan todos los tramos.",
+          "Los tramos son 5, 2 y 3.",
+          "5 + 2 = 7; falta sumar 3."
+        ],
+        "retroalimentacion": "5 + 2 + 3 = 10 casilleros.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El camino A es →7 ↓4 →3 y el camino B es ↓4 →9. ¿Cuántos casilleros más tiene el camino más largo que el más corto? Escribe solo el número.",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero calcula cada camino por separado.",
+          "A: 7 + 4 + 3 = 14. B: 4 + 9.",
+          "B tiene 13. Resta 14 − 13."
+        ],
+        "retroalimentacion": "A tiene 14 casilleros y B tiene 13. El más largo tiene 1 casillero más.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tres caminos de la casa al mercado miden: el A, 12 casilleros; el B, 15 casilleros; el C, 9 casilleros. Ana quiere llegar con el camino más corto. ¿Cuál elige?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Camino C"
+          },
+          {
+            "id": "b",
+            "texto": "Camino A"
+          },
+          {
+            "id": "c",
+            "texto": "Camino B"
+          },
+          {
+            "id": "d",
+            "texto": "Los tres son iguales"
+          }
+        ],
+        "pistas": [
+          "El camino más corto es el que tiene menos casilleros.",
+          "Compara 12, 15 y 9.",
+          "9 es el menor de los tres números."
+        ],
+        "retroalimentacion": "Elige el camino C porque tiene 9 casilleros, menos que los otros.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un camino con muchas vueltas siempre es más largo que un camino recto.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en un camino con pocas vueltas pero muchos casilleros rectos.",
+          "Lo que importa es el número de casilleros, no las vueltas.",
+          "Un camino recto puede tener más casilleros."
+        ],
+        "retroalimentacion": "Es falso: lo que decide es el número de casilleros. Un camino recto largo puede ser más largo que uno con vueltas.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El camino de Teo a la plaza es →6 ↓3 →4 ↑1. El camino directo de Ana es →10 ↓2. ¿Cuántos casilleros más recorre Teo que Ana? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cada camino: Teo tiene cuatro tramos.",
+          "Teo: 6 + 3 + 4 + 1 = 14. Ana: 10 + 2.",
+          "Ana recorre 12. Resta 14 − 12."
+        ],
+        "retroalimentacion": "Teo recorre 14 casilleros y Ana 12, así que Teo recorre 2 más.",
+        "id": "e12"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.distintas-unidades-distinta-medida",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P2-06",
+      "MAT-C26-P2-07"
+    ],
+    "bloque": "Longitud",
+    "nombre": "Distintas unidades, distinta medida",
+    "disciplina": "geometria",
+    "descripcionCorta": "Mide un mismo objeto con dos unidades diferentes y explica por qué obtiene números distintos.",
+    "palabrasClave": [
+      "unidades",
+      "medir",
+      "distinta medida",
+      "palmo",
+      "longitud"
+    ],
+    "prerrequisitos": [
+      "mat.p2.medir-longitudes"
+    ],
+    "ordenSugerido": 112,
+    "ideaCentral": "Si mides lo mismo con unidades distintas, te sale un número distinto. Con una unidad más corta sale un número mayor; con una más larga, un número menor.",
+    "pasos": [
+      "Mira la unidad que usas: palmo, paso, clip o borrador.",
+      "Mide el objeto con la primera unidad y anota el número.",
+      "Mide con otra unidad y anota el número.",
+      "Compara: la unidad más corta da el número mayor."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Rosa mide su cuaderno con clips y le salen 12. Luis lo mide con borradores, que son más largos. ¿Su número será mayor o menor?",
+        "desarrollo": "Los borradores son más largos: caben menos en el cuaderno.",
+        "respuesta": "Le sale un número menor que 12."
+      },
+      {
+        "situacion": "Una cinta mide 10 clips. Cada borrador es el doble de largo que un clip. ¿Cuántos borradores mide?",
+        "desarrollo": "Cada borrador ocupa dos clips. Divide 10 clips en grupos de 2.",
+        "respuesta": "Mide 5 borradores."
+      },
+      {
+        "situacion": "En el mercado, una soga mide 6 pasos de Ana. Los pasos de su papá son el doble. ¿Cuántos pasos de papá mide?",
+        "desarrollo": "El paso de papá es más largo y cubre dos pasos de Ana.",
+        "respuesta": "Mide 3 pasos de papá."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que el objeto cambia de largo.",
+        "correccion": "El objeto mide lo mismo; cambia la unidad."
+      },
+      {
+        "error": "Comparar números de unidades distintas.",
+        "correccion": "Para comparar, usa la misma unidad."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Unidad de medida",
+        "significado": "Algo que usas para medir, como un clip o un palmo."
+      },
+      {
+        "termino": "Medir",
+        "significado": "Ver cuántas veces cabe una unidad en un objeto."
+      },
+      {
+        "termino": "Más larga",
+        "significado": "Que tiene mayor largo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si mides la misma mesa con clips grandes y con clips chicos, sale el mismo número.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa cuántos clips grandes caben en la mesa.",
+          "Piensa cuántos clips chicos caben.",
+          "Los chicos son más: sale un número diferente."
+        ],
+        "retroalimentacion": "Es falso: con clips chicos caben más y sale un número mayor.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Medimos un lápiz con borradores y con granos de maíz. ¿Con cuál sale el número mayor?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Con los granos de maíz"
+          },
+          {
+            "id": "b",
+            "texto": "Con los borradores"
+          },
+          {
+            "id": "c",
+            "texto": "Sale igual"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los granos son muy pequeños.",
+          "Caben más unidades chicas que grandes.",
+          "Eso da un número más grande."
+        ],
+        "retroalimentacion": "Sale mayor con los granos: son más chicos, caben más.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Cuanto más pequeña es la unidad, más grande es el número de la medida.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en medir una cama con clips y con palmos.",
+          "Con clips cuentas muchos; con palmos pocos.",
+          "Los clips son más pequeños."
+        ],
+        "retroalimentacion": "Es verdadero: unidad pequeña, número grande.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Rosa mide su cuaderno con clips y le salen 12. Luis lo mide con borradores, que son más largos. ¿Cómo será su número?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Mayor que 12"
+          },
+          {
+            "id": "b",
+            "texto": "Menor que 12"
+          },
+          {
+            "id": "c",
+            "texto": "Igual a 12"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los borradores son más largos que los clips.",
+          "Más largos significa que caben menos.",
+          "El número será más pequeño."
+        ],
+        "retroalimentacion": "Será menor que 12: los borradores son más largos y caben menos.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una cinta mide 10 clips. Cada borrador es el doble de largo que un clip. ¿Cuántos borradores mide la cinta? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un borrador ocupa 2 clips.",
+          "Reparte los 10 clips en grupos de 2.",
+          "10 entre 2."
+        ],
+        "retroalimentacion": "Mide 5 borradores: 5 grupos de 2 clips.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se mide un cuaderno con dos unidades. Con la A salen 20 y con la B salen 10. ¿Cuál unidad es más larga?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ninguna, son del mismo largo"
+          },
+          {
+            "id": "b",
+            "texto": "La unidad A"
+          },
+          {
+            "id": "c",
+            "texto": "La unidad B"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuál unidad da menos.",
+          "Si caben menos, la unidad es más larga.",
+          "Compara 20 con 10."
+        ],
+        "retroalimentacion": "La B es más larga: caben solo 10, menos que las 20 de la A.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un banco mide 12 pasos de Ana. Con los pasos de su papá, que son el doble de largos, ¿cuántos pasos mide? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El paso de papá cubre dos pasos de Ana.",
+          "Reparte los 12 pasos en grupos de 2.",
+          "12 entre 2."
+        ],
+        "retroalimentacion": "Mide 6 pasos de papá: 12 pasos de Ana en grupos de 2.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para comparar el largo de dos objetos medidos, hay que usar la misma unidad.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Si usas dos unidades distintas, no sabes cuál es mayor.",
+          "Debes comparar números de la misma unidad.",
+          "Usa clips para los dos objetos."
+        ],
+        "retroalimentacion": "Es verdadero: con la misma unidad se puede comparar.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un tablero mide 6 barras. Cada barra es igual a 4 cubitos. ¿Cuántos cubitos mide el tablero? Escribe solo el número.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada barra son 4 cubitos.",
+          "Cuenta 6 barras de 4 en 4.",
+          "4, 8, 12, 16, 20, ..."
+        ],
+        "retroalimentacion": "Mide 24 cubitos: 4, 8, 12, 16, 20, 24.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Lucía midió una cinta con sus palmos: 8. Marcos la midió con sus palmos: 10. ¿Quién tiene razón?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Lucía, porque 8 es menor"
+          },
+          {
+            "id": "b",
+            "texto": "Marcos, porque 10 es mayor"
+          },
+          {
+            "id": "c",
+            "texto": "La cinta es la misma: el palmo de Lucía es más largo, por eso le sale menos"
+          },
+          {
+            "id": "d",
+            "texto": "Nadie midió bien"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La cinta no cambió de largo.",
+          "Compara los palmos de cada niño.",
+          "El palmo más largo cubre más cinta."
+        ],
+        "retroalimentacion": "La cinta es la misma: el palmo de Lucía es más largo, por eso sale un número menor.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Pedro midió una soga con su paso y le salió 5. Luisa la midió con su pie y le salió 15. ¿Qué unidad es más larga: el paso o el pie? Escribe la palabra.",
+        "respuesta": "paso",
+        "alternativasAceptadas": [
+          "el paso",
+          "un paso"
+        ],
+        "pistas": [
+          "Es la misma soga.",
+          "Si necesitas menos unidades, la unidad es más larga.",
+          "Compara 5 con 15."
+        ],
+        "retroalimentacion": "El paso es más largo: solo hacen falta 5, y con el pie hacen falta 15.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un poste mide 36 cubitos. Cada barra mide 6 cubitos y cada tablón mide 2 barras. ¿Cuántos tablones mide el poste? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero cuenta cuántos cubitos hay en un tablón.",
+          "Un tablón son 2 barras de 6 cubitos.",
+          "Reparte los 36 cubitos en tablones de ese tamaño."
+        ],
+        "retroalimentacion": "Mide 3 tablones: un tablón son 12 cubitos y 36 entre 12 es 3.",
+        "id": "e12"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  }
+]

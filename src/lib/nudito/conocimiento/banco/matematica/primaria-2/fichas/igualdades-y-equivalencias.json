@@ -15,227 +15,296 @@
     "descripcionCorta": "Relaciona dos grupos de hasta 20 objetos que tienen igual cantidad aunque estén organizados distinto.",
     "palabrasClave": [
       "grupos",
-      "misma",
-      "cantidad"
+      "misma cantidad",
+      "igual",
+      "contar",
+      "hasta 20"
     ],
     "prerrequisitos": [],
     "ordenSugerido": 10,
-    "ideaCentral": "Dos grupos pueden tener la misma cantidad aunque sus objetos estén separados o ordenados de otra manera. Lo compruebas contando o emparejando uno a uno.",
+    "ideaCentral": "Dos grupos tienen la misma cantidad cuando, al contar todos sus objetos, sale el mismo número. No importa si están en filas, en montones o en bolsas.",
     "pasos": [
-      "Cuenta los objetos de cada grupo.",
-      "Empareja uno de un grupo con uno del otro.",
-      "Si no sobra ninguno, tienen igual cantidad."
+      "Cuenta todos los objetos del primer grupo.",
+      "Cuenta todos los objetos del segundo grupo, aunque estén ordenados de otra forma.",
+      "Compara los dos números: si son iguales, los grupos tienen la misma cantidad.",
+      "Si un grupo está en partes, junta las partes antes de comparar."
     ],
     "ejemplos": [
       {
-        "situacion": "Hay 8 semillas en fila y 8 en círculo.",
-        "desarrollo": "Cuento 8 en cada grupo; la forma no cambia la cantidad.",
-        "respuesta": "Tienen igual cantidad."
+        "situacion": "En la chacra de Rosa hay 3 filas de 4 papas. En la cocina hay un montón de 12 papas. ¿Hay la misma cantidad?",
+        "desarrollo": "3 filas de 4: 4, 8, 12. Son 12 papas. El montón también tiene 12.",
+        "respuesta": "Sí, los dos grupos tienen 12 papas."
       },
       {
-        "situacion": "Hay 6 chapas juntas y 7 separadas.",
-        "desarrollo": "Cuento 6 y 7; sobra una chapa al emparejar.",
-        "respuesta": "No tienen igual cantidad."
+        "situacion": "Luis tiene 6 canicas rojas y 5 azules. Sara tiene 11 canicas verdes. ¿Tienen lo mismo?",
+        "desarrollo": "Luis junta: 6 + 5 = 11. Sara tiene 11.",
+        "respuesta": "Sí, los dos tienen 11 canicas."
+      },
+      {
+        "situacion": "En el mercado hay 9 plátanos en una caja y 8 en una bolsa. ¿Hay la misma cantidad?",
+        "desarrollo": "9 es distinto de 8. En la caja hay uno más.",
+        "respuesta": "No, la caja tiene más plátanos."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Decir que la fila más larga tiene más objetos.",
-        "correccion": "La separación entre objetos no cambia cuántos hay."
+        "error": "Pensar que el grupo que ocupa más espacio tiene más objetos.",
+        "correccion": "Cuenta siempre. Un grupo en una sola fila puede tener lo mismo que otro en varias filas."
       },
       {
-        "error": "Contar un objeto dos veces.",
-        "correccion": "Empareja uno a uno para comprobar."
+        "error": "Comparar solo una parte del grupo y no juntar todo.",
+        "correccion": "Junta todas las partes antes de comparar con el otro grupo."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Igual cantidad",
-        "significado": "Mismo número de objetos."
+        "termino": "Misma cantidad",
+        "significado": "Cuando dos grupos tienen el mismo número de objetos."
       },
       {
-        "termino": "Emparejar",
-        "significado": "Relacionar un objeto con otro."
+        "termino": "Igual",
+        "significado": "Que vale o cuenta lo mismo."
+      },
+      {
+        "termino": "Comparar",
+        "significado": "Mirar dos cosas para ver si son iguales o distintas."
       }
     ],
     "ejercicios": [
       {
-        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira: Grupo A ●●●●●●●● (8 fichas). Grupo B ●●●● ●●●● (4 y 4). ¿Qué es verdad?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "B tiene más fichas que A"
+          },
+          {
+            "id": "b",
+            "texto": "A tiene más fichas que B"
+          },
+          {
+            "id": "c",
+            "texto": "A y B tienen la misma cantidad"
+          },
+          {
+            "id": "d",
+            "texto": "No se puede saber"
+          }
+        ],
+        "pistas": [
+          "Cuenta primero cuántas fichas hay en el grupo A.",
+          "El grupo B está en dos partes de 4: junta las dos partes.",
+          "4 y 4 juntan 8, igual que el grupo A."
+        ],
+        "retroalimentacion": "Los dos grupos tienen 8 fichas: A y B tienen la misma cantidad aunque B esté en dos montones.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Juan pone 12 piedritas en 3 filas. Luis pone las mismas 12 piedritas en una sola fila. ¿Cuántas piedritas hay en la fila de Luis? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Luis usa las piedritas de Juan, pero las ordena distinto.",
+          "Juan tiene 12 piedritas en total.",
+          "Cambiar de lugar las piedritas no cambia cuántas son."
+        ],
+        "retroalimentacion": "Son las mismas piedritas, solo cambió el orden. La fila de Luis tiene 12.",
+        "id": "e02"
+      },
+      {
         "dificultad": 1,
         "tipo": "verdadero_falso",
-        "enunciado": "En el cuaderno de Micaela, hay 8 chapas alineadas y 8 chapas en círculo. Los grupos tienen igual cantidad.",
+        "enunciado": "En un puesto del mercado hay 8 papayas en una caja y en otro puesto hay 8 papayas en una bolsa. Los dos puestos tienen la misma cantidad.",
         "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el cuaderno de Micaela: La forma de colocar chapas no altera cuántas hay.",
-          "En el cuaderno de Micaela: Cuenta 8 en la fila y 8 en el círculo.",
-          "En el cuaderno de Micaela: Decide si ambos conteos coinciden."
+          "Mira cuántas papayas hay en la caja.",
+          "En la bolsa también hay 8 papayas.",
+          "Si los números son iguales, la cantidad es la misma."
         ],
-        "retroalimentacion": "La afirmación es verdadera: 8 y 8 son iguales. La forma no cambia el conteo."
+        "retroalimentacion": "Es verdadero: 8 y 8 son la misma cantidad, aunque estén en caja o en bolsa.",
+        "id": "e03"
       },
       {
-        "id": "e02",
         "dificultad": 1,
-        "tipo": "verdadero_falso",
-        "enunciado": "Para el reto de la biblioteca, hay 10 chapas alineadas y 6 chapas en círculo. Los grupos tienen igual cantidad.",
-        "respuesta": false,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Para el reto de la biblioteca: La forma de colocar chapas no altera cuántas hay.",
-          "Para el reto de la biblioteca: Cuenta 10 en la fila y 6 en el círculo.",
-          "Para el reto de la biblioteca: Decide si ambos conteos coinciden."
+        "tipo": "texto_corto",
+        "enunciado": "Si un grupo tiene 17 objetos y otro grupo tiene 17 objetos, sus cantidades son ¿iguales o distintas? Escribe una palabra.",
+        "respuesta": "iguales",
+        "alternativasAceptadas": [
+          "igual",
+          "iguales."
         ],
-        "retroalimentacion": "La afirmación es falsa: 10 y 6 son diferentes. La forma no cambia el conteo."
+        "pistas": [
+          "Mira los dos números: 17 y 17.",
+          "Los dos números se escriben igual.",
+          "Cuando dos números son el mismo, las cantidades son…"
+        ],
+        "retroalimentacion": "17 y 17 son el mismo número, así que las cantidades son iguales.",
+        "id": "e04"
       },
       {
-        "id": "e03",
-        "dificultad": 1,
-        "tipo": "verdadero_falso",
-        "enunciado": "En la pizarra del salón, hay 12 chapas alineadas y 12 chapas en círculo. Los grupos tienen igual cantidad.",
-        "respuesta": true,
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Carlos tiene 7 tapitas rojas y 6 azules. Marta tiene tapitas verdes y tiene la misma cantidad que Carlos. ¿Cuántas tapitas verdes tiene Marta? Escribe solo el número.",
+        "respuesta": 13,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la pizarra del salón: La forma de colocar chapas no altera cuántas hay.",
-          "En la pizarra del salón: Cuenta 12 en la fila y 12 en el círculo.",
-          "En la pizarra del salón: Decide si ambos conteos coinciden."
+          "Primero cuenta todas las tapitas de Carlos: rojas y azules.",
+          "Junta 7 y 6: 7 + 6.",
+          "7 + 6 = 13, y Marta tiene la misma cantidad."
         ],
-        "retroalimentacion": "La afirmación es verdadera: 12 y 12 son iguales. La forma no cambia el conteo."
+        "retroalimentacion": "Carlos tiene 7 + 6 = 13 tapitas. Marta tiene lo mismo, así que tiene 13 tapitas verdes.",
+        "id": "e05"
       },
       {
-        "id": "e04",
-        "dificultad": 1,
-        "tipo": "verdadero_falso",
-        "enunciado": "Durante un juego de cálculo, hay 14 chapas alineadas y 10 chapas en círculo. Los grupos tienen igual cantidad.",
-        "respuesta": false,
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué grupo de lápices tiene la misma cantidad que 16 lápices?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Durante un juego de cálculo: La forma de colocar chapas no altera cuántas hay.",
-          "Durante un juego de cálculo: Cuenta 14 en la fila y 10 en el círculo.",
-          "Durante un juego de cálculo: Decide si ambos conteos coinciden."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9 lápices y 9 lápices"
+          },
+          {
+            "id": "b",
+            "texto": "10 lápices y 6 lápices"
+          },
+          {
+            "id": "c",
+            "texto": "10 lápices y 5 lápices"
+          },
+          {
+            "id": "d",
+            "texto": "8 lápices y 7 lápices"
+          }
         ],
-        "retroalimentacion": "La afirmación es falsa: 14 y 10 son diferentes. La forma no cambia el conteo."
+        "pistas": [
+          "Junta las dos partes de cada opción.",
+          "Prueba con 10 y 6: ¿cuánto suman?",
+          "10 + 6 = 16. Las otras sumas dan 18, 15 y 15."
+        ],
+        "retroalimentacion": "10 lápices y 6 lápices juntan 16. Los otros grupos juntan 18, 15 y 15.",
+        "id": "e06"
       },
       {
-        "id": "e05",
         "dificultad": 2,
         "tipo": "verdadero_falso",
-        "enunciado": "En la feria de la escuela, hay 13 chapas alineadas y 13 chapas en círculo. Los grupos tienen igual cantidad.",
-        "respuesta": true,
+        "enunciado": "Un cajón tiene 6 manzanas y 9 plátanos. Otro cajón tiene 16 mandarinas. Los dos cajones tienen la misma cantidad de frutas.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la feria de la escuela: La forma de colocar chapas no altera cuántas hay.",
-          "En la feria de la escuela: Cuenta 13 en la fila y 13 en el círculo.",
-          "En la feria de la escuela: Decide si ambos conteos coinciden."
+          "Junta las frutas del primer cajón: 6 y 9.",
+          "6 + 9 = 15. ¿Cuántas hay en el otro cajón?",
+          "15 y 16 no son el mismo número."
         ],
-        "retroalimentacion": "La afirmación es verdadera: 13 y 13 son iguales. La forma no cambia el conteo."
+        "retroalimentacion": "Es falso: el primer cajón tiene 6 + 9 = 15 frutas y el otro tiene 16.",
+        "id": "e07"
       },
       {
-        "id": "e06",
         "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Julia tiene 11 + 6 semillas de quinua en su mano. Su abuelo tiene 20 semillas en una bolsa. ¿Cuántas semillas le faltan a Julia para tener lo mismo que su abuelo? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero halla cuántas semillas tiene Julia: 11 + 6.",
+          "Julia tiene 17 semillas. Su abuelo tiene 20.",
+          "Cuenta desde 17 hasta 20: ¿cuántos pasos das?"
+        ],
+        "retroalimentacion": "Julia tiene 17 y su abuelo 20: le faltan 20 − 17 = 3 semillas.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Inés tiene 20 chullos: 12 son rojos y los demás azules. Tomás tiene la misma cantidad de chullos, pero 9 son blancos y los demás negros. ¿Cuántos chullos negros tiene Tomás? Escribe solo el número.",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tomás tiene la misma cantidad total que Inés: 20 chullos.",
+          "De esos 20, 9 son blancos.",
+          "Quita 9 de 20 para hallar los negros."
+        ],
+        "retroalimentacion": "Tomás tiene 20 chullos en total. Si 9 son blancos, quedan 20 − 9 = 11 negros.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ana tiene 9 + 8 figuritas, Beto tiene 10 + 7 y Carla tiene 8 + 8. ¿Quiénes tienen la misma cantidad?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ana y Beto"
+          },
+          {
+            "id": "b",
+            "texto": "Ana y Carla"
+          },
+          {
+            "id": "c",
+            "texto": "Beto y Carla"
+          },
+          {
+            "id": "d",
+            "texto": "Los tres"
+          }
+        ],
+        "pistas": [
+          "Calcula cada suma por separado.",
+          "Ana: 9 + 8 = 17. Beto: 10 + 7 = 17.",
+          "Carla tiene 8 + 8 = 16, distinto de 17."
+        ],
+        "retroalimentacion": "Ana y Beto tienen 17 figuritas cada uno. Carla tiene 16, por eso no son los tres.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
         "tipo": "verdadero_falso",
-        "enunciado": "Para contar fichas en casa, hay 16 chapas alineadas y 10 chapas en círculo. Los grupos tienen igual cantidad.",
+        "enunciado": "Lucho tiene 15 canicas en una bolsa. Sara tiene 15 canicas repartidas en 3 bolsas. Como Sara tiene más bolsas, tiene más canicas.",
         "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Para contar fichas en casa: La forma de colocar chapas no altera cuántas hay.",
-          "Para contar fichas en casa: Cuenta 16 en la fila y 10 en el círculo.",
-          "Para contar fichas en casa: Decide si ambos conteos coinciden."
+          "No mires cuántas bolsas hay, mira cuántas canicas hay.",
+          "Lucho tiene 15 canicas y Sara también tiene 15.",
+          "Tener más bolsas no significa tener más canicas."
         ],
-        "retroalimentacion": "La afirmación es falsa: 16 y 10 son diferentes. La forma no cambia el conteo."
+        "retroalimentacion": "Es falso: los dos tienen 15 canicas. Las bolsas solo cambian el orden.",
+        "id": "e11"
       },
       {
-        "id": "e07",
-        "dificultad": 2,
-        "tipo": "verdadero_falso",
-        "enunciado": "En una tarjeta de la kermés, hay 18 chapas alineadas y 18 chapas en círculo. Los grupos tienen igual cantidad.",
-        "respuesta": true,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "En una tarjeta de la kermés: La forma de colocar chapas no altera cuántas hay.",
-          "En una tarjeta de la kermés: Cuenta 18 en la fila y 18 en el círculo.",
-          "En una tarjeta de la kermés: Decide si ambos conteos coinciden."
-        ],
-        "retroalimentacion": "La afirmación es verdadera: 18 y 18 son iguales. La forma no cambia el conteo."
-      },
-      {
-        "id": "e08",
-        "dificultad": 2,
-        "tipo": "verdadero_falso",
-        "enunciado": "Al revisar una cuenta del mercado, hay 20 chapas alineadas y 14 chapas en círculo. Los grupos tienen igual cantidad.",
-        "respuesta": false,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Al revisar una cuenta del mercado: La forma de colocar chapas no altera cuántas hay.",
-          "Al revisar una cuenta del mercado: Cuenta 20 en la fila y 14 en el círculo.",
-          "Al revisar una cuenta del mercado: Decide si ambos conteos coinciden."
-        ],
-        "retroalimentacion": "La afirmación es falsa: 20 y 14 son diferentes. La forma no cambia el conteo."
-      },
-      {
-        "id": "e09",
         "dificultad": 3,
-        "tipo": "verdadero_falso",
-        "enunciado": "En la libreta de matemática, hay 17 chapas alineadas y 17 chapas en círculo. Los grupos tienen igual cantidad.",
-        "respuesta": true,
+        "tipo": "numerico",
+        "enunciado": "En la feria, Mario tiene 11 ● + 6 ● en dos cestas. Rita tiene 20 ● en total. Rita quiere que Mario tenga lo mismo que ella. ¿Cuántos ● debe ponerle a Mario? Escribe solo el número.",
+        "respuesta": 3,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la libreta de matemática: La forma de colocar chapas no altera cuántas hay.",
-          "En la libreta de matemática: Cuenta 17 en la fila y 17 en el círculo.",
-          "En la libreta de matemática: Decide si ambos conteos coinciden."
+          "Primero junta las dos cestas de Mario.",
+          "11 + 6 = 17. Rita tiene 20.",
+          "Compara 17 con 20: ¿cuántos faltan?"
         ],
-        "retroalimentacion": "La afirmación es verdadera: 17 y 17 son iguales. La forma no cambia el conteo."
-      },
-      {
-        "id": "e10",
-        "dificultad": 3,
-        "tipo": "verdadero_falso",
-        "enunciado": "Para ayudar a un compañero, hay 19 chapas alineadas y 11 chapas en círculo. Los grupos tienen igual cantidad.",
-        "respuesta": false,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Para ayudar a un compañero: La forma de colocar chapas no altera cuántas hay.",
-          "Para ayudar a un compañero: Cuenta 19 en la fila y 11 en el círculo.",
-          "Para ayudar a un compañero: Decide si ambos conteos coinciden."
-        ],
-        "retroalimentacion": "La afirmación es falsa: 19 y 11 son diferentes. La forma no cambia el conteo."
-      },
-      {
-        "id": "e11",
-        "dificultad": 3,
-        "tipo": "verdadero_falso",
-        "enunciado": "En una práctica del aula, hay 20 chapas alineadas y 20 chapas en círculo. Los grupos tienen igual cantidad.",
-        "respuesta": true,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "En una práctica del aula: La forma de colocar chapas no altera cuántas hay.",
-          "En una práctica del aula: Cuenta 20 en la fila y 20 en el círculo.",
-          "En una práctica del aula: Decide si ambos conteos coinciden."
-        ],
-        "retroalimentacion": "La afirmación es verdadera: 20 y 20 son iguales. La forma no cambia el conteo."
-      },
-      {
-        "id": "e12",
-        "dificultad": 3,
-        "tipo": "verdadero_falso",
-        "enunciado": "Al comprobar una respuesta, hay 18 chapas alineadas y 6 chapas en círculo. Los grupos tienen igual cantidad.",
-        "respuesta": false,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Al comprobar una respuesta: La forma de colocar chapas no altera cuántas hay.",
-          "Al comprobar una respuesta: Cuenta 18 en la fila y 6 en el círculo.",
-          "Al comprobar una respuesta: Decide si ambos conteos coinciden."
-        ],
-        "retroalimentacion": "La afirmación es falsa: 18 y 6 son diferentes. La forma no cambia el conteo."
+        "retroalimentacion": "Mario tiene 17 y Rita 20, así que debe poner 20 − 17 = 3.",
+        "id": "e12"
       }
     ],
+    "version": 1,
+    "revisado": null,
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ],
-    "version": 1,
-    "revisado": null
+    ]
   },
   {
     "clave": "mat.p2.igualdades-sumas-restas",
@@ -252,398 +321,303 @@
     "disciplina": "algebra",
     "descripcionCorta": "Escribe igualdades como 8 + 4 = 15 − 3 a partir de dos colecciones equivalentes.",
     "palabrasClave": [
-      "igualdades",
-      "sumas",
-      "restas"
+      "igualdad",
+      "suma",
+      "resta",
+      "mismo valor",
+      "equivalente"
     ],
     "prerrequisitos": [
       "mat.p2.grupos-misma-cantidad"
     ],
     "ordenSugerido": 44,
-    "ideaCentral": "Una suma y una resta pueden formar una igualdad si sus resultados son el mismo número. Calcula ambos lados antes de escribir =.",
+    "ideaCentral": "Una igualdad junta dos operaciones que dan el mismo resultado. Por ejemplo, 8 + 4 = 15 − 3 porque las dos valen 12.",
     "pasos": [
-      "Resuelve la operación de la izquierda.",
-      "Resuelve la operación de la derecha.",
-      "Compara los resultados y usa = solo si coinciden."
+      "Calcula el resultado de la operación del lado izquierdo.",
+      "Calcula el resultado de la operación del lado derecho.",
+      "Si los dos resultados son iguales, escribe el signo = en medio.",
+      "Si falta un número, busca el que haga que los dos lados valgan lo mismo."
     ],
     "ejemplos": [
       {
-        "situacion": "8 + 4 = 15 − 3.",
-        "desarrollo": "Izquierda: 12; derecha: 12.",
-        "respuesta": "La igualdad es verdadera."
+        "situacion": "Rosa tiene 8 + 4 soles. Su hermano tiene 15 − 3 soles. ¿Tienen lo mismo?",
+        "desarrollo": "8 + 4 = 12 y 15 − 3 = 12. Los dos valen 12.",
+        "respuesta": "Sí: 8 + 4 = 15 − 3."
       },
       {
-        "situacion": "6 + 7 = 18 − 5.",
-        "desarrollo": "Ambos lados dan 13.",
-        "respuesta": "Valen lo mismo."
+        "situacion": "En una combi suben 9 + 6 pasajeros. En otra suben 20 − □. Quieren que sea lo mismo. ¿Qué número va en □?",
+        "desarrollo": "9 + 6 = 15. Busco 20 − □ = 15. Como 20 − 5 = 15, □ es 5.",
+        "respuesta": "□ = 5."
+      },
+      {
+        "situacion": "¿Es verdadera 7 + 5 = 16 − 3?",
+        "desarrollo": "7 + 5 = 12 y 16 − 3 = 13. No son iguales.",
+        "respuesta": "No, es falsa."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Pensar que = significa «calcula lo que sigue».",
-        "correccion": "El signo indica que ambos lados valen lo mismo."
+        "error": "Poner el signo = donde solo hay que calcular, y pensar que la igualdad siempre es «suma = resultado».",
+        "correccion": "Un lado también puede ser una suma o una resta. Calcula los dos lados y compara."
       },
       {
-        "error": "Mirar los números sin resolver las operaciones.",
-        "correccion": "Calcula ambos lados completos antes de comparar."
+        "error": "Calcular solo un lado y decir que la igualdad es verdadera.",
+        "correccion": "Calcula los dos lados. Solo es verdadera si los dos dan lo mismo."
       }
     ],
     "vocabulario": [
       {
         "termino": "Igualdad",
-        "significado": "Dos expresiones con el mismo valor."
+        "significado": "Dos expresiones unidas por = que valen lo mismo."
       },
       {
-        "termino": "Expresión",
-        "significado": "Cuenta escrita con números y signos."
+        "termino": "Lado",
+        "significado": "Cada parte a la izquierda o derecha del signo =."
+      },
+      {
+        "termino": "Resultado",
+        "significado": "El número que sale al sumar o restar."
       }
     ],
     "ejercicios": [
       {
-        "id": "e01",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En el cuaderno de Micaela, una colección vale 8 + 4. ¿Qué resta puede ponerse al otro lado de =?",
-        "respuesta": "a",
+        "tipo": "numerico",
+        "enunciado": "En 8 + 4 = 15 − 3, ¿cuánto vale el lado izquierdo? Escribe solo el número.",
+        "respuesta": 12,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "15 − 3"
-          },
-          {
-            "id": "b",
-            "texto": "15 − 2"
-          },
-          {
-            "id": "c",
-            "texto": "16 − 3"
-          }
-        ],
         "pistas": [
-          "En el cuaderno de Micaela: Calcula 8 + 4 = 12.",
-          "En el cuaderno de Micaela: La resta correcta también debe dar 12.",
-          "En el cuaderno de Micaela: Comprueba 15 − 3."
+          "El lado izquierdo es 8 + 4.",
+          "Suma 8 y 4.",
+          "Cuenta 4 más desde el 8: 9, 10, 11, 12."
         ],
-        "retroalimentacion": "«15 − 3» vale 12, igual que 8 + 4; las otras restas cambian el resultado."
+        "retroalimentacion": "8 + 4 = 12. Y el lado derecho, 15 − 3, también vale 12.",
+        "id": "e01"
       },
       {
-        "id": "e02",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "Para el reto de la biblioteca, una colección vale 10 + 6. ¿Qué resta puede ponerse al otro lado de =?",
-        "respuesta": "b",
+        "tipo": "verdadero_falso",
+        "enunciado": "La igualdad 6 + 5 = 12 − 1 es verdadera.",
+        "respuesta": true,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "19 − 2"
-          },
-          {
-            "id": "b",
-            "texto": "19 − 3"
-          },
-          {
-            "id": "c",
-            "texto": "20 − 3"
-          }
-        ],
         "pistas": [
-          "Para el reto de la biblioteca: Calcula 10 + 6 = 16.",
-          "Para el reto de la biblioteca: La resta correcta también debe dar 16.",
-          "Para el reto de la biblioteca: Comprueba 19 − 3."
+          "Calcula 6 + 5.",
+          "6 + 5 = 11. Ahora calcula 12 − 1.",
+          "12 − 1 = 11, igual que el otro lado."
         ],
-        "retroalimentacion": "«19 − 3» vale 16, igual que 10 + 6; las otras restas cambian el resultado."
+        "retroalimentacion": "Es verdadero: los dos lados valen 11.",
+        "id": "e02"
       },
       {
-        "id": "e03",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En la pizarra del salón, una colección vale 12 + 8. ¿Qué resta puede ponerse al otro lado de =?",
+        "enunciado": "¿Cuál de estas es una igualdad verdadera?",
         "respuesta": "c",
         "alternativasAceptadas": [],
         "opciones": [
           {
             "id": "a",
-            "texto": "23 − 2"
+            "texto": "9 + 3 = 14 − 4"
           },
           {
             "id": "b",
-            "texto": "24 − 3"
+            "texto": "9 + 3 = 14 + 2"
           },
           {
             "id": "c",
-            "texto": "23 − 3"
+            "texto": "9 + 3 = 14 − 2"
+          },
+          {
+            "id": "d",
+            "texto": "9 + 3 = 14 − 3"
           }
         ],
         "pistas": [
-          "En la pizarra del salón: Calcula 12 + 8 = 20.",
-          "En la pizarra del salón: La resta correcta también debe dar 20.",
-          "En la pizarra del salón: Comprueba 23 − 3."
+          "Primero calcula 9 + 3 en el lado izquierdo.",
+          "9 + 3 = 12. Busca la resta que también dé 12.",
+          "14 − 2 = 12. Las otras dan 10, 16 y 11."
         ],
-        "retroalimentacion": "«23 − 3» vale 20, igual que 12 + 8; las otras restas cambian el resultado."
+        "retroalimentacion": "9 + 3 = 14 − 2 porque las dos valen 12. Las otras restas o sumas dan 10, 16 y 11.",
+        "id": "e03"
       },
       {
-        "id": "e04",
         "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Completa con = o ≠: 6 + 6 __ 15 − 3. Escribe el signo.",
+        "respuesta": "=",
+        "alternativasAceptadas": [
+          "≠ no",
+          "igual",
+          "igual a"
+        ],
+        "pistas": [
+          "Calcula cada lado por separado.",
+          "6 + 6 = 12 y 15 − 3 = 12.",
+          "Si los dos lados valen lo mismo, va el signo de igual."
+        ],
+        "retroalimentacion": "6 + 6 = 12 y 15 − 3 = 12: son iguales, va el signo =.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Doña Elsa tiene 9 + 6 soles. Su hermana tiene 20 − □ soles y tienen lo mismo. ¿Qué número va en □? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero calcula cuántos soles tiene doña Elsa.",
+          "9 + 6 = 15. La hermana tiene 20 − □ = 15.",
+          "¿Cuántos se quitan a 20 para llegar a 15?"
+        ],
+        "retroalimentacion": "Doña Elsa tiene 15 soles. Como 20 − 5 = 15, el número es 5.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Durante un juego de cálculo, una colección vale 14 + 10. ¿Qué resta puede ponerse al otro lado de =?",
+        "enunciado": "¿Qué número va en el espacio? 17 − 4 = __ + 6",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "8"
+          },
+          {
+            "id": "d",
+            "texto": "7"
+          }
+        ],
+        "pistas": [
+          "Calcula 17 − 4 primero.",
+          "17 − 4 = 13. Busca un número que sumado a 6 dé 13.",
+          "Cuenta desde 6 hasta 13: se avanzan 7."
+        ],
+        "retroalimentacion": "17 − 4 = 13 y 7 + 6 = 13, así que va el 7. Con 9, 6 u 8 el lado derecho no vale 13.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Las sumas 8 + 7 y 9 + 6 forman una igualdad: 8 + 7 = 9 + 6.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cada suma por separado.",
+          "8 + 7 = 15. Ahora mira 9 + 6.",
+          "9 + 6 = 15. Los dos lados valen igual."
+        ],
+        "retroalimentacion": "Es verdadero: las dos sumas dan 15.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Pedro escribió 13 − 5 = 4 + □. ¿Qué número debe escribir en □? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empieza con el lado que está completo: 13 − 5.",
+          "13 − 5 = 8. El otro lado debe valer 8.",
+          "¿Cuánto se suma a 4 para llegar a 8?"
+        ],
+        "retroalimentacion": "13 − 5 = 8 y 4 + 4 = 8, así que □ es 4.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En el mercado de Iquitos, Teo gasta 30 − 12 soles el lunes. Rosa gasta 9 + □ soles el martes. Gastaron lo mismo. ¿Qué número va en □? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero halla cuánto gastó Teo: 30 − 12.",
+          "Teo gastó 18 soles. Rosa gastó 9 + □.",
+          "¿Cuánto falta a 9 para llegar a 18?"
+        ],
+        "retroalimentacion": "Teo gastó 18 soles. Como 9 + 9 = 18, Rosa gastó 9 + 9 y □ es 9.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas igualdades es falsa?",
         "respuesta": "a",
         "alternativasAceptadas": [],
         "opciones": [
           {
             "id": "a",
-            "texto": "27 − 3"
+            "texto": "7 + 7 = 18 − 5"
           },
           {
             "id": "b",
-            "texto": "27 − 2"
+            "texto": "9 + 8 = 20 − 3"
           },
           {
             "id": "c",
-            "texto": "28 − 3"
+            "texto": "14 − 6 = 5 + 3"
+          },
+          {
+            "id": "d",
+            "texto": "Todas son verdaderas"
           }
         ],
         "pistas": [
-          "Durante un juego de cálculo: Calcula 14 + 10 = 24.",
-          "Durante un juego de cálculo: La resta correcta también debe dar 24.",
-          "Durante un juego de cálculo: Comprueba 27 − 3."
+          "Revisa cada igualdad calculando los dos lados.",
+          "9 + 8 = 17 y 20 − 3 = 17. Y 14 − 6 = 8 = 5 + 3.",
+          "Revisa la que queda: 7 + 7 y 18 − 5."
         ],
-        "retroalimentacion": "«27 − 3» vale 24, igual que 14 + 10; las otras restas cambian el resultado."
+        "retroalimentacion": "7 + 7 = 14 pero 18 − 5 = 13, por eso es falsa. Las otras dos igualdades sí valen lo mismo en los dos lados.",
+        "id": "e10"
       },
       {
-        "id": "e05",
-        "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la feria de la escuela, una colección vale 13 + 7. ¿Qué resta puede ponerse al otro lado de =?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "23 − 2"
-          },
-          {
-            "id": "b",
-            "texto": "23 − 3"
-          },
-          {
-            "id": "c",
-            "texto": "24 − 3"
-          }
-        ],
-        "pistas": [
-          "En la feria de la escuela: Calcula 13 + 7 = 20.",
-          "En la feria de la escuela: La resta correcta también debe dar 20.",
-          "En la feria de la escuela: Comprueba 23 − 3."
-        ],
-        "retroalimentacion": "«23 − 3» vale 20, igual que 13 + 7; las otras restas cambian el resultado."
-      },
-      {
-        "id": "e06",
-        "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "Para contar fichas en casa, una colección vale 16 + 10. ¿Qué resta puede ponerse al otro lado de =?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "29 − 2"
-          },
-          {
-            "id": "b",
-            "texto": "30 − 3"
-          },
-          {
-            "id": "c",
-            "texto": "29 − 3"
-          }
-        ],
-        "pistas": [
-          "Para contar fichas en casa: Calcula 16 + 10 = 26.",
-          "Para contar fichas en casa: La resta correcta también debe dar 26.",
-          "Para contar fichas en casa: Comprueba 29 − 3."
-        ],
-        "retroalimentacion": "«29 − 3» vale 26, igual que 16 + 10; las otras restas cambian el resultado."
-      },
-      {
-        "id": "e07",
-        "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En una tarjeta de la kermés, una colección vale 18 + 12. ¿Qué resta puede ponerse al otro lado de =?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "33 − 3"
-          },
-          {
-            "id": "b",
-            "texto": "33 − 2"
-          },
-          {
-            "id": "c",
-            "texto": "34 − 3"
-          }
-        ],
-        "pistas": [
-          "En una tarjeta de la kermés: Calcula 18 + 12 = 30.",
-          "En una tarjeta de la kermés: La resta correcta también debe dar 30.",
-          "En una tarjeta de la kermés: Comprueba 33 − 3."
-        ],
-        "retroalimentacion": "«33 − 3» vale 30, igual que 18 + 12; las otras restas cambian el resultado."
-      },
-      {
-        "id": "e08",
-        "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "Al revisar una cuenta del mercado, una colección vale 20 + 14. ¿Qué resta puede ponerse al otro lado de =?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "37 − 2"
-          },
-          {
-            "id": "b",
-            "texto": "37 − 3"
-          },
-          {
-            "id": "c",
-            "texto": "38 − 3"
-          }
-        ],
-        "pistas": [
-          "Al revisar una cuenta del mercado: Calcula 20 + 14 = 34.",
-          "Al revisar una cuenta del mercado: La resta correcta también debe dar 34.",
-          "Al revisar una cuenta del mercado: Comprueba 37 − 3."
-        ],
-        "retroalimentacion": "«37 − 3» vale 34, igual que 20 + 14; las otras restas cambian el resultado."
-      },
-      {
-        "id": "e09",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la libreta de matemática, una colección vale 17 + 9. ¿Qué resta puede ponerse al otro lado de =?",
-        "respuesta": "c",
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 6 + 8 = 20 − 6, entonces también es cierto que 6 + 8 = 20 − 5.",
+        "respuesta": false,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "29 − 2"
-          },
-          {
-            "id": "b",
-            "texto": "30 − 3"
-          },
-          {
-            "id": "c",
-            "texto": "29 − 3"
-          }
-        ],
         "pistas": [
-          "En la libreta de matemática: Calcula 17 + 9 = 26.",
-          "En la libreta de matemática: La resta correcta también debe dar 26.",
-          "En la libreta de matemática: Comprueba 29 − 3."
+          "Calcula 6 + 8 y compáralo con 20 − 6.",
+          "6 + 8 = 14 y 20 − 6 = 14. Ahora calcula 20 − 5.",
+          "20 − 5 = 15, que no es 14."
         ],
-        "retroalimentacion": "«29 − 3» vale 26, igual que 17 + 9; las otras restas cambian el resultado."
+        "retroalimentacion": "Es falso: 6 + 8 = 14, pero 20 − 5 = 15.",
+        "id": "e11"
       },
       {
-        "id": "e10",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "Para ayudar a un compañero, una colección vale 19 + 11. ¿Qué resta puede ponerse al otro lado de =?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "33 − 3"
-          },
-          {
-            "id": "b",
-            "texto": "33 − 2"
-          },
-          {
-            "id": "c",
-            "texto": "34 − 3"
-          }
+        "tipo": "texto_corto",
+        "enunciado": "Una igualdad se forma con 9 + 6 y una resta. ¿Cuál es la resta: 20 − 5 o 20 − 6? Escribe la resta.",
+        "respuesta": "20 − 5",
+        "alternativasAceptadas": [
+          "20-5",
+          "20 - 5"
         ],
         "pistas": [
-          "Para ayudar a un compañero: Calcula 19 + 11 = 30.",
-          "Para ayudar a un compañero: La resta correcta también debe dar 30.",
-          "Para ayudar a un compañero: Comprueba 33 − 3."
+          "Primero calcula 9 + 6.",
+          "9 + 6 = 15. La resta también debe dar 15.",
+          "Prueba 20 − 5: ¿cuánto da?"
         ],
-        "retroalimentacion": "«33 − 3» vale 30, igual que 19 + 11; las otras restas cambian el resultado."
-      },
-      {
-        "id": "e11",
-        "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En una práctica del aula, una colección vale 20 + 10. ¿Qué resta puede ponerse al otro lado de =?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "33 − 2"
-          },
-          {
-            "id": "b",
-            "texto": "33 − 3"
-          },
-          {
-            "id": "c",
-            "texto": "34 − 3"
-          }
-        ],
-        "pistas": [
-          "En una práctica del aula: Calcula 20 + 10 = 30.",
-          "En una práctica del aula: La resta correcta también debe dar 30.",
-          "En una práctica del aula: Comprueba 33 − 3."
-        ],
-        "retroalimentacion": "«33 − 3» vale 30, igual que 20 + 10; las otras restas cambian el resultado."
-      },
-      {
-        "id": "e12",
-        "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "Al comprobar una respuesta, una colección vale 18 + 6. ¿Qué resta puede ponerse al otro lado de =?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "27 − 2"
-          },
-          {
-            "id": "b",
-            "texto": "28 − 3"
-          },
-          {
-            "id": "c",
-            "texto": "27 − 3"
-          }
-        ],
-        "pistas": [
-          "Al comprobar una respuesta: Calcula 18 + 6 = 24.",
-          "Al comprobar una respuesta: La resta correcta también debe dar 24.",
-          "Al comprobar una respuesta: Comprueba 27 − 3."
-        ],
-        "retroalimentacion": "«27 − 3» vale 24, igual que 18 + 6; las otras restas cambian el resultado."
+        "retroalimentacion": "9 + 6 = 15 y 20 − 5 = 15. En cambio 20 − 6 da 14.",
+        "id": "e12"
       }
     ],
+    "version": 1,
+    "revisado": null,
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ],
-    "version": 1,
-    "revisado": null
+    ]
   },
   {
     "clave": "mat.p2.signo-igual",
@@ -660,397 +634,301 @@
     "disciplina": "algebra",
     "descripcionCorta": "Explica que el signo igual indica que ambos lados tienen el mismo valor.",
     "palabrasClave": [
-      "signo",
-      "igual"
+      "signo igual",
+      "mismo valor",
+      "lados",
+      "equilibrio"
     ],
     "prerrequisitos": [
       "mat.p2.grupos-misma-cantidad"
     ],
     "ordenSugerido": 46,
-    "ideaCentral": "El signo igual dice que lo escrito a ambos lados vale lo mismo. Puede aparecer en medio de dos cálculos, no solo antes de una respuesta.",
+    "ideaCentral": "El signo = quiere decir «vale lo mismo». Lo que está a la izquierda y lo que está a la derecha deben tener el mismo valor, no es solo una orden para dar la respuesta.",
     "pasos": [
-      "Mira qué hay a cada lado de =.",
-      "Calcula o cuenta el valor de ambos lados.",
-      "Comprueba que son iguales."
+      "Mira lo que hay a la izquierda del signo = y calcula su valor.",
+      "Mira lo que hay a la derecha y calcula su valor.",
+      "Compara los dos valores: si son iguales, el signo = está bien puesto.",
+      "Si falta un número, busca el que haga que los dos lados valgan lo mismo."
     ],
     "ejemplos": [
       {
-        "situacion": "5 + 3 = 8.",
-        "desarrollo": "La izquierda vale 8 y la derecha vale 8.",
-        "respuesta": "El signo = está bien usado."
+        "situacion": "¿Está bien 3 + 4 = 5 + 2?",
+        "desarrollo": "3 + 4 = 7 y 5 + 2 = 7. Los dos lados valen 7.",
+        "respuesta": "Sí, el signo = está bien puesto."
       },
       {
-        "situacion": "7 + 1 = 10 − 2.",
-        "desarrollo": "Ambas cuentas dan 8.",
-        "respuesta": "Los lados valen lo mismo."
+        "situacion": "¿Está bien 15 = 9 + 5?",
+        "desarrollo": "El lado derecho vale 9 + 5 = 14. El izquierdo vale 15.",
+        "respuesta": "No, 15 y 14 no valen lo mismo."
+      },
+      {
+        "situacion": "Completa: 6 + 7 = 10 + □.",
+        "desarrollo": "6 + 7 = 13. Para llegar a 13 desde 10 faltan 3.",
+        "respuesta": "□ = 3."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Pensar que después de = siempre debe ir un solo número.",
-        "correccion": "También puede haber una suma o una resta a la derecha."
+        "error": "Creer que después del signo = siempre debe ir una sola respuesta.",
+        "correccion": "El signo = dice que los dos lados valen lo mismo. Puede haber una suma también del lado derecho."
       },
       {
-        "error": "Aceptar = aunque los valores sean diferentes.",
-        "correccion": "Comprueba ambos lados antes de usarlo."
+        "error": "Escribir = entre dos cosas sin calcular si valen igual.",
+        "correccion": "Calcula los dos lados antes de poner =."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Igual",
-        "significado": "Del mismo valor."
+        "termino": "Signo igual (=)",
+        "significado": "Dice que lo de un lado vale lo mismo que lo del otro."
       },
       {
-        "termino": "Lado de una igualdad",
-        "significado": "Expresión antes o después del signo =."
+        "termino": "Lado izquierdo",
+        "significado": "Lo que está antes del signo =."
+      },
+      {
+        "termino": "Lado derecho",
+        "significado": "Lo que está después del signo =."
       }
     ],
     "ejercicios": [
       {
-        "id": "e01",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En el cuaderno de Micaela, ¿en qué expresión el signo = dice que ambos lados valen lo mismo?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "8 + 4 = 12"
-          },
-          {
-            "id": "b",
-            "texto": "8 + 4 = 13"
-          },
-          {
-            "id": "c",
-            "texto": "8 = 4 + 12"
-          }
-        ],
-        "pistas": [
-          "En el cuaderno de Micaela: Calcula la suma 8 + 4.",
-          "En el cuaderno de Micaela: Busca el resultado 12 al otro lado del signo.",
-          "En el cuaderno de Micaela: Comprueba cada lado de «8 + 4 = 12»."
-        ],
-        "retroalimentacion": "«8 + 4 = 12» usa = correctamente porque ambos lados valen 12."
-      },
-      {
-        "id": "e02",
-        "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "Para el reto de la biblioteca, ¿en qué expresión el signo = dice que ambos lados valen lo mismo?",
+        "enunciado": "¿Qué quiere decir el signo = en 5 + 2 = 7?",
         "respuesta": "b",
         "alternativasAceptadas": [],
         "opciones": [
           {
             "id": "a",
-            "texto": "10 + 6 = 17"
+            "texto": "Que viene la respuesta y se termina"
           },
           {
             "id": "b",
-            "texto": "10 + 6 = 16"
+            "texto": "Que los dos lados valen lo mismo"
           },
           {
             "id": "c",
-            "texto": "10 = 6 + 16"
+            "texto": "Que hay que sumar otra vez"
+          },
+          {
+            "id": "d",
+            "texto": "Que el lado izquierdo es mayor"
           }
         ],
         "pistas": [
-          "Para el reto de la biblioteca: Calcula la suma 10 + 6.",
-          "Para el reto de la biblioteca: Busca el resultado 16 al otro lado del signo.",
-          "Para el reto de la biblioteca: Comprueba cada lado de «10 + 6 = 16»."
+          "Piensa en una balanza con 5 + 2 a un lado y 7 al otro.",
+          "5 + 2 vale 7, y el otro lado también vale 7.",
+          "El signo = muestra que los dos lados tienen el mismo valor."
         ],
-        "retroalimentacion": "«10 + 6 = 16» usa = correctamente porque ambos lados valen 16."
+        "retroalimentacion": "El signo = quiere decir que los dos lados valen lo mismo; no solo que viene una respuesta.",
+        "id": "e01"
       },
       {
-        "id": "e03",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la pizarra del salón, ¿en qué expresión el signo = dice que ambos lados valen lo mismo?",
-        "respuesta": "c",
+        "tipo": "verdadero_falso",
+        "enunciado": "En 4 + 3 = 7, los dos lados valen lo mismo.",
+        "respuesta": true,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "12 + 8 = 21"
-          },
-          {
-            "id": "b",
-            "texto": "12 = 8 + 20"
-          },
-          {
-            "id": "c",
-            "texto": "12 + 8 = 20"
-          }
-        ],
         "pistas": [
-          "En la pizarra del salón: Calcula la suma 12 + 8.",
-          "En la pizarra del salón: Busca el resultado 20 al otro lado del signo.",
-          "En la pizarra del salón: Comprueba cada lado de «12 + 8 = 20»."
+          "Calcula el lado izquierdo: 4 + 3.",
+          "4 + 3 = 7. El lado derecho es 7.",
+          "7 y 7 son iguales."
         ],
-        "retroalimentacion": "«12 + 8 = 20» usa = correctamente porque ambos lados valen 20."
+        "retroalimentacion": "Es verdadero: los dos lados valen 7.",
+        "id": "e02"
       },
       {
-        "id": "e04",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "Durante un juego de cálculo, ¿en qué expresión el signo = dice que ambos lados valen lo mismo?",
-        "respuesta": "a",
+        "tipo": "numerico",
+        "enunciado": "En 6 + 2 = 8, ¿cuánto vale el lado izquierdo? Escribe solo el número.",
+        "respuesta": 8,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "14 + 10 = 24"
-          },
-          {
-            "id": "b",
-            "texto": "14 + 10 = 25"
-          },
-          {
-            "id": "c",
-            "texto": "14 = 10 + 24"
-          }
-        ],
         "pistas": [
-          "Durante un juego de cálculo: Calcula la suma 14 + 10.",
-          "Durante un juego de cálculo: Busca el resultado 24 al otro lado del signo.",
-          "Durante un juego de cálculo: Comprueba cada lado de «14 + 10 = 24»."
+          "El lado izquierdo es lo que está antes del signo =.",
+          "Antes del = está 6 + 2.",
+          "Suma 6 y 2."
         ],
-        "retroalimentacion": "«14 + 10 = 24» usa = correctamente porque ambos lados valen 24."
+        "retroalimentacion": "6 + 2 vale 8, igual que el lado derecho.",
+        "id": "e03"
       },
       {
-        "id": "e05",
-        "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la feria de la escuela, ¿en qué expresión el signo = dice que ambos lados valen lo mismo?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "13 + 7 = 21"
-          },
-          {
-            "id": "b",
-            "texto": "13 + 7 = 20"
-          },
-          {
-            "id": "c",
-            "texto": "13 = 7 + 20"
-          }
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "El signo = se lee «es ______ a». Escribe la palabra que falta.",
+        "respuesta": "igual",
+        "alternativasAceptadas": [
+          "iguales",
+          "igual a"
         ],
         "pistas": [
-          "En la feria de la escuela: Calcula la suma 13 + 7.",
-          "En la feria de la escuela: Busca el resultado 20 al otro lado del signo.",
-          "En la feria de la escuela: Comprueba cada lado de «13 + 7 = 20»."
+          "Piensa en cuando dos cosas valen lo mismo.",
+          "4 + 4 = 8 se lee «cuatro más cuatro es … a ocho».",
+          "La palabra empieza con la letra i."
         ],
-        "retroalimentacion": "«13 + 7 = 20» usa = correctamente porque ambos lados valen 20."
+        "retroalimentacion": "El signo = se lee «es igual a».",
+        "id": "e04"
       },
       {
-        "id": "e06",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Para contar fichas en casa, ¿en qué expresión el signo = dice que ambos lados valen lo mismo?",
+        "enunciado": "Luis dice: «En 3 + 4 = 5 + 2 hay un error porque después del = debe ir un solo número». ¿Quién tiene razón?",
         "respuesta": "c",
         "alternativasAceptadas": [],
         "opciones": [
           {
             "id": "a",
-            "texto": "16 + 10 = 27"
+            "texto": "Luis tiene razón: debe ir un solo número"
           },
           {
             "id": "b",
-            "texto": "16 = 10 + 26"
+            "texto": "Luis tiene razón: falta una suma"
           },
           {
             "id": "c",
-            "texto": "16 + 10 = 26"
+            "texto": "Luis se equivoca: 3 + 4 y 5 + 2 valen 7 los dos"
+          },
+          {
+            "id": "d",
+            "texto": "No se puede saber"
           }
         ],
         "pistas": [
-          "Para contar fichas en casa: Calcula la suma 16 + 10.",
-          "Para contar fichas en casa: Busca el resultado 26 al otro lado del signo.",
-          "Para contar fichas en casa: Comprueba cada lado de «16 + 10 = 26»."
+          "Calcula 3 + 4 y calcula 5 + 2.",
+          "3 + 4 = 7 y 5 + 2 = 7.",
+          "Si los dos lados valen lo mismo, el signo = está bien."
         ],
-        "retroalimentacion": "«16 + 10 = 26» usa = correctamente porque ambos lados valen 26."
+        "retroalimentacion": "Luis se equivoca: 3 + 4 y 5 + 2 valen 7 los dos. Después del = puede ir otra suma.",
+        "id": "e05"
       },
       {
-        "id": "e07",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En una tarjeta de la kermés, ¿en qué expresión el signo = dice que ambos lados valen lo mismo?",
-        "respuesta": "a",
+        "tipo": "numerico",
+        "enunciado": "Completa para que el signo = esté bien: 6 + 7 = 10 + □. Escribe solo el número.",
+        "respuesta": 3,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "18 + 12 = 30"
-          },
-          {
-            "id": "b",
-            "texto": "18 + 12 = 31"
-          },
-          {
-            "id": "c",
-            "texto": "18 = 12 + 30"
-          }
-        ],
         "pistas": [
-          "En una tarjeta de la kermés: Calcula la suma 18 + 12.",
-          "En una tarjeta de la kermés: Busca el resultado 30 al otro lado del signo.",
-          "En una tarjeta de la kermés: Comprueba cada lado de «18 + 12 = 30»."
+          "Calcula primero el lado que está completo: 6 + 7.",
+          "6 + 7 = 13. El otro lado, 10 + □, también debe valer 13.",
+          "Cuenta desde 10 hasta 13."
         ],
-        "retroalimentacion": "«18 + 12 = 30» usa = correctamente porque ambos lados valen 30."
+        "retroalimentacion": "6 + 7 = 13 y 10 + 3 = 13, así que □ es 3.",
+        "id": "e06"
       },
       {
-        "id": "e08",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "Al revisar una cuenta del mercado, ¿en qué expresión el signo = dice que ambos lados valen lo mismo?",
-        "respuesta": "b",
+        "tipo": "verdadero_falso",
+        "enunciado": "En 12 − 2 = 4 + 6 el signo = está bien puesto.",
+        "respuesta": true,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "20 + 14 = 35"
-          },
-          {
-            "id": "b",
-            "texto": "20 + 14 = 34"
-          },
-          {
-            "id": "c",
-            "texto": "20 = 14 + 34"
-          }
-        ],
         "pistas": [
-          "Al revisar una cuenta del mercado: Calcula la suma 20 + 14.",
-          "Al revisar una cuenta del mercado: Busca el resultado 34 al otro lado del signo.",
-          "Al revisar una cuenta del mercado: Comprueba cada lado de «20 + 14 = 34»."
+          "Calcula 12 − 2.",
+          "12 − 2 = 10. Ahora calcula 4 + 6.",
+          "4 + 6 = 10, igual que el otro lado."
         ],
-        "retroalimentacion": "«20 + 14 = 34» usa = correctamente porque ambos lados valen 34."
+        "retroalimentacion": "Es verdadero: los dos lados valen 10.",
+        "id": "e07"
       },
       {
-        "id": "e09",
-        "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la libreta de matemática, ¿en qué expresión el signo = dice que ambos lados valen lo mismo?",
-        "respuesta": "c",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 15 = 9 + 5 el signo = está bien puesto.",
+        "respuesta": false,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "17 + 9 = 27"
-          },
-          {
-            "id": "b",
-            "texto": "17 = 9 + 26"
-          },
-          {
-            "id": "c",
-            "texto": "17 + 9 = 26"
-          }
-        ],
         "pistas": [
-          "En la libreta de matemática: Calcula la suma 17 + 9.",
-          "En la libreta de matemática: Busca el resultado 26 al otro lado del signo.",
-          "En la libreta de matemática: Comprueba cada lado de «17 + 9 = 26»."
+          "El lado izquierdo es solo 15.",
+          "Calcula el lado derecho: 9 + 5.",
+          "9 + 5 = 14, que no es 15."
         ],
-        "retroalimentacion": "«17 + 9 = 26» usa = correctamente porque ambos lados valen 26."
+        "retroalimentacion": "Es falso: 9 + 5 = 14, no 15.",
+        "id": "e08"
       },
       {
-        "id": "e10",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "Para ayudar a un compañero, ¿en qué expresión el signo = dice que ambos lados valen lo mismo?",
-        "respuesta": "a",
+        "tipo": "numerico",
+        "enunciado": "Rita tiene 18 soles. Ella escribe: 18 = 9 + □ + 4. ¿Qué número va en □ para que los dos lados valgan lo mismo? Escribe solo el número.",
+        "respuesta": 5,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "19 + 11 = 30"
-          },
-          {
-            "id": "b",
-            "texto": "19 + 11 = 31"
-          },
-          {
-            "id": "c",
-            "texto": "19 = 11 + 30"
-          }
-        ],
         "pistas": [
-          "Para ayudar a un compañero: Calcula la suma 19 + 11.",
-          "Para ayudar a un compañero: Busca el resultado 30 al otro lado del signo.",
-          "Para ayudar a un compañero: Comprueba cada lado de «19 + 11 = 30»."
+          "El lado derecho tiene tres números: 9, □ y 4.",
+          "Primero junta 9 + 4 = 13.",
+          "Falta llegar a 18 desde 13."
         ],
-        "retroalimentacion": "«19 + 11 = 30» usa = correctamente porque ambos lados valen 30."
+        "retroalimentacion": "9 + 4 = 13 y 13 + 5 = 18, así que □ es 5.",
+        "id": "e09"
       },
       {
-        "id": "e11",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "En una práctica del aula, ¿en qué expresión el signo = dice que ambos lados valen lo mismo?",
-        "respuesta": "b",
+        "enunciado": "Una sola de estas escrituras tiene mal puesto el signo =. ¿Cuál es?",
+        "respuesta": "d",
         "alternativasAceptadas": [],
         "opciones": [
           {
             "id": "a",
-            "texto": "20 + 10 = 31"
+            "texto": "13 = 6 + 7"
           },
           {
             "id": "b",
-            "texto": "20 + 10 = 30"
+            "texto": "8 + 4 = 4 + 8"
           },
           {
             "id": "c",
-            "texto": "20 = 10 + 30"
+            "texto": "9 − 3 = 3 + 3"
+          },
+          {
+            "id": "d",
+            "texto": "10 + 2 = 15 − 4"
           }
         ],
         "pistas": [
-          "En una práctica del aula: Calcula la suma 20 + 10.",
-          "En una práctica del aula: Busca el resultado 30 al otro lado del signo.",
-          "En una práctica del aula: Comprueba cada lado de «20 + 10 = 30»."
+          "Calcula los dos lados de cada escritura.",
+          "Las tres primeras dan 13, 12 y 6 en los dos lados.",
+          "Revisa 10 + 2 y 15 − 4: no dan lo mismo."
         ],
-        "retroalimentacion": "«20 + 10 = 30» usa = correctamente porque ambos lados valen 30."
+        "retroalimentacion": "10 + 2 = 12 pero 15 − 4 = 11, por eso 10 + 2 = 15 − 4 está mal. Las demás sí valen lo mismo.",
+        "id": "e10"
       },
       {
-        "id": "e12",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "Al comprobar una respuesta, ¿en qué expresión el signo = dice que ambos lados valen lo mismo?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "18 + 6 = 25"
-          },
-          {
-            "id": "b",
-            "texto": "18 = 6 + 24"
-          },
-          {
-            "id": "c",
-            "texto": "18 + 6 = 24"
-          }
+        "tipo": "texto_corto",
+        "enunciado": "Marta escribió 8 + 5 = 13 + 2. ¿Está bien o mal? Responde «bien» o «mal».",
+        "respuesta": "mal",
+        "alternativasAceptadas": [
+          "está mal",
+          "esta mal"
         ],
         "pistas": [
-          "Al comprobar una respuesta: Calcula la suma 18 + 6.",
-          "Al comprobar una respuesta: Busca el resultado 24 al otro lado del signo.",
-          "Al comprobar una respuesta: Comprueba cada lado de «18 + 6 = 24»."
+          "Calcula 8 + 5.",
+          "8 + 5 = 13. Ahora calcula 13 + 2.",
+          "13 + 2 = 15, que no es 13."
         ],
-        "retroalimentacion": "«18 + 6 = 24» usa = correctamente porque ambos lados valen 24."
+        "retroalimentacion": "Está mal: 8 + 5 = 13, pero 13 + 2 = 15.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Daniel compra cuyes. Escribe: 14 + 6 = 27 − □. ¿Qué número debe ir en □? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero 14 + 6.",
+          "14 + 6 = 20. Entonces 27 − □ debe valer 20.",
+          "¿Cuánto se quita a 27 para quedar en 20?"
+        ],
+        "retroalimentacion": "14 + 6 = 20 y 27 − 7 = 20, así que □ es 7.",
+        "id": "e12"
       }
     ],
+    "version": 1,
+    "revisado": null,
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ],
-    "version": 1,
-    "revisado": null
+    ]
   },
   {
     "clave": "mat.p2.balanza-platillos",
@@ -1068,695 +946,301 @@
     "descripcionCorta": "Representa una igualdad con objetos en una balanza en equilibrio.",
     "palabrasClave": [
       "balanza",
-      "platillos"
+      "platillos",
+      "equilibrio",
+      "igualdad",
+      "pesar"
     ],
     "prerrequisitos": [
       "mat.p2.signo-igual"
     ],
     "ordenSugerido": 47,
-    "ideaCentral": "Una balanza equilibrada representa una igualdad: ambos platillos tienen el mismo peso. Puedes poner objetos equivalentes en cada lado.",
+    "ideaCentral": "Una balanza está en equilibrio cuando los dos platillos pesan lo mismo. Eso es como una igualdad: lo de un lado vale lo mismo que lo del otro.",
     "pasos": [
-      "Cuenta las unidades iguales de cada platillo.",
-      "Compara las masas de ambos lados.",
-      "Si la balanza queda horizontal, escribe una igualdad."
+      "Cuenta o calcula lo que hay en el platillo izquierdo.",
+      "Cuenta o calcula lo que hay en el platillo derecho.",
+      "Si los dos valen lo mismo, la balanza está en equilibrio.",
+      "Si uno es mayor, ese platillo baja; agrega o quita objetos para igualar."
     ],
     "ejemplos": [
       {
-        "situacion": "Un platillo tiene 5 cubos y el otro 3 + 2 cubos.",
-        "desarrollo": "5 = 3 + 2; ambos pesan cinco cubos.",
-        "respuesta": "La balanza se equilibra."
+        "situacion": "En una balanza, a la izquierda hay 6 pesas y a la derecha 4 + 2 pesas. ¿Está en equilibrio?",
+        "desarrollo": "Derecha: 4 + 2 = 6. Izquierda: 6.",
+        "respuesta": "Sí, está en equilibrio."
       },
       {
-        "situacion": "Un lado tiene 8 chapas y otro 6.",
-        "desarrollo": "8 no es igual a 6.",
-        "respuesta": "La balanza se inclina."
+        "situacion": "La izquierda tiene 8 pesas y la derecha 5 pesas. ¿Qué platillo baja?",
+        "desarrollo": "8 es mayor que 5. El que tiene más baja.",
+        "respuesta": "Baja el izquierdo."
+      },
+      {
+        "situacion": "A la izquierda hay 9 papas y a la derecha 6. ¿Cuántas papas hay que agregar a la derecha?",
+        "desarrollo": "Faltan 9 − 6 = 3.",
+        "respuesta": "Agregar 3 papas."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Creer que la balanza equilibrada tiene un lado más pesado.",
-        "correccion": "Si está horizontal, las masas son iguales."
+        "error": "Pensar que la balanza está en equilibrio solo porque hay la misma cantidad de objetos distintos, sin mirar cuánto pesan.",
+        "correccion": "Equilibrio es mismo peso o mismo valor. Cuenta o calcula el valor de cada lado."
       },
       {
-        "error": "Poner unidades distintas sin saber cuánto pesan.",
-        "correccion": "Usa objetos iguales para contar la masa."
+        "error": "Quitar objetos al platillo que sube.",
+        "correccion": "Para igualar, agrega al platillo que sube o quita del que baja."
       }
     ],
     "vocabulario": [
+      {
+        "termino": "Balanza",
+        "significado": "Aparato que compara cuánto pesan dos cosas."
+      },
       {
         "termino": "Platillo",
-        "significado": "Base donde colocas objetos en la balanza."
+        "significado": "Cada lado donde se ponen los objetos en la balanza."
       },
       {
         "termino": "Equilibrio",
-        "significado": "Los dos lados tienen la misma masa."
+        "significado": "Cuando los dos platillos pesan lo mismo y quedan parejos."
       }
     ],
     "ejercicios": [
       {
-        "id": "e01",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En el cuaderno de Micaela, el platillo izquierdo tiene 8 cubos iguales y el derecho 4. ¿Cuántos cubos debes poner en el derecho para equilibrar la balanza?",
-        "respuesta": 4,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si la balanza está en equilibrio, los dos platillos pesan lo mismo.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el cuaderno de Micaela: La balanza necesita el mismo número de cubos en ambos lados.",
-          "En el cuaderno de Micaela: El derecho tiene 4 y debe llegar a 8.",
-          "En el cuaderno de Micaela: Calcula cuánto falta: 8 − 4."
+          "Piensa en un balancín parejo, sin subir ni bajar.",
+          "Parejo quiere decir que ningún lado pesa más.",
+          "Cuando pesan lo mismo, hay equilibrio."
         ],
-        "retroalimentacion": "Agrega 4 cubos al derecho: 4 + 4 = 8. Si sumaste ambos platillos, no hallaste el equilibrio.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 8,
-          "b": 4
-        }
+        "retroalimentacion": "Es verdadero: en equilibrio los dos platillos pesan lo mismo.",
+        "id": "e01"
       },
       {
-        "id": "e02",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "Para el reto de la biblioteca, el platillo izquierdo tiene 10 cubos iguales y el derecho 6. ¿Cuántos cubos debes poner en el derecho para equilibrar la balanza?",
-        "respuesta": 4,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Para el reto de la biblioteca: La balanza necesita el mismo número de cubos en ambos lados.",
-          "Para el reto de la biblioteca: El derecho tiene 6 y debe llegar a 10.",
-          "Para el reto de la biblioteca: Calcula cuánto falta: 10 − 6."
-        ],
-        "retroalimentacion": "Agrega 4 cubos al derecho: 6 + 4 = 10. Si sumaste ambos platillos, no hallaste el equilibrio.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 10,
-          "b": 6
-        }
-      },
-      {
-        "id": "e03",
-        "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En la pizarra del salón, el platillo izquierdo tiene 12 cubos iguales y el derecho 8. ¿Cuántos cubos debes poner en el derecho para equilibrar la balanza?",
-        "respuesta": 4,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "En la pizarra del salón: La balanza necesita el mismo número de cubos en ambos lados.",
-          "En la pizarra del salón: El derecho tiene 8 y debe llegar a 12.",
-          "En la pizarra del salón: Calcula cuánto falta: 12 − 8."
-        ],
-        "retroalimentacion": "Agrega 4 cubos al derecho: 8 + 4 = 12. Si sumaste ambos platillos, no hallaste el equilibrio.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 12,
-          "b": 8
-        }
-      },
-      {
-        "id": "e04",
-        "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Durante un juego de cálculo, el platillo izquierdo tiene 14 cubos iguales y el derecho 10. ¿Cuántos cubos debes poner en el derecho para equilibrar la balanza?",
-        "respuesta": 4,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Durante un juego de cálculo: La balanza necesita el mismo número de cubos en ambos lados.",
-          "Durante un juego de cálculo: El derecho tiene 10 y debe llegar a 14.",
-          "Durante un juego de cálculo: Calcula cuánto falta: 14 − 10."
-        ],
-        "retroalimentacion": "Agrega 4 cubos al derecho: 10 + 4 = 14. Si sumaste ambos platillos, no hallaste el equilibrio.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 14,
-          "b": 10
-        }
-      },
-      {
-        "id": "e05",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En la feria de la escuela, el platillo izquierdo tiene 13 cubos iguales y el derecho 7. ¿Cuántos cubos debes poner en el derecho para equilibrar la balanza?",
+        "enunciado": "En el platillo izquierdo hay ●●●●●● (6 pesas iguales) y la balanza está en equilibrio. ¿Cuántas pesas iguales hay en el platillo derecho? Escribe solo el número.",
         "respuesta": 6,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la feria de la escuela: La balanza necesita el mismo número de cubos en ambos lados.",
-          "En la feria de la escuela: El derecho tiene 7 y debe llegar a 13.",
-          "En la feria de la escuela: Calcula cuánto falta: 13 − 7."
+          "Cuenta las pesas del platillo izquierdo.",
+          "Hay 6 pesas a la izquierda.",
+          "Con equilibrio, la derecha debe pesar lo mismo."
         ],
-        "retroalimentacion": "Agrega 6 cubos al derecho: 7 + 6 = 13. Si sumaste ambos platillos, no hallaste el equilibrio.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 13,
-          "b": 7
-        }
+        "retroalimentacion": "La balanza está en equilibrio, así que a la derecha también hay 6 pesas.",
+        "id": "e02"
       },
       {
-        "id": "e06",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "El platillo izquierdo baja y el derecho sube. ¿Cuál platillo pesa más?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El derecho"
+          },
+          {
+            "id": "b",
+            "texto": "El izquierdo"
+          },
+          {
+            "id": "c",
+            "texto": "Los dos pesan igual"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguno pesa"
+          }
+        ],
+        "pistas": [
+          "Imagina un lado con más peso: ¿sube o baja?",
+          "El platillo izquierdo baja.",
+          "El que baja es el que tiene más peso."
+        ],
+        "retroalimentacion": "El platillo izquierdo pesa más porque es el que baja.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Si los dos platillos pesan lo mismo, la balanza queda en ______. Escribe la palabra.",
+        "respuesta": "equilibrio",
+        "alternativasAceptadas": [
+          "en equilibrio"
+        ],
+        "pistas": [
+          "Piensa en una balanza parejita.",
+          "Es una palabra que empieza con e.",
+          "Se dice que la balanza está en … cuando no se inclina."
+        ],
+        "retroalimentacion": "Cuando los platillos pesan lo mismo, la balanza está en equilibrio.",
+        "id": "e04"
+      },
+      {
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "Para contar fichas en casa, el platillo izquierdo tiene 16 cubos iguales y el derecho 10. ¿Cuántos cubos debes poner en el derecho para equilibrar la balanza?",
-        "respuesta": 6,
+        "enunciado": "En una balanza de mercado, en el platillo izquierdo hay 7 papas y 5 papas. En el derecho hay 9 papas. ¿Cuántas papas hay que agregar a la derecha para que haya equilibrio? Escribe solo el número.",
+        "respuesta": 3,
         "alternativasAceptadas": [],
         "pistas": [
-          "Para contar fichas en casa: La balanza necesita el mismo número de cubos en ambos lados.",
-          "Para contar fichas en casa: El derecho tiene 10 y debe llegar a 16.",
-          "Para contar fichas en casa: Calcula cuánto falta: 16 − 10."
+          "Primero halla cuántas papas hay en total a la izquierda.",
+          "7 + 5 = 12 papas. A la derecha hay 9.",
+          "¿Cuántas faltan para llegar de 9 a 12?"
         ],
-        "retroalimentacion": "Agrega 6 cubos al derecho: 10 + 6 = 16. Si sumaste ambos platillos, no hallaste el equilibrio.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 16,
-          "b": 10
-        }
+        "retroalimentacion": "A la izquierda hay 12 papas y a la derecha 9, por eso se agregan 12 − 9 = 3 papas.",
+        "id": "e05"
       },
       {
-        "id": "e07",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En una tarjeta de la kermés, el platillo izquierdo tiene 18 cubos iguales y el derecho 12. ¿Cuántos cubos debes poner en el derecho para equilibrar la balanza?",
-        "respuesta": 6,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una balanza tiene 15 ● a la izquierda. A la derecha tiene 10 ● y 4 ●. ¿Qué pasa?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "En una tarjeta de la kermés: La balanza necesita el mismo número de cubos en ambos lados.",
-          "En una tarjeta de la kermés: El derecho tiene 12 y debe llegar a 18.",
-          "En una tarjeta de la kermés: Calcula cuánto falta: 18 − 12."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Está en equilibrio"
+          },
+          {
+            "id": "b",
+            "texto": "El platillo derecho baja"
+          },
+          {
+            "id": "c",
+            "texto": "El platillo izquierdo baja"
+          },
+          {
+            "id": "d",
+            "texto": "Los dos platillos suben"
+          }
         ],
-        "retroalimentacion": "Agrega 6 cubos al derecho: 12 + 6 = 18. Si sumaste ambos platillos, no hallaste el equilibrio.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 18,
-          "b": 12
-        }
+        "pistas": [
+          "Junta lo que hay a la derecha: 10 ● y 4 ●.",
+          "10 + 4 = 14. A la izquierda hay 15.",
+          "15 es más que 14: ¿cuál lado pesa más?"
+        ],
+        "retroalimentacion": "A la izquierda hay 15 y a la derecha 14: el platillo izquierdo baja porque pesa más.",
+        "id": "e06"
       },
       {
-        "id": "e08",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Al revisar una cuenta del mercado, el platillo izquierdo tiene 20 cubos iguales y el derecho 14. ¿Cuántos cubos debes poner en el derecho para equilibrar la balanza?",
-        "respuesta": 6,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una balanza, a un lado hay 9 + 4 pesas y al otro lado hay 20 − 7 pesas. La balanza queda en equilibrio.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Al revisar una cuenta del mercado: La balanza necesita el mismo número de cubos en ambos lados.",
-          "Al revisar una cuenta del mercado: El derecho tiene 14 y debe llegar a 20.",
-          "Al revisar una cuenta del mercado: Calcula cuánto falta: 20 − 14."
+          "Calcula 9 + 4 para el primer lado.",
+          "9 + 4 = 13. Ahora calcula 20 − 7.",
+          "20 − 7 = 13, igual que el otro lado."
         ],
-        "retroalimentacion": "Agrega 6 cubos al derecho: 14 + 6 = 20. Si sumaste ambos platillos, no hallaste el equilibrio.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 20,
-          "b": 14
-        }
+        "retroalimentacion": "Es verdadero: los dos lados pesan 13, hay equilibrio.",
+        "id": "e07"
       },
       {
-        "id": "e09",
-        "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En la libreta de matemática, el platillo izquierdo tiene 17 cubos iguales y el derecho 9. ¿Cuántos cubos debes poner en el derecho para equilibrar la balanza?",
-        "respuesta": 8,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "En la libreta de matemática: La balanza necesita el mismo número de cubos en ambos lados.",
-          "En la libreta de matemática: El derecho tiene 9 y debe llegar a 17.",
-          "En la libreta de matemática: Calcula cuánto falta: 17 − 9."
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "A la izquierda hay 8 pesas. A la derecha hay 5 pesas y 4 pesas. ¿Qué platillo baja? Responde «izquierdo» o «derecho».",
+        "respuesta": "derecho",
+        "alternativasAceptadas": [
+          "el derecho",
+          "platillo derecho",
+          "el platillo derecho"
         ],
-        "retroalimentacion": "Agrega 8 cubos al derecho: 9 + 8 = 17. Si sumaste ambos platillos, no hallaste el equilibrio.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 17,
-          "b": 9
-        }
+        "pistas": [
+          "Junta las pesas de la derecha: 5 y 4.",
+          "5 + 4 = 9. A la izquierda hay 8.",
+          "9 es mayor que 8, así que baja el lado que tiene 9."
+        ],
+        "retroalimentacion": "A la derecha hay 5 + 4 = 9 pesas y a la izquierda 8. Baja el platillo derecho.",
+        "id": "e08"
       },
       {
-        "id": "e10",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "Para ayudar a un compañero, el platillo izquierdo tiene 19 cubos iguales y el derecho 11. ¿Cuántos cubos debes poner en el derecho para equilibrar la balanza?",
-        "respuesta": 8,
+        "enunciado": "Una balanza está en equilibrio. A la izquierda hay 14 pesas. A la derecha hay 6 pesas y dos bolsas con la misma cantidad de pesas cada una. ¿Cuántas pesas hay en cada bolsa? Escribe solo el número.",
+        "respuesta": 4,
         "alternativasAceptadas": [],
         "pistas": [
-          "Para ayudar a un compañero: La balanza necesita el mismo número de cubos en ambos lados.",
-          "Para ayudar a un compañero: El derecho tiene 11 y debe llegar a 19.",
-          "Para ayudar a un compañero: Calcula cuánto falta: 19 − 11."
+          "A la derecha deben pesar 14 en total.",
+          "Quita las 6 pesas sueltas: 14 − 6 = 8.",
+          "Esas 8 pesas están en dos bolsas iguales: busca un número que sumado a sí mismo dé 8."
         ],
-        "retroalimentacion": "Agrega 8 cubos al derecho: 11 + 8 = 19. Si sumaste ambos platillos, no hallaste el equilibrio.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 19,
-          "b": 11
-        }
+        "retroalimentacion": "Las dos bolsas tienen 14 − 6 = 8 pesas, y como 4 + 4 = 8, cada bolsa tiene 4.",
+        "id": "e09"
       },
       {
-        "id": "e11",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En una práctica del aula, el platillo izquierdo tiene 20 cubos iguales y el derecho 10. ¿Cuántos cubos debes poner en el derecho para equilibrar la balanza?",
-        "respuesta": 10,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tres balanzas: A tiene 8 + 5 contra 9 + 4; B tiene 10 + 3 contra 6 + 8; C tiene 7 + 6 contra 11 + 2. ¿En cuáles hay equilibrio?",
+        "respuesta": "d",
         "alternativasAceptadas": [],
-        "pistas": [
-          "En una práctica del aula: La balanza necesita el mismo número de cubos en ambos lados.",
-          "En una práctica del aula: El derecho tiene 10 y debe llegar a 20.",
-          "En una práctica del aula: Calcula cuánto falta: 20 − 10."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo la B"
+          },
+          {
+            "id": "b",
+            "texto": "A, B y C"
+          },
+          {
+            "id": "c",
+            "texto": "Solo la A"
+          },
+          {
+            "id": "d",
+            "texto": "A y C"
+          }
         ],
-        "retroalimentacion": "Agrega 10 cubos al derecho: 10 + 10 = 20. Si sumaste ambos platillos, no hallaste el equilibrio.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 20,
-          "b": 10
-        }
+        "pistas": [
+          "Calcula los dos lados de cada balanza.",
+          "A: 13 y 13. B: 13 y 14. C: 13 y 13.",
+          "Falta ver cuál no es igual: la B no tiene los dos lados parejos."
+        ],
+        "retroalimentacion": "En A y C los dos lados valen 13. En B un lado vale 13 y el otro 14, por eso no hay equilibrio.",
+        "id": "e10"
       },
       {
-        "id": "e12",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Al comprobar una respuesta, el platillo izquierdo tiene 18 cubos iguales y el derecho 6. ¿Cuántos cubos debes poner en el derecho para equilibrar la balanza?",
-        "respuesta": 12,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si en el platillo izquierdo hay 5 pesas y en el derecho 2 pesas, para que haya equilibrio hay que quitarle pesas al platillo derecho.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Al comprobar una respuesta: La balanza necesita el mismo número de cubos en ambos lados.",
-          "Al comprobar una respuesta: El derecho tiene 6 y debe llegar a 18.",
-          "Al comprobar una respuesta: Calcula cuánto falta: 18 − 6."
+          "Compara 5 pesas con 2 pesas.",
+          "El platillo derecho tiene menos pesas.",
+          "Para igualar, a ese platillo hay que agregarle pesas, no quitarle."
         ],
-        "retroalimentacion": "Agrega 12 cubos al derecho: 6 + 12 = 18. Si sumaste ambos platillos, no hallaste el equilibrio.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 18,
-          "b": 6
-        }
+        "retroalimentacion": "Es falso: el derecho tiene menos, así que hay que agregarle 3 pesas (o quitar 3 al izquierdo).",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "A la izquierda hay 20 pesas y a la derecha 9 pesas. Pedro quita 4 pesas del platillo izquierdo. ¿Cuántas pesas debe agregar ahora al derecho para que haya equilibrio? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero actualiza el platillo izquierdo: quita 4 a 20.",
+          "Ahora el izquierdo tiene 16 pesas y el derecho 9.",
+          "¿Cuánto falta para ir de 9 a 16?"
+        ],
+        "retroalimentacion": "El izquierdo queda en 20 − 4 = 16. Al derecho le faltan 16 − 9 = 7 pesas.",
+        "id": "e12"
       }
     ],
+    "version": 1,
+    "revisado": null,
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ],
-    "version": 1,
-    "revisado": null
-  },
-  {
-    "clave": "mat.p2.igualdades-equilibrio",
-    "area": "matematica",
-    "nivel": "primaria",
-    "grado": 2,
-    "competenciaCneb": 24,
-    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
-    "desempenosOrigen": [
-      "MAT-C24-P2-05"
-    ],
-    "bloque": "Igualdades y equivalencias",
-    "nombre": "Igualdades: mantener el equilibrio",
-    "disciplina": "algebra",
-    "descripcionCorta": "Agrega o quita lo mismo en ambos lados para que la igualdad o la balanza siga en equilibrio.",
-    "palabrasClave": [
-      "igualdades",
-      "equilibrio"
-    ],
-    "prerrequisitos": [
-      "mat.p2.balanza-platillos"
-    ],
-    "ordenSugerido": 83,
-    "ideaCentral": "Si dos lados son iguales, sumar o quitar la misma cantidad a ambos conserva la igualdad. La balanza sigue equilibrada.",
-    "pasos": [
-      "Comprueba que los lados empiezan iguales.",
-      "Haz el mismo cambio en ambos lados.",
-      "Calcula para verificar que siguen valiendo lo mismo."
-    ],
-    "ejemplos": [
-      {
-        "situacion": "5 = 5; sumo 2 a ambos lados.",
-        "desarrollo": "5 + 2 = 5 + 2 = 7.",
-        "respuesta": "Sigue equilibrada."
-      },
-      {
-        "situacion": "9 = 9; quito 3 de ambos lados.",
-        "desarrollo": "9 − 3 = 9 − 3 = 6.",
-        "respuesta": "Sigue equilibrada."
-      }
-    ],
-    "erroresFrecuentes": [
-      {
-        "error": "Agregar solo en un lado.",
-        "correccion": "Para conservar el equilibrio, agrega lo mismo al otro."
-      },
-      {
-        "error": "Quitar cantidades distintas.",
-        "correccion": "Resta la misma cantidad en ambos lados."
-      }
-    ],
-    "vocabulario": [
-      {
-        "termino": "Equilibrio",
-        "significado": "Mismo valor en ambos lados."
-      },
-      {
-        "termino": "Conservar",
-        "significado": "Mantener una igualdad después de un cambio."
-      }
-    ],
-    "ejercicios": [
-      {
-        "id": "e01",
-        "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En el cuaderno de Micaela, la balanza marca 8 = 8. ¿Qué cambio mantiene el equilibrio?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Agregar 4 a ambos lados"
-          },
-          {
-            "id": "b",
-            "texto": "Agregar 4 solo a la izquierda"
-          },
-          {
-            "id": "c",
-            "texto": "Agregar 4 a la izquierda y 5 a la derecha"
-          }
-        ],
-        "pistas": [
-          "En el cuaderno de Micaela: Los lados empiezan iguales con 8.",
-          "En el cuaderno de Micaela: Para conservarlos, el cambio debe ser idéntico.",
-          "En el cuaderno de Micaela: Busca agregar 4 a ambos lados."
-        ],
-        "retroalimentacion": "«Agregar 4 a ambos lados» deja la misma cantidad en ambos lados; cambiar uno solo rompe la igualdad."
-      },
-      {
-        "id": "e02",
-        "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "Para el reto de la biblioteca, la balanza marca 10 = 10. ¿Qué cambio mantiene el equilibrio?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Quitar 4 solo a la derecha"
-          },
-          {
-            "id": "b",
-            "texto": "Quitar 4 de ambos lados"
-          },
-          {
-            "id": "c",
-            "texto": "Quitar 4 a la izquierda y 5 a la derecha"
-          }
-        ],
-        "pistas": [
-          "Para el reto de la biblioteca: Los lados empiezan iguales con 10.",
-          "Para el reto de la biblioteca: Para conservarlos, el cambio debe ser idéntico.",
-          "Para el reto de la biblioteca: Busca quitar 4 de ambos lados."
-        ],
-        "retroalimentacion": "«Quitar 4 de ambos lados» deja la misma cantidad en ambos lados; cambiar uno solo rompe la igualdad."
-      },
-      {
-        "id": "e03",
-        "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la pizarra del salón, la balanza marca 12 = 12. ¿Qué cambio mantiene el equilibrio?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Agregar 4 solo a la izquierda"
-          },
-          {
-            "id": "b",
-            "texto": "Agregar 4 a la izquierda y 5 a la derecha"
-          },
-          {
-            "id": "c",
-            "texto": "Agregar 4 a ambos lados"
-          }
-        ],
-        "pistas": [
-          "En la pizarra del salón: Los lados empiezan iguales con 12.",
-          "En la pizarra del salón: Para conservarlos, el cambio debe ser idéntico.",
-          "En la pizarra del salón: Busca agregar 4 a ambos lados."
-        ],
-        "retroalimentacion": "«Agregar 4 a ambos lados» deja la misma cantidad en ambos lados; cambiar uno solo rompe la igualdad."
-      },
-      {
-        "id": "e04",
-        "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "Durante un juego de cálculo, la balanza marca 14 = 14. ¿Qué cambio mantiene el equilibrio?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Quitar 4 de ambos lados"
-          },
-          {
-            "id": "b",
-            "texto": "Quitar 4 solo a la derecha"
-          },
-          {
-            "id": "c",
-            "texto": "Quitar 4 a la izquierda y 5 a la derecha"
-          }
-        ],
-        "pistas": [
-          "Durante un juego de cálculo: Los lados empiezan iguales con 14.",
-          "Durante un juego de cálculo: Para conservarlos, el cambio debe ser idéntico.",
-          "Durante un juego de cálculo: Busca quitar 4 de ambos lados."
-        ],
-        "retroalimentacion": "«Quitar 4 de ambos lados» deja la misma cantidad en ambos lados; cambiar uno solo rompe la igualdad."
-      },
-      {
-        "id": "e05",
-        "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la feria de la escuela, la balanza marca 13 = 13. ¿Qué cambio mantiene el equilibrio?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Agregar 4 solo a la izquierda"
-          },
-          {
-            "id": "b",
-            "texto": "Agregar 4 a ambos lados"
-          },
-          {
-            "id": "c",
-            "texto": "Agregar 4 a la izquierda y 5 a la derecha"
-          }
-        ],
-        "pistas": [
-          "En la feria de la escuela: Los lados empiezan iguales con 13.",
-          "En la feria de la escuela: Para conservarlos, el cambio debe ser idéntico.",
-          "En la feria de la escuela: Busca agregar 4 a ambos lados."
-        ],
-        "retroalimentacion": "«Agregar 4 a ambos lados» deja la misma cantidad en ambos lados; cambiar uno solo rompe la igualdad."
-      },
-      {
-        "id": "e06",
-        "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "Para contar fichas en casa, la balanza marca 16 = 16. ¿Qué cambio mantiene el equilibrio?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Quitar 4 solo a la derecha"
-          },
-          {
-            "id": "b",
-            "texto": "Quitar 4 a la izquierda y 5 a la derecha"
-          },
-          {
-            "id": "c",
-            "texto": "Quitar 4 de ambos lados"
-          }
-        ],
-        "pistas": [
-          "Para contar fichas en casa: Los lados empiezan iguales con 16.",
-          "Para contar fichas en casa: Para conservarlos, el cambio debe ser idéntico.",
-          "Para contar fichas en casa: Busca quitar 4 de ambos lados."
-        ],
-        "retroalimentacion": "«Quitar 4 de ambos lados» deja la misma cantidad en ambos lados; cambiar uno solo rompe la igualdad."
-      },
-      {
-        "id": "e07",
-        "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En una tarjeta de la kermés, la balanza marca 18 = 18. ¿Qué cambio mantiene el equilibrio?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Agregar 4 a ambos lados"
-          },
-          {
-            "id": "b",
-            "texto": "Agregar 4 solo a la izquierda"
-          },
-          {
-            "id": "c",
-            "texto": "Agregar 4 a la izquierda y 5 a la derecha"
-          }
-        ],
-        "pistas": [
-          "En una tarjeta de la kermés: Los lados empiezan iguales con 18.",
-          "En una tarjeta de la kermés: Para conservarlos, el cambio debe ser idéntico.",
-          "En una tarjeta de la kermés: Busca agregar 4 a ambos lados."
-        ],
-        "retroalimentacion": "«Agregar 4 a ambos lados» deja la misma cantidad en ambos lados; cambiar uno solo rompe la igualdad."
-      },
-      {
-        "id": "e08",
-        "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "Al revisar una cuenta del mercado, la balanza marca 20 = 20. ¿Qué cambio mantiene el equilibrio?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Quitar 4 solo a la derecha"
-          },
-          {
-            "id": "b",
-            "texto": "Quitar 4 de ambos lados"
-          },
-          {
-            "id": "c",
-            "texto": "Quitar 4 a la izquierda y 5 a la derecha"
-          }
-        ],
-        "pistas": [
-          "Al revisar una cuenta del mercado: Los lados empiezan iguales con 20.",
-          "Al revisar una cuenta del mercado: Para conservarlos, el cambio debe ser idéntico.",
-          "Al revisar una cuenta del mercado: Busca quitar 4 de ambos lados."
-        ],
-        "retroalimentacion": "«Quitar 4 de ambos lados» deja la misma cantidad en ambos lados; cambiar uno solo rompe la igualdad."
-      },
-      {
-        "id": "e09",
-        "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la libreta de matemática, la balanza marca 17 = 17. ¿Qué cambio mantiene el equilibrio?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Agregar 4 solo a la izquierda"
-          },
-          {
-            "id": "b",
-            "texto": "Agregar 4 a la izquierda y 5 a la derecha"
-          },
-          {
-            "id": "c",
-            "texto": "Agregar 4 a ambos lados"
-          }
-        ],
-        "pistas": [
-          "En la libreta de matemática: Los lados empiezan iguales con 17.",
-          "En la libreta de matemática: Para conservarlos, el cambio debe ser idéntico.",
-          "En la libreta de matemática: Busca agregar 4 a ambos lados."
-        ],
-        "retroalimentacion": "«Agregar 4 a ambos lados» deja la misma cantidad en ambos lados; cambiar uno solo rompe la igualdad."
-      },
-      {
-        "id": "e10",
-        "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "Para ayudar a un compañero, la balanza marca 19 = 19. ¿Qué cambio mantiene el equilibrio?",
-        "respuesta": "a",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Quitar 4 de ambos lados"
-          },
-          {
-            "id": "b",
-            "texto": "Quitar 4 solo a la derecha"
-          },
-          {
-            "id": "c",
-            "texto": "Quitar 4 a la izquierda y 5 a la derecha"
-          }
-        ],
-        "pistas": [
-          "Para ayudar a un compañero: Los lados empiezan iguales con 19.",
-          "Para ayudar a un compañero: Para conservarlos, el cambio debe ser idéntico.",
-          "Para ayudar a un compañero: Busca quitar 4 de ambos lados."
-        ],
-        "retroalimentacion": "«Quitar 4 de ambos lados» deja la misma cantidad en ambos lados; cambiar uno solo rompe la igualdad."
-      },
-      {
-        "id": "e11",
-        "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En una práctica del aula, la balanza marca 20 = 20. ¿Qué cambio mantiene el equilibrio?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Agregar 4 solo a la izquierda"
-          },
-          {
-            "id": "b",
-            "texto": "Agregar 4 a ambos lados"
-          },
-          {
-            "id": "c",
-            "texto": "Agregar 4 a la izquierda y 5 a la derecha"
-          }
-        ],
-        "pistas": [
-          "En una práctica del aula: Los lados empiezan iguales con 20.",
-          "En una práctica del aula: Para conservarlos, el cambio debe ser idéntico.",
-          "En una práctica del aula: Busca agregar 4 a ambos lados."
-        ],
-        "retroalimentacion": "«Agregar 4 a ambos lados» deja la misma cantidad en ambos lados; cambiar uno solo rompe la igualdad."
-      },
-      {
-        "id": "e12",
-        "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "Al comprobar una respuesta, la balanza marca 18 = 18. ¿Qué cambio mantiene el equilibrio?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Quitar 4 solo a la derecha"
-          },
-          {
-            "id": "b",
-            "texto": "Quitar 4 a la izquierda y 5 a la derecha"
-          },
-          {
-            "id": "c",
-            "texto": "Quitar 4 de ambos lados"
-          }
-        ],
-        "pistas": [
-          "Al comprobar una respuesta: Los lados empiezan iguales con 18.",
-          "Al comprobar una respuesta: Para conservarlos, el cambio debe ser idéntico.",
-          "Al comprobar una respuesta: Busca quitar 4 de ambos lados."
-        ],
-        "retroalimentacion": "«Quitar 4 de ambos lados» deja la misma cantidad en ambos lados; cambiar uno solo rompe la igualdad."
-      }
-    ],
-    "fuentes": [
-      {
-        "documento": "Programa curricular de Educación Primaria, MINEDU",
-        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
-      }
-    ],
-    "version": 1,
-    "revisado": null
+    ]
   },
   {
     "clave": "mat.p2.repartir-para-igualar",
@@ -1774,219 +1258,933 @@
     "descripcionCorta": "Pasa objetos de un grupo a otro para que ambos tengan la misma cantidad.",
     "palabrasClave": [
       "repartir",
-      "para",
-      "igualar"
+      "igualar",
+      "pasar",
+      "mitad",
+      "misma cantidad"
     ],
     "prerrequisitos": [
       "mat.p2.grupos-misma-cantidad"
     ],
     "ordenSugerido": 48,
-    "ideaCentral": "Si dos grupos tienen cantidades distintas, puedes pasar objetos del mayor al menor hasta que ambos tengan lo mismo. Cada objeto movido cambia la diferencia en dos.",
+    "ideaCentral": "Para que dos grupos queden iguales, el grupo que tiene más pasa objetos al que tiene menos. Pasa la mitad de la diferencia.",
     "pasos": [
-      "Cuenta los objetos de ambos grupos.",
-      "Pasa uno del mayor al menor.",
-      "Repite hasta que las cantidades coincidan."
+      "Cuenta cuántos objetos tiene cada grupo.",
+      "Halla cuánto más tiene el grupo mayor.",
+      "Parte esa diferencia en dos partes iguales: esa mitad es lo que se pasa.",
+      "Comprueba que los dos grupos quedan con la misma cantidad."
     ],
     "ejemplos": [
       {
-        "situacion": "Un grupo tiene 8 y otro 4.",
-        "desarrollo": "Paso 2 del mayor al menor: quedan 6 y 6.",
-        "respuesta": "Muevo 2 objetos."
+        "situacion": "Ana tiene 8 caramelos y Beto 4. ¿Cuántos pasa Ana a Beto para tener lo mismo?",
+        "desarrollo": "Ana tiene 4 más. La mitad de 4 es 2. Ana queda con 6 y Beto con 6.",
+        "respuesta": "Pasa 2 caramelos."
       },
       {
-        "situacion": "Un grupo tiene 13 y otro 7.",
-        "desarrollo": "Paso 3: quedan 10 y 10.",
-        "respuesta": "Muevo 3 objetos."
+        "situacion": "Hay 14 gallinas en un corral y 8 en otro. ¿Cuántas pasan?",
+        "desarrollo": "14 − 8 = 6 de diferencia. La mitad de 6 es 3.",
+        "respuesta": "Pasan 3 gallinas: cada corral queda con 11."
+      },
+      {
+        "situacion": "Marta tiene 15 y Luis 9. Pasa 2 de Marta a Luis. ¿Quedan iguales?",
+        "desarrollo": "Marta: 13. Luis: 11.",
+        "respuesta": "No, aún falta pasar 1 más."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Agregar objetos nuevos en lugar de moverlos.",
-        "correccion": "Al repartir, el total de ambos grupos no cambia."
+        "error": "Pasar toda la diferencia al otro grupo.",
+        "correccion": "Si pasas toda la diferencia, el otro grupo queda con más. Pasa solo la mitad."
       },
       {
-        "error": "Mover toda la diferencia.",
-        "correccion": "Cada objeto movido resta uno al mayor y suma uno al menor."
+        "error": "Pasar objetos del grupo que tiene menos.",
+        "correccion": "Siempre pasa el grupo que tiene más al que tiene menos."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Repartir",
-        "significado": "Distribuir objetos entre grupos."
+        "termino": "Diferencia",
+        "significado": "Cuánto más tiene un grupo que otro."
       },
       {
-        "termino": "Igualar",
-        "significado": "Lograr la misma cantidad en ambos grupos."
+        "termino": "Mitad",
+        "significado": "Una de dos partes iguales."
+      },
+      {
+        "termino": "Repartir",
+        "significado": "Dar una parte a otro."
       }
     ],
     "ejercicios": [
       {
-        "id": "e01",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En el cuaderno de Micaela, un grupo tiene 8 semillas y otro 4. ¿Cuántas semillas debes pasar del grupo grande al pequeño para igualarlos?",
-        "respuesta": 2,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "En el cuaderno de Micaela: Cada semilla que pasa reduce el primero y aumenta el segundo.",
-          "En el cuaderno de Micaela: La diferencia inicial es 4.",
-          "En el cuaderno de Micaela: Cada movimiento reduce esa diferencia en dos; calcula la mitad de 4."
-        ],
-        "retroalimentacion": "Pasa 2: quedan 6 y 6. Si pasaste 4, moviste el doble de lo necesario."
-      },
-      {
-        "id": "e02",
-        "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Para el reto de la biblioteca, un grupo tiene 10 semillas y otro 6. ¿Cuántas semillas debes pasar del grupo grande al pequeño para igualarlos?",
-        "respuesta": 2,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Para el reto de la biblioteca: Cada semilla que pasa reduce el primero y aumenta el segundo.",
-          "Para el reto de la biblioteca: La diferencia inicial es 4.",
-          "Para el reto de la biblioteca: Cada movimiento reduce esa diferencia en dos; calcula la mitad de 4."
-        ],
-        "retroalimentacion": "Pasa 2: quedan 8 y 8. Si pasaste 4, moviste el doble de lo necesario."
-      },
-      {
-        "id": "e03",
-        "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En la pizarra del salón, un grupo tiene 12 semillas y otro 8. ¿Cuántas semillas debes pasar del grupo grande al pequeño para igualarlos?",
-        "respuesta": 2,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "En la pizarra del salón: Cada semilla que pasa reduce el primero y aumenta el segundo.",
-          "En la pizarra del salón: La diferencia inicial es 4.",
-          "En la pizarra del salón: Cada movimiento reduce esa diferencia en dos; calcula la mitad de 4."
-        ],
-        "retroalimentacion": "Pasa 2: quedan 10 y 10. Si pasaste 4, moviste el doble de lo necesario."
-      },
-      {
-        "id": "e04",
-        "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Durante un juego de cálculo, un grupo tiene 14 semillas y otro 10. ¿Cuántas semillas debes pasar del grupo grande al pequeño para igualarlos?",
-        "respuesta": 2,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Durante un juego de cálculo: Cada semilla que pasa reduce el primero y aumenta el segundo.",
-          "Durante un juego de cálculo: La diferencia inicial es 4.",
-          "Durante un juego de cálculo: Cada movimiento reduce esa diferencia en dos; calcula la mitad de 4."
-        ],
-        "retroalimentacion": "Pasa 2: quedan 12 y 12. Si pasaste 4, moviste el doble de lo necesario."
-      },
-      {
-        "id": "e05",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En la feria de la escuela, un grupo tiene 13 semillas y otro 7. ¿Cuántas semillas debes pasar del grupo grande al pequeño para igualarlos?",
-        "respuesta": 3,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "En la feria de la escuela: Cada semilla que pasa reduce el primero y aumenta el segundo.",
-          "En la feria de la escuela: La diferencia inicial es 6.",
-          "En la feria de la escuela: Cada movimiento reduce esa diferencia en dos; calcula la mitad de 6."
-        ],
-        "retroalimentacion": "Pasa 3: quedan 10 y 10. Si pasaste 6, moviste el doble de lo necesario."
-      },
-      {
-        "id": "e06",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Para contar fichas en casa, un grupo tiene 16 semillas y otro 10. ¿Cuántas semillas debes pasar del grupo grande al pequeño para igualarlos?",
-        "respuesta": 3,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Para contar fichas en casa: Cada semilla que pasa reduce el primero y aumenta el segundo.",
-          "Para contar fichas en casa: La diferencia inicial es 6.",
-          "Para contar fichas en casa: Cada movimiento reduce esa diferencia en dos; calcula la mitad de 6."
-        ],
-        "retroalimentacion": "Pasa 3: quedan 13 y 13. Si pasaste 6, moviste el doble de lo necesario."
-      },
-      {
-        "id": "e07",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En una tarjeta de la kermés, un grupo tiene 18 semillas y otro 12. ¿Cuántas semillas debes pasar del grupo grande al pequeño para igualarlos?",
-        "respuesta": 3,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "En una tarjeta de la kermés: Cada semilla que pasa reduce el primero y aumenta el segundo.",
-          "En una tarjeta de la kermés: La diferencia inicial es 6.",
-          "En una tarjeta de la kermés: Cada movimiento reduce esa diferencia en dos; calcula la mitad de 6."
-        ],
-        "retroalimentacion": "Pasa 3: quedan 15 y 15. Si pasaste 6, moviste el doble de lo necesario."
-      },
-      {
-        "id": "e08",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Al revisar una cuenta del mercado, un grupo tiene 20 semillas y otro 14. ¿Cuántas semillas debes pasar del grupo grande al pequeño para igualarlos?",
-        "respuesta": 3,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Al revisar una cuenta del mercado: Cada semilla que pasa reduce el primero y aumenta el segundo.",
-          "Al revisar una cuenta del mercado: La diferencia inicial es 6.",
-          "Al revisar una cuenta del mercado: Cada movimiento reduce esa diferencia en dos; calcula la mitad de 6."
-        ],
-        "retroalimentacion": "Pasa 3: quedan 17 y 17. Si pasaste 6, moviste el doble de lo necesario."
-      },
-      {
-        "id": "e09",
-        "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En la libreta de matemática, un grupo tiene 17 semillas y otro 9. ¿Cuántas semillas debes pasar del grupo grande al pequeño para igualarlos?",
-        "respuesta": 4,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "En la libreta de matemática: Cada semilla que pasa reduce el primero y aumenta el segundo.",
-          "En la libreta de matemática: La diferencia inicial es 8.",
-          "En la libreta de matemática: Cada movimiento reduce esa diferencia en dos; calcula la mitad de 8."
-        ],
-        "retroalimentacion": "Pasa 4: quedan 13 y 13. Si pasaste 8, moviste el doble de lo necesario."
-      },
-      {
-        "id": "e10",
-        "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Para ayudar a un compañero, un grupo tiene 19 semillas y otro 11. ¿Cuántas semillas debes pasar del grupo grande al pequeño para igualarlos?",
-        "respuesta": 4,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Para ayudar a un compañero: Cada semilla que pasa reduce el primero y aumenta el segundo.",
-          "Para ayudar a un compañero: La diferencia inicial es 8.",
-          "Para ayudar a un compañero: Cada movimiento reduce esa diferencia en dos; calcula la mitad de 8."
-        ],
-        "retroalimentacion": "Pasa 4: quedan 15 y 15. Si pasaste 8, moviste el doble de lo necesario."
-      },
-      {
-        "id": "e11",
-        "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En una práctica del aula, un grupo tiene 20 semillas y otro 10. ¿Cuántas semillas debes pasar del grupo grande al pequeño para igualarlos?",
-        "respuesta": 5,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "En una práctica del aula: Cada semilla que pasa reduce el primero y aumenta el segundo.",
-          "En una práctica del aula: La diferencia inicial es 10.",
-          "En una práctica del aula: Cada movimiento reduce esa diferencia en dos; calcula la mitad de 10."
-        ],
-        "retroalimentacion": "Pasa 5: quedan 15 y 15. Si pasaste 10, moviste el doble de lo necesario."
-      },
-      {
-        "id": "e12",
-        "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Al comprobar una respuesta, un grupo tiene 18 semillas y otro 6. ¿Cuántas semillas debes pasar del grupo grande al pequeño para igualarlos?",
+        "enunciado": "Ana tiene 8 caramelos y Beto tiene 4. Ana le pasa 2 caramelos a Beto. ¿Cuántos caramelos tiene Beto ahora? Escribe solo el número.",
         "respuesta": 6,
         "alternativasAceptadas": [],
         "pistas": [
-          "Al comprobar una respuesta: Cada semilla que pasa reduce el primero y aumenta el segundo.",
-          "Al comprobar una respuesta: La diferencia inicial es 12.",
-          "Al comprobar una respuesta: Cada movimiento reduce esa diferencia en dos; calcula la mitad de 12."
+          "Beto tenía 4 caramelos.",
+          "Recibe 2 caramelos más.",
+          "Suma 4 + 2."
         ],
-        "retroalimentacion": "Pasa 6: quedan 12 y 12. Si pasaste 12, moviste el doble de lo necesario."
+        "retroalimentacion": "Beto tenía 4 y recibió 2, así que ahora tiene 4 + 2 = 6 caramelos.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Ana tiene 8 caramelos y Beto tiene 4. Si Ana le pasa 2 caramelos a Beto, los dos quedan con la misma cantidad.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ana pierde 2 caramelos: calcula cuántos le quedan.",
+          "Ana queda con 8 − 2 = 6. Beto queda con 4 + 2.",
+          "Beto también queda con 6."
+        ],
+        "retroalimentacion": "Es verdadero: Ana queda con 6 y Beto con 6.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Rosa tiene 9 semillas y Pedro tiene 5. ¿Cuántas semillas debe pasar Rosa a Pedro para tener la misma cantidad?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1 semilla"
+          },
+          {
+            "id": "b",
+            "texto": "2 semillas"
+          },
+          {
+            "id": "c",
+            "texto": "3 semillas"
+          },
+          {
+            "id": "d",
+            "texto": "4 semillas"
+          }
+        ],
+        "pistas": [
+          "Rosa tiene más: ¿cuántas más tiene que Pedro?",
+          "9 − 5 = 4. Rosa tiene 4 semillas más.",
+          "Se pasa la mitad de 4."
+        ],
+        "retroalimentacion": "La diferencia es 4 y la mitad es 2 semillas: Rosa y Pedro quedan con 7 cada uno.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Luis tiene 10 canicas y Marta tiene 6. Para quedar iguales, ¿quién debe pasar canicas? Escribe el nombre.",
+        "respuesta": "Luis",
+        "alternativasAceptadas": [
+          "luis"
+        ],
+        "pistas": [
+          "Compara 10 con 6: ¿quién tiene más?",
+          "Luis tiene 10 y Marta tiene 6.",
+          "Pasa canicas el que tiene más."
+        ],
+        "retroalimentacion": "Luis tiene más canicas, por eso él las pasa a Marta.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una chacra, un corral tiene 14 gallinas y otro tiene 8. Pasan gallinas del primero al segundo hasta que queden con la misma cantidad. ¿Cuántas gallinas pasan? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla cuántas más tiene el primer corral: 14 − 8.",
+          "14 − 8 = 6 gallinas más.",
+          "Esa diferencia se parte en dos partes iguales."
+        ],
+        "retroalimentacion": "La diferencia es 6 y la mitad es 3. Pasan 3 gallinas y cada corral queda con 11.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Yo tengo 12 soles y Lucía tiene 6 soles. ¿Cuántos soles le paso a Lucía para tener lo mismo?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 soles"
+          },
+          {
+            "id": "b",
+            "texto": "6 soles"
+          },
+          {
+            "id": "c",
+            "texto": "3 soles"
+          },
+          {
+            "id": "d",
+            "texto": "12 soles"
+          }
+        ],
+        "pistas": [
+          "Compara 12 con 6.",
+          "12 − 6 = 6. Yo tengo 6 soles más.",
+          "Pasa la mitad de esa diferencia."
+        ],
+        "retroalimentacion": "La diferencia es 6 y su mitad es 3 soles: los dos quedamos con 9. Pasar 6 dejaría a Lucía con 12 y a mí con 6.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un grupo tiene 11 objetos y otro tiene 5. Si el primer grupo pasa 6 objetos al segundo, quedan con la misma cantidad.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cuántos tendría cada grupo después de pasar 6.",
+          "El primero queda con 11 − 6 = 5.",
+          "El segundo queda con 5 + 6 = 11."
+        ],
+        "retroalimentacion": "Es falso: quedan al revés, uno con 5 y el otro con 11. Debían pasar 3.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Hay 16 cuyes en una jaula y 10 en otra. Pasan 3 cuyes de la primera a la segunda. ¿Quedan iguales? Responde sí o no.",
+        "respuesta": "sí",
+        "alternativasAceptadas": [
+          "si",
+          "sí quedan iguales"
+        ],
+        "pistas": [
+          "Resta 3 de la primera jaula: 16 − 3.",
+          "La primera queda con 13. La segunda recibe 3.",
+          "10 + 3 = 13."
+        ],
+        "retroalimentacion": "La primera jaula queda con 13 cuyes y la segunda también con 13, así que sí quedan iguales.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Don Pedro tiene 46 sacos de papa y doña Luz tiene 30 sacos. Don Pedro pasa sacos a doña Luz para tener los dos la misma cantidad. ¿Cuántos sacos tendrá cada uno al final? Escribe solo el número.",
+        "respuesta": 38,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla cuántos sacos más tiene don Pedro: 46 − 30.",
+          "46 − 30 = 16. Don Pedro pasa la mitad de 16.",
+          "La mitad de 16 es 8: don Pedro queda con 46 − 8."
+        ],
+        "retroalimentacion": "La diferencia es 16 y se pasan 8 sacos. Don Pedro queda con 46 − 8 = 38 y doña Luz con 30 + 8 = 38.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ana tiene 15 stickers y Beto tiene 9. Ana le pasa 2 stickers a Beto. ¿Qué pasa ahora?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ana tiene 4 más"
+          },
+          {
+            "id": "b",
+            "texto": "Beto tiene 2 más"
+          },
+          {
+            "id": "c",
+            "texto": "Tienen lo mismo"
+          },
+          {
+            "id": "d",
+            "texto": "Ana tiene 2 más"
+          }
+        ],
+        "pistas": [
+          "Calcula cuántos tiene Ana después de pasar 2.",
+          "Ana queda con 13. Beto queda con 9 + 2.",
+          "Beto queda con 11. Compara 13 con 11."
+        ],
+        "retroalimentacion": "Ana queda con 13 y Beto con 11: Ana tiene 2 más. Aún falta pasar 1 sticker.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "El grupo A tiene 20 objetos y el grupo B tiene 10. Para quedar iguales, A debe pasarle 10 objetos a B.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla cuántos más tiene A: 20 − 10.",
+          "A tiene 10 más. ¿Qué pasa si le da todo ese 10 a B?",
+          "Entonces B quedaría con 20 y A con 10. Hay que dar la mitad."
+        ],
+        "retroalimentacion": "Es falso: la diferencia es 10 y debe pasar la mitad, 5 objetos; quedan con 15 cada uno.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una caja de mandarinas tiene 8 mandarinas más que otra caja. ¿Cuántas mandarinas debe pasar la caja grande a la pequeña para que las dos queden iguales? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No sabes cuántas hay en cada caja, pero sí cuántas más tiene una.",
+          "La diferencia es 8 mandarinas.",
+          "Para igualar se pasa la mitad de la diferencia."
+        ],
+        "retroalimentacion": "La diferencia es 8 y su mitad es 4. Se pasan 4 mandarinas aunque no conozcamos el total.",
+        "id": "e12"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.igualdades-equilibrio",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-P2-05"
+    ],
+    "bloque": "Igualdades y equivalencias",
+    "nombre": "Igualdades: mantener el equilibrio",
+    "disciplina": "algebra",
+    "descripcionCorta": "Agrega o quita lo mismo en ambos lados para que la igualdad o la balanza siga en equilibrio.",
+    "palabrasClave": [
+      "equilibrio",
+      "igualdad",
+      "agregar lo mismo",
+      "quitar lo mismo",
+      "balanza"
+    ],
+    "prerrequisitos": [
+      "mat.p2.balanza-platillos"
+    ],
+    "ordenSugerido": 83,
+    "ideaCentral": "Si una igualdad está en equilibrio y agregas la misma cantidad a los dos lados, sigue en equilibrio. Pasa igual si quitas la misma cantidad de los dos lados.",
+    "pasos": [
+      "Mira que los dos lados valgan lo mismo al comienzo.",
+      "Decide qué cantidad vas a agregar o quitar.",
+      "Haz el mismo cambio en los dos lados.",
+      "Calcula los dos lados nuevos y comprueba que siguen valiendo lo mismo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una balanza tiene 6 pesas en cada platillo. Pones 3 pesas más en cada uno. ¿Sigue en equilibrio?",
+        "desarrollo": "Cada platillo queda con 6 + 3 = 9 pesas.",
+        "respuesta": "Sí, los dos platillos tienen 9 pesas."
+      },
+      {
+        "situacion": "Sabemos que 5 + 3 = 8. Sumamos 2 a los dos lados.",
+        "desarrollo": "Izquierda: 5 + 3 + 2 = 10. Derecha: 8 + 2 = 10.",
+        "respuesta": "La igualdad sigue: 10 = 10."
+      },
+      {
+        "situacion": "En 9 = 9 quito 4 solo del lado izquierdo.",
+        "desarrollo": "Izquierda: 9 − 4 = 5. Derecha: 9.",
+        "respuesta": "Ya no hay igualdad: 5 y 9 son distintos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Agregar solo a un lado y creer que la igualdad sigue.",
+        "correccion": "Hay que agregar lo mismo a los dos lados."
+      },
+      {
+        "error": "Agregar a un lado y quitar del otro.",
+        "correccion": "Si agregas en un lado, también agregas lo mismo en el otro; si quitas, quitas lo mismo en ambos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Equilibrio",
+        "significado": "Cuando los dos lados valen lo mismo."
+      },
+      {
+        "termino": "Agregar",
+        "significado": "Poner más."
+      },
+      {
+        "termino": "Quitar",
+        "significado": "Sacar una parte de lo que hay."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Sabemos que 5 + 3 = 8. Si sumo 2 a los dos lados, 5 + 3 + 2 = 8 + 2 sigue siendo una igualdad.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cada lado antes del cambio: 5 + 3 y 8.",
+          "Después de sumar 2, el lado izquierdo es 5 + 3 + 2 = 10.",
+          "El lado derecho es 8 + 2 = 10, igual que el izquierdo."
+        ],
+        "retroalimentacion": "Es verdadero: los dos lados quedan en 10.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una balanza está en equilibrio con 6 pesas en cada platillo. Pones 3 pesas más en cada platillo. ¿Cuántas pesas hay ahora en el platillo izquierdo? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empieza con las 6 pesas del platillo izquierdo.",
+          "Agregas 3 pesas más.",
+          "6 + 3 es la cantidad nueva."
+        ],
+        "retroalimentacion": "6 + 3 = 9. Los dos platillos tienen 9 pesas y siguen en equilibrio.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una balanza está en equilibrio. ¿Qué haces para que siga en equilibrio?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Agregar pesas solo a un platillo"
+          },
+          {
+            "id": "b",
+            "texto": "Quitar la misma cantidad de ambos platillos"
+          },
+          {
+            "id": "c",
+            "texto": "Quitar pesas de un platillo y agregarlas al otro"
+          },
+          {
+            "id": "d",
+            "texto": "Agregar 2 pesas a un lado y 5 al otro"
+          }
+        ],
+        "pistas": [
+          "Piensa en lo que hacen los dos platillos al mismo tiempo.",
+          "Si cambias solo un lado, ese lado pesa distinto.",
+          "Hay que cambiar los dos lados en la misma cantidad."
+        ],
+        "retroalimentacion": "Quitar la misma cantidad de ambos platillos mantiene el equilibrio. En las otras opciones los lados cambian distinto.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una balanza en equilibrio tiene pesas a cada lado. Agrego 2 pesas solo al lado izquierdo. ¿Sigue en equilibrio? Responde sí o no.",
+        "respuesta": "no",
+        "alternativasAceptadas": [
+          "no sigue"
+        ],
+        "pistas": [
+          "Piensa en cuántas pesas se agregaron a la derecha.",
+          "A la derecha no se agregó ninguna.",
+          "Si solo un lado cambia, ese lado pesa más."
+        ],
+        "retroalimentacion": "No sigue en equilibrio: solo el lado izquierdo pesa 2 más.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Sabemos que 8 + 4 = 15 − 3 (los dos lados valen 12). Sumo 5 a los dos lados. ¿Cuánto vale ahora cada lado? Escribe solo el número.",
+        "respuesta": 17,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos lados valían 12 antes del cambio.",
+          "Cada lado recibe 5 más.",
+          "12 + 5 es el valor de cada lado."
+        ],
+        "retroalimentacion": "12 + 5 = 17. Ahora los dos lados valen 17.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una balanza tiene 12 ● en cada platillo. Quito 4 ● del platillo izquierdo. ¿Qué haces para volver al equilibrio?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Agrego 4 ● al platillo derecho"
+          },
+          {
+            "id": "b",
+            "texto": "Quito 2 ● del platillo derecho"
+          },
+          {
+            "id": "c",
+            "texto": "Agrego 8 ● al platillo izquierdo"
+          },
+          {
+            "id": "d",
+            "texto": "Quito 4 ● del platillo derecho"
+          }
+        ],
+        "pistas": [
+          "Ahora el izquierdo tiene 8 ● y el derecho 12 ●.",
+          "El derecho tiene 4 más que el izquierdo.",
+          "Para igualar, el derecho debe quedar con 8 ●: hay que sacar 4."
+        ],
+        "retroalimentacion": "Quitando 4 ● del platillo derecho quedan 8 en cada lado. Las otras opciones dejan los lados distintos.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Sabemos que 9 = 6 + 3. Si quito 2 solo del lado izquierdo, la igualdad sigue siendo verdadera.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Después de quitar 2, el lado izquierdo es 9 − 2.",
+          "9 − 2 = 7. El lado derecho sigue siendo 6 + 3.",
+          "7 y 9 no son iguales."
+        ],
+        "retroalimentacion": "Es falso: el izquierdo queda en 7 y el derecho en 9.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una balanza tiene 18 ● en cada platillo. Quito 7 ● de cada platillo. Luego agrego 4 ● a cada platillo. ¿Cuántos ● hay ahora en un platillo? Escribe solo el número.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero resta lo que se quita: 18 − 7.",
+          "18 − 7 = 11. Ahora agrega 4.",
+          "11 + 4 es lo que hay ahora."
+        ],
+        "retroalimentacion": "18 − 7 = 11 y 11 + 4 = 15. Cada platillo queda con 15 ●.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "La balanza está en equilibrio: a la izquierda hay 7 + □ pesas y a la derecha hay 16 pesas. ¿Qué número va en □? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Si hay equilibrio, 7 + □ debe valer lo mismo que 16.",
+          "Piensa: si quito 7 de ambos lados, ¿cuánto queda a la derecha?",
+          "16 − 7 es el valor que busca □."
+        ],
+        "retroalimentacion": "Quitando 7 de los dos lados queda □ = 16 − 7 = 9.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Teo tiene la igualdad 9 + 4 = 13. A la izquierda agrega 5 y a la derecha agrega 2 + 3. ¿La igualdad se mantiene?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "No, porque 2 + 3 es menos que 5"
+          },
+          {
+            "id": "b",
+            "texto": "No, porque agregó números distintos"
+          },
+          {
+            "id": "c",
+            "texto": "Sí, porque 2 + 3 también vale 5"
+          },
+          {
+            "id": "d",
+            "texto": "No, porque 9 + 4 no es 13"
+          }
+        ],
+        "pistas": [
+          "Calcula cuánto agregó a la derecha: 2 + 3.",
+          "2 + 3 = 5. A la izquierda también agregó 5.",
+          "Si agregó lo mismo a los dos lados, hay igualdad."
+        ],
+        "retroalimentacion": "Sí se mantiene porque 2 + 3 también vale 5: los dos lados reciben 5 más y quedan en 18.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si quito 3 de un lado de la balanza y agrego 3 al otro lado, la balanza sigue en equilibrio.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en lo que pasa con cada platillo: uno baja de peso.",
+          "El que pierde 3 pesa menos y el que gana 3 pesa más.",
+          "La diferencia entre los lados ahora es 6."
+        ],
+        "retroalimentacion": "Es falso: un lado queda 3 menos y el otro 3 más, hay 6 de diferencia.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Para mantener una igualdad cuando sumo 5 a un lado, ¿qué debo hacer en el otro lado? Responde «sumar 5» o «restar 5».",
+        "respuesta": "sumar 5",
+        "alternativasAceptadas": [
+          "sumo 5",
+          "suma 5",
+          "agregar 5"
+        ],
+        "pistas": [
+          "Los dos lados deben cambiar de la misma forma.",
+          "Si un lado sube 5, el otro también debe subir.",
+          "Subir es sumar."
+        ],
+        "retroalimentacion": "Debo sumar 5 también al otro lado, así los dos lados siguen valiendo lo mismo.",
+        "id": "e12"
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.igualdad-verdadera",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 24,
+    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+    "desempenosOrigen": [
+      "MAT-C24-P2-06"
+    ],
+    "bloque": "Igualdades y equivalencias",
+    "nombre": "¿Es verdadera la igualdad?",
+    "disciplina": "algebra",
+    "descripcionCorta": "Decide si los dos lados de una igualdad valen lo mismo y lo explica.",
+    "palabrasClave": [
+      "igualdad",
+      "signo igual",
+      "verdadera",
+      "falsa",
+      "equilibrio"
+    ],
+    "prerrequisitos": [
+      "mat.p2.igualdades-sumas-restas"
+    ],
+    "ordenSugerido": 85,
+    "ideaCentral": "Una igualdad es verdadera cuando los dos lados del signo = valen lo mismo. Calcula cada lado y compara los resultados.",
+    "pasos": [
+      "Calcula el lado izquierdo del signo =.",
+      "Calcula el lado derecho.",
+      "Compara: si los dos resultados son iguales, la igualdad es verdadera.",
+      "Si son distintos, es falsa. Explica con los resultados."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "¿Es verdadera 6 + 4 = 7 + 3?",
+        "desarrollo": "Izquierda: 6 + 4 = 10. Derecha: 7 + 3 = 10.",
+        "respuesta": "Sí, es verdadera: los dos lados valen 10."
+      },
+      {
+        "situacion": "Rosa dice que 9 − 3 = 5 + 2. ¿Es verdadera?",
+        "desarrollo": "Izquierda: 9 − 3 = 6. Derecha: 5 + 2 = 7.",
+        "respuesta": "Es falsa: 6 no es igual a 7."
+      },
+      {
+        "situacion": "En una balanza hay 20 + 15 piedritas de un lado y 50 − 15 del otro. ¿Se equilibra?",
+        "desarrollo": "Izquierda: 20 + 15 = 35. Derecha: 50 − 15 = 35.",
+        "respuesta": "Sí, se equilibra: ambos lados valen 35."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Mirar solo el último número de cada lado.",
+        "correccion": "Debes calcular el valor completo de cada lado, no solo un número."
+      },
+      {
+        "error": "Pensar que el signo = significa «el resultado va aquí».",
+        "correccion": "El signo = significa «vale lo mismo que»: los dos lados deben valer igual."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Igualdad",
+        "significado": "Dos expresiones unidas por = que valen lo mismo."
+      },
+      {
+        "termino": "Lado izquierdo",
+        "significado": "Lo que está antes del signo =."
+      },
+      {
+        "termino": "Lado derecho",
+        "significado": "Lo que está después del signo =."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La igualdad 5 + 3 = 8 es verdadera.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el lado izquierdo: 5 + 3.",
+          "Compara ese resultado con el 8 del lado derecho.",
+          "Si son el mismo número, la igualdad es verdadera."
+        ],
+        "retroalimentacion": "5 + 3 = 8, y 8 es el lado derecho, así que es verdadera.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La igualdad 7 + 2 = 10 es verdadera.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 7 + 2.",
+          "7 + 2 es el número anterior al 10.",
+          "Compara ese resultado con el 10."
+        ],
+        "retroalimentacion": "Es falsa: 7 + 2 = 9 y 9 no es igual a 10.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas igualdades es verdadera?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el lado izquierdo de cada igualdad.",
+          "5 + 5 es 10 y 3 + 3 es 6.",
+          "Elige la igualdad donde los dos lados dan lo mismo."
+        ],
+        "retroalimentacion": "10 − 6 = 4 es verdadera. Las otras son falsas porque 5 + 5 = 10 y 3 + 3 = 6.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10 − 6 = 4"
+          },
+          {
+            "id": "b",
+            "texto": "5 + 5 = 11"
+          },
+          {
+            "id": "c",
+            "texto": "3 + 3 = 7"
+          }
+        ],
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Para saber si 4 + 4 = 7 + 1 es verdadera, primero calcula el lado izquierdo, 4 + 4. ¿Cuánto vale? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 4 y 4.",
+          "Cuenta 4 pasos desde el 4.",
+          "Después del 4: 5, 6, 7, 8."
+        ],
+        "retroalimentacion": "4 + 4 = 8, y 7 + 1 también es 8, así que la igualdad es verdadera.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La igualdad 10 + 5 = 9 + 6 es verdadera.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cada lado por separado.",
+          "10 + 5 es un número de 15.",
+          "Compara con 9 + 6."
+        ],
+        "retroalimentacion": "10 + 5 = 15 y 9 + 6 = 15, así que es verdadera.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una de estas igualdades es falsa. ¿Cuál?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula los dos lados de cada una.",
+          "Los dos primeros lados dan 20 cada uno.",
+          "Revisa 30 − 5 y 20 + 6."
+        ],
+        "retroalimentacion": "La falsa es 30 − 5 = 20 + 6, porque 25 no es igual a 26. Las otras dan 20 de cada lado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12 + 8 = 10 + 10"
+          },
+          {
+            "id": "b",
+            "texto": "15 + 5 = 18 + 2"
+          },
+          {
+            "id": "c",
+            "texto": "30 − 5 = 20 + 6"
+          }
+        ],
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Sofía dice que 25 + 10 = 40 − 5. ¿Es verdadera o falsa? Escribe la palabra.",
+        "respuesta": "verdadera",
+        "alternativasAceptadas": [
+          "verdadero",
+          "es verdadera",
+          "cierta"
+        ],
+        "pistas": [
+          "Calcula 25 + 10 y 40 − 5 por separado.",
+          "25 + 10 es 35.",
+          "Ahora mira si 40 − 5 también es 35."
+        ],
+        "retroalimentacion": "25 + 10 = 35 y 40 − 5 = 35, entonces la igualdad es verdadera.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un platillo de la balanza hay 45 + 5 piedritas y en el otro platillo, 60 − 10. ¿Cuántas piedritas hay en cada platillo? Escribe solo el número.",
+        "respuesta": 50,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero un platillo: 45 + 5.",
+          "45 + 5 termina en cero.",
+          "Comprueba el otro platillo: 60 − 10."
+        ],
+        "retroalimentacion": "45 + 5 = 50 y 60 − 10 = 50: ambos platillos tienen 50 piedritas y la balanza se equilibra.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "María dice que 18 + 7 = 30 − 5 es verdadera. ¿Cuál es su mejor explicación?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una buena explicación calcula los dos lados.",
+          "18 + 7: sumando 2 a 18 llegas a 20 y faltan 5.",
+          "Mira si 30 − 5 da lo mismo."
+        ],
+        "retroalimentacion": "Es verdadera: 18 + 7 = 25 y 30 − 5 = 25. Que los números sean distintos no importa, importa que los lados valgan lo mismo.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "No, porque los números de cada lado son distintos"
+          },
+          {
+            "id": "b",
+            "texto": "Sí, porque 18 + 7 = 25 y 30 − 5 = 25"
+          },
+          {
+            "id": "c",
+            "texto": "No, porque 18 + 7 = 26"
+          }
+        ],
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Rodrigo dice que 40 + 20 = 50 + 20 es verdadera porque los dos lados empiezan con números grandes. Rodrigo tiene razón.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No basta mirar si los números son grandes: hay que calcular.",
+          "Calcula 40 + 20 y luego 50 + 20.",
+          "Compara 60 con 70."
+        ],
+        "retroalimentacion": "Es falsa: 40 + 20 = 60 y 50 + 20 = 70. Que los números sean grandes no hace verdadera la igualdad.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Mira dos igualdades: 50 − 18 = 32 y 17 + 17 = 33. ¿Cuál es falsa? Escribe «la primera» o «la segunda».",
+        "respuesta": "la segunda",
+        "alternativasAceptadas": [
+          "segunda",
+          "la 2",
+          "la segunda igualdad",
+          "17 + 17 = 33"
+        ],
+        "pistas": [
+          "Revisa cada igualdad calculando su lado izquierdo.",
+          "50 − 18 da 32.",
+          "17 + 17 son dos números iguales sumados."
+        ],
+        "retroalimentacion": "La segunda es falsa: 17 + 17 = 34, no 33. La primera es verdadera porque 50 − 18 = 32.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Ana revisa tres igualdades: 20 + 5 = 25; 40 − 15 = 24; 12 + 12 = 24. ¿Cuántas son verdaderas? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa las igualdades una por una.",
+          "40 − 15 no da 24.",
+          "La primera y la tercera dan lo que dice el lado derecho."
+        ],
+        "retroalimentacion": "20 + 5 = 25 y 12 + 12 = 24 son verdaderas; 40 − 15 = 25, no 24. Son 2.",
+        "id": "e12"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Rosa ganó 35 + 25 soles vendiendo papas y Pedro ganó 100 − 40 soles vendiendo choclos. ¿Qué es cierto?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula lo que ganó cada uno antes de comparar.",
+          "35 + 25 = 60, porque 35 + 20 = 55 y faltan 5.",
+          "Calcula 100 − 40 y compara con 60."
+        ],
+        "retroalimentacion": "Rosa ganó 35 + 25 = 60 y Pedro 100 − 40 = 60. Ganaron lo mismo, así que la igualdad es verdadera.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Rosa ganó más que Pedro"
+          },
+          {
+            "id": "b",
+            "texto": "Pedro ganó más que Rosa"
+          },
+          {
+            "id": "c",
+            "texto": "Ganaron lo mismo: 35 + 25 = 100 − 40"
+          }
+        ],
+        "id": "e13"
       }
     ],
     "fuentes": [
@@ -2013,460 +2211,294 @@
     "disciplina": "algebra",
     "descripcionCorta": "Halla el número que completa una igualdad como 8 + __ = 10 + 3.",
     "palabrasClave": [
-      "numero",
-      "que",
-      "falta",
-      "igualdad"
+      "igualdad",
+      "número que falta",
+      "suma",
+      "resta",
+      "equilibrio"
     ],
     "prerrequisitos": [
       "mat.p2.igualdades-equilibrio"
     ],
     "ordenSugerido": 106,
-    "ideaCentral": "Para completar una igualdad, calcula el lado conocido y encuentra el número que hace valer lo mismo al otro lado.",
+    "ideaCentral": "En una igualdad como 8 + __ = 10 + 3, los dos lados deben valer lo mismo. Calcula el lado completo y busca el número que falta en el otro.",
     "pasos": [
-      "Resuelve el lado que no tiene espacio vacío.",
-      "Mira cuánto falta en el lado incompleto.",
-      "Sustituye el número y comprueba ambos lados."
+      "Calcula el lado que está completo: 10 + 3 = 13.",
+      "Pregúntate: ¿qué número sumado a 8 da 13?",
+      "Halla ese número, por ejemplo con una resta: 13 − 8 = 5.",
+      "Comprueba: 8 + 5 = 13 y 10 + 3 = 13."
     ],
     "ejemplos": [
       {
-        "situacion": "8 + __ = 10 + 3.",
-        "desarrollo": "La derecha da 13; a 8 le faltan 5.",
-        "respuesta": "El número es 5."
+        "situacion": "Completa: 8 + __ = 10 + 3.",
+        "desarrollo": "Lado derecho: 10 + 3 = 13. Debe valer 13 también el izquierdo. 8 + 5 = 13.",
+        "respuesta": "Falta el 5."
       },
       {
-        "situacion": "12 − __ = 5 + 2.",
-        "desarrollo": "La derecha da 7; 12 − 5 = 7.",
-        "respuesta": "El número es 5."
+        "situacion": "Completa: 14 − __ = 6 + 2.",
+        "desarrollo": "Lado derecho: 6 + 2 = 8. ¿Cuánto quitas a 14 para llegar a 8? 14 − 6 = 8.",
+        "respuesta": "Falta el 6."
+      },
+      {
+        "situacion": "Completa: __ + 20 = 40 + 10.",
+        "desarrollo": "Lado derecho: 40 + 10 = 50. ¿Qué número más 20 es 50? 50 − 20 = 30.",
+        "respuesta": "Falta el 30."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Poner el resultado total directamente en el espacio.",
-        "correccion": "El espacio es solo una parte de la suma o resta."
+        "error": "Poner en el espacio el resultado del lado completo, por ejemplo 13.",
+        "correccion": "El 13 es el valor de todo el lado. El número que falta debe completar la cuenta del otro lado."
       },
       {
-        "error": "Comprobar un solo lado.",
-        "correccion": "Sustituye y calcula ambos lados de =."
+        "error": "No comprobar la respuesta.",
+        "correccion": "Calcula los dos lados con tu número: deben dar el mismo resultado."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Incógnita",
-        "significado": "Número que todavía no conoces."
+        "termino": "Igualdad",
+        "significado": "Dos lados que valen lo mismo, unidos por el signo =."
       },
       {
-        "termino": "Comprobar",
-        "significado": "Verificar ambos lados de una igualdad."
+        "termino": "Lado completo",
+        "significado": "El lado de la igualdad que no tiene número escondido."
+      },
+      {
+        "termino": "Número que falta",
+        "significado": "El número que hace que los dos lados valgan lo mismo."
       }
     ],
     "ejercicios": [
       {
-        "id": "e01",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En el cuaderno de Micaela, completa 8 + __ = 14 − 2. ¿Qué número falta?",
-        "respuesta": 4,
+        "enunciado": "Halla el número que falta: 8 + __ = 10. Escribe solo el número.",
+        "respuesta": 2,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el cuaderno de Micaela: Resuelve el lado derecho: 14 − 2.",
-          "En el cuaderno de Micaela: Ambos lados deben valer 12.",
-          "En el cuaderno de Micaela: Calcula cuánto falta desde 8 hasta 12."
+          "El lado derecho ya está calculado: vale 10.",
+          "¿Cuánto le falta al 8 para llegar a 10?",
+          "Cuenta desde el 8: 9, 10."
         ],
-        "retroalimentacion": "Falta 4: 8 + 4 = 12 y 14 − 2 = 12. Si pusiste 12, olvidaste el 8 del primer lado."
+        "retroalimentacion": "8 + 2 = 10, así que falta el 2.",
+        "id": "e01"
       },
       {
-        "id": "e02",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Para el reto de la biblioteca, completa 10 + __ = 18 − 2. ¿Qué número falta?",
-        "respuesta": 6,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué número completa 6 + __ = 6 + 4?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
         "pistas": [
-          "Para el reto de la biblioteca: Resuelve el lado derecho: 18 − 2.",
-          "Para el reto de la biblioteca: Ambos lados deben valer 16.",
-          "Para el reto de la biblioteca: Calcula cuánto falta desde 10 hasta 16."
+          "Los dos lados empiezan con 6.",
+          "Si un lado es 6 + algo y el otro es 6 + 4, el algo debe ser igual.",
+          "Compara lo que se suma al 6 en cada lado."
         ],
-        "retroalimentacion": "Falta 6: 10 + 6 = 16 y 18 − 2 = 16. Si pusiste 16, olvidaste el 10 del primer lado."
-      },
-      {
-        "id": "e03",
-        "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En la pizarra del salón, completa 12 + __ = 22 − 2. ¿Qué número falta?",
-        "respuesta": 8,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "En la pizarra del salón: Resuelve el lado derecho: 22 − 2.",
-          "En la pizarra del salón: Ambos lados deben valer 20.",
-          "En la pizarra del salón: Calcula cuánto falta desde 12 hasta 20."
+        "retroalimentacion": "Falta el 4, porque 6 + 4 = 6 + 4. Si pones 6 o 10, el lado izquierdo valdría más.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6"
+          },
+          {
+            "id": "b",
+            "texto": "10"
+          },
+          {
+            "id": "c",
+            "texto": "4"
+          }
         ],
-        "retroalimentacion": "Falta 8: 12 + 8 = 20 y 22 − 2 = 20. Si pusiste 20, olvidaste el 12 del primer lado."
+        "id": "e02"
       },
       {
-        "id": "e04",
-        "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Durante un juego de cálculo, completa 14 + __ = 26 − 2. ¿Qué número falta?",
-        "respuesta": 10,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Durante un juego de cálculo: Resuelve el lado derecho: 26 − 2.",
-          "Durante un juego de cálculo: Ambos lados deben valer 24.",
-          "Durante un juego de cálculo: Calcula cuánto falta desde 14 hasta 24."
-        ],
-        "retroalimentacion": "Falta 10: 14 + 10 = 24 y 26 − 2 = 24. Si pusiste 24, olvidaste el 14 del primer lado."
-      },
-      {
-        "id": "e05",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En la feria de la escuela, completa 13 + __ = 22 − 2. ¿Qué número falta?",
-        "respuesta": 7,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "En la feria de la escuela: Resuelve el lado derecho: 22 − 2.",
-          "En la feria de la escuela: Ambos lados deben valer 20.",
-          "En la feria de la escuela: Calcula cuánto falta desde 13 hasta 20."
-        ],
-        "retroalimentacion": "Falta 7: 13 + 7 = 20 y 22 − 2 = 20. Si pusiste 20, olvidaste el 13 del primer lado."
-      },
-      {
-        "id": "e06",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Para contar fichas en casa, completa 16 + __ = 28 − 2. ¿Qué número falta?",
-        "respuesta": 10,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Para contar fichas en casa: Resuelve el lado derecho: 28 − 2.",
-          "Para contar fichas en casa: Ambos lados deben valer 26.",
-          "Para contar fichas en casa: Calcula cuánto falta desde 16 hasta 26."
-        ],
-        "retroalimentacion": "Falta 10: 16 + 10 = 26 y 28 − 2 = 26. Si pusiste 26, olvidaste el 16 del primer lado."
-      },
-      {
-        "id": "e07",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En una tarjeta de la kermés, completa 18 + __ = 32 − 2. ¿Qué número falta?",
-        "respuesta": 12,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "En una tarjeta de la kermés: Resuelve el lado derecho: 32 − 2.",
-          "En una tarjeta de la kermés: Ambos lados deben valer 30.",
-          "En una tarjeta de la kermés: Calcula cuánto falta desde 18 hasta 30."
-        ],
-        "retroalimentacion": "Falta 12: 18 + 12 = 30 y 32 − 2 = 30. Si pusiste 30, olvidaste el 18 del primer lado."
-      },
-      {
-        "id": "e08",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Al revisar una cuenta del mercado, completa 20 + __ = 36 − 2. ¿Qué número falta?",
-        "respuesta": 14,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Al revisar una cuenta del mercado: Resuelve el lado derecho: 36 − 2.",
-          "Al revisar una cuenta del mercado: Ambos lados deben valer 34.",
-          "Al revisar una cuenta del mercado: Calcula cuánto falta desde 20 hasta 34."
-        ],
-        "retroalimentacion": "Falta 14: 20 + 14 = 34 y 36 − 2 = 34. Si pusiste 34, olvidaste el 20 del primer lado."
-      },
-      {
-        "id": "e09",
-        "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En la libreta de matemática, completa 17 + __ = 28 − 2. ¿Qué número falta?",
-        "respuesta": 9,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "En la libreta de matemática: Resuelve el lado derecho: 28 − 2.",
-          "En la libreta de matemática: Ambos lados deben valer 26.",
-          "En la libreta de matemática: Calcula cuánto falta desde 17 hasta 26."
-        ],
-        "retroalimentacion": "Falta 9: 17 + 9 = 26 y 28 − 2 = 26. Si pusiste 26, olvidaste el 17 del primer lado."
-      },
-      {
-        "id": "e10",
-        "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Para ayudar a un compañero, completa 19 + __ = 32 − 2. ¿Qué número falta?",
-        "respuesta": 11,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Para ayudar a un compañero: Resuelve el lado derecho: 32 − 2.",
-          "Para ayudar a un compañero: Ambos lados deben valer 30.",
-          "Para ayudar a un compañero: Calcula cuánto falta desde 19 hasta 30."
-        ],
-        "retroalimentacion": "Falta 11: 19 + 11 = 30 y 32 − 2 = 30. Si pusiste 30, olvidaste el 19 del primer lado."
-      },
-      {
-        "id": "e11",
-        "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "En una práctica del aula, completa 20 + __ = 32 − 2. ¿Qué número falta?",
-        "respuesta": 10,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "En una práctica del aula: Resuelve el lado derecho: 32 − 2.",
-          "En una práctica del aula: Ambos lados deben valer 30.",
-          "En una práctica del aula: Calcula cuánto falta desde 20 hasta 30."
-        ],
-        "retroalimentacion": "Falta 10: 20 + 10 = 30 y 32 − 2 = 30. Si pusiste 30, olvidaste el 20 del primer lado."
-      },
-      {
-        "id": "e12",
-        "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Al comprobar una respuesta, completa 18 + __ = 26 − 2. ¿Qué número falta?",
-        "respuesta": 6,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Al comprobar una respuesta: Resuelve el lado derecho: 26 − 2.",
-          "Al comprobar una respuesta: Ambos lados deben valer 24.",
-          "Al comprobar una respuesta: Calcula cuánto falta desde 18 hasta 24."
-        ],
-        "retroalimentacion": "Falta 6: 18 + 6 = 24 y 26 − 2 = 24. Si pusiste 24, olvidaste el 18 del primer lado."
-      }
-    ],
-    "fuentes": [
-      {
-        "documento": "Programa curricular de Educación Primaria, MINEDU",
-        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
-      }
-    ],
-    "version": 1,
-    "revisado": null
-  },
-  {
-    "clave": "mat.p2.igualdad-verdadera",
-    "area": "matematica",
-    "nivel": "primaria",
-    "grado": 2,
-    "competenciaCneb": 24,
-    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
-    "desempenosOrigen": [
-      "MAT-C24-P2-06"
-    ],
-    "bloque": "Igualdades y equivalencias",
-    "nombre": "¿Es verdadera la igualdad?",
-    "disciplina": "algebra",
-    "descripcionCorta": "Decide si los dos lados de una igualdad valen lo mismo y lo explica.",
-    "palabrasClave": [
-      "igualdad",
-      "verdadera"
-    ],
-    "prerrequisitos": [
-      "mat.p2.igualdades-sumas-restas"
-    ],
-    "ordenSugerido": 85,
-    "ideaCentral": "Una igualdad es verdadera cuando las expresiones de ambos lados dan el mismo valor; si no, es falsa.",
-    "pasos": [
-      "Calcula el lado izquierdo.",
-      "Calcula el lado derecho.",
-      "Compara los resultados y explica la decisión."
-    ],
-    "ejemplos": [
-      {
-        "situacion": "4 + 5 = 10 − 1.",
-        "desarrollo": "Ambos lados dan 9.",
-        "respuesta": "Es verdadera."
-      },
-      {
-        "situacion": "7 + 3 = 15 − 4.",
-        "desarrollo": "Izquierda 10; derecha 11.",
-        "respuesta": "Es falsa."
-      }
-    ],
-    "erroresFrecuentes": [
-      {
-        "error": "Confiar solo en que aparece el signo =.",
-        "correccion": "El signo escrito no hace verdadera una cuenta incorrecta."
-      },
-      {
-        "error": "Comparar cifras sin calcular.",
-        "correccion": "Resuelve cada expresión antes de decidir."
-      }
-    ],
-    "vocabulario": [
-      {
-        "termino": "Verdadera",
-        "significado": "Ambos lados tienen el mismo valor."
-      },
-      {
-        "termino": "Falsa",
-        "significado": "Los lados tienen valores diferentes."
-      }
-    ],
-    "ejercicios": [
-      {
-        "id": "e01",
         "dificultad": 1,
         "tipo": "verdadero_falso",
-        "enunciado": "En el cuaderno de Micaela, alguien escribió 8 + 4 = 12.",
+        "enunciado": "En 7 + __ = 12, el número que falta es 5.",
         "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el cuaderno de Micaela: Calcula primero 8 + 4.",
-          "En el cuaderno de Micaela: Compara el resultado con 12.",
-          "En el cuaderno de Micaela: El lado izquierdo vale 12; ¿coincide?"
+          "Pregúntate cuánto le falta al 7 para llegar a 12.",
+          "Cuenta desde el 7 hasta el 12.",
+          "Prueba: 7 + 5."
         ],
-        "retroalimentacion": "La igualdad es verdadera: 8 + 4 vale 12, igual que el otro lado."
+        "retroalimentacion": "Es verdadero: 7 + 5 = 12, así que el número que falta es el 5.",
+        "id": "e03"
       },
       {
-        "id": "e02",
         "dificultad": 1,
-        "tipo": "verdadero_falso",
-        "enunciado": "Para el reto de la biblioteca, alguien escribió 10 + 6 = 17.",
-        "respuesta": false,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Para el reto de la biblioteca: Calcula primero 10 + 6.",
-          "Para el reto de la biblioteca: Compara el resultado con 17.",
-          "Para el reto de la biblioteca: El lado izquierdo vale 16; ¿coincide?"
+        "tipo": "texto_corto",
+        "enunciado": "Escribe el número que falta: 9 − __ = 6.",
+        "respuesta": "3",
+        "alternativasAceptadas": [
+          "tres"
         ],
-        "retroalimentacion": "La igualdad es falsa: 10 + 6 vale 16, no 17."
+        "pistas": [
+          "Estás quitando algo a 9 y te queda 6.",
+          "¿Cuánto hay entre el 6 y el 9?",
+          "Cuenta desde 6 hasta 9."
+        ],
+        "retroalimentacion": "9 − 3 = 6, así que falta el 3.",
+        "id": "e04"
       },
       {
-        "id": "e03",
-        "dificultad": 1,
-        "tipo": "verdadero_falso",
-        "enunciado": "En la pizarra del salón, alguien escribió 12 + 8 = 20.",
-        "respuesta": true,
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Halla el número que falta: 8 + __ = 10 + 3. Escribe solo el número.",
+        "respuesta": 5,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la pizarra del salón: Calcula primero 12 + 8.",
-          "En la pizarra del salón: Compara el resultado con 20.",
-          "En la pizarra del salón: El lado izquierdo vale 20; ¿coincide?"
+          "Calcula primero el lado completo: 10 + 3.",
+          "El lado derecho vale 13.",
+          "¿Qué número sumado a 8 da 13?"
         ],
-        "retroalimentacion": "La igualdad es verdadera: 12 + 8 vale 20, igual que el otro lado."
+        "retroalimentacion": "10 + 3 = 13 y 8 + 5 = 13, así que falta el 5. Si pusiste 13, olvidaste el 8.",
+        "id": "e05"
       },
       {
-        "id": "e04",
-        "dificultad": 1,
-        "tipo": "verdadero_falso",
-        "enunciado": "Durante un juego de cálculo, alguien escribió 14 + 10 = 25.",
-        "respuesta": false,
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué número hace verdadera la igualdad 5 + __ = 7 + 4?",
+        "respuesta": "a",
         "alternativasAceptadas": [],
         "pistas": [
-          "Durante un juego de cálculo: Calcula primero 14 + 10.",
-          "Durante un juego de cálculo: Compara el resultado con 25.",
-          "Durante un juego de cálculo: El lado izquierdo vale 24; ¿coincide?"
+          "Calcula el lado completo, 7 + 4.",
+          "Ese lado vale 11.",
+          "Piensa cuánto le falta al 5 para llegar a 11."
         ],
-        "retroalimentacion": "La igualdad es falsa: 14 + 10 vale 24, no 25."
+        "retroalimentacion": "7 + 4 = 11 y 5 + 6 = 11, así que falta el 6. El 11 es el valor del lado, no el número que falta.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6"
+          },
+          {
+            "id": "b",
+            "texto": "5"
+          },
+          {
+            "id": "c",
+            "texto": "11"
+          }
+        ],
+        "id": "e06"
       },
       {
-        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Halla el número que falta: 20 + __ = 30 + 5. Escribe solo el número.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El lado derecho es 30 + 5.",
+          "Ese lado vale 35.",
+          "Resta 35 − 20 para hallar lo que falta."
+        ],
+        "retroalimentacion": "30 + 5 = 35 y 20 + 15 = 35, entonces falta el 15.",
+        "id": "e07"
+      },
+      {
         "dificultad": 2,
         "tipo": "verdadero_falso",
-        "enunciado": "En la feria de la escuela, alguien escribió 13 + 7 = 20.",
-        "respuesta": true,
+        "enunciado": "En __ + 4 = 8 + 3, el número que falta es 8.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la feria de la escuela: Calcula primero 13 + 7.",
-          "En la feria de la escuela: Compara el resultado con 20.",
-          "En la feria de la escuela: El lado izquierdo vale 20; ¿coincide?"
+          "Calcula primero 8 + 3.",
+          "Esa suma da 11 y es el valor de todo ese lado.",
+          "Prueba con el 8: ¿8 + 4 da 11?"
         ],
-        "retroalimentacion": "La igualdad es verdadera: 13 + 7 vale 20, igual que el otro lado."
+        "retroalimentacion": "Es falso: 8 + 4 = 12 y no 11. El número que falta es 7, porque 7 + 4 = 11.",
+        "id": "e08"
       },
       {
-        "id": "e06",
         "dificultad": 2,
-        "tipo": "verdadero_falso",
-        "enunciado": "Para contar fichas en casa, alguien escribió 16 + 10 = 27.",
-        "respuesta": false,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Para contar fichas en casa: Calcula primero 16 + 10.",
-          "Para contar fichas en casa: Compara el resultado con 27.",
-          "Para contar fichas en casa: El lado izquierdo vale 26; ¿coincide?"
+        "tipo": "texto_corto",
+        "enunciado": "Escribe el número que falta: 15 − __ = 20 − 8.",
+        "respuesta": "3",
+        "alternativasAceptadas": [
+          "tres"
         ],
-        "retroalimentacion": "La igualdad es falsa: 16 + 10 vale 26, no 27."
+        "pistas": [
+          "Calcula primero el lado derecho: 20 − 8.",
+          "Ese lado vale 12.",
+          "¿Cuánto quitas de 15 para quedarte con 12?"
+        ],
+        "retroalimentacion": "20 − 8 = 12 y 15 − 3 = 12, así que falta el 3.",
+        "id": "e09"
       },
       {
-        "id": "e07",
-        "dificultad": 2,
-        "tipo": "verdadero_falso",
-        "enunciado": "En una tarjeta de la kermés, alguien escribió 18 + 12 = 30.",
-        "respuesta": true,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "En una tarjeta de la kermés: Calcula primero 18 + 12.",
-          "En una tarjeta de la kermés: Compara el resultado con 30.",
-          "En una tarjeta de la kermés: El lado izquierdo vale 30; ¿coincide?"
-        ],
-        "retroalimentacion": "La igualdad es verdadera: 18 + 12 vale 30, igual que el otro lado."
-      },
-      {
-        "id": "e08",
-        "dificultad": 2,
-        "tipo": "verdadero_falso",
-        "enunciado": "Al revisar una cuenta del mercado, alguien escribió 20 + 14 = 35.",
-        "respuesta": false,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Al revisar una cuenta del mercado: Calcula primero 20 + 14.",
-          "Al revisar una cuenta del mercado: Compara el resultado con 35.",
-          "Al revisar una cuenta del mercado: El lado izquierdo vale 34; ¿coincide?"
-        ],
-        "retroalimentacion": "La igualdad es falsa: 20 + 14 vale 34, no 35."
-      },
-      {
-        "id": "e09",
         "dificultad": 3,
-        "tipo": "verdadero_falso",
-        "enunciado": "En la libreta de matemática, alguien escribió 17 + 9 = 26.",
-        "respuesta": true,
+        "tipo": "numerico",
+        "enunciado": "Halla el número que falta: 30 + 15 = __ + 25. Escribe solo el número.",
+        "respuesta": 20,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la libreta de matemática: Calcula primero 17 + 9.",
-          "En la libreta de matemática: Compara el resultado con 26.",
-          "En la libreta de matemática: El lado izquierdo vale 26; ¿coincide?"
+          "Aquí el espacio está en el lado derecho.",
+          "El lado izquierdo es 30 + 15.",
+          "Ese lado vale 45; ¿cuánto sumado a 25 da 45?"
         ],
-        "retroalimentacion": "La igualdad es verdadera: 17 + 9 vale 26, igual que el otro lado."
+        "retroalimentacion": "30 + 15 = 45 y 20 + 25 = 45, así que falta el 20.",
+        "id": "e10"
       },
       {
-        "id": "e10",
         "dificultad": 3,
-        "tipo": "verdadero_falso",
-        "enunciado": "Para ayudar a un compañero, alguien escribió 19 + 11 = 31.",
-        "respuesta": false,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ana completó 12 + __ = 30 − 5 y escribió 17. Su profesora le dice que se equivocó. ¿Cuál es el número correcto?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
         "pistas": [
-          "Para ayudar a un compañero: Calcula primero 19 + 11.",
-          "Para ayudar a un compañero: Compara el resultado con 31.",
-          "Para ayudar a un compañero: El lado izquierdo vale 30; ¿coincide?"
+          "Calcula 30 − 5 antes de buscar el número que falta.",
+          "Ese lado vale 25.",
+          "Resta 25 − 12 para hallar el número."
         ],
-        "retroalimentacion": "La igualdad es falsa: 19 + 11 vale 30, no 31."
+        "retroalimentacion": "30 − 5 = 25 y 12 + 13 = 25, así que falta el 13. Con 17 el lado izquierdo valdría 29.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "17"
+          },
+          {
+            "id": "b",
+            "texto": "25"
+          },
+          {
+            "id": "c",
+            "texto": "13"
+          }
+        ],
+        "id": "e11"
       },
       {
-        "id": "e11",
         "dificultad": 3,
-        "tipo": "verdadero_falso",
-        "enunciado": "En una práctica del aula, alguien escribió 20 + 10 = 30.",
-        "respuesta": true,
+        "tipo": "numerico",
+        "enunciado": "Una balanza queda equilibrada. De un lado hay 3 bolsas con 10 caramelos cada una y 5 caramelos sueltos. Del otro lado hay 20 caramelos y algunos sueltos más. ¿Cuántos caramelos sueltos hay del otro lado? Escribe solo el número.",
+        "respuesta": 15,
         "alternativasAceptadas": [],
         "pistas": [
-          "En una práctica del aula: Calcula primero 20 + 10.",
-          "En una práctica del aula: Compara el resultado con 30.",
-          "En una práctica del aula: El lado izquierdo vale 30; ¿coincide?"
+          "Primero calcula cuántos caramelos hay en total del primer lado.",
+          "3 bolsas de 10 son 30 caramelos; con los sueltos, 35.",
+          "Del otro lado hay 20 y faltan hasta 35."
         ],
-        "retroalimentacion": "La igualdad es verdadera: 20 + 10 vale 30, igual que el otro lado."
+        "retroalimentacion": "30 + 5 = 35 caramelos en un lado. 20 + 15 = 35, así que del otro lado hay 15 sueltos.",
+        "id": "e12"
       },
       {
-        "id": "e12",
         "dificultad": 3,
-        "tipo": "verdadero_falso",
-        "enunciado": "Al comprobar una respuesta, alguien escribió 18 + 6 = 25.",
-        "respuesta": false,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Al comprobar una respuesta: Calcula primero 18 + 6.",
-          "Al comprobar una respuesta: Compara el resultado con 25.",
-          "Al comprobar una respuesta: El lado izquierdo vale 24; ¿coincide?"
+        "tipo": "texto_corto",
+        "enunciado": "Escribe el número que falta: __ − 12 = 40 + 8.",
+        "respuesta": "60",
+        "alternativasAceptadas": [
+          "sesenta"
         ],
-        "retroalimentacion": "La igualdad es falsa: 18 + 6 vale 24, no 25."
+        "pistas": [
+          "Calcula primero 40 + 8.",
+          "Ese lado vale 48.",
+          "Si a un número le quitas 12 y te queda 48, ¿qué número era?"
+        ],
+        "retroalimentacion": "40 + 8 = 48 y 60 − 12 = 48, así que falta el 60. Para hallar el número inicial hay que sumar 48 + 12.",
+        "id": "e13"
       }
     ],
     "fuentes": [

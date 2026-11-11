@@ -15,49 +15,62 @@
     "disciplina": "algebra",
     "descripcionCorta": "Reconoce secuencias numéricas que aumentan siempre la misma cantidad.",
     "palabrasClave": [
-      "patrones",
-      "aditivos"
+      "patrón",
+      "crece",
+      "suma",
+      "secuencia",
+      "regularidad"
     ],
     "prerrequisitos": [
       "mat.p2.contar-por-grupos"
     ],
     "ordenSugerido": 45,
-    "ideaCentral": "Un patrón aditivo crece al sumar siempre la misma cantidad. La diferencia entre números vecinos es su salto.",
+    "ideaCentral": "Un patrón que crece es una lista de números donde siempre se suma la misma cantidad para pasar al siguiente. Por ejemplo, 3, 6, 9, 12 crece de 3 en 3.",
     "pasos": [
-      "Compara dos números consecutivos.",
-      "Encuentra cuánto aumenta cada vez.",
-      "Suma el mismo salto para continuar."
+      "Mira los primeros dos números y calcula cuánto aumentó.",
+      "Comprueba que entre los demás también aumenta lo mismo.",
+      "Suma esa cantidad al último número para hallar el siguiente.",
+      "Repite para seguir el patrón."
     ],
     "ejemplos": [
       {
-        "situacion": "2, 4, 6, __.",
-        "desarrollo": "Aumento 2 en cada paso: 6 + 2 = 8.",
-        "respuesta": "Sigue 8."
+        "situacion": "Sigue el patrón: 2, 4, 6, 8, ...",
+        "desarrollo": "De 2 a 4 sube 2, de 4 a 6 sube 2. Siempre 2.",
+        "respuesta": "Sigue el 10."
       },
       {
-        "situacion": "10, 15, 20, __.",
-        "desarrollo": "El salto es 5: 20 + 5 = 25.",
-        "respuesta": "Sigue 25."
+        "situacion": "Doña Rosa vende pan: el primer día vende 5, el segundo 10 y el tercero 15. ¿Cuánto vende el cuarto día si sigue igual?",
+        "desarrollo": "Sube de 5 en 5: 15 + 5.",
+        "respuesta": "20 panes."
+      },
+      {
+        "situacion": "Completa: 11, 21, 31, __.",
+        "desarrollo": "Sube 10 cada vez. 31 + 10.",
+        "respuesta": "41."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Cambiar el salto a mitad de secuencia.",
-        "correccion": "Usa siempre la misma cantidad para avanzar."
+        "error": "Sumar números distintos cada vez sin comprobar la regla.",
+        "correccion": "Calcula cuánto sube entre cada par: debe ser siempre lo mismo."
       },
       {
-        "error": "Sumar el número anterior completo.",
-        "correccion": "La regla es el salto, no repetir el término."
+        "error": "Contar de 1 en 1 en vez de seguir el salto del patrón.",
+        "correccion": "Mira el salto de los primeros dos números y úsalo todo el tiempo."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Patrón aditivo",
-        "significado": "Secuencia que cambia con una suma fija."
+        "termino": "Patrón",
+        "significado": "Lista de números o figuras que sigue una regla."
       },
       {
-        "termino": "Salto",
-        "significado": "Cantidad que se agrega cada vez."
+        "termino": "Aumentar",
+        "significado": "Hacerse más grande sumando."
+      },
+      {
+        "termino": "Término",
+        "significado": "Cada número de la lista."
       }
     ],
     "ejercicios": [
@@ -65,229 +78,228 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En el cuaderno de Micaela, la secuencia muestra 2, 4, 6. ¿Qué número sigue?",
-        "respuesta": 8,
+        "enunciado": "Sigue el patrón: 2, 4, 6, 8, __. Escribe el número que sigue.",
+        "respuesta": 10,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el cuaderno de Micaela: Compara 2 con 4.",
-          "En el cuaderno de Micaela: El salto es sumar 2 en cada paso.",
-          "En el cuaderno de Micaela: Desde 6 avanza 2."
+          "Mira cuánto sube de 2 a 4.",
+          "Sube de 2 en 2.",
+          "Suma 2 al 8."
         ],
-        "retroalimentacion": "Sigue 8: cada paso suma 2. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 6,
-          "b": 2
-        }
+        "retroalimentacion": "El patrón sube de 2 en 2, así que 8 + 2 = 10."
       },
       {
         "id": "e02",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "Para el reto de la biblioteca, la secuencia muestra 5, 10, 15. ¿Qué número sigue?",
-        "respuesta": 20,
+        "enunciado": "Sigue el patrón: 5, 10, 15, 20, __. Escribe el número que sigue.",
+        "respuesta": 25,
         "alternativasAceptadas": [],
         "pistas": [
-          "Para el reto de la biblioteca: Compara 5 con 10.",
-          "Para el reto de la biblioteca: El salto es sumar 5 en cada paso.",
-          "Para el reto de la biblioteca: Desde 15 avanza 5."
+          "Compara el 5 con el 10.",
+          "De 5 a 10 hay un salto de 5.",
+          "Súmale ese salto al 20."
         ],
-        "retroalimentacion": "Sigue 20: cada paso suma 5. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 15,
-          "b": 5
-        }
+        "retroalimentacion": "Cada número sube 5, entonces 20 + 5 = 25."
       },
       {
         "id": "e03",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En la pizarra del salón, la secuencia muestra 10, 20, 30. ¿Qué número sigue?",
-        "respuesta": 40,
+        "tipo": "verdadero_falso",
+        "enunciado": "En el patrón 3, 6, 9, 12 los números van creciendo.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la pizarra del salón: Compara 10 con 20.",
-          "En la pizarra del salón: El salto es sumar 10 en cada paso.",
-          "En la pizarra del salón: Desde 30 avanza 10."
+          "Compara el 3 con el 6.",
+          "¿El 6 es mayor o menor que 3?",
+          "Prueba lo mismo con 9 y 12."
         ],
-        "retroalimentacion": "Sigue 40: cada paso suma 10. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 30,
-          "b": 10
-        }
+        "retroalimentacion": "Es verdadero: cada número es mayor que el anterior, suben de 3 en 3."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Durante un juego de cálculo, la secuencia muestra 12, 15, 18. ¿Qué número sigue?",
-        "respuesta": 21,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué número sigue en el patrón 10, 20, 30, __?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Durante un juego de cálculo: Compara 12 con 15.",
-          "Durante un juego de cálculo: El salto es sumar 3 en cada paso.",
-          "Durante un juego de cálculo: Desde 18 avanza 3."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "35"
+          },
+          {
+            "id": "b",
+            "texto": "31"
+          },
+          {
+            "id": "c",
+            "texto": "40"
+          },
+          {
+            "id": "d",
+            "texto": "50"
+          }
         ],
-        "retroalimentacion": "Sigue 21: cada paso suma 3. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 18,
-          "b": 3
-        }
+        "pistas": [
+          "Mira cuánto sube de 10 a 20.",
+          "Sube de 10 en 10.",
+          "Suma 10 al 30."
+        ],
+        "retroalimentacion": "Sigue el 40, porque 30 + 10 = 40."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En la feria de la escuela, la secuencia muestra 20, 24, 28. ¿Qué número sigue?",
-        "respuesta": 32,
+        "enunciado": "Lucía ahorra cada día más: el día 1 tiene S/ 3, el día 2 tiene S/ 6 y el día 3 tiene S/ 9. Si sigue igual, ¿cuántos soles tendrá el día 5? Escribe solo el número.",
+        "respuesta": 15,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la feria de la escuela: Compara 20 con 24.",
-          "En la feria de la escuela: El salto es sumar 4 en cada paso.",
-          "En la feria de la escuela: Desde 28 avanza 4."
+          "Cada día guarda la misma cantidad.",
+          "Sube de 3 en 3: 9, ...",
+          "Calcula el día 4 y luego el día 5."
         ],
-        "retroalimentacion": "Sigue 32: cada paso suma 4. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 28,
-          "b": 4
-        }
+        "retroalimentacion": "Día 4: 12 y día 5: 15. Si respondes 12, te detuviste un día antes."
       },
       {
         "id": "e06",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "Para contar fichas en casa, la secuencia muestra 25, 30, 35. ¿Qué número sigue?",
-        "respuesta": 40,
+        "enunciado": "Completa el patrón: 11, 21, 31, 41, __. Escribe solo el número.",
+        "respuesta": 51,
         "alternativasAceptadas": [],
         "pistas": [
-          "Para contar fichas en casa: Compara 25 con 30.",
-          "Para contar fichas en casa: El salto es sumar 5 en cada paso.",
-          "Para contar fichas en casa: Desde 35 avanza 5."
+          "Mira las decenas de cada número.",
+          "Sube una decena cada vez, o sea 10.",
+          "A 41 súmale 10."
         ],
-        "retroalimentacion": "Sigue 40: cada paso suma 5. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 35,
-          "b": 5
-        }
+        "retroalimentacion": "El patrón sube de 10 en 10: 41 + 10 = 51."
       },
       {
         "id": "e07",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En una tarjeta de la kermés, la secuencia muestra 30, 32, 34. ¿Qué número sigue?",
-        "respuesta": 36,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué lista crece de 5 en 5?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "En una tarjeta de la kermés: Compara 30 con 32.",
-          "En una tarjeta de la kermés: El salto es sumar 2 en cada paso.",
-          "En una tarjeta de la kermés: Desde 34 avanza 2."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5, 6, 7, 8"
+          },
+          {
+            "id": "b",
+            "texto": "5, 10, 15, 20"
+          },
+          {
+            "id": "c",
+            "texto": "5, 10, 20, 40"
+          },
+          {
+            "id": "d",
+            "texto": "5, 15, 20, 25"
+          }
         ],
-        "retroalimentacion": "Sigue 36: cada paso suma 2. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 34,
-          "b": 2
-        }
+        "pistas": [
+          "Haz la resta entre el primero y el segundo número de cada lista.",
+          "En la lista buena la resta es 5 en todos los pares.",
+          "Busca la lista donde todos los saltos sean iguales a 5."
+        ],
+        "retroalimentacion": "Solo 5, 10, 15, 20 sube siempre 5. En 5, 10, 20, 40 los saltos cambian."
       },
       {
         "id": "e08",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Al revisar una cuenta del mercado, la secuencia muestra 36, 39, 42. ¿Qué número sigue?",
-        "respuesta": 45,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Al revisar una cuenta del mercado: Compara 36 con 39.",
-          "Al revisar una cuenta del mercado: El salto es sumar 3 en cada paso.",
-          "Al revisar una cuenta del mercado: Desde 42 avanza 3."
+        "tipo": "texto_corto",
+        "enunciado": "Escribe los dos números que siguen en el patrón 6, 12, 18, __, __. Sepáralos con una coma.",
+        "respuesta": "24, 30",
+        "alternativasAceptadas": [
+          "24 30",
+          "24,30",
+          "24-30",
+          "24 y 30"
         ],
-        "retroalimentacion": "Sigue 45: cada paso suma 3. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 42,
-          "b": 3
-        }
+        "pistas": [
+          "Mira cuánto sube de 6 a 12.",
+          "Sube de 6 en 6.",
+          "A 18 súmale 6 y luego otra vez 6."
+        ],
+        "retroalimentacion": "18 + 6 = 24 y 24 + 6 = 30: 24, 30."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En la libreta de matemática, la secuencia muestra 40, 45, 50. ¿Qué número sigue?",
-        "respuesta": 55,
+        "enunciado": "Completa el patrón que crece siempre lo mismo: 12, 17, 22, __, 32. Escribe el número que falta.",
+        "respuesta": 27,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la libreta de matemática: Compara 40 con 45.",
-          "En la libreta de matemática: El salto es sumar 5 en cada paso.",
-          "En la libreta de matemática: Desde 50 avanza 5."
+          "Halla el salto entre 12 y 17.",
+          "El salto es de 5.",
+          "Súmalo al 22, y comprueba que luego llegas a 32."
         ],
-        "retroalimentacion": "Sigue 55: cada paso suma 5. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 50,
-          "b": 5
-        }
+        "retroalimentacion": "22 + 5 = 27 y 27 + 5 = 32. El número que falta es 27."
       },
       {
         "id": "e10",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Para ayudar a un compañero, la secuencia muestra 52, 56, 60. ¿Qué número sigue?",
-        "respuesta": 64,
+        "tipo": "verdadero_falso",
+        "enunciado": "La lista 4, 8, 12, 15, 20 es un patrón que crece siempre de 4 en 4.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Para ayudar a un compañero: Compara 52 con 56.",
-          "Para ayudar a un compañero: El salto es sumar 4 en cada paso.",
-          "Para ayudar a un compañero: Desde 60 avanza 4."
+          "Calcula los saltos entre números seguidos.",
+          "De 4 a 8, de 8 a 12 y de 12 a 15.",
+          "De 12 a 15 solo subió 3."
         ],
-        "retroalimentacion": "Sigue 64: cada paso suma 4. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 60,
-          "b": 4
-        }
+        "retroalimentacion": "Es falso: el salto de 12 a 15 es 3 y no 4, así que se rompe el patrón."
       },
       {
         "id": "e11",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En una práctica del aula, la secuencia muestra 60, 62, 64. ¿Qué número sigue?",
-        "respuesta": 66,
+        "enunciado": "Tomás ahorra cada semana más: S/ 20 la primera semana, S/ 25 la segunda y S/ 30 la tercera. Si sigue así, ¿cuánto ahorrará la sexta semana? Escribe solo el número.",
+        "respuesta": 45,
         "alternativasAceptadas": [],
         "pistas": [
-          "En una práctica del aula: Compara 60 con 62.",
-          "En una práctica del aula: El salto es sumar 2 en cada paso.",
-          "En una práctica del aula: Desde 64 avanza 2."
+          "Halla el salto entre una semana y la siguiente.",
+          "Sube 5 cada semana; ya tienes hasta la semana 3.",
+          "Sigue sumando 5 hasta llegar a la semana 6."
         ],
-        "retroalimentacion": "Sigue 66: cada paso suma 2. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 64,
-          "b": 2
-        }
+        "retroalimentacion": "Semana 4: 35, semana 5: 40 y semana 6: 45. Son S/ 45."
       },
       {
         "id": "e12",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Al comprobar una respuesta, la secuencia muestra 70, 75, 80. ¿Qué número sigue?",
-        "respuesta": 85,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira: 8, 16, 24, __, 40. ¿Qué número falta y cuánto aumenta cada vez?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Al comprobar una respuesta: Compara 70 con 75.",
-          "Al comprobar una respuesta: El salto es sumar 5 en cada paso.",
-          "Al comprobar una respuesta: Desde 80 avanza 5."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "30 (de 6 en 6)"
+          },
+          {
+            "id": "b",
+            "texto": "32 (de 8 en 8)"
+          },
+          {
+            "id": "c",
+            "texto": "34 (de 10 en 10)"
+          },
+          {
+            "id": "d",
+            "texto": "32 (de 6 en 6)"
+          }
         ],
-        "retroalimentacion": "Sigue 85: cada paso suma 5. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 80,
-          "b": 5
-        }
+        "pistas": [
+          "Calcula el salto entre 8 y 16.",
+          "El salto es 8, pero revisa también entre 16 y 24.",
+          "A 24 súmale 8 y comprueba que llegas bien al 40."
+        ],
+        "retroalimentacion": "Falta 32 y aumenta de 8 en 8: 24 + 8 = 32 y 32 + 8 = 40."
       }
     ],
     "fuentes": [
@@ -315,49 +327,62 @@
     "disciplina": "algebra",
     "descripcionCorta": "Reconoce secuencias numéricas que disminuyen siempre la misma cantidad.",
     "palabrasClave": [
-      "patrones",
-      "decrecientes"
+      "patrón",
+      "disminuye",
+      "resta",
+      "secuencia",
+      "regularidad"
     ],
     "prerrequisitos": [
       "mat.p2.patrones-aditivos"
     ],
     "ordenSugerido": 81,
-    "ideaCentral": "Un patrón decreciente baja siempre la misma cantidad. Encuentra el salto de resta y repítelo.",
+    "ideaCentral": "Un patrón que disminuye es una lista de números donde siempre se resta la misma cantidad. Por ejemplo, 20, 18, 16, 14 baja de 2 en 2.",
     "pasos": [
-      "Compara dos términos seguidos.",
-      "Halla cuánto disminuyen.",
-      "Resta esa cantidad al último término."
+      "Compara los dos primeros números y mira cuánto bajó.",
+      "Comprueba que entre los otros también baja lo mismo.",
+      "Resta esa cantidad al último número.",
+      "Repite para seguir el patrón."
     ],
     "ejemplos": [
       {
-        "situacion": "20, 18, 16, __.",
-        "desarrollo": "Resto 2 en cada paso: 16 − 2 = 14.",
-        "respuesta": "Sigue 14."
+        "situacion": "Sigue el patrón: 10, 9, 8, 7, ...",
+        "desarrollo": "Baja 1 cada vez. 7 - 1.",
+        "respuesta": "6."
       },
       {
-        "situacion": "50, 45, 40, __.",
-        "desarrollo": "Resto 5: 40 − 5 = 35.",
-        "respuesta": "Sigue 35."
+        "situacion": "Don Julio tiene 45 naranjas. Cada hora vende 5: queda 40, 35, 30. ¿Cuántas quedan después de la siguiente hora?",
+        "desarrollo": "Baja de 5 en 5: 30 - 5.",
+        "respuesta": "25."
+      },
+      {
+        "situacion": "Completa: 99, 88, 77, __.",
+        "desarrollo": "Baja 11 cada vez: 77 - 11.",
+        "respuesta": "66."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Sumar el salto cuando la serie baja.",
-        "correccion": "Al decrecer, cada término debe ser menor."
+        "error": "Sumar en vez de restar al continuar la lista.",
+        "correccion": "Si los números van bajando, hay que restar."
       },
       {
-        "error": "Cambiar la cantidad que se resta.",
-        "correccion": "Comprueba que todos los pasos tengan la misma diferencia."
+        "error": "Cambiar el salto: 30, 25, 20, 18.",
+        "correccion": "El salto debe ser siempre el mismo; 20 - 5 = 15."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Decrecer",
-        "significado": "Disminuir."
+        "termino": "Disminuir",
+        "significado": "Hacerse más pequeño restando."
       },
       {
-        "termino": "Regla",
-        "significado": "Cambio que se repite en cada paso."
+        "termino": "Patrón",
+        "significado": "Lista que sigue una regla."
+      },
+      {
+        "termino": "Salto",
+        "significado": "Cantidad que se resta cada vez."
       }
     ],
     "ejercicios": [
@@ -365,229 +390,228 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En el cuaderno de Micaela, la secuencia muestra 20, 18, 16. ¿Qué número sigue?",
-        "respuesta": 14,
+        "enunciado": "Sigue el patrón: 10, 9, 8, 7, __. Escribe el número que sigue.",
+        "respuesta": 6,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el cuaderno de Micaela: Compara 20 con 18.",
-          "En el cuaderno de Micaela: El salto es restar 2 en cada paso.",
-          "En el cuaderno de Micaela: Desde 16 retrocede 2."
+          "Mira cuánto baja de 10 a 9.",
+          "Baja de 1 en 1.",
+          "Réstale 1 al 7."
         ],
-        "retroalimentacion": "Sigue 14: cada paso resta 2. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 16,
-          "b": 2
-        }
+        "retroalimentacion": "Cada número baja 1: 7 - 1 = 6."
       },
       {
         "id": "e02",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "Para el reto de la biblioteca, la secuencia muestra 30, 25, 20. ¿Qué número sigue?",
-        "respuesta": 15,
+        "enunciado": "Sigue el patrón: 50, 40, 30, __. Escribe el número que sigue.",
+        "respuesta": 20,
         "alternativasAceptadas": [],
         "pistas": [
-          "Para el reto de la biblioteca: Compara 30 con 25.",
-          "Para el reto de la biblioteca: El salto es restar 5 en cada paso.",
-          "Para el reto de la biblioteca: Desde 20 retrocede 5."
+          "Compara el 50 con el 40.",
+          "Baja de 10 en 10.",
+          "Réstale 10 al 30."
         ],
-        "retroalimentacion": "Sigue 15: cada paso resta 5. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 20,
-          "b": 5
-        }
+        "retroalimentacion": "Baja de 10 en 10: 30 - 10 = 20."
       },
       {
         "id": "e03",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En la pizarra del salón, la secuencia muestra 40, 30, 20. ¿Qué número sigue?",
-        "respuesta": 10,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la lista 20, 18, 16, 14 los números disminuyen de 2 en 2.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la pizarra del salón: Compara 40 con 30.",
-          "En la pizarra del salón: El salto es restar 10 en cada paso.",
-          "En la pizarra del salón: Desde 20 retrocede 10."
+          "Resta el segundo número al primero: 20 - 18.",
+          "Haz lo mismo con 18 y 16.",
+          "Si el resultado es siempre igual, el patrón es correcto."
         ],
-        "retroalimentacion": "Sigue 10: cada paso resta 10. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 20,
-          "b": 10
-        }
+        "retroalimentacion": "Es verdadero: cada número es 2 menos que el anterior."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Durante un juego de cálculo, la secuencia muestra 50, 47, 44. ¿Qué número sigue?",
-        "respuesta": 41,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué número sigue en el patrón 25, 20, 15, __?",
+        "respuesta": "b",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Durante un juego de cálculo: Compara 50 con 47.",
-          "Durante un juego de cálculo: El salto es restar 3 en cada paso.",
-          "Durante un juego de cálculo: Desde 44 retrocede 3."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5"
+          },
+          {
+            "id": "b",
+            "texto": "10"
+          },
+          {
+            "id": "c",
+            "texto": "20"
+          },
+          {
+            "id": "d",
+            "texto": "12"
+          }
         ],
-        "retroalimentacion": "Sigue 41: cada paso resta 3. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 44,
-          "b": 3
-        }
+        "pistas": [
+          "Mira cuánto baja de 25 a 20.",
+          "Baja de 5 en 5.",
+          "Réstale 5 al 15."
+        ],
+        "retroalimentacion": "Sigue el 10, porque 15 - 5 = 10."
       },
       {
         "id": "e05",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En la feria de la escuela, la secuencia muestra 60, 56, 52. ¿Qué número sigue?",
-        "respuesta": 48,
+        "enunciado": "Don Julio tiene 45 naranjas y vende 5 cada hora: 45, 40, 35, 30. ¿Cuántas naranjas le quedan en la hora siguiente? Escribe solo el número.",
+        "respuesta": 25,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la feria de la escuela: Compara 60 con 56.",
-          "En la feria de la escuela: El salto es restar 4 en cada paso.",
-          "En la feria de la escuela: Desde 52 retrocede 4."
+          "Fíjate cuántas vende en cada hora.",
+          "Resta 5 al último número de la lista.",
+          "Ya llegaste a 30; réstale otra vez lo mismo."
         ],
-        "retroalimentacion": "Sigue 48: cada paso resta 4. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 52,
-          "b": 4
-        }
+        "retroalimentacion": "30 - 5 = 25 naranjas."
       },
       {
         "id": "e06",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "Para contar fichas en casa, la secuencia muestra 70, 65, 60. ¿Qué número sigue?",
+        "enunciado": "Sigue el patrón: 99, 88, 77, 66, __. Escribe el número que sigue.",
         "respuesta": 55,
         "alternativasAceptadas": [],
         "pistas": [
-          "Para contar fichas en casa: Compara 70 con 65.",
-          "Para contar fichas en casa: El salto es restar 5 en cada paso.",
-          "Para contar fichas en casa: Desde 60 retrocede 5."
+          "Resta 88 - 77 para ver el salto.",
+          "El salto es 11.",
+          "Réstale 11 al 66."
         ],
-        "retroalimentacion": "Sigue 55: cada paso resta 5. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 60,
-          "b": 5
-        }
+        "retroalimentacion": "El patrón baja de 11 en 11: 66 - 11 = 55."
       },
       {
         "id": "e07",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En una tarjeta de la kermés, la secuencia muestra 80, 78, 76. ¿Qué número sigue?",
-        "respuesta": 74,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué lista disminuye de 3 en 3?",
+        "respuesta": "c",
         "alternativasAceptadas": [],
-        "pistas": [
-          "En una tarjeta de la kermés: Compara 80 con 78.",
-          "En una tarjeta de la kermés: El salto es restar 2 en cada paso.",
-          "En una tarjeta de la kermés: Desde 76 retrocede 2."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "30, 27, 25, 21"
+          },
+          {
+            "id": "b",
+            "texto": "30, 33, 36, 39"
+          },
+          {
+            "id": "c",
+            "texto": "30, 27, 24, 21"
+          },
+          {
+            "id": "d",
+            "texto": "30, 28, 26, 24"
+          }
         ],
-        "retroalimentacion": "Sigue 74: cada paso resta 2. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 76,
-          "b": 2
-        }
+        "pistas": [
+          "Resta 3 a 30 y mira cuál es el segundo número.",
+          "Debe ser 27.",
+          "Luego sigue restando 3: ¿24? ¿21?"
+        ],
+        "retroalimentacion": "30, 27, 24, 21 baja siempre 3. En 30, 27, 25, 21 los saltos no son iguales."
       },
       {
         "id": "e08",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Al revisar una cuenta del mercado, la secuencia muestra 90, 87, 84. ¿Qué número sigue?",
-        "respuesta": 81,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Al revisar una cuenta del mercado: Compara 90 con 87.",
-          "Al revisar una cuenta del mercado: El salto es restar 3 en cada paso.",
-          "Al revisar una cuenta del mercado: Desde 84 retrocede 3."
+        "tipo": "texto_corto",
+        "enunciado": "Escribe los dos números que siguen en el patrón 80, 70, 60, __, __. Sepáralos con una coma.",
+        "respuesta": "50, 40",
+        "alternativasAceptadas": [
+          "50 40",
+          "50,40",
+          "50-40",
+          "50 y 40"
         ],
-        "retroalimentacion": "Sigue 81: cada paso resta 3. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 84,
-          "b": 3
-        }
+        "pistas": [
+          "Mira cuánto baja de 80 a 70.",
+          "En esta lista cada número es 10 menos.",
+          "60 - 10 = 50 y luego otra vez - 10."
+        ],
+        "retroalimentacion": "60 - 10 = 50 y 50 - 10 = 40: 50, 40."
       },
       {
         "id": "e09",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En la libreta de matemática, la secuencia muestra 100, 95, 90. ¿Qué número sigue?",
-        "respuesta": 85,
+        "enunciado": "Falta un número en este patrón que disminuye: 64, 58, 52, __, 40. Escribe el número que falta.",
+        "respuesta": 46,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la libreta de matemática: Compara 100 con 95.",
-          "En la libreta de matemática: El salto es restar 5 en cada paso.",
-          "En la libreta de matemática: Desde 90 retrocede 5."
+          "Resta 64 - 58 para hallar el salto.",
+          "El salto es 6.",
+          "Réstale 6 al 52, y comprueba que luego llegas a 40."
         ],
-        "retroalimentacion": "Sigue 85: cada paso resta 5. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 90,
-          "b": 5
-        }
+        "retroalimentacion": "52 - 6 = 46 y 46 - 6 = 40. Falta el 46."
       },
       {
         "id": "e10",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Para ayudar a un compañero, la secuencia muestra 75, 71, 67. ¿Qué número sigue?",
-        "respuesta": 63,
+        "tipo": "verdadero_falso",
+        "enunciado": "La lista 30, 25, 20, 22, 10 disminuye siempre de 5 en 5.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Para ayudar a un compañero: Compara 75 con 71.",
-          "Para ayudar a un compañero: El salto es restar 4 en cada paso.",
-          "Para ayudar a un compañero: Desde 67 retrocede 4."
+          "Mira cada par de números seguidos.",
+          "De 20 a 22 no baja, sube.",
+          "Además, de 22 a 10 el salto es de 12."
         ],
-        "retroalimentacion": "Sigue 63: cada paso resta 4. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 67,
-          "b": 4
-        }
+        "retroalimentacion": "Es falso: el 22 rompe el patrón porque es mayor que 20."
       },
       {
         "id": "e11",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En una práctica del aula, la secuencia muestra 65, 63, 61. ¿Qué número sigue?",
-        "respuesta": 59,
+        "enunciado": "Pedro tiene 100 soles y gasta 15 cada semana. Después de la semana 1 tiene 85 y después de la semana 2 tiene 70. ¿Cuánto tendrá después de la semana 4? Escribe solo el número.",
+        "respuesta": 40,
         "alternativasAceptadas": [],
         "pistas": [
-          "En una práctica del aula: Compara 65 con 63.",
-          "En una práctica del aula: El salto es restar 2 en cada paso.",
-          "En una práctica del aula: Desde 61 retrocede 2."
+          "Resta 15 cada semana a lo que ya tiene.",
+          "Semana 3: 70 - 15.",
+          "Con el resultado de la semana 3 calcula la semana 4."
         ],
-        "retroalimentacion": "Sigue 59: cada paso resta 2. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 61,
-          "b": 2
-        }
+        "retroalimentacion": "Semana 3: 55 y semana 4: 40. Pedro tendrá 40 soles."
       },
       {
         "id": "e12",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Al comprobar una respuesta, la secuencia muestra 55, 50, 45. ¿Qué número sigue?",
-        "respuesta": 40,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la lista 72, 64, 56, __, 40, ¿qué número falta?",
+        "respuesta": "d",
         "alternativasAceptadas": [],
-        "pistas": [
-          "Al comprobar una respuesta: Compara 55 con 50.",
-          "Al comprobar una respuesta: El salto es restar 5 en cada paso.",
-          "Al comprobar una respuesta: Desde 45 retrocede 5."
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "52"
+          },
+          {
+            "id": "b",
+            "texto": "54"
+          },
+          {
+            "id": "c",
+            "texto": "46"
+          },
+          {
+            "id": "d",
+            "texto": "48"
+          }
         ],
-        "retroalimentacion": "Sigue 40: cada paso resta 5. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 45,
-          "b": 5
-        }
+        "pistas": [
+          "Halla el salto entre 72 y 64.",
+          "El salto es 8.",
+          "56 - 8 da el número que falta; comprueba que 40 es su siguiente."
+        ],
+        "retroalimentacion": "Falta 48: 56 - 8 = 48 y 48 - 8 = 40. Con 52 el salto sería 4."
       }
     ],
     "fuentes": [
@@ -615,387 +639,292 @@
     "descripcionCorta": "Describe cuánto aumenta o disminuye cada término de una secuencia.",
     "palabrasClave": [
       "regla",
-      "del",
-      "patron"
+      "patrón",
+      "suma",
+      "resta",
+      "secuencia"
     ],
     "prerrequisitos": [
       "mat.p2.patrones-aditivos"
     ],
     "ordenSugerido": 82,
-    "ideaCentral": "La regla de un patrón dice cuánto aumenta o disminuye de un término al siguiente. Se descubre comparando dos vecinos y se confirma con otro par.",
+    "ideaCentral": "La regla de un patrón dice cuánto se suma o se resta cada vez. En 3, 6, 9, 12 la regla es «suma 3».",
     "pasos": [
-      "Resta dos términos vecinos para hallar la diferencia.",
-      "Decide si aumenta o disminuye.",
-      "Comprueba la misma regla en otro paso."
+      "Compara cada número con el que sigue.",
+      "Fíjate si sube (suma) o baja (resta).",
+      "Calcula la diferencia y comprueba que es siempre la misma.",
+      "Escribe la regla: «suma …» o «resta …»."
     ],
     "ejemplos": [
       {
-        "situacion": "3, 6, 9, 12.",
-        "desarrollo": "Cada número aumenta 3.",
-        "respuesta": "Regla: sumar 3."
+        "situacion": "¿Cuál es la regla de 4, 8, 12, 16?",
+        "desarrollo": "De 4 a 8 suben 4. De 8 a 12 suben 4.",
+        "respuesta": "Suma 4."
       },
       {
-        "situacion": "20, 15, 10, 5.",
-        "desarrollo": "Cada número disminuye 5.",
-        "respuesta": "Regla: restar 5."
+        "situacion": "¿Cuál es la regla de 50, 45, 40, 35?",
+        "desarrollo": "De 50 a 45 bajan 5, igual que de 45 a 40.",
+        "respuesta": "Resta 5."
+      },
+      {
+        "situacion": "Usa la regla «suma 3» desde 10. ¿Qué números siguen?",
+        "desarrollo": "10 + 3 = 13 y 13 + 3 = 16.",
+        "respuesta": "13 y 16."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Mirar solo el primer y último número.",
-        "correccion": "Compara términos consecutivos para hallar cada salto."
+        "error": "Decir que la regla de 2, 5, 8 es «suma 2».",
+        "correccion": "De 2 a 5 hay 3, no 2: la regla es «suma 3»."
       },
       {
-        "error": "Decir «sumar» cuando los números bajan.",
-        "correccion": "Si disminuyen, la regla usa una resta."
+        "error": "Mirar solo los dos primeros números sin revisar los demás.",
+        "correccion": "Comprueba que el salto es igual en toda la lista."
       }
     ],
     "vocabulario": [
       {
         "termino": "Regla",
-        "significado": "Operación repetida entre términos."
+        "significado": "Lo que se suma o se resta cada vez en un patrón."
       },
       {
-        "termino": "Término",
-        "significado": "Cada número de la secuencia."
+        "termino": "Aumenta",
+        "significado": "Sube."
+      },
+      {
+        "termino": "Disminuye",
+        "significado": "Baja."
       }
     ],
     "ejercicios": [
       {
         "id": "e01",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En el cuaderno de Micaela, la secuencia es 2, 4, 6, 8. ¿Cuál es su regla?",
-        "respuesta": "a",
+        "tipo": "numerico",
+        "enunciado": "En el patrón 3, 6, 9, 12, ¿cuánto se suma cada vez? Escribe solo el número.",
+        "respuesta": 3,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Sumar 2 en cada paso"
-          },
-          {
-            "id": "b",
-            "texto": "Restar 2 en cada paso"
-          },
-          {
-            "id": "c",
-            "texto": "Sumar 3 en cada paso"
-          }
-        ],
         "pistas": [
-          "En el cuaderno de Micaela: Compara dos términos consecutivos.",
-          "En el cuaderno de Micaela: De 2 a 4 el cambio es +2.",
-          "En el cuaderno de Micaela: Comprueba el mismo cambio de 4 a 6."
+          "Mira el primer número y el segundo.",
+          "De 3 a 6 hay un salto.",
+          "Comprueba que de 6 a 9 sube lo mismo."
         ],
-        "retroalimentacion": "«Sumar 2 en cada paso» explica todos los pasos; «Sumar 3 en cada paso» cambia el tamaño del salto."
+        "retroalimentacion": "Cada número sube 3, así que la regla es «suma 3»."
       },
       {
         "id": "e02",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Para el reto de la biblioteca, la secuencia es 30, 25, 20, 15. ¿Cuál es su regla?",
+        "enunciado": "¿Cuál es la regla de 20, 18, 16, 14?",
         "respuesta": "b",
         "alternativasAceptadas": [],
         "opciones": [
           {
             "id": "a",
-            "texto": "Sumar 5 en cada paso"
+            "texto": "suma 2"
           },
           {
             "id": "b",
-            "texto": "Restar 5 en cada paso"
+            "texto": "resta 2"
           },
           {
             "id": "c",
-            "texto": "Restar 6 en cada paso"
+            "texto": "resta 4"
+          },
+          {
+            "id": "d",
+            "texto": "suma 20"
           }
         ],
         "pistas": [
-          "Para el reto de la biblioteca: Compara dos términos consecutivos.",
-          "Para el reto de la biblioteca: De 30 a 25 el cambio es −5.",
-          "Para el reto de la biblioteca: Comprueba el mismo cambio de 25 a 20."
+          "Mira si los números suben o bajan.",
+          "Bajan: de 20 a 18 hay un salto.",
+          "20 - 18 = 2."
         ],
-        "retroalimentacion": "«Restar 5 en cada paso» explica todos los pasos; «Restar 6 en cada paso» cambia el tamaño del salto."
+        "retroalimentacion": "Los números bajan 2 cada vez: «resta 2». «Suma 2» es para listas que suben."
       },
       {
         "id": "e03",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la pizarra del salón, la secuencia es 10, 20, 30, 40. ¿Cuál es su regla?",
-        "respuesta": "c",
+        "tipo": "verdadero_falso",
+        "enunciado": "La regla del patrón 5, 10, 15, 20 es «suma 5».",
+        "respuesta": true,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Restar 10 en cada paso"
-          },
-          {
-            "id": "b",
-            "texto": "Sumar 11 en cada paso"
-          },
-          {
-            "id": "c",
-            "texto": "Sumar 10 en cada paso"
-          }
-        ],
         "pistas": [
-          "En la pizarra del salón: Compara dos términos consecutivos.",
-          "En la pizarra del salón: De 10 a 20 el cambio es +10.",
-          "En la pizarra del salón: Comprueba el mismo cambio de 20 a 30."
+          "Resta 10 - 5.",
+          "Resta 15 - 10.",
+          "Si el resultado se repite, esa es la regla."
         ],
-        "retroalimentacion": "«Sumar 10 en cada paso» explica todos los pasos; «Sumar 11 en cada paso» cambia el tamaño del salto."
+        "retroalimentacion": "Es verdadero: de 5 en 5 sube cada vez."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "Durante un juego de cálculo, la secuencia es 50, 47, 44, 41. ¿Cuál es su regla?",
-        "respuesta": "a",
+        "tipo": "numerico",
+        "enunciado": "En el patrón 50, 45, 40, 35, ¿cuánto se resta cada vez? Escribe solo el número.",
+        "respuesta": 5,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Restar 3 en cada paso"
-          },
-          {
-            "id": "b",
-            "texto": "Sumar 3 en cada paso"
-          },
-          {
-            "id": "c",
-            "texto": "Restar 4 en cada paso"
-          }
-        ],
         "pistas": [
-          "Durante un juego de cálculo: Compara dos términos consecutivos.",
-          "Durante un juego de cálculo: De 50 a 47 el cambio es −3.",
-          "Durante un juego de cálculo: Comprueba el mismo cambio de 47 a 44."
+          "Esta lista va bajando.",
+          "Calcula 50 - 45.",
+          "Comprueba con 45 - 40."
         ],
-        "retroalimentacion": "«Restar 3 en cada paso» explica todos los pasos; «Restar 4 en cada paso» cambia el tamaño del salto."
+        "retroalimentacion": "Cada vez baja 5: la regla es «resta 5»."
       },
       {
         "id": "e05",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la feria de la escuela, la secuencia es 20, 24, 28, 32. ¿Cuál es su regla?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Restar 4 en cada paso"
-          },
-          {
-            "id": "b",
-            "texto": "Sumar 4 en cada paso"
-          },
-          {
-            "id": "c",
-            "texto": "Sumar 5 en cada paso"
-          }
+        "tipo": "texto_corto",
+        "enunciado": "Escribe la regla del patrón 7, 9, 11, 13 con «suma» o «resta» y un número.",
+        "respuesta": "suma 2",
+        "alternativasAceptadas": [
+          "+2",
+          "suma2",
+          "se suma 2",
+          "suma 2 cada vez"
         ],
         "pistas": [
-          "En la feria de la escuela: Compara dos términos consecutivos.",
-          "En la feria de la escuela: De 20 a 24 el cambio es +4.",
-          "En la feria de la escuela: Comprueba el mismo cambio de 24 a 28."
+          "Compara 7 con 9.",
+          "9 - 7 es el salto.",
+          "Suben, así que se suma."
         ],
-        "retroalimentacion": "«Sumar 4 en cada paso» explica todos los pasos; «Sumar 5 en cada paso» cambia el tamaño del salto."
+        "retroalimentacion": "Cada número sube 2: la regla es «suma 2»."
       },
       {
         "id": "e06",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Para contar fichas en casa, la secuencia es 70, 65, 60, 55. ¿Cuál es su regla?",
+        "enunciado": "¿Cuál es la regla de 40, 34, 28, 22?",
         "respuesta": "c",
         "alternativasAceptadas": [],
         "opciones": [
           {
             "id": "a",
-            "texto": "Sumar 5 en cada paso"
+            "texto": "resta 4"
           },
           {
             "id": "b",
-            "texto": "Restar 6 en cada paso"
+            "texto": "suma 6"
           },
           {
             "id": "c",
-            "texto": "Restar 5 en cada paso"
+            "texto": "resta 6"
+          },
+          {
+            "id": "d",
+            "texto": "resta 8"
           }
         ],
         "pistas": [
-          "Para contar fichas en casa: Compara dos términos consecutivos.",
-          "Para contar fichas en casa: De 70 a 65 el cambio es −5.",
-          "Para contar fichas en casa: Comprueba el mismo cambio de 65 a 60."
+          "Los números bajan.",
+          "Calcula 40 - 34.",
+          "Revisa que 34 - 28 dé lo mismo."
         ],
-        "retroalimentacion": "«Restar 5 en cada paso» explica todos los pasos; «Restar 6 en cada paso» cambia el tamaño del salto."
+        "retroalimentacion": "Bajan 6 cada vez: «resta 6». «Suma 6» sería si subieran."
       },
       {
         "id": "e07",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En una tarjeta de la kermés, la secuencia es 30, 32, 34, 36. ¿Cuál es su regla?",
-        "respuesta": "a",
+        "tipo": "numerico",
+        "enunciado": "Un patrón tiene la regla «suma 4» y empieza en 12: 12, 16, 20, __. Escribe el número que sigue.",
+        "respuesta": 24,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Sumar 2 en cada paso"
-          },
-          {
-            "id": "b",
-            "texto": "Restar 2 en cada paso"
-          },
-          {
-            "id": "c",
-            "texto": "Sumar 3 en cada paso"
-          }
-        ],
         "pistas": [
-          "En una tarjeta de la kermés: Compara dos términos consecutivos.",
-          "En una tarjeta de la kermés: De 30 a 32 el cambio es +2.",
-          "En una tarjeta de la kermés: Comprueba el mismo cambio de 32 a 34."
+          "La regla dice qué hacer con cada número.",
+          "Súmale 4 al 20.",
+          "El patrón sigue subiendo."
         ],
-        "retroalimentacion": "«Sumar 2 en cada paso» explica todos los pasos; «Sumar 3 en cada paso» cambia el tamaño del salto."
+        "retroalimentacion": "20 + 4 = 24."
       },
       {
         "id": "e08",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "Al revisar una cuenta del mercado, la secuencia es 90, 87, 84, 81. ¿Cuál es su regla?",
-        "respuesta": "b",
+        "tipo": "verdadero_falso",
+        "enunciado": "En el patrón 2, 5, 8, 11 la regla es «suma 2».",
+        "respuesta": false,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Sumar 3 en cada paso"
-          },
-          {
-            "id": "b",
-            "texto": "Restar 3 en cada paso"
-          },
-          {
-            "id": "c",
-            "texto": "Restar 4 en cada paso"
-          }
-        ],
         "pistas": [
-          "Al revisar una cuenta del mercado: Compara dos términos consecutivos.",
-          "Al revisar una cuenta del mercado: De 90 a 87 el cambio es −3.",
-          "Al revisar una cuenta del mercado: Comprueba el mismo cambio de 87 a 84."
+          "Calcula 5 - 2.",
+          "El salto no es 2, mira bien el resultado.",
+          "El salto es 3."
         ],
-        "retroalimentacion": "«Restar 3 en cada paso» explica todos los pasos; «Restar 4 en cada paso» cambia el tamaño del salto."
+        "retroalimentacion": "Es falso: sube de 3 en 3, así que la regla es «suma 3»."
       },
       {
         "id": "e09",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la libreta de matemática, la secuencia es 40, 45, 50, 55. ¿Cuál es su regla?",
-        "respuesta": "c",
+        "tipo": "numerico",
+        "enunciado": "Un patrón tiene la regla «resta 9» y empieza en 90: 90, 81, 72, __. Escribe el cuarto número.",
+        "respuesta": 63,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Restar 5 en cada paso"
-          },
-          {
-            "id": "b",
-            "texto": "Sumar 6 en cada paso"
-          },
-          {
-            "id": "c",
-            "texto": "Sumar 5 en cada paso"
-          }
-        ],
         "pistas": [
-          "En la libreta de matemática: Compara dos términos consecutivos.",
-          "En la libreta de matemática: De 40 a 45 el cambio es +5.",
-          "En la libreta de matemática: Comprueba el mismo cambio de 45 a 50."
+          "Resta 9 a 72.",
+          "72 - 10 son 62, pero resta 9.",
+          "Tienes que quitar uno menos que 10."
         ],
-        "retroalimentacion": "«Sumar 5 en cada paso» explica todos los pasos; «Sumar 6 en cada paso» cambia el tamaño del salto."
+        "retroalimentacion": "72 - 9 = 63. Cada vez baja 9."
       },
       {
         "id": "e10",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Para ayudar a un compañero, la secuencia es 75, 71, 67, 63. ¿Cuál es su regla?",
-        "respuesta": "a",
+        "enunciado": "¿Qué lista sigue la regla «suma 6» empezando en 14?",
+        "respuesta": "d",
         "alternativasAceptadas": [],
         "opciones": [
           {
             "id": "a",
-            "texto": "Restar 4 en cada paso"
+            "texto": "14, 20, 27, 34"
           },
           {
             "id": "b",
-            "texto": "Sumar 4 en cada paso"
+            "texto": "14, 18, 22, 26"
           },
           {
             "id": "c",
-            "texto": "Restar 5 en cada paso"
+            "texto": "14, 8, 2, 0"
+          },
+          {
+            "id": "d",
+            "texto": "14, 20, 26, 32"
           }
         ],
         "pistas": [
-          "Para ayudar a un compañero: Compara dos términos consecutivos.",
-          "Para ayudar a un compañero: De 75 a 71 el cambio es −4.",
-          "Para ayudar a un compañero: Comprueba el mismo cambio de 71 a 67."
+          "Súmale 6 a 14 para el segundo número.",
+          "14 + 6 = 20, así que empieza con 14, 20.",
+          "Sigue sumando 6 al resultado: 26 y luego 32."
         ],
-        "retroalimentacion": "«Restar 4 en cada paso» explica todos los pasos; «Restar 5 en cada paso» cambia el tamaño del salto."
+        "retroalimentacion": "14, 20, 26, 32 sube siempre 6. En 14, 20, 27, 34 los saltos cambian."
       },
       {
         "id": "e11",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En una práctica del aula, la secuencia es 60, 62, 64, 66. ¿Cuál es su regla?",
-        "respuesta": "b",
+        "tipo": "numerico",
+        "enunciado": "Una lista de números empieza en 5 y el segundo número es 12. Si es un patrón de suma, ¿qué número va tercero? Escribe solo el número.",
+        "respuesta": 19,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Restar 2 en cada paso"
-          },
-          {
-            "id": "b",
-            "texto": "Sumar 2 en cada paso"
-          },
-          {
-            "id": "c",
-            "texto": "Sumar 3 en cada paso"
-          }
-        ],
         "pistas": [
-          "En una práctica del aula: Compara dos términos consecutivos.",
-          "En una práctica del aula: De 60 a 62 el cambio es +2.",
-          "En una práctica del aula: Comprueba el mismo cambio de 62 a 64."
+          "Halla cuánto se suma de 5 a 12.",
+          "12 - 5 es la regla.",
+          "Suma esa regla al 12."
         ],
-        "retroalimentacion": "«Sumar 2 en cada paso» explica todos los pasos; «Sumar 3 en cada paso» cambia el tamaño del salto."
+        "retroalimentacion": "De 5 a 12 sube 7, y 12 + 7 = 19."
       },
       {
         "id": "e12",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "Al comprobar una respuesta, la secuencia es 55, 50, 45, 40. ¿Cuál es su regla?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Sumar 5 en cada paso"
-          },
-          {
-            "id": "b",
-            "texto": "Restar 6 en cada paso"
-          },
-          {
-            "id": "c",
-            "texto": "Restar 5 en cada paso"
-          }
+        "tipo": "texto_corto",
+        "enunciado": "Mira 1, 2, 4, 7, 11. Luis dice que la regla es «suma 3». ¿Tiene razón? Escribe sí o no.",
+        "respuesta": "no",
+        "alternativasAceptadas": [
+          "no tiene razón"
         ],
         "pistas": [
-          "Al comprobar una respuesta: Compara dos términos consecutivos.",
-          "Al comprobar una respuesta: De 55 a 50 el cambio es −5.",
-          "Al comprobar una respuesta: Comprueba el mismo cambio de 50 a 45."
+          "Calcula el salto entre 1 y 2.",
+          "Ahora mira el salto entre 2 y 4 y entre 4 y 7.",
+          "Los saltos son 1, 2, 3 y 4: no se repite."
         ],
-        "retroalimentacion": "«Restar 5 en cada paso» explica todos los pasos; «Restar 6 en cada paso» cambia el tamaño del salto."
+        "retroalimentacion": "No tiene razón: los saltos cambian (1, 2, 3 y 4), así que no hay una sola regla de suma."
       }
     ],
     "fuentes": [
@@ -1022,281 +951,285 @@
     "disciplina": "algebra",
     "descripcionCorta": "Colorea y descubre secuencias que avanzan de 2 en 2, de 5 en 5 o de 10 en 10 en el tablero del cien.",
     "palabrasClave": [
-      "patrones",
-      "tablero",
-      "cien"
+      "tablero del cien",
+      "de 2 en 2",
+      "de 5 en 5",
+      "de 10 en 10",
+      "patrón numérico"
     ],
     "prerrequisitos": [
       "mat.p2.patrones-aditivos",
       "mat.p2.tablero-del-cien"
     ],
     "ordenSugerido": 84,
-    "ideaCentral": "En el tablero del cien puedes marcar números saltando 2, 5 o 10 casillas. La secuencia muestra un patrón aditivo.",
+    "ideaCentral": "En el tablero del cien puedes pintar números saltando de 2 en 2, de 5 en 5 o de 10 en 10. Los números pintados forman un patrón que se puede descubrir.",
     "pasos": [
-      "Ubica la casilla inicial.",
-      "Avanza siempre 2, 5 o 10 según la regla.",
-      "Comprueba los números marcados hasta 100."
+      "Empieza en el número que te piden.",
+      "Salta siempre la misma cantidad de casillas.",
+      "Pinta cada número al que llegas.",
+      "Mira cómo terminan los números pintados para ver el patrón."
     ],
     "ejemplos": [
       {
-        "situacion": "Marca 10, 20, 30 en el tablero.",
-        "desarrollo": "Avanzo diez cada vez.",
-        "respuesta": "Sigue 40."
+        "situacion": "Pintas de 5 en 5 desde el 5. ¿Cuáles pintas primero?",
+        "desarrollo": "Sumas 5 cada vez: 5, 10, 15, 20.",
+        "respuesta": "Pintas 5, 10, 15 y 20; terminan en 5 o en 0."
       },
       {
-        "situacion": "Marca 5, 10, 15.",
-        "desarrollo": "Avanzo cinco cada vez.",
-        "respuesta": "Sigue 20."
+        "situacion": "Pintas de 10 en 10 desde el 10. ¿Qué observas?",
+        "desarrollo": "Sumas 10 cada vez: 10, 20, 30, 40.",
+        "respuesta": "Todos terminan en 0 y están en la misma columna."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Bajar una fila al contar de dos en dos.",
-        "correccion": "En el tablero, bajar una fila suele avanzar diez."
+        "error": "Saltar una casilla distinta cada vez.",
+        "correccion": "Salta siempre la misma cantidad."
       },
       {
-        "error": "Saltear una marca en el conteo de cinco.",
-        "correccion": "Revisa que cada salto sea exactamente de cinco."
+        "error": "Contar la casilla de inicio como salto.",
+        "correccion": "El primer salto empieza después del número de partida."
       }
     ],
     "vocabulario": [
       {
         "termino": "Tablero del cien",
-        "significado": "Cuadrícula con números del 1 al 100."
+        "significado": "Tabla con los números del 1 al 100."
       },
       {
-        "termino": "Secuencia",
-        "significado": "Números puestos en orden."
+        "termino": "De 5 en 5",
+        "significado": "Sumar 5 cada vez."
+      },
+      {
+        "termino": "Patrón numérico",
+        "significado": "Números que cambian siguiendo siempre la misma regla."
       }
     ],
     "ejercicios": [
       {
-        "id": "e01",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En el cuaderno de Micaela, en el tablero del cien se marcan 2, 4, 6. ¿Qué número sigue?",
-        "respuesta": 8,
+        "enunciado": "En el tablero del cien pintas de 2 en 2: 2, 4, 6, 8, 10. ¿Qué número sigue? Escribe solo el número.",
+        "respuesta": 12,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el cuaderno de Micaela: Compara 2 con 4.",
-          "En el cuaderno de Micaela: El salto es sumar 2 en cada paso.",
-          "En el cuaderno de Micaela: Desde 6 avanza 2."
+          "Al número 10 le sumas 2.",
+          "Cada número pintado es 2 más que el anterior.",
+          "10 + 2 = 12."
         ],
-        "retroalimentacion": "Sigue 8: cada paso suma 2. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 6,
-          "b": 2
-        }
+        "retroalimentacion": "Al 10 se le suma 2, y el siguiente es 12.",
+        "id": "e01"
       },
       {
-        "id": "e02",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "Para el reto de la biblioteca, en el tablero del cien se marcan 5, 10, 15. ¿Qué número sigue?",
-        "respuesta": 20,
+        "enunciado": "Pintas de 5 en 5: 5, 10, 15, 20. ¿Cuál es el siguiente número? Escribe solo el número.",
+        "respuesta": 25,
         "alternativasAceptadas": [],
         "pistas": [
-          "Para el reto de la biblioteca: Compara 5 con 10.",
-          "Para el reto de la biblioteca: El salto es sumar 5 en cada paso.",
-          "Para el reto de la biblioteca: Desde 15 avanza 5."
+          "Fíjate en cuánto se avanza de 5 a 10.",
+          "Cada vez suma 5.",
+          "20 + 5 = 25."
         ],
-        "retroalimentacion": "Sigue 20: cada paso suma 5. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 15,
-          "b": 5
-        }
+        "retroalimentacion": "Se suma 5 cada vez: 20 + 5 = 25.",
+        "id": "e02"
       },
       {
-        "id": "e03",
         "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al pintar de 10 en 10 desde el 10, todos los números pintados terminan en 0.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe los primeros: 10, 20, 30.",
+          "¿Con qué cifra terminan?",
+          "Sumar 10 no cambia la cifra final."
+        ],
+        "retroalimentacion": "Es verdadero: sumar 10 no cambia la cifra final, que siempre es 0.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Pintas de 10 en 10 desde el 10. ¿Cuáles son los primeros cuatro números?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10, 15, 20, 25"
+          },
+          {
+            "id": "b",
+            "texto": "10, 12, 14, 16"
+          },
+          {
+            "id": "c",
+            "texto": "10, 20, 30, 40"
+          },
+          {
+            "id": "d",
+            "texto": "10, 11, 12, 13"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "De 10 en 10 sumas 10 cada vez.",
+          "Después del 10 viene el 20.",
+          "10, 20, 30 y 40 avanzan de 10 en 10."
+        ],
+        "retroalimentacion": "Al sumar 10 cada vez salen 10, 20, 30 y 40. Los otros avanzan de 5, de 2 o de 1.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En la pizarra del salón, en el tablero del cien se marcan 10, 20, 30. ¿Qué número sigue?",
+        "enunciado": "Pintas de 5 en 5 desde el 5. ¿Qué número pintas en el octavo lugar? Escribe solo el número.",
         "respuesta": 40,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la pizarra del salón: Compara 10 con 20.",
-          "En la pizarra del salón: El salto es sumar 10 en cada paso.",
-          "En la pizarra del salón: Desde 30 avanza 10."
+          "El primer número es 5, el segundo 10.",
+          "El lugar 8 es 8 veces 5.",
+          "8 × 5 = 40; o suma 5 ocho veces."
         ],
-        "retroalimentacion": "Sigue 40: cada paso suma 10. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 30,
-          "b": 10
-        }
+        "retroalimentacion": "En el octavo lugar está el 40: 5, 10, 15, 20, 25, 30, 35, 40.",
+        "id": "e05"
       },
       {
-        "id": "e04",
-        "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Durante un juego de cálculo, en el tablero del cien se marcan 12, 14, 16. ¿Qué número sigue?",
-        "respuesta": 18,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Durante un juego de cálculo: Compara 12 con 14.",
-          "Durante un juego de cálculo: El salto es sumar 2 en cada paso.",
-          "Durante un juego de cálculo: Desde 16 avanza 2."
-        ],
-        "retroalimentacion": "Sigue 18: cada paso suma 2. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 16,
-          "b": 2
-        }
-      },
-      {
-        "id": "e05",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En la feria de la escuela, en el tablero del cien se marcan 20, 25, 30. ¿Qué número sigue?",
-        "respuesta": 35,
+        "tipo": "opcion_multiple",
+        "enunciado": "Pintas 2, 4, 6, 8, ... de 2 en 2. ¿Cuál de estos números NO se pinta?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "14"
+          },
+          {
+            "id": "b",
+            "texto": "20"
+          },
+          {
+            "id": "c",
+            "texto": "25"
+          },
+          {
+            "id": "d",
+            "texto": "18"
+          }
+        ],
         "alternativasAceptadas": [],
         "pistas": [
-          "En la feria de la escuela: Compara 20 con 25.",
-          "En la feria de la escuela: El salto es sumar 5 en cada paso.",
-          "En la feria de la escuela: Desde 30 avanza 5."
+          "Los números que pintas son los de 2 en 2.",
+          "Busca el que no encaja en la fila del 2, 4, 6, 8.",
+          "El 25 es impar y estos números son pares."
         ],
-        "retroalimentacion": "Sigue 35: cada paso suma 5. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 30,
-          "b": 5
-        }
+        "retroalimentacion": "De 2 en 2 solo se pintan números pares. El 25 es impar y no se pinta.",
+        "id": "e06"
       },
       {
-        "id": "e06",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Para contar fichas en casa, en el tablero del cien se marcan 25, 35, 45. ¿Qué número sigue?",
-        "respuesta": 55,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Para contar fichas en casa: Compara 25 con 35.",
-          "Para contar fichas en casa: El salto es sumar 10 en cada paso.",
-          "Para contar fichas en casa: Desde 45 avanza 10."
+        "tipo": "texto_corto",
+        "enunciado": "Si pintas de 2 en 2 desde el 2, ¿los números que pintas son pares o impares? Escribe una palabra.",
+        "respuesta": "pares",
+        "alternativasAceptadas": [
+          "los pares",
+          "par"
         ],
-        "retroalimentacion": "Sigue 55: cada paso suma 10. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 45,
-          "b": 10
-        }
+        "pistas": [
+          "Escribe los primeros: 2, 4, 6, 8.",
+          "Fíjate en la cifra final: 2, 4, 6, 8, 0.",
+          "Esos números se pueden repartir en parejas sin que sobre ninguno."
+        ],
+        "retroalimentacion": "De 2 en 2 desde el 2 se pintan los números pares.",
+        "id": "e07"
       },
       {
-        "id": "e07",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En una tarjeta de la kermés, en el tablero del cien se marcan 30, 32, 34. ¿Qué número sigue?",
-        "respuesta": 36,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si empiezas en el 3 y pintas de 2 en 2, pintas el 3, el 5, el 7 y el 9.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "En una tarjeta de la kermés: Compara 30 con 32.",
-          "En una tarjeta de la kermés: El salto es sumar 2 en cada paso.",
-          "En una tarjeta de la kermés: Desde 34 avanza 2."
+          "Empieza en 3 y suma 2.",
+          "3 + 2 = 5; 5 + 2 = 7.",
+          "7 + 2 = 9: la lista es correcta."
         ],
-        "retroalimentacion": "Sigue 36: cada paso suma 2. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 34,
-          "b": 2
-        }
+        "retroalimentacion": "Es verdadero: al sumar 2 desde el 3 salen 5, 7 y 9.",
+        "id": "e08"
       },
       {
-        "id": "e08",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Al revisar una cuenta del mercado, en el tablero del cien se marcan 36, 41, 46. ¿Qué número sigue?",
-        "respuesta": 51,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Al revisar una cuenta del mercado: Compara 36 con 41.",
-          "Al revisar una cuenta del mercado: El salto es sumar 5 en cada paso.",
-          "Al revisar una cuenta del mercado: Desde 46 avanza 5."
-        ],
-        "retroalimentacion": "Sigue 51: cada paso suma 5. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 46,
-          "b": 5
-        }
-      },
-      {
-        "id": "e09",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En la libreta de matemática, en el tablero del cien se marcan 40, 50, 60. ¿Qué número sigue?",
-        "respuesta": 70,
+        "enunciado": "Juan pinta de 5 en 5 desde el 5 hasta llegar al 100. ¿Cuántos números pinta? Escribe solo el número.",
+        "respuesta": 20,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la libreta de matemática: Compara 40 con 50.",
-          "En la libreta de matemática: El salto es sumar 10 en cada paso.",
-          "En la libreta de matemática: Desde 60 avanza 10."
+          "Piensa cuántas veces cabe el 5 en el 100.",
+          "100 es 10 de 10 en 10, y cada 10 tiene dos de 5.",
+          "10 × 2 = 20: pinta 20 números."
         ],
-        "retroalimentacion": "Sigue 70: cada paso suma 10. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 60,
-          "b": 10
-        }
+        "retroalimentacion": "De 5 en 5 se pintan 20 números: de 5 hasta 100. Son 2 por cada decena.",
+        "id": "e09"
       },
       {
-        "id": "e10",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Para ayudar a un compañero, en el tablero del cien se marcan 52, 54, 56. ¿Qué número sigue?",
-        "respuesta": 58,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ana pintó el 15, el 25, el 35 y el 45. ¿Cómo avanzó?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "De 2 en 2"
+          },
+          {
+            "id": "b",
+            "texto": "De 5 en 5"
+          },
+          {
+            "id": "c",
+            "texto": "De 20 en 20"
+          },
+          {
+            "id": "d",
+            "texto": "De 10 en 10"
+          }
+        ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Para ayudar a un compañero: Compara 52 con 54.",
-          "Para ayudar a un compañero: El salto es sumar 2 en cada paso.",
-          "Para ayudar a un compañero: Desde 56 avanza 2."
+          "Resta 15 al 25.",
+          "Entre 15 y 25 hay 10 de diferencia.",
+          "Entre 25 y 35 también hay 10."
         ],
-        "retroalimentacion": "Sigue 58: cada paso suma 2. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 56,
-          "b": 2
-        }
+        "retroalimentacion": "Del 15 al 25 hay 10, y del 25 al 35 también: avanzó de 10 en 10.",
+        "id": "e10"
       },
       {
-        "id": "e11",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En una práctica del aula, en el tablero del cien se marcan 60, 65, 70. ¿Qué número sigue?",
-        "respuesta": 75,
+        "enunciado": "Pedro pinta de 10 en 10 empezando en el 7: 7, 17, 27... ¿Qué número pinta en el quinto lugar? Escribe solo el número.",
+        "respuesta": 47,
         "alternativasAceptadas": [],
         "pistas": [
-          "En una práctica del aula: Compara 60 con 65.",
-          "En una práctica del aula: El salto es sumar 5 en cada paso.",
-          "En una práctica del aula: Desde 70 avanza 5."
+          "Suma 10 en cada salto: 7, 17, 27.",
+          "Después del 27 sigue el 37.",
+          "Después del 37 sigue el 47."
         ],
-        "retroalimentacion": "Sigue 75: cada paso suma 5. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 70,
-          "b": 5
-        }
+        "retroalimentacion": "7, 17, 27, 37 y 47: el quinto número es 47.",
+        "id": "e11"
       },
       {
-        "id": "e12",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "Al comprobar una respuesta, en el tablero del cien se marcan 70, 80, 90. ¿Qué número sigue?",
-        "respuesta": 100,
+        "enunciado": "María pinta de 2 en 2 desde el 2 y Lucas de 5 en 5 desde el 5. Los dos pintaron el 10. ¿Cuál es el siguiente número que pintarán los dos? Escribe solo el número.",
+        "respuesta": 20,
         "alternativasAceptadas": [],
         "pistas": [
-          "Al comprobar una respuesta: Compara 70 con 80.",
-          "Al comprobar una respuesta: El salto es sumar 10 en cada paso.",
-          "Al comprobar una respuesta: Desde 90 avanza 10."
+          "Escribe los números de María: 12, 14, 16, 18, 20.",
+          "Escribe los de Lucas: 15, 20.",
+          "El primer número que está en las dos listas después del 10 es el 20."
         ],
-        "retroalimentacion": "Sigue 100: cada paso suma 10. Si cambiaste el salto, revisa los tres primeros números.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 90,
-          "b": 10
-        }
+        "retroalimentacion": "María pinta 12, 14, 16, 18, 20 y Lucas 15, 20. Coinciden de nuevo en el 20.",
+        "id": "e12"
       }
     ],
     "fuentes": [
@@ -1323,281 +1256,286 @@
     "disciplina": "algebra",
     "descripcionCorta": "Completa los términos que faltan en una secuencia creciente o decreciente.",
     "palabrasClave": [
-      "numeros",
-      "que",
-      "faltan",
-      "secuencia"
+      "secuencia",
+      "creciente",
+      "decreciente",
+      "número que falta",
+      "regla"
     ],
     "prerrequisitos": [
       "mat.p2.regla-del-patron"
     ],
     "ordenSugerido": 107,
-    "ideaCentral": "Para hallar un número perdido, descubre la regla usando los términos visibles y aplica el mismo salto en el espacio vacío.",
+    "ideaCentral": "Una secuencia es una fila de números que cambia siempre con la misma regla. Si los números suben es creciente, y si bajan es decreciente; con la regla puedes hallar los que faltan.",
     "pasos": [
-      "Mira los términos antes y después del hueco.",
-      "Descubre si suben o bajan y cuánto cambia cada paso.",
-      "Coloca el número que conserva la regla."
+      "Mira dos números seguidos y calcula cuánto cambian.",
+      "Comprueba que otro par cambie lo mismo.",
+      "Aplica esa regla para el número que falta.",
+      "Lee toda la secuencia para comprobar."
     ],
     "ejemplos": [
       {
-        "situacion": "4, 7, __, 13.",
-        "desarrollo": "Sube de 3 en 3: 7 + 3 = 10.",
-        "respuesta": "Falta 10."
+        "situacion": "En la secuencia 20, 22, 24, ___, 28, ¿qué número falta?",
+        "desarrollo": "De 20 a 22 se suma 2. Después del 24 se suma 2 más.",
+        "respuesta": "Falta el 26."
       },
       {
-        "situacion": "30, 25, __, 15.",
-        "desarrollo": "Baja de 5 en 5: 25 − 5 = 20.",
-        "respuesta": "Falta 20."
+        "situacion": "Una vendedora del mercado baja sus precios: 50, 45, 40, ___, 30. ¿Cuál falta?",
+        "desarrollo": "Cada precio es 5 menos que el anterior: 40 − 5.",
+        "respuesta": "Falta el 35."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Llenar el hueco con cualquier número intermedio.",
-        "correccion": "Debe mantener exactamente el mismo salto."
+        "error": "Sumar cuando la secuencia baja.",
+        "correccion": "Si los números bajan, resta; si suben, suma."
       },
       {
-        "error": "Contar dos saltos como uno.",
-        "correccion": "El hueco ocupa un término completo de la secuencia."
+        "error": "Elegir un número que no sigue la regla.",
+        "correccion": "Comprueba el número en la secuencia completa."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Término faltante",
-        "significado": "Número que ocupa el espacio vacío."
+        "termino": "Secuencia",
+        "significado": "Fila de números que cambia con una regla."
       },
       {
-        "termino": "Regla",
-        "significado": "Cambio constante entre términos."
+        "termino": "Creciente",
+        "significado": "Los números suben cada vez."
+      },
+      {
+        "termino": "Decreciente",
+        "significado": "Los números bajan cada vez."
       }
     ],
     "ejercicios": [
       {
-        "id": "e01",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "En el cuaderno de Micaela, completa 2, 4, __, 8. ¿Qué número falta?",
-        "respuesta": 6,
+        "enunciado": "Completa la secuencia 20, 22, 24, ___, 28. ¿Qué número falta? Escribe solo el número.",
+        "respuesta": 26,
         "alternativasAceptadas": [],
         "pistas": [
-          "En el cuaderno de Micaela: Observa el cambio de 2 a 4.",
-          "En el cuaderno de Micaela: Suma 2 desde 4.",
-          "En el cuaderno de Micaela: Comprueba que desde tu respuesta otro salto llegue a 8."
+          "Calcula cuánto sube de 20 a 22.",
+          "Sube 2 cada vez.",
+          "24 + 2 = 26."
         ],
-        "retroalimentacion": "Falta 6 porque el patrón crece de 2 en 2. Si pusiste 8, saltaste el espacio vacío.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 4,
-          "b": 2
-        }
+        "retroalimentacion": "La secuencia sube de 2 en 2: después del 24 va el 26.",
+        "id": "e01"
       },
       {
-        "id": "e02",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "Para el reto de la biblioteca, completa 30, 25, __, 15. ¿Qué número falta?",
-        "respuesta": 20,
+        "enunciado": "La secuencia baja de 1 en 1: 9, 8, ___, 6. ¿Qué número falta? Escribe solo el número.",
+        "respuesta": 7,
         "alternativasAceptadas": [],
         "pistas": [
-          "Para el reto de la biblioteca: Observa el cambio de 30 a 25.",
-          "Para el reto de la biblioteca: Resta 5 desde 25.",
-          "Para el reto de la biblioteca: Comprueba que desde tu respuesta otro salto llegue a 15."
+          "Mira cómo baja del 9 al 8.",
+          "Cada número es 1 menos.",
+          "8 − 1 = 7."
         ],
-        "retroalimentacion": "Falta 20 porque el patrón decrece de 5 en 5. Si pusiste 15, saltaste el espacio vacío.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 25,
-          "b": 5
-        }
+        "retroalimentacion": "Cada número es 1 menos que el anterior: después del 8 va el 7.",
+        "id": "e02"
       },
       {
-        "id": "e03",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "En la pizarra del salón, completa 10, 20, __, 40. ¿Qué número falta?",
-        "respuesta": 30,
+        "tipo": "verdadero_falso",
+        "enunciado": "La secuencia 90, 80, 70, 60 es creciente.",
+        "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la pizarra del salón: Observa el cambio de 10 a 20.",
-          "En la pizarra del salón: Suma 10 desde 20.",
-          "En la pizarra del salón: Comprueba que desde tu respuesta otro salto llegue a 40."
+          "Compara el primer número con el segundo.",
+          "90 es mayor que 80.",
+          "Los números bajan, así que es decreciente."
         ],
-        "retroalimentacion": "Falta 30 porque el patrón crece de 10 en 10. Si pusiste 40, saltaste el espacio vacío.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 20,
-          "b": 10
-        }
+        "retroalimentacion": "Es falso: los números bajan de 10 en 10, así que la secuencia es decreciente.",
+        "id": "e03"
       },
       {
-        "id": "e04",
         "dificultad": 1,
-        "tipo": "numerico",
-        "enunciado": "Durante un juego de cálculo, completa 50, 47, __, 41. ¿Qué número falta?",
-        "respuesta": 44,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la secuencia 10, 20, ___, 40, ¿qué número falta?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "25"
+          },
+          {
+            "id": "b",
+            "texto": "30"
+          },
+          {
+            "id": "c",
+            "texto": "35"
+          },
+          {
+            "id": "d",
+            "texto": "15"
+          }
+        ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Durante un juego de cálculo: Observa el cambio de 50 a 47.",
-          "Durante un juego de cálculo: Resta 3 desde 47.",
-          "Durante un juego de cálculo: Comprueba que desde tu respuesta otro salto llegue a 41."
+          "Mira cuánto sube del 10 al 20.",
+          "Sube 10 cada vez.",
+          "20 + 10 = 30."
         ],
-        "retroalimentacion": "Falta 44 porque el patrón decrece de 3 en 3. Si pusiste 41, saltaste el espacio vacío.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 47,
-          "b": 3
-        }
+        "retroalimentacion": "La secuencia sube de 10 en 10: después del 20 va el 30.",
+        "id": "e04"
       },
       {
-        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Completa: 2, 4, ___, 8, ___. Escribe los dos números que faltan, separados por coma.",
+        "respuesta": "6, 10",
+        "alternativasAceptadas": [
+          "6,10",
+          "6 y 10"
+        ],
+        "pistas": [
+          "Mira cuánto sube del 2 al 4.",
+          "Sube 2 cada vez: 4, 6, 8.",
+          "Después del 8 sube 2 más."
+        ],
+        "retroalimentacion": "La secuencia sube de 2 en 2: faltan el 6 y el 10.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas secuencias es decreciente?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "15, 20, 25, 30"
+          },
+          {
+            "id": "b",
+            "texto": "12, 14, 16, 18"
+          },
+          {
+            "id": "c",
+            "texto": "50, 40, 30, 20"
+          },
+          {
+            "id": "d",
+            "texto": "5, 10, 15, 20"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Decreciente quiere decir que los números bajan.",
+          "Busca la fila donde cada número es menor que el anterior.",
+          "En 50, 40, 30, 20 cada número es 10 menos."
+        ],
+        "retroalimentacion": "La fila 50, 40, 30, 20 baja de 10 en 10. Las otras suben.",
+        "id": "e06"
+      },
+      {
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "En la feria de la escuela, completa 20, 24, __, 32. ¿Qué número falta?",
-        "respuesta": 28,
+        "enunciado": "Una secuencia creciente empieza en 14 y su tercer número es 18. ¿Cuál es el segundo número? Escribe solo el número.",
+        "respuesta": 16,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la feria de la escuela: Observa el cambio de 20 a 24.",
-          "En la feria de la escuela: Suma 4 desde 24.",
-          "En la feria de la escuela: Comprueba que desde tu respuesta otro salto llegue a 32."
+          "De 14 a 18 hay un total de 4 que subir en dos saltos.",
+          "Cada salto sube lo mismo: 4 entre 2.",
+          "14 + 2 = 16."
         ],
-        "retroalimentacion": "Falta 28 porque el patrón crece de 4 en 4. Si pusiste 32, saltaste el espacio vacío.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 24,
-          "b": 4
-        }
+        "retroalimentacion": "Hay 4 de diferencia en dos saltos, o sea 2 por salto: el segundo número es 16.",
+        "id": "e07"
       },
       {
-        "id": "e06",
         "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Para contar fichas en casa, completa 70, 65, __, 55. ¿Qué número falta?",
-        "respuesta": 60,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la secuencia 40, 35, 30, 25 cada número es 5 menos que el anterior.",
+        "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Para contar fichas en casa: Observa el cambio de 70 a 65.",
-          "Para contar fichas en casa: Resta 5 desde 65.",
-          "Para contar fichas en casa: Comprueba que desde tu respuesta otro salto llegue a 55."
+          "Resta 35 a 40.",
+          "Comprueba también 35 y 30.",
+          "Siempre baja 5."
         ],
-        "retroalimentacion": "Falta 60 porque el patrón decrece de 5 en 5. Si pusiste 55, saltaste el espacio vacío.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 65,
-          "b": 5
-        }
+        "retroalimentacion": "Es verdadero: 40, 35, 30, 25 baja de 5 en 5.",
+        "id": "e08"
       },
       {
-        "id": "e07",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "En una tarjeta de la kermés, completa 30, 32, __, 36. ¿Qué número falta?",
-        "respuesta": 34,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "En una tarjeta de la kermés: Observa el cambio de 30 a 32.",
-          "En una tarjeta de la kermés: Suma 2 desde 32.",
-          "En una tarjeta de la kermés: Comprueba que desde tu respuesta otro salto llegue a 36."
-        ],
-        "retroalimentacion": "Falta 34 porque el patrón crece de 2 en 2. Si pusiste 36, saltaste el espacio vacío.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 32,
-          "b": 2
-        }
-      },
-      {
-        "id": "e08",
-        "dificultad": 2,
-        "tipo": "numerico",
-        "enunciado": "Al revisar una cuenta del mercado, completa 90, 87, __, 81. ¿Qué número falta?",
-        "respuesta": 84,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Al revisar una cuenta del mercado: Observa el cambio de 90 a 87.",
-          "Al revisar una cuenta del mercado: Resta 3 desde 87.",
-          "Al revisar una cuenta del mercado: Comprueba que desde tu respuesta otro salto llegue a 81."
-        ],
-        "retroalimentacion": "Falta 84 porque el patrón decrece de 3 en 3. Si pusiste 81, saltaste el espacio vacío.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 87,
-          "b": 3
-        }
-      },
-      {
-        "id": "e09",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En la libreta de matemática, completa 40, 45, __, 55. ¿Qué número falta?",
-        "respuesta": 50,
+        "enunciado": "En la secuencia 100, ___, 80, 70, ___, 50 faltan dos números. ¿Cuánto suman esos dos números? Escribe solo el número.",
+        "respuesta": 150,
         "alternativasAceptadas": [],
         "pistas": [
-          "En la libreta de matemática: Observa el cambio de 40 a 45.",
-          "En la libreta de matemática: Suma 5 desde 45.",
-          "En la libreta de matemática: Comprueba que desde tu respuesta otro salto llegue a 55."
+          "Calcula la regla: de 80 a 70 baja 10.",
+          "Los números que faltan son el 90 y el 60.",
+          "90 + 60 = 150."
         ],
-        "retroalimentacion": "Falta 50 porque el patrón crece de 5 en 5. Si pusiste 55, saltaste el espacio vacío.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 45,
-          "b": 5
-        }
+        "retroalimentacion": "Faltan el 90 y el 60, y suman 150. Cuidado: no son los números 90 y 50, sino los que faltan.",
+        "id": "e09"
       },
       {
-        "id": "e10",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Para ayudar a un compañero, completa 75, 71, __, 63. ¿Qué número falta?",
-        "respuesta": 67,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la secuencia 7, 12, ___, 22, ¿qué número falta y por qué?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "17, porque sube de 5 en 5"
+          },
+          {
+            "id": "b",
+            "texto": "16, porque sube de 4 en 4"
+          },
+          {
+            "id": "c",
+            "texto": "15, porque sube de 3 en 3"
+          },
+          {
+            "id": "d",
+            "texto": "18, porque sube de 6 en 6"
+          }
+        ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Para ayudar a un compañero: Observa el cambio de 75 a 71.",
-          "Para ayudar a un compañero: Resta 4 desde 71.",
-          "Para ayudar a un compañero: Comprueba que desde tu respuesta otro salto llegue a 63."
+          "Calcula cuánto sube del 7 al 12.",
+          "Sube 5. Comprueba con 22.",
+          "12 + 5 = 17 y 17 + 5 = 22."
         ],
-        "retroalimentacion": "Falta 67 porque el patrón decrece de 4 en 4. Si pusiste 63, saltaste el espacio vacío.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 71,
-          "b": 4
-        }
+        "retroalimentacion": "Sube de 5 en 5: 7, 12, 17, 22. Falta el 17.",
+        "id": "e10"
       },
       {
-        "id": "e11",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En una práctica del aula, completa 60, 62, __, 66. ¿Qué número falta?",
-        "respuesta": 64,
+        "enunciado": "Una secuencia empieza en 3 y sube de 5 en 5. ¿Qué número va en el cuarto lugar? Escribe solo el número.",
+        "respuesta": 18,
         "alternativasAceptadas": [],
         "pistas": [
-          "En una práctica del aula: Observa el cambio de 60 a 62.",
-          "En una práctica del aula: Suma 2 desde 62.",
-          "En una práctica del aula: Comprueba que desde tu respuesta otro salto llegue a 66."
+          "El primero es 3; el segundo es 3 + 5.",
+          "Segundo: 8; tercero: 13.",
+          "El cuarto es 13 + 5."
         ],
-        "retroalimentacion": "Falta 64 porque el patrón crece de 2 en 2. Si pusiste 66, saltaste el espacio vacío.",
-        "operacion": {
-          "tipo": "suma",
-          "a": 62,
-          "b": 2
-        }
+        "retroalimentacion": "3, 8, 13, 18: el cuarto número es 18.",
+        "id": "e11"
       },
       {
-        "id": "e12",
         "dificultad": 3,
-        "tipo": "numerico",
-        "enunciado": "Al comprobar una respuesta, completa 55, 50, __, 40. ¿Qué número falta?",
-        "respuesta": 45,
-        "alternativasAceptadas": [],
-        "pistas": [
-          "Al comprobar una respuesta: Observa el cambio de 55 a 50.",
-          "Al comprobar una respuesta: Resta 5 desde 50.",
-          "Al comprobar una respuesta: Comprueba que desde tu respuesta otro salto llegue a 40."
+        "tipo": "texto_corto",
+        "enunciado": "Gaby dice que 30, 25, 20, 15 sube. ¿Qué palabra corrige su error: sube o baja? Escribe una palabra.",
+        "respuesta": "baja",
+        "alternativasAceptadas": [
+          "decreciente"
         ],
-        "retroalimentacion": "Falta 45 porque el patrón decrece de 5 en 5. Si pusiste 40, saltaste el espacio vacío.",
-        "operacion": {
-          "tipo": "resta",
-          "a": 50,
-          "b": 5
-        }
+        "pistas": [
+          "Gaby leyó la secuencia 30, 25, 20, 15 de izquierda a derecha.",
+          "Después del 30 viene un número menor, el 25.",
+          "Si cada número es menor que el anterior, la secuencia baja."
+        ],
+        "retroalimentacion": "Los números son cada vez menores, así que la secuencia baja.",
+        "id": "e12"
       }
     ],
     "fuentes": [
@@ -1624,397 +1562,305 @@
     "disciplina": "algebra",
     "descripcionCorta": "Explica con ejemplos cómo continúa una secuencia numérica y qué número seguirá.",
     "palabrasClave": [
-      "explicar",
-      "patron",
-      "aditivo"
+      "patrón",
+      "secuencia",
+      "regla",
+      "sumar",
+      "explicar"
     ],
     "prerrequisitos": [
       "mat.p2.numeros-que-faltan-secuencia"
     ],
     "ordenSugerido": 108,
-    "ideaCentral": "Explicar un patrón es nombrar el salto y mostrarlo en dos pasos. Así puedes justificar qué número seguirá.",
+    "ideaCentral": "Un patrón aditivo es una fila de números donde siempre se suma (o se resta) la misma cantidad. Si descubres cuánto cambia, puedes explicar la regla y decir qué número sigue.",
     "pasos": [
-      "Compara dos pares de términos.",
-      "Di si sumas o restas y cuánto.",
-      "Aplica la regla para proponer y justificar el siguiente."
+      "Mira los primeros números de la fila.",
+      "Calcula cuánto cambia de un número al siguiente.",
+      "Comprueba que el cambio sea siempre el mismo.",
+      "Explica la regla con tus palabras: «suma 5» o «resta 10».",
+      "Usa la regla para decir qué número sigue."
     ],
     "ejemplos": [
       {
-        "situacion": "4, 7, 10, __.",
-        "desarrollo": "De 4 a 7 y de 7 a 10 sumo 3.",
-        "respuesta": "Sigue 13."
+        "situacion": "En el mercado, una vendedora arma montones de 5 mandarinas: 5, 10, 15, 20. ¿Cómo cambia y qué sigue?",
+        "desarrollo": "De 5 a 10 sube 5; de 10 a 15, 5; de 15 a 20, 5. Siempre se suma 5. Después de 20: 20 + 5 = 25.",
+        "respuesta": "Se suma 5 cada vez. Sigue el 25."
       },
       {
-        "situacion": "30, 25, 20, __.",
-        "desarrollo": "En ambos pasos resto 5.",
-        "respuesta": "Sigue 15."
+        "situacion": "Los pasos de una escalera en Cusco están marcados 50, 40, 30, 20. ¿Qué regla tiene y qué sigue?",
+        "desarrollo": "De 50 a 40 baja 10; de 40 a 30, 10; de 30 a 20, 10. Se resta 10. 20 - 10 = 10.",
+        "respuesta": "Se resta 10 cada vez. Sigue el 10."
+      },
+      {
+        "situacion": "Ana dice que en 2, 4, 6, 8 sigue el 12. ¿Tiene razón?",
+        "desarrollo": "Se suma 2 cada vez. Después de 8 va 8 + 2 = 10, no 12.",
+        "respuesta": "No: sigue el 10, porque se suma 2."
       }
     ],
     "erroresFrecuentes": [
       {
-        "error": "Decir solo el siguiente número.",
-        "correccion": "Explica también el cambio repetido."
+        "error": "Mirar solo un par de números y no revisar toda la fila.",
+        "correccion": "Comprueba que el cambio sea el mismo entre todos los números seguidos."
       },
       {
-        "error": "Describir una regla que funciona una sola vez.",
-        "correccion": "Compruébala en al menos dos pasos."
+        "error": "Confundir cuánto cambia con el último número, y decir «sumo 20» en 10, 20, 30.",
+        "correccion": "La regla es cuánto cambia de uno a otro, no el último número. En 10, 20, 30 se suma 10."
       }
     ],
     "vocabulario": [
       {
-        "termino": "Explicación",
-        "significado": "Razón de cómo continúa un patrón."
+        "termino": "Patrón",
+        "significado": "Fila que sigue una regla que se repite."
       },
       {
-        "termino": "Salto",
-        "significado": "Cambio entre términos vecinos."
+        "termino": "Regla",
+        "significado": "Lo que se suma o se resta cada vez."
+      },
+      {
+        "termino": "Secuencia",
+        "significado": "Lista de números ordenados."
       }
     ],
     "ejercicios": [
       {
         "id": "e01",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "En el cuaderno de Micaela, un compañero muestra 2, 4, 6. ¿Qué explicación justifica el número siguiente?",
-        "respuesta": "a",
+        "tipo": "numerico",
+        "enunciado": "En la secuencia 2, 4, 6, 8, ¿qué número sigue? Escribe solo el número.",
+        "respuesta": 10,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Sumo 2 en cada paso; después de 6 viene 8."
-          },
-          {
-            "id": "b",
-            "texto": "Resto 2; después de 6 viene 4."
-          },
-          {
-            "id": "c",
-            "texto": "Sumo 3 solo en el último paso y digo 9."
-          }
-        ],
         "pistas": [
-          "En el cuaderno de Micaela: De 2 a 4 hay un salto de 2.",
-          "En el cuaderno de Micaela: De 4 a 6 se repite ese salto.",
-          "En el cuaderno de Micaela: Aplica la misma suma a 6."
+          "Mira cuánto sube de 2 a 4.",
+          "Sube de 2 en 2.",
+          "Suma 2 al último número, que es 8."
         ],
-        "retroalimentacion": "«Sumo 2 en cada paso; después de 6 viene 8.» nombra una regla que funciona en los dos pasos y predice 8."
+        "retroalimentacion": "La secuencia suma 2 cada vez; después de 8 sigue 8 + 2 = 10."
       },
       {
         "id": "e02",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "Para el reto de la biblioteca, un compañero muestra 30, 25, 20. ¿Qué explicación justifica el número siguiente?",
-        "respuesta": "b",
+        "tipo": "verdadero_falso",
+        "enunciado": "En la secuencia 5, 10, 15, 20 cada número es 5 más que el anterior.",
+        "respuesta": true,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Sumo 5; después de 20 viene 25."
-          },
-          {
-            "id": "b",
-            "texto": "Resto 5 en cada paso; después de 20 viene 15."
-          },
-          {
-            "id": "c",
-            "texto": "Sumo 6 solo en el último paso y digo 26."
-          }
-        ],
         "pistas": [
-          "Para el reto de la biblioteca: De 30 a 25 hay un salto de 5.",
-          "Para el reto de la biblioteca: De 25 a 20 se repite ese salto.",
-          "Para el reto de la biblioteca: Aplica la misma resta a 20."
+          "Calcula cuánto hay de 5 a 10.",
+          "Ahora mira de 10 a 15 y de 15 a 20.",
+          "Cada salto es de 5."
         ],
-        "retroalimentacion": "«Resto 5 en cada paso; después de 20 viene 15.» nombra una regla que funciona en los dos pasos y predice 15."
+        "retroalimentacion": "Es verdadero: 5, 10, 15, 20 aumenta de 5 en 5."
       },
       {
         "id": "e03",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "En la pizarra del salón, un compañero muestra 10, 20, 30. ¿Qué explicación justifica el número siguiente?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
+        "enunciado": "En la secuencia 10, 20, 30, 40, ¿cómo cambia cada número?",
+        "respuesta": "b",
         "opciones": [
           {
             "id": "a",
-            "texto": "Resto 10; después de 30 viene 20."
+            "texto": "Se suma 1"
           },
           {
             "id": "b",
-            "texto": "Sumo 11 solo en el último paso y digo 41."
+            "texto": "Se suma 10"
           },
           {
             "id": "c",
-            "texto": "Sumo 10 en cada paso; después de 30 viene 40."
+            "texto": "Se suma 20"
           }
         ],
+        "alternativasAceptadas": [],
         "pistas": [
-          "En la pizarra del salón: De 10 a 20 hay un salto de 10.",
-          "En la pizarra del salón: De 20 a 30 se repite ese salto.",
-          "En la pizarra del salón: Aplica la misma suma a 30."
+          "Mira cuánto hay entre 10 y 20.",
+          "De 20 a 30 pasa lo mismo.",
+          "Es lo que se cuenta de diez en diez."
         ],
-        "retroalimentacion": "«Sumo 10 en cada paso; después de 30 viene 40.» nombra una regla que funciona en los dos pasos y predice 40."
+        "retroalimentacion": "Se suma 10: 10, 20, 30, 40 va de diez en diez."
       },
       {
         "id": "e04",
         "dificultad": 1,
-        "tipo": "opcion_multiple",
-        "enunciado": "Durante un juego de cálculo, un compañero muestra 50, 47, 44. ¿Qué explicación justifica el número siguiente?",
-        "respuesta": "a",
+        "tipo": "numerico",
+        "enunciado": "En la secuencia 3, 6, 9, 12, ¿cuánto se suma cada vez? Escribe solo el número.",
+        "respuesta": 3,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Resto 3 en cada paso; después de 44 viene 41."
-          },
-          {
-            "id": "b",
-            "texto": "Sumo 3; después de 44 viene 47."
-          },
-          {
-            "id": "c",
-            "texto": "Sumo 4 solo en el último paso y digo 48."
-          }
-        ],
         "pistas": [
-          "Durante un juego de cálculo: De 50 a 47 hay un salto de 3.",
-          "Durante un juego de cálculo: De 47 a 44 se repite ese salto.",
-          "Durante un juego de cálculo: Aplica la misma resta a 44."
+          "Resta 6 - 3 para ver el salto.",
+          "Comprueba con 9 - 6.",
+          "El mismo salto aparece de 9 a 12."
         ],
-        "retroalimentacion": "«Resto 3 en cada paso; después de 44 viene 41.» nombra una regla que funciona en los dos pasos y predice 41."
+        "retroalimentacion": "De 3 a 6 hay 3, de 6 a 9 hay 3 y de 9 a 12 hay 3: se suma 3."
       },
       {
         "id": "e05",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la feria de la escuela, un compañero muestra 20, 24, 28. ¿Qué explicación justifica el número siguiente?",
-        "respuesta": "b",
+        "tipo": "numerico",
+        "enunciado": "En la secuencia 50, 45, 40, 35, ¿qué número sigue? Escribe solo el número.",
+        "respuesta": 30,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Resto 4; después de 28 viene 24."
-          },
-          {
-            "id": "b",
-            "texto": "Sumo 4 en cada paso; después de 28 viene 32."
-          },
-          {
-            "id": "c",
-            "texto": "Sumo 5 solo en el último paso y digo 33."
-          }
-        ],
         "pistas": [
-          "En la feria de la escuela: De 20 a 24 hay un salto de 4.",
-          "En la feria de la escuela: De 24 a 28 se repite ese salto.",
-          "En la feria de la escuela: Aplica la misma suma a 28."
+          "Los números van bajando.",
+          "De 50 a 45 baja 5.",
+          "Resta 5 al último número, 35."
         ],
-        "retroalimentacion": "«Sumo 4 en cada paso; después de 28 viene 32.» nombra una regla que funciona en los dos pasos y predice 32."
+        "retroalimentacion": "Se resta 5 cada vez, así que después de 35 sigue 35 - 5 = 30."
       },
       {
         "id": "e06",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Para contar fichas en casa, un compañero muestra 70, 65, 60. ¿Qué explicación justifica el número siguiente?",
+        "enunciado": "Dayana canta de 4 en 4: 4, 8, 12, 16. ¿Qué número sigue?",
         "respuesta": "c",
-        "alternativasAceptadas": [],
         "opciones": [
           {
             "id": "a",
-            "texto": "Sumo 5; después de 60 viene 65."
+            "texto": "18"
           },
           {
             "id": "b",
-            "texto": "Sumo 6 solo en el último paso y digo 66."
+            "texto": "24"
           },
           {
             "id": "c",
-            "texto": "Resto 5 en cada paso; después de 60 viene 55."
+            "texto": "20"
           }
         ],
+        "alternativasAceptadas": [],
         "pistas": [
-          "Para contar fichas en casa: De 70 a 65 hay un salto de 5.",
-          "Para contar fichas en casa: De 65 a 60 se repite ese salto.",
-          "Para contar fichas en casa: Aplica la misma resta a 60."
+          "Mira cuánto sube cada vez.",
+          "Sube 4 cada vez, no de 2 en 2.",
+          "Suma 4 al 16."
         ],
-        "retroalimentacion": "«Resto 5 en cada paso; después de 60 viene 55.» nombra una regla que funciona en los dos pasos y predice 55."
+        "retroalimentacion": "Sigue el 20, porque 16 + 4 = 20. El 18 suma solo 2 y el 24 suma 8."
       },
       {
         "id": "e07",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "En una tarjeta de la kermés, un compañero muestra 30, 32, 34. ¿Qué explicación justifica el número siguiente?",
-        "respuesta": "a",
+        "tipo": "verdadero_falso",
+        "enunciado": "En la fila 7, 9, 12, 14 siempre se suma 2.",
+        "respuesta": false,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Sumo 2 en cada paso; después de 34 viene 36."
-          },
-          {
-            "id": "b",
-            "texto": "Resto 2; después de 34 viene 32."
-          },
-          {
-            "id": "c",
-            "texto": "Sumo 3 solo en el último paso y digo 37."
-          }
-        ],
         "pistas": [
-          "En una tarjeta de la kermés: De 30 a 32 hay un salto de 2.",
-          "En una tarjeta de la kermés: De 32 a 34 se repite ese salto.",
-          "En una tarjeta de la kermés: Aplica la misma suma a 34."
+          "Calcula el salto entre cada par seguido.",
+          "De 7 a 9 sube 2, pero ¿y de 9 a 12?",
+          "De 9 a 12 sube 3."
         ],
-        "retroalimentacion": "«Sumo 2 en cada paso; después de 34 viene 36.» nombra una regla que funciona en los dos pasos y predice 36."
+        "retroalimentacion": "Es falso: de 9 a 12 se suma 3, no 2, así que no hay una regla que se repita."
       },
       {
         "id": "e08",
         "dificultad": 2,
-        "tipo": "opcion_multiple",
-        "enunciado": "Al revisar una cuenta del mercado, un compañero muestra 90, 87, 84. ¿Qué explicación justifica el número siguiente?",
-        "respuesta": "b",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Sumo 3; después de 84 viene 87."
-          },
-          {
-            "id": "b",
-            "texto": "Resto 3 en cada paso; después de 84 viene 81."
-          },
-          {
-            "id": "c",
-            "texto": "Sumo 4 solo en el último paso y digo 88."
-          }
+        "tipo": "texto_corto",
+        "enunciado": "Mira la secuencia 2, 4, 6, 8. Escribe la regla con la forma «suma _».",
+        "respuesta": "suma 2",
+        "alternativasAceptadas": [
+          "+2",
+          "sumar 2",
+          "se suma 2",
+          "suma2"
         ],
         "pistas": [
-          "Al revisar una cuenta del mercado: De 90 a 87 hay un salto de 3.",
-          "Al revisar una cuenta del mercado: De 87 a 84 se repite ese salto.",
-          "Al revisar una cuenta del mercado: Aplica la misma resta a 84."
+          "Calcula cuánto sube de 2 a 4.",
+          "El mismo salto se repite de 4 a 6 y de 6 a 8.",
+          "El salto es el número que se cuenta de dos en dos."
         ],
-        "retroalimentacion": "«Resto 3 en cada paso; después de 84 viene 81.» nombra una regla que funciona en los dos pasos y predice 81."
+        "retroalimentacion": "La regla es «suma 2»: cada número es 2 más que el anterior."
       },
       {
         "id": "e09",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En la libreta de matemática, un compañero muestra 40, 45, 50. ¿Qué explicación justifica el número siguiente?",
-        "respuesta": "c",
+        "tipo": "numerico",
+        "enunciado": "Lucía cría cuyes. Tiene 10 cuyes el primer mes y cada mes se agregan 5 más: 10, 15, 20, ... ¿Cuántos cuyes tendrá en el sexto mes? Escribe solo el número.",
+        "respuesta": 35,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Resto 5; después de 50 viene 45."
-          },
-          {
-            "id": "b",
-            "texto": "Sumo 6 solo en el último paso y digo 56."
-          },
-          {
-            "id": "c",
-            "texto": "Sumo 5 en cada paso; después de 50 viene 55."
-          }
-        ],
         "pistas": [
-          "En la libreta de matemática: De 40 a 45 hay un salto de 5.",
-          "En la libreta de matemática: De 45 a 50 se repite ese salto.",
-          "En la libreta de matemática: Aplica la misma suma a 50."
+          "Escribe los meses uno por uno.",
+          "Mes 1: 10; mes 2: 15; mes 3: 20.",
+          "Sigue sumando 5 hasta llegar al mes 6."
         ],
-        "retroalimentacion": "«Sumo 5 en cada paso; después de 50 viene 55.» nombra una regla que funciona en los dos pasos y predice 55."
+        "retroalimentacion": "Los meses dan 10, 15, 20, 25, 30, 35. En el sexto mes tendrá 35 cuyes."
       },
       {
         "id": "e10",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Para ayudar a un compañero, un compañero muestra 75, 71, 67. ¿Qué explicación justifica el número siguiente?",
+        "enunciado": "Mateo dice que en 20, 30, 40, 50 sigue el 70. ¿Qué error cometió?",
         "respuesta": "a",
-        "alternativasAceptadas": [],
         "opciones": [
           {
             "id": "a",
-            "texto": "Resto 4 en cada paso; después de 67 viene 63."
+            "texto": "Sumó 20 en vez de 10"
           },
           {
             "id": "b",
-            "texto": "Sumo 4; después de 67 viene 71."
+            "texto": "Sumó 5 en vez de 10"
           },
           {
             "id": "c",
-            "texto": "Sumo 5 solo en el último paso y digo 72."
+            "texto": "No cometió error"
           }
         ],
+        "alternativasAceptadas": [],
         "pistas": [
-          "Para ayudar a un compañero: De 75 a 71 hay un salto de 4.",
-          "Para ayudar a un compañero: De 71 a 67 se repite ese salto.",
-          "Para ayudar a un compañero: Aplica la misma resta a 67."
+          "Calcula cuánto cambia cada vez en 20, 30, 40, 50.",
+          "La regla es sumar 10; Mateo escribió 70.",
+          "De 50 a 70 hay 20 de diferencia."
         ],
-        "retroalimentacion": "«Resto 4 en cada paso; después de 67 viene 63.» nombra una regla que funciona en los dos pasos y predice 63."
+        "retroalimentacion": "Mateo sumó 20 a 50 y la regla es sumar 10; sigue el 60."
       },
       {
         "id": "e11",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "En una práctica del aula, un compañero muestra 60, 62, 64. ¿Qué explicación justifica el número siguiente?",
-        "respuesta": "b",
+        "tipo": "numerico",
+        "enunciado": "En una escalera de Cusco los escalones tienen números que bajan 10 cada vez: 100, 90, 80, ... ¿Qué número tiene el sexto escalón? Escribe solo el número.",
+        "respuesta": 50,
         "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Resto 2; después de 64 viene 62."
-          },
-          {
-            "id": "b",
-            "texto": "Sumo 2 en cada paso; después de 64 viene 66."
-          },
-          {
-            "id": "c",
-            "texto": "Sumo 3 solo en el último paso y digo 67."
-          }
-        ],
         "pistas": [
-          "En una práctica del aula: De 60 a 62 hay un salto de 2.",
-          "En una práctica del aula: De 62 a 64 se repite ese salto.",
-          "En una práctica del aula: Aplica la misma suma a 64."
+          "Empieza en 100 en el escalón 1.",
+          "Escalón 2: 90; escalón 3: 80.",
+          "Sigue restando 10 hasta el escalón 6."
         ],
-        "retroalimentacion": "«Sumo 2 en cada paso; después de 64 viene 66.» nombra una regla que funciona en los dos pasos y predice 66."
+        "retroalimentacion": "Los escalones son 100, 90, 80, 70, 60, 50: el sexto tiene 50."
       },
       {
         "id": "e12",
         "dificultad": 3,
-        "tipo": "opcion_multiple",
-        "enunciado": "Al comprobar una respuesta, un compañero muestra 55, 50, 45. ¿Qué explicación justifica el número siguiente?",
-        "respuesta": "c",
-        "alternativasAceptadas": [],
-        "opciones": [
-          {
-            "id": "a",
-            "texto": "Sumo 5; después de 45 viene 50."
-          },
-          {
-            "id": "b",
-            "texto": "Sumo 6 solo en el último paso y digo 51."
-          },
-          {
-            "id": "c",
-            "texto": "Resto 5 en cada paso; después de 45 viene 40."
-          }
+        "tipo": "texto_corto",
+        "enunciado": "En la secuencia 12, 15, 18, ___, 24 falta un número. Escribe el número que falta.",
+        "respuesta": "21",
+        "alternativasAceptadas": [
+          "veintiuno"
         ],
         "pistas": [
-          "Al comprobar una respuesta: De 55 a 50 hay un salto de 5.",
-          "Al comprobar una respuesta: De 50 a 45 se repite ese salto.",
-          "Al comprobar una respuesta: Aplica la misma resta a 45."
+          "Calcula el salto entre 12 y 15.",
+          "El salto es 3, y de 18 al siguiente también es 3.",
+          "Comprueba que de ese número a 24 también hay 3."
         ],
-        "retroalimentacion": "«Resto 5 en cada paso; después de 45 viene 40.» nombra una regla que funciona en los dos pasos y predice 40."
+        "retroalimentacion": "Se suma 3 cada vez: 18 + 3 = 21, y 21 + 3 = 24."
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un patrón empieza en 6 y se suma 4 cada vez: 6, 10, ... ¿Qué número está en el quinto lugar? Escribe solo el número.",
+        "respuesta": 22,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer lugar es 6 y el segundo es 10.",
+          "Suma 4 al 10 para el tercero.",
+          "Cuenta hasta el quinto lugar: tercero, cuarto, quinto."
+        ],
+        "retroalimentacion": "6, 10, 14, 18, 22: en el quinto lugar está el 22."
       }
     ],
+    "version": 1,
+    "revisado": null,
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ],
-    "version": 1,
-    "revisado": null
+    ]
   }
 ]

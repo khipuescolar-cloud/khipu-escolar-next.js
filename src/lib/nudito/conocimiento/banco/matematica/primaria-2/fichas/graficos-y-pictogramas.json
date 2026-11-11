@@ -1,0 +1,2929 @@
+[
+  {
+    "clave": "mat.p2.pictograma-uno",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 25,
+    "capacidad": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+    "desempenosOrigen": [
+      "MAT-C25-P2-01"
+    ],
+    "bloque": "Gráficos y pictogramas",
+    "nombre": "Pictograma: un símbolo, una unidad",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Representa datos en un pictograma horizontal donde cada símbolo vale uno.",
+    "palabrasClave": [
+      "pictograma",
+      "símbolo",
+      "datos",
+      "tabla de conteo",
+      "fila"
+    ],
+    "prerrequisitos": [
+      "mat.p2.tabla-de-conteo"
+    ],
+    "ordenSugerido": 62,
+    "ideaCentral": "Un pictograma muestra datos con dibujos. Cuando cada símbolo vale 1, dibujas tantos símbolos como indica la tabla.",
+    "pasos": [
+      "Lee en la tabla cuánto hay de cada cosa.",
+      "Escribe una fila para cada cosa, con su nombre al inicio.",
+      "Dibuja un símbolo por cada uno que hay: si son 5, dibuja 5 ●.",
+      "Cuenta los símbolos de cada fila para comprobar que coinciden con la tabla."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Tabla del mercado: Rosa vendió 3 papayas y 5 naranjas. Cada ● vale 1. ¿Cómo queda el pictograma?",
+        "desarrollo": "Papayas: 3, así que dibujo ●●●. Naranjas: 5, así que dibujo ●●●●●.",
+        "respuesta": "Papayas ●●●; Naranjas ●●●●●."
+      },
+      {
+        "situacion": "En una chacra hay 4 cuyes y 6 conejos. Cada ● vale 1.",
+        "desarrollo": "Cuyes: ●●●●. Conejos: ●●●●●●. La fila de los conejos es más larga porque hay más.",
+        "respuesta": "Cuyes ●●●●; Conejos ●●●●●●."
+      },
+      {
+        "situacion": "La profesora anotó: en el salón 7 niños vienen a pie y 2 vienen en combi. Cada ● vale 1.",
+        "desarrollo": "A pie: 7 ●. En combi: 2 ●. Cuento para comprobar: 7 y 2.",
+        "respuesta": "A pie ●●●●●●●; En combi ●●."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dibujar más o menos símbolos que los de la tabla.",
+        "correccion": "Cuenta los símbolos de la fila y compáralos con el número de la tabla."
+      },
+      {
+        "error": "Mezclar las filas y poner los ● de una cosa en otra.",
+        "correccion": "Escribe primero el nombre de la fila y dibuja los símbolos al lado."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Pictograma",
+        "significado": "Gráfico que usa dibujos o símbolos para mostrar datos."
+      },
+      {
+        "termino": "Símbolo",
+        "significado": "Dibujo que representa una cantidad; aquí vale 1."
+      },
+      {
+        "termino": "Fila",
+        "significado": "Línea horizontal de símbolos de una misma categoría."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En la tabla, Rosa vendió 5 papayas. Cada ● del pictograma vale 1. ¿Cuántos ● dibujas en la fila de papayas? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada ● vale 1, así que dibujas un ● por cada papaya.",
+          "Rosa vendió 5 papayas.",
+          "Dibuja tantos ● como papayas: 5."
+        ],
+        "retroalimentacion": "Como cada ● vale 1 y Rosa vendió 5 papayas, dibujas 5 ●."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En la tabla, la familia de Luis tiene 7 gallinas. Cada ● vale 1. ¿Cuántos ● tiene la fila de gallinas? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un ● por cada gallina.",
+          "Luis tiene 7 gallinas.",
+          "Dibujas ●●●●●●● : cuéntalos, son 7."
+        ],
+        "retroalimentacion": "Con 7 gallinas y cada ● valiendo 1, la fila lleva 7 ●."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la tabla, hay 3 cuyes y 6 conejos. ¿Qué fila del pictograma es la de los cuyes? Cada ● vale 1.",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "●●●●●●"
+          },
+          {
+            "id": "b",
+            "texto": "●●"
+          },
+          {
+            "id": "c",
+            "texto": "●●●"
+          },
+          {
+            "id": "d",
+            "texto": "●●●●"
+          }
+        ],
+        "pistas": [
+          "Busca cuántos cuyes dice la tabla.",
+          "Son 3 cuyes, así que necesitas 3 ●.",
+          "Cuenta los ● de cada fila hasta hallar 3."
+        ],
+        "retroalimentacion": "La fila de 3 ● (●●●) es la de los cuyes. La de 6 ● sería para los conejos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un pictograma donde cada ● vale 1, la fila ●●●●● representa 5 animales.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los ● de la fila uno por uno.",
+          "Hay cinco ●.",
+          "Cada ● vale 1, así que 5 ● valen 5."
+        ],
+        "retroalimentacion": "Es verdadero: la fila tiene 5 ● y cada uno vale 1, entonces son 5 animales."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En la tabla, la combi de Lima llevó 4 pasajeros. Cada ● vale 1. Escribe la fila usando ● (por ejemplo: ●●).",
+        "respuesta": "●●●●",
+        "alternativasAceptadas": [
+          "● ● ● ●",
+          "4●"
+        ],
+        "pistas": [
+          "Un ● por cada pasajero.",
+          "Necesitas cuatro símbolos.",
+          "Escribe: ● ● ● ● sin números."
+        ],
+        "retroalimentacion": "Con 4 pasajeros y cada ● valiendo 1, la fila es ●●●●."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tabla de una chacra: papa 6, camote 4, yuca 3. Quieres dibujar todo el pictograma con ● (cada uno vale 1). ¿Cuántos ● dibujas en total? Escribe solo el número.",
+        "respuesta": 13,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Dibujas 6 ● para papa, 4 para camote y 3 para yuca.",
+          "Suma los números de la tabla: 6 + 4.",
+          "6 + 4 = 10 y 10 + 3 = 13."
+        ],
+        "retroalimentacion": "En total son 6 + 4 + 3 = 13 ●. Si pusiste 3 contaste solo las filas, no los símbolos."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La tabla dice: cuyes 5 y gallinas 7. En el pictograma, la fila de cuyes tiene ●●●●● y la de gallinas ●●●●●. ¿Qué debes corregir?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Quitar 2 ● a los cuyes."
+          },
+          {
+            "id": "b",
+            "texto": "Agregar 2 ● a las gallinas."
+          },
+          {
+            "id": "c",
+            "texto": "Agregar 1 ● a las gallinas."
+          },
+          {
+            "id": "d",
+            "texto": "No hay que corregir nada."
+          }
+        ],
+        "pistas": [
+          "Compara cada fila con su número de la tabla.",
+          "Los cuyes tienen 5 y están bien dibujados.",
+          "Las gallinas son 7 pero la fila tiene 5 ●: faltan 7 − 5."
+        ],
+        "retroalimentacion": "Las gallinas son 7 y la fila solo tiene 5 ●, así que hay que agregar 2 ● a las gallinas. La fila de cuyes está bien."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Para los 9 patos de la tabla ya dibujaste ●●●●. ¿Cuántos ● faltan para terminar la fila? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Necesitas 9 ● en total y ya tienes 4.",
+          "¿Cuánto falta de 4 para llegar a 9?",
+          "9 − 4 = ?"
+        ],
+        "retroalimentacion": "Faltan 9 − 4 = 5 ● para terminar la fila de patos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "La tabla dice: A 4, B 7, C 2, D 5. El pictograma tiene: A ●●●●, B ●●●●●●, C ●●, D ●●●●●. ¿Cuál es el error?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La fila A tiene un ● de más."
+          },
+          {
+            "id": "b",
+            "texto": "La fila B tiene 6 ● y debería tener 7."
+          },
+          {
+            "id": "c",
+            "texto": "La fila C tiene 2 ● y debería tener 3."
+          },
+          {
+            "id": "d",
+            "texto": "La fila D tiene 6 ● y debería tener 5."
+          }
+        ],
+        "pistas": [
+          "Cuenta los ● de cada fila y compáralos con la tabla.",
+          "A, C y D coinciden con la tabla.",
+          "B debería tener 7 y tiene un ● menos."
+        ],
+        "retroalimentacion": "La fila B tiene 6 ● pero la tabla dice 7. Las filas A, C y D están bien."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Se votó por tres colores. Rojo tiene 6 votos y azul tiene 4 votos. En total votaron 15 niños. ¿Cuántos ● lleva la fila del verde? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero suma los votos que ya conoces: 6 + 4.",
+          "6 + 4 = 10 votos entre rojo y azul.",
+          "A 15 le quitas 10: ¿cuántos votos son del verde?"
+        ],
+        "retroalimentacion": "Rojo y azul suman 10 votos y 15 − 10 = 5, así que el verde lleva 5 ●."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En el pictograma de Cusco, la fila de llamas lleva 8 ●. La fila de alpacas lleva 3 ● menos que la de llamas. ¿Cuántos ● lleva la fila de alpacas? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "«3 menos» te dice que hay que restar.",
+          "Parte de los 8 ● de las llamas.",
+          "8 − 3 = ?"
+        ],
+        "retroalimentacion": "Las alpacas llevan 3 ● menos que 8, o sea 8 − 3 = 5 ●."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si la tabla suma 12 niños en total, el pictograma debe tener 12 ● entre todas sus filas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada ● vale 1 niño.",
+          "Un símbolo por cada niño.",
+          "Si hay 12 niños, hay 12 símbolos en todo el pictograma."
+        ],
+        "retroalimentacion": "Es verdadero: cada ● vale 1 niño, así que 12 niños se dibujan con 12 ● en total."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.pictograma-dos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 25,
+    "capacidad": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+    "desempenosOrigen": [
+      "MAT-C25-P2-01"
+    ],
+    "bloque": "Gráficos y pictogramas",
+    "nombre": "Pictograma: un símbolo vale dos",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Representa datos en un pictograma donde cada símbolo vale dos unidades y usa medio símbolo.",
+    "palabrasClave": [
+      "pictograma",
+      "símbolo vale dos",
+      "medio símbolo",
+      "datos",
+      "contar de 2 en 2"
+    ],
+    "prerrequisitos": [
+      "mat.p2.pictograma-uno"
+    ],
+    "ordenSugerido": 94,
+    "ideaCentral": "En algunos pictogramas cada símbolo vale 2. Para saber cuántos hay, cuentas de 2 en 2. Si hay medio símbolo, suma 1 más.",
+    "pasos": [
+      "Lee cuánto vale cada símbolo: aquí ★ vale 2.",
+      "Para dibujar, divide la cantidad entre 2: 8 se dibuja con 4 ★.",
+      "Si la cantidad es impar, agrega medio símbolo (☆), que vale 1.",
+      "Para leer, cuenta de 2 en 2 los símbolos completos y suma 1 por cada medio símbolo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Rosa vendió 6 mangos. Cada ★ vale 2. ¿Cuántas ★ dibujas?",
+        "desarrollo": "Cuento de 2 en 2 hasta 6: 2, 4, 6. Son 3 saltos.",
+        "respuesta": "Dibujas ★★★."
+      },
+      {
+        "situacion": "Don Julio tiene 7 gallinas. Cada ★ vale 2 y ☆ vale 1. ¿Cómo dibujas la fila?",
+        "desarrollo": "Con 3 ★ llego a 6. Me falta 1, que es un medio símbolo.",
+        "respuesta": "★★★☆."
+      },
+      {
+        "situacion": "En un pictograma, la fila de cuyes tiene ★★★★★. Cada ★ vale 2. ¿Cuántos cuyes hay?",
+        "desarrollo": "Cuento de 2 en 2: 2, 4, 6, 8, 10.",
+        "respuesta": "Hay 10 cuyes."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar los símbolos de uno en uno: ★★★ = 3.",
+        "correccion": "Si ★ vale 2, tres ★ valen 2 + 2 + 2 = 6."
+      },
+      {
+        "error": "Olvidar el medio símbolo o darle el valor de 2.",
+        "correccion": "El medio símbolo ☆ vale la mitad de 2, o sea 1."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Símbolo",
+        "significado": "Dibujo que representa una cantidad; aquí ★ vale 2."
+      },
+      {
+        "termino": "Medio símbolo",
+        "significado": "☆ vale la mitad de un símbolo completo: aquí vale 1."
+      },
+      {
+        "termino": "Contar de 2 en 2",
+        "significado": "Saltar 2, 4, 6, 8… para hallar cuánto vale una fila."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un pictograma cada ★ vale 2. La fila de gallinas tiene ★★★. ¿Cuántas gallinas hay? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada ★ vale 2, no 1.",
+          "Cuenta de 2 en 2: 2, 4, ...",
+          "Tres ★ valen 2 + 2 + 2."
+        ],
+        "retroalimentacion": "Tres ★ que valen 2 cada una dan 2 + 2 + 2 = 6 gallinas."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Doña Rosa vendió 8 chirimoyas. Cada ★ vale 2. ¿Cuántas ★ dibujas? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa cuántos grupos de 2 hay en 8.",
+          "Cuenta de 2 en 2 hasta llegar a 8: 2, 4, 6, 8.",
+          "Hiciste 4 saltos: son 4 ★."
+        ],
+        "retroalimentacion": "En 8 hay 4 grupos de 2 (2 + 2 + 2 + 2), así que dibujas 4 ★."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si cada ★ vale 2, entonces ★★ valen 4.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 2 + 2.",
+          "Dos estrellas con valor 2 cada una.",
+          "2 + 2 = 4."
+        ],
+        "retroalimentacion": "Es verdadero: dos ★ que valen 2 cada una suman 2 + 2 = 4."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Cada ★ vale 2. ¿Qué fila representa 10 niños?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "★★★★"
+          },
+          {
+            "id": "b",
+            "texto": "★★★★★★"
+          },
+          {
+            "id": "c",
+            "texto": "★★★★★"
+          },
+          {
+            "id": "d",
+            "texto": "★★★★★★★★★★"
+          }
+        ],
+        "pistas": [
+          "Cuenta de 2 en 2 hasta 10.",
+          "2, 4, 6, 8, 10: son 5 saltos.",
+          "Necesitas 5 ★."
+        ],
+        "retroalimentacion": "Para 10 niños se necesitan 5 ★ (5 × 2 = 10). Con 10 ★ se representarían 20."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un pictograma, cada ★ vale 2 y ☆ (medio símbolo) vale 1. La fila de choclos es ★★★★☆. ¿Cuántos choclos hay? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero cuenta de 2 en 2 las ★ completas.",
+          "4 ★ valen 2, 4, 6, 8.",
+          "Al 8 súmale el medio símbolo, que vale 1."
+        ],
+        "retroalimentacion": "Las 4 ★ valen 8 y la ☆ vale 1: 8 + 1 = 9 choclos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Cada ★ vale 2 y ☆ vale 1. ¿Cómo dibujas 7 gorros?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "★★★★"
+          },
+          {
+            "id": "b",
+            "texto": "★★★☆"
+          },
+          {
+            "id": "c",
+            "texto": "★★☆"
+          },
+          {
+            "id": "d",
+            "texto": "★★★★☆"
+          }
+        ],
+        "pistas": [
+          "Cuenta de 2 en 2 sin pasarte de 7.",
+          "2, 4, 6: con 3 ★ llegas a 6.",
+          "Te falta 1, así que agrega ☆."
+        ],
+        "retroalimentacion": "Con ★★★ llegas a 6 y con ☆ sumas 1 más, así que 7 gorros se dibujan ★★★☆."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Marta vendió 11 tamales. Cada ★ vale 2 y ☆ vale 1. ¿Cuántas ★ completas necesitas? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta de 2 en 2 sin pasarte de 11.",
+          "Salta de 2 en 2 y para antes de pasarte de 11.",
+          "Llegas a 10 con 5 saltos; para 11 faltará una ☆, pero las ★ completas son 5."
+        ],
+        "retroalimentacion": "Con 5 ★ llegas a 10 y la ☆ aporta el último 1. Las ★ completas son 5."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si cada ★ vale 2, el medio símbolo ☆ también vale 2.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El medio símbolo es la mitad de una ★.",
+          "La mitad de 2 es 1.",
+          "Por eso ☆ vale 1."
+        ],
+        "retroalimentacion": "Es falso: ☆ es la mitad de ★, así que si ★ vale 2, entonces ☆ vale 1."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Tabla: cuy 6, gallina 9, pato 4. Cada ★ vale 2 y ☆ vale 1. ¿Cuántas ★ completas se dibujan en total entre las tres filas? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla las ★ de cada fila por separado.",
+          "Cuy: 6 son 3 ★. Pato: 4 son 2 ★. Gallina: 9 son 4 ★ y una ☆.",
+          "Suma solo las ★ completas: 3 + 4 + 2."
+        ],
+        "retroalimentacion": "Cuy lleva 3 ★, gallina 4 ★ (más una ☆) y pato 2 ★. En total: 3 + 4 + 2 = 9 ★ completas."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un pictograma (★ = 2, ☆ = 1), la fila de papas es ★★★☆. Ana dice: «Hay 4 papas porque veo 4 símbolos». ¿Quién tiene razón?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ana: hay 8 porque ☆ vale 2."
+          },
+          {
+            "id": "b",
+            "texto": "Nadie: hay 7, porque 3 ★ valen 6 y ☆ vale 1."
+          },
+          {
+            "id": "c",
+            "texto": "Ana: hay 4, porque se cuentan los símbolos."
+          },
+          {
+            "id": "d",
+            "texto": "Nadie: hay 6, porque ☆ no cuenta."
+          }
+        ],
+        "pistas": [
+          "No se cuentan los símbolos de uno en uno.",
+          "Cuenta de 2 en 2 las ★: 2, 4, 6.",
+          "Al 6 suma 1 por la ☆."
+        ],
+        "retroalimentacion": "Ana se equivoca: las 3 ★ valen 6 y la ☆ vale 1, así que hay 7 papas."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un pictograma (★ = 2), la fila de maíz tiene ★★★★★ y la de quinua tiene ★★★. ¿Cuántos kilos más de maíz que de quinua hay? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla cuánto vale cada fila.",
+          "Maíz: 5 ★ = 10. Quinua: 3 ★ = 6.",
+          "Resta 10 − 6."
+        ],
+        "retroalimentacion": "El maíz vale 10 y la quinua 6: 10 − 6 = 4 kilos más de maíz."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para dibujar 5 panes con ★ = 2, usas dos ★ y una ☆.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta de 2 en 2 sin pasarte de 5.",
+          "2 y 4: con dos ★ llegas a 4.",
+          "Falta 1 para llegar a 5, que es ☆."
+        ],
+        "retroalimentacion": "Es verdadero: dos ★ valen 4 y una ☆ vale 1, así que 4 + 1 = 5 panes."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.barras-verticales",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 25,
+    "capacidad": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+    "desempenosOrigen": [
+      "MAT-C25-P2-01"
+    ],
+    "bloque": "Gráficos y pictogramas",
+    "nombre": "Gráfico de barras verticales a partir de una tabla de conteo",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Elabora un gráfico de barras verticales sin escala a partir de una tabla de conteo.",
+    "palabrasClave": [
+      "gráfico de barras",
+      "barras verticales",
+      "tabla de conteo",
+      "altura",
+      "categorías"
+    ],
+    "prerrequisitos": [
+      "mat.p2.tabla-de-conteo"
+    ],
+    "ordenSugerido": 95,
+    "ideaCentral": "En un gráfico de barras verticales, cada barra sube hacia arriba. Mientras más alta es la barra, más hay de esa categoría.",
+    "pasos": [
+      "Lee en la tabla cuántos hay de cada categoría.",
+      "Dibuja una barra por cada categoría, una al lado de otra.",
+      "Haz cada barra tan alta como el número de la tabla: 5 se dibuja con 5 cuadritos.",
+      "Escribe el nombre de cada barra abajo y un título al gráfico."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Tabla: papa 5 y yuca 3. ¿Cómo dibujas las barras?",
+        "desarrollo": "Para papa pinto 5 cuadritos hacia arriba. Para yuca pinto 3 cuadritos.",
+        "respuesta": "La barra de la papa es más alta que la de la yuca."
+      },
+      {
+        "situacion": "Tabla de mascotas del salón: gato 4, perro 7, loro 2. ¿Cuál barra es la más alta?",
+        "desarrollo": "Comparo los números: 7 es el mayor.",
+        "respuesta": "La barra del perro es la más alta."
+      },
+      {
+        "situacion": "Tomás dibujó 3 barras pero no escribió sus nombres. ¿Qué le falta?",
+        "desarrollo": "Sin nombres abajo no se sabe qué muestra cada barra.",
+        "respuesta": "Le falta escribir el nombre de cada barra y un título."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dibujar la barra con otra altura que la de la tabla.",
+        "correccion": "Cuenta los cuadritos de cada barra y compáralos con el número."
+      },
+      {
+        "error": "Olvidar escribir los nombres bajo las barras.",
+        "correccion": "Cada barra debe tener su nombre abajo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Barra",
+        "significado": "Rectángulo que sube y muestra cuántos hay."
+      },
+      {
+        "termino": "Categoría",
+        "significado": "Cada grupo que se compara, como perro o gato."
+      },
+      {
+        "termino": "Gráfico de barras",
+        "significado": "Dibujo con barras que sirve para comparar cantidades."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En la tabla, la barra de manzanas debe mostrar 4 niños. ¿Cuántos cuadritos pintas en esa barra? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un cuadrito por cada niño.",
+          "La tabla dice 4 niños.",
+          "Pinta 4 cuadritos hacia arriba."
+        ],
+        "retroalimentacion": "Para 4 niños pintas 4 cuadritos en la barra."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un gráfico de barras, ¿qué se escribe debajo de cada barra?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El nombre de la categoría"
+          },
+          {
+            "id": "b",
+            "texto": "El precio de un sol"
+          },
+          {
+            "id": "c",
+            "texto": "Una foto del colegio"
+          },
+          {
+            "id": "d",
+            "texto": "Nada, queda en blanco"
+          }
+        ],
+        "pistas": [
+          "Las barras comparan categorías.",
+          "Mira abajo de cada barra: debes saber qué muestra.",
+          "Se escribe el nombre, como perro o gato."
+        ],
+        "retroalimentacion": "Debajo de cada barra va el nombre de la categoría para saber qué muestra. Sin nombre no se entiende el gráfico."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un gráfico de barras verticales, las barras suben hacia arriba.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Vertical es como un árbol, de pie.",
+          "La palabra vertical dice que va de abajo hacia arriba.",
+          "Las barras verticales se paran y suben."
+        ],
+        "retroalimentacion": "Es verdadero: en un gráfico de barras verticales las barras suben hacia arriba."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la tabla, Iquitos tiene 7 niños y Cusco tiene 4. ¿Qué barra es más alta?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La de Cusco"
+          },
+          {
+            "id": "b",
+            "texto": "La de Iquitos"
+          },
+          {
+            "id": "c",
+            "texto": "Las dos son iguales"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguna"
+          }
+        ],
+        "pistas": [
+          "Compara 7 y 4.",
+          "7 es mayor que 4.",
+          "La barra más alta es la del número mayor."
+        ],
+        "retroalimentacion": "La barra de Iquitos es más alta porque 7 es mayor que 4."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tabla: arroz 5, fideo 3, lentejas 6. ¿Cuántos cuadritos pintas en total entre las tres barras? Escribe solo el número.",
+        "respuesta": 14,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Pinta 5 cuadritos de arroz, 3 de fideo y 6 de lentejas.",
+          "Suma 5 + 3 primero.",
+          "5 + 3 = 8 y 8 + 6 = 14."
+        ],
+        "retroalimentacion": "En total son 5 + 3 + 6 = 14 cuadritos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Las barras miden: A 2, B 5, C 3. ¿Qué barra es la más alta? Escribe A, B o C.",
+        "respuesta": "B",
+        "alternativasAceptadas": [
+          "b",
+          "la b",
+          "barra b"
+        ],
+        "pistas": [
+          "Mira cuál número es el mayor.",
+          "Compara 2, 5 y 3.",
+          "El 5 es el mayor."
+        ],
+        "retroalimentacion": "La barra B mide 5 y es la más alta; A mide 2 y C mide 3."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la tabla, yuca vale 4 y camote vale 6. Entonces la barra de la yuca es más alta que la del camote.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 4 y 6.",
+          "4 es menos que 6.",
+          "La barra del camote es más alta."
+        ],
+        "retroalimentacion": "Es falso: 4 es menor que 6, así que la barra de la yuca es más baja."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La tabla dice: gato 5, perro 8, loro 2. Ana dibujó barras de 5, 7 y 2. ¿Qué error cometió?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La barra del gato tiene 1 cuadrito de más."
+          },
+          {
+            "id": "b",
+            "texto": "La barra del loro debe ser más alta."
+          },
+          {
+            "id": "c",
+            "texto": "La barra del perro debe tener 8 cuadritos y tiene 7."
+          },
+          {
+            "id": "d",
+            "texto": "No se equivocó."
+          }
+        ],
+        "pistas": [
+          "Compara cada barra con su número en la tabla.",
+          "El gato (5) y el loro (2) coinciden.",
+          "El perro debe ser 8 y Ana puso 7."
+        ],
+        "retroalimentacion": "El perro debe tener 8 cuadritos y Ana dibujó 7. Las barras del gato y del loro están bien."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Tres amigos votaron por frutas. Mango tiene 8 votos y fresa tiene 7. En total votaron 20 niños. ¿Cuántos cuadritos pinta la barra de plátano? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Falta el dato del plátano. Suma primero lo que sí sabes.",
+          "8 + 7 = 15 votos entre mango y fresa.",
+          "20 − 15 = ?"
+        ],
+        "retroalimentacion": "Mango y fresa suman 15 y 20 − 15 = 5, así que la barra de plátano lleva 5 cuadritos."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Roberto dibujó 3 barras de colores pero no escribió el nombre de ninguna. ¿Cuál es el problema?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Las barras deberían ser horizontales."
+          },
+          {
+            "id": "b",
+            "texto": "No se sabe a qué categoría pertenece cada barra."
+          },
+          {
+            "id": "c",
+            "texto": "Las barras son muy altas."
+          },
+          {
+            "id": "d",
+            "texto": "Falta pintar más colores."
+          }
+        ],
+        "pistas": [
+          "Piensa: ¿puedes saber qué mide cada barra?",
+          "Lo que une la barra con la tabla es su nombre.",
+          "Sin nombre, nadie sabe a qué categoría corresponde."
+        ],
+        "retroalimentacion": "El problema es que no se sabe a qué categoría pertenece cada barra. Hay que escribir los nombres abajo."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un gráfico, la barra de A mide 3 cuadritos. La barra de B mide 2 cuadritos más que la de A. La barra de C mide 1 cuadrito menos que la de B. ¿Cuánto mide la barra de C? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla primero cuánto mide B.",
+          "B mide 3 + 2 = 5.",
+          "C mide 1 menos que B: 5 − 1."
+        ],
+        "retroalimentacion": "B mide 3 + 2 = 5 y C mide 1 menos: 5 − 1 = 4 cuadritos."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Tabla: sol 4, lluvia 6, nube 2, viento 6. ¿Qué dos barras miden lo mismo? Escribe sus nombres con una «y» en medio.",
+        "respuesta": "lluvia y viento",
+        "alternativasAceptadas": [
+          "viento y lluvia"
+        ],
+        "pistas": [
+          "Busca dos números iguales en la tabla.",
+          "Hay dos números 6.",
+          "El 6 es de lluvia y también de viento."
+        ],
+        "retroalimentacion": "Lluvia y viento tienen 6, así que sus barras miden lo mismo."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.leer-pictograma",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-P2-03"
+    ],
+    "bloque": "Gráficos y pictogramas",
+    "nombre": "Lectura de pictogramas donde un símbolo vale dos",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Lee cuántos hay de cada categoría en un pictograma, incluso cuando el símbolo vale dos.",
+    "palabrasClave": [
+      "pictograma",
+      "leer datos",
+      "símbolo vale dos",
+      "medio símbolo",
+      "contar de 2 en 2"
+    ],
+    "prerrequisitos": [
+      "mat.p2.pictograma-dos"
+    ],
+    "ordenSugerido": 96,
+    "ideaCentral": "Para leer un pictograma, mira cuánto vale cada símbolo y cuenta de 2 en 2. Si ves medio símbolo, súmale 1.",
+    "pasos": [
+      "Busca la clave: cuánto vale cada símbolo.",
+      "Elige la fila que te piden y cuenta sus símbolos de 2 en 2.",
+      "Si hay medio símbolo, súmale 1.",
+      "Escribe el resultado con la cosa que contaste, por ejemplo «8 paltas»."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Pictograma de mercado: cada ★ vale 2. Las papas tienen ★★★★. ¿Cuántas papas hay?",
+        "desarrollo": "Cuento de 2 en 2: 2, 4, 6, 8.",
+        "respuesta": "Hay 8 papas."
+      },
+      {
+        "situacion": "En el pictograma de la chacra, los pollos tienen ★★★☆ (★ vale 2, ☆ vale 1). ¿Cuántos pollos hay?",
+        "desarrollo": "3 ★ valen 6. La ☆ vale 1. Sumo 6 + 1.",
+        "respuesta": "Hay 7 pollos."
+      },
+      {
+        "situacion": "Mira estas dos filas: peras ★★★ y duraznos ★★★★★. ¿Qué fruta tiene más?",
+        "desarrollo": "Peras: 6. Duraznos: 10. Comparo 6 y 10.",
+        "respuesta": "Hay más duraznos: 4 más que peras."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar los símbolos como si cada uno valiera 1.",
+        "correccion": "Antes de contar mira la clave: aquí cada ★ vale 2."
+      },
+      {
+        "error": "Dar al medio símbolo el valor de 2.",
+        "correccion": "El medio símbolo vale 1, la mitad de 2."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Clave",
+        "significado": "Parte del pictograma que dice cuánto vale cada símbolo."
+      },
+      {
+        "termino": "Símbolo",
+        "significado": "Dibujo que representa una cantidad."
+      },
+      {
+        "termino": "Medio símbolo",
+        "significado": "Símbolo cortado por la mitad; vale la mitad."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Mira el pictograma. ¿Cuántas paltas hay? Escribe solo el número.",
+        "lectura": "Frutas del mercado (cada ★ vale 2)\nChirimoyas: ★★★★\nPaltas: ★★★\nLimones: ★★★★★\nTunas: ★",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero lee la clave: cada ★ vale 2.",
+          "La fila de paltas tiene 3 ★.",
+          "Cuenta de 2 en 2: 2, 4, 6."
+        ],
+        "retroalimentacion": "Las paltas tienen 3 ★ que valen 2 cada una: 2 + 2 + 2 = 6."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Mira el pictograma. ¿Cuántos limones hay? Escribe solo el número.",
+        "lectura": "Frutas del mercado (cada ★ vale 2)\nChirimoyas: ★★★★\nPaltas: ★★★\nLimones: ★★★★★\nTunas: ★",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada ★ vale 2.",
+          "Cuenta cuántas ★ tiene la fila de limones: son 5.",
+          "Salta de 2 en 2: 2, 4, 6, 8, 10."
+        ],
+        "retroalimentacion": "Los limones tienen 5 ★: 5 × 2 = 10. Un error es decir 5 por contar solo las ★."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira el pictograma. ¿Qué fruta tiene menos?",
+        "lectura": "Frutas del mercado (cada ★ vale 2)\nChirimoyas: ★★★★\nPaltas: ★★★\nLimones: ★★★★★\nTunas: ★",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Chirimoyas"
+          },
+          {
+            "id": "b",
+            "texto": "Tunas"
+          },
+          {
+            "id": "c",
+            "texto": "Limones"
+          },
+          {
+            "id": "d",
+            "texto": "Paltas"
+          }
+        ],
+        "pistas": [
+          "Compara el largo de las filas.",
+          "Una fila solo tiene 1 ★.",
+          "La fila más corta es la de menos fruta."
+        ],
+        "retroalimentacion": "Las tunas tienen solo 1 ★ (2 tunas), así que son las que menos hay."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En este pictograma hay 8 chirimoyas.",
+        "lectura": "Frutas del mercado (cada ★ vale 2)\nChirimoyas: ★★★★\nPaltas: ★★★\nLimones: ★★★★★\nTunas: ★",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las ★ de la fila de chirimoyas.",
+          "Son 4 ★ y cada una vale 2.",
+          "2 + 2 + 2 + 2 = 8."
+        ],
+        "retroalimentacion": "Es verdadero: 4 ★ de 2 cada una dan 8 chirimoyas."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En el pictograma de la chacra, ¿cuántos cuyes hay? Escribe solo el número.",
+        "lectura": "Animales de la chacra (★ vale 2, ☆ vale 1)\nCuyes: ★★★☆\nPollos: ★★★★★\nPatos: ★★\nConejos: ★★☆",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta primero las ★ de la fila de cuyes: 3.",
+          "3 ★ valen 2, 4, 6.",
+          "Falta la ☆, que vale 1: 6 + 1."
+        ],
+        "retroalimentacion": "Las 3 ★ valen 6 y la ☆ vale 1: hay 7 cuyes. Dar a ☆ el valor 2 daría 8, que es un error."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En el pictograma de la chacra, ¿cuántos animales hay en total? Escribe solo el número.",
+        "lectura": "Animales de la chacra (★ vale 2, ☆ vale 1)\nCuyes: ★★★☆\nPollos: ★★★★★\nPatos: ★★\nConejos: ★★☆",
+        "respuesta": 26,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla cuánto vale cada fila: cuyes 7, pollos 10, patos 4, conejos 5.",
+          "Suma en parejas: 7 + 10 = 17 y 4 + 5 = 9.",
+          "17 + 9 = ?"
+        ],
+        "retroalimentacion": "Los animales son 7 + 10 + 4 + 5 = 26."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En el pictograma de la chacra, ¿qué animal tiene 5 en total? Escribe su nombre.",
+        "lectura": "Animales de la chacra (★ vale 2, ☆ vale 1)\nCuyes: ★★★☆\nPollos: ★★★★★\nPatos: ★★\nConejos: ★★☆",
+        "respuesta": "conejos",
+        "alternativasAceptadas": [
+          "los conejos",
+          "conejo",
+          "el conejo"
+        ],
+        "pistas": [
+          "Halla el valor de las filas pequeñas.",
+          "Prueba la fila que tiene ★★☆.",
+          "★★ valen 4 y ☆ vale 1: 4 + 1 = 5."
+        ],
+        "retroalimentacion": "Los conejos tienen ★★☆, que vale 4 + 1 = 5."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En el pictograma de la chacra, Ana dice: «Hay 2 patos porque veo 2 ★». ¿Qué le explicas?",
+        "lectura": "Animales de la chacra (★ vale 2, ☆ vale 1)\nCuyes: ★★★☆\nPollos: ★★★★★\nPatos: ★★\nConejos: ★★☆",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tiene razón: hay 2 patos."
+          },
+          {
+            "id": "b",
+            "texto": "Hay 4 patos porque cada ★ vale 2."
+          },
+          {
+            "id": "c",
+            "texto": "Hay 3 patos porque ★ vale 1,5."
+          },
+          {
+            "id": "d",
+            "texto": "Hay 5 patos porque hay una ☆."
+          }
+        ],
+        "pistas": [
+          "Ana contó los símbolos de uno en uno.",
+          "Mira la clave: ★ vale 2.",
+          "2 ★ valen 2 + 2."
+        ],
+        "retroalimentacion": "Cada ★ vale 2, así que las 2 ★ de los patos son 4 patos, no 2."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Mira el pictograma de cómo llegan al colegio. ¿Cuántos niños más llegan a pie que en bus? Escribe solo el número.",
+        "lectura": "Cómo llegan al colegio (★ vale 2 niños, ☆ vale 1 niño)\nA pie: ★★★★★\nEn bus: ★★★☆\nEn bici: ★★\nEn auto: ☆",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla cuántos niños llegan a pie: 5 ★ valen 10.",
+          "En bus: 3 ★ valen 6 y la ☆ vale 1.",
+          "Resta 10 − 7."
+        ],
+        "retroalimentacion": "A pie llegan 10 y en bus 7. La diferencia es 10 − 7 = 3 niños."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Mira el pictograma de cómo llegan al colegio. ¿Cuántos niños hay en total? Escribe solo el número.",
+        "lectura": "Cómo llegan al colegio (★ vale 2 niños, ☆ vale 1 niño)\nA pie: ★★★★★\nEn bus: ★★★☆\nEn bici: ★★\nEn auto: ☆",
+        "respuesta": 22,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla cuánto vale cada fila: 10, 7, 4 y 1.",
+          "Suma 10 + 7 = 17.",
+          "17 + 4 = 21 y 21 + 1 = ?"
+        ],
+        "retroalimentacion": "Los niños son 10 + 7 + 4 + 1 = 22."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si mañana llegan 2 niños más en bici, ¿cómo quedaría la fila de bici en el pictograma de cómo llegan al colegio?",
+        "lectura": "Cómo llegan al colegio (★ vale 2 niños, ☆ vale 1 niño)\nA pie: ★★★★★\nEn bus: ★★★☆\nEn bici: ★★\nEn auto: ☆",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "★★★"
+          },
+          {
+            "id": "b",
+            "texto": "★★"
+          },
+          {
+            "id": "c",
+            "texto": "★★★★"
+          },
+          {
+            "id": "d",
+            "texto": "★★☆"
+          }
+        ],
+        "pistas": [
+          "Primero halla cuántos llegan hoy en bici: 2 ★ = 4.",
+          "Con 2 niños más serían 4 + 2.",
+          "Son 6 niños, es decir, 6 ÷ 2 = 3 ★."
+        ],
+        "retroalimentacion": "Hoy son 4 niños en bici; con 2 más serían 6, que se dibuja con 3 ★."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En el pictograma de cómo llegan al colegio, los niños que van en bus son más que los de bici y auto juntos.",
+        "lectura": "Cómo llegan al colegio (★ vale 2 niños, ☆ vale 1 niño)\nA pie: ★★★★★\nEn bus: ★★★☆\nEn bici: ★★\nEn auto: ☆",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla los niños de bus: 3 ★ y una ☆.",
+          "Bus: 7. Bici: 4. Auto: 1.",
+          "Suma bici y auto: 4 + 1 y compara con 7."
+        ],
+        "retroalimentacion": "Bus tiene 7 niños, y bici más auto suman 4 + 1 = 5. Como 7 es mayor que 5, es verdadero."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.mayor-menor-frecuencia",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-P2-03"
+    ],
+    "bloque": "Gráficos y pictogramas",
+    "nombre": "Mayor y menor frecuencia",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Indica qué opción tiene más y cuál tiene menos en una tabla o gráfico.",
+    "palabrasClave": [
+      "más",
+      "menos",
+      "mayor",
+      "menor",
+      "tabla de datos"
+    ],
+    "prerrequisitos": [
+      "mat.p2.leer-tabla-conteo"
+    ],
+    "ordenSugerido": 97,
+    "ideaCentral": "En una tabla o gráfico, la opción que tiene el número mayor es la que tiene más. La que tiene el número menor es la que tiene menos.",
+    "pasos": [
+      "Lee todos los números de la tabla o mira todas las barras.",
+      "Busca el número más grande: esa opción tiene más.",
+      "Busca el número más pequeño: esa opción tiene menos.",
+      "Si dos opciones tienen el mismo número, hay un empate."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Tabla: gato 4, perro 7, loro 2. ¿Cuál tiene más y cuál menos?",
+        "desarrollo": "El mayor es 7 (perro). El menor es 2 (loro).",
+        "respuesta": "Más: perro. Menos: loro."
+      },
+      {
+        "situacion": "Frutas: papa 6, yuca 3, camote 6. ¿Cuál tiene más?",
+        "desarrollo": "Hay dos 6: la papa y el camote.",
+        "respuesta": "Hay empate entre papa y camote."
+      },
+      {
+        "situacion": "Barras: Cusco llega a 8 y Lima a 5. ¿Cuál barra es más baja?",
+        "desarrollo": "5 es menor que 8.",
+        "respuesta": "La barra de Lima."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Elegir el último de la lista como el mayor sin comparar.",
+        "correccion": "Compara todos los números, no solo los de los extremos."
+      },
+      {
+        "error": "Olvidar que puede haber empate.",
+        "correccion": "Si dos números son iguales, las dos opciones tienen lo mismo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Mayor",
+        "significado": "El número más grande."
+      },
+      {
+        "termino": "Menor",
+        "significado": "El número más pequeño."
+      },
+      {
+        "termino": "Empate",
+        "significado": "Cuando dos opciones tienen el mismo número."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira la tabla. ¿Qué deporte tiene más niños?",
+        "lectura": "Deporte favorito\nFútbol: 9 niños\nVóley: 6 niños\nBásquet: 4 niños\nNatación: 7 niños",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Fútbol"
+          },
+          {
+            "id": "b",
+            "texto": "Vóley"
+          },
+          {
+            "id": "c",
+            "texto": "Básquet"
+          },
+          {
+            "id": "d",
+            "texto": "Natación"
+          }
+        ],
+        "pistas": [
+          "Lee los cuatro números.",
+          "Busca el más grande.",
+          "El mayor número es 9."
+        ],
+        "retroalimentacion": "El fútbol tiene 9 niños, el número mayor de la tabla."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira la tabla. ¿Qué deporte tiene menos niños?",
+        "lectura": "Deporte favorito\nFútbol: 9 niños\nVóley: 6 niños\nBásquet: 4 niños\nNatación: 7 niños",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Fútbol"
+          },
+          {
+            "id": "b",
+            "texto": "Vóley"
+          },
+          {
+            "id": "c",
+            "texto": "Natación"
+          },
+          {
+            "id": "d",
+            "texto": "Básquet"
+          }
+        ],
+        "pistas": [
+          "Busca el número más pequeño.",
+          "Compara 9, 6, 4 y 7.",
+          "El menor es 4."
+        ],
+        "retroalimentacion": "El básquet tiene 4 niños, el número menor de la tabla."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la tabla de deportes, vóley tiene más niños que natación.",
+        "lectura": "Deporte favorito\nFútbol: 9 niños\nVóley: 6 niños\nBásquet: 4 niños\nNatación: 7 niños",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee cuántos niños eligieron vóley y cuántos natación.",
+          "Vóley tiene 6 y natación tiene 7.",
+          "6 es menor que 7."
+        ],
+        "retroalimentacion": "Es falso: vóley tiene 6 y natación 7, así que natación tiene más."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Mira la tabla de deportes. ¿Cuántos niños tiene el deporte que tiene más? Escribe solo el número.",
+        "lectura": "Deporte favorito\nFútbol: 9 niños\nVóley: 6 niños\nBásquet: 4 niños\nNatación: 7 niños",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee los cuatro números de la tabla de deportes.",
+          "El número más grande es el de la opción con más niños.",
+          "Esa opción es el fútbol: lee su número."
+        ],
+        "retroalimentacion": "El deporte con más niños es el fútbol, con 9."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira la tabla de frutas. ¿Qué fruta se vendió menos?",
+        "lectura": "Frutas que se vendieron hoy\nPapaya: 5\nNaranja: 8\nManzana: 3\nUva: 8",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Papaya"
+          },
+          {
+            "id": "b",
+            "texto": "Manzana"
+          },
+          {
+            "id": "c",
+            "texto": "Naranja"
+          },
+          {
+            "id": "d",
+            "texto": "Uva"
+          }
+        ],
+        "pistas": [
+          "Mira el número más pequeño.",
+          "Compara 5, 8, 3 y 8.",
+          "El menor es 3."
+        ],
+        "retroalimentacion": "Se vendieron menos manzanas: solo 3."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Mira la tabla de frutas. ¿Qué dos frutas se vendieron la misma cantidad? Escribe sus nombres con una «y».",
+        "lectura": "Frutas que se vendieron hoy\nPapaya: 5\nNaranja: 8\nManzana: 3\nUva: 8",
+        "respuesta": "naranja y uva",
+        "alternativasAceptadas": [
+          "uva y naranja"
+        ],
+        "pistas": [
+          "Busca dos números iguales.",
+          "Hay dos números 8.",
+          "Uno es de naranja y el otro de uva."
+        ],
+        "retroalimentacion": "Naranja y uva tienen 8 cada una: empatan."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la tabla de frutas, la papaya se vendió más que la manzana.",
+        "lectura": "Frutas que se vendieron hoy\nPapaya: 5\nNaranja: 8\nManzana: 3\nUva: 8",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los números de papaya y manzana.",
+          "Papaya tiene 5 y manzana tiene 3.",
+          "5 es mayor que 3."
+        ],
+        "retroalimentacion": "Es verdadero: papaya 5 y manzana 3, y 5 es mayor."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En la tabla de frutas, ¿cuántas frutas más se vendieron de naranja que de manzana? Escribe solo el número.",
+        "lectura": "Frutas que se vendieron hoy\nPapaya: 5\nNaranja: 8\nManzana: 3\nUva: 8",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee los dos números: naranja 8 y manzana 3.",
+          "Quieres saber cuánto más es 8 que 3.",
+          "8 − 3 = ?"
+        ],
+        "retroalimentacion": "Naranja 8 y manzana 3: 8 − 3 = 5 más."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la tabla de frutas, Rosa dice: «La uva se vendió más porque está al final de la lista». ¿Qué le explicas?",
+        "lectura": "Frutas que se vendieron hoy\nPapaya: 5\nNaranja: 8\nManzana: 3\nUva: 8",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tiene razón, la última siempre es la mayor."
+          },
+          {
+            "id": "b",
+            "texto": "La uva y la naranja se vendieron igual: 8 cada una."
+          },
+          {
+            "id": "c",
+            "texto": "La uva se vendió menos que todas."
+          },
+          {
+            "id": "d",
+            "texto": "La manzana se vendió más."
+          }
+        ],
+        "pistas": [
+          "El lugar en la lista no dice cuánto hay.",
+          "Mira el número de la uva y compáralo con la naranja.",
+          "Uva 8, naranja 8."
+        ],
+        "retroalimentacion": "Rosa se fija en el lugar y no en el número: la uva tiene 8, igual que la naranja."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "La tabla de deportes tiene 4 deportes. ¿Cuántos niños más hay en el deporte que tiene más que en el que tiene menos? Escribe solo el número.",
+        "lectura": "Deporte favorito\nFútbol: 9 niños\nVóley: 6 niños\nBásquet: 4 niños\nNatación: 7 niños",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla el mayor y el menor de la tabla.",
+          "El mayor es 9 y el menor es 4.",
+          "Resta 9 − 4."
+        ],
+        "retroalimentacion": "Fútbol tiene 9 y básquet tiene 4: 9 − 4 = 5 niños más."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la tabla de deportes, si se agrega un nuevo deporte con 10 niños, el fútbol sigue teniendo más.",
+        "lectura": "Deporte favorito\nFútbol: 9 niños\nVóley: 6 niños\nBásquet: 4 niños\nNatación: 7 niños",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara el número nuevo con el 9 del fútbol.",
+          "El nuevo deporte tiene 10.",
+          "10 es mayor que 9, así que el nuevo tiene más."
+        ],
+        "retroalimentacion": "Es falso: con 10 niños, el deporte nuevo tendría más que el fútbol (9)."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la tabla de frutas se vendieron 24 frutas. Si se quitan las de la manzana, ¿cuál fruta sigue siendo la que tiene menos?",
+        "lectura": "Frutas que se vendieron hoy\nPapaya: 5\nNaranja: 8\nManzana: 3\nUva: 8",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Papaya"
+          },
+          {
+            "id": "b",
+            "texto": "Naranja"
+          },
+          {
+            "id": "c",
+            "texto": "Uva"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguna: hay empate entre naranja y uva"
+          }
+        ],
+        "pistas": [
+          "Quita la manzana de la comparación.",
+          "Quedan papaya 5, naranja 8 y uva 8.",
+          "El menor de esos es 5."
+        ],
+        "retroalimentacion": "Sin la manzana, la papaya (5) es la que tiene menos; naranja y uva tienen 8 cada una."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.leer-barras",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-P2-03"
+    ],
+    "bloque": "Gráficos y pictogramas",
+    "nombre": "Lectura de gráficos de barras con eje numerado de 1 en 1",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Lee la cantidad de cada categoría en un gráfico de barras verticales.",
+    "palabrasClave": [
+      "gráfico de barras",
+      "leer barras",
+      "eje numerado",
+      "altura de la barra",
+      "datos"
+    ],
+    "prerrequisitos": [
+      "mat.p2.barras-verticales"
+    ],
+    "ordenSugerido": 115,
+    "ideaCentral": "Para leer una barra, mira hasta dónde sube y lee el número del eje de la izquierda. Ese número dice cuántos hay.",
+    "pasos": [
+      "Busca el nombre de la barra que te piden.",
+      "Sigue la barra hacia arriba con el dedo hasta su parte más alta.",
+      "Mira el número del eje que está a esa altura.",
+      "Responde con ese número y di de qué es."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una barra del gráfico sube hasta el 6 en el eje. ¿Cuántos niños eligieron esa fruta?",
+        "desarrollo": "La parte alta de la barra está a la altura del 6.",
+        "respuesta": "6 niños."
+      },
+      {
+        "situacion": "La barra del loro sube al 2 y la del gato al 5. ¿Cuál es más alta?",
+        "desarrollo": "5 es mayor que 2.",
+        "respuesta": "La barra del gato es más alta."
+      },
+      {
+        "situacion": "En otro gráfico, Lima llega al 9 y Cusco al 5. ¿Cuántos más eligieron Lima?",
+        "desarrollo": "Resto 9 − 5.",
+        "respuesta": "4 niños más eligieron Lima."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Leer el número que está al lado equivocado o al inicio de la barra.",
+        "correccion": "Mira la parte de arriba de la barra y busca el número de esa altura."
+      },
+      {
+        "error": "Confundir barras de categorías distintas.",
+        "correccion": "Lee primero el nombre debajo de la barra."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Eje",
+        "significado": "Línea con números que sirve para medir las barras."
+      },
+      {
+        "termino": "Barra",
+        "significado": "Rectángulo cuya altura dice cuántos hay."
+      },
+      {
+        "termino": "Categoría",
+        "significado": "Cada grupo que compara el gráfico."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Mira el gráfico. ¿Cuántos niños eligieron fresa? Escribe solo el número.",
+        "lectura": "Fruta favorita de los niños de 2.º (cada ██ es 1 niño)\n 7 |                   ██           \n 6 |   ██              ██           \n 5 |   ██              ██           \n 4 |   ██      ██      ██           \n 3 |   ██      ██      ██      ██   \n 2 |   ██      ██      ██      ██   \n 1 |   ██      ██      ██      ██   \n   +--------------------------------\n     Mango    Uva    Fresa    Piña  ",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la barra con el nombre Fresa.",
+          "Sube con el dedo hasta el tope de esa barra.",
+          "El número del eje a esa altura es el valor."
+        ],
+        "retroalimentacion": "La barra de fresa sube hasta el 7, así que 7 niños la eligieron."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Mira el gráfico. ¿Cuántos niños eligieron uva? Escribe solo el número.",
+        "lectura": "Fruta favorita de los niños de 2.º (cada ██ es 1 niño)\n 7 |                   ██           \n 6 |   ██              ██           \n 5 |   ██              ██           \n 4 |   ██      ██      ██           \n 3 |   ██      ██      ██      ██   \n 2 |   ██      ██      ██      ██   \n 1 |   ██      ██      ██      ██   \n   +--------------------------------\n     Mango    Uva    Fresa    Piña  ",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Encuentra la barra de uva, es una de las del medio.",
+          "Mira dónde termina la barra.",
+          "Termina en el 4 del eje."
+        ],
+        "retroalimentacion": "La barra de uva llega al 4: son 4 niños."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira el gráfico. ¿Cuál barra es la más alta?",
+        "lectura": "Fruta favorita de los niños de 2.º (cada ██ es 1 niño)\n 7 |                   ██           \n 6 |   ██              ██           \n 5 |   ██              ██           \n 4 |   ██      ██      ██           \n 3 |   ██      ██      ██      ██   \n 2 |   ██      ██      ██      ██   \n 1 |   ██      ██      ██      ██   \n   +--------------------------------\n     Mango    Uva    Fresa    Piña  ",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Piña"
+          },
+          {
+            "id": "b",
+            "texto": "Mango"
+          },
+          {
+            "id": "c",
+            "texto": "Uva"
+          },
+          {
+            "id": "d",
+            "texto": "Fresa"
+          }
+        ],
+        "pistas": [
+          "Compara hasta dónde sube cada barra.",
+          "La más alta llega al número mayor.",
+          "Llega al 7."
+        ],
+        "retroalimentacion": "La barra de fresa es la más alta porque llega al 7."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En el gráfico, la barra de piña llega al número 3.",
+        "lectura": "Fruta favorita de los niños de 2.º (cada ██ es 1 niño)\n 7 |                   ██           \n 6 |   ██              ██           \n 5 |   ██              ██           \n 4 |   ██      ██      ██           \n 3 |   ██      ██      ██      ██   \n 2 |   ██      ██      ██      ██   \n 1 |   ██      ██      ██      ██   \n   +--------------------------------\n     Mango    Uva    Fresa    Piña  ",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la barra con el nombre Piña.",
+          "Fíjate en el número en el que termina.",
+          "Termina en el 3 del eje."
+        ],
+        "retroalimentacion": "Es verdadero: la barra de piña llega a 3, así que 3 niños la eligieron."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Mira el gráfico de mascotas. ¿Cuántos niños eligieron gato o pez en total? Escribe solo el número.",
+        "lectura": "Mascota favorita (cada ██ es 1 niño)\n 8 |   ██                           \n 7 |   ██                           \n 6 |   ██                      ██   \n 5 |   ██      ██              ██   \n 4 |   ██      ██              ██   \n 3 |   ██      ██              ██   \n 2 |   ██      ██      ██      ██   \n 1 |   ██      ██      ██      ██   \n   +--------------------------------\n     Perro    Gato    Loro    Pez   ",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee cada barra: gato llega a 5 y pez llega a 6.",
+          "Suma los dos valores.",
+          "5 + 6 = ?"
+        ],
+        "retroalimentacion": "Gato tiene 5 y pez 6: 5 + 6 = 11 niños."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Mira el gráfico de mascotas. ¿Qué mascota eligieron 2 niños? Escribe su nombre.",
+        "lectura": "Mascota favorita (cada ██ es 1 niño)\n 8 |   ██                           \n 7 |   ██                           \n 6 |   ██                      ██   \n 5 |   ██      ██              ██   \n 4 |   ██      ██              ██   \n 3 |   ██      ██              ██   \n 2 |   ██      ██      ██      ██   \n 1 |   ██      ██      ██      ██   \n   +--------------------------------\n     Perro    Gato    Loro    Pez   ",
+        "respuesta": "loro",
+        "alternativasAceptadas": [
+          "el loro"
+        ],
+        "pistas": [
+          "Busca la barra más baja.",
+          "Mira cuál barra llega al número 2.",
+          "Es la mascota que habla y tiene plumas."
+        ],
+        "retroalimentacion": "La barra del loro llega al 2, así que 2 niños eligieron loro."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En el gráfico de mascotas, más niños eligieron pez que gato.",
+        "lectura": "Mascota favorita (cada ██ es 1 niño)\n 8 |   ██                           \n 7 |   ██                           \n 6 |   ██                      ██   \n 5 |   ██      ██              ██   \n 4 |   ██      ██              ██   \n 3 |   ██      ██              ██   \n 2 |   ██      ██      ██      ██   \n 1 |   ██      ██      ██      ██   \n   +--------------------------------\n     Perro    Gato    Loro    Pez   ",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee cuánto vale la barra del pez y la del gato.",
+          "Pez llega a 6 y gato llega a 5.",
+          "Compara 6 con 5."
+        ],
+        "retroalimentacion": "Es verdadero: pez tiene 6 y gato 5, y 6 es mayor que 5."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira el gráfico de mascotas. ¿A qué número llega la barra del gato?",
+        "lectura": "Mascota favorita (cada ██ es 1 niño)\n 8 |   ██                           \n 7 |   ██                           \n 6 |   ██                      ██   \n 5 |   ██      ██              ██   \n 4 |   ██      ██              ██   \n 3 |   ██      ██              ██   \n 2 |   ██      ██      ██      ██   \n 1 |   ██      ██      ██      ██   \n   +--------------------------------\n     Perro    Gato    Loro    Pez   ",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "5"
+          },
+          {
+            "id": "c",
+            "texto": "6"
+          },
+          {
+            "id": "d",
+            "texto": "8"
+          }
+        ],
+        "pistas": [
+          "Busca la barra con el nombre Gato.",
+          "Es más baja que la de perro y que la de pez.",
+          "Llega al número que está entre 2 y 6."
+        ],
+        "retroalimentacion": "La barra del gato termina en el 5. El 8 es de perro, el 6 de pez y el 2 de loro."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Mira el gráfico de lugares. ¿Cuántos niños votaron en total? Escribe solo el número.",
+        "lectura": "Lugar favorito para pasear (cada ██ es 1 niño)\n 9 |           ██                   \n 8 |           ██                   \n 7 |           ██      ██           \n 6 |           ██      ██           \n 5 |   ██      ██      ██           \n 4 |   ██      ██      ██      ██   \n 3 |   ██      ██      ██      ██   \n 2 |   ██      ██      ██      ██   \n 1 |   ██      ██      ██      ██   \n   +--------------------------------\n     Cusco    Lima  Iquitos Arequipa",
+        "respuesta": 25,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee el valor de cada barra: Cusco 5, Lima 9, Iquitos 7, Arequipa 4.",
+          "Suma de a dos: 5 + 9 y 7 + 4.",
+          "14 + 11 = ?"
+        ],
+        "retroalimentacion": "Votaron 5 + 9 + 7 + 4 = 25 niños. Si sumaste solo la barra más alta, olvidaste las otras."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Mira el gráfico de lugares. ¿Cuántos niños más eligieron Lima que Arequipa? Escribe solo el número.",
+        "lectura": "Lugar favorito para pasear (cada ██ es 1 niño)\n 9 |           ██                   \n 8 |           ██                   \n 7 |           ██      ██           \n 6 |           ██      ██           \n 5 |   ██      ██      ██           \n 4 |   ██      ██      ██      ██   \n 3 |   ██      ██      ██      ██   \n 2 |   ██      ██      ██      ██   \n 1 |   ██      ██      ██      ██   \n   +--------------------------------\n     Cusco    Lima  Iquitos Arequipa",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee hasta dónde llegan las barras de Lima y de Arequipa.",
+          "Lima llega a 9 y Arequipa a 4.",
+          "Resta 9 − 4."
+        ],
+        "retroalimentacion": "Lima tiene 9 y Arequipa 4: 9 − 4 = 5 niños más."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira el gráfico de lugares. Cusco y Arequipa juntos suman lo mismo que una sola barra. ¿Cuál?",
+        "lectura": "Lugar favorito para pasear (cada ██ es 1 niño)\n 9 |           ██                   \n 8 |           ██                   \n 7 |           ██      ██           \n 6 |           ██      ██           \n 5 |   ██      ██      ██           \n 4 |   ██      ██      ██      ██   \n 3 |   ██      ██      ██      ██   \n 2 |   ██      ██      ██      ██   \n 1 |   ██      ██      ██      ██   \n   +--------------------------------\n     Cusco    Lima  Iquitos Arequipa",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Iquitos"
+          },
+          {
+            "id": "b",
+            "texto": "Cusco"
+          },
+          {
+            "id": "c",
+            "texto": "Lima"
+          },
+          {
+            "id": "d",
+            "texto": "Arequipa"
+          }
+        ],
+        "pistas": [
+          "Suma los valores de Cusco y Arequipa.",
+          "5 + 4 = 9.",
+          "Busca la barra que llega a 9."
+        ],
+        "retroalimentacion": "Cusco (5) más Arequipa (4) dan 9, que es el valor de la barra de Lima."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Mira el gráfico de lugares. Dos lugares suman 16 niños. ¿Cuáles son? Escribe sus nombres con una «y».",
+        "lectura": "Lugar favorito para pasear (cada ██ es 1 niño)\n 9 |           ██                   \n 8 |           ██                   \n 7 |           ██      ██           \n 6 |           ██      ██           \n 5 |   ██      ██      ██           \n 4 |   ██      ██      ██      ██   \n 3 |   ██      ██      ██      ██   \n 2 |   ██      ██      ██      ██   \n 1 |   ██      ██      ██      ██   \n   +--------------------------------\n     Cusco    Lima  Iquitos Arequipa",
+        "respuesta": "lima y iquitos",
+        "alternativasAceptadas": [
+          "iquitos y lima"
+        ],
+        "pistas": [
+          "Prueba sumando los valores más grandes.",
+          "Lima es 9; ¿qué número falta para llegar a 16?",
+          "16 − 9 = 7. ¿Qué barra llega a 7?"
+        ],
+        "retroalimentacion": "Lima (9) más Iquitos (7) suman 16."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.comparar-datos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-P2-03"
+    ],
+    "bloque": "Gráficos y pictogramas",
+    "nombre": "Comparación de datos: cuántos más y cuántos menos",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Compara las cantidades de dos categorías de un gráfico y halla la diferencia.",
+    "palabrasClave": [
+      "cuántos más",
+      "cuántos menos",
+      "diferencia",
+      "comparar",
+      "resta"
+    ],
+    "prerrequisitos": [
+      "mat.p2.mayor-menor-frecuencia",
+      "mat.p2.problemas-comparar"
+    ],
+    "ordenSugerido": 116,
+    "ideaCentral": "Para saber cuántos más o cuántos menos hay entre dos opciones, resta el número menor al mayor. Esa resta es la diferencia.",
+    "pasos": [
+      "Lee el número de cada opción.",
+      "Decide cuál es el mayor y cuál el menor.",
+      "Resta: mayor − menor.",
+      "Responde con una frase: «hay … más» o «hay … menos»."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En la tabla, 9 niños eligieron fútbol y 6 vóley. ¿Cuántos más eligieron fútbol?",
+        "desarrollo": "Resto 9 − 6.",
+        "respuesta": "3 niños más eligieron fútbol."
+      },
+      {
+        "situacion": "Doña Rosa vendió 5 papayas y 12 naranjas. ¿Cuántas papayas menos que naranjas vendió?",
+        "desarrollo": "Resto 12 − 5.",
+        "respuesta": "Vendió 7 papayas menos."
+      },
+      {
+        "situacion": "En un gráfico, la barra de Lima llega a 8 y la de Cusco a 5. ¿Cuántos más hay en Lima?",
+        "desarrollo": "Comparo 8 y 5: 8 − 5.",
+        "respuesta": "3 más en Lima."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar los dos números en vez de restarlos.",
+        "correccion": "«Cuántos más» pide la diferencia: se resta."
+      },
+      {
+        "error": "Restar al revés (menor − mayor).",
+        "correccion": "Siempre empieza por el número mayor."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Diferencia",
+        "significado": "Resultado de restar: cuánto más o cuánto menos."
+      },
+      {
+        "termino": "Más",
+        "significado": "Hay una cantidad mayor."
+      },
+      {
+        "termino": "Menos",
+        "significado": "Hay una cantidad menor."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En el gráfico de árboles, Molle llega a 7 y Tara llega a 3. ¿Cuántos árboles más plantaron de molle que de tara? Escribe solo el número.",
+        "lectura": "Árboles que plantaron los niños (cada ██ es 1 árbol)\n 7 |           ██           \n 6 |           ██           \n 5 |           ██      ██   \n 4 |           ██      ██   \n 3 |   ██      ██      ██   \n 2 |   ██      ██      ██   \n 1 |   ██      ██      ██   \n   +------------------------\n      Tara   Molle  Quinual ",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee los dos números: 7 y 3.",
+          "Quieres saber cuánto más es 7 que 3.",
+          "7 − 3 = ?"
+        ],
+        "retroalimentacion": "Hay 7 − 3 = 4 árboles más de molle. Si sumaste 7 + 3 te saldría 10, que no es la diferencia."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En el taller de teatro hay 12 niños y en el de dibujo 8. ¿Cuántos niños menos hay en dibujo? Escribe solo el número.",
+        "lectura": "Niños en dos talleres\nTeatro: 12\nDibujo: 8",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los números 12 y 8.",
+          "El mayor es 12 y el menor es 8.",
+          "12 − 8."
+        ],
+        "retroalimentacion": "Dibujo tiene 12 − 8 = 4 niños menos que teatro."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si en un gráfico una barra llega a 5 y otra a 2, la primera tiene 3 más.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta el número mayor menos el menor.",
+          "Haz 5 − 2.",
+          "5 − 2 da 3."
+        ],
+        "retroalimentacion": "Es verdadero: 5 − 2 = 3, así que la primera tiene 3 más."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Hay 9 cuyes y 6 conejos. ¿Cuántos cuyes más que conejos hay?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "3"
+          },
+          {
+            "id": "c",
+            "texto": "15"
+          },
+          {
+            "id": "d",
+            "texto": "4"
+          }
+        ],
+        "pistas": [
+          "Para saber cuántos más, resta.",
+          "9 − 6.",
+          "Cuenta desde 6 hasta 9."
+        ],
+        "retroalimentacion": "Hay 9 − 6 = 3 cuyes más. El 15 sería la suma, pero eso no es la diferencia."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En el gráfico de árboles, ¿cuántos árboles más plantaron de molle que de quinual? Escribe solo el número.",
+        "lectura": "Árboles que plantaron los niños (cada ██ es 1 árbol)\n 7 |           ██           \n 6 |           ██           \n 5 |           ██      ██   \n 4 |           ██      ██   \n 3 |   ██      ██      ██   \n 2 |   ██      ██      ██   \n 1 |   ██      ██      ██   \n   +------------------------\n      Tara   Molle  Quinual ",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee las barras: molle 7 y quinual 5.",
+          "Quieres saber cuánto más es 7 que 5.",
+          "7 − 5."
+        ],
+        "retroalimentacion": "Molle tiene 7 y quinual 5: 7 − 5 = 2 árboles más."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En el gráfico de árboles, ¿qué dos barras se llevan 4 de diferencia?",
+        "lectura": "Árboles que plantaron los niños (cada ██ es 1 árbol)\n 7 |           ██           \n 6 |           ██           \n 5 |           ██      ██   \n 4 |           ██      ██   \n 3 |   ██      ██      ██   \n 2 |   ██      ██      ██   \n 1 |   ██      ██      ██   \n   +------------------------\n      Tara   Molle  Quinual ",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tara y quinual"
+          },
+          {
+            "id": "b",
+            "texto": "Molle y quinual"
+          },
+          {
+            "id": "c",
+            "texto": "Tara y molle"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguna pareja"
+          }
+        ],
+        "pistas": [
+          "Resta las barras de dos en dos: Tara 3, molle 7, quinual 5.",
+          "7 − 5 = 2 y 5 − 3 = 2: esas parejas no sirven.",
+          "Falta probar 7 − 3."
+        ],
+        "retroalimentacion": "Tara (3) y molle (7) se llevan 7 − 3 = 4. Las otras parejas se llevan solo 2."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la tabla de talleres, dibujo tiene 4 niños más que teatro.",
+        "lectura": "Niños en dos talleres\nTeatro: 12\nDibujo: 8",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee cuántos niños hay en cada taller.",
+          "Dibujo tiene 8 y teatro tiene 12.",
+          "El taller con más niños es el de teatro."
+        ],
+        "retroalimentacion": "Es falso: teatro tiene 12 y dibujo 8, así que teatro tiene 4 niños más."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El colegio tiene 15 sillas rojas y 9 sillas azules. ¿Cuántas sillas más hay rojas que azules? Escribe solo el número.",
+        "respuesta": "6",
+        "alternativasAceptadas": [
+          "seis"
+        ],
+        "pistas": [
+          "Para saber cuántas más, resta.",
+          "Resta el menor al mayor: 15 − 9.",
+          "15 − 10 = 5 y 5 + 1 = 6."
+        ],
+        "retroalimentacion": "Hay 15 − 9 = 6 sillas rojas más."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Los niños de 2.º plantaron 15 árboles de dos clases. 9 son eucaliptos. ¿Cuántos árboles más de eucalipto que de la otra clase plantaron? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero halla cuántos son de la otra clase: 15 − 9.",
+          "La otra clase tiene 6 árboles.",
+          "Ahora compara 9 con 6: 9 − 6."
+        ],
+        "retroalimentacion": "La otra clase tiene 15 − 9 = 6 árboles, y 9 − 6 = 3 eucaliptos más. Es un problema de dos pasos."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En la tabla de talleres, teatro tiene 12 niños y dibujo 8. Llegan 3 niños más a dibujo. ¿Cuántos niños menos tiene dibujo que teatro ahora? Escribe solo el número.",
+        "lectura": "Niños en dos talleres\nTeatro: 12\nDibujo: 8",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero actualiza dibujo: 8 + 3.",
+          "Dibujo ahora tiene 11 niños.",
+          "Compara 12 con 11."
+        ],
+        "retroalimentacion": "Dibujo queda con 8 + 3 = 11 niños y teatro tiene 12: la diferencia es 12 − 11 = 1."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Lima tiene 14 y Cusco tiene 9. Pepe dice: «Lima tiene 23 más». ¿Qué error cometió?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Contó 9 de más."
+          },
+          {
+            "id": "b",
+            "texto": "Restó pero se equivocó al llevar."
+          },
+          {
+            "id": "c",
+            "texto": "Comparó mal a Cusco con Iquitos."
+          },
+          {
+            "id": "d",
+            "texto": "Sumó 14 + 9 en vez de restar 14 − 9, que da 5."
+          }
+        ],
+        "pistas": [
+          "Mira el número 23: ¿de dónde sale?",
+          "14 + 9 = 23.",
+          "Para saber cuántos más, se resta: 14 − 9."
+        ],
+        "retroalimentacion": "Pepe sumó 14 + 9 = 23. Lo correcto es restar: 14 − 9 = 5 más en Lima."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En el mercado hay 18 kilos de papa. De camote hay 7 kilos menos que de papa. ¿Cuántos kilos de camote hay? Escribe solo el número.",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "«7 menos que 18» pide restar.",
+          "Parte de los 18 kilos de papa.",
+          "18 − 7 = ?"
+        ],
+        "retroalimentacion": "Hay 7 kilos menos que 18, es decir 18 − 7 = 11 kilos de camote."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.decisiones-con-datos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 25,
+    "capacidad": "Sustenta conclusiones o decisiones con base en la información obtenida",
+    "desempenosOrigen": [
+      "MAT-C25-P2-05"
+    ],
+    "bloque": "Gráficos y pictogramas",
+    "nombre": "Decisiones a partir de los datos",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Toma una decisión sencilla basada en un gráfico o tabla y explica por qué.",
+    "palabrasClave": [
+      "decisión",
+      "tabla",
+      "gráfico",
+      "más votado",
+      "justificar"
+    ],
+    "prerrequisitos": [
+      "mat.p2.mayor-menor-frecuencia"
+    ],
+    "ordenSugerido": 117,
+    "ideaCentral": "Los datos sirven para decidir. Mira qué opción tiene más (o menos) según lo que necesitas y explica tu decisión con los números.",
+    "pasos": [
+      "Lee bien la tabla o el gráfico.",
+      "Piensa qué necesitas decidir: lo que más gusta, lo que más falta, etc.",
+      "Escoge la opción que cumple eso comparando los números.",
+      "Explica: «Elijo … porque tiene …»."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En la tabla, 11 niños quieren lúcuma, 8 chocolate y 5 fresa. ¿Qué sabor conviene comprar en mayor cantidad?",
+        "desarrollo": "El mayor número es 11: lúcuma.",
+        "respuesta": "Conviene comprar más lúcuma, porque la quieren más niños."
+      },
+      {
+        "situacion": "Solo alcanza para un juego nuevo. Fútbol tiene 12 votos y canicas 4. ¿Cuál compras?",
+        "desarrollo": "Compro el que más niños quieren: fútbol.",
+        "respuesta": "Fútbol, porque 12 es mayor que 4."
+      },
+      {
+        "situacion": "El color rojo y el azul tienen 7 votos cada uno. ¿Qué haces?",
+        "desarrollo": "No hay un solo ganador: empatan.",
+        "respuesta": "Se vota otra vez entre rojo y azul."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Elegir por gusto propio y no por los datos.",
+        "correccion": "Antes de decidir, mira cuál opción tiene el número que necesitas."
+      },
+      {
+        "error": "No explicar por qué se eligió.",
+        "correccion": "Siempre usa «porque» y di el número que lo muestra."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Decisión",
+        "significado": "Elegir algo después de pensar."
+      },
+      {
+        "termino": "Votos",
+        "significado": "Cantidad de personas que eligieron una opción."
+      },
+      {
+        "termino": "Justificar",
+        "significado": "Explicar por qué elegiste con datos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira la tabla. La profesora compra helados para todos. ¿Qué sabor debe comprar en mayor cantidad?",
+        "lectura": "Sabor de helado que quieren los niños\nFresa: 5\nLúcuma: 11\nChocolate: 8",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Fresa"
+          },
+          {
+            "id": "b",
+            "texto": "Lúcuma"
+          },
+          {
+            "id": "c",
+            "texto": "Chocolate"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguno"
+          }
+        ],
+        "pistas": [
+          "Busca el sabor con el número mayor.",
+          "Compara 5, 11 y 8.",
+          "El mayor es 11."
+        ],
+        "retroalimentacion": "Debe comprar más helados de lúcuma, porque 11 niños los quieren y es el número mayor."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Mira la tabla de helados. ¿Cuántos niños quieren el sabor que se compra en mayor cantidad? Escribe solo el número.",
+        "lectura": "Sabor de helado que quieren los niños\nFresa: 5\nLúcuma: 11\nChocolate: 8",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero halla cuál sabor tiene más.",
+          "Es la lúcuma.",
+          "Lee el número de la lúcuma."
+        ],
+        "retroalimentacion": "Lúcuma es el sabor que más niños quieren: 11."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Según la tabla de helados, conviene comprar menos helados de fresa que de lúcuma.",
+        "lectura": "Sabor de helado que quieren los niños\nFresa: 5\nLúcuma: 11\nChocolate: 8",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la fresa con la lúcuma.",
+          "Fresa tiene 5 y lúcuma tiene 11.",
+          "Si hay menos niños que quieren fresa, se compran menos."
+        ],
+        "retroalimentacion": "Es verdadero: fresa tiene 5 y lúcuma 11, por eso se compran menos de fresa."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Mira la tabla de juegos. ¿Qué juego eligen más niños? Escribe su nombre.",
+        "lectura": "Juego del recreo\nSoga: 9\nTrompo: 6\nCanicas: 4\nFútbol: 12",
+        "respuesta": "fútbol",
+        "alternativasAceptadas": [
+          "futbol",
+          "el fútbol",
+          "el futbol"
+        ],
+        "pistas": [
+          "Busca el número más grande.",
+          "Compara 9, 6, 4 y 12.",
+          "El 12 es el mayor."
+        ],
+        "retroalimentacion": "El fútbol tiene 12 niños, el número mayor."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira la tabla de juegos. Solo alcanza para comprar un juego. ¿Cuál conviene y por qué?",
+        "lectura": "Juego del recreo\nSoga: 9\nTrompo: 6\nCanicas: 4\nFútbol: 12",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Soga, porque está primera en la lista."
+          },
+          {
+            "id": "b",
+            "texto": "Trompo, porque está en el medio."
+          },
+          {
+            "id": "c",
+            "texto": "Canicas, porque tienen menos niños."
+          },
+          {
+            "id": "d",
+            "texto": "Fútbol, porque es el que más niños quieren."
+          }
+        ],
+        "pistas": [
+          "Piensa en qué ayuda a más niños.",
+          "Hay que mirar los números, no el orden.",
+          "El número mayor es el de fútbol."
+        ],
+        "retroalimentacion": "Conviene el fútbol porque lo quieren 12 niños, más que cualquier otro juego."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Mira la tabla de juegos. Si compran los dos juegos que más niños quieren, ¿cuántos niños eligieron esos dos juegos juntos? Escribe solo el número.",
+        "lectura": "Juego del recreo\nSoga: 9\nTrompo: 6\nCanicas: 4\nFútbol: 12",
+        "respuesta": 21,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla los dos juegos con los números mayores.",
+          "Son fútbol con 12 y soga con 9.",
+          "Suma 12 + 9."
+        ],
+        "retroalimentacion": "Fútbol (12) y soga (9) son los más elegidos y suman 21 niños."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Según el gráfico del paseo, conviene ir al parque porque su barra es la más alta.",
+        "lectura": "Lugar para el paseo del colegio (cada ██ es 1 niño)\n 9 |           ██           \n 8 |           ██           \n 7 |           ██           \n 6 |   ██      ██           \n 5 |   ██      ██      ██   \n 4 |   ██      ██      ██   \n 3 |   ██      ██      ██   \n 2 |   ██      ██      ██   \n 1 |   ██      ██      ██   \n   +------------------------\n     Chacra  Museo   Parque ",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las alturas de las barras.",
+          "Parque llega a 5 y museo llega a 9.",
+          "La barra más alta es otra."
+        ],
+        "retroalimentacion": "Es falso: la barra más alta es la del museo (9). El parque llega solo a 5."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Según la tabla de helados, la profesora compra un helado por cada niño. ¿Cuántos helados compra en total? Escribe solo el número.",
+        "lectura": "Sabor de helado que quieren los niños\nFresa: 5\nLúcuma: 11\nChocolate: 8",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los niños de los tres sabores.",
+          "5 + 11 = 16.",
+          "16 + 8 = ?"
+        ],
+        "retroalimentacion": "Compra 5 + 11 + 8 = 24 helados, uno por niño."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira la tabla de colores. Rojo y azul tienen 7 votos cada uno. ¿Cuál es una decisión justa?",
+        "lectura": "Color de polo para el equipo\nRojo: 7\nAzul: 7\nVerde: 4",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Elegir rojo porque está primero."
+          },
+          {
+            "id": "b",
+            "texto": "Votar otra vez entre rojo y azul porque empataron."
+          },
+          {
+            "id": "c",
+            "texto": "Elegir verde porque tiene menos."
+          },
+          {
+            "id": "d",
+            "texto": "Elegir azul porque a la profesora le gusta."
+          }
+        ],
+        "pistas": [
+          "Dos colores tienen el mismo número de votos.",
+          "Elegir por el orden de la lista no es justo.",
+          "Lo justo es repetir la votación entre los que empataron."
+        ],
+        "retroalimentacion": "Como rojo y azul empatan con 7, lo justo es votar otra vez entre los dos."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Mira la tabla de juegos. Si 3 niños que querían soga cambian de opinión y eligen fútbol, ¿cuántos niños eligen fútbol ahora? Escribe solo el número.",
+        "lectura": "Juego del recreo\nSoga: 9\nTrompo: 6\nCanicas: 4\nFútbol: 12",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fútbol tenía 12 niños.",
+          "Los 3 que cambian se suman al fútbol.",
+          "12 + 3 = ?"
+        ],
+        "retroalimentacion": "Fútbol tenía 12 y se suman 3 niños: 12 + 3 = 15. Soga queda con 6."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Mira la tabla de helados. La profesora solo compra helados de lúcuma y chocolate, uno por niño. ¿Cuántos helados compra? Escribe solo el número.",
+        "lectura": "Sabor de helado que quieren los niños\nFresa: 5\nLúcuma: 11\nChocolate: 8",
+        "respuesta": 19,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Deja fuera la fresa.",
+          "Lúcuma tiene 11 y chocolate tiene 8.",
+          "11 + 8 = ?"
+        ],
+        "retroalimentacion": "Compra 11 + 8 = 19 helados. Si incluyes la fresa llegarías a 24, pero no la compra."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Con la tabla de juegos, el fútbol debe elegirse porque a todos los niños les gusta.",
+        "lectura": "Juego del recreo\nSoga: 9\nTrompo: 6\nCanicas: 4\nFútbol: 12",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuántos niños eligieron fútbol: 12.",
+          "Hay más niños en la tabla: 9, 6 y 4 eligieron otros juegos.",
+          "Sumando todos hay 31 niños; no todos eligieron fútbol."
+        ],
+        "retroalimentacion": "Es falso: 12 niños eligieron fútbol, pero otros 19 eligieron otros juegos. Se elige fútbol porque es el que más votos tiene, no porque guste a todos."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "mat.p2.conclusiones-grafico",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 25,
+    "capacidad": "Sustenta conclusiones o decisiones con base en la información obtenida",
+    "desempenosOrigen": [
+      "MAT-C25-P2-05"
+    ],
+    "bloque": "Gráficos y pictogramas",
+    "nombre": "¿Qué nos dice el gráfico?",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Formula conclusiones sencillas a partir de un pictograma o gráfico de barras.",
+    "palabrasClave": [
+      "conclusión",
+      "gráfico",
+      "pictograma",
+      "gráfico de barras",
+      "verdadero o falso"
+    ],
+    "prerrequisitos": [
+      "mat.p2.leer-barras"
+    ],
+    "ordenSugerido": 118,
+    "ideaCentral": "Una conclusión es algo que puedes asegurar mirando el gráfico, como cuál opción tiene más o cuántos más hay. Siempre se comprueba con los números.",
+    "pasos": [
+      "Lee el título y los nombres del gráfico.",
+      "Lee los números de cada barra o símbolo.",
+      "Compara los números: más, menos, igual, diferencia.",
+      "Escribe tu conclusión con «porque» y los números."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En un gráfico, Luis leyó 9 libros y Ana 4. ¿Qué conclusión puedes dar?",
+        "desarrollo": "9 es mayor que 4, y 9 − 4 = 5.",
+        "respuesta": "Luis leyó más libros que Ana: 5 más."
+      },
+      {
+        "situacion": "Pictograma de clima (★ vale 2): soleado ★★★★★ y lluvioso ★★★★★★. ¿Qué concluyes?",
+        "desarrollo": "Soleado vale 10 y lluvioso 12.",
+        "respuesta": "Hubo más días de lluvia que de sol: 2 más."
+      },
+      {
+        "situacion": "Dos barras llegan a 4. ¿Qué concluyes?",
+        "desarrollo": "Los dos números son iguales.",
+        "respuesta": "Las dos categorías tienen la misma cantidad."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dar una conclusión que no sale del gráfico, como adivinar por qué pasa algo.",
+        "correccion": "Usa solo lo que muestra el gráfico."
+      },
+      {
+        "error": "Mirar solo la barra más alta y olvidar comparar con las demás.",
+        "correccion": "Compara todas las barras antes de concluir."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Conclusión",
+        "significado": "Idea que sacas al leer los datos."
+      },
+      {
+        "termino": "Pictograma",
+        "significado": "Gráfico con dibujos que representan cantidades."
+      },
+      {
+        "termino": "Comparar",
+        "significado": "Ver qué es más, menos o igual."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira el gráfico de cómo llegan al colegio. ¿Qué conclusión es correcta?",
+        "lectura": "Cómo llegan los niños al colegio (cada ██ es 1 niño)\n 8 |   ██                           \n 7 |   ██                           \n 6 |   ██      ██                   \n 5 |   ██      ██              ██   \n 4 |   ██      ██              ██   \n 3 |   ██      ██      ██      ██   \n 2 |   ██      ██      ██      ██   \n 1 |   ██      ██      ██      ██   \n   +--------------------------------\n     A pie   Combi    Bici    Auto  ",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La mayoría llega en bici."
+          },
+          {
+            "id": "b",
+            "texto": "La forma que más niños usan es llegar a pie."
+          },
+          {
+            "id": "c",
+            "texto": "Todos llegan en auto."
+          },
+          {
+            "id": "d",
+            "texto": "Nadie llega en combi."
+          }
+        ],
+        "pistas": [
+          "Mira cuál barra es la más alta.",
+          "A pie llega a 8, el número mayor.",
+          "La forma más usada es la de la barra más alta."
+        ],
+        "retroalimentacion": "A pie tiene la barra más alta (8), por eso es la forma que más niños usan."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Según el gráfico, llegan menos niños en bici que en auto.",
+        "lectura": "Cómo llegan los niños al colegio (cada ██ es 1 niño)\n 8 |   ██                           \n 7 |   ██                           \n 6 |   ██      ██                   \n 5 |   ██      ██              ██   \n 4 |   ██      ██              ██   \n 3 |   ██      ██      ██      ██   \n 2 |   ██      ██      ██      ██   \n 1 |   ██      ██      ██      ██   \n   +--------------------------------\n     A pie   Combi    Bici    Auto  ",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las barras de bici y auto.",
+          "Bici llega a 3 y auto llega a 5.",
+          "3 es menor que 5."
+        ],
+        "retroalimentacion": "Es verdadero: bici tiene 3 y auto 5, así que menos niños llegan en bici."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Según el gráfico de cómo llegan al colegio, ¿cuántos niños usan la forma que menos usan? Escribe solo el número.",
+        "lectura": "Cómo llegan los niños al colegio (cada ██ es 1 niño)\n 8 |   ██                           \n 7 |   ██                           \n 6 |   ██      ██                   \n 5 |   ██      ██              ██   \n 4 |   ██      ██              ██   \n 3 |   ██      ██      ██      ██   \n 2 |   ██      ██      ██      ██   \n 1 |   ██      ██      ██      ██   \n   +--------------------------------\n     A pie   Combi    Bici    Auto  ",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la barra más baja.",
+          "Es la de bici.",
+          "Lee hasta dónde llega."
+        ],
+        "retroalimentacion": "La barra más baja es bici, con 3 niños."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Según el gráfico, ¿cómo llegan más niños al colegio? Escribe la respuesta.",
+        "lectura": "Cómo llegan los niños al colegio (cada ██ es 1 niño)\n 8 |   ██                           \n 7 |   ██                           \n 6 |   ██      ██                   \n 5 |   ██      ██              ██   \n 4 |   ██      ██              ██   \n 3 |   ██      ██      ██      ██   \n 2 |   ██      ██      ██      ██   \n 1 |   ██      ██      ██      ██   \n   +--------------------------------\n     A pie   Combi    Bici    Auto  ",
+        "respuesta": "a pie",
+        "alternativasAceptadas": [
+          "pie",
+          "caminando",
+          "a pie."
+        ],
+        "pistas": [
+          "Busca la barra más alta.",
+          "Compara 8, 6, 3 y 5.",
+          "La más alta es la primera."
+        ],
+        "retroalimentacion": "La barra de a pie es la más alta, con 8 niños."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira el pictograma del clima. ¿Qué conclusión es correcta?",
+        "lectura": "Días del mes en Iquitos (★ vale 2 días)\nSoleado: ★★★★★\nLluvioso: ★★★★★★\nNublado: ★★★",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Hubo más días soleados que lluviosos."
+          },
+          {
+            "id": "b",
+            "texto": "Hubo 5 días soleados."
+          },
+          {
+            "id": "c",
+            "texto": "Hubo menos días nublados que lluviosos."
+          },
+          {
+            "id": "d",
+            "texto": "Hubo solo días de lluvia."
+          }
+        ],
+        "pistas": [
+          "Primero halla el valor de cada fila: soleado 10, lluvioso 12, nublado 6.",
+          "Compara cada frase con esos números.",
+          "Nublado (6) es menor que lluvioso (12)."
+        ],
+        "retroalimentacion": "Los días nublados (6) son menos que los lluviosos (12). Los soleados fueron 10, no 5."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Según el pictograma del clima, ¿cuántos días más llovió que estuvo soleado? Escribe solo el número.",
+        "lectura": "Días del mes en Iquitos (★ vale 2 días)\nSoleado: ★★★★★\nLluvioso: ★★★★★★\nNublado: ★★★",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla los días de lluvia y de sol.",
+          "Lluvioso: 6 ★ = 12. Soleado: 5 ★ = 10.",
+          "Resta 12 − 10."
+        ],
+        "retroalimentacion": "Hubo 12 días de lluvia y 10 de sol: 12 − 10 = 2 días más de lluvia."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Según el pictograma, hubo más días nublados que lluviosos.",
+        "lectura": "Días del mes en Iquitos (★ vale 2 días)\nSoleado: ★★★★★\nLluvioso: ★★★★★★\nNublado: ★★★",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee los días nublados y lluviosos.",
+          "Nublado: 3 ★ = 6. Lluvioso: 6 ★ = 12.",
+          "6 es menor que 12."
+        ],
+        "retroalimentacion": "Es falso: hubo 6 días nublados y 12 lluviosos."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira el gráfico de libros leídos. ¿Qué conclusión es correcta?",
+        "lectura": "Libros leídos en el año (cada ██ es 1 libro)\n 9 |           ██                   \n 8 |           ██                   \n 7 |           ██      ██           \n 6 |           ██      ██           \n 5 |           ██      ██           \n 4 |   ██      ██      ██      ██   \n 3 |   ██      ██      ██      ██   \n 2 |   ██      ██      ██      ██   \n 1 |   ██      ██      ██      ██   \n   +--------------------------------\n      Ana     Luis   Marta   Sofía  ",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Marta leyó más que Luis."
+          },
+          {
+            "id": "b",
+            "texto": "Ana leyó más que Sofía."
+          },
+          {
+            "id": "c",
+            "texto": "Ana y Sofía leyeron la misma cantidad."
+          },
+          {
+            "id": "d",
+            "texto": "Luis leyó menos que Ana."
+          }
+        ],
+        "pistas": [
+          "Lee el valor de cada barra.",
+          "Ana llega a 4 y Sofía también llega a 4.",
+          "Compara los dos números."
+        ],
+        "retroalimentacion": "Ana y Sofía leyeron 4 libros cada una, así que leyeron lo mismo."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En el gráfico de libros, ¿cuántos libros menos leyeron Ana y Sofía juntas que Luis y Marta juntos? Escribe solo el número.",
+        "lectura": "Libros leídos en el año (cada ██ es 1 libro)\n 9 |           ██                   \n 8 |           ██                   \n 7 |           ██      ██           \n 6 |           ██      ██           \n 5 |           ██      ██           \n 4 |   ██      ██      ██      ██   \n 3 |   ██      ██      ██      ██   \n 2 |   ██      ██      ██      ██   \n 1 |   ██      ██      ██      ██   \n   +--------------------------------\n      Ana     Luis   Marta   Sofía  ",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma por parejas: Ana + Sofía y Luis + Marta.",
+          "Ana y Sofía: 4 + 4 = 8. Luis y Marta: 9 + 7 = 16.",
+          "Resta 16 − 8."
+        ],
+        "retroalimentacion": "Ana y Sofía suman 8 y Luis y Marta suman 16: 16 − 8 = 8 libros menos."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mira el gráfico de libros. ¿Qué conclusión NO se puede sacar de lo que muestra el gráfico?",
+        "lectura": "Libros leídos en el año (cada ██ es 1 libro)\n 9 |           ██                   \n 8 |           ██                   \n 7 |           ██      ██           \n 6 |           ██      ██           \n 5 |           ██      ██           \n 4 |   ██      ██      ██      ██   \n 3 |   ██      ██      ██      ██   \n 2 |   ██      ██      ██      ██   \n 1 |   ██      ██      ██      ██   \n   +--------------------------------\n      Ana     Luis   Marta   Sofía  ",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Luis leyó más libros que Marta."
+          },
+          {
+            "id": "b",
+            "texto": "Hay un niño que leyó 9 libros."
+          },
+          {
+            "id": "c",
+            "texto": "A Marta le gustan los libros de aventuras."
+          },
+          {
+            "id": "d",
+            "texto": "Ana y Sofía leyeron lo mismo."
+          }
+        ],
+        "pistas": [
+          "Busca la frase que habla de algo que el gráfico no dice.",
+          "El gráfico solo muestra cuántos libros leyó cada niño.",
+          "No dice qué tipo de libros prefiere cada uno."
+        ],
+        "retroalimentacion": "El gráfico no dice qué libros le gustan a Marta; solo muestra cantidades de libros leídos."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Según el gráfico de cómo llegan al colegio, los niños que llegan en combi y en auto juntos son más que los que llegan a pie.",
+        "lectura": "Cómo llegan los niños al colegio (cada ██ es 1 niño)\n 8 |   ██                           \n 7 |   ██                           \n 6 |   ██      ██                   \n 5 |   ██      ██              ██   \n 4 |   ██      ██              ██   \n 3 |   ██      ██      ██      ██   \n 2 |   ██      ██      ██      ██   \n 1 |   ██      ██      ██      ██   \n   +--------------------------------\n     A pie   Combi    Bici    Auto  ",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las barras de combi y auto.",
+          "Combi 6 y auto 5: 6 + 5.",
+          "Compara ese total con a pie, que es 8."
+        ],
+        "retroalimentacion": "Combi y auto suman 6 + 5 = 11, y 11 es mayor que los 8 que llegan a pie."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Según el pictograma del clima, ¿qué tipo de día tuvo la mitad de días que el lluvioso? Escribe el clima.",
+        "lectura": "Días del mes en Iquitos (★ vale 2 días)\nSoleado: ★★★★★\nLluvioso: ★★★★★★\nNublado: ★★★",
+        "respuesta": "nublado",
+        "alternativasAceptadas": [
+          "nublados",
+          "los nublados",
+          "días nublados",
+          "dias nublados"
+        ],
+        "pistas": [
+          "Halla cuántos días fueron lluviosos: 12.",
+          "La mitad de 12 es 6.",
+          "Busca la fila que vale 6."
+        ],
+        "retroalimentacion": "Lluvioso tuvo 12 días y la mitad es 6: nublado tuvo 3 ★ = 6 días."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  }
+]

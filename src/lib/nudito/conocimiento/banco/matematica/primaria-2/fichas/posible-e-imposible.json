@@ -1,0 +1,303 @@
+[
+  {
+    "clave": "mat.p2.posible-imposible",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 2,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-P2-02"
+    ],
+    "bloque": "Posible e imposible",
+    "nombre": "Sucesos posibles e imposibles",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Clasifica hechos cotidianos y juegos como posibles o imposibles y lo explica.",
+    "palabrasClave": [
+      "posible",
+      "imposible",
+      "suceso",
+      "bolitas",
+      "dado"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 60,
+    "ideaCentral": "Un suceso es posible si puede pasar y es imposible si nunca puede pasar. Para decidir, piensa en lo que hay en la bolsa, el dado o la situación.",
+    "pasos": [
+      "Lee con atención qué está pasando o qué hay en la bolsa.",
+      "Pregúntate: ¿esto puede pasar alguna vez?",
+      "Si puede pasar, aunque sea pocas veces, es posible.",
+      "Si nunca puede pasar, es imposible.",
+      "Explica por qué con lo que sabes."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En el mercado de Iquitos, una bolsa tiene solo bolitas rojas y azules. ¿Es posible sacar una bolita azul?",
+        "desarrollo": "Hay bolitas azules en la bolsa. Entonces puede pasar.",
+        "respuesta": "Es posible sacar una azul."
+      },
+      {
+        "situacion": "Con la misma bolsa, ¿es posible sacar una bolita verde?",
+        "desarrollo": "No hay bolitas verdes. Por más veces que saques, nunca saldrá una verde.",
+        "respuesta": "Es imposible sacar una verde."
+      },
+      {
+        "situacion": "Luis lanza un dado normal con caras del 1 al 6. ¿Puede salir el 8?",
+        "desarrollo": "El dado no tiene la cara 8. Nunca puede salir.",
+        "respuesta": "Es imposible que salga el 8."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que algo es imposible porque pasa pocas veces.",
+        "correccion": "Si puede pasar, aunque sea pocas veces, es posible. Imposible es lo que nunca pasa."
+      },
+      {
+        "error": "Decidir sin mirar lo que hay en la bolsa o en el dado.",
+        "correccion": "Primero mira qué hay. Solo se puede sacar lo que está."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Posible",
+        "significado": "Que puede pasar."
+      },
+      {
+        "termino": "Imposible",
+        "significado": "Que nunca puede pasar."
+      },
+      {
+        "termino": "Suceso",
+        "significado": "Algo que ocurre, como sacar una bolita."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estos hechos es imposible?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Llueve en Iquitos"
+          },
+          {
+            "id": "b",
+            "texto": "Un perro habla como una persona"
+          },
+          {
+            "id": "c",
+            "texto": "Juego a la pelota en el patio"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en lo que hacen los perros.",
+          "Llover o jugar pueden pasar un día cualquiera.",
+          "Un perro no puede hablar como una persona."
+        ],
+        "retroalimentacion": "Es imposible que un perro hable como una persona. Llover en Iquitos y jugar a la pelota sí pueden pasar."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Sacar una bolita roja de una bolsa que solo tiene bolitas rojas es posible.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira de qué color son todas las bolitas de la bolsa.",
+          "Todas son rojas, así que la que saques será de ese color.",
+          "Lo que puede pasar es posible."
+        ],
+        "retroalimentacion": "Es verdadero: como todas son rojas, sacar una roja puede pasar y es posible."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Lanzas un dado normal con caras del 1 al 6. ¿Es posible o imposible que salga el 7? Escribe una palabra.",
+        "respuesta": "imposible",
+        "alternativasAceptadas": [
+          "es imposible"
+        ],
+        "pistas": [
+          "Recuerda las caras del dado: del 1 al 6.",
+          "Mira si el 7 está entre esas caras.",
+          "El 7 no está en el dado."
+        ],
+        "retroalimentacion": "El dado solo tiene del 1 al 6, así que es imposible que salga el 7."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Es posible que una vaca ponga huevos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en qué animales ponen huevos.",
+          "Las gallinas ponen huevos.",
+          "Las vacas dan leche, no ponen huevos."
+        ],
+        "retroalimentacion": "Es falso: una vaca no puede poner huevos, es imposible."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una bolsa tiene 3 bolitas azules y 2 amarillas. ¿Qué es imposible sacar?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una verde"
+          },
+          {
+            "id": "b",
+            "texto": "Una azul"
+          },
+          {
+            "id": "c",
+            "texto": "Una amarilla"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Anota los colores que hay en la bolsa.",
+          "Hay azules y amarillas.",
+          "Falta un color que no está en la bolsa."
+        ],
+        "retroalimentacion": "Es imposible sacar una verde porque en la bolsa no hay bolitas verdes. Azul y amarilla sí se pueden sacar."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una caja tiene 4 fichas numeradas 1, 2, 3 y 4. ¿Es posible o imposible sacar la ficha con el 9? Escribe una palabra.",
+        "respuesta": "imposible",
+        "alternativasAceptadas": [
+          "es imposible"
+        ],
+        "pistas": [
+          "Lee los números de las fichas de la caja.",
+          "Son 1, 2, 3 y 4.",
+          "¿Hay una ficha con 9?"
+        ],
+        "retroalimentacion": "No hay ficha con el 9, entonces sacarla es imposible."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Cuando lanzas una moneda, que salga cara y que salga sello son dos sucesos posibles.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en los dos lados de una moneda.",
+          "Una moneda tiene cara y sello.",
+          "Los dos lados pueden quedar hacia arriba."
+        ],
+        "retroalimentacion": "Es verdadero: la moneda puede caer en cara o en sello, ambos son posibles."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una bolsa tiene 5 caramelos de fresa y 3 de limón. ¿Cuántos sabores distintos es posible sacar? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira los sabores que hay en la bolsa.",
+          "Hay fresa y limón.",
+          "Cuenta los sabores, no los caramelos."
+        ],
+        "retroalimentacion": "Solo hay 2 sabores distintos: fresa y limón; el total de caramelos no importa."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una bolsa hay solo bolitas rojas. Ana dice: «Es imposible sacar una roja». ¿Qué respuesta es correcta?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tiene razón, es imposible"
+          },
+          {
+            "id": "b",
+            "texto": "Se equivoca: sacar una azul es posible"
+          },
+          {
+            "id": "c",
+            "texto": "Se equivoca: sacar una roja es posible"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira qué colores hay en la bolsa.",
+          "Ana habla del color que sí hay.",
+          "Lo que hay en la bolsa se puede sacar."
+        ],
+        "retroalimentacion": "Ana se equivoca: sacar una roja es posible porque todas son rojas. Una azul sí sería imposible."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Lanzas un dado normal con caras del 1 al 6. Piensa en los números del 1 al 10. ¿Cuántos de esos números es imposible sacar? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe las caras del dado: 1, 2, 3, 4, 5, 6.",
+          "Los números del 1 al 10 son diez.",
+          "Cuenta cuántos pasan de 6: 7, 8..."
+        ],
+        "retroalimentacion": "Del 1 al 10 son imposibles el 7, 8, 9 y 10: son 4 números."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una bolsa tiene 2 bolitas blancas y 4 negras. Sacas una sin mirar. ¿De qué color es imposible que salga: roja, blanca o negra? Escribe el color.",
+        "respuesta": "roja",
+        "alternativasAceptadas": [
+          "la roja",
+          "color rojo",
+          "rojo"
+        ],
+        "pistas": [
+          "Escribe los colores que tiene esta bolsa.",
+          "Hay blancas y negras.",
+          "De los tres colores, uno no está en la bolsa."
+        ],
+        "retroalimentacion": "Es imposible sacar una roja porque no hay bolitas rojas. Blanca y negra sí se pueden sacar."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una bolsa tiene 6 bolitas negras y 1 blanca, es imposible sacar la blanca.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Aunque haya una sola blanca, mira si está en la bolsa.",
+          "La blanca está dentro de la bolsa.",
+          "Lo que está en la bolsa se puede sacar, aunque sea difícil."
+        ],
+        "retroalimentacion": "Es falso: hay una bolita blanca, así que sacarla es posible aunque salga pocas veces."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  }
+]
