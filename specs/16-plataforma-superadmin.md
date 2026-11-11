@@ -191,3 +191,8 @@ aCsv(encabezados, filas)
 Panel de plataforma y pantallas públicas según el manual de marca: títulos en `text-titulo-2`, tarjetas sin sombra con borde `arena`, cabeceras de tabla con `sobretitulo`, insignias de estado y plan `rounded-pildora` con ícono + palabra, título de pestaña «… · Khipu Escolar». El carnet público (`/q/[token]`) se titula «Carnet escolar».
 
 > Operación (usuarios, monitoreo, auditoría): ver [specs/21-operacion-de-plataforma.md](21-operacion-de-plataforma.md).
+
+
+### Revisión de contenido global (specs/54)
+
+En «Catálogo» aparece «Revisión de contenido» (`/contenido`). Solo un super administrador activo puede revisar o publicar el índice global, volver un tema a borrador o revisar un bloque. La revisión guarda la huella SHA-256 del tema y su ficha actual; si cambia el contenido versionado, los alumnos dejan de verlo hasta una nueva revisión. Cada cambio se registra en `auditoria_plataforma` junto con clave, estado previo/nuevo y huellas. El filtro de bloque aplica área, nivel, grado y disciplina; lote máximo: 100 temas, atómico.
