@@ -30,6 +30,7 @@ const GRUPOS: GrupoNavResuelto[] = [
   {
     titulo: "Catálogo",
     items: [
+      { href: "/contenido", titulo: "Revisión de contenido", icono: "BookOpen" },
       { href: "/planes", titulo: "Planes y módulos", icono: "Layers" },
       { href: "/roles", titulo: "Roles y permisos", icono: "KeyRound" },
     ],

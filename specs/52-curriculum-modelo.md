@@ -46,7 +46,10 @@ Integración: un índice global compartido por Matemática de A y Álgebra de B;
 
 ## Pendientes
 - `pnpm db:migrate` falla al reconstruir la base temporal por un problema previo a este modelo: `20261109120000_reporte_periodo_notificacion` ejecuta `ALTER TYPE "TipoNotificacion"` antes de que `20261112090100_bandeja_general` cree ese tipo. Se reprodujo P3006/P3018 en una base temporal aislada usando el esquema y las 53 migraciones anteriores, sin la migración curricular. La migración curricular se aplicó a la BD local con `pnpm db:deploy`; corregir el historial anterior queda fuera de esta subtarea.
-- Sincronización del contenido importado y flujo editorial normal, servicio de aprobación por revisión y UI; son subtareas separadas.
+- Sincronización del contenido importado con el banco (aplicar el reporte de fusión) sigue pendiente.
 
 ## Aprobación inicial en bloque
 `pnpm curriculum:aprobar-todo --revisor <correo>` indexa todos los temas globales versionados del banco y el catálogo de Nudito, y cambia los borradores a «revisado». Exige un super administrador activo, registra su identificador y fecha en cada tema modificado y crea una auditoría de plataforma con la nota «aprobación inicial en bloque». Es idempotente: la segunda ejecución no cambia estados ni crea otra auditoría. Por defecto solo acepta la BD local; fuera de ella requiere `--permitir-nube` y autorización del supervisor. El seed local lo ejecuta para el catálogo completo.
+
+## Huella editorial (specs/54)
+La marca de revisión es global y permanente para todos los colegios. El hash se compara con el tema y ficha del repositorio al leer. Si ya no coincide, se deriva «Revisar de nuevo» y `temaVisibleParaAlumno` da falso hasta recapturar la huella con una revisión.
