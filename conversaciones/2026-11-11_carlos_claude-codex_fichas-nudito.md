@@ -43,3 +43,8 @@
 ## Pendientes y preguntas abiertas
 - Fichas de Comunicación y Ciencia y Tecnología (primaria primero), Matemática 1.° de secundaria (96/142 escritas) y secundaria 2.°–5.°.
 - Revisión humana de muestras y aprobación (`pnpm curriculum:aprobar-todo`) para que los alumnos vean los temas con ficha; en la nube solo con permiso.
+
+## Regla agregada: orquestación de modelos (2026-11-11)
+> bueno entonces de esa manera vamos a usarlo, agregalo como regla al proyecto para que no lo perdamos luego, tambien agrega para que se usaria los otros modelos de claude y los otros modelos de codex, y tambien para que usaria los modelos locales; de esa manera antes de realizar una tarea que les asigno primero evaluan que modelos usar y de que manera se podria resolver sin usar tantos creditos
+
+Resultado: norma 5 en `AGENTS.md` y `docs/orquestacion-de-modelos.md` (Fable solo revisión y temas difíciles; Opus/Sonnet/Haiku, Codex Sol/Luna, Antigravity y modelos locales con sus usos; lista de comprobación previa).

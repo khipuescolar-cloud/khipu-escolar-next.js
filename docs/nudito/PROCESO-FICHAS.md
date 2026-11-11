@@ -7,7 +7,7 @@
 2. **Después, secundaria GRADO POR GRADO:** se termina **1.° de secundaria completo** (Matemática + Comunicación + Ciencia y Tecnología) y recién se pasa a 2.°, luego 3.°, 4.° y 5.°. No avanzar a otro grado con uno incompleto.
 3. **El piloto usa toda primaria y secundaria** (33 combinaciones curso × grado, 3 839 fichas = una por tema de `temario-propuesto.json`).
 4. **Calidad antes que velocidad.** Carlos ya rechazó dos veces fichas de plantilla. Nunca integrar sin pasar el validador **y** revisar una muestra a mano (`scripts/fichas/ver-ficha.py`).
-5. **Costo:** el trabajo de escribir lo hacen Codex y, cuando haya cuota, Claude (Sonnet) en lotes. **No usar Fable para escribir** (2 % de su contador por 12 fichas y además baja el contador semanal general); solo para revisar muestras si Carlos lo pide. No usar modelos pesados para escribir cosas chicas.
+5. **Costo y modelos:** aplica `docs/orquestacion-de-modelos.md` (norma 5 de AGENTS.md). Resumen: el trabajo de escribir lo hacen Codex y, cuando haya cuota, Claude (Sonnet) en lotes. **No usar Fable para escribir** (2 % de su contador por 12 fichas y además baja el contador semanal general); solo para revisar muestras si Carlos lo pide. No usar modelos pesados para escribir cosas chicas.
 6. Salida breve (estilo caveman) para todos los agentes/modelos. No usar Artifacts/Docs de claude.ai. Preguntar antes de escribir en la nube (Supabase, Gmail, Cloudinary reales).
 
 ## Estado al 2026-11-11 (17:45)
