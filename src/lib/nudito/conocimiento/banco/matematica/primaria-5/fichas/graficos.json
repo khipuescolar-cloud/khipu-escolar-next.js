@@ -1,0 +1,967 @@
+[
+  {
+    "clave": "mat.p5.pictograma-escala-5",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 25,
+    "capacidad": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+    "desempenosOrigen": [
+      "MAT-C25-P5-01"
+    ],
+    "bloque": "Gráficos",
+    "nombre": "Pictogramas con equivalencias",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Representa datos con símbolos que valen varias unidades y fracciones de símbolo.",
+    "palabrasClave": [
+      "pictograma",
+      "equivalencia de simbolo",
+      "escala",
+      "frecuencia",
+      "medio simbolo"
+    ],
+    "prerrequisitos": [
+      "mat.p5.tabla-frecuencias-5"
+    ],
+    "ordenSugerido": 62,
+    "ideaCentral": "Un pictograma utiliza figuras o íconos para representar datos estadísticos, donde cada símbolo completo tiene un valor convenido (escala) y las fracciones de símbolo representan partes proporcionales de ese valor.",
+    "pasos": [
+      "Identifica la clave o leyenda del pictograma para saber qué cantidad representa cada símbolo completo.",
+      "Si aparecen medios símbolos o fracciones de símbolo, calcula la mitad o la fracción correspondiente del valor de la clave.",
+      "Cuenta cuántos símbolos completos y parciales corresponden a cada categoría.",
+      "Multiplica la cantidad de símbolos completos por el valor de la escala y suma el valor de las fracciones de símbolo para hallar la frecuencia total."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una feria agropecuaria de Huancayo, cada dibujo de una vaca [★] representa 20 vacas. Si el establo «El Altiplano» tiene [★] [★] y medio símbolo [★/2], ¿cuántas vacas tiene en total?",
+        "desarrollo": "Cada [★] vale 20 vacas. Dos símbolos completos son 2 × 20 = 40. Medio símbolo vale la mitad de 20, es decir, 10. Sumamos: 40 + 10 = 50 vacas.",
+        "respuesta": "El establo tiene 50 vacas en total."
+      },
+      {
+        "situacion": "Una biblioteca escolar de Pucallpa registra los libros prestados durante la semana. Cada ícono de libro [■] vale 8 libros. Si el martes se prestaron 3 símbolos completos [■] [■] [■], ¿cuántos libros se prestaron?",
+        "desarrollo": "Multiplicamos 3 símbolos por 8 libros cada uno: 3 × 8 = 24 libros.",
+        "respuesta": "El martes se prestaron 24 libros."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar cada dibujo como una sola unidad en lugar de multiplicarlo por el valor que indica la leyenda.",
+        "correccion": "Siempre revisa primero la clave del pictograma: cada dibujo representa un grupo de varias unidades."
+      },
+      {
+        "error": "Ignorar la mitad de un dibujo o considerarla como una unidad completa.",
+        "correccion": "Un dibujo dividido por la mitad representa exactamente la mitad del valor asignado al dibujo completo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Pictograma",
+        "significado": "Gráfico estadístico que utiliza figuras o símbolos para representar cantidades de información."
+      },
+      {
+        "termino": "Clave o leyenda",
+        "significado": "Texto o recuadro que indica el valor numérico exacto asignado a cada símbolo del gráfico."
+      },
+      {
+        "termino": "Medio símbolo",
+        "significado": "Dibujo partido por la mitad que representa el cincuenta por ciento del valor del símbolo completo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un puesto del mercado de Chosica se registra la venta de chirimoyas con un pictograma. La clave indica que cada símbolo ● equivale a 10 kilogramos. Si el lunes se dibujaron ● ● ●, ¿cuántos kilogramos de chirimoya se vendieron? Escribe solo el número.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada símbolo ● vale 10 kilogramos.",
+          "Cuenta los símbolos: hay 3 símbolos completos.",
+          "Multiplica 3 por 10."
+        ],
+        "retroalimentacion": "Tres símbolos multiplicados por 10 kg cada uno dan 30 kilogramos de chirimoya."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si en un pictograma el símbolo de un árbol representa 40 árboles reforestados en la sierra, entonces medio símbolo representa exactamente 20 árboles.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la mitad del valor del símbolo completo.",
+          "Divide 40 entre 2.",
+          "40 ÷ 2 = 20."
+        ],
+        "retroalimentacion": "Es verdadero: medio símbolo representa la mitad de la escala completa (40 ÷ 2 = 20 árboles)."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una panadería tradicional de Arequipa, cada ícono [🍞] representa 12 panes triples horneados. Si una bandeja tiene 4 íconos completos en el registro gráfico, ¿cuántos panes triples representa?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "40 panes"
+          },
+          {
+            "id": "b",
+            "texto": "48 panes"
+          },
+          {
+            "id": "c",
+            "texto": "36 panes"
+          },
+          {
+            "id": "d",
+            "texto": "24 panes"
+          }
+        ],
+        "pistas": [
+          "Identifica el valor de cada ícono: 12 panes.",
+          "Hay 4 íconos completos registrados.",
+          "Multiplica 4 × 12."
+        ],
+        "retroalimentacion": "Cuatro íconos de 12 panes cada uno equivalen a 4 × 12 = 48 panes triples."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una cooperativa cafetalera en Quillabamba usa la clave [☕] = 50 sacos de café. Para representar una producción de 150 sacos en el pictograma, ¿cuántos símbolos completos se deben dibujar? Escribe el número en cifras.",
+        "respuesta": "3",
+        "alternativasAceptadas": [
+          "3",
+          "tres"
+        ],
+        "pistas": [
+          "Divide la cantidad total de sacos entre el valor de cada símbolo.",
+          "Realiza la división 150 ÷ 50.",
+          "El cociente indica la cantidad de símbolos a dibujar."
+        ],
+        "retroalimentacion": "Dividiendo 150 entre 50 obtenemos 3 símbolos completos necesarios."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una campaña de reciclaje escolar en Surco, cada ícono [♻] equivale a 40 botellas plásticas reunidas. Si la brigada ecológica acumuló 3 íconos completos y medio ícono en su registro, ¿cuántas botellas reunió en total? Escribe solo el número.",
+        "respuesta": 140,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula las botellas de los 3 símbolos completos: 3 × 40 = 120 botellas.",
+          "Halla las botellas del medio símbolo: 40 ÷ 2 = 20 botellas.",
+          "Suma ambos valores: 120 + 20."
+        ],
+        "retroalimentacion": "Los 3 símbolos completos valen 120 botellas y el medio símbolo vale 20 botellas, sumando 140 en total."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un vivero en Cajamarca grafica plantones de pino vendidos con la clave [🌲] = 16 árboles. El miércoles registraron 4 símbolos completos y el jueves registraron 2 símbolos completos y medio símbolo. ¿Cuántos plantones más se vendieron el miércoles que el jueves?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "24 plantones"
+          },
+          {
+            "id": "b",
+            "texto": "16 plantones"
+          },
+          {
+            "id": "c",
+            "texto": "32 plantones"
+          },
+          {
+            "id": "d",
+            "texto": "8 plantones"
+          }
+        ],
+        "pistas": [
+          "Venta del miércoles: 4 × 16 = 64 árboles.",
+          "Venta del jueves: (2 × 16) + 8 = 32 + 8 = 40 árboles.",
+          "Resta ambas ventas: 64 menos 40."
+        ],
+        "retroalimentacion": "El miércoles se vendieron 64 y el jueves 40; la diferencia es 64 - 40 = 24 plantones."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una figura de estrella representa 18 estudiantes y una sección de quinto grado tiene 2 estrellas completas y media estrella en el pictograma, esa sección cuenta con 45 estudiantes.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el valor de 2 estrellas completas: 2 × 18 = 36.",
+          "Calcula el valor de media estrella: 18 ÷ 2 = 9.",
+          "Suma: 36 + 9 = 45."
+        ],
+        "retroalimentacion": "Es verdadero: 2 estrellas valen 36 y media estrella vale 9, totalizando 45 estudiantes."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En el muelle pesquero de Chimbote, el símbolo [🐟] representa 24 cajones de pescado. Una lancha desembarcó 84 cajones. ¿Cuántos símbolos en total (entre completos y medios símbolos) representan esa carga? Escribe el valor como número decimal con coma o punto (por ejemplo: 3,5).",
+        "respuesta": "3,5",
+        "alternativasAceptadas": [
+          "3,5",
+          "3.5",
+          "3 y medio"
+        ],
+        "pistas": [
+          "Divide 84 entre 24 para hallar la cantidad de símbolos.",
+          "3 símbolos completos valen 3 × 24 = 72 cajones.",
+          "Quedan 12 cajones, que corresponden exactamente a medio símbolo (12/24 = 0,5)."
+        ],
+        "retroalimentacion": "84 dividido entre 24 da 3,5 símbolos (3 símbolos completos y medio símbolo)."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tres colegios de Piura realizaron una colecta comunitaria. El pictograma utiliza la clave [♥] = S/ 60. El colegio Grau tiene 3 corazones; el colegio Bolognesi tiene 2 corazones y medio; y el colegio Quiñones tiene 4 corazones. ¿Cuánto dinero recaudaron entre los tres colegios juntos?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "S/ 540"
+          },
+          {
+            "id": "b",
+            "texto": "S/ 510"
+          },
+          {
+            "id": "c",
+            "texto": "S/ 570"
+          },
+          {
+            "id": "d",
+            "texto": "S/ 600"
+          }
+        ],
+        "pistas": [
+          "Colegio Grau: 3 × 60 = S/ 180.",
+          "Colegio Bolognesi: (2 × 60) + 30 = S/ 150. Colegio Quiñones: 4 × 60 = S/ 240.",
+          "Suma los tres montos: 180 + 150 + 240."
+        ],
+        "retroalimentacion": "Grau reunió S/ 180, Bolognesi S/ 150 y Quiñones S/ 240; la suma total es S/ 570."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un taller de calzado en El Porvenir (Trujillo) se registran los pares confeccionados con la clave [👟] = 40 pares. La meta del mes es de 300 pares. Si en el pictograma ya se han colocado 6 símbolos completos y medio símbolo, ¿cuántos pares de calzado faltan todavía para alcanzar la meta? Escribe solo el número.",
+        "respuesta": 40,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la producción actual: (6 × 40) + 20 = 240 + 20 = 260 pares.",
+          "Resta la producción actual de la meta fijada: 300 - 260.",
+          "Halla cuántos pares hacen falta."
+        ],
+        "retroalimentacion": "Ya se produjeron 260 pares (6,5 × 40). Para llegar a 300 pares faltan 300 - 260 = 40 pares."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un centro de salud de Iquitos se grafica la atención diaria con la clave [➕] = 30 pacientes. Si el día jueves se atendieron exactamente 45 pacientes, ¿cómo debe dibujarse esa cantidad en el pictograma?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 símbolos completos"
+          },
+          {
+            "id": "b",
+            "texto": "Medio símbolo únicamente"
+          },
+          {
+            "id": "c",
+            "texto": "3 símbolos completos"
+          },
+          {
+            "id": "d",
+            "texto": "1 símbolo completo y medio símbolo"
+          }
+        ],
+        "pistas": [
+          "Un símbolo completo representa 30 pacientes.",
+          "Para 45 pacientes, se toman 30 de un símbolo completo y sobran 15.",
+          "15 pacientes es exactamente la mitad de 30 (medio símbolo)."
+        ],
+        "retroalimentacion": "45 pacientes se descomponen en 30 (un símbolo completo) más 15 (medio símbolo): se dibuja 1 símbolo completo y medio símbolo."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En el terminal pesquero de Tacna se representa la venta de corvina con la clave [🐟] = 50 kilos. La venta total de tres días fue de 625 kilos. Si el viernes se registraron 5 símbolos completos y el sábado 4 símbolos completos y medio símbolo, ¿cuántos kilos se vendieron el domingo? Escribe solo el número.",
+        "respuesta": 150,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la venta del viernes: 5 × 50 = 250 kg.",
+          "Calcula la venta del sábado: (4 × 50) + 25 = 225 kg.",
+          "Suma viernes y sábado (250 + 225 = 475 kg) y resta esa suma del total de 625 kg."
+        ],
+        "retroalimentacion": "Viernes y sábado sumaron 250 + 225 = 475 kg. El domingo se vendieron 625 - 475 = 150 kilos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.barras-desde-tabla",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 25,
+    "capacidad": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+    "desempenosOrigen": [
+      "MAT-C25-P5-01"
+    ],
+    "bloque": "Gráficos",
+    "nombre": "Gráfico de barras a partir de una tabla de frecuencias",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Elige una escala múltiplo de 10 y construye barras verticales u horizontales.",
+    "palabrasClave": [
+      "grafico de barras",
+      "tabla de frecuencias",
+      "escala",
+      "eje vertical",
+      "eje horizontal"
+    ],
+    "prerrequisitos": [
+      "mat.p5.tabla-frecuencias-5"
+    ],
+    "ordenSugerido": 63,
+    "ideaCentral": "Para construir un gráfico de barras a partir de una tabla de frecuencias, se eligen los ejes para las categorías y las frecuencias, seleccionando una escala adecuada (como múltiplos de 10, 20 o 50) para que todas las barras sean proporcionales a sus datos.",
+    "pasos": [
+      "Revisa la tabla de frecuencias e identifica la frecuencia mayor para determinar el rango del eje numérico.",
+      "Elige una escala regular con múltiplos adecuados (por ejemplo de 10 en 10, de 20 en 20 o de 50 en 50).",
+      "Traza los dos ejes perpendiculares: uno para las categorías y otro para la escala numérica con sus marcas equidistantes.",
+      "Dibuja cada barra con el mismo ancho y separada por espacios iguales, elevándola hasta el valor que indica su frecuencia en la tabla."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una encuesta sobre platos típicos preferidos en Huancayo arrojó: Pachamanca 40 votos, Papa a la huancaína 30 votos, Trucha frita 50 votos. ¿Qué escala es conveniente para el eje vertical?",
+        "desarrollo": "Los datos son 30, 40 y 50. Como todos son múltiplos de 10 y el valor máximo es 50, conviene una escala de 10 en 10: 0, 10, 20, 30, 40, 50.",
+        "respuesta": "Es conveniente usar una escala de 10 en 10 con una altura máxima de 50 o 60."
+      },
+      {
+        "situacion": "En un gráfico de barras verticales con escala de 20 en 20, la barra de «Visitas al museo» llega exactamente a la mitad entre 40 y 60. ¿A cuántas visitas corresponde?",
+        "desarrollo": "El punto medio entre 40 y 60 se calcula sumando y dividiendo entre dos: (40 + 60) ÷ 2 = 50.",
+        "respuesta": "La barra representa 50 visitas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Colocar los números en el eje vertical sin un intervalo constante (por ejemplo: 0, 15, 30, 70, 85).",
+        "correccion": "La escala debe avanzar siempre con el mismo salto numérico (de 10 en 10, de 20 en 20, etc.) para que la comparación visual sea justa y verídica."
+      },
+      {
+        "error": "Dibujar barras de diferente grosor o pegadas unas con otras sin respetar las separaciones.",
+        "correccion": "En variables cualitativas o cuantitativas discretas, las barras deben tener idéntico ancho y espacios de separación uniformes."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Escala",
+        "significado": "Sucesión ordenada de números con intervalos iguales marcada en uno de los ejes del gráfico."
+      },
+      {
+        "termino": "Frecuencia",
+        "significado": "Número de veces que se repite un valor o categoría en una recopilación de datos."
+      },
+      {
+        "termino": "Eje vertical y horizontal",
+        "significado": "Líneas perpendiculares de referencia donde se ubican las categorías y las cantidades numéricas."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si en una tabla de frecuencias el dato mayor es 80 y los demás datos son 20, 50 y 70, ¿cuál es la escala más conveniente y ordenada para graduar el eje numérico?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "De 1 en 1"
+          },
+          {
+            "id": "b",
+            "texto": "De 10 en 10"
+          },
+          {
+            "id": "c",
+            "texto": "De 100 en 100"
+          },
+          {
+            "id": "d",
+            "texto": "De 3 en 3"
+          }
+        ],
+        "pistas": [
+          "Observa que los números terminan todos en cero.",
+          "Una escala de 1 en 1 requeriría 80 marcas, lo cual es excesivo.",
+          "La escala de 10 en 10 permite representar con claridad cada dato con solo 8 marcas."
+        ],
+        "retroalimentacion": "Como los datos son múltiplos de 10 hasta 80, la escala de 10 en 10 es la más clara y proporcionada."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un gráfico de barras, todas las barras deben dibujarse con el mismo ancho para no distorsionar la información visual.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en qué pasaría si una barra fuera mucho más ancha que otra.",
+          "El ancho de la barra no representa una cantidad.",
+          "Solo la altura o longitud de la barra debe reflejar la frecuencia."
+        ],
+        "retroalimentacion": "Es verdadero: el ancho de las barras debe ser uniforme para que la comparación dependa únicamente de la altura."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un gráfico de barras con escala de 10 en 10, la barra correspondiente a «Fútbol» inicia en la base y llega exactamente a la marca 70. ¿Cuál es la frecuencia que representa esa barra? Escribe solo el número.",
+        "respuesta": 70,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ubica la parte superior de la barra.",
+          "Proyecta horizontalmente la altura de la barra hacia el eje numérico.",
+          "La marca que señala la altura es 70."
+        ],
+        "retroalimentacion": "La cima de la barra coincide con la línea graduada en 70, lo que indica una frecuencia de 70."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En un gráfico de barras horizontales, ¿en cuál de los dos ejes se ubican las cantidades numéricas o frecuencias? Escribe solo horizontal o vertical.",
+        "respuesta": "horizontal",
+        "alternativasAceptadas": [
+          "horizontal",
+          "eje horizontal"
+        ],
+        "pistas": [
+          "En las barras horizontales, las barras crecen de izquierda a derecha.",
+          "El eje que va de izquierda a derecha es el eje horizontal.",
+          "Las cantidades numéricas van en ese eje acostado."
+        ],
+        "retroalimentacion": "En el gráfico horizontal, las cantidades se leen en el eje horizontal mientras que las categorías están en el vertical."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tabla muestra la venta de variedades de quinua en una feria de Puno: Quinua blanca 60 kg, Quinua roja 40 kg y Quinua negra 30 kg. Si se elabora un gráfico de barras verticales de 10 en 10, ¿cuántos intervalos de 10 unidades medirá la barra más alta?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6 intervalos"
+          },
+          {
+            "id": "b",
+            "texto": "4 intervalos"
+          },
+          {
+            "id": "c",
+            "texto": "8 intervalos"
+          },
+          {
+            "id": "d",
+            "texto": "3 intervalos"
+          }
+        ],
+        "pistas": [
+          "La variedad más vendida es la quinua blanca con 60 kg.",
+          "La escala avanza de 10 en 10.",
+          "Divide 60 entre 10 para saber cuántos intervalos de altura tiene esa barra."
+        ],
+        "retroalimentacion": "La barra más alta es la de 60 kg, que equivale a 60 ÷ 10 = 6 intervalos en la escala."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un colegio de Arequipa se registró la participación en talleres: Danza 80 estudiantes, Teatro 50, Música 70 y Ajedrez 40. Para graficar estos datos, ¿cuál es el total de estudiantes participantes sumando los cuatro talleres? Escribe solo el número.",
+        "respuesta": 240,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las frecuencias de cada categoría de la tabla.",
+          "Calcula: 80 + 50 = 130.",
+          "Suma: 130 + 70 + 40."
+        ],
+        "retroalimentacion": "Sumando 80 + 50 + 70 + 40 obtenemos un total de 240 estudiantes participantes."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si en un gráfico de barras con escala de 20 en 20 una barra termina exactamente a la mitad entre las marcas 60 y 80, dicha barra representa el valor 70.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El espacio entre 60 y 80 mide 20 unidades.",
+          "La mitad de 20 unidades son 10 unidades.",
+          "Suma 60 + 10 = 70."
+        ],
+        "retroalimentacion": "Es verdadero: el punto equidistante entre 60 y 80 es (60 + 80) ÷ 2 = 70."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una heladería en Chimbote vende helados de lúcuma (90), maracuyá (120) y fresa (70). Si se diseña una escala de 30 en 30 iniciando en 0, ¿cuál es el número de la marca más baja del eje que permite contener a todas las barras? Escribe solo el número.",
+        "respuesta": "120",
+        "alternativasAceptadas": [
+          "120"
+        ],
+        "pistas": [
+          "Identifica el dato más alto de la tabla.",
+          "El valor mayor es 120 (maracuyá).",
+          "La escala avanza: 0, 30, 60, 90, 120."
+        ],
+        "retroalimentacion": "El dato máximo es 120, por lo que la marca en el eje que alcanza exactamente esa altura es 120."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se registra el número de visitantes a la Reserva Nacional de Paracas durante cuatro días: Jueves 150, Viernes 250, Sábado 400 y Domingo 350. Si se elabora un gráfico de barras con una escala de 50 en 50, ¿cuántos intervalos de 50 medirá la barra de cada día respectivamente?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Jueves 2, Viernes 4, Sábado 6, Domingo 5"
+          },
+          {
+            "id": "b",
+            "texto": "Jueves 5, Viernes 7, Sábado 9, Domingo 8"
+          },
+          {
+            "id": "c",
+            "texto": "Jueves 3, Viernes 5, Sábado 8, Domingo 7"
+          },
+          {
+            "id": "d",
+            "texto": "Jueves 4, Viernes 6, Sábado 8, Domingo 7"
+          }
+        ],
+        "pistas": [
+          "Divide cada frecuencia entre el salto de escala (50).",
+          "150 ÷ 50 = 3; 250 ÷ 50 = 5.",
+          "400 ÷ 50 = 8; 350 ÷ 50 = 7."
+        ],
+        "retroalimentacion": "Dividiendo cada valor entre 50 se obtienen 3 intervalos el jueves, 5 el viernes, 8 el sábado y 7 el domingo."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En la feria del libro de Lima se registraron ejemplares vendidos: Stand Norte 240, Stand Sur 180, Stand Este 320 y Stand Oeste 260. En un gráfico con escala de 20 en 20, ¿cuántos intervalos de 20 de diferencia hay entre la barra más alta y la barra más baja? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica la barra más alta (Este = 320) y la más baja (Sur = 180).",
+          "Calcula la diferencia: 320 - 180 = 140 ejemplares.",
+          "Divide esa diferencia de 140 entre el valor del intervalo de escala (20)."
+        ],
+        "retroalimentacion": "La diferencia entre 320 y 180 es 140. Dividiendo 140 entre 20 da 7 intervalos de diferencia."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un estudiante elaboró un gráfico de barras para mostrar el peso recolectado de residuos (Cartón: 100 kg, Vidrio: 60 kg, Plástico: 80 kg). En su eje vertical colocó las marcas numéricas: 0, 20, 40, 50, 70, 100. ¿Cuál es el error técnico cometido?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Las barras tienen diferente color en cada categoría"
+          },
+          {
+            "id": "b",
+            "texto": "El título del gráfico no está escrito con letras mayúsculas"
+          },
+          {
+            "id": "c",
+            "texto": "La categoría con menor frecuencia debió omitirse de la gráfica"
+          },
+          {
+            "id": "d",
+            "texto": "La escala del eje vertical no mantiene un intervalo constante entre marcas"
+          }
+        ],
+        "pistas": [
+          "Revisa la separación entre las marcas: de 0 a 20 hay 20, de 40 a 50 hay 10, de 70 a 100 hay 30.",
+          "Una escala estadística correcta debe tener siempre la misma distancia numérica entre marcas consecutivas.",
+          "Los saltos variables distorsionan por completo las alturas relativas de las barras."
+        ],
+        "retroalimentacion": "El error es no mantener un intervalo regular: la escala cambia de saltos de 20 a saltos de 10 y de 30."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una posta médica de Loreto se registraron vacunas aplicadas en una semana: Sarampión 140, Influenza 280, Tétanos 210 y Fiebre amarilla 350. Si se grafican con barras verticales usando una escala constante de 70 en 70 (0, 70, 140, 210, 280, 350), ¿cuántos intervalos de 70 suman en total las alturas de las cuatro barras juntas? Escribe solo el número.",
+        "respuesta": 14,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cuántos intervalos mide cada barra dividiendo entre 70.",
+          "Sarampión: 140/70 = 2. Influenza: 280/70 = 4.",
+          "Tétanos: 210/70 = 3. Fiebre amarilla: 350/70 = 5. Luego suma 2 + 4 + 3 + 5."
+        ],
+        "retroalimentacion": "Las barras miden 2, 4, 3 y 5 intervalos respectivamente. Sumando 2 + 4 + 3 + 5 obtenemos 14 intervalos en total."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.interpretar-representaciones",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-P5-03"
+    ],
+    "bloque": "Gráficos",
+    "nombre": "Interpretación de un mismo conjunto de datos en varias representaciones",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Compara la información de una tabla, un pictograma y un gráfico de barras sobre los mismos datos.",
+    "palabrasClave": [
+      "representaciones estadisticas",
+      "tabla de doble entrada",
+      "grafico de barras",
+      "pictograma",
+      "comparar datos"
+    ],
+    "prerrequisitos": [
+      "mat.p5.barras-desde-tabla",
+      "mat.p5.pictograma-escala-5",
+      "mat.p5.doble-entrada-5"
+    ],
+    "ordenSugerido": 95,
+    "ideaCentral": "Un mismo conjunto de datos puede presentarse mediante tablas de frecuencias, pictogramas o gráficos de barras. Interpretar y contrastar estas representaciones permite verificar la exactitud de los valores, identificar coincidencias o errores y extraer conclusiones fundamentadas.",
+    "pasos": [
+      "Identifica las variables y categorías que se analizan en cada una de las representaciones disponibles.",
+      "Comprueba el valor numérico de cada categoría en la tabla de frecuencias o de doble entrada.",
+      "Calcula los valores en el pictograma multiplicando los símbolos por la clave y verifica las alturas de las barras en el gráfico.",
+      "Compara los valores obtenidos en cada formato para asegurar que transmiten exactamente la misma información.",
+      "Responde a preguntas de comparación, totalización o tendencia a partir de los datos concordantes."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En el colegio San Martín de Piura, los datos de asistencia a la feria de ciencias se muestran en una tabla (5.° A: 30, 5.° B: 40) y en un pictograma donde cada estrella [★] vale 10 alumnos. ¿Cuántas estrellas debe tener cada sección en el pictograma?",
+        "desarrollo": "Para 5.° A: 30 ÷ 10 = 3 estrellas [★][★][★]. Para 5.° B: 40 ÷ 10 = 4 estrellas [★][★][★][★]. Ambos formatos muestran la misma realidad.",
+        "respuesta": "5.° A debe tener 3 estrellas y 5.° B debe tener 4 estrellas."
+      },
+      {
+        "situacion": "Un gráfico de barras muestra que el taller de Ajedrez tiene 25 inscritos, pero en la tabla de frecuencias figura con 35 inscritos. ¿Qué se debe hacer?",
+        "desarrollo": "Al comparar ambas fuentes se descubre una discrepancia de 10 alumnos; es necesario revisar las fichas originales de inscripción para corregir la representación errónea.",
+        "respuesta": "Se debe contrastar con el registro original para corregir el gráfico o la tabla."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Asumir que un gráfico de barras y un pictograma con escalas diferentes representan datos distintos aunque traten del mismo fenómeno.",
+        "correccion": "La forma visual puede cambiar debido a la escala o a los símbolos, pero si las cantidades numéricas reales calculadas coinciden, representan los mismos datos."
+      },
+      {
+        "error": "Olvidar verificar la equivalencia de los símbolos al pasar de un pictograma a un gráfico de barras.",
+        "correccion": "Siempre convierte primero los símbolos a sus valores absolutos antes de cotejarlos con la altura de las barras."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Representaciones equivalentes",
+        "significado": "Diferentes formas gráficas o tabulares que comunican con fidelidad el mismo conjunto de datos."
+      },
+      {
+        "termino": "Discrepancia",
+        "significado": "Diferencia o desacuerdo numérico que aparece al comparar dos fuentes o registros sobre un mismo hecho."
+      },
+      {
+        "termino": "Cotejo de datos",
+        "significado": "Acción de confrontar punto por punto los valores de una tabla con sus correspondientes gráficos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una tabla de frecuencias y un gráfico de barras pueden mostrar exactamente los mismos datos numéricos utilizando formatos visuales diferentes.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda que una tabla usa filas y números, mientras que el gráfico usa barras.",
+          "Ambas herramientas sirven para organizar la misma información recopilada.",
+          "Si las cifras coinciden, la información transmitida es idéntica."
+        ],
+        "retroalimentacion": "Es verdadero: el formato visual cambia, pero los datos y las conclusiones que contienen son exactamente iguales."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una tabla se indica que 60 familias en Huánuco prefieren sembrar papa amarilla. Si en un pictograma el símbolo [🥔] representa a 15 familias, ¿cuántos símbolos deben dibujarse para esa variedad?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 símbolos"
+          },
+          {
+            "id": "b",
+            "texto": "4 símbolos"
+          },
+          {
+            "id": "c",
+            "texto": "5 símbolos"
+          },
+          {
+            "id": "d",
+            "texto": "6 símbolos"
+          }
+        ],
+        "pistas": [
+          "Divide el número total de familias de la tabla entre el valor de cada símbolo.",
+          "Efectúa la división 60 ÷ 15.",
+          "60 dividido entre 15 es igual a 4."
+        ],
+        "retroalimentacion": "Calculamos 60 ÷ 15 = 4 símbolos para representar fielmente el dato de la tabla en el pictograma."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un gráfico de barras con escala de 20 en 20, la barra de «Vóley» alcanza la marca 80. En la tabla de frecuencias correspondiente a esa misma encuesta, ¿qué número de estudiantes debe registrarse para Vóley? Escribe solo el número.",
+        "respuesta": 80,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La tabla y el gráfico deben reflejar la misma cantidad.",
+          "La altura de la barra marca 80 estudiantes.",
+          "El número en la celda de la tabla debe coincidir con esa altura."
+        ],
+        "retroalimentacion": "Para que ambas representaciones sean concordantes, en la tabla debe figurar exactamente 80 estudiantes."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Si en un gráfico de barras la columna del taller de Tejido llega a 50 y en la tabla de frecuencias oficial también se registran 50 participantes, ¿ambas representaciones coinciden o discrepan? Escribe coinciden o discrepan.",
+        "respuesta": "coinciden",
+        "alternativasAceptadas": [
+          "coinciden",
+          "coincide"
+        ],
+        "pistas": [
+          "Compara el valor de 50 del gráfico con el valor de 50 de la tabla.",
+          "Ambos valores son idénticos.",
+          "Cuando dos fuentes muestran el mismo dato, decimos que coinciden."
+        ],
+        "retroalimentacion": "Como ambos registros expresan 50 participantes, las representaciones coinciden."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una feria agropecuaria de Moquegua se registra la venta de paltas. La tabla indica: Palta Fuerte = 80 kg; Palta Hass = 120 kg. En el pictograma correspondiente cada dibujo [🥑] representa 20 kg. ¿Cuántos dibujos de [🥑] corresponden a la Palta Hass?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6 dibujos"
+          },
+          {
+            "id": "b",
+            "texto": "4 dibujos"
+          },
+          {
+            "id": "c",
+            "texto": "8 dibujos"
+          },
+          {
+            "id": "d",
+            "texto": "5 dibujos"
+          }
+        ],
+        "pistas": [
+          "Busca la cantidad de Palta Hass en la tabla: son 120 kg.",
+          "Cada dibujo representa 20 kg.",
+          "Divide 120 entre 20."
+        ],
+        "retroalimentacion": "Para 120 kg de Palta Hass con una escala de 20 kg por símbolo se requieren 120 ÷ 20 = 6 dibujos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una tabla registra 45 paquetes de quinua vendidos y el pictograma muestra 4 símbolos completos de valor 10 y medio símbolo de valor 5, las dos representaciones comunican la misma información.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el valor de los símbolos del pictograma: 4 × 10 = 40.",
+          "Suma el medio símbolo: 40 + 5 = 45.",
+          "Compara con el dato de la tabla: 45 paquetes."
+        ],
+        "retroalimentacion": "Es verdadero: (4 × 10) + 5 = 45 paquetes, lo cual concuerda con la tabla."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una tabla muestra los desayunos servidos en un albergue de Cusco: Quinua con manzana 75, Avena con leche 90 y Ponche de habas 60. Al pasar estos datos a un gráfico de barras, ¿cuál es la diferencia en unidades entre la barra más alta y la barra más baja? Escribe solo el número.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La barra más alta corresponderá a Avena con leche (90).",
+          "La barra más baja corresponderá a Ponche de habas (60).",
+          "Resta 90 - 60 para hallar la diferencia."
+        ],
+        "retroalimentacion": "La diferencia entre la barra más alta (90) y la más baja (60) es 90 - 60 = 30 unidades."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En una tabla de doble entrada sobre deportes en quinto grado se indica que 18 niños y 22 niñas eligieron atletismo. Al construir la barra total de atletismo en un gráfico general, ¿qué frecuencia numérica total debe alcanzar? Escribe solo el número.",
+        "respuesta": "40",
+        "alternativasAceptadas": [
+          "40"
+        ],
+        "pistas": [
+          "Suma los datos parciales de la tabla de doble entrada para atletismo.",
+          "Calcula: 18 niños + 22 niñas.",
+          "18 + 22 = 40."
+        ],
+        "retroalimentacion": "Sumando 18 y 22 obtenemos 40 estudiantes, que es la altura que debe alcanzar la barra total."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se investigó el medio de transporte usado por estudiantes en Huancayo: la tabla de frecuencias registra A pie 120, Bicicleta 60, Combi 180 y Mototaxi 30. Un estudiante elaboró un pictograma con la clave [🚌] = 30 personas, dibujando: A pie 4 símbolos, Bicicleta 2 símbolos, Combi 5 símbolos y Mototaxi 1 símbolo. ¿En qué categoría cometió un error?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "A pie"
+          },
+          {
+            "id": "b",
+            "texto": "Bicicleta"
+          },
+          {
+            "id": "c",
+            "texto": "Combi"
+          },
+          {
+            "id": "d",
+            "texto": "Mototaxi"
+          }
+        ],
+        "pistas": [
+          "Compara cada categoría: A pie son 120 ÷ 30 = 4 símbolos (correcto).",
+          "Bicicleta son 60 ÷ 30 = 2 símbolos (correcto). Mototaxi son 30 ÷ 30 = 1 símbolo (correcto).",
+          "Combi son 180 ÷ 30 = 6 símbolos, pero solo se dibujaron 5 símbolos."
+        ],
+        "retroalimentacion": "El error está en Combi: 180 ÷ 30 = 6 símbolos, pero el estudiante solo dibujó 5."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una biblioteca comunal de Tarapoto se contrastan tres registros de libros: la tabla indica 280 cuentos infantiles y 210 leyendas amazónicas; un gráfico de barras complementario muestra 140 fábulas. Si se elabora un pictograma que reúna estos tres géneros con la clave [📖] = 35 libros, ¿cuántos símbolos en total se necesitarán para representar los tres géneros juntos? Escribe solo el número.",
+        "respuesta": 18,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma la cantidad total de libros de los tres registros: 280 + 210 + 140.",
+          "La suma total es 630 libros.",
+          "Divide 630 entre el valor de cada símbolo del pictograma (35)."
+        ],
+        "retroalimentacion": "Total de libros = 280 + 210 + 140 = 630. Dividiendo 630 ÷ 35 obtenemos 18 símbolos en total."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una municipalidad de Lima analiza la recolección de residuos mediante una tabla (Zona Norte 160 t, Zona Sur 240 t, Zona Centro 320 t, Zona Este 200 t) y un gráfico de barras con escala de 40 en 40. ¿Cuál de las siguientes afirmaciones es matemáticamente correcta al cotejar ambas representaciones?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La Zona Sur supera en 3 intervalos de 40 a la Zona Este"
+          },
+          {
+            "id": "b",
+            "texto": "Entre las cuatro zonas se recolectaron exactamente 800 toneladas"
+          },
+          {
+            "id": "c",
+            "texto": "La barra de la Zona Norte es más alta que la de la Zona Este"
+          },
+          {
+            "id": "d",
+            "texto": "La Zona Centro requiere una barra de 8 intervalos de 40 y representa el doble que la Zona Norte"
+          }
+        ],
+        "pistas": [
+          "Verifica Zona Centro: 320 ÷ 40 = 8 intervalos.",
+          "Compara Zona Centro (320) con Zona Norte (160): 160 × 2 = 320 (es el doble).",
+          "Revisa las demás alternativas para descartarlas con cálculos."
+        ],
+        "retroalimentacion": "320 t en escala de 40 da 8 intervalos, y 320 es exactamente el doble de las 160 t de la Zona Norte."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un centro cultural de Arequipa se registran los asistentes al teatro: el pictograma muestra para la Semana 1 seis máscaras [🎭] y para la Semana 2 ocho máscaras [🎭] con la clave [🎭] = 45 espectadores. Además, el gráfico de barras indica que en la Semana 3 asistieron 315 espectadores. ¿Cuál fue el promedio de espectadores por semana en esas tres semanas? Escribe solo el número.",
+        "respuesta": 315,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Semana 1: 6 × 45 = 270 asistentes. Semana 2: 8 × 45 = 360 asistentes.",
+          "Suma los asistentes de las tres semanas: 270 + 360 + 315 = 945.",
+          "Divide 945 entre 3 semanas para obtener el promedio."
+        ],
+        "retroalimentacion": "Semana 1 = 270, Semana 2 = 360 y Semana 3 = 315. Total = 945. Promedio = 945 ÷ 3 = 315 espectadores."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

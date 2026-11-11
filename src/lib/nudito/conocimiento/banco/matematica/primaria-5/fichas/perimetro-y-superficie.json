@@ -1,0 +1,2149 @@
+[
+  {
+    "clave": "mat.p5.perimetro-cuadrilateros",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P5-01",
+      "MAT-C26-P5-05"
+    ],
+    "bloque": "Perímetro y superficie",
+    "nombre": "Perímetro de cuadriláteros",
+    "disciplina": "geometria",
+    "descripcionCorta": "Calcula el perímetro de cuadriláteros sumando lados o usando sus propiedades.",
+    "palabrasClave": [
+      "perímetro",
+      "cuadrilátero",
+      "lado",
+      "contorno"
+    ],
+    "prerrequisitos": [
+      "mat.p5.clasificar-cuadrilateros"
+    ],
+    "ordenSugerido": 59,
+    "ideaCentral": "El perímetro es la longitud de todo el borde de una figura. En un cuadrilátero sumas sus cuatro lados; si es un cuadrado o rectángulo, aprovechas los lados iguales.",
+    "pasos": [
+      "Identifica los cuatro lados del contorno.",
+      "Anota todas las medidas en la misma unidad.",
+      "Suma los cuatro lados o agrupa los lados iguales.",
+      "Comprueba que no incluiste diagonales ni lados interiores."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una cancha rectangular mide 12 m de largo y 7 m de ancho. ¿Cuál es su perímetro?",
+        "desarrollo": "Dos lados miden 12 m y dos miden 7 m: 12 + 7 + 12 + 7 = 38.",
+        "respuesta": "Su perímetro es 38 m."
+      },
+      {
+        "situacion": "Un mantel cuadrado tiene lados de 80 cm.",
+        "desarrollo": "Los cuatro lados son iguales: 4 × 80 = 320.",
+        "respuesta": "Su contorno mide 320 cm."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Multiplicar largo por ancho.",
+        "correccion": "Esa operación halla área; para perímetro suma los lados del borde."
+      },
+      {
+        "error": "Contar solo dos lados.",
+        "correccion": "Todo cuadrilátero tiene cuatro lados que forman su contorno."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Perímetro",
+        "significado": "Longitud total del borde de una figura."
+      },
+      {
+        "termino": "Cuadrilátero",
+        "significado": "Figura plana con cuatro lados."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una loseta cuadrada tiene 5 cm por lado. ¿Cuánto mide su perímetro en cm? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los cuatro lados de la loseta.",
+          "Todos miden 5 cm.",
+          "Suma 5 + 5 + 5 + 5."
+        ],
+        "retroalimentacion": "Calcular 5 × 5 daría área; el borde mide 20 cm."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una cartulina rectangular mide 8 cm de largo y 3 cm de ancho. ¿Cuál es su perímetro?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "11 cm"
+          },
+          {
+            "id": "b",
+            "texto": "22 cm"
+          },
+          {
+            "id": "c",
+            "texto": "24 cm"
+          },
+          {
+            "id": "d",
+            "texto": "16 cm"
+          }
+        ],
+        "pistas": [
+          "Identifica dos lados de 8 cm.",
+          "Los otros dos son de 3 cm.",
+          "Suma 8 + 3 + 8 + 3."
+        ],
+        "retroalimentacion": "El perímetro es 22 cm; 24 cm² sería su área."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para hallar el perímetro de un cuadrilátero se suman las medidas de sus cuatro lados.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en el borde completo.",
+          "Un cuadrilátero tiene cuatro lados.",
+          "Sumar sus cuatro longitudes recorre el contorno una vez."
+        ],
+        "retroalimentacion": "Es verdadero: el perímetro incluye los cuatro lados, sin diagonales."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Los lados de una cometa cuadrilátera miden 6, 6, 4 y 4 cm. ¿Cuál es su perímetro en cm? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ninguna diagonal cuenta.",
+          "Agrupa los dos lados de 6 y los dos de 4.",
+          "Calcula 6 + 6 + 4 + 4."
+        ],
+        "retroalimentacion": "Omitir un lado de 4 da 16; el contorno completo mide 20 cm."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un marco tiene forma de rombo y cada lado mide 9 cm. ¿Qué suma representa su perímetro?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9 + 9"
+          },
+          {
+            "id": "b",
+            "texto": "9 × 9"
+          },
+          {
+            "id": "c",
+            "texto": "9 + 9 + 9"
+          },
+          {
+            "id": "d",
+            "texto": "9 + 9 + 9 + 9"
+          }
+        ],
+        "pistas": [
+          "Un rombo posee cuatro lados iguales.",
+          "Cada lado de este marco vale 9 cm.",
+          "Repite 9 cuatro veces."
+        ],
+        "retroalimentacion": "La suma 9 + 9 + 9 + 9 recorre los cuatro lados; dos nueves no alcanzan."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El perímetro de un rectángulo es 34 cm y su largo mide 10 cm. ¿Cuánto mide el ancho en cm? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos largos suman 20 cm.",
+          "Quedan 34 − 20 = 14 cm para los dos anchos.",
+          "Divide 14 entre 2."
+        ],
+        "retroalimentacion": "Si dejas 14 como ancho cuentas ambos anchos juntos; cada uno mide 7 cm."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un rectángulo de 6 m por 4 m tiene perímetro de 24 m.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay dos lados de 6 m.",
+          "Hay también dos de 4 m.",
+          "Suma 6 + 6 + 4 + 4."
+        ],
+        "retroalimentacion": "Es falso: el perímetro es 20 m; 24 corresponde al producto 6 × 4."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un jardín tiene lados consecutivos de 7 m, 5 m, 7 m y 5 m. ¿Qué operación de suma calcula su perímetro? Escribe la suma sin resultado.",
+        "respuesta": "7+5+7+5",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sigue el orden de los lados indicado.",
+          "Anota primero 7 y luego 5.",
+          "Completa con el otro 7 y el otro 5."
+        ],
+        "retroalimentacion": "La suma es 7+5+7+5; multiplicar dos lados calcularía otra medida."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un cerco cuadrado usa 48 m de alambre para dar una vuelta completa. ¿Cuántos metros mide cada lado? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los 48 m son el perímetro.",
+          "El cuadrado tiene cuatro lados iguales.",
+          "Divide 48 entre 4."
+        ],
+        "retroalimentacion": "Usar 48 para cada lado cuadruplica el cerco; cada lado mide 12 m."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos rectángulos tienen igual perímetro: uno mide 9 cm por 5 cm y el otro tiene 8 cm de largo. ¿Cuál es el ancho del segundo?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6 cm"
+          },
+          {
+            "id": "b",
+            "texto": "12 cm"
+          },
+          {
+            "id": "c",
+            "texto": "5 cm"
+          },
+          {
+            "id": "d",
+            "texto": "7 cm"
+          }
+        ],
+        "pistas": [
+          "Calcula primero el contorno de 9 cm por 5 cm.",
+          "El perímetro común es 28 cm.",
+          "Dos largos de 8 suman 16; quedan 12 para dos anchos."
+        ],
+        "retroalimentacion": "El ancho correcto es 6 cm: 8 + 6 + 8 + 6 = 28."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un cuadrilátero tiene lados de 12, 7, 9 y un lado desconocido. Su perímetro es 40 cm. ¿Cuánto mide el lado desconocido en cm? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los tres lados conocidos.",
+          "12 + 7 + 9 = 28.",
+          "Resta 28 a los 40 del contorno."
+        ],
+        "retroalimentacion": "El lado faltante mide 12 cm; sumar 40 a 28 no recupera la parte faltante."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si duplicas todos los lados de un cuadrado de 4 cm, su perímetro pasa de 16 cm a 32 cm.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero suma cuatro lados de 4 cm.",
+          "Al duplicar, cada lado pasa a 8 cm.",
+          "Compara 4 × 4 con 4 × 8."
+        ],
+        "retroalimentacion": "Es verdadero: los perímetros son 16 y 32 cm; duplicar cada lado duplica el contorno."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.superficie-porcion-plano",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P5-05"
+    ],
+    "bloque": "Perímetro y superficie",
+    "nombre": "La superficie como porción del plano",
+    "disciplina": "geometria",
+    "descripcionCorta": "Mide superficies recubriéndolas con unidades cuadradas y explica su conservación.",
+    "palabrasClave": [
+      "superficie",
+      "unidad cuadrada",
+      "recubrimiento",
+      "conservación"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 60,
+    "ideaCentral": "La superficie es la parte del plano que ocupa una figura. Puedes medirla cubriéndola sin huecos ni superposiciones con cuadrados iguales; mover sus partes no cambia la cantidad cubierta.",
+    "pasos": [
+      "Elige cuadrados de una misma medida.",
+      "Recubre la figura sin dejar huecos ni montar cuadrados.",
+      "Cuenta las unidades cuadradas completas.",
+      "Si reordenas las partes, comprueba que conservas todos los cuadrados."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una alfombrilla cubre 3 filas de 4 baldosas iguales.",
+        "desarrollo": "Cada fila tiene cuatro cuadrados; 4 + 4 + 4 = 12.",
+        "respuesta": "Cubre 12 unidades cuadradas."
+      },
+      {
+        "situacion": "Un mosaico de 8 cuadrados se corta en dos partes y se reacomoda.",
+        "desarrollo": "No se quita ni se añade ningún cuadrado.",
+        "respuesta": "La superficie sigue siendo 8 unidades cuadradas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar los cuadrados del borde solamente.",
+        "correccion": "La superficie incluye toda la parte interior cubierta."
+      },
+      {
+        "error": "Usar cuadrados de tamaños diferentes como si fueran iguales.",
+        "correccion": "Para comparar conteos, usa la misma unidad cuadrada."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Superficie",
+        "significado": "Parte del plano que ocupa una figura."
+      },
+      {
+        "termino": "Unidad cuadrada",
+        "significado": "Cuadrado usado como medida de una superficie."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un tapete cubre ●●● / ●●●; cada ● representa un cuadrado igual. ¿Cuántas unidades cuadradas cubre? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada fila tiene tres cuadrados.",
+          "Hay dos filas completas.",
+          "Cuenta 3 + 3."
+        ],
+        "retroalimentacion": "Contar solo una fila da 3; el tapete cubre 6 unidades cuadradas."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para comparar la superficie de dos dibujos, ¿qué material conviene usar?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuerdas de distinto largo"
+          },
+          {
+            "id": "b",
+            "texto": "Solo lápices"
+          },
+          {
+            "id": "c",
+            "texto": "Cuadrados iguales"
+          },
+          {
+            "id": "d",
+            "texto": "Reglas sin marcas"
+          }
+        ],
+        "pistas": [
+          "Necesitas cubrir ambos interiores.",
+          "Las piezas deben tener el mismo tamaño.",
+          "Elige cuadrados iguales para los dos dibujos."
+        ],
+        "retroalimentacion": "La opción correcta es cuadrados iguales; piezas de distintos tamaños impiden comparar los conteos."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al medir una superficie con cuadrados, se pueden dejar huecos entre ellos y obtener el mismo conteo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un hueco es una parte sin cubrir.",
+          "La medida debe abarcar toda la figura.",
+          "Piensa si los cuadrados contados incluyen el espacio vacío."
+        ],
+        "retroalimentacion": "Es falso: los huecos dejan superficie sin medir."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una figura muestra ★★★★ / ★★★★ / ★★★★; cada ★ ocupa una unidad cuadrada. ¿Cuántas unidades cuadradas hay? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuatro estrellas por fila.",
+          "Son tres filas.",
+          "Suma 4 + 4 + 4."
+        ],
+        "retroalimentacion": "Leer solo las estrellas de arriba da 4; la superficie total es 12."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un papel cubierto por 10 cuadrados iguales se corta y se reordena sin perder piezas. ¿Qué ocurre con su superficie?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Aumenta a 20"
+          },
+          {
+            "id": "b",
+            "texto": "Sigue en 10"
+          },
+          {
+            "id": "c",
+            "texto": "Baja a 5"
+          },
+          {
+            "id": "d",
+            "texto": "No se puede medir"
+          }
+        ],
+        "pistas": [
+          "No desapareció ningún cuadrado.",
+          "Tampoco se añadió uno nuevo.",
+          "El total de unidades cubiertas sigue siendo 10."
+        ],
+        "retroalimentacion": "Sigue en 10 unidades cuadradas; cambiar la forma no cambia la superficie conservada."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una cuadrícula hay 11 cuadrados visibles y 4 ocultos por una etiqueta. ¿Cuántas unidades cuadradas tenía la región completa? Escribe solo el número.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La etiqueta oculta una parte, pero no la borra.",
+          "Hay 11 visibles y 4 ocultos.",
+          "Cuenta 11 + 4."
+        ],
+        "retroalimentacion": "Contar solo los visibles da 11; la región original conserva 15 cuadrados."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos figuras recubiertas sin huecos por 9 cuadrados iguales tienen la misma superficie aunque una sea alargada.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la unidad usada en ambas.",
+          "Cada figura reúne nueve unidades iguales.",
+          "La forma no altera el total cubierto."
+        ],
+        "retroalimentacion": "Es verdadero: ambas superficies miden 9 unidades cuadradas."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Si un dibujo se cubre con cuadrados iguales, pero dos piezas se montan una sobre otra, ¿qué debes evitar al contar? Responde con una palabra.",
+        "respuesta": "superposición",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las piezas montadas comparten una zona.",
+          "Esa zona quedaría contada dos veces.",
+          "El problema se llama superposición."
+        ],
+        "retroalimentacion": "Debes evitar la superposición; contar la misma zona dos veces exagera la superficie."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una figura de 18 unidades cuadradas se divide en partes de 7 y 11 cuadrados y luego se juntan de otra forma. ¿Cuánto mide ahora su superficie en unidades cuadradas? Escribe solo el número.",
+        "respuesta": 18,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa si se perdió alguna parte.",
+          "Las piezas conservan 7 y 11 cuadrados.",
+          "Suma 7 + 11 después de reordenar."
+        ],
+        "retroalimentacion": "No se resta por mover piezas: 7 + 11 conserva 18 unidades cuadradas."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un dibujo A se cubre con 12 cuadrados grandes y B con 12 cuadrados pequeños. ¿Qué conclusión está justificada?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "A y B ocupan igual superficie"
+          },
+          {
+            "id": "b",
+            "texto": "B ocupa más siempre"
+          },
+          {
+            "id": "c",
+            "texto": "A ocupa menos siempre"
+          },
+          {
+            "id": "d",
+            "texto": "No basta el conteo para compararlas"
+          }
+        ],
+        "pistas": [
+          "Los conteos son iguales.",
+          "Pero las unidades tienen distinto tamaño.",
+          "Para comparar superficies necesitarías la misma unidad."
+        ],
+        "retroalimentacion": "La conclusión correcta es que no basta el conteo: cuadrados de tamaños distintos cubren áreas distintas."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una superficie tiene 4 filas de 5 cuadrados iguales. Se recortan 6 cuadrados y se colocan a un lado sin perderlos. ¿Cuántas unidades cuadradas ocupan todas las piezas juntas? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero la superficie inicial.",
+          "Cuatro grupos de cinco suman 20.",
+          "Recortar y trasladar seis no elimina cuadrados."
+        ],
+        "retroalimentacion": "Restar los seis recortados da solo la parte restante; todas las piezas ocupan 20."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos figuras usan 8 cuadrados iguales cada una, mover tres cuadrados de una a otra sin superponerlos deja iguales sus superficies.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Al inicio ambas tienen ocho.",
+          "Tras mover tres, una queda con cinco.",
+          "La otra pasa a tener once cuadrados."
+        ],
+        "retroalimentacion": "Es falso: las superficies terminan en 5 y 11 unidades cuadradas."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.area-rectangulos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P5-01",
+      "MAT-C26-P5-05",
+      "MAT-C26-P5-07"
+    ],
+    "bloque": "Perímetro y superficie",
+    "nombre": "Área de cuadrados y rectángulos",
+    "disciplina": "geometria",
+    "descripcionCorta": "Calcula el área multiplicando filas por columnas de unidades cuadradas.",
+    "palabrasClave": [
+      "área",
+      "rectángulo",
+      "cuadrado",
+      "filas",
+      "columnas"
+    ],
+    "prerrequisitos": [
+      "mat.p5.superficie-porcion-plano",
+      "mat.p5.perimetro-cuadrilateros"
+    ],
+    "ordenSugerido": 89,
+    "ideaCentral": "El área cuenta cuántas unidades cuadradas cubren un rectángulo o un cuadrado. Multiplica el número de filas por el de columnas, usando medidas en la misma unidad.",
+    "pasos": [
+      "Identifica largo y ancho o cuenta filas y columnas.",
+      "Comprueba que ambas medidas usan la misma unidad.",
+      "Multiplica filas por columnas.",
+      "Escribe la respuesta en unidades cuadradas."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una huerta rectangular tiene 6 m de largo y 4 m de ancho.",
+        "desarrollo": "Cada una de las 4 filas tiene 6 cuadrados de 1 m²: 6 × 4 = 24.",
+        "respuesta": "El área es 24 m²."
+      },
+      {
+        "situacion": "Una baldosa cuadrada mide 7 cm de lado.",
+        "desarrollo": "Tiene 7 filas de 7 cuadrados de 1 cm²: 7 × 7 = 49.",
+        "respuesta": "El área es 49 cm²."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar los lados para hallar el área.",
+        "correccion": "La suma del borde da perímetro; el área se calcula con filas por columnas."
+      },
+      {
+        "error": "Escribir cm en lugar de cm².",
+        "correccion": "El área se expresa en unidades cuadradas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Área",
+        "significado": "Medida de la superficie que cubre una figura."
+      },
+      {
+        "termino": "Fila",
+        "significado": "Hilera horizontal de unidades cuadradas."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una tarjeta rectangular tiene 5 columnas y 3 filas de cuadrados de 1 cm². ¿Cuál es su área en cm²? Escribe solo el número.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada fila reúne cinco cuadrados.",
+          "Hay tres filas iguales.",
+          "Multiplica 5 × 3."
+        ],
+        "retroalimentacion": "Sumar 5 + 3 da 8; el área cubierta es 15 cm²."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un cuadrado de lado 4 m ocupa ¿cuántos metros cuadrados?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "16 m²"
+          },
+          {
+            "id": "b",
+            "texto": "8 m²"
+          },
+          {
+            "id": "c",
+            "texto": "12 m²"
+          },
+          {
+            "id": "d",
+            "texto": "4 m²"
+          }
+        ],
+        "pistas": [
+          "El cuadrado tiene igual largo y ancho.",
+          "Son cuatro filas de cuatro.",
+          "Calcula 4 × 4."
+        ],
+        "retroalimentacion": "Ocupa 16 m²; 8 m sería sumar solo dos lados."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El área de un rectángulo de 7 cm por 2 cm es 14 cm².",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en dos filas de siete.",
+          "Multiplica 7 por 2.",
+          "El resultado se expresa en cm²."
+        ],
+        "retroalimentacion": "Es verdadero: 7 × 2 = 14 cm²."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una página cuadriculada tiene una zona de 8 filas y 2 columnas de cuadros de 1 cm². ¿Qué área tiene en cm²? Escribe solo el número.",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los cuadros por fila.",
+          "Dos cuadros se repiten ocho veces.",
+          "Calcula 8 × 2."
+        ],
+        "retroalimentacion": "Confundir área con perímetro daría 20; la zona cubre 16 cm²."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una alfombra rectangular mide 9 m por 5 m. ¿Qué operación halla su área?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9 + 5"
+          },
+          {
+            "id": "b",
+            "texto": "9 + 9 + 5 + 5"
+          },
+          {
+            "id": "c",
+            "texto": "9 × 5"
+          },
+          {
+            "id": "d",
+            "texto": "9 − 5"
+          }
+        ],
+        "pistas": [
+          "El área cubre el piso interior.",
+          "Imagina nueve columnas en cinco filas.",
+          "Multiplica las dos medidas."
+        ],
+        "retroalimentacion": "La operación 9 × 5 calcula 45 m²; 9 + 5 solo suma dos lados."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un pizarrón tiene 48 cm² de área y 8 cm de largo. ¿Cuánto mide su ancho en cm? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Área = largo × ancho.",
+          "Aquí 48 = 8 × ancho.",
+          "Divide 48 entre 8."
+        ],
+        "retroalimentacion": "Sumar 48 + 8 no recupera el ancho; el ancho es 6 cm."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos rectángulos de 3 cm × 8 cm y 4 cm × 6 cm tienen la misma área.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 3 × 8.",
+          "Luego calcula 4 × 6.",
+          "Compara los dos productos."
+        ],
+        "retroalimentacion": "Es verdadero: ambos cubren 24 cm² aunque tienen otras formas."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una cuadrícula muestra 6 filas de 7 cuadros iguales. ¿Qué multiplicación representa su área? Escribe 6×7.",
+        "respuesta": "6×7",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer factor puede ser el número de filas.",
+          "Aquí hay seis filas.",
+          "Cada fila contiene siete cuadros."
+        ],
+        "retroalimentacion": "La multiplicación es 6×7; sumar 6 + 7 no cuenta todos los cuadros."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una chacra rectangular mide 12 m por 8 m. Se divide en dos tiras iguales de 4 m de ancho. ¿Cuál es el área total en m²? Escribe solo el número.",
+        "respuesta": 96,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada tira conserva 12 m de largo.",
+          "Cada una cubre 12 × 4 = 48 m².",
+          "Junta las dos áreas: 48 + 48."
+        ],
+        "retroalimentacion": "Quedarte con una tira da 48; las dos cubren 96 m²."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una losa cuadrada tiene área de 81 m². ¿Cuánto mide cada lado?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "81 m"
+          },
+          {
+            "id": "b",
+            "texto": "18 m"
+          },
+          {
+            "id": "c",
+            "texto": "8 m"
+          },
+          {
+            "id": "d",
+            "texto": "9 m"
+          }
+        ],
+        "pistas": [
+          "Busca un número que multiplicado por sí mismo dé 81.",
+          "8 × 8 da 64 y 9 × 9 da 81.",
+          "El lado buscado es 9 m."
+        ],
+        "retroalimentacion": "Cada lado mide 9 m porque 9 × 9 = 81 m²; 81 m confunde área con longitud."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un mosaico de 10 filas y 6 columnas pierde una fila completa. ¿Qué área queda en unidades cuadradas? Escribe solo el número.",
+        "respuesta": 54,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Al quitar una fila quedan nueve.",
+          "Cada una de las nueve filas tiene seis cuadros.",
+          "Multiplica 9 × 6."
+        ],
+        "retroalimentacion": "Restar solo un cuadro daría 59; se quitan seis y quedan 54."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si duplicas el largo de un rectángulo de 5 cm por 3 cm y mantienes el ancho, el área pasa de 15 a 30 cm².",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El área inicial es 5 × 3.",
+          "El nuevo largo es 10 cm.",
+          "Calcula 10 × 3."
+        ],
+        "retroalimentacion": "Es verdadero: 15 cm² pasa a 30 cm²; el ancho sigue en 3 cm."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.cm2-m2",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P5-07"
+    ],
+    "bloque": "Perímetro y superficie",
+    "nombre": "El centímetro cuadrado y el metro cuadrado",
+    "disciplina": "geometria",
+    "descripcionCorta": "Elige la unidad cuadrada adecuada para medir superficies pequeñas o grandes.",
+    "palabrasClave": [
+      "centímetro cuadrado",
+      "metro cuadrado",
+      "unidad de área",
+      "escala"
+    ],
+    "prerrequisitos": [
+      "mat.p5.area-rectangulos"
+    ],
+    "ordenSugerido": 90,
+    "ideaCentral": "El cm² sirve para superficies pequeñas, como una estampilla; el m² sirve para superficies grandes, como un aula. Elige una unidad que dé una medida fácil de entender.",
+    "pasos": [
+      "Reconoce la superficie que deseas medir.",
+      "Imagina un cuadrado de 1 cm de lado y otro de 1 m de lado.",
+      "Para objetos pequeños elige cm²; para pisos o paredes elige m².",
+      "Comprueba que nombraste una unidad cuadrada y no una longitud."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Se quiere medir la superficie de una tarjeta.",
+        "desarrollo": "Una tarjeta cabe en la mano; un cuadrado de 1 cm de lado permite contarla.",
+        "respuesta": "Conviene usar cm²."
+      },
+      {
+        "situacion": "La dirección mide el piso de la biblioteca.",
+        "desarrollo": "El piso ocupa mucho espacio; cuadrados de 1 m de lado son prácticos.",
+        "respuesta": "Conviene usar m²."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Medir la superficie de una pared en metros.",
+        "correccion": "Los metros miden longitud; la superficie se expresa en m²."
+      },
+      {
+        "error": "Usar m² para la cara de una moneda.",
+        "correccion": "Una unidad tan grande es poco práctica; usa cm²."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "cm²",
+        "significado": "Área de un cuadrado de 1 cm por lado."
+      },
+      {
+        "termino": "m²",
+        "significado": "Área de un cuadrado de 1 m por lado."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué unidad usarías para la superficie de una moneda?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "m²"
+          },
+          {
+            "id": "b",
+            "texto": "cm²"
+          },
+          {
+            "id": "c",
+            "texto": "m"
+          },
+          {
+            "id": "d",
+            "texto": "cm"
+          }
+        ],
+        "pistas": [
+          "La moneda cabe en tu mano.",
+          "Un cuadrado de un metro de lado sería enorme.",
+          "El centímetro cuadrado es una unidad pequeña de área."
+        ],
+        "retroalimentacion": "La unidad adecuada es cm²; m² resulta demasiado grande para una moneda."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La superficie del piso de un salón se expresa convenientemente en m².",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina el tamaño del salón.",
+          "Los cuadrados de 1 m por lado pueden cubrir el piso.",
+          "La medida de una superficie lleva exponente 2."
+        ],
+        "retroalimentacion": "Es verdadero: m² es una unidad práctica para el piso de un salón."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Quieres medir la cara de una estampilla. Escribe la unidad más adecuada: cm² o m².",
+        "respuesta": "cm²",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La cara de una estampilla es pequeña.",
+          "No necesitarías cuadrados de un metro.",
+          "Elige centímetros cuadrados."
+        ],
+        "retroalimentacion": "Corresponde cm²; usar m² haría la medida diminuta y poco práctica."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "El área de una plaza se comunicaría mejor en ¿qué unidad?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "cm"
+          },
+          {
+            "id": "b",
+            "texto": "cm²"
+          },
+          {
+            "id": "c",
+            "texto": "m"
+          },
+          {
+            "id": "d",
+            "texto": "m²"
+          }
+        ],
+        "pistas": [
+          "Una plaza ocupa más que una mesa.",
+          "Usa cuadrados de un metro de lado.",
+          "Busca la opción que mida área grande."
+        ],
+        "retroalimentacion": "La opción m² es apropiada para una plaza; m y cm miden solo longitudes."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una hoja A4 suele medir su superficie en m² para obtener números cómodos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una hoja es menor que un metro de lado.",
+          "El m² es grande para objetos de mano.",
+          "Usa cm² para una hoja."
+        ],
+        "retroalimentacion": "Es falso: para una hoja es más práctico usar cm²."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una mesa mide aproximadamente 120 cm de largo y 60 cm de ancho. ¿Qué unidad conviene para expresar el área calculada con esas medidas?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "cm²"
+          },
+          {
+            "id": "b",
+            "texto": "cm"
+          },
+          {
+            "id": "c",
+            "texto": "m"
+          },
+          {
+            "id": "d",
+            "texto": "m²"
+          }
+        ],
+        "pistas": [
+          "Las dos medidas dadas están en cm.",
+          "El producto de cm por cm produce área.",
+          "La unidad resultante es cm²."
+        ],
+        "retroalimentacion": "La unidad es cm²; escribir cm perdería la idea de superficie."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "La pared de un aula mide 6 m por 3 m. ¿En qué unidad expresarías su superficie? Escribe el símbolo.",
+        "respuesta": "m²",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las longitudes están dadas en metros.",
+          "Multiplicar metro por metro produce una unidad cuadrada.",
+          "La pared tiene un área que se expresa en m²."
+        ],
+        "retroalimentacion": "Se expresa en m²; m solo describe una longitud."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál pareja asigna unidades convenientes a un botón y a una cancha, en ese orden?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "m² y cm²"
+          },
+          {
+            "id": "b",
+            "texto": "cm y m"
+          },
+          {
+            "id": "c",
+            "texto": "cm² y m²"
+          },
+          {
+            "id": "d",
+            "texto": "m y cm"
+          }
+        ],
+        "pistas": [
+          "El botón es pequeño.",
+          "La cancha es mucho mayor.",
+          "Asigna cm² al primero y m² a la segunda."
+        ],
+        "retroalimentacion": "La pareja correcta es cm² y m²; invertirlas da unidades poco prácticas."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para comparar áreas de dos patios, medir uno en cm² y otro en m² permite comparar directamente los números sin convertir.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los números dependen del tamaño de la unidad.",
+          "Un m² contiene muchos cm².",
+          "Para comparar números, usa la misma unidad."
+        ],
+        "retroalimentacion": "Es falso: debes expresar ambos patios en la misma unidad antes de comparar cifras."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una escuela informa «el patio mide 90 m». ¿Qué corrección permite hablar de la superficie del patio?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "90 cm"
+          },
+          {
+            "id": "b",
+            "texto": "90 m²"
+          },
+          {
+            "id": "c",
+            "texto": "90 km"
+          },
+          {
+            "id": "d",
+            "texto": "90 m de lado"
+          }
+        ],
+        "pistas": [
+          "La frase usa una unidad de longitud.",
+          "Para superficie necesitas una unidad cuadrada.",
+          "Mantén el 90 y cambia a m² si esa fue la medición de área."
+        ],
+        "retroalimentacion": "Debe decir 90 m² si el dato representa área; 90 m mide una distancia."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una artista dibuja una figura de 5 cm por 4 cm. Si calcula su área como 20, ¿qué unidad debe añadir?",
+        "respuesta": "cm²",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplicó dos longitudes en centímetros.",
+          "Cada cuadradito de 1 cm por 1 cm es una unidad de área.",
+          "Escribe el símbolo del centímetro cuadrado."
+        ],
+        "retroalimentacion": "La unidad es cm²; 20 cm indicaría una longitud, no el área dibujada."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué enunciado usa correctamente una unidad de superficie?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El área del patio es 20 m"
+          },
+          {
+            "id": "b",
+            "texto": "La superficie del sello es 3 cm"
+          },
+          {
+            "id": "c",
+            "texto": "El piso ocupa 15 m"
+          },
+          {
+            "id": "d",
+            "texto": "La pizarra ocupa 2 m²"
+          }
+        ],
+        "pistas": [
+          "Busca algo que ocupe una región plana.",
+          "Descarta las medidas lineales de bordes.",
+          "Una pizarra puede tener área en m²."
+        ],
+        "retroalimentacion": "«La pizarra ocupa 2 m²» expresa superficie; las demás frases usan longitud para áreas."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.area-figuras-compuestas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P5-07"
+    ],
+    "bloque": "Perímetro y superficie",
+    "nombre": "Área de figuras compuestas por rectángulos",
+    "disciplina": "geometria",
+    "descripcionCorta": "Descompone figuras en rectángulos para calcular su área total.",
+    "palabrasClave": [
+      "figura compuesta",
+      "rectángulo",
+      "descomposición",
+      "área total"
+    ],
+    "prerrequisitos": [
+      "mat.p5.area-rectangulos"
+    ],
+    "ordenSugerido": 91,
+    "ideaCentral": "Una figura formada por rectángulos puede dividirse en partes que no se superpongan. Halla el área de cada parte y súmalas para obtener la superficie total.",
+    "pasos": [
+      "Dibuja o imagina una línea que separe la figura en rectángulos.",
+      "Calcula largo por ancho en cada parte.",
+      "Suma las áreas sin contar dos veces una zona.",
+      "Comprueba que las partes cubren toda la figura."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un piso tiene un rectángulo de 6 × 4 m y otro unido de 2 × 3 m, sin superponerse.",
+        "desarrollo": "Las partes cubren 24 m² y 6 m²; 24 + 6 = 30.",
+        "respuesta": "El piso ocupa 30 m²."
+      },
+      {
+        "situacion": "De una cartulina de 8 × 5 cm se recorta una esquina de 2 × 2 cm.",
+        "desarrollo": "El rectángulo entero tiene 40 cm²; el corte tiene 4 cm². Quedan 40 − 4 = 36.",
+        "respuesta": "La figura restante ocupa 36 cm²."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Multiplicar el largo total por el ancho total en una L.",
+        "correccion": "Ese rectángulo incluiría un espacio vacío; resta ese hueco o suma partes reales."
+      },
+      {
+        "error": "Sumar dos piezas que se superponen.",
+        "correccion": "Las partes elegidas deben cubrir la figura una sola vez."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Figura compuesta",
+        "significado": "Figura formada al unir figuras más simples."
+      },
+      {
+        "termino": "Descomponer",
+        "significado": "Separar una figura en partes fáciles de medir."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Dos rectángulos unidos sin superponerse miden 3 × 4 cm y 2 × 4 cm. ¿Cuál es el área total en cm²? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla el área del primero: 3 × 4.",
+          "El segundo cubre 2 × 4.",
+          "Suma 12 + 8."
+        ],
+        "retroalimentacion": "Sumar solo 3 + 2 + 4 no cuenta superficie; el total es 20 cm²."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una figura reúne piezas de 6 cm² y 9 cm² sin solaparse. ¿Cuál es su área?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 cm²"
+          },
+          {
+            "id": "b",
+            "texto": "54 cm²"
+          },
+          {
+            "id": "c",
+            "texto": "15 cm²"
+          },
+          {
+            "id": "d",
+            "texto": "12 cm²"
+          }
+        ],
+        "pistas": [
+          "Ambas piezas forman el interior.",
+          "Ninguna se cuenta dos veces.",
+          "Suma 6 y 9."
+        ],
+        "retroalimentacion": "El área es 15 cm²; restar piezas quitaría superficie existente."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al dividir una figura en dos rectángulos que no se montan, su área total es la suma de las dos áreas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada parte aporta superficie.",
+          "No hay zona común contada dos veces.",
+          "Juntar las áreas reproduce la figura completa."
+        ],
+        "retroalimentacion": "Es verdadero: la suma de partes sin superposición da el área total."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un diseño tiene un bloque de 5 × 2 cuadros y otro de 3 × 2 cuadros, separados. ¿Cuántos cuadros ocupa en total? Escribe solo el número.",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer bloque ocupa 10 cuadros.",
+          "El segundo ocupa 6.",
+          "Junta 10 y 6."
+        ],
+        "retroalimentacion": "Contar solo el primer bloque da 10; ambos ocupan 16 cuadros."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una figura en L sale de un rectángulo de 6 × 5 cm al quitar una esquina de 2 × 3 cm. ¿Qué cálculo da su área?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "30 + 6"
+          },
+          {
+            "id": "b",
+            "texto": "30 − 6"
+          },
+          {
+            "id": "c",
+            "texto": "6 × 5 × 2"
+          },
+          {
+            "id": "d",
+            "texto": "6 + 5 − 2 − 3"
+          }
+        ],
+        "pistas": [
+          "El rectángulo completo ocupa 30 cm².",
+          "El recorte ocupa 6 cm².",
+          "Resta la parte que ya no está."
+        ],
+        "retroalimentacion": "30 − 6 = 24 cm² es el cálculo correcto; sumar el recorte inflaría el área."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un panel une un rectángulo de 7 × 3 m con otro de 4 × 2 m sin superponerse. ¿Cuál es su área en m²? Escribe solo el número.",
+        "respuesta": 29,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El panel grande cubre 21 m².",
+          "El pequeño cubre 8 m².",
+          "Suma 21 + 8."
+        ],
+        "retroalimentacion": "Multiplicar 7 × 4 mezcla dimensiones de piezas distintas; el área total es 29 m²."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si a un cuadrado de 5 × 5 cm le quitas un rectángulo de 2 × 3 cm, quedan 19 cm².",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El cuadrado cubre 25 cm².",
+          "La parte quitada cubre 6 cm².",
+          "Calcula 25 − 6."
+        ],
+        "retroalimentacion": "Es verdadero: quedan 19 cm², no 31 porque se quitó una parte."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un afiche en L se separa en rectángulos de 4 × 3 cm y 2 × 5 cm. ¿Qué suma de productos calcula el área? Escríbela sin resultado.",
+        "respuesta": "4×3+2×5",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada parte requiere largo por ancho.",
+          "La primera da 4×3.",
+          "Añade el producto 2×5 de la segunda."
+        ],
+        "retroalimentacion": "La suma es 4×3+2×5; sumar solo las cuatro medidas no calcula áreas."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un patio de 10 × 8 m tiene una zona sin piso de 3 × 4 m. ¿Cuántos m² sí están cubiertos? Escribe solo el número.",
+        "respuesta": 68,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El rectángulo grande cubre 80 m².",
+          "La zona vacía mide 12 m².",
+          "Resta 12 a 80."
+        ],
+        "retroalimentacion": "Contar el hueco daría 80; la superficie cubierta es 68 m²."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una figura se arma con rectángulos de 8 × 2 cm y 3 × 5 cm sin superponerse. Alma dice que ocupa 31 cm². ¿Por qué tiene razón?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Porque 8 + 2 + 3 + 5 = 18"
+          },
+          {
+            "id": "b",
+            "texto": "Porque 8 × 5 = 40"
+          },
+          {
+            "id": "c",
+            "texto": "Porque 8 + 3 = 11"
+          },
+          {
+            "id": "d",
+            "texto": "Porque 16 + 15 = 31"
+          }
+        ],
+        "pistas": [
+          "Calcula 8 × 2.",
+          "Calcula 3 × 5.",
+          "Suma 16 y 15."
+        ],
+        "retroalimentacion": "La justificación correcta es 16 + 15 = 31 cm²; sumar largos y anchos no basta."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una cruz se forma con un rectángulo vertical de 2 × 7 cuadros y uno horizontal de 6 × 2 cuadros; se superponen en un cuadrado de 2 × 2. ¿Cuántos cuadros cubre? Escribe solo el número.",
+        "respuesta": 22,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 2 × 7 y 6 × 2.",
+          "La zona central de 2 × 2 quedó contada dos veces.",
+          "Haz 14 + 12 − 4."
+        ],
+        "retroalimentacion": "Sumar 14 + 12 da 26 porque repite el centro; la cruz cubre 22 cuadros."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "De una cartulina de 9 × 6 cm se recortan dos esquinas separadas de 2 × 2 cm cada una; el área restante es 46 cm².",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La cartulina entera tiene 54 cm².",
+          "Cada esquina retirada mide 4 cm².",
+          "Resta 4 + 4 al total."
+        ],
+        "retroalimentacion": "Es verdadero: 54 − 8 = 46 cm²; ambas esquinas se retiran."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.perimetro-figuras-compuestas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P5-07"
+    ],
+    "bloque": "Perímetro y superficie",
+    "nombre": "Perímetro de figuras compuestas",
+    "disciplina": "geometria",
+    "descripcionCorta": "Calcula el contorno de figuras formadas por rectángulos hallando los lados que faltan.",
+    "palabrasClave": [
+      "contorno",
+      "perímetro",
+      "figura compuesta",
+      "lado faltante"
+    ],
+    "prerrequisitos": [
+      "mat.p5.perimetro-cuadrilateros"
+    ],
+    "ordenSugerido": 92,
+    "ideaCentral": "Para hallar el perímetro de una figura hecha con rectángulos, sigue solo el borde exterior. Si falta un tramo, dedúcelo sumando o restando segmentos alineados antes de sumar el contorno.",
+    "pasos": [
+      "Recorre mentalmente el borde exterior desde un punto.",
+      "Anota cada tramo exterior una sola vez.",
+      "Halla los lados faltantes comparando tramos horizontales o verticales.",
+      "Suma todas las longitudes exteriores en la misma unidad."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una figura en L tiene tramos exteriores consecutivos de 6, 2, 3, 4, 3 y 6 cm.",
+        "desarrollo": "Todos son exteriores; 6 + 2 + 3 + 4 + 3 + 6 = 24.",
+        "respuesta": "Su perímetro es 24 cm."
+      },
+      {
+        "situacion": "Dos rectángulos de 4 × 3 cm comparten un lado completo de 3 cm.",
+        "desarrollo": "Por separado suman 14 + 14 = 28 cm, pero el lado compartido de 3 cm se contó dos veces y queda dentro: 28 − 6 = 22.",
+        "respuesta": "El contorno unido mide 22 cm."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar bordes interiores compartidos.",
+        "correccion": "Solo cuenta tramos que tocan el exterior."
+      },
+      {
+        "error": "Inventar la medida de un tramo faltante.",
+        "correccion": "Compárala con los segmentos paralelos que completan el ancho o alto."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Tramo exterior",
+        "significado": "Parte del borde visible de la figura unida."
+      },
+      {
+        "termino": "Lado compartido",
+        "significado": "Segmento donde se unen dos piezas y que queda interior."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una figura escalonada tiene bordes exteriores de 4, 2, 2, 2, 2 y 4 cm. ¿Cuál es su perímetro en cm? Escribe solo el número.",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recorre los seis tramos dados.",
+          "Suma primero los tres de 2 cm.",
+          "Añade los dos tramos de 4 cm y el otro de 2 cm."
+        ],
+        "retroalimentacion": "Dejar fuera un escalón reduce el resultado; 4 + 2 + 2 + 2 + 2 + 4 = 16."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos piezas rectangulares comparten un lado. Al calcular el perímetro de la figura unida, ese lado compartido se…",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "suma una vez"
+          },
+          {
+            "id": "b",
+            "texto": "excluye"
+          },
+          {
+            "id": "c",
+            "texto": "suma dos veces"
+          },
+          {
+            "id": "d",
+            "texto": "multiplica por cuatro"
+          }
+        ],
+        "pistas": [
+          "El lado compartido queda entre las dos piezas.",
+          "No toca el borde de afuera.",
+          "Solo el borde exterior forma el perímetro."
+        ],
+        "retroalimentacion": "El lado compartido se excluye; sumarlo contaría un borde interior."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El perímetro de una figura compuesta incluye todos los lados exteriores y también los lados de unión interiores.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina pasar un dedo por el borde.",
+          "Tu dedo no atraviesa la unión interior.",
+          "Cuenta solo lo que está en el contorno externo."
+        ],
+        "retroalimentacion": "Es falso: los lados de unión interiores no forman el perímetro."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un contorno tiene seis tramos exteriores de 5, 3, 2, 3, 3 y 6 m. ¿Cuántos metros mide? Escribe solo el número.",
+        "respuesta": 22,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los seis datos dados.",
+          "Agrupa 5 + 3 + 2 = 10.",
+          "Los otros 3 + 3 + 6 suman 12."
+        ],
+        "retroalimentacion": "Si omites un tramo el cerco queda incompleto; 10 + 12 = 22 m."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos rectángulos de 4 × 2 cm se pegan por un lado de 2 cm completo. ¿Cuál es el perímetro exterior?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "16 cm"
+          },
+          {
+            "id": "b",
+            "texto": "24 cm"
+          },
+          {
+            "id": "c",
+            "texto": "20 cm"
+          },
+          {
+            "id": "d",
+            "texto": "18 cm"
+          }
+        ],
+        "pistas": [
+          "Cada rectángulo tiene perímetro 12 cm.",
+          "La unión de 2 cm aparece dos veces en esa suma.",
+          "Calcula 12 + 12 − 4."
+        ],
+        "retroalimentacion": "El contorno es 20 cm; 24 cm cuenta dos veces la unión interior."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una L, el borde de arriba mide 8 cm. Sus dos tramos horizontales de abajo y del entrante suman ese ancho; uno mide 3 cm. ¿Cuánto mide el otro en cm? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos tramos juntos igualan 8.",
+          "Uno de ellos aporta 3.",
+          "Resta 8 − 3."
+        ],
+        "retroalimentacion": "Sumar 8 + 3 no encuentra el tramo faltante; mide 5 cm."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos cuadrados de lado 3 cm comparten un lado entero, el perímetro de la unión es 18 cm.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada cuadrado tiene contorno de 12 cm.",
+          "La unión de 3 cm queda en el interior por ambos lados.",
+          "Calcula 12 + 12 − 6."
+        ],
+        "retroalimentacion": "Es verdadero: 18 cm; sumar 24 cm contaría la unión interior."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una figura en L tiene tramos de borde consecutivos 7, 2, 4, 3, 3 y 5 cm. Escribe la suma que da su perímetro, sin resultado.",
+        "respuesta": "7+2+4+3+3+5",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sigue los tramos en el orden dado.",
+          "Incluye también el entrante de 4 y 3.",
+          "Termina con los bordes de 3 y 5."
+        ],
+        "retroalimentacion": "La suma es 7+2+4+3+3+5; saltar el entrante deja el contorno incompleto."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Dos rectángulos de 6 × 4 cm comparten un segmento de borde de 2 cm. ¿Cuál es el perímetro de la figura unida en cm? Escribe solo el número.",
+        "respuesta": 36,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada rectángulo mide 20 cm de contorno.",
+          "El segmento común de 2 cm deja de ser exterior en ambas piezas.",
+          "Haz 20 + 20 − 2 − 2."
+        ],
+        "retroalimentacion": "Restar la unión solo una vez daría 38; el borde exterior mide 36 cm."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una L tiene tramo vertical total de 9 m, dividido en dos bordes verticales visibles: uno de 4 m y otro desconocido. ¿Qué medida completa el segundo tramo?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 m"
+          },
+          {
+            "id": "b",
+            "texto": "13 m"
+          },
+          {
+            "id": "c",
+            "texto": "4 m"
+          },
+          {
+            "id": "d",
+            "texto": "9 m"
+          }
+        ],
+        "pistas": [
+          "Los dos tramos forman la altura total.",
+          "Uno aporta 4 de los 9 m.",
+          "Resta 9 − 4."
+        ],
+        "retroalimentacion": "El segundo tramo mide 5 m; sumar 9 + 4 excedería la altura total."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una figura sale de unir un cuadrado de lado 5 cm y otro de lado 3 cm por un lado completo del pequeño. ¿Cuál es su perímetro exterior en cm? Escribe solo el número.",
+        "respuesta": 26,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los perímetros separados son 20 y 12.",
+          "El lado unido mide 3 cm y queda interior en ambos cuadrados.",
+          "Calcula 20 + 12 − 6."
+        ],
+        "retroalimentacion": "Si cuentas la unión obtienes 32; el borde exterior mide 26 cm."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos rectángulos de 5 × 2 cm unidos por un lado de 2 cm tienen perímetro exterior de 28 cm.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada pieza tiene perímetro 14 cm.",
+          "La unión de 2 cm se contó dos veces.",
+          "Resta 4 a 28."
+        ],
+        "retroalimentacion": "Es falso: el contorno exterior mide 24 cm, no 28 cm."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.area-perimetro-relacion",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Argumenta afirmaciones sobre relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P5-08"
+    ],
+    "bloque": "Perímetro y superficie",
+    "nombre": "Igual área con distinto perímetro",
+    "disciplina": "geometria",
+    "descripcionCorta": "Construye figuras de igual área y diferente perímetro y explica por qué ocurre.",
+    "palabrasClave": [
+      "igual área",
+      "distinto perímetro",
+      "rectángulo",
+      "comparación"
+    ],
+    "prerrequisitos": [
+      "mat.p5.area-rectangulos"
+    ],
+    "ordenSugerido": 93,
+    "ideaCentral": "Dos figuras pueden cubrir igual número de cuadrados y tener contornos distintos. Para demostrarlo, compara por separado sus áreas y sus perímetros.",
+    "pasos": [
+      "Elige dos rectángulos o figuras con la misma cantidad de unidades cuadradas.",
+      "Calcula el área de cada una y verifica que coincidan.",
+      "Suma los lados exteriores de cada figura.",
+      "Explica cómo cambia el borde aunque se conserve la superficie."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un huerto de 3 × 4 m se compara con otro de 2 × 6 m.",
+        "desarrollo": "Ambos cubren 12 m². Sus contornos son 14 m y 16 m.",
+        "respuesta": "Tienen igual área y diferente perímetro."
+      },
+      {
+        "situacion": "Con 16 baldosas se forma un cuadrado de 4 × 4 y una tira de 2 × 8.",
+        "desarrollo": "Ambas usan 16 baldosas. El borde del cuadrado es 16 unidades y el de la tira 20.",
+        "respuesta": "Reordenar las baldosas cambió el perímetro."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que igual área exige igual perímetro.",
+        "correccion": "Compara el borde por separado; depende de cómo se distribuye la superficie."
+      },
+      {
+        "error": "Usar el producto de lados como perímetro.",
+        "correccion": "El producto da área; el contorno se obtiene sumando lados."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Igual área",
+        "significado": "Figuras que cubren la misma cantidad de unidades cuadradas."
+      },
+      {
+        "termino": "Distinto perímetro",
+        "significado": "Figuras cuyos contornos tienen longitudes diferentes."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué pareja de rectángulos tiene igual área?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 × 6 y 2 × 5"
+          },
+          {
+            "id": "b",
+            "texto": "2 × 6 y 3 × 4"
+          },
+          {
+            "id": "c",
+            "texto": "2 × 6 y 4 × 4"
+          },
+          {
+            "id": "d",
+            "texto": "2 × 6 y 1 × 10"
+          }
+        ],
+        "pistas": [
+          "Multiplica las dimensiones de cada figura.",
+          "2 × 6 da 12.",
+          "3 × 4 también da 12."
+        ],
+        "retroalimentacion": "La pareja 2 × 6 y 3 × 4 tiene 12 unidades cuadradas en ambos casos."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los rectángulos de 1 × 8 y 2 × 4 unidades tienen igual área.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 1 × 8.",
+          "Calcula también 2 × 4.",
+          "Compara los dos resultados."
+        ],
+        "retroalimentacion": "Es verdadero: ambos tienen área 8; sus contornos pueden diferir."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un rectángulo de 2 × 6 m cubre la misma superficie que uno de 3 × 4 m. ¿Cuál es el área común en m²? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 2 × 6.",
+          "Comprueba con 3 × 4.",
+          "Los dos productos dan el área común."
+        ],
+        "retroalimentacion": "El área es 12 m²; sumar 2 + 6 solo mezcla lados."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos figuras tienen 10 cuadros iguales cada una. ¿Qué dato debes calcular para saber si sus contornos difieren?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El color"
+          },
+          {
+            "id": "b",
+            "texto": "La altura del papel"
+          },
+          {
+            "id": "c",
+            "texto": "La cantidad de cuadros"
+          },
+          {
+            "id": "d",
+            "texto": "El perímetro"
+          }
+        ],
+        "pistas": [
+          "Ya conoces sus superficies.",
+          "El contorno se mide en los bordes exteriores.",
+          "Compara sus perímetros."
+        ],
+        "retroalimentacion": "Debes comparar los perímetros; contar otra vez los 10 cuadros no informa sobre el borde."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un cuadrado de 4 × 4 cm y un rectángulo de 2 × 8 cm tienen área 16 cm². ¿Cuál es el perímetro del segundo en cm? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El segundo tiene lados 2, 8, 2 y 8.",
+          "Suma los cuatro lados.",
+          "2 + 8 + 2 + 8 = 20."
+        ],
+        "retroalimentacion": "16 corresponde al área, no al contorno; el perímetro es 20 cm."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos rectángulos de 3 × 6 cm y 2 × 9 cm tienen igual área y distinto perímetro.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambas áreas son 18 cm².",
+          "Calcula 3 + 6 + 3 + 6.",
+          "Compara 18 cm con 2 + 9 + 2 + 9 = 22 cm."
+        ],
+        "retroalimentacion": "Es verdadero: las áreas valen 18 cm² y los perímetros 18 y 22 cm."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una figura de 12 baldosas forma una cuadrícula de 3 × 4. ¿Qué otra cuadrícula usa las mismas 12 baldosas y cambia el perímetro?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4 × 3"
+          },
+          {
+            "id": "b",
+            "texto": "3 × 3"
+          },
+          {
+            "id": "c",
+            "texto": "1 × 12"
+          },
+          {
+            "id": "d",
+            "texto": "2 × 5"
+          }
+        ],
+        "pistas": [
+          "Busca dos factores cuyo producto sea 12.",
+          "1 × 12 conserva doce cuadros.",
+          "Su borde es 26, frente a 14 de 3 × 4."
+        ],
+        "retroalimentacion": "1 × 12 conserva el área y cambia el perímetro; 4 × 3 solo gira la misma forma."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Dos jardines tienen dimensiones 2 × 8 m y 4 × 4 m. ¿Qué propiedad comparten: área o perímetro? Escribe una palabra.",
+        "respuesta": "área",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 2 × 8 y 4 × 4.",
+          "Ambos productos dan 16.",
+          "Sus contornos son 20 y 16, diferentes."
+        ],
+        "retroalimentacion": "Comparten el área; sus perímetros no coinciden."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una figura rectangular de 3 × 8 cuadros se reorganiza como rectángulo de 4 × 6 cuadros. ¿Cuántas unidades cambia el perímetro? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las áreas de ambos son 24.",
+          "Los perímetros son 2 × (3 + 8) y 2 × (4 + 6).",
+          "Compara 22 con 20."
+        ],
+        "retroalimentacion": "Confundir área con perímetro oculta el cambio; el contorno difiere en 2 unidades."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Quieres 20 cuadrados en un rectángulo con un perímetro diferente al de 4 × 5. ¿Cuál propuesta sirve?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 × 10"
+          },
+          {
+            "id": "b",
+            "texto": "5 × 4"
+          },
+          {
+            "id": "c",
+            "texto": "4 × 6"
+          },
+          {
+            "id": "d",
+            "texto": "3 × 5"
+          }
+        ],
+        "pistas": [
+          "4 × 5 cubre 20 y tiene contorno 18.",
+          "Busca otra pareja de factores de 20.",
+          "2 × 10 cubre 20 y tiene contorno 24."
+        ],
+        "retroalimentacion": "2 × 10 conserva 20 cuadrados y cambia el contorno a 24; 5 × 4 solo gira la figura."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "De 24 cuadrados, las disposiciones rectangulares 2 × 12 y 4 × 6 tienen perímetros 28 y 20 unidades, respectivamente.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambas disposiciones cubren 24.",
+          "Para 2 × 12 suma 2 + 12 + 2 + 12.",
+          "Para 4 × 6 suma 4 + 6 + 4 + 6."
+        ],
+        "retroalimentacion": "Es verdadero: 28 y 20 son contornos distintos con igual área."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Dos rectángulos de área 18 cm² miden 1 × 18 cm y 3 × 6 cm. ¿En cuántos cm difieren sus perímetros? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el primer contorno: 1 + 18 + 1 + 18.",
+          "El segundo es 3 + 6 + 3 + 6.",
+          "Resta 38 − 18."
+        ],
+        "retroalimentacion": "Restar áreas daría cero; los contornos difieren en 20 cm."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

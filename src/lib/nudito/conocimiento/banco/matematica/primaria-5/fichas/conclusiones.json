@@ -1,0 +1,660 @@
+[
+  {
+    "clave": "mat.p5.predecir-frecuencias",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 25,
+    "capacidad": "Sustenta conclusiones o decisiones con base en la información obtenida",
+    "desempenosOrigen": [
+      "MAT-C25-P5-06"
+    ],
+    "bloque": "Conclusiones",
+    "nombre": "Predicción de la mayor o menor frecuencia",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Anticipa qué valor tendrá mayor o menor frecuencia y lo contrasta con los datos.",
+    "palabrasClave": [
+      "predecir frecuencia",
+      "probabilidad teorica",
+      "tendencia",
+      "frecuencia esperada",
+      "analisis de datos"
+    ],
+    "prerrequisitos": [
+      "mat.p5.interpretar-representaciones"
+    ],
+    "ordenSugerido": 100,
+    "ideaCentral": "Al analizar las condiciones de un juego o situación de azar, podemos predecir qué dato acumulará mayor o menor frecuencia y contrastar esa predicción con los resultados reales obtenidos.",
+    "pasos": [
+      "Examina la composición inicial del experimento (por ejemplo, sectores de ruleta o canicas en una bolsa).",
+      "Identifica qué opción tiene más elementos favorables para predecir que alcanzará la mayor frecuencia.",
+      "Calcula la frecuencia esperada multiplicando la proporción teórica por el número de repeticiones.",
+      "Compara los datos registrados en la tabla con la predicción para comprobar si se cumplió la tendencia."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una ruleta tiene 6 sectores amarillos y 2 verdes iguales. Si se gira 40 veces, ¿qué color registrará mayor frecuencia?",
+        "desarrollo": "El amarillo ocupa 6 de los 8 sectores (las 3/4 partes). Se predice que el amarillo saldrá aproximadamente 30 veces y el verde unas 10 veces.",
+        "respuesta": "El color amarillo obtendrá la mayor frecuencia."
+      },
+      {
+        "situacion": "En una caja hay 18 fichas azules y 2 blancas. Al realizar 20 extracciones con reposición salieron 17 azules y 3 blancas.",
+        "desarrollo": "La predicción anticipaba una frecuencia ampliamente superior para el color azul, lo cual concuerda con las 17 extracciones reales.",
+        "respuesta": "Los datos reales confirman la predicción teórica."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que la frecuencia esperada debe coincidir de manera exacta en experimentos pequeños.",
+        "correccion": "El azar presenta pequeñas variaciones; la coincidencia exacta se aproxima cuando hay muchísimos ensayos."
+      },
+      {
+        "error": "Pensar que si un resultado no ha salido en varios intentos, obligatoriamente saldrá en el siguiente.",
+        "correccion": "Cada ensayo independiente mantiene sus mismas probabilidades sin memoria de los intentos previos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Predicción",
+        "significado": "Anticipación razonada de un resultado fundada en el cálculo de probabilidades."
+      },
+      {
+        "termino": "Frecuencia observada",
+        "significado": "Número real de veces que aparece un dato al realizar un experimento en la práctica."
+      },
+      {
+        "termino": "Frecuencia esperada",
+        "significado": "Valor teórico de repeticiones que predice el cálculo matemático según las probabilidades."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al girar 50 veces una ruleta donde la mitad exacta es azul y la otra mitad es roja, se predice que ambas frecuencias estarán muy cerca de 25.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada color representa el 50 % de la superficie de la ruleta.",
+          "La mitad de 50 giros corresponde a 25 repeticiones.",
+          "La predicción teórica equitativa reparte los intentos por igual."
+        ],
+        "retroalimentacion": "Al tener la misma proporción, se espera teóricamente que cada color salga cerca de 25 veces: la afirmación es verdadera."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una caja opaca hay 25 caramelos de fresa y 3 de menta. Si extraes un caramelo con reposición 30 veces seguidas, ¿qué sabor acumulará con mayor certeza la menor frecuencia?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Fresa"
+          },
+          {
+            "id": "b",
+            "texto": "Menta"
+          },
+          {
+            "id": "c",
+            "texto": "Ambos sabores tendrán igual frecuencia"
+          },
+          {
+            "id": "d",
+            "texto": "Ningún sabor será extraído"
+          }
+        ],
+        "pistas": [
+          "Compara las cantidades iniciales: 25 de fresa frente a solo 3 de menta.",
+          "El sabor con menor presencia tiene mucha menor probabilidad en cada tirada.",
+          "La menta tiene una clara desventaja numérica."
+        ],
+        "retroalimentacion": "La menta representa solo 3 de 28 caramelos, por lo que acumulará la menor frecuencia."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una ruleta escolar está dividida en 4 sectores idénticos: rojo, azul, verde y amarillo. Si se efectúan 40 giros, ¿cuál es la frecuencia teórica esperada para cada color? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los 4 sectores tienen el mismo tamaño y la misma probabilidad.",
+          "Divide el total de 40 giros entre los 4 sectores disponibles.",
+          "El cociente de 40 entre 4 indica la frecuencia esperada."
+        ],
+        "retroalimentacion": "Dividiendo 40 entre 4 obtenemos una frecuencia esperada de 10 para cada color."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Contrastar una predicción con los resultados reales de una tabla permite verificar si la hipótesis planteada fue... ¿correcta o imposible?",
+        "respuesta": "correcta",
+        "alternativasAceptadas": [
+          "correcta",
+          "acertada",
+          "valida",
+          "válida"
+        ],
+        "pistas": [
+          "Se busca comprobar si lo que anticipamos coincidió con la realidad.",
+          "Es el término que valida una afirmación.",
+          "Elige entre las dos opciones planteadas al final de la pregunta."
+        ],
+        "retroalimentacion": "El contraste con los datos reales permite verificar si la predicción fue correcta."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un taller de artesanía en Ayacucho hay 80 semillas de huayruro: 50 son rojas con negro, 20 son totalmente rojas y 10 son amarillas. Tras 60 extracciones con reposición, ¿cuál es el orden esperado de las frecuencias de mayor a menor?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Totalmente rojas, rojas con negro, amarillas"
+          },
+          {
+            "id": "b",
+            "texto": "Rojas con negro, totalmente rojas, amarillas"
+          },
+          {
+            "id": "c",
+            "texto": "Amarillas, totalmente rojas, rojas con negro"
+          },
+          {
+            "id": "d",
+            "texto": "Rojas con negro, amarillas, totalmente rojas"
+          }
+        ],
+        "pistas": [
+          "Ordena las cantidades iniciales de mayor a menor: 50, 20 y 10.",
+          "Las frecuencias esperadas siguen la misma jerarquía que la cantidad de semillas.",
+          "El primer lugar corresponde a rojas con negro y el último a amarillas."
+        ],
+        "retroalimentacion": "El orden esperado según las cantidades disponibles es rojas con negro, totalmente rojas y amarillas."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Al lanzar una moneda 100 veces, la frecuencia esperada de sellos es 50. Si en un ensayo real se registraron 46 sellos, ¿cuántas caras se obtuvieron en ese registro? Escribe solo el número.",
+        "respuesta": 54,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total de lanzamientos realizados fue de 100.",
+          "Resta los 46 sellos registrados del total general.",
+          "La operación 100 menos 46 entrega las caras observadas."
+        ],
+        "retroalimentacion": "Restando 100 menos 46 obtenemos exactamente 54 caras en el registro real."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si tiras un dado regular de 6 caras 60 veces seguidas, la frecuencia esperada para cada número del 1 al 6 es de aproximadamente 10 veces.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada una de las 6 caras tiene idéntica probabilidad de salir.",
+          "Divide 60 lanzamientos entre las 6 caras del dado.",
+          "El resultado 60 entre 6 da 10 como valor teórico."
+        ],
+        "retroalimentacion": "Al dividir 60 entre 6 caras equiprobables, la frecuencia esperada es de 10: la afirmación es verdadera."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Cuando se realiza un número muy grande de ensayos, la frecuencia relativa observada se aproxima cada vez más a la probabilidad... ¿teórica o nula?",
+        "respuesta": "teorica",
+        "alternativasAceptadas": [
+          "teorica",
+          "teórica",
+          "la teorica",
+          "la teórica"
+        ],
+        "pistas": [
+          "Es la probabilidad calculada matemáticamente antes de experimentar.",
+          "Se le conoce como la ley de los grandes números.",
+          "Elige una de las dos alternativas propuestas en la pregunta."
+        ],
+        "retroalimentacion": "A mayor número de repeticiones, los resultados se acercan a la probabilidad teórica."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tómbola escolar tiene 100 boletos: 70 dicen «sigue intentando», 25 tienen premio menor y 5 tienen premio mayor. Si se registran 40 compras de boletos al azar, ¿qué afirmación sobre las frecuencias esperadas es correcta?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La frecuencia de premio mayor será la más alta"
+          },
+          {
+            "id": "b",
+            "texto": "Todos los tipos de boleto tendrán igual frecuencia"
+          },
+          {
+            "id": "c",
+            "texto": "La frecuencia de boletos sin premio («sigue intentando») será la mayor de todas"
+          },
+          {
+            "id": "d",
+            "texto": "Es imposible que salga algún boleto con premio menor"
+          }
+        ],
+        "pistas": [
+          "Fíjate en qué grupo de boletos tiene la abrumadora mayoría: 70 de 100.",
+          "El 70 % de los boletos no tiene premio.",
+          "Esa enorme proporción asegura que sea el resultado con mayor frecuencia esperada."
+        ],
+        "retroalimentacion": "Con 70 de 100 boletos, la frecuencia esperada de boletos sin premio («sigue intentando») será la mayor de todas."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un experimento con una ruleta de 5 sectores iguales (letras A, B, C, D, E), se registraron 150 giros en total. Las frecuencias anotadas fueron: A = 31, B = 28, C = 32 y D = 29. ¿Cuál fue la frecuencia observada de la letra E? Escribe solo el número.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las cuatro frecuencias registradas: 31 + 28 + 32 + 29.",
+          "Esa suma parcial da 120 giros anotados.",
+          "Resta 120 del total de 150 giros para hallar la frecuencia de E."
+        ],
+        "retroalimentacion": "Sumando 31 + 28 + 32 + 29 tenemos 120; restando 150 menos 120 resulta una frecuencia de 30 para la letra E."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una bolsa hay 18 fichas rojas y 2 fichas azules. Si al realizar 20 extracciones con reposición se obtuvieron 17 rojas y 3 azules, los datos contrastados confirman la predicción de que el rojo tendría mucha mayor frecuencia.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La predicción inicial asignaba una amplia mayoría al color rojo (18 de 20).",
+          "En la práctica se obtuvieron 17 rojas frente a 3 azules.",
+          "Los resultados observados concuerdan con la ventaja predicha."
+        ],
+        "retroalimentacion": "Las 17 salidas de rojo frente a 3 de azul ratifican la predicción teórica: la afirmación es verdadera."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un equipo de estudiantes simuló 200 lanzamientos de dos monedas a la vez. De acuerdo con el espacio muestral, el resultado «una cara y un sello» tiene una probabilidad del 50 % (2 de 4 ramas). ¿Cuál es la frecuencia esperada para este suceso en los 200 lanzamientos?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "50 lanzamientos"
+          },
+          {
+            "id": "b",
+            "texto": "75 lanzamientos"
+          },
+          {
+            "id": "c",
+            "texto": "150 lanzamientos"
+          },
+          {
+            "id": "d",
+            "texto": "100 lanzamientos"
+          }
+        ],
+        "pistas": [
+          "Calcula el 50 % del total de 200 lanzamientos.",
+          "El 50 % equivale a la mitad exacta de una cantidad.",
+          "La mitad de 200 es 100."
+        ],
+        "retroalimentacion": "El 50 % de 200 lanzamientos equivale a 100 lanzamientos esperados."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.decisiones-con-datos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 25,
+    "capacidad": "Sustenta conclusiones o decisiones con base en la información obtenida",
+    "desempenosOrigen": [
+      "MAT-C25-P5-06"
+    ],
+    "bloque": "Conclusiones",
+    "nombre": "Decisiones a partir del análisis de datos",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Formula conclusiones y propone decisiones sustentadas en tablas y gráficos.",
+    "palabrasClave": [
+      "toma de decisiones",
+      "analisis estadistico",
+      "conclusiones",
+      "graficos de barras",
+      "tablas"
+    ],
+    "prerrequisitos": [
+      "mat.p5.interpretar-representaciones",
+      "mat.p5.moda-o-media"
+    ],
+    "ordenSugerido": 119,
+    "ideaCentral": "Interpretar tablas y gráficos estadísticos nos permite extraer conclusiones objetivas y fundamentar decisiones acertadas y responsables para resolver situaciones cotidianas.",
+    "pasos": [
+      "Lee los títulos, categorías y valores numéricos presentes en la tabla o gráfico.",
+      "Identifica el dato más frecuente (moda), los valores mínimos y las tendencias generales.",
+      "Redacta una conclusión clara apoyándote en las cifras comprobadas.",
+      "Propone una acción o decisión justificada que atienda la necesidad planteada en el problema."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En el quiosco escolar se vendieron 45 manzanas, 30 plátanos y 8 mandarinas durante el recreo. ¿Qué fruta conviene reabastecer en mayor cantidad?",
+        "desarrollo": "La manzana es la fruta con mayor frecuencia de ventas (45 unidades). La demanda demuestra que es la preferida por los estudiantes.",
+        "respuesta": "Conviene comprar más manzanas porque tienen la mayor demanda."
+      },
+      {
+        "situacion": "Una encuesta en 5.° grado sobre talleres reveló que 26 alumnos eligen robótica y solo 3 eligen dibujo. ¿Qué decisión debe tomar la dirección?",
+        "desarrollo": "Robótica concentra la gran mayoría de votos frente a dibujo. Abrir más cupos de robótica responde al interés real del alumnado.",
+        "respuesta": "Abrir más horarios para el taller de robótica."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Tomar una decisión por gusto personal ignorando lo que muestran las cifras de la tabla.",
+        "correccion": "Una decisión estadística debe basarse siempre en la evidencia numérica y no en preferencias individuales."
+      },
+      {
+        "error": "Llegar a conclusiones apresuradas sin verificar si la cantidad total de encuestados es representativa.",
+        "correccion": "Revisa siempre el total de datos analizados antes de emitir un juicio definitivo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Conclusión",
+        "significado": "Idea fundamentada a la que se llega tras evaluar y relacionar los datos obtenidos."
+      },
+      {
+        "termino": "Decisión informada",
+        "significado": "Elección respaldada por hechos y números comprobables en vez de suposiciones."
+      },
+      {
+        "termino": "Moda",
+        "significado": "Valor que se presenta con mayor frecuencia en un conjunto de datos recopilados."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una tabla muestra que el 85 % de las familias del colegio prefieren las reuniones virtuales por la noche, programar las asambleas en ese horario es una decisión respaldada por los datos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa el porcentaje mayoritario de familias: 85 %.",
+          "Una decisión informada busca favorecer a la gran mayoría.",
+          "Los datos apoyan directamente la elección del horario nocturno."
+        ],
+        "retroalimentacion": "El 85 % respalda la propuesta, por lo que la decisión se sustenta en los datos: la afirmación es verdadera."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una votación en el salón arrojó las siguientes preferencias deportivas: fútbol (19 votos), vóley (12 votos) y atletismo (3 votos). ¿Qué deporte debe contar con mayor espacio y tiempo en los juegos deportivos según las preferencias?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Vóley"
+          },
+          {
+            "id": "b",
+            "texto": "Fútbol"
+          },
+          {
+            "id": "c",
+            "texto": "Atletismo"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguno"
+          }
+        ],
+        "pistas": [
+          "Compara los votos recibidos: 19, 12 y 3.",
+          "El deporte con la barra más alta en el gráfico representa la moda.",
+          "El fútbol obtuvo la mayor preferencia de los estudiantes."
+        ],
+        "retroalimentacion": "El fútbol obtuvo 19 votos, siendo la preferencia mayoritaria sustentada por la votación."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En la biblioteca del colegio se prestaron durante la semana 40 libros de literatura infantil, 25 de ciencias naturales y 15 de historia del Perú. ¿Cuántos libros se prestaron en total? Escribe solo el número.",
+        "respuesta": 80,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los libros de las tres áreas registradas.",
+          "Efectúa: 40 más 25 más 15.",
+          "Comprueba que 25 más 15 es 40, y 40 más 40 da el total."
+        ],
+        "retroalimentacion": "Sumando 40 + 25 + 15 obtenemos un total de 80 libros prestados."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Al tomar una determinación apoyándose rigurosamente en encuestas y mediciones reales, ¿estamos tomando una decisión informada o improvisada?",
+        "respuesta": "informada",
+        "alternativasAceptadas": [
+          "informada",
+          "decision informada",
+          "decisión informada"
+        ],
+        "pistas": [
+          "La palabra indica que se cuenta con información verídica y datos.",
+          "Es lo opuesto a actuar por intuición o capricho.",
+          "Escoge una de las dos opciones ofrecidas en la pregunta."
+        ],
+        "retroalimentacion": "Apoyarse en datos comprobados conduce a una decisión informada."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una panadería en Trujillo registró las ventas de empanadas del mes: pollo (250 unidades), carne (180 unidades) y queso (70 unidades). Para la próxima semana, ¿cuál es la decisión más acertada para optimizar los insumos?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Preparar mayor proporción de empanadas de pollo y una cantidad moderada de queso"
+          },
+          {
+            "id": "b",
+            "texto": "Dejar de producir empanadas de pollo por completo"
+          },
+          {
+            "id": "c",
+            "texto": "Producir exclusivamente empanadas de queso"
+          },
+          {
+            "id": "d",
+            "texto": "Preparar la misma cantidad de cada sabor sin mirar las ventas"
+          }
+        ],
+        "pistas": [
+          "Observa que el pollo tiene la mayor demanda (250) y el queso la menor (70).",
+          "La producción eficiente debe alinearse con el consumo real de los clientes.",
+          "Conviene surtir más de lo que más se vende y no excederse en lo que menos rota."
+        ],
+        "retroalimentacion": "Preparar mayor proporción de empanadas de pollo y una cantidad moderada de queso responde a la demanda registrada."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Dos secciones organizaron actividades benéficas: la sección A vendió 100 boletos a S/ 5 cada uno y la sección B vendió 70 boletos a S/ 8 cada uno. ¿Cuántos soles recaudó la sección B? Escribe solo el número.",
+        "respuesta": 560,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Toma los datos de la sección B: 70 boletos a 8 soles cada uno.",
+          "Multiplica la cantidad de boletos por el precio unitario.",
+          "Calcula 70 multiplicado por 8."
+        ],
+        "retroalimentacion": "Multiplicando 70 por 8 obtenemos que la sección B recaudó 560 soles."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un gráfico muestra que los días lunes se registra el 60 % de las tardanzas escolares del mes. Es una decisión lógica que los tutores implementen una campaña puntual de ingreso los días lunes.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 60 % representa la mayor concentración del problema detectado.",
+          "Las medidas correctivas deben focalizarse donde el problema es más agudo.",
+          "La intervención en el día con más tardanzas está justificada por los datos."
+        ],
+        "retroalimentacion": "Concentrar la campaña el día con mayor incidencia ataca directamente el problema: la afirmación es verdadera."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "¿Qué término define la proposición final que sintetiza los hallazgos tras examinar un gráfico estadístico: conclusión o adivinanza?",
+        "respuesta": "conclusion",
+        "alternativasAceptadas": [
+          "conclusion",
+          "conclusión",
+          "la conclusion",
+          "la conclusión"
+        ],
+        "pistas": [
+          "Se llega a ella mediante el razonamiento lógico.",
+          "Resume lo que los datos han demostrado.",
+          "Elige entre las dos palabras presentadas en la pregunta."
+        ],
+        "retroalimentacion": "La síntesis razonada a partir de los datos se denomina conclusión."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un centro de salud en Cusco registró casos de resfrío infantil: abril (30 casos), mayo (80 casos), junio (120 casos) y julio (60 casos). La posta debe realizar la vacunación preventiva antes de que se presente el mes con mayor cantidad de enfermos. ¿En qué mes resulta más oportuno aplicar la campaña preventiva?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Junio"
+          },
+          {
+            "id": "b",
+            "texto": "Julio"
+          },
+          {
+            "id": "c",
+            "texto": "Abril o mayo"
+          },
+          {
+            "id": "d",
+            "texto": "Agosto"
+          }
+        ],
+        "pistas": [
+          "Ubica el mes con el pico más alto de casos: junio tiene 120 casos.",
+          "Una acción preventiva debe ejecutarse antes de que ocurra el pico más grave.",
+          "Los meses previos al pico son abril y mayo."
+        ],
+        "retroalimentacion": "Para prevenir el pico de 120 casos en junio, la campaña debe aplicarse anticipadamente en abril o mayo."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un agricultor en el valle de Ica evaluó el rendimiento de dos fertilizantes en 4 parcelas experimentales idénticas. El fertilizante orgánico produjo en promedio 45 sacos de papa por parcela y el fertilizante tradicional produjo 38 sacos por parcela. ¿Cuántos sacos más en total produjo el fertilizante orgánico en las 4 parcelas juntas? Escribe solo el número.",
+        "respuesta": 28,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la diferencia de rendimiento por parcela: 45 menos 38.",
+          "La diferencia a favor del orgánico es de 7 sacos por parcela.",
+          "Multiplica esa ventaja de 7 sacos por las 4 parcelas evaluadas."
+        ],
+        "retroalimentacion": "La diferencia de 7 sacos multiplicada por 4 parcelas da 28 sacos adicionales en total."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una encuesta a 100 estudiantes muestra que 48 prefieren ajedrez y 52 prefieren tenis de mesa, afirmar que nadie tiene interés en el ajedrez es una conclusión falsa que contradice los datos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Nota que 48 estudiantes eligieron ajedrez, lo que representa casi la mitad del total.",
+          "Decir que a nadie le interesa niega la existencia de esos 48 alumnos.",
+          "Los datos demuestran un alto interés en ambas disciplinas."
+        ],
+        "retroalimentacion": "Casi la mitad de los encuestados eligió ajedrez, por lo que afirmar desinterés total distorsiona los datos: la afirmación es verdadera."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un taller textil en Gamarra analizó la demanda de uniformes: talla 10 (120 unidades), talla 12 (340 unidades) y talla 14 (140 unidades). Si el presupuesto permite confeccionar 600 uniformes para la nueva temporada, ¿cómo conviene distribuirlos para satisfacer eficientemente la demanda real?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Confeccionar 200 uniformes de cada una de las tres tallas por igual"
+          },
+          {
+            "id": "b",
+            "texto": "Fabricar únicamente uniformes en talla 10"
+          },
+          {
+            "id": "c",
+            "texto": "Producir solo uniformes de talla 14"
+          },
+          {
+            "id": "d",
+            "texto": "Asignar la mayor proporción de prendas a la talla 12 y complementar con cantidades menores de tallas 10 y 14"
+          }
+        ],
+        "pistas": [
+          "Compara las proporciones de demanda: la talla 12 representa más de la mitad de las ventas anteriores.",
+          "Repartir en partes iguales dejaría sin prendas a la talla 12 y generaría sobrantes en las otras tallas.",
+          "La confección debe priorizar la talla con mayor frecuencia de pedidos."
+        ],
+        "retroalimentacion": "Asignar la mayor proporción de prendas a la talla 12 y complementar con cantidades menores de tallas 10 y 14 optimiza los recursos según la demanda real."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

@@ -1,0 +1,1915 @@
+[
+  {
+    "clave": "mat.p5.patrones-simetria-traslacion",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P5-02"
+    ],
+    "bloque": "Patrones",
+    "nombre": "Patrones de repetición con simetría y traslación",
+    "disciplina": "algebra",
+    "descripcionCorta": "Identifica y continúa patrones geométricos que combinan un reflejo o un desplazamiento con color o forma.",
+    "palabrasClave": [
+      "patrón",
+      "reflejo",
+      "traslación",
+      "color",
+      "figura"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 14,
+    "ideaCentral": "Un patrón geométrico puede repetir una figura reflejada, como una flecha que cambia de dirección, y también desplazarla sin girarla. Observa por separado la forma, el color y la posición para descubrir la repetición.",
+    "pasos": [
+      "Lee cada figura como forma, color y posición.",
+      "Comprueba si la siguiente es un reflejo o un desplazamiento.",
+      "Identifica la unidad que se repite.",
+      "Continúa la secuencia manteniendo todas sus características."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una franja muestra flecha roja →, flecha roja ←, flecha azul →, flecha azul ←.",
+        "desarrollo": "Cada color aparece en un par de flechas reflejadas. Tras el par azul comienza de nuevo el rojo.",
+        "respuesta": "Sigue flecha roja →."
+      },
+      {
+        "situacion": "Una estrella negra pasa de casilla 1 a casilla 2 y luego a casilla 3, siempre a la derecha.",
+        "desarrollo": "La forma y el color se conservan; cada paso es un desplazamiento de una casilla.",
+        "respuesta": "La siguiente va en la casilla 4."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Cambiar la forma al trasladar una figura.",
+        "correccion": "Una traslación mueve la figura sin cambiar su forma ni orientación."
+      },
+      {
+        "error": "Mirar solo el color e ignorar el reflejo.",
+        "correccion": "Revisa también hacia dónde apunta cada figura."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Reflejo",
+        "significado": "Figura volteada como si se mirara en un espejo."
+      },
+      {
+        "termino": "Traslación",
+        "significado": "Desplazamiento sin giro ni cambio de forma."
+      },
+      {
+        "termino": "Unidad de repetición",
+        "significado": "Grupo más corto de figuras que vuelve a aparecer."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "La serie es triángulo rojo →, triángulo rojo ←, triángulo azul →, triángulo azul ←. ¿Qué viene después?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "triángulo rojo →"
+          },
+          {
+            "id": "b",
+            "texto": "triángulo rojo ←"
+          },
+          {
+            "id": "c",
+            "texto": "triángulo azul →"
+          },
+          {
+            "id": "d",
+            "texto": "círculo rojo →"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada color ocupa dos posiciones.",
+          "Dentro de cada par, la orientación va → y luego ←.",
+          "Tras el par azul vuelve a empezar el par rojo."
+        ],
+        "retroalimentacion": "Sigue triángulo rojo →; repetir azul rompería el ciclo."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una estrella se mueve de la casilla 2 a la 3 manteniendo tamaño y orientación. Ese cambio puede ser una traslación.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara forma y orientación.",
+          "Solo cambia la posición de 2 a 3.",
+          "Mover una casilla sin girar es trasladar."
+        ],
+        "retroalimentacion": "Es verdadero: la estrella conserva sus rasgos y se desplaza."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Flechas negras →, ←, →, ←, __. Escribe la dirección que falta.",
+        "respuesta": "→",
+        "alternativasAceptadas": [
+          "derecha"
+        ],
+        "pistas": [
+          "Las dos direcciones alternan.",
+          "Después de ← aparece →.",
+          "Las posiciones impares apuntan a la derecha."
+        ],
+        "retroalimentacion": "Falta →; el reflejo alterna derecha e izquierda."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una figura azul ● ocupa sucesivamente las casillas 1, 3 y 5 de una fila. Mantiene forma y color. ¿Dónde estará después?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "casilla 5"
+          },
+          {
+            "id": "b",
+            "texto": "casilla 6"
+          },
+          {
+            "id": "c",
+            "texto": "casilla 7"
+          },
+          {
+            "id": "d",
+            "texto": "casilla 8"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa cuánto avanza cada vez.",
+          "De 1 a 3 y de 3 a 5 avanza dos casillas.",
+          "Suma 2 a la última posición 5."
+        ],
+        "retroalimentacion": "La traslación de dos casillas lleva ● a la casilla 7."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la serie bandera roja →, bandera roja ←, bandera verde →, bandera verde ←, la quinta debe ser bandera roja →.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Agrupa las figuras en bloques de cuatro.",
+          "El bloque combina dos colores con dos direcciones.",
+          "La quinta reinicia el bloque."
+        ],
+        "retroalimentacion": "Es verdadero: la quinta repite la primera figura, bandera roja →."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una ficha ★ se traslada 3 casillas a la derecha: empieza en la casilla 2, luego va a la 5 y a la 8. ¿Cuál es la siguiente casilla? Escribe solo el número.",
+        "respuesta": "11",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La estrella no cambia; observa las posiciones.",
+          "De 2 a 5 y de 5 a 8 hay tres casillas de avance.",
+          "Suma 3 a 8."
+        ],
+        "retroalimentacion": "La estrella sigue en la casilla 11."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué cambio describe un reflejo horizontal de una flecha roja →?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "flecha azul →"
+          },
+          {
+            "id": "b",
+            "texto": "flecha roja ←"
+          },
+          {
+            "id": "c",
+            "texto": "flecha roja → en otra casilla"
+          },
+          {
+            "id": "d",
+            "texto": "círculo rojo"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un espejo horizontal cambia izquierda por derecha.",
+          "El color rojo se mantiene.",
+          "La punta de → debe mirar al lado opuesto."
+        ],
+        "retroalimentacion": "El reflejo es una flecha roja ←; cambiar el color no corresponde al espejo."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un rombo verde se mueve dos casillas a la izquierda y se vuelve azul, ocurrió únicamente una traslación.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La traslación cambia la posición.",
+          "Aquí también cambia el color verde por azul.",
+          "Ese cambio adicional impide llamarlo solo traslación."
+        ],
+        "retroalimentacion": "Es falso: además del desplazamiento hay cambio de color."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un mosaico repite: flecha azul → en casilla 1; flecha azul ← en casilla 2; flecha roja → en casilla 3; flecha roja ← en casilla 4. El bloque vuelve a empezar en la casilla 5. ¿Qué figura va en la casilla 7?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "flecha azul →"
+          },
+          {
+            "id": "b",
+            "texto": "flecha azul ←"
+          },
+          {
+            "id": "c",
+            "texto": "flecha roja ←"
+          },
+          {
+            "id": "d",
+            "texto": "flecha roja →"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La nueva vuelta empieza en casilla 5.",
+          "La casilla 7 corresponde a la tercera figura del bloque.",
+          "La tercera era roja y apuntaba →."
+        ],
+        "retroalimentacion": "En la casilla 7 va flecha roja →, reflejo y color siguen el bloque."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una marca negra ▲ se desplaza de casilla 4 a 6 y luego a 8. Al mismo tiempo se refleja alternando ▲ y ▼: casilla 4 ▲, casilla 6 ▼, casilla 8 ▲. Escribe figura y casilla siguientes.",
+        "respuesta": "▼ en casilla 10",
+        "alternativasAceptadas": [
+          "▼ casilla 10"
+        ],
+        "pistas": [
+          "Las posiciones aumentan de dos en dos.",
+          "Después de ▲ corresponde ▼.",
+          "A la casilla 8 súmale 2 y conserva la alternancia."
+        ],
+        "retroalimentacion": "Sigue ▼ en casilla 10; hay traslación y reflejo alternado."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La serie flecha verde → en casilla 1, flecha verde ← en casilla 3, flecha verde → en casilla 5 combina desplazamiento de dos casillas y reflejo alternado.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa 1, 3 y 5.",
+          "Las posiciones avanzan de 2 en 2.",
+          "La flecha alterna → y ←."
+        ],
+        "retroalimentacion": "Es verdadero: cada paso desplaza dos casillas y cambia la orientación por reflejo."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para continuar una secuencia se repite este bloque: círculo rojo en casilla 1, cuadrado azul en casilla 2, círculo rojo en casilla 3, cuadrado azul en casilla 4. Si las figuras se desplazan una casilla por paso, ¿qué va en casilla 5?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "círculo rojo"
+          },
+          {
+            "id": "b",
+            "texto": "cuadrado azul"
+          },
+          {
+            "id": "c",
+            "texto": "círculo azul"
+          },
+          {
+            "id": "d",
+            "texto": "cuadrado rojo"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las posiciones aumentan una a una.",
+          "Forma y color alternan entre círculo rojo y cuadrado azul.",
+          "La casilla 5 repite la clase de las casillas impares."
+        ],
+        "retroalimentacion": "Va círculo rojo en casilla 5; el desplazamiento mantiene el orden alternado."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.patrones-segundo-orden",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P5-02"
+    ],
+    "bloque": "Patrones",
+    "nombre": "Patrones aditivos de segundo orden",
+    "disciplina": "algebra",
+    "descripcionCorta": "Reconoce secuencias cuyas diferencias aumentan de forma regular, como 13, 15, 18, 22, 27.",
+    "palabrasClave": [
+      "secuencia",
+      "diferencia",
+      "segundo orden",
+      "aumento regular"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 15,
+    "ideaCentral": "En un patrón aditivo de segundo orden, las diferencias entre términos también siguen un patrón. Si esas diferencias aumentan siempre por la misma cantidad, puedes hallar el siguiente término.",
+    "pasos": [
+      "Resta cada término del siguiente para obtener las diferencias.",
+      "Compara las diferencias entre sí.",
+      "Encuentra cuánto aumenta cada diferencia.",
+      "Continúa la lista de diferencias y súmala al último término."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Observa 5, 8, 12, 17.",
+        "desarrollo": "Las diferencias son 3, 4 y 5; la siguiente es 6.",
+        "respuesta": "Sigue 23."
+      },
+      {
+        "situacion": "En 20, 22, 26, 32 las diferencias son 2, 4 y 6.",
+        "desarrollo": "Aumentan de 2 en 2; la próxima diferencia es 8.",
+        "respuesta": "Sigue 40."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar siempre la misma cantidad al término.",
+        "correccion": "En segundo orden cambia la cantidad que se suma; examina las diferencias."
+      },
+      {
+        "error": "Agregar el aumento de las diferencias directamente al último término.",
+        "correccion": "Primero calcula la próxima diferencia y luego súmala al último término."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Término",
+        "significado": "Cada número de una secuencia."
+      },
+      {
+        "termino": "Diferencia",
+        "significado": "Cantidad que separa dos términos consecutivos."
+      },
+      {
+        "termino": "Segundo orden",
+        "significado": "Patrón donde las diferencias cambian de forma regular."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La secuencia es 2, 4, 7, 11. Las diferencias son 2, 3, 4. ¿Qué número sigue? Escribe solo el número.",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La siguiente diferencia es 5.",
+          "El último término dado es 11.",
+          "Suma 11 + 5."
+        ],
+        "retroalimentacion": "Sigue 16; sumar otra vez 4 ignoraría el crecimiento de las diferencias."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué lista muestra las diferencias de 3, 6, 10, 15?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3, 3, 3"
+          },
+          {
+            "id": "b",
+            "texto": "3, 4, 5"
+          },
+          {
+            "id": "c",
+            "texto": "6, 10, 15"
+          },
+          {
+            "id": "d",
+            "texto": "4, 5, 6"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta cada término del siguiente.",
+          "6 − 3 = 3 y 10 − 6 = 4.",
+          "La última resta es 15 − 10 = 5."
+        ],
+        "retroalimentacion": "Las diferencias son 3, 4, 5."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 1, 3, 6, 10, las diferencias son 2, 3 y 4.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 3 − 1.",
+          "Luego 6 − 3 y 10 − 6.",
+          "Los resultados son 2, 3 y 4."
+        ],
+        "retroalimentacion": "Es verdadero: las diferencias aumentan una unidad cada vez."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Completa 7, 10, 14, 19, __. Escribe solo el número.",
+        "respuesta": 25,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las diferencias son 3, 4 y 5.",
+          "La próxima diferencia debe ser 6.",
+          "Suma 6 a 19."
+        ],
+        "retroalimentacion": "Falta 25; el patrón agrega 3, 4, 5 y después 6."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La secuencia 4, 6, 10, 16 agrega 2, 4 y 6. ¿Qué diferencia corresponde al paso siguiente?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "8"
+          },
+          {
+            "id": "d",
+            "texto": "10"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira solo 2, 4, 6.",
+          "Cada diferencia aumenta 2.",
+          "Después de 6 viene 8."
+        ],
+        "retroalimentacion": "La próxima diferencia es 8; el siguiente término sería 24."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un juego marca 10, 15, 22, 31 puntos en rondas sucesivas. ¿Cuántos puntos marca después? Escribe solo el número.",
+        "respuesta": 42,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las diferencias son 5, 7 y 9.",
+          "Aumentan de dos en dos.",
+          "La próxima diferencia 11 se suma a 31."
+        ],
+        "retroalimentacion": "Sigue 42; repetir 9 daría 40, que rompe el patrón."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En 12, 14, 18, 24, escribe las diferencias consecutivas separadas por coma.",
+        "respuesta": "2, 4, 6",
+        "alternativasAceptadas": [
+          "2,4,6"
+        ],
+        "pistas": [
+          "Calcula 14 − 12.",
+          "Calcula 18 − 14.",
+          "La tercera resta es 24 − 18."
+        ],
+        "retroalimentacion": "Las diferencias son 2, 4, 6; aumentan de dos en dos."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La lista 5, 8, 12, 17 tiene diferencias que crecen de una en una.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta términos vecinos.",
+          "Obtienes 3, 4 y 5.",
+          "De 3 a 4 y de 4 a 5 se añade 1."
+        ],
+        "retroalimentacion": "Es verdadero: las diferencias son 3, 4, 5."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Las diferencias de una secuencia son 4, 7, 10 y el último término es 30. ¿Cuál es el siguiente término? Escribe solo el número.",
+        "respuesta": 43,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las diferencias crecen de 3 en 3.",
+          "La siguiente diferencia es 13.",
+          "Suma 30 + 13."
+        ],
+        "retroalimentacion": "El siguiente término es 43; sumar solo 3 confunde el crecimiento de la diferencia con la diferencia misma."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál continuación mantiene el patrón 2, 5, 10, 17, __, __?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "24, 31"
+          },
+          {
+            "id": "b",
+            "texto": "26, 35"
+          },
+          {
+            "id": "c",
+            "texto": "28, 39"
+          },
+          {
+            "id": "d",
+            "texto": "26, 37"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las diferencias son 3, 5 y 7.",
+          "Las próximas serán 9 y 11.",
+          "17 + 9 = 26; luego 26 + 11 = 37."
+        ],
+        "retroalimentacion": "La continuación es 26, 37."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una secuencia agrega 3, luego 6 y luego 9, agregar 12 después mantiene un patrón de segundo orden.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las diferencias 3, 6, 9.",
+          "Cada una aumenta 3.",
+          "La próxima debe superar 9 en 3."
+        ],
+        "retroalimentacion": "Es verdadero: 12 sigue la regularidad de las diferencias."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una lista comienza en 6 y agrega sucesivamente 2, 5, 8 y 11. ¿Cuál es el quinto término? Escribe solo el número.",
+        "respuesta": 32,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer término es 6.",
+          "Los siguientes son 8, 13 y 21.",
+          "Al cuarto término 21 súmale 11."
+        ],
+        "retroalimentacion": "El quinto término es 32; hay cuatro sumas desde el primer término."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.patrones-graficos-5",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P5-02"
+    ],
+    "bloque": "Patrones",
+    "nombre": "Patrones gráficos con figuras que crecen",
+    "disciplina": "algebra",
+    "descripcionCorta": "Traduce secuencias de figuras a sucesiones numéricas de segundo orden.",
+    "palabrasClave": [
+      "figuras",
+      "crecimiento",
+      "conteo",
+      "segundo orden"
+    ],
+    "prerrequisitos": [
+      "mat.p5.patrones-segundo-orden"
+    ],
+    "ordenSugerido": 47,
+    "ideaCentral": "Las figuras que crecen pueden convertirse en una secuencia numérica al contar sus marcas. Si cada figura añade una fila más larga que la anterior, los aumentos también crecen de forma regular.",
+    "pasos": [
+      "Cuenta las marcas de cada figura y anota los totales.",
+      "Calcula cuántas marcas nuevas aparecen de una figura a la siguiente.",
+      "Descubre cómo cambia la cantidad añadida.",
+      "Dibuja mentalmente la siguiente fila y verifica el total."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Figuras de puntos: ●; ●/●●; ●/●●/●●●.",
+        "desarrollo": "Sus totales son 1, 3, 6; se añadieron 2 y luego 3 puntos.",
+        "respuesta": "La siguiente añade 4 y tiene 10 puntos."
+      },
+      {
+        "situacion": "Unos mosaicos tienen 2, 5 y 9 fichas.",
+        "desarrollo": "Los aumentos son 3 y 4; si la construcción añade una ficha más en cada etapa, el próximo aumento es 5.",
+        "respuesta": "El cuarto mosaico tiene 14 fichas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar solo la última fila como total.",
+        "correccion": "Suma todas las filas visibles de la figura."
+      },
+      {
+        "error": "Suponer que cada figura aumenta igual.",
+        "correccion": "Compara los totales: en estas construcciones suele crecer también la parte añadida."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Figura",
+        "significado": "Diseño de marcas en una etapa del patrón."
+      },
+      {
+        "termino": "Total de marcas",
+        "significado": "Cantidad de puntos, cuadros o símbolos de toda la figura."
+      },
+      {
+        "termino": "Crecimiento",
+        "significado": "Marcas nuevas que se añaden para formar la figura siguiente."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Figuras de puntos: ●; ●/●●; ●/●●/●●●. ¿Cuántos puntos tiene la tercera? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cada fila de la tercera figura.",
+          "Sus filas tienen 1, 2 y 3 puntos.",
+          "Suma 1 + 2 + 3."
+        ],
+        "retroalimentacion": "La tercera tiene 6 puntos; contar solo los 3 de la última fila deja fuera las anteriores."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un dibujo crece con totales de 1, 3 y 6 estrellas. ¿Qué fila nueva lo lleva a la cuarta figura?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "★"
+          },
+          {
+            "id": "b",
+            "texto": "★★"
+          },
+          {
+            "id": "c",
+            "texto": "★★★★"
+          },
+          {
+            "id": "d",
+            "texto": "★★★★★★"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los aumentos anteriores fueron 2 y 3.",
+          "La nueva fila debe tener una estrella más que la anterior.",
+          "Añade 4 estrellas."
+        ],
+        "retroalimentacion": "La fila ★★★★ agrega 4 estrellas y lleva el total de 6 a 10."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si las figuras tienen 2, 5 y 9 cuadrados, los aumentos son 3 y 4 cuadrados.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la primera con la segunda figura.",
+          "5 − 2 = 3.",
+          "9 − 5 = 4."
+        ],
+        "retroalimentacion": "Es verdadero: cada etapa añade una cantidad mayor."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un mural se arma con filas de 2, 3 y 4 azulejos: primera figura 2; segunda 2 + 3; tercera 2 + 3 + 4. ¿Cuántos azulejos hay en la tercera? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las tres filas se conservan.",
+          "Los tamaños son 2, 3 y 4.",
+          "Suma 2 + 3 + 4."
+        ],
+        "retroalimentacion": "La tercera figura tiene 9 azulejos; no se cuenta solo la fila nueva."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una secuencia de figuras cuenta 3, 7, 12 círculos. Si cada nueva figura añade un círculo más que la ampliación previa, ¿cuál es el total siguiente?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "17"
+          },
+          {
+            "id": "b",
+            "texto": "18"
+          },
+          {
+            "id": "c",
+            "texto": "19"
+          },
+          {
+            "id": "d",
+            "texto": "24"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los aumentos fueron 4 y 5.",
+          "La próxima ampliación añade 6.",
+          "Suma 12 + 6."
+        ],
+        "retroalimentacion": "La cuarta figura tiene 18 círculos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Las tres figuras muestran estos totales: ●●, luego ●● + ●●●, luego ●● + ●●● + ●●●●. Escribe los tres totales en orden, separados por coma.",
+        "respuesta": "2, 5, 9",
+        "alternativasAceptadas": [
+          "2,5,9"
+        ],
+        "pistas": [
+          "La primera tiene 2 puntos.",
+          "La segunda junta 2 y 3.",
+          "La tercera añade 4 al total 5."
+        ],
+        "retroalimentacion": "Los totales son 2, 5, 9; sus aumentos son 3 y 4."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un patrón de figuras tiene 4, 8 y 13 fichas. Si la siguiente añade 6 fichas, su total será 19.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cuánto creció el dibujo de 4 a 8 y de 8 a 13 fichas.",
+          "El siguiente aumento de 6 mantiene la regla.",
+          "Suma 13 + 6."
+        ],
+        "retroalimentacion": "Es verdadero: la cuarta figura tiene 19 fichas."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una torre de bloques crece por pisos: 1 bloque, luego añade un piso de 3, luego uno de 5. Si el próximo piso tiene 7, ¿cuántos bloques tendrá en total? Escribe solo el número.",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los tres primeros pisos suman 1 + 3 + 5.",
+          "Eso da 9 bloques antes del nuevo piso.",
+          "Añade los 7 del cuarto piso."
+        ],
+        "retroalimentacion": "La torre tendrá 16 bloques; 7 es solo el piso nuevo."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un diseño de palitos tiene 2, 6, 12 y 20 palitos en sus primeras cuatro etapas. ¿Qué secuencia numérica describe sus aumentos?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2, 6, 12"
+          },
+          {
+            "id": "b",
+            "texto": "4, 4, 4"
+          },
+          {
+            "id": "c",
+            "texto": "6, 8, 10"
+          },
+          {
+            "id": "d",
+            "texto": "4, 6, 8"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta 6 − 2.",
+          "Luego calcula 12 − 6 y 20 − 12.",
+          "Los resultados son pares consecutivos."
+        ],
+        "retroalimentacion": "Los aumentos son 4, 6, 8; también crecen de dos en dos."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una figura tiene una fila de 3 ★, la siguiente añade 5 ★ y la tercera añade 7 ★. Si la cuarta añade 9 ★, ¿cuántas ★ hay en la cuarta figura? Escribe solo el número.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las filas son acumulativas.",
+          "3 + 5 + 7 = 15 en la tercera.",
+          "Suma 9 al total 15."
+        ],
+        "retroalimentacion": "La cuarta figura reúne 24 estrellas, no solo las 9 nuevas."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un patrón de dibujos tiene totales 5, 9, 14, 20. Como los aumentos son 4, 5, 6, es un patrón numérico de segundo orden.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta totales vecinos.",
+          "Obtienes 4, 5 y 6.",
+          "Las diferencias aumentan una unidad cada vez."
+        ],
+        "retroalimentacion": "Es verdadero: al contar las marcas aparece una secuencia de segundo orden."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un banderín de papel lleva 1, luego 1 + 2, luego 1 + 2 + 3 y luego 1 + 2 + 3 + 4 marcas. ¿Cuántas tendrá la quinta figura si añade una fila de 5?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "15"
+          },
+          {
+            "id": "b",
+            "texto": "11"
+          },
+          {
+            "id": "c",
+            "texto": "10"
+          },
+          {
+            "id": "d",
+            "texto": "5"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las marcas de la cuarta figura.",
+          "1 + 2 + 3 + 4 = 10.",
+          "Añade la nueva fila de 5."
+        ],
+        "retroalimentacion": "La quinta figura tiene 15 marcas: las 10 anteriores más 5."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.patrones-regla-formacion",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-P5-03"
+    ],
+    "bloque": "Patrones",
+    "nombre": "Regla de formación de un patrón de segundo orden",
+    "disciplina": "algebra",
+    "descripcionCorta": "Expresa con palabras y operaciones cómo se obtiene cada término de un patrón de segundo orden.",
+    "palabrasClave": [
+      "regla",
+      "diferencias",
+      "segundo orden",
+      "explicación"
+    ],
+    "prerrequisitos": [
+      "mat.p5.patrones-segundo-orden"
+    ],
+    "ordenSugerido": 48,
+    "ideaCentral": "La regla de formación explica cómo pasar de un término al siguiente y cómo cambia ese paso. En segundo orden no basta decir «suma»: debes indicar cómo aumenta la cantidad que se suma.",
+    "pasos": [
+      "Calcula las diferencias entre términos vecinos.",
+      "Observa cuánto cambian esas diferencias.",
+      "Expresa la regla con palabras: suma cierta cantidad y aumenta esa cantidad de forma regular.",
+      "Comprueba que la regla produce todos los términos dados."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Secuencia 4, 7, 11, 16.",
+        "desarrollo": "Se suma 3, luego 4 y luego 5; cada suma aumenta en 1.",
+        "respuesta": "Regla: empieza en 4 y suma 3, 4, 5, ..."
+      },
+      {
+        "situacion": "Secuencia 10, 12, 16, 22.",
+        "desarrollo": "Las diferencias son 2, 4, 6; crecen de dos en dos.",
+        "respuesta": "Regla: empieza en 10 y suma números pares desde 2."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir «sumar 3 siempre» al ver el primer salto.",
+        "correccion": "Calcula todos los saltos y explica cómo cambian."
+      },
+      {
+        "error": "Describir solo el próximo término.",
+        "correccion": "La regla debe servir para continuar varias etapas, no solo una."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Regla de formación",
+        "significado": "Instrucción para construir los términos de un patrón."
+      },
+      {
+        "termino": "Diferencia creciente",
+        "significado": "Cantidad añadida que aumenta en cada paso."
+      },
+      {
+        "termino": "Término inicial",
+        "significado": "Primer número de la secuencia."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué regla forma 2, 5, 9, 14?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Empieza en 2 y suma 3 siempre"
+          },
+          {
+            "id": "b",
+            "texto": "Empieza en 2 y suma 3, 4, 5, ..."
+          },
+          {
+            "id": "c",
+            "texto": "Empieza en 2 y multiplica por 2"
+          },
+          {
+            "id": "d",
+            "texto": "Empieza en 2 y suma 5, 4, 3, ..."
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula las diferencias.",
+          "Son 3, 4 y 5.",
+          "Cada suma aumenta en uno."
+        ],
+        "retroalimentacion": "La regla empieza en 2 y suma 3, 4, 5, ...; sumar siempre 3 falla en el tercer término."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La regla de 6, 8, 12, 18 es empezar en 6 y sumar 2, 4, 6, ...",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa los saltos entre términos.",
+          "8 − 6 = 2 y 12 − 8 = 4.",
+          "18 − 12 = 6."
+        ],
+        "retroalimentacion": "Es verdadero: las sumas son pares consecutivos."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La regla dice: empieza en 5; suma 2, luego 3, luego 4. Escribe las tres sumas en orden, separadas por coma.",
+        "respuesta": "2, 3, 4",
+        "alternativasAceptadas": [
+          "2,3,4"
+        ],
+        "pistas": [
+          "La primera suma lleva de 5 a 7.",
+          "La siguiente lleva de 7 a 10.",
+          "La última lleva de 10 a 14."
+        ],
+        "retroalimentacion": "Las sumas de la regla son 2, 3, 4; cada una aumenta en 1."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En 3, 7, 12, 18, ¿cuánto aumenta la cantidad que se suma en cada paso?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0"
+          },
+          {
+            "id": "b",
+            "texto": "2"
+          },
+          {
+            "id": "c",
+            "texto": "1"
+          },
+          {
+            "id": "d",
+            "texto": "4"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las diferencias son 4, 5 y 6.",
+          "Compara 5 − 4.",
+          "También 6 − 5 da el mismo aumento."
+        ],
+        "retroalimentacion": "La cantidad sumada aumenta 1 en cada paso."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para 10, 13, 19, 28, decir «agrega 3 más que en el paso anterior» describe las diferencias 3, 6 y 9.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 13 − 10, 19 − 13 y 28 − 19.",
+          "Obtienes 3, 6 y 9.",
+          "Cada diferencia supera en 3 a la anterior."
+        ],
+        "retroalimentacion": "Es verdadero: la regla suma 3, 6, 9, ..."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una regla parte de 8 y suma 5, 7, 9, ... ¿Qué frase describe cómo cambian las sumas?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Aumentan de 2 en 2"
+          },
+          {
+            "id": "b",
+            "texto": "Son siempre 5"
+          },
+          {
+            "id": "c",
+            "texto": "Se duplican"
+          },
+          {
+            "id": "d",
+            "texto": "Disminuyen de 2 en 2"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira 5, 7 y 9.",
+          "De 5 a 7 hay 2; de 7 a 9 también.",
+          "Expresa ese aumento constante."
+        ],
+        "retroalimentacion": "Aumentan de 2 en 2: las sumas son 5, 7 y 9; los términos serían 8, 13, 20, 29."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Para la secuencia 4, 9, 16, 25, escribe la regla de las sumas como lista de los tres primeros saltos, separados por coma.",
+        "respuesta": "5, 7, 9",
+        "alternativasAceptadas": [
+          "5,7,9"
+        ],
+        "pistas": [
+          "9 − 4 da el primer salto.",
+          "16 − 9 da el segundo.",
+          "25 − 16 da el tercero."
+        ],
+        "retroalimentacion": "La regla suma 5, 7, 9, ...; los saltos crecen de dos en dos."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La descripción «empieza en 2 y suma 4, 6, 8, ...» produce 2, 6, 12, 20.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Desde 2 añade 4.",
+          "A 6 añade 6.",
+          "A 12 añade 8."
+        ],
+        "retroalimentacion": "Es verdadero: la regla produce exactamente 2, 6, 12 y 20."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al revisar 15, 17, 21, 27, 35, ¿qué explicación funciona para todos los pasos?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Se suma 2 siempre"
+          },
+          {
+            "id": "b",
+            "texto": "Se multiplica por 2"
+          },
+          {
+            "id": "c",
+            "texto": "Se suman números impares"
+          },
+          {
+            "id": "d",
+            "texto": "Se suman pares consecutivos desde 2"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las diferencias son 2, 4, 6 y 8.",
+          "Todas son pares consecutivos.",
+          "Cada nueva suma crece en 2."
+        ],
+        "retroalimentacion": "Se suman pares consecutivos desde 2: las diferencias son 2, 4, 6, 8, ..."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una secuencia comienza en 7 y suma 3, 6, 9, 12. ¿De cuánto en cuánto aumentan las diferencias? Escribe solo el número.",
+        "respuesta": "3",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la primera suma con la segunda.",
+          "6 − 3 = 3.",
+          "9 − 6 y 12 − 9 también dan 3."
+        ],
+        "retroalimentacion": "Las diferencias aumentan de 3 en 3; no aumentan de 6 en 6."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La regla «empieza en 1 y suma 2, 3, 4, ...» produce como cuarto término 10.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Forma los términos uno a uno.",
+          "1 + 2 = 3; 3 + 3 = 6.",
+          "6 + 4 = 10."
+        ],
+        "retroalimentacion": "Es verdadero: el cuarto término es 10."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para 20, 24, 31, 41, una amiga propone «agregar 4, luego 7, luego 10; aumentar cada suma en 3». ¿Cómo verificas que su regla sirve?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo comprobar que 20 es par"
+          },
+          {
+            "id": "b",
+            "texto": "Comparar las diferencias 4, 7 y 10"
+          },
+          {
+            "id": "c",
+            "texto": "Sumar todos los términos y dividir entre 4"
+          },
+          {
+            "id": "d",
+            "texto": "Repetir la última suma de 10"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula los tres saltos reales.",
+          "24 − 20 = 4, 31 − 24 = 7 y 41 − 31 = 10.",
+          "Los saltos coinciden con la propuesta y crecen en 3."
+        ],
+        "retroalimentacion": "La verificación correcta es comparar las diferencias 4, 7 y 10, que aumentan en 3."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.terminos-faltantes-segundo-orden",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-P5-04"
+    ],
+    "bloque": "Patrones",
+    "nombre": "Términos faltantes en patrones de segundo orden",
+    "disciplina": "algebra",
+    "descripcionCorta": "Completa términos intermedios y siguientes analizando las diferencias entre términos.",
+    "palabrasClave": [
+      "término faltante",
+      "diferencias",
+      "secuencia",
+      "segundo orden"
+    ],
+    "prerrequisitos": [
+      "mat.p5.patrones-regla-formacion"
+    ],
+    "ordenSugerido": 49,
+    "ideaCentral": "Para completar un hueco en una secuencia de segundo orden, examina las diferencias a ambos lados. El número elegido debe hacer que esas diferencias cambien con la misma regularidad.",
+    "pasos": [
+      "Anota los términos conocidos y los huecos.",
+      "Calcula las diferencias que sí puedes conocer.",
+      "Continúa o retrocede la lista de diferencias según su aumento regular.",
+      "Completa el hueco y verifica ambos saltos vecinos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Completa 4, 7, __, 16.",
+        "desarrollo": "Los saltos deben ser 3, 4, 5; 7 + 4 = 11 y 11 + 5 = 16.",
+        "respuesta": "Falta 11."
+      },
+      {
+        "situacion": "Completa 2, __, 12, 20 con aumentos pares consecutivos.",
+        "desarrollo": "Como 20 − 12 = 8, los saltos anteriores son 6 y 4. Entonces 12 − 6 = 6 y 6 − 4 = 2.",
+        "respuesta": "Falta 6."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Poner la mitad de los vecinos sin revisar las diferencias.",
+        "correccion": "Calcula los saltos: en segundo orden no suelen ser iguales."
+      },
+      {
+        "error": "Revisar solo el salto anterior al hueco.",
+        "correccion": "Comprueba también el salto posterior y el cambio regular entre ambos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Hueco",
+        "significado": "Lugar de un término que falta en la lista."
+      },
+      {
+        "termino": "Diferencia vecina",
+        "significado": "Salto antes o después del término faltante."
+      },
+      {
+        "termino": "Verificar",
+        "significado": "Comprobar que toda la secuencia conserva la regla."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Completa 1, 3, __, 10 sabiendo que las diferencias aumentan de uno en uno. Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer salto es 2.",
+          "Los siguientes saltos deben ser 3 y 4.",
+          "Suma 3 a 3 y revisa que hasta 10 falten 4."
+        ],
+        "retroalimentacion": "Falta 6: los saltos son 2, 3, 4."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué número falta en 5, 8, __, 17 si se suma 3, 4, 5?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10"
+          },
+          {
+            "id": "b",
+            "texto": "11"
+          },
+          {
+            "id": "c",
+            "texto": "12"
+          },
+          {
+            "id": "d",
+            "texto": "13"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "De 5 a 8 se suma 3.",
+          "Ahora añade 4 a 8.",
+          "El resultado debe quedar a 5 de 17."
+        ],
+        "retroalimentacion": "Falta 12: 8 + 4 = 12 y 12 + 5 = 17."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 2, 6, 12, __, 30, el hueco es 20 si los saltos son 4, 6, 8, 10.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Desde 12 añade el tercer salto, 8.",
+          "12 + 8 = 20.",
+          "De 20 a 30 queda un salto de 10."
+        ],
+        "retroalimentacion": "Es verdadero: 20 mantiene los saltos pares 4, 6, 8, 10."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En 10, __, 18, 25 los saltos crecen de dos en dos. ¿Qué término falta? Escribe solo el número.",
+        "respuesta": 13,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El último salto es 25 − 18 = 7.",
+          "El salto anterior debe ser 5 y el primero 3.",
+          "Suma 3 a 10 y comprueba que 18 − 13 = 5."
+        ],
+        "retroalimentacion": "Falta 13: 10, 13, 18, 25 tiene saltos 3, 5 y 7."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Completa 3, 7, 13, __, 31 con saltos pares que aumentan de dos en dos.",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "19"
+          },
+          {
+            "id": "b",
+            "texto": "21"
+          },
+          {
+            "id": "c",
+            "texto": "23"
+          },
+          {
+            "id": "d",
+            "texto": "25"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos primeros saltos son 4 y 6.",
+          "Después corresponde 8.",
+          "Suma 8 a 13 y revisa el salto hasta 31."
+        ],
+        "retroalimentacion": "Falta 21: los saltos son 4, 6, 8, 10."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una lista es 4, 9, __, 25; añade impares consecutivos 5, 7 y 9. Escribe el término ausente.",
+        "respuesta": "16",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El segundo salto es 7.",
+          "9 + 7 da el número buscado.",
+          "Comprueba que del hueco a 25 se sumen 9."
+        ],
+        "retroalimentacion": "Falta 16: 9 + 7 = 16 y 16 + 9 = 25."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 7, 10, 15, __, 31, colocar 22 mantiene diferencias que aumentan de dos en dos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los saltos iniciales son 3 y 5.",
+          "Luego deben venir 7 y 9.",
+          "15 + 7 = 22 y 22 + 9 = 31."
+        ],
+        "retroalimentacion": "Es verdadero: 22 encaja entre los saltos 7 y 9."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Completa 6, 8, __, 18, 26 con diferencias 2, 4, 6, 8. Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Después del salto 2 viene uno de 4.",
+          "8 + 4 = 12.",
+          "12 + 6 debe llegar a 18."
+        ],
+        "retroalimentacion": "Falta 12; el patrón completo suma 2, 4, 6 y 8."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "La secuencia 12, __, 24, 33, 44 tiene diferencias que aumentan de dos en dos. ¿Cuál es el término faltante?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "15"
+          },
+          {
+            "id": "b",
+            "texto": "17"
+          },
+          {
+            "id": "c",
+            "texto": "18"
+          },
+          {
+            "id": "d",
+            "texto": "20"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos últimos saltos son 9 y 11.",
+          "Hacia atrás el salto anterior es 7 y el primero 5.",
+          "12 + 5 = 17 y 17 + 7 = 24."
+        ],
+        "retroalimentacion": "Falta 17: los saltos son 5, 7, 9 y 11; 18 haría desigual el crecimiento."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Faltan dos términos en 2, 5, __, __, 20. Los saltos aumentan de uno en uno. ¿Cuál es el cuarto término? Escribe solo el número.",
+        "respuesta": 14,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer salto es 3.",
+          "Continúa con 4, 5 y 6.",
+          "Los términos son 2, 5, 9, 14, 20."
+        ],
+        "retroalimentacion": "El cuarto término es 14; el tercer término, 9, no responde la pregunta."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 4, __, 14, 22, 32, colocar 7 en el hueco mantiene diferencias que aumentan de dos en dos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el salto de 4 a 7 y el de 7 a 14.",
+          "Esos saltos son 3 y 7.",
+          "Los dos saltos siguientes son 8 y 10; no hay aumento regular de 2 desde 3."
+        ],
+        "retroalimentacion": "Es falso: 7 da saltos 3, 7, 8, 10. El hueco correcto es 8: los saltos quedan 4, 6, 8, 10."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En 9, 13, __, 27, 37 los saltos crecen de dos en dos. ¿Qué número completa la secuencia?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "19"
+          },
+          {
+            "id": "b",
+            "texto": "18"
+          },
+          {
+            "id": "c",
+            "texto": "20"
+          },
+          {
+            "id": "d",
+            "texto": "21"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer salto es 4.",
+          "Después deben venir 6, 8 y 10.",
+          "Suma 6 a 13 y revisa 27 − 19."
+        ],
+        "retroalimentacion": "Falta 19: los saltos son 4, 6, 8 y 10."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.terminos-lejanos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 24,
+    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+    "desempenosOrigen": [
+      "MAT-C24-P5-05"
+    ],
+    "bloque": "Patrones",
+    "nombre": "Términos lejanos de un patrón de segundo orden",
+    "disciplina": "algebra",
+    "descripcionCorta": "Predice un término no inmediato del patrón y lo justifica con cálculos.",
+    "palabrasClave": [
+      "patrón",
+      "segundo orden",
+      "diferencias",
+      "término lejano"
+    ],
+    "prerrequisitos": [
+      "mat.p5.terminos-faltantes-segundo-orden"
+    ],
+    "ordenSugerido": 85,
+    "ideaCentral": "En un patrón de segundo orden, los aumentos también siguen una regla. Para hallar un término lejano, continúa la lista de aumentos y suma cada uno sin saltarte posiciones.",
+    "pasos": [
+      "Resta términos consecutivos para hallar los aumentos.",
+      "Compara los aumentos y descubre cuánto crecen.",
+      "Extiende los aumentos hasta la posición pedida.",
+      "Suma los aumentos nuevos al último término conocido y comprueba el orden."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una secuencia de adornos tiene 2, 5, 10, 17 figuras. ¿Cuántas habrá en la sexta posición?",
+        "desarrollo": "Los aumentos son 3, 5, 7; siguen 9 y 11. Entonces 17 + 9 + 11 = 37.",
+        "respuesta": "En la sexta posición habrá 37 figuras."
+      },
+      {
+        "situacion": "En una feria, las filas de puestos siguen 4, 8, 14, 22. ¿Cuál es el séptimo término?",
+        "desarrollo": "Los aumentos 4, 6, 8 crecen de 2 en 2. Siguen 10, 12 y 14; 22 + 10 + 12 + 14 = 58.",
+        "respuesta": "El séptimo término es 58."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar siempre el último aumento.",
+        "correccion": "Los aumentos cambian; extiéndelos siguiendo su propia regla."
+      },
+      {
+        "error": "Contar un aumento de más al buscar la posición.",
+        "correccion": "Anota el número de posición junto a cada término antes de sumar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Término",
+        "significado": "Número que ocupa una posición en el patrón."
+      },
+      {
+        "termino": "Diferencia",
+        "significado": "Cantidad que se suma para pasar de un término al siguiente."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La lista 1, 4, 9, 16 sigue con 25. ¿Cuál es el sexto término? Escribe solo el número.",
+        "respuesta": 36,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Entre 16 y 25 sumaste 9.",
+          "Los aumentos son 3, 5, 7, 9.",
+          "El siguiente aumento es 11; súmalo a 25."
+        ],
+        "retroalimentacion": "Si repites 9 obtienes 34; el aumento crece a 11 y 25 + 11 = 36."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Los puntos de un diseño son 3, 6, 11, 18. ¿Qué aumento corresponde del cuarto al quinto término?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7"
+          },
+          {
+            "id": "b",
+            "texto": "8"
+          },
+          {
+            "id": "c",
+            "texto": "9"
+          },
+          {
+            "id": "d",
+            "texto": "11"
+          }
+        ],
+        "pistas": [
+          "Calcula 6 − 3, 11 − 6 y 18 − 11.",
+          "Los aumentos son 3, 5 y 7.",
+          "Cada aumento crece en 2; sigue 9."
+        ],
+        "retroalimentacion": "El aumento correcto es 9; repetir 7 ignoraría la regla de las diferencias."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 2, 6, 12, 20, los aumentos son 4, 6 y 8.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta 6 − 2.",
+          "Después calcula 12 − 6.",
+          "Por último, 20 − 12 da 8."
+        ],
+        "retroalimentacion": "Es verdadero: las diferencias son 4, 6 y 8; no son constantes."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un patrón registra 5, 9, 15, 23. ¿Qué número va en la quinta posición? Escribe solo el número.",
+        "respuesta": 33,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa cuánto se suma entre 5 y 9.",
+          "Los saltos son 4, 6 y 8.",
+          "El próximo salto es 10; agrégalo a 23."
+        ],
+        "retroalimentacion": "Si sumas otra vez 8 llegas a 31; el salto nuevo es 10 y resulta 33."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para el patrón 1, 3, 7, 13, ¿qué número ocupa la sexta posición?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "29"
+          },
+          {
+            "id": "b",
+            "texto": "31"
+          },
+          {
+            "id": "c",
+            "texto": "33"
+          },
+          {
+            "id": "d",
+            "texto": "35"
+          }
+        ],
+        "pistas": [
+          "Busca los saltos 2, 4 y 6.",
+          "Continúa con 8 y 10.",
+          "Suma 13 + 8 + 10."
+        ],
+        "retroalimentacion": "La sexta posición es 31; 21 corresponde solo a la quinta."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una colección sigue 4, 7, 12, 19. ¿Cuántas piezas indica el séptimo término? Escribe solo el número.",
+        "respuesta": 52,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los incrementos son 3, 5 y 7.",
+          "Para llegar a la séptima posición faltan tres saltos.",
+          "Añade 9, 11 y 13 a 19."
+        ],
+        "retroalimentacion": "Detenerte en la sexta da 39; 19 + 9 + 11 + 13 = 52."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una secuencia empieza 0, 3, 8, 15 y sus aumentos siguen creciendo de 2 en 2, el sexto término es 35.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las diferencias iniciales son 3, 5 y 7.",
+          "Luego corresponden los saltos 9 y 11.",
+          "Desde 15, suma 9 y después 11."
+        ],
+        "retroalimentacion": "Es verdadero: el quinto es 24 y el sexto es 35; no basta un solo salto."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En 6, 10, 16, 24, ¿qué dos aumentos necesitas para llegar hasta el sexto término? Escríbelos en orden separados por coma.",
+        "respuesta": "10,12",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla las diferencias entre los cuatro números.",
+          "Aparecen 4, 6 y 8.",
+          "Sigue la regla de sumar 2 a cada diferencia."
+        ],
+        "retroalimentacion": "Los dos aumentos son 10,12; escribirlos al revés cambia el orden del patrón."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una figura crece según 2, 5, 10, 17. ¿Qué valor tendrá en la octava posición? Escribe solo el número.",
+        "respuesta": 65,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero reconoce los saltos 3, 5 y 7.",
+          "Hasta la octava posición faltan cuatro saltos: 9, 11, 13 y 15.",
+          "Suma esos cuatro saltos a 17."
+        ],
+        "retroalimentacion": "Si omites el salto 15 llegas solo al séptimo: 17 + 9 + 11 + 13 + 15 = 65."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Lía afirma que en 4, 8, 14, 22 el séptimo término es 58. ¿Qué cálculo comprueba su afirmación?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "22 + 8 + 10 + 12"
+          },
+          {
+            "id": "b",
+            "texto": "22 + 10 + 12"
+          },
+          {
+            "id": "c",
+            "texto": "22 + 12 + 14"
+          },
+          {
+            "id": "d",
+            "texto": "22 + 10 + 12 + 14"
+          }
+        ],
+        "pistas": [
+          "Los saltos conocidos son 4, 6 y 8.",
+          "Faltan tres pasos desde la cuarta posición.",
+          "Los siguientes saltos son 10, 12 y 14."
+        ],
+        "retroalimentacion": "El cálculo 22 + 10 + 12 + 14 = 58 confirma el séptimo término; sumar solo dos saltos llega al sexto."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un mural se cuentan 3, 7, 13, 21 casillas por etapa. ¿Cuántas casillas señala la séptima etapa? Escribe solo el número.",
+        "respuesta": 57,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los aumentos son 4, 6 y 8.",
+          "Para pasar de la cuarta a la séptima necesitas 10, 12 y 14.",
+          "Calcula 21 + 10 + 12 + 14."
+        ],
+        "retroalimentacion": "Un aumento constante daría otro resultado; con los tres saltos crecientes se obtiene 57."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En el patrón 5, 10, 17, 26, el octavo término es 82 si los aumentos continúan con la misma regla.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las diferencias son 5, 7 y 9.",
+          "Hasta el octavo agrega 11, 13, 15 y 17.",
+          "Desde 26 obtienes 37, 50, 65 y 82."
+        ],
+        "retroalimentacion": "Es verdadero: 26 + 11 + 13 + 15 + 17 = 82; los cuatro saltos son necesarios."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

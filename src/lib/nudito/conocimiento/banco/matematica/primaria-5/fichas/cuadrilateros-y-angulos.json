@@ -1,0 +1,3228 @@
+[
+  {
+    "clave": "mat.p5.cuadrilateros-entorno",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-P5-01"
+    ],
+    "bloque": "Cuadriláteros y ángulos",
+    "nombre": "Cuadriláteros en el entorno",
+    "disciplina": "geometria",
+    "descripcionCorta": "Asocia objetos reales con cuadrados, rectángulos, rombos, romboides y trapecios.",
+    "palabrasClave": [
+      "cuadrilatero",
+      "cuadrado",
+      "rectangulo",
+      "rombo",
+      "romboide",
+      "trapecio"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 16,
+    "ideaCentral": "Los cuadriláteros son figuras planas cerradas de cuatro lados rectos; en la vida diaria reconocemos sus formas en puertas, losetas, cometas, señales de tránsito y techos de viviendas.",
+    "pasos": [
+      "Cuenta los lados rectos del objeto para asegurar que tenga exactamente cuatro lados.",
+      "Observa si sus lados opuestos son paralelos e iguales en longitud.",
+      "Verifica si sus ángulos interiores son esquinas rectas (90°) o si están inclinados.",
+      "Asocia la silueta con el cuadrilátero correspondiente: cuadrado, rectángulo, rombo, romboide o trapecio."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La puerta del salón de clases tiene cuatro lados rectos, lados opuestos iguales y cuatro esquinas rectas. ¿Qué forma tiene?",
+        "desarrollo": "Cumple con tener cuatro lados, ángulos rectos de 90° y lados consecutivos de distinta longitud.",
+        "respuesta": "Tiene forma de rectángulo."
+      },
+      {
+        "situacion": "Una loseta del patio de recreo mide 40 cm en cada uno de sus cuatro lados y sus cuatro esquinas forman ángulos rectos. ¿Qué forma tiene?",
+        "desarrollo": "Al tener cuatro lados iguales y cuatro ángulos rectos de 90°, coincide exactamente con la definición del cuadrado.",
+        "respuesta": "Tiene forma de cuadrado."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Llamar rombo a cualquier cuadrado que se encuentra girado o apoyado en un vértice.",
+        "correccion": "Un cuadrado mantiene sus ángulos rectos de 90° al girar; el rombo no tiene ángulos rectos."
+      },
+      {
+        "error": "Confundir un romboide con un trapecio.",
+        "correccion": "El romboide tiene dos pares de lados paralelos; el trapecio solo tiene un par de lados paralelos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Cuadrilátero",
+        "significado": "Polígono plano cerrado delimitado por cuatro segmentos rectos."
+      },
+      {
+        "termino": "Rombo",
+        "significado": "Cuadrilátero con cuatro lados de igual longitud y ángulos no rectos opuestos iguales."
+      },
+      {
+        "termino": "Romboide",
+        "significado": "Paralelogramo con lados opuestos iguales dos a dos y ángulos oblicuos."
+      },
+      {
+        "termino": "Trapecio",
+        "significado": "Cuadrilátero que tiene únicamente dos lados opuestos paralelos llamados bases."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos lados rectos tiene cualquier cuadrilátero que observes en los objetos de tu casa? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda el prefijo cuadri-, que proviene del número cuatro.",
+          "Es la característica básica que define a esta familia de polígonos.",
+          "El valor numérico es cuatro."
+        ],
+        "retroalimentacion": "Todo cuadrilátero posee exactamente 4 lados rectos."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La pizarra del aula de clases tiene comúnmente la forma geométrica de un rectángulo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fíjate en las esquinas de la pizarra: forman ángulos rectos de 90°.",
+          "El largo de la pizarra es mayor que su ancho.",
+          "Sus lados opuestos son paralelos e iguales dos a dos."
+        ],
+        "retroalimentacion": "La pizarra tiene lados opuestos paralelos de diferente longitud y ángulos rectos: la afirmación es verdadera."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una cometa artesanal tradicional de papel cometa tiene sus 4 lados de igual medida, pero dos esquinas son agudas y dos son obtusas. ¿Qué forma geométrica tiene?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Trapecio"
+          },
+          {
+            "id": "b",
+            "texto": "Rombo"
+          },
+          {
+            "id": "c",
+            "texto": "Rectángulo"
+          },
+          {
+            "id": "d",
+            "texto": "Círculo"
+          }
+        ],
+        "pistas": [
+          "Tiene cuatro lados de idéntica longitud.",
+          "Sus esquinas no forman ángulos de 90°.",
+          "Esta figura con cuatro lados iguales y esquinas no rectas es el rombo."
+        ],
+        "retroalimentacion": "Una figura con 4 lados iguales y ángulos oblicuos corresponde a un rombo."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una hoja de cuaderno cuadriculado tiene cuatro esquinas rectas de 90 grados y su largo mide más que su ancho. ¿Qué figura geométrica es: cuadrado o rectángulo?",
+        "respuesta": "rectangulo",
+        "alternativasAceptadas": [
+          "rectangulo",
+          "rectángulo",
+          "un rectangulo",
+          "un rectángulo"
+        ],
+        "pistas": [
+          "Tiene cuatro ángulos rectos.",
+          "Sus lados adyacentes no tienen la misma longitud.",
+          "Elige entre las dos opciones sugeridas en la pregunta."
+        ],
+        "retroalimentacion": "Al tener ángulos rectos y lados desiguales dos a dos, la hoja es un rectángulo."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El techo de calamina de un puesto del mercado de Surquillo visto de frente tiene un borde superior horizontal corto y un borde inferior horizontal largo y paralelo, unidos por dos lados inclinados. ¿A qué cuadrilátero corresponde esa silueta?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Romboide"
+          },
+          {
+            "id": "b",
+            "texto": "Cuadrado"
+          },
+          {
+            "id": "c",
+            "texto": "Trapecio"
+          },
+          {
+            "id": "d",
+            "texto": "Rombo"
+          }
+        ],
+        "pistas": [
+          "Presenta dos bordes horizontales paralelos de distinta longitud.",
+          "Los otros dos bordes laterales no son paralelos.",
+          "La figura que posee solo un par de lados paralelos es el trapecio."
+        ],
+        "retroalimentacion": "Al poseer exactamente un par de lados paralelos llamados bases, la figura es un trapecio."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En la fachada de una casa en Ayacucho hay 2 ventanas cuadradas y 3 ventanas rectangulares. ¿Cuántos vértices cuadriláteros en total suman esas 5 ventanas? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada ventana tiene forma de cuadrilátero y posee 4 vértices.",
+          "Son 5 ventanas en total en la fachada.",
+          "Multiplica 5 por 4 vértices por ventana."
+        ],
+        "retroalimentacion": "Cada cuadrilátero tiene 4 vértices; multiplicando 5 por 4 obtenemos 20 vértices en total."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El diseño de las franjas de pintura inclinadas de un paso peatonal en la pista tiene forma de romboide porque sus lados opuestos son paralelos dos a dos y sus esquinas están inclinadas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa la definición del romboide: paralelogramo sin ángulos rectos.",
+          "Sus lados opuestos conservan la misma distancia y dirección.",
+          "Las esquinas no forman 90 grados."
+        ],
+        "retroalimentacion": "Cumple con lados opuestos paralelos y ángulos oblicuos, definiendo un romboide: la afirmación es verdadera."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Si una baldosa de cerámica tiene sus cuatro lados de igual longitud y sus cuatro ángulos interiores rectos de 90°, ¿qué figura es: cuadrado o romboide?",
+        "respuesta": "cuadrado",
+        "alternativasAceptadas": [
+          "cuadrado",
+          "un cuadrado"
+        ],
+        "pistas": [
+          "Todos sus lados miden exactamente lo mismo.",
+          "Sus cuatro esquinas forman ángulos rectos en forma de L.",
+          "Escoge una de las dos alternativas planteadas en la pregunta."
+        ],
+        "retroalimentacion": "La figura con cuatro lados iguales y cuatro ángulos rectos es un cuadrado."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una faja tradicional tejida en telar cusqueño (chumpi) se aprecia un patrón decorativo de figuras geométricas de cuatro lados: tienen 4 lados iguales pero dos ángulos agudos y dos obtusos. ¿Cuál es la denominación geométrica de este motivo decorativo?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuadrado"
+          },
+          {
+            "id": "b",
+            "texto": "Rombo"
+          },
+          {
+            "id": "c",
+            "texto": "Trapecio escaleno"
+          },
+          {
+            "id": "d",
+            "texto": "Trapezoide asimétrico"
+          }
+        ],
+        "pistas": [
+          "Verifica la medida de los lados: los cuatro lados son congruentes entre sí.",
+          "Examina los ángulos: no son rectos, sino dos agudos y dos obtusos.",
+          "El polígono regular en sus lados pero oblicuo en sus ángulos es el rombo."
+        ],
+        "retroalimentacion": "Posee cuatro lados iguales y ángulos no rectos, correspondiendo a la figura del rombo."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un biohuerto escolar en Huaraz tiene forma de trapezoide con lados que miden 12 m, 18 m, 15 m y 21 m. ¿Cuántos metros lineales de malla se requieren para cercar todo su contorno? Escribe solo el número.",
+        "respuesta": 66,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El perímetro es la suma de las longitudes de los cuatro lados.",
+          "Suma: 12 más 18 más 15 más 21.",
+          "Comprueba: 12 + 18 = 30; 15 + 21 = 36; y 30 + 36 da el total."
+        ],
+        "retroalimentacion": "Sumando 12 + 18 + 15 + 21 obtenemos un perímetro total de 66 metros."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un marco de madera con forma de trapecio tiene sus cuatro lados paralelos dos a dos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda la definición geométrica de trapecio.",
+          "El trapecio posee únicamente un par de lados opuestos paralelos.",
+          "Las figuras con lados paralelos dos a dos son los paralelogramos."
+        ],
+        "retroalimentacion": "Un trapecio solo tiene dos lados paralelos y no cuatro, por lo que la afirmación es falsa."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un carpintero fabrica una mesa cuyo tablero tiene forma de cuadrilátero con lados de 110 cm, 70 cm, 110 cm y 70 cm. Al apoyar la escuadra comprueba que ninguna esquina forma 90 grados, sino que los lados están inclinados. ¿Qué clase de figura geométrica modela el tablero de la mesa?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Rectángulo"
+          },
+          {
+            "id": "b",
+            "texto": "Romboide"
+          },
+          {
+            "id": "c",
+            "texto": "Rombo"
+          },
+          {
+            "id": "d",
+            "texto": "Trapezoide"
+          }
+        ],
+        "pistas": [
+          "Los lados opuestos tienen medidas iguales de dos en dos (110 cm y 70 cm).",
+          "Los ángulos no son rectos, descartando al rectángulo.",
+          "No tiene los cuatro lados iguales, descartando al rombo."
+        ],
+        "retroalimentacion": "Tiene lados opuestos iguales dos a dos y ángulos oblicuos, por lo que modela un romboide."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.lados-paralelos-perpendiculares",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P5-04"
+    ],
+    "bloque": "Cuadriláteros y ángulos",
+    "nombre": "Lados paralelos y perpendiculares en cuadriláteros",
+    "disciplina": "geometria",
+    "descripcionCorta": "Identifica lados paralelos y perpendiculares en cuadriláteros usando regla y escuadra.",
+    "palabrasClave": [
+      "lados paralelos",
+      "lados perpendiculares",
+      "angulo recto",
+      "escuadra",
+      "paralelismo"
+    ],
+    "prerrequisitos": [
+      "mat.p5.cuadrilateros-entorno"
+    ],
+    "ordenSugerido": 17,
+    "ideaCentral": "Dos lados son paralelos cuando mantienen siempre la misma distancia y nunca se cortan; son perpendiculares cuando se intersecan formando un ángulo recto exacto de 90°.",
+    "pasos": [
+      "Coloca la regla sobre uno de los lados y desliza la escuadra a lo largo de ella para verificar si el lado opuesto sigue la misma dirección.",
+      "Si la distancia entre ambos lados se mantiene constante sin cruzarse al prolongarlos, son lados paralelos.",
+      "Ubica el vértice del ángulo recto de la escuadra en el vértice donde se juntan dos lados consecutivos.",
+      "Si los dos lados coinciden con los dos catetos de la escuadra, son lados perpendiculares."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un rectángulo tiene cuatro lados. ¿Qué relaciones de paralelismo y perpendicularidad presentan sus lados?",
+        "desarrollo": "Los dos lados horizontales son paralelos entre sí y los dos verticales también (2 pares de lados paralelos). Además, cada lado vertical forma 90° con los horizontales (4 pares perpendiculares).",
+        "respuesta": "Tiene 2 pares de lados paralelos y 4 pares de lados perpendiculares."
+      },
+      {
+        "situacion": "En un trapecio rectángulo, una de las caras laterales une las dos bases paralelas formando esquinas rectas. ¿Cuántos pares perpendiculares tiene?",
+        "desarrollo": "Ese lado lateral forma un ángulo recto con la base superior y otro con la base inferior.",
+        "respuesta": "Tiene 2 pares de lados perpendiculares y 1 par de lados paralelos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que dos segmentos deben tener la misma longitud para ser paralelos.",
+        "correccion": "El paralelismo depende únicamente de la dirección y la distancia constante entre ellos, no de su medida."
+      },
+      {
+        "error": "Confundir lados perpendiculares (que forman 90°) con lados secantes oblicuos (que no forman 90°).",
+        "correccion": "Usa siempre la escuadra para cerciorarte de que el ángulo de corte sea exactamente de 90°."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Lados paralelos",
+        "significado": "Segmentos que están contenidos en rectas que nunca se intersecan y conservan siempre la misma separación."
+      },
+      {
+        "termino": "Lados perpendiculares",
+        "significado": "Segmentos que al unirse en un vértice forman un ángulo recto de 90°."
+      },
+      {
+        "termino": "Escuadra",
+        "significado": "Plantilla triangular que contiene un ángulo recto de 90° para trazar y comprobar perpendicularidad."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los lados opuestos de una ventana rectangular son paralelos entre sí.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa que los dos lados verticales van en la misma dirección sin juntarse.",
+          "Los dos lados horizontales también van en la misma dirección recta.",
+          "Mantienen la misma distancia a lo largo de todo su recorrido."
+        ],
+        "retroalimentacion": "Los lados opuestos de un rectángulo conservan la misma distancia y nunca se cortan: la afirmación es verdadera."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué instrumento del estuche geométrico escolar permite verificar con rapidez si dos lados forman un ángulo recto de 90°?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Compás"
+          },
+          {
+            "id": "b",
+            "texto": "Escuadra"
+          },
+          {
+            "id": "c",
+            "texto": "Cinta métrica flexible"
+          },
+          {
+            "id": "d",
+            "texto": "Lupa de aumento"
+          }
+        ],
+        "pistas": [
+          "Tiene forma de triángulo con una esquina en escuadra de 90 grados.",
+          "Se hace coincidir su esquina recta sobre el vértice del cuadrilátero.",
+          "Es la herramienta clásica para comprobar esquinas rectas."
+        ],
+        "retroalimentacion": "La escuadra posee un ángulo recto exacto que permite comprobar la perpendicularidad."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos pares de lados paralelos tiene un cuadrado? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los lados horizontales: forman un par paralelo.",
+          "Cuenta los lados verticales: forman otro par paralelo.",
+          "Suma 1 par más 1 par."
+        ],
+        "retroalimentacion": "Un cuadrado tiene exactamente 2 pares de lados opuestos paralelos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Dos rectas que avanzan en la misma dirección y jamás se cruzan por más que se prolonguen se denominan... ¿paralelas o perpendiculares?",
+        "respuesta": "paralelas",
+        "alternativasAceptadas": [
+          "paralelas",
+          "rectas paralelas",
+          "lineas paralelas"
+        ],
+        "pistas": [
+          "Conservan siempre la misma separación mutua.",
+          "Son como los rieles de un tren en línea recta.",
+          "Elige una de las dos opciones ofrecidas en la pregunta."
+        ],
+        "retroalimentacion": "Las rectas que no se cortan y conservan su distancia son paralelas."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un trapecio rectángulo, el lado lateral recto se une con la base superior y con la base inferior formando esquinas rectas. ¿Cuántos pares de lados perpendiculares tiene en total?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1 par"
+          },
+          {
+            "id": "b",
+            "texto": "2 pares"
+          },
+          {
+            "id": "c",
+            "texto": "3 pares"
+          },
+          {
+            "id": "d",
+            "texto": "4 pares"
+          }
+        ],
+        "pistas": [
+          "Revisa el primer ángulo recto: lado lateral con la base superior.",
+          "Revisa el segundo ángulo recto: lado lateral con la base inferior.",
+          "Los otros dos vértices son agudo y obtuso, por lo que no son perpendiculares."
+        ],
+        "retroalimentacion": "Presenta 2 ángulos de 90°, lo que significa que tiene 2 pares de lados perpendiculares."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos ángulos rectos (pares de lados perpendiculares) posee un romboide común? Escribe solo el número.",
+        "respuesta": 0,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El romboide se caracteriza por tener lados inclinados respecto a su base.",
+          "Tiene dos ángulos agudos menores a 90° y dos ángulos obtusos mayores a 90°.",
+          "Ninguno de sus vértices forma una esquina recta."
+        ],
+        "retroalimentacion": "Un romboide común no tiene ángulos rectos, por lo que posee 0 pares de lados perpendiculares."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un rombo con forma de diamante, sus lados consecutivos siempre son perpendiculares entre sí.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Comprueba si los vértices del rombo forman esquinas de 90 grados.",
+          "El rombo típico tiene dos esquinas agudas y dos esquinas obtusas.",
+          "Si tuviera ángulos de 90° sería un cuadrado."
+        ],
+        "retroalimentacion": "Los lados del rombo forman ángulos agudos y obtusos, no perpendiculares: la afirmación es falsa."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Si dos lados consecutivos de una loseta se unen formando un ángulo exacto de 90 grados, decimos que son lados... ¿perpendiculares u oblicuos?",
+        "respuesta": "perpendiculares",
+        "alternativasAceptadas": [
+          "perpendiculares",
+          "lados perpendiculares"
+        ],
+        "pistas": [
+          "El ángulo de 90° corresponde a una esquina en escuadra.",
+          "Es la palabra que describe el corte recto entre dos segmentos.",
+          "Selecciona una de las dos opciones ofrecidas al final de la pregunta."
+        ],
+        "retroalimentacion": "Al formar un ángulo de 90°, los lados son perpendiculares."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se analizan tres cuadriláteros: Figura 1 (cuadrado), Figura 2 (romboide) y Figura 3 (trapezoide asimétrico). ¿Cuál de estas figuras no tiene ningún par de lados paralelos?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La Figura 1"
+          },
+          {
+            "id": "b",
+            "texto": "La Figura 2"
+          },
+          {
+            "id": "c",
+            "texto": "La Figura 3"
+          },
+          {
+            "id": "d",
+            "texto": "Todas tienen lados paralelos"
+          }
+        ],
+        "pistas": [
+          "El cuadrado tiene 2 pares de lados paralelos.",
+          "El romboide tiene 2 pares de lados paralelos.",
+          "El trapezoide se define precisamente por carecer de lados paralelos."
+        ],
+        "retroalimentacion": "La Figura 3 (trapezoide) no tiene lados paralelos en su contorno."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una lámina de dibujo técnico hay trazados 3 rectángulos y 2 trapecios isósceles. ¿Cuántos pares de lados paralelos hay en total sumando todas las figuras? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada rectángulo aporta 2 pares de lados paralelos: 3 rectángulos dan 6 pares.",
+          "Cada trapecio aporta 1 par de lados paralelos: 2 trapecios dan 2 pares.",
+          "Suma 6 más 2 para obtener el total."
+        ],
+        "retroalimentacion": "Los 3 rectángulos aportan 6 pares y los 2 trapecios aportan 2 pares, sumando 8 pares en total."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un cuadrilátero, es imposible que dos lados opuestos sean paralelos si uno mide 12 cm y el otro mide 7 cm.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en la base mayor y la base menor de un trapecio.",
+          "Ambas bases son paralelas a pesar de tener longitudes diferentes.",
+          "El paralelismo no exige que los segmentos midan lo mismo."
+        ],
+        "retroalimentacion": "En cualquier trapecio las bases paralelas tienen diferente medida, por lo que sí es posible; la afirmación es falsa."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un cuadrilátero dibujado en papel milimetrado cumple dos condiciones simultáneas: tiene 2 pares de lados opuestos paralelos y sus 4 esquinas consecutivas son perpendiculares. ¿De qué figuras geométricas puede tratarse?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo de un rombo o un romboide"
+          },
+          {
+            "id": "b",
+            "texto": "De un cuadrado o un rectángulo"
+          },
+          {
+            "id": "c",
+            "texto": "Exclusivamente de un trapecio isósceles"
+          },
+          {
+            "id": "d",
+            "texto": "De cualquier trapezoide simétrico"
+          }
+        ],
+        "pistas": [
+          "Los 2 pares paralelos lo clasifican como paralelogramo.",
+          "Tener 4 esquinas perpendiculares exige que todos sus ángulos midan 90°.",
+          "Las únicas figuras con 4 ángulos rectos son el cuadrado y el rectángulo."
+        ],
+        "retroalimentacion": "El cuadrado y el rectángulo son los únicos cuadriláteros con 2 pares paralelos y 4 vértices perpendiculares."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.clasificar-cuadrilateros",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P5-04"
+    ],
+    "bloque": "Cuadriláteros y ángulos",
+    "nombre": "Clasificación de cuadriláteros",
+    "disciplina": "geometria",
+    "descripcionCorta": "Clasifica cuadriláteros en paralelogramos, trapecios y trapezoides según sus lados paralelos.",
+    "palabrasClave": [
+      "paralelogramos",
+      "trapecios",
+      "trapezoides",
+      "clasificacion",
+      "lados paralelos"
+    ],
+    "prerrequisitos": [
+      "mat.p5.cuadrilateros-entorno",
+      "mat.p5.lados-paralelos-perpendiculares"
+    ],
+    "ordenSugerido": 18,
+    "ideaCentral": "Los cuadriláteros se dividen en tres grandes familias según la cantidad de lados paralelos que poseen: paralelogramos (2 pares), trapecios (1 par) y trapezoides (ningún par).",
+    "pasos": [
+      "Examina los lados opuestos del cuadrilátero con ayuda de la regla.",
+      "Si tiene dos pares de lados opuestos paralelos, es un paralelogramo (cuadrado, rectángulo, rombo o romboide).",
+      "Si tiene únicamente un par de lados opuestos paralelos, es un trapecio.",
+      "Si no tiene ningún lado paralelo a otro, pertenece a los trapezoides."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "¿A qué grupo pertenece un rombo cuyos cuatro lados miden 6 cm?",
+        "desarrollo": "Sus lados opuestos son paralelos dos a dos. Tener 2 pares de lados paralelos lo ubica en la familia de los paralelogramos.",
+        "respuesta": "Es un paralelogramo."
+      },
+      {
+        "situacion": "Una figura de cuatro lados tiene una base superior de 5 cm y una inferior de 9 cm paralelas entre sí, pero sus laterales no lo son. ¿Cómo se clasifica?",
+        "desarrollo": "Tiene exactamente un par de lados paralelos llamados bases.",
+        "respuesta": "Es un trapecio."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que el rombo no es un paralelogramo porque no tiene forma rectangular.",
+        "correccion": "Todo cuadrilátero con dos pares de lados paralelos es paralelogramo, incluyendo al rombo."
+      },
+      {
+        "error": "Confundir el trapecio con el trapezoide por la similitud de sus nombres.",
+        "correccion": "El trapecio tiene 1 par de lados paralelos; el trapezoide tiene cero lados paralelos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Paralelogramo",
+        "significado": "Cuadrilátero que tiene dos pares de lados opuestos paralelos."
+      },
+      {
+        "termino": "Trapecio",
+        "significado": "Cuadrilátero que posee únicamente un par de lados opuestos paralelos."
+      },
+      {
+        "termino": "Trapezoide",
+        "significado": "Cuadrilátero que no tiene ningún par de lados paralelos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos pares de lados paralelos tiene cualquier trapecio? Escribe solo el número.",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda que solo sus dos bases son paralelas entre sí.",
+          "Los otros dos lados no son paralelos.",
+          "El valor numérico es uno."
+        ],
+        "retroalimentacion": "Todo trapecio cuenta con exactamente 1 par de lados paralelos."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El cuadrado, el rectángulo, el rombo y el romboide pertenecen todos a la gran familia de los paralelogramos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa si cada una de esas cuatro figuras tiene lados opuestos paralelos dos a dos.",
+          "Todas ellas poseen 2 pares de lados paralelos.",
+          "Comparten la misma condición definitoria de los paralelogramos."
+        ],
+        "retroalimentacion": "Las cuatro figuras tienen 2 pares de lados opuestos paralelos: la afirmación es verdadera."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cómo se clasifica un cuadrilátero cuyos lados van en direcciones distintas y no tiene ningún lado paralelo?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Paralelogramo"
+          },
+          {
+            "id": "b",
+            "texto": "Trapezoide"
+          },
+          {
+            "id": "c",
+            "texto": "Trapecio"
+          },
+          {
+            "id": "d",
+            "texto": "Romboide"
+          }
+        ],
+        "pistas": [
+          "Tiene 0 pares de lados paralelos.",
+          "No es paralelogramo (2 pares) ni trapecio (1 par).",
+          "Su nombre termina en el sufijo -oide."
+        ],
+        "retroalimentacion": "El cuadrilátero sin lados paralelos es un trapezoide."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un cuadrilátero con 2 pares de lados opuestos paralelos se clasifica como... ¿paralelogramo o trapecio?",
+        "respuesta": "paralelogramo",
+        "alternativasAceptadas": [
+          "paralelogramo",
+          "un paralelogramo"
+        ],
+        "pistas": [
+          "La palabra contiene la raíz de la propiedad de sus lados.",
+          "Agrupa a figuras como el rectángulo y el cuadrado.",
+          "Elige una de las dos alternativas propuestas en la pregunta."
+        ],
+        "retroalimentacion": "Poseer 2 pares de lados opuestos paralelos define a un paralelogramo."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Observas un cuadrilátero con lados opuestos paralelos e iguales dos a dos, pero sus cuatro ángulos interiores no son rectos sino oblicuos y sus cuatro lados no miden lo mismo. ¿Qué figura es?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuadrado"
+          },
+          {
+            "id": "b",
+            "texto": "Trapecio isósceles"
+          },
+          {
+            "id": "c",
+            "texto": "Romboide"
+          },
+          {
+            "id": "d",
+            "texto": "Trapezoide"
+          }
+        ],
+        "pistas": [
+          "Tiene 2 pares de lados paralelos, así que es paralelogramo.",
+          "No tiene ángulos rectos, descartando al rectángulo.",
+          "Sus lados contiguos son desiguales, descartando al rombo."
+        ],
+        "retroalimentacion": "Es un paralelogramo con lados desiguales dos a dos y ángulos oblicuos: un romboide."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un trapecio isósceles se caracteriza por tener sus dos lados no paralelos de la misma longitud.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda el significado de isósceles en los triángulos: dos lados de igual medida.",
+          "En el trapecio isósceles las bases tienen distinta longitud.",
+          "Los laterales inclinados miden exactamente lo mismo."
+        ],
+        "retroalimentacion": "El trapecio isósceles tiene sus dos lados laterales no paralelos iguales: la afirmación es verdadera."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un estudiante clasifica 12 figuras cuadriláteras en una cartulina: encuentra que 5 son paralelogramos y 3 son trapezoides. Si el resto son trapecios, ¿cuántos trapecios hay en el grupo? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las figuras clasificadas: 5 más 3.",
+          "La suma da 8 cuadriláteros.",
+          "Resta 8 del total de 12 figuras."
+        ],
+        "retroalimentacion": "Restando 12 menos 8 obtenemos 4 trapecios en la cartulina."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Si un trapecio tiene uno de sus lados no paralelos formando ángulos de 90° con las bases, recibe el nombre de trapecio... ¿rectángulo o escaleno?",
+        "respuesta": "rectangulo",
+        "alternativasAceptadas": [
+          "rectangulo",
+          "rectángulo",
+          "trapecio rectangulo",
+          "trapecio rectángulo"
+        ],
+        "pistas": [
+          "El nombre hace referencia al ángulo recto de 90 grados.",
+          "Tiene dos ángulos rectos consecutivos.",
+          "Selecciona una de las dos opciones ofrecidas al final de la pregunta."
+        ],
+        "retroalimentacion": "El trapecio con un lado perpendicular a las bases es un trapecio rectángulo."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se analizan cuatro enunciados acerca de la clasificación de cuadriláteros. ¿Cuál de ellos es matemáticamente verdadero?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Todo trapecio es a la vez un paralelogramo"
+          },
+          {
+            "id": "b",
+            "texto": "Todo rombo es un paralelogramo con cuatro lados de igual longitud"
+          },
+          {
+            "id": "c",
+            "texto": "Los trapezoides tienen dos pares de lados paralelos"
+          },
+          {
+            "id": "d",
+            "texto": "Un cuadrado no pertenece a los paralelogramos"
+          }
+        ],
+        "pistas": [
+          "Comprueba si el rombo cumple tener 2 pares de lados paralelos.",
+          "El rombo tiene además sus 4 lados iguales.",
+          "Descarta las afirmaciones que confunden trapecios y trapezoides."
+        ],
+        "retroalimentacion": "El rombo tiene 2 pares de lados paralelos y 4 lados iguales, por lo que es un paralelogramo."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un geoplano, Lucía construyó 2 cuadrados, 3 romboides y 4 trapecios. ¿Cuántos pares de lados paralelos hay en total sumando todas las figuras formadas? Escribe solo el número.",
+        "respuesta": 14,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada cuadrado y romboide tiene 2 pares de lados paralelos: (2 + 3) por 2 = 10 pares.",
+          "Cada trapecio tiene 1 par de lados paralelos: 4 por 1 = 4 pares.",
+          "Suma 10 más 4 para hallar el total."
+        ],
+        "retroalimentacion": "Calculamos 2(2) + 3(2) + 4(1) = 4 + 6 + 4 = 14 pares de lados paralelos."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Todo rectángulo es un paralelogramo, pero no todo paralelogramo es un rectángulo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El rectángulo cumple con tener 2 pares de lados paralelos (es paralelogramo).",
+          "Existen otros paralelogramos como el rombo y el romboide que no son rectángulos.",
+          "La inclusión de una figura dentro de una familia mayor es correcta."
+        ],
+        "retroalimentacion": "El rectángulo es una clase específica de paralelogramo con ángulos rectos: la afirmación es verdadera."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un cuadrilátero posee lados que miden 6 cm, 8 cm, 6 cm y 8 cm en orden consecutivo. Sus ángulos opuestos son congruentes pero ninguno mide 90°. ¿A qué grupo y subgrupo corresponde?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Paralelogramo romboide"
+          },
+          {
+            "id": "b",
+            "texto": "Trapecio escaleno"
+          },
+          {
+            "id": "c",
+            "texto": "Trapezoide simétrico"
+          },
+          {
+            "id": "d",
+            "texto": "Paralelogramo rectángulo"
+          }
+        ],
+        "pistas": [
+          "Los lados opuestos son de igual longitud (6 cm y 8 cm), lo que asegura paralelismo.",
+          "Tener 2 pares paralelos lo ubica como paralelogramo.",
+          "No poseer ángulos de 90° descarta al rectángulo y confirma al romboide."
+        ],
+        "retroalimentacion": "Sus lados opuestos iguales dos a dos y ángulos no rectos definen a un paralelogramo romboide."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.clases-de-angulos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P5-04"
+    ],
+    "bloque": "Cuadriláteros y ángulos",
+    "nombre": "Ángulos agudos, rectos y obtusos",
+    "disciplina": "geometria",
+    "descripcionCorta": "Clasifica ángulos comparándolos con el ángulo recto.",
+    "palabrasClave": [
+      "angulo agudo",
+      "angulo recto",
+      "angulo obtuso",
+      "angulo llano",
+      "grados"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 19,
+    "ideaCentral": "Un ángulo mide la abertura entre dos rayos unidos en un vértice; al compararlo con la esquina recta de 90°, se clasifica en agudo (menor a 90°), recto (igual a 90°) u obtuso (mayor a 90° y menor a 180°).",
+    "pasos": [
+      "Identifica el vértice común y los dos lados que delimitan la abertura.",
+      "Toma una escuadra escolar o dobla una hoja para usar su esquina recta de 90° como patrón.",
+      "Haz coincidir el vértice y uno de los lados del ángulo con el borde de la escuadra.",
+      "Observa el otro lado: si queda dentro de la escuadra es agudo; si coincide exactamente es recto; si se abre hacia afuera es obtuso."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La esquina de una loseta o de una ventana escolar forma una abertura recta. ¿Cuánto mide y qué clase de ángulo es?",
+        "desarrollo": "Coincide perfectamente con los bordes perpendiculares de la escuadra.",
+        "respuesta": "Mide 90° y es un ángulo recto."
+      },
+      {
+        "situacion": "Una tijera abierta para cortar papel muestra una separación pequeña entre sus hojas. ¿Qué ángulo forman?",
+        "desarrollo": "La abertura es más cerrada que una esquina recta de 90°.",
+        "respuesta": "Es un ángulo agudo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que las líneas más largas forman un ángulo más grande.",
+        "correccion": "La medida de un ángulo depende únicamente de su abertura en grados, no de la longitud de sus trazos."
+      },
+      {
+        "error": "Confundir un ángulo agudo muy cercano a 90° (como 87°) con un ángulo recto.",
+        "correccion": "Utiliza siempre la escuadra o el transportador para comprobar que la medida sea exactamente 90°."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Ángulo recto",
+        "significado": "Ángulo que mide con exactitud 90° y forma una esquina perpendicular en L."
+      },
+      {
+        "termino": "Ángulo agudo",
+        "significado": "Ángulo cuya abertura es mayor a 0° y menor a 90°."
+      },
+      {
+        "termino": "Ángulo obtuso",
+        "significado": "Ángulo cuya abertura es mayor a 90° y menor a 180°."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos grados sexagesimales mide con exactitud un ángulo recto? Escribe solo el número.",
+        "respuesta": 90,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Es la medida estándar de una esquina recta.",
+          "Equivale a la cuarta parte de una vuelta entera de 360°.",
+          "El valor numérico es noventa."
+        ],
+        "retroalimentacion": "Un ángulo recto mide exactamente 90 grados."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un ángulo que mide 50° se clasifica como ángulo agudo porque su abertura es menor que 90°.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 50° con la medida de referencia del ángulo recto (90°).",
+          "El valor 50 está entre 0° y 90°.",
+          "Cualquier ángulo menor que 90° recibe el nombre de agudo."
+        ],
+        "retroalimentacion": "Al medir menos de 90°, 50° es un ángulo agudo: la afirmación es verdadera."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si un ángulo tiene una medida de 130°, ¿a qué clase de ángulo corresponde?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Agudo"
+          },
+          {
+            "id": "b",
+            "texto": "Obtuso"
+          },
+          {
+            "id": "c",
+            "texto": "Recto"
+          },
+          {
+            "id": "d",
+            "texto": "Llano"
+          }
+        ],
+        "pistas": [
+          "Compara 130° con 90°: es mayor que 90°.",
+          "Compara 130° con 180°: es menor que 180°.",
+          "El ángulo comprendido entre 90° y 180° es el obtuso."
+        ],
+        "retroalimentacion": "Al ser mayor que 90° y menor que 180°, 130° es un ángulo obtuso."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Qué denominación recibe un ángulo cuya medida está comprendida entre 0° y 90°: agudo u obtuso?",
+        "respuesta": "agudo",
+        "alternativasAceptadas": [
+          "agudo",
+          "angulo agudo",
+          "ángulo agudo"
+        ],
+        "pistas": [
+          "Es un ángulo más cerrado que la esquina recta.",
+          "La palabra evoca una forma puntiaguda y afilada.",
+          "Elige entre las dos opciones dadas en la pregunta."
+        ],
+        "retroalimentacion": "El ángulo menor que 90° se denomina agudo."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En el reloj de la plaza de armas de Trujillo, las manecillas marcan exactamente las 3:00 en punto. ¿Qué clase de ángulo forman el horario y el minutero?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Recto"
+          },
+          {
+            "id": "b",
+            "texto": "Agudo"
+          },
+          {
+            "id": "c",
+            "texto": "Obtuso"
+          },
+          {
+            "id": "d",
+            "texto": "Llano"
+          }
+        ],
+        "pistas": [
+          "A las 3:00, la aguja corta apunta al 3 y la larga apunta al 12.",
+          "Entre el 12 y el 3 hay un cuarto de vuelta del reloj.",
+          "Forman una esquina perpendicular en L perfecta de 90°."
+        ],
+        "retroalimentacion": "A las 3:00 las manecillas forman una abertura perpendicular de 90°, es decir, un ángulo recto."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un triángulo rectángulo posee un ángulo recto de 90° y otro ángulo interior que mide 40°. Sabiendo que los tres ángulos interiores suman 180°, ¿cuántos ángulos agudos tiene en total este triángulo? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el tercer ángulo: 180° menos 90° menos 40° = 50°.",
+          "Revisa los tres ángulos del triángulo: 90°, 40° y 50°.",
+          "Cuenta cuántos de ellos miden menos de 90° (el 40° y el 50°)."
+        ],
+        "retroalimentacion": "Tiene dos ángulos menores a 90° (40° y 50°), por lo que cuenta con 2 ángulos agudos."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un romboide que no tiene esquinas rectas posee dos ángulos agudos y dos ángulos obtusos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los ángulos opuestos de un romboide son congruentes entre sí.",
+          "Dos esquinas opuestas están cerradas (menores a 90°).",
+          "Las otras dos esquinas opuestas están abiertas (mayores a 90°)."
+        ],
+        "retroalimentacion": "En el romboide se presentan dos ángulos agudos opuestos y dos obtusos opuestos: la afirmación es verdadera."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El ángulo que mide exactamente 180 grados y forma una línea recta continua recibe el nombre de ángulo... ¿llano o agudo?",
+        "respuesta": "llano",
+        "alternativasAceptadas": [
+          "llano",
+          "angulo llano",
+          "ángulo llano"
+        ],
+        "pistas": [
+          "Equivale a media vuelta completa de 360°.",
+          "Sus dos rayos van en sentidos opuestos sobre la misma recta.",
+          "Escoge entre las dos alternativas brindadas en la pregunta."
+        ],
+        "retroalimentacion": "El ángulo de 180 grados se denomina ángulo llano."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un cuadrilátero, tres de sus ángulos interiores miden 85°, 115° y 90°. Sabiendo que los cuatro ángulos de cualquier cuadrilátero suman 360°, ¿cuánto mide el cuarto ángulo y cómo se clasifica?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "70°, agudo"
+          },
+          {
+            "id": "b",
+            "texto": "95°, obtuso"
+          },
+          {
+            "id": "c",
+            "texto": "90°, recto"
+          },
+          {
+            "id": "d",
+            "texto": "80°, agudo"
+          }
+        ],
+        "pistas": [
+          "Suma los tres ángulos conocidos: 85 + 115 + 90 = 290°.",
+          "Resta 290° de la suma total de 360° para hallar el cuarto ángulo.",
+          "La diferencia es 70°, que por ser menor a 90° se clasifica como agudo."
+        ],
+        "retroalimentacion": "Restando 360° menos 290° obtenemos 70°, el cual se clasifica como ángulo agudo."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un trapecio isósceles, los dos ángulos de la base inferior miden 60° cada uno. Los dos ángulos de la base superior miden 120° cada uno. ¿Cuántos ángulos obtusos tiene este trapecio en total? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los ángulos obtusos son aquellos que miden más de 90°.",
+          "Revisa las medidas: 60°, 60°, 120° y 120°.",
+          "Solo los dos ángulos de 120° son mayores que 90°."
+        ],
+        "retroalimentacion": "Los dos ángulos superiores de 120° son mayores a 90°, sumando 2 ángulos obtusos."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Es geométricamente posible construir un cuadrilátero que tenga sus cuatro ángulos interiores agudos a la vez.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada ángulo agudo mide menos de 90 grados.",
+          "Cuatro ángulos menores a 90° sumarían en conjunto menos de 360°.",
+          "Todo cuadrilátero debe sumar obligatoriamente 360° en su interior."
+        ],
+        "retroalimentacion": "Cuatro ángulos menores a 90° no logran sumar 360°, haciendo imposible esa figura: la afirmación es falsa."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Las manecillas de un reloj marcan las 5:00 en punto. Sabiendo que cada hora del reloj representa una abertura de 30°, ¿qué medida tiene el ángulo formado y cómo se clasifica?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "90°, recto"
+          },
+          {
+            "id": "b",
+            "texto": "75°, agudo"
+          },
+          {
+            "id": "c",
+            "texto": "150°, obtuso"
+          },
+          {
+            "id": "d",
+            "texto": "180°, llano"
+          }
+        ],
+        "pistas": [
+          "Multiplica las 5 horas de separación por 30° cada una.",
+          "El producto de 5 por 30° es igual a 150°.",
+          "Un ángulo de 150° es mayor que 90° y menor que 180°, por lo que es obtuso."
+        ],
+        "retroalimentacion": "A las 5:00 se multiplican 5 por 30°, dando 150°, que corresponde a un ángulo obtuso."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.diagonales-cuadrilateros",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P5-04"
+    ],
+    "bloque": "Cuadriláteros y ángulos",
+    "nombre": "Diagonales de los cuadriláteros",
+    "disciplina": "geometria",
+    "descripcionCorta": "Traza las diagonales y compara su longitud y cruce en distintos cuadriláteros.",
+    "palabrasClave": [
+      "diagonales",
+      "cuadrilatero",
+      "cruce de diagonales",
+      "diagonales perpendiculares",
+      "longitud"
+    ],
+    "prerrequisitos": [
+      "mat.p5.clasificar-cuadrilateros"
+    ],
+    "ordenSugerido": 50,
+    "ideaCentral": "Una diagonal es un segmento que une dos vértices no consecutivos de un polígono; en cualquier cuadrilátero se pueden trazar exactamente dos diagonales, las cuales pueden tener igual o distinta longitud y cruzarse de forma perpendicular o no.",
+    "pasos": [
+      "Nombra los cuatro vértices del cuadrilátero (por ejemplo, A, B, C y D).",
+      "Traza con una regla los dos segmentos que unen vértices opuestos (de A a C y de B a D).",
+      "Mide con la regla graduada la longitud de cada diagonal para comparar sus medidas.",
+      "Comprueba con una escuadra el ángulo de intersección en el punto donde se cruzan para verificar si son perpendiculares."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Se trazan las dos diagonales de un cuadrado de 5 cm de lado. ¿Cómo son sus diagonales?",
+        "desarrollo": "Al medirlas con la regla tienen la misma longitud. Al colocar la escuadra en su punto de corte, forman cuatro ángulos rectos de 90°.",
+        "respuesta": "Son de igual longitud y se cruzan perpendicularmente en su punto medio."
+      },
+      {
+        "situacion": "En un rombo se trazan sus dos diagonales. ¿Qué diferencias presentan respecto al cuadrado?",
+        "desarrollo": "Una es más larga (diagonal mayor) y la otra es más corta (diagonal menor), pero siguen cruzándose formando 90°.",
+        "respuesta": "Tienen distinta longitud y son perpendiculares entre sí."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir un lado del cuadrilátero con una diagonal.",
+        "correccion": "Los lados unen vértices consecutivos en el contorno; las diagonales unen vértices opuestos atravesando el interior."
+      },
+      {
+        "error": "Creer que en todos los paralelogramos las diagonales son perpendiculares.",
+        "correccion": "Solo son perpendiculares en el cuadrado y en el rombo; en el rectángulo y el romboide no lo son."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Diagonal",
+        "significado": "Segmento de recta que une dos vértices no consecutivos de un polígono."
+      },
+      {
+        "termino": "Punto medio",
+        "significado": "Punto que divide a un segmento en dos partes de exactamente la misma longitud."
+      },
+      {
+        "termino": "Diagonales perpendiculares",
+        "significado": "Diagonales que al cruzarse forman cuatro ángulos rectos de 90°."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántas diagonales se pueden trazar en total dentro de cualquier cuadrilátero? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada vértice opuesto se une con su pareja formando un segmento.",
+          "Hay cuatro vértices que forman dos parejas opuestas.",
+          "El valor numérico es dos."
+        ],
+        "retroalimentacion": "En cualquier cuadrilátero se pueden trazar exactamente 2 diagonales."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una diagonal es un segmento que une dos vértices no consecutivos (opuestos) de una figura geométrica.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los vértices consecutivos están unidos por los lados exteriores.",
+          "Para trazar la diagonal hay que saltarse al vértice vecino e ir al opuesto.",
+          "Es la definición formal de diagonal."
+        ],
+        "retroalimentacion": "Unir vértices opuestos no consecutivos define a una diagonal: la afirmación es verdadera."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿En cuál de los siguientes cuadriláteros sus diagonales tienen diferente longitud pero se cruzan perpendicularmente formando 90°?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Rectángulo"
+          },
+          {
+            "id": "b",
+            "texto": "Rombo"
+          },
+          {
+            "id": "c",
+            "texto": "Romboide"
+          },
+          {
+            "id": "d",
+            "texto": "Trapecio rectángulo"
+          }
+        ],
+        "pistas": [
+          "Posee una diagonal mayor y una diagonal menor de medidas distintas.",
+          "Al medirlas con la escuadra en su cruce central forman 90 grados.",
+          "Es la figura típica de cometa simétrica con 4 lados iguales."
+        ],
+        "retroalimentacion": "El rombo tiene una diagonal mayor y otra menor que se cortan perpendicularmente a 90°."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En un cuadrado, ¿las dos diagonales tienen igual o diferente longitud?",
+        "respuesta": "igual",
+        "alternativasAceptadas": [
+          "igual",
+          "la misma",
+          "igual longitud",
+          "misma longitud"
+        ],
+        "pistas": [
+          "El cuadrado tiene simetría perfecta en todas sus direcciones.",
+          "Mide ambas diagonales de esquina a esquina.",
+          "Escoge entre las dos palabras propuestas en la pregunta."
+        ],
+        "retroalimentacion": "En el cuadrado ambas diagonales tienen exactamente la misma longitud."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al trazar las dos diagonales en un marco rectangular de 12 cm de largo por 5 cm de ancho, ¿qué propiedad cumplen siempre sus diagonales?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tienen la misma medida y se cortan en su punto medio"
+          },
+          {
+            "id": "b",
+            "texto": "Son perpendiculares entre sí"
+          },
+          {
+            "id": "c",
+            "texto": "Una mide el doble de la otra"
+          },
+          {
+            "id": "d",
+            "texto": "Se cruzan fuera de la superficie del marco"
+          }
+        ],
+        "pistas": [
+          "Mide ambas diagonales con la regla: marcan la misma distancia.",
+          "El cruce ocurre justo a la mitad de cada segmento.",
+          "No forman 90 grados, por lo que no son perpendiculares."
+        ],
+        "retroalimentacion": "Las diagonales de un rectángulo son congruentes y se bisecan en su punto medio."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Si una de las diagonales de un cuadrado mide 16 cm, ¿cuántos centímetros mide la otra diagonal de ese mismo cuadrado? Escribe solo el número.",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda la propiedad de las diagonales en el cuadrado.",
+          "Ambas diagonales son completamente iguales en longitud.",
+          "Si la primera mide 16 cm, la segunda tiene la misma medida."
+        ],
+        "retroalimentacion": "Las dos diagonales de un cuadrado son iguales, por lo que la otra mide también 16 cm."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un romboide común, las dos diagonales tienen exactamente la misma longitud.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina un paralelogramo inclinado hacia un lado.",
+          "La diagonal que une los ángulos agudos es más larga que la que une los obtusos.",
+          "Basta medir con una regla para comprobar que una es mayor que la otra."
+        ],
+        "retroalimentacion": "En el romboide una diagonal es más larga que la otra: la afirmación es falsa."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Cuando dos diagonales se cruzan formando cuatro ángulos de 90 grados en su intersección, decimos que son diagonales... ¿perpendiculares u oblicuas?",
+        "respuesta": "perpendiculares",
+        "alternativasAceptadas": [
+          "perpendiculares",
+          "diagonales perpendiculares"
+        ],
+        "pistas": [
+          "El corte forma cuatro esquinas rectas en cruz perfecta.",
+          "Es la palabra que describe el ángulo de 90°.",
+          "Selecciona una de las dos alternativas planteadas en la pregunta."
+        ],
+        "retroalimentacion": "Al formar 90° en su intersección, son diagonales perpendiculares."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué cuadrilátero cumple simultáneamente las dos propiedades: sus dos diagonales tienen exactamente la misma longitud y además se cortan de forma perpendicular?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Rombo"
+          },
+          {
+            "id": "b",
+            "texto": "Cuadrado"
+          },
+          {
+            "id": "c",
+            "texto": "Rectángulo"
+          },
+          {
+            "id": "d",
+            "texto": "Romboide"
+          }
+        ],
+        "pistas": [
+          "En el rombo son perpendiculares pero de distinta medida.",
+          "En el rectángulo son de igual medida pero no perpendiculares.",
+          "La figura que combina ambas propiedades a la vez es el cuadrado."
+        ],
+        "retroalimentacion": "El cuadrado es el único cuadrilátero con diagonales iguales y perpendiculares entre sí."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un rombo artesanal, las dos diagonales se cortan dividiéndose exactamente en su punto medio. Si desde el centro hasta un vértice de la diagonal mayor hay 9 cm, ¿cuánto mide la diagonal mayor completa en centímetros? Escribe solo el número.",
+        "respuesta": 18,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El centro es el punto medio, por lo que divide la diagonal en dos mitades iguales.",
+          "Cada mitad mide 9 cm.",
+          "Multiplica 9 por 2 para hallar la longitud total."
+        ],
+        "retroalimentacion": "Como el centro biseca la diagonal, 9 multiplicado por 2 da 18 cm de longitud total."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En cualquier trapecio isósceles, las dos diagonales tienen la misma longitud.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El trapecio isósceles tiene simetría axial respecto a su eje central vertical.",
+          "Al doblar la figura por el medio, una diagonal calza perfectamente sobre la otra.",
+          "Sus longitudes son numéricamente iguales."
+        ],
+        "retroalimentacion": "Por la simetría de sus lados no paralelos, las diagonales de un trapecio isósceles son iguales: la afirmación es verdadera."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al trazar las dos diagonales en cualquier paralelogramo (cuadrado, rectángulo, rombo o romboide), la figura queda dividida en cuatro triángulos. ¿Qué propiedad cumplen siempre las diagonales en todos los miembros de la familia de los paralelogramos?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Son siempre perpendiculares"
+          },
+          {
+            "id": "b",
+            "texto": "Se cortan mutuamente en su punto medio"
+          },
+          {
+            "id": "c",
+            "texto": "Tienen siempre idéntica longitud"
+          },
+          {
+            "id": "d",
+            "texto": "Miden siempre lo mismo que el lado mayor"
+          }
+        ],
+        "pistas": [
+          "Recuerda que no todos son perpendiculares ni todos tienen diagonales de igual longitud.",
+          "La propiedad universal de todo paralelogramo es que cada diagonal divide a la otra en dos partes iguales.",
+          "El punto de corte es el punto medio común de ambas diagonales."
+        ],
+        "retroalimentacion": "En todos los paralelogramos las diagonales se bisecan mutuamente en su punto medio."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.medir-angulos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P5-07"
+    ],
+    "bloque": "Cuadriláteros y ángulos",
+    "nombre": "Medición de ángulos con transportador",
+    "disciplina": "geometria",
+    "descripcionCorta": "Mide ángulos en grados ubicando correctamente el transportador.",
+    "palabrasClave": [
+      "ángulo",
+      "transportador",
+      "grados sexagesimales",
+      "vértice",
+      "lado inicial"
+    ],
+    "prerrequisitos": [
+      "mat.p5.clases-de-angulos"
+    ],
+    "ordenSugerido": 51,
+    "ideaCentral": "Para medir un ángulo con el transportador se hace coincidir su centro con el vértice del ángulo y la línea de 0° con uno de sus lados; la medida en grados se lee donde pasa el otro lado.",
+    "pasos": [
+      "Ubica el centro o marca central del transportador exactamente sobre el vértice del ángulo.",
+      "Alinea la línea de 0° (línea de base) con uno de los lados del ángulo.",
+      "Identifica cuál escala de números (interior o exterior) comienza en el 0° alineado.",
+      "Sigue esa misma escala hasta el punto por donde cruza el segundo lado y lee el número en grados."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En el taller de carpintería de don Tomás en Huancayo, se mide la inclinación del soporte de una repisa.",
+        "desarrollo": "Don Tomás coloca el centro del transportador en el vértice. El lado horizontal apunta al 0° de la escala interior. El lado inclinado pasa exactamente por la marca del 45°.",
+        "respuesta": "El ángulo mide 45°."
+      },
+      {
+        "situacion": "Lucía abre su compás para dibujar una figura en su cuaderno y quiere conocer la abertura.",
+        "desarrollo": "Alinea una pata con el 0° de la escala exterior y observa que la otra pata apunta directamente al número 120°.",
+        "respuesta": "La abertura del ángulo mide 120°."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Leer la escala contraria del transportador (por ejemplo, marcar 140° en vez de 40° en un ángulo agudo).",
+        "correccion": "Verifica si el ángulo es agudo (menor a 90°) u obtuso (mayor a 90°) antes de anotar el número."
+      },
+      {
+        "error": "No colocar el centro del transportador justo sobre el vértice del ángulo.",
+        "correccion": "Asegúrate de que la cruz o punto central del transportador descanse exactamente sobre la esquina del ángulo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Transportador",
+        "significado": "Instrumento semicircular o circular graduado en grados sexagesimales que sirve para medir y trazar ángulos."
+      },
+      {
+        "termino": "Grado sexagesimal",
+        "significado": "Unidad de medida angular que resulta de dividir una circunferencia completa en 360 partes iguales."
+      },
+      {
+        "termino": "Vértice",
+        "significado": "Punto de intersección donde se unen los dos lados o rayos que forman el ángulo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un ángulo agudo tiene uno de sus lados sobre el 0° de la escala interior del transportador y el otro lado pasa por la marca de 35°. ¿Cuántos grados mide el ángulo? Escribe solo el número.",
+        "respuesta": 35,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fíjate en el número exacto por donde pasa el segundo rayo sobre la escala interior.",
+          "Como empezó en 0°, la lectura directa te da la medida.",
+          "El valor marcado es treinta y cinco."
+        ],
+        "retroalimentacion": "Al iniciar en 0°, la marca alcanzada por el segundo lado da directamente la medida: 35 grados."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué elemento del transportador se debe colocar exactamente sobre el vértice del ángulo para medirlo?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El borde curvo superior"
+          },
+          {
+            "id": "b",
+            "texto": "El punto o marca central de la base"
+          },
+          {
+            "id": "c",
+            "texto": "La marca fija de 90°"
+          },
+          {
+            "id": "d",
+            "texto": "El extremo izquierdo de 180°"
+          }
+        ],
+        "pistas": [
+          "Busca la parte que sirve como eje o punto de apoyo para girar la graduación.",
+          "No es el borde redondo ni la parte más alta.",
+          "Se trata del centro ubicado en la línea recta inferior del instrumento."
+        ],
+        "retroalimentacion": "El punto o marca central de la base debe apoyarse siempre en el vértice para que las lecturas sean precisas."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un ángulo recto mide exactamente 90 grados sexagesimales en el transportador.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda la definición de ángulo recto como la cuarta parte de un giro completo.",
+          "Comprueba si 360 dividido entre 4 es igual a 90.",
+          "La marca de 90° queda en la posición vertical perpendicular a la base."
+        ],
+        "retroalimentacion": "Efectivamente, todo ángulo recto mide exactamente 90°."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Si un ángulo mide 135°, ¿qué clase de ángulo es según su abertura (agudo, recto u obtuso)?",
+        "respuesta": "obtuso",
+        "alternativasAceptadas": [
+          "angulo obtuso",
+          "Ángulo obtuso"
+        ],
+        "pistas": [
+          "Compara 135° con el ángulo recto de 90°.",
+          "Observa que 135° es mayor que 90° y menor que 180°.",
+          "Los ángulos con esta propiedad reciben el nombre de obtusos."
+        ],
+        "retroalimentacion": "Como 135° supera los 90° sin llegar a 180°, se clasifica como obtuso."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al medir un ángulo obtuso, un estudiante ve que la aguja pasa por una línea que tiene dos números: 65° y 115°. ¿Cuál es la medida correcta?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "65° porque se elige siempre el número menor"
+          },
+          {
+            "id": "b",
+            "texto": "50° restando ambos valores"
+          },
+          {
+            "id": "c",
+            "texto": "115° porque los ángulos obtusos miden más de 90°"
+          },
+          {
+            "id": "d",
+            "texto": "180° sumando ambos valores"
+          }
+        ],
+        "pistas": [
+          "Determina primero si la abertura del ángulo es mayor que la de una esquina recta.",
+          "El enunciado indica expresamente que se trata de un ángulo obtuso.",
+          "Un ángulo obtuso debe medir entre 90° y 180°, por lo que 65° queda descartado."
+        ],
+        "retroalimentacion": "Al tratarse de un ángulo obtuso, su medida debe ser mayor a 90°, lo que confirma que son 115°."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La manecilla minutera de un reloj de pared avanza desde las 12 hasta marcar las 4 en punto. Sabiendo que cada hora equivale a 30°, ¿cuántos grados giró la manecilla? Escribe solo el número.",
+        "respuesta": 120,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántos espacios de hora hay desde el 12 hasta el 4.",
+          "Multiplica esos 4 espacios por el valor de 30° de cada espacio.",
+          "El cálculo es 4 multiplicado por 30."
+        ],
+        "retroalimentacion": "El minutero avanzó 4 intervalos de hora: 4 × 30° = 120°."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si colocas el transportador y el primer lado apunta a 20° en lugar de 0°, y el segundo lado apunta a 80° en la misma escala, la medida del ángulo es 80°.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Analiza si la medida del ángulo empieza desde el 0° o desde el 20°.",
+          "Cuando no empieza en 0°, debes calcular la diferencia entre ambos puntos.",
+          "La resta 80° - 20° da 60°, no 80°."
+        ],
+        "retroalimentacion": "Es falso, porque al no partir de 0° la medida real es la diferencia entre marcas: 80° - 20° = 60°."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En el patio cívico se forma una bandera con dos mástiles. Uno marca 25° y el otro 105° en la misma escala del transportador apoyado en su unión. ¿Cuánto mide el ángulo entre ambos mástiles? Escribe solo el número.",
+        "respuesta": 80,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica los dos valores extremos sobre la misma escala graduada: 105° y 25°.",
+          "Resta el valor menor del valor mayor para conocer la separación angular.",
+          "Calcula 105 menos 25."
+        ],
+        "retroalimentacion": "Restando los puntos de la misma escala obtenemos la abertura: 105° - 25° = 80°."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un ángulo llano de 180° se divide en tres partes consecutivas. La primera parte mide 40° y la segunda mide 65°. ¿Cuántos grados mide la tercera parte? Escribe solo el número.",
+        "respuesta": 75,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las medidas de los dos ángulos conocidos: 40° + 65°.",
+          "Recuerda que la suma de las tres partes debe completar el ángulo llano de 180°.",
+          "Resta 105° a 180° para hallar el ángulo restante."
+        ],
+        "retroalimentacion": "Las dos primeras partes suman 105°. Al restar de 180° se obtiene 75° para la tercera parte."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Carlos mide un ángulo con un transportador dañado cuyo centro no se distingue y coloca el vértice en el borde curvo. ¿Qué error cometerá en su medición?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La lectura será completamente errónea porque los rayos no parten del centro del círculo graduado"
+          },
+          {
+            "id": "b",
+            "texto": "Obtendrá exactamente el doble de la medida real"
+          },
+          {
+            "id": "c",
+            "texto": "La lectura será correcta siempre que sume 90° al resultado"
+          },
+          {
+            "id": "d",
+            "texto": "La medida no cambiará porque el borde curvo tiene los mismos grados"
+          }
+        ],
+        "pistas": [
+          "Piensa en cómo se proyectan las líneas desde un punto que no es el centro geométrico.",
+          "Las graduaciones del transportador corresponden a ángulos centrales respecto a su marca base.",
+          "Si el vértice no coincide con el centro, los rayos cortan la escala en proporciones distorsionadas."
+        ],
+        "retroalimentacion": "La lectura será completamente errónea porque los rayos no parten del centro del círculo graduado, distorsionando toda la escala."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Dos ángulos forman juntos un ángulo recto. Si uno de ellos mide 28°, ¿cuántos grados mide el otro? Escribe solo el número o con la palabra grados.",
+        "respuesta": "62",
+        "alternativasAceptadas": [
+          "62 grados",
+          "62°"
+        ],
+        "pistas": [
+          "Ten en cuenta que dos ángulos que forman un ángulo recto se llaman complementarios y suman 90°.",
+          "Plantea la sustracción 90 menos 28.",
+          "Resta 28 de 90 para obtener la respuesta final."
+        ],
+        "retroalimentacion": "El complemento de 28° respecto a 90° es 62° (90 - 28 = 62)."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si prolongas la longitud de los lados dibujados de un ángulo de 50°, la medida del ángulo aumentará en el transportador.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Reflexiona sobre qué mide un ángulo: la abertura entre dos rayos o la longitud de sus trazos.",
+          "Los rayos de un ángulo son infinitos; alargarlos en el papel no cambia su inclinación.",
+          "La separación angular sigue siendo de 50 grados exactamente."
+        ],
+        "retroalimentacion": "Es falso, porque la medida angular depende únicamente de la abertura entre los rayos, no del largo de los trazos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.construir-angulos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P5-07"
+    ],
+    "bloque": "Cuadriláteros y ángulos",
+    "nombre": "Construcción de ángulos",
+    "disciplina": "geometria",
+    "descripcionCorta": "Traza ángulos de una medida dada con transportador.",
+    "palabrasClave": [
+      "construcción",
+      "trazar ángulos",
+      "transportador",
+      "semirrecta",
+      "regla"
+    ],
+    "prerrequisitos": [
+      "mat.p5.medir-angulos"
+    ],
+    "ordenSugerido": 52,
+    "ideaCentral": "Para construir un ángulo se traza primero una semirrecta de base con regla, se ubica el centro del transportador en el vértice y se hace una marca en el grado deseado para luego unirla con regla.",
+    "pasos": [
+      "Dibuja con tu regla un rayo o semirrecta recta horizontal y marca claramente su punto de origen o vértice.",
+      "Coloca el centro del transportador sobre ese vértice y haz coincidir la línea de 0° con el rayo dibujado.",
+      "Ubica la medida deseada en la escala correcta (la que empieza en 0°) y marca un punto fino con el lápiz en el borde del transportador.",
+      "Retira el transportador y usa la regla para trazar una línea recta desde el vértice hasta pasar por el punto marcado."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Mateo necesita dibujar un ángulo de 70° para el diseño de una rampa en su clase de arte en Arequipa.",
+        "desarrollo": "Traza una línea horizontal con su regla y marca el vértice A. Apoya el centro del transportador en A y alinea el 0°. Busca el número 70 en esa escala y marca un punto B con lápiz. Une A con B usando su regla.",
+        "respuesta": "El ángulo construido mide exactamente 70°."
+      },
+      {
+        "situacion": "Valeria quiere trazar un ángulo obtuso de 130° para armar un abanico de papel.",
+        "desarrollo": "Traza el rayo inicial hacia la derecha. Con el transportador centrado en el vértice, sigue la escala que inicia en 0° hasta llegar a 130°, marca el punto y traza el segundo rayo con la regla.",
+        "respuesta": "Obtiene un ángulo obtuso abierto de 130°."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Trazar el segundo rayo a pulso sin utilizar la regla.",
+        "correccion": "Usa siempre la regla para conectar el vértice con el punto marcado, garantizando que el lado sea perfectamente recto."
+      },
+      {
+        "error": "Marcar la medida en la escala equivocada y obtener el ángulo suplementario (por ejemplo marcar 120° en vez de 60°).",
+        "correccion": "Comprueba mentalmente si el ángulo pedido debe ser agudo u obtuso antes de fijar la marca con el lápiz."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Rayo o semirrecta",
+        "significado": "Parte de una línea recta que tiene un punto de origen definido y se extiende indefinidamente en una dirección."
+      },
+      {
+        "termino": "Trazado",
+        "significado": "Acción de dibujar líneas o figuras con instrumentos geométricos como regla y transportador."
+      },
+      {
+        "termino": "Marca de referencia",
+        "significado": "Punto que se señala con el lápiz sobre el papel en el número de grados correspondiente antes de trazar el lado definitivo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el primer paso indispensable al construir un ángulo con regla y transportador?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Pintar el interior de la figura con colores"
+          },
+          {
+            "id": "b",
+            "texto": "Marcar 180° en cualquier parte de la hoja"
+          },
+          {
+            "id": "c",
+            "texto": "Trazar un rayo o lado inicial con la regla y señalar el vértice"
+          },
+          {
+            "id": "d",
+            "texto": "Guardar el lápiz y usar solamente la escuadra"
+          }
+        ],
+        "pistas": [
+          "Piensa en la base necesaria sobre la cual se apoyará el transportador.",
+          "Necesitas una línea recta inicial para alinear la marca de 0°.",
+          "El proceso siempre empieza trazando el rayo base y marcando el origen."
+        ],
+        "retroalimentacion": "El primer paso es trazar un rayo o lado inicial con la regla y señalar el vértice para tener la base de medición."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Quieres construir un ángulo recto con tu transportador. ¿En qué número de grados debes hacer la marca de referencia con el lápiz? Escribe solo el número.",
+        "respuesta": 90,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda cuántos grados tiene una esquina recta perfecta.",
+          "Es la mitad de un ángulo llano de 180°.",
+          "La marca vertical del transportador corresponde a 90."
+        ],
+        "retroalimentacion": "Un ángulo recto mide 90°, por lo que la marca con el lápiz debe ubicarse exactamente en 90."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al construir un ángulo de 40°, la abertura trazada debe ser menor que la de un ángulo recto.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la medida de 40° con los 90° de un ángulo recto.",
+          "Los ángulos menores a 90° son agudos y tienen aberturas más cerradas.",
+          "El valor 40 es menor que 90."
+        ],
+        "retroalimentacion": "Es verdadero, porque 40° corresponde a un ángulo agudo y es más cerrado que 90°."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Qué instrumento se utiliza para unir el vértice con la marca de lápiz y formar una línea perfectamente recta?",
+        "respuesta": "regla",
+        "alternativasAceptadas": [
+          "la regla",
+          "una regla"
+        ],
+        "pistas": [
+          "Se trata de un instrumento escolar con borde recto milimetrado.",
+          "Sirve para guiar el lápiz en trazos lineales sin ondulaciones.",
+          "Comienza con la letra r."
+        ],
+        "retroalimentacion": "Se utiliza la regla para unir los puntos con un trazo limpio y recto."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Sofía quiere construir un ángulo de 60°. Elige la escala correcta, pero al trazar el segundo rayo no usa regla y lo dibuja curvo a mano alzada. ¿Es correcto su ángulo?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sí, porque lo importante es la marca del lápiz"
+          },
+          {
+            "id": "b",
+            "texto": "No, porque los lados de un ángulo son rayos rectos, no líneas curvas"
+          },
+          {
+            "id": "c",
+            "texto": "Sí, siempre que mida con regla después"
+          },
+          {
+            "id": "d",
+            "texto": "No, porque debió usar compás en lugar de lápiz"
+          }
+        ],
+        "pistas": [
+          "Revisa la definición geométrica de los lados de un ángulo.",
+          "Un ángulo se compone de dos rayos rectos que comparten un vértice.",
+          "Cualquier curvatura altera la rectitud y la definición del ángulo."
+        ],
+        "retroalimentacion": "No es correcto, porque los lados de un ángulo son rayos rectos, no líneas curvas."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Se construye un ángulo de 50° y, pegado a él compartiendo el vértice y un lado, se construye otro ángulo de 75°. ¿Cuántos grados mide el ángulo total formado por ambos? Escribe solo el número.",
+        "respuesta": 125,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las aberturas de los dos ángulos adyacentes.",
+          "Plantea la adición 50 + 75.",
+          "El resultado de sumar cincuenta y setenta y cinco es ciento veinticinco."
+        ],
+        "retroalimentacion": "Al juntar ambos ángulos consecutivos, sus medidas se suman: 50° + 75° = 125°."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si deseas construir un ángulo de 150° y por error marcas en la escala interior donde dice 30°, habrás construido el ángulo pedido.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Comprueba si 30° es lo mismo que 150°.",
+          "Nota que 30° es un ángulo agudo mientras que 150° es claramente obtuso.",
+          "Elegir la graduación opuesta produce un error de 120°."
+        ],
+        "retroalimentacion": "Es falso, porque 30° es un ángulo agudo muy cerrado, mientras que 150° es un ángulo obtuso amplio."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si el lado inicial de un ángulo apunta hacia la izquierda y alineaste el 0° de la escala exterior con ese lado, ¿dónde debes buscar la medida para trazar el segundo rayo?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "En la escala interior que empieza en 180°"
+          },
+          {
+            "id": "b",
+            "texto": "En cualquier número del centro"
+          },
+          {
+            "id": "c",
+            "texto": "En el borde recto inferior"
+          },
+          {
+            "id": "d",
+            "texto": "En la misma escala exterior que comenzó en 0°"
+          }
+        ],
+        "pistas": [
+          "Observa qué escala utilizaste para marcar el origen en cero grados.",
+          "Una regla básica de medición es mantener siempre la misma escala graduada.",
+          "Si empezaste en la escala exterior, continúas por ella."
+        ],
+        "retroalimentacion": "Debes buscar en la misma escala exterior que comenzó en 0° para mantener la coherencia del conteo angular."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Deseas construir una figura con tres ángulos en un mismo vértice que completen una vuelta entera (360°). Si ya trazaste dos ángulos de 110° y 130°, ¿de cuántos grados debe ser el tercer ángulo para cerrar la vuelta? Escribe solo el número.",
+        "respuesta": 120,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la suma de los dos ángulos ya construidos: 110° + 130°.",
+          "Ten presente que una vuelta completa equivale a 360°.",
+          "Resta 240° a 360° para saber cuánto falta."
+        ],
+        "retroalimentacion": "Los dos ángulos suman 240°. Para completar los 360° de la vuelta faltan 120° (360 - 240 = 120)."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Para trazar la bisectriz que divide un ángulo de 80° en dos partes exactamente iguales, ¿a cuántos grados debes colocar la marca divisoria desde el lado inicial? Escribe solo el número.",
+        "respuesta": "40",
+        "alternativasAceptadas": [
+          "40 grados",
+          "40°"
+        ],
+        "pistas": [
+          "Recuerda que dividir en dos partes iguales significa partir a la mitad.",
+          "Calcula la mitad de 80 dividiendo entre 2.",
+          "El cociente de 80 dividido por 2 es cuarenta."
+        ],
+        "retroalimentacion": "La mitad exacta de 80° es 40°, por lo que la marca divisoria se sitúa en 40°."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué ocurre si al construir un ángulo de 45° mueves el transportador 5 mm fuera del vértice antes de hacer la marca?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El ángulo construido tendrá una medida incorrecta porque el centro de giro fue desplazado"
+          },
+          {
+            "id": "b",
+            "texto": "La medida sigue siendo exactamente 45° sin importar la posición"
+          },
+          {
+            "id": "c",
+            "texto": "El ángulo se transforma automáticamente en un ángulo recto"
+          },
+          {
+            "id": "d",
+            "texto": "El trazo se convierte en un triángulo equilátero"
+          }
+        ],
+        "pistas": [
+          "Imagina los rayos proyectados desde una posición desfasada del vértice.",
+          "La graduación del transportador solo es válida respecto a su propio centro.",
+          "Desplazar el instrumento introduce un error en el ángulo final."
+        ],
+        "retroalimentacion": "El ángulo construido tendrá una medida incorrecta porque el centro de giro fue desplazado, alterando el ángulo de visión."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Es imposible construir un ángulo de 165° usando un transportador convencional de 180°.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara el valor 165° con el límite máximo de 180° del transportador semicircular.",
+          "Verifica si 165 es menor que 180.",
+          "Todo ángulo entre 0° y 180° cabe perfectamente en un transportador semicircular."
+        ],
+        "retroalimentacion": "Es falso, porque 165° es menor que 180° y se encuentra claramente marcado en el semicírculo del transportador."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.construir-cuadrilateros",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P5-07"
+    ],
+    "bloque": "Cuadriláteros y ángulos",
+    "nombre": "Construcción de cuadriláteros",
+    "disciplina": "geometria",
+    "descripcionCorta": "Traza cuadrados, rectángulos y paralelogramos con regla, escuadra y transportador.",
+    "palabrasClave": [
+      "cuadrilátero",
+      "construcción geométrica",
+      "paralelogramo",
+      "regla",
+      "escuadra"
+    ],
+    "prerrequisitos": [
+      "mat.p5.clasificar-cuadrilateros",
+      "mat.p5.construir-angulos"
+    ],
+    "ordenSugerido": 53,
+    "ideaCentral": "Para construir cuadriláteros se combinan las medidas de sus lados y sus ángulos interiores utilizando regla, escuadra para asegurar ángulos rectos y transportador para ángulos oblicuos.",
+    "pasos": [
+      "Traza con la regla el lado base con la longitud indicada en centímetros.",
+      "Usa la escuadra (para ángulos de 90°) o el transportador en cada extremo para marcar los ángulos correspondientes.",
+      "Mide y traza los lados laterales según las dimensiones requeridas.",
+      "Une los extremos superiores con la regla para cerrar el cuadrilátero y verifica que los lados opuestos cumplan las propiedades de paralelismo e igualdad."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Camila construye un rectángulo de 6 cm de largo y 4 cm de ancho para una maqueta escolar en Trujillo.",
+        "desarrollo": "Traza la base de 6 cm con regla. En cada extremo apoya la escuadra para levantar segmentos perpendiculares de 4 cm cada uno. Finalmente une los extremos superiores con una línea recta de 6 cm.",
+        "respuesta": "Obtiene un rectángulo exacto de 6 cm por 4 cm con cuatro ángulos de 90°."
+      },
+      {
+        "situacion": "Jorge quiere dibujar un romboide con lados de 5 cm y 3 cm y un ángulo agudo de 60°.",
+        "desarrollo": "Traza la base de 5 cm. En el vértice izquierdo usa el transportador para marcar 60° y traza un lado de 3 cm. En el otro vértice marca 120° (suplementario) y traza 3 cm paralelos. Une los extremos superiores.",
+        "respuesta": "Construye un romboide con lados opuestos paralelos e iguales."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Construir un rectángulo a mano alzada sin verificar que los cuatro ángulos midan 90° con la escuadra.",
+        "correccion": "Utiliza siempre la esquina recta de la escuadra o el transportador a 90° en cada esquina para que no quede inclinado."
+      },
+      {
+        "error": "Olvidar que en un paralelogramo los lados opuestos deben tener exactamente la misma longitud.",
+        "correccion": "Mide con precisión milimétrica los pares de lados opuestos antes de cerrar la figura geométrica."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Escuadra",
+        "significado": "Herramienta de dibujo con forma de triángulo rectángulo que permite trazar ángulos rectos y líneas perpendiculares o paralelas."
+      },
+      {
+        "termino": "Paralelismo",
+        "significado": "Propiedad de dos líneas o lados que mantienen la misma distancia entre sí en todos sus puntos y nunca se cruzan."
+      },
+      {
+        "termino": "Perpendicularidad",
+        "significado": "Condición en la que dos líneas rectas se cortan formando un ángulo recto de 90°."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué instrumento de dibujo geométrico permite trazar con mayor rapidez y precisión los ángulos rectos de un cuadrado?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un compás abierto a 180°"
+          },
+          {
+            "id": "b",
+            "texto": "La escuadra o cartabón apoyada en la base"
+          },
+          {
+            "id": "c",
+            "texto": "Una cinta métrica flexible"
+          },
+          {
+            "id": "d",
+            "texto": "Un transportador circular roto"
+          }
+        ],
+        "pistas": [
+          "Busca el instrumento triangular escolar que ya tiene un ángulo recto incorporado.",
+          "Su ángulo de 90° sirve de guía inmediata sin calibrar números.",
+          "Se trata de la escuadra."
+        ],
+        "retroalimentacion": "La escuadra o cartabón apoyada en la base garantiza un ángulo recto de 90° inmediato y exacto."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Vas a trazar un cuadrado cuyos lados miden 7 cm cada uno. ¿Cuánto medirá la suma total de sus cuatro lados construidos? Escribe solo el número.",
+        "respuesta": 28,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda que un cuadrado tiene cuatro lados de igual medida.",
+          "Multiplica la longitud de 7 cm por los 4 lados.",
+          "Calcula 4 por 7."
+        ],
+        "retroalimentacion": "El perímetro del cuadrado es 4 × 7 = 28 cm."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para que un cuadrilátero sea un rectángulo, es suficiente con que sus cuatro ángulos interiores midan 90°.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda la definición geométrica de rectángulo (figura de cuatro lados con cuatro ángulos rectos).",
+          "Al tener cuatro ángulos rectos, los lados opuestos resultan automáticamente paralelos e iguales.",
+          "Cumple la condición necesaria y suficiente de rectángulo."
+        ],
+        "retroalimentacion": "Efectivamente, todo cuadrilátero con cuatro ángulos rectos es un rectángulo."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Si construyes un cuadrilátero con cuatro lados iguales pero con ángulos de 70° y 110°, ¿qué figura obtienes (cuadrado o rombo)?",
+        "respuesta": "rombo",
+        "alternativasAceptadas": [
+          "un rombo",
+          "el rombo"
+        ],
+        "pistas": [
+          "Nota que los cuatro lados son de la misma medida, pero los ángulos no son de 90°.",
+          "El cuadrado exige ángulos rectos; esta figura tiene ángulos agudos y obtusos.",
+          "Su nombre empieza con la letra r."
+        ],
+        "retroalimentacion": "Al tener cuatro lados iguales pero ángulos no rectos, se trata de un rombo."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al trazar un romboide, dibujas una base de 8 cm y en uno de sus vértices trazas un ángulo de 50°. ¿Cuánto debe medir el ángulo adyacente sobre la misma base para que los lados opuestos sean paralelos?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "50° exactamente"
+          },
+          {
+            "id": "b",
+            "texto": "90° en ambos lados"
+          },
+          {
+            "id": "c",
+            "texto": "40° para sumar 90°"
+          },
+          {
+            "id": "d",
+            "texto": "130° porque los ángulos consecutivos deben sumar 180°"
+          }
+        ],
+        "pistas": [
+          "Aplica la propiedad de los ángulos consecutivos entre rectas paralelas.",
+          "Los ángulos interiores del mismo lado de una transversal son suplementarios.",
+          "Calcula 180 menos 50."
+        ],
+        "retroalimentacion": "130° porque los ángulos consecutivos deben sumar 180° para asegurar el paralelismo de los lados opuestos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En la construcción de un trapecio isósceles, la base mayor mide 10 cm y la base menor mide 6 cm. Si cada uno de los dos lados no paralelos mide 4 cm, ¿cuántos centímetros mide su perímetro total? Escribe solo el número.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica la medida de los cuatro lados: 10 cm, 6 cm, 4 cm y 4 cm.",
+          "Suma todas las longitudes para encontrar el contorno completo.",
+          "Suma 10 + 6 + 4 + 4."
+        ],
+        "retroalimentacion": "El perímetro se halla sumando los cuatro lados: 10 + 6 + 4 + 4 = 24 cm."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si construyes un cuadrilátero con lados de 6 cm, 4 cm, 6 cm y 4 cm en orden consecutivo, garantizas que sea un rectángulo sin necesidad de medir sus ángulos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina deformar un marco de cuadro articulado inclinando sus esquinas.",
+          "Los lados pueden medir 6 y 4, pero los ángulos podrían ser de 60° y 120° formando un romboide.",
+          "Sin verificar los ángulos rectos no se puede asegurar que sea un rectángulo."
+        ],
+        "retroalimentacion": "Es falso, porque también podría ser un romboide si sus ángulos no son rectos."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "¿Cómo deben ser las diagonales de un rectángulo al construirse: de diferente longitud o de igual longitud?",
+        "respuesta": "de igual longitud",
+        "alternativasAceptadas": [
+          "igual longitud",
+          "iguales",
+          "de la misma longitud",
+          "misma longitud"
+        ],
+        "pistas": [
+          "Compara la distancia entre esquinas opuestas en cualquier rectángulo bien trazado.",
+          "En todo rectángulo, las diagonales tienen exactamente la misma medida.",
+          "Escribe que son de igual longitud o iguales."
+        ],
+        "retroalimentacion": "En todo rectángulo, las dos diagonales son siempre de igual longitud."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un estudiante traza una base de 8 cm y dos lados verticales de 5 cm cada uno con escuadra a 90°. Al medir el lado superior que cierra la figura, la regla marca 8,5 cm. ¿Qué causó este error?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Los ángulos de la base no eran exactamente de 90° y los lados verticales quedaron abiertos"
+          },
+          {
+            "id": "b",
+            "texto": "La regla se encogió durante el trazado del lado superior"
+          },
+          {
+            "id": "c",
+            "texto": "Es normal porque el lado superior siempre mide más que la base"
+          },
+          {
+            "id": "d",
+            "texto": "Los lados laterales debieron medir el doble de la base"
+          }
+        ],
+        "pistas": [
+          "Piensa en qué ocurre cuando dos postes verticales se desvían hacia afuera.",
+          "Si las líneas no son estrictamente perpendiculares, la distancia entre sus extremos se ensancha.",
+          "El fallo está en la precisión de los ángulos rectos de la base."
+        ],
+        "retroalimentacion": "Los ángulos de la base no eran exactamente de 90° y los lados verticales quedaron abiertos, aumentando la separación en la parte superior."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Se construye un rombo trazando primero sus diagonales perpendiculares en forma de cruz. La diagonal mayor mide 16 cm y se cruza en su punto medio con la diagonal menor de 12 cm. ¿A cuántos centímetros del extremo de la diagonal mayor se ubica el punto de cruce? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fíjate en la propiedad de las diagonales del rombo: se cortan en su punto medio exacto.",
+          "Divide la longitud total de la diagonal mayor (16 cm) entre 2.",
+          "Calcula 16 dividido entre 2."
+        ],
+        "retroalimentacion": "El cruce ocurre en el punto medio de la diagonal mayor: 16 ÷ 2 = 8 cm."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Con cuatro varillas de longitudes 10 cm, 2 cm, 2 cm y 2 cm es posible construir un cuadrilátero cerrado.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Aplica la desigualdad geométrica para polígonos: la suma de tres lados debe ser mayor que el lado más largo.",
+          "Suma los tres lados cortos: 2 + 2 + 2 = 6 cm.",
+          "Compara 6 cm con el lado de 10 cm; las varillas cortas no alcanzan a cerrar la figura."
+        ],
+        "retroalimentacion": "Es falso, porque los tres lados cortos suman 6 cm y no logran alcanzar los extremos de la varilla de 10 cm para cerrar el cuadrilátero."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué condición sobre los lados y los ángulos permite construir un trapecio rectángulo?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tener cuatro lados iguales y ningún ángulo recto"
+          },
+          {
+            "id": "b",
+            "texto": "Tener dos pares de lados paralelos y cuatro ángulos rectos"
+          },
+          {
+            "id": "c",
+            "texto": "Tener exactamente un par de lados paralelos y dos ángulos rectos adyacentes a un lado"
+          },
+          {
+            "id": "d",
+            "texto": "Tener tres lados paralelos y un solo ángulo recto"
+          }
+        ],
+        "pistas": [
+          "Revisa la definición de trapecio: solo tiene un par de lados paralelos llamadas bases.",
+          "La palabra rectángulo indica la presencia de dos ángulos de 90° perpendiculares a las bases.",
+          "Identifica la opción que describe exactamente esta combinación."
+        ],
+        "retroalimentacion": "Tener exactamente un par de lados paralelos y dos ángulos rectos adyacentes a un lado define formalmente al trapecio rectángulo."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.relaciones-cuadrilateros",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Argumenta afirmaciones sobre relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P5-08"
+    ],
+    "bloque": "Cuadriláteros y ángulos",
+    "nombre": "Relaciones entre cuadriláteros",
+    "disciplina": "geometria",
+    "descripcionCorta": "Explica afirmaciones como «todo cuadrado es un rectángulo» con ejemplos y dibujos.",
+    "palabrasClave": [
+      "cuadriláteros",
+      "inclusión",
+      "cuadrado",
+      "rectángulo",
+      "rombo",
+      "paralelogramo"
+    ],
+    "prerrequisitos": [
+      "mat.p5.clasificar-cuadrilateros"
+    ],
+    "ordenSugerido": 54,
+    "ideaCentral": "Los cuadriláteros se relacionan por inclusión según sus propiedades: todo cuadrado es a la vez un rectángulo (cuatro ángulos rectos) y un rombo (cuatro lados iguales), y ambos son paralelogramos.",
+    "pasos": [
+      "Identifica las condiciones obligatorias de cada figura geométrica (ángulos rectos, lados iguales o pares de lados paralelos).",
+      "Verifica si una figura específica cumple todas las condiciones requeridas por la otra familia más general.",
+      "Concluye si una figura pertenece a otra categoría: si cumple los requisitos, forma parte de ese grupo.",
+      "Usa diagramas o contraejemplos para demostrar por qué la afirmación inversa no siempre es verdadera."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Durante una clase en Chiclayo, Andrea afirma: «Si dibujo un cuadrado, también estoy dibujando un rectángulo». ¿Tiene razón?",
+        "desarrollo": "Un rectángulo requiere tener 4 ángulos rectos. El cuadrado tiene 4 lados iguales y 4 ángulos rectos. Al cumplir con tener 4 ángulos rectos, el cuadrado es un tipo especial de rectángulo.",
+        "respuesta": "Sí tiene razón: todo cuadrado es un rectángulo."
+      },
+      {
+        "situacion": "Rodrigo dice que cualquier rombo es también un cuadrado. ¿Es correcta su afirmación?",
+        "desarrollo": "Un cuadrado necesita 4 ángulos rectos. Muchos rombos tienen ángulos agudos y obtusos (como 60° y 120°). Por tanto, no todo rombo es un cuadrado.",
+        "respuesta": "No es correcta: solo los rombos con ángulos de 90° son cuadrados."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que las figuras pertenecen a un solo grupo exclusivo y que un cuadrado no puede ser rectángulo.",
+        "correccion": "Recuerda que la geometría clasifica por propiedades acumuladas: una figura con más propiedades pertenece a varias familias a la vez."
+      },
+      {
+        "error": "Afirmar que «todo rectángulo es un cuadrado».",
+        "correccion": "Comprueba con un rectángulo largo (de 10 cm por 3 cm): no tiene los cuatro lados iguales, por lo que no puede ser cuadrado."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Inclusión geométrica",
+        "significado": "Relación en la cual una figura pertenece a un conjunto más amplio porque cumple con todas sus características básicas."
+      },
+      {
+        "termino": "Paralelogramo",
+        "significado": "Cuadrilátero que tiene dos pares de lados opuestos paralelos e iguales."
+      },
+      {
+        "termino": "Contraejemplo",
+        "significado": "Ejemplo particular que demuestra de manera concluyente que una afirmación general es falsa."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Todo cuadrado es considerado un paralelogramo porque tiene sus lados opuestos paralelos dos a dos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa la definición básica de la familia de los paralelogramos.",
+          "Verifica si los lados opuestos de un cuadrado son paralelos entre sí.",
+          "El cuadrado cumple con tener dos pares de lados paralelos."
+        ],
+        "retroalimentacion": "Efectivamente, como los lados opuestos de un cuadrado son paralelos dos a dos, es un paralelogramo."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Por qué razón geométrica se afirma que todo cuadrado es un rectángulo?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Porque ambos tienen exactamente cuatro vértices y ninguna diagonal"
+          },
+          {
+            "id": "b",
+            "texto": "Porque ambos fueron inventados por los mismos geómetras"
+          },
+          {
+            "id": "c",
+            "texto": "Porque el cuadrado cumple la condición de tener sus cuatro ángulos rectos"
+          },
+          {
+            "id": "d",
+            "texto": "Porque sus lados tienen siempre medidas impares"
+          }
+        ],
+        "pistas": [
+          "Recuerda la condición fundamental que define a un rectángulo.",
+          "Un rectángulo es cualquier cuadrilátero con cuatro esquinas de 90°.",
+          "El cuadrado satisface plenamente esta exigencia angular."
+        ],
+        "retroalimentacion": "Porque el cuadrado cumple la condición de tener sus cuatro ángulos rectos, encajando en la definición de rectángulo."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos ángulos rectos (de 90°) tiene obligatoriamente cualquier rectángulo? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las esquinas interiores de una hoja de papel común.",
+          "Cada una de sus cuatro esquinas forma un ángulo recto.",
+          "El número total de esquinas rectas es cuatro."
+        ],
+        "retroalimentacion": "Todo rectángulo posee exactamente 4 ángulos rectos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Qué propiedad comparten el cuadrado y el rombo respecto a sus lados (que son iguales o diferentes)?",
+        "respuesta": "iguales",
+        "alternativasAceptadas": [
+          "son iguales",
+          "de igual medida",
+          "misma medida"
+        ],
+        "pistas": [
+          "Compara las longitudes de los cuatro lados de un rombo con los cuatro de un cuadrado.",
+          "Ambas figuras geométricas tienen todos sus lados congruentes.",
+          "Escribe la palabra iguales."
+        ],
+        "retroalimentacion": "Tanto el cuadrado como el rombo tienen sus cuatro lados de igual longitud."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La afirmación «todo rectángulo es un cuadrado» es verdadera.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en un rectángulo común que mide 10 metros de largo por 2 metros de ancho.",
+          "Verifica si ese rectángulo tiene sus cuatro lados iguales.",
+          "Al no tener todos los lados de la misma medida, no es un cuadrado."
+        ],
+        "retroalimentacion": "Es falsa, porque existen rectángulos cuyos lados contiguos tienen diferente longitud, por lo que no son cuadrados."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué figura resulta de unir las propiedades de ser un rectángulo (cuatro ángulos rectos) y un rombo (cuatro lados iguales)?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El cuadrado"
+          },
+          {
+            "id": "b",
+            "texto": "El trapezoide simétrico"
+          },
+          {
+            "id": "c",
+            "texto": "El trapecio escaleno"
+          },
+          {
+            "id": "d",
+            "texto": "El pentágono regular"
+          }
+        ],
+        "pistas": [
+          "Busca la figura que reúne todas las condiciones a la vez.",
+          "Tiene cuatro ángulos de 90° y sus cuatro lados son idénticos.",
+          "Se trata del cuadrado."
+        ],
+        "retroalimentacion": "El cuadrado es el cuadrilátero regular que reúne a la vez las características del rectángulo y del rombo."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Si un cuadrilátero tiene solo un par de lados opuestos paralelos, ¿a qué familia pertenece (paralelogramo, trapecio o trapezoide)?",
+        "respuesta": "trapecio",
+        "alternativasAceptadas": [
+          "el trapecio",
+          "un trapecio"
+        ],
+        "pistas": [
+          "Distingue entre tener dos pares de lados paralelos o un solo par.",
+          "Los que tienen un único par de lados paralelos (bases) forman este grupo.",
+          "Comienza con la letra t."
+        ],
+        "retroalimentacion": "Pertenece a la familia del trapecio, caracterizada por tener exactamente un par de lados paralelos."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una mesa se muestran 3 figuras: un cuadrado, un rectángulo no cuadrado y un romboide. ¿Cuántas de estas 3 figuras son paralelogramos? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Analiza cada una de las tres figuras por separado.",
+          "Comprueba si cada una tiene dos pares de lados opuestos paralelos.",
+          "Las tres figuras cumplen plenamente la condición de paralelogramo."
+        ],
+        "retroalimentacion": "Las 3 figuras son paralelogramos, ya que todas poseen dos pares de lados opuestos paralelos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Felipe afirma: «Si un cuadrilátero tiene diagonales perpendiculares que se cortan en su punto medio, entonces obligatoriamente es un cuadrado». ¿Qué contraejemplo desmiente su conclusión?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un triángulo equilátero con tres lados iguales"
+          },
+          {
+            "id": "b",
+            "texto": "Un rombo no cuadrado, cuyas diagonales son perpendiculares pero de diferente tamaño"
+          },
+          {
+            "id": "c",
+            "texto": "Un trapecio rectángulo con bases desiguales"
+          },
+          {
+            "id": "d",
+            "texto": "Un círculo con radios perpendiculares"
+          }
+        ],
+        "pistas": [
+          "Busca un cuadrilátero cuyas diagonales se corten en 90° en el medio pero que no tenga esquinas de 90°.",
+          "Recuerda que el rombo tiene diagonales perpendiculares que se bisecan, pero pueden tener longitudes distintas.",
+          "Esta figura demuestra que no todo cuadrilátero con esa propiedad es un cuadrado."
+        ],
+        "retroalimentacion": "Un rombo no cuadrado, cuyas diagonales son perpendiculares pero de diferente tamaño, prueba que la afirmación de Felipe es falsa."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un trapecio puede clasificarse al mismo tiempo como un paralelogramo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la cantidad de pares de lados paralelos de cada familia.",
+          "El paralelogramo exige dos pares de lados paralelos; el trapecio tiene solo un par.",
+          "Son categorías mutuamente excluyentes en la clasificación estándar."
+        ],
+        "retroalimentacion": "Es falso, porque el trapecio solo tiene un par de lados paralelos, mientras que el paralelogramo requiere dos pares."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de las siguientes afirmaciones sobre cuadriláteros es matemáticamente correcta?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Todos los rombos tienen cuatro ángulos rectos"
+          },
+          {
+            "id": "b",
+            "texto": "Ningún rectángulo puede tener lados iguales"
+          },
+          {
+            "id": "c",
+            "texto": "Los trapezoides tienen dos pares de lados paralelos"
+          },
+          {
+            "id": "d",
+            "texto": "Todo rombo con cuatro ángulos rectos es necesariamente un cuadrado"
+          }
+        ],
+        "pistas": [
+          "Analiza la compatibilidad lógica de combinar lados iguales con cuatro ángulos rectos.",
+          "Tener lados iguales hace que sea rombo, y tener ángulos rectos añade la condición de cuadrado.",
+          "Esta afirmación es rigurosamente verdadera."
+        ],
+        "retroalimentacion": "Todo rombo con cuatro ángulos rectos es necesariamente un cuadrado, ya que reúne todas las propiedades del polígono regular."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "La profesora dibuja un conjunto de 12 cuadriláteros en la pizarra: 4 cuadrados, 3 rectángulos no cuadrados y 5 romboides. ¿Cuántos paralelogramos hay en total en la pizarra? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Verifica a qué categoría mayor pertenecen los cuadrados, rectángulos y romboides.",
+          "Las tres clases de figuras son subconjuntos de los paralelogramos.",
+          "Suma 4 + 3 + 5."
+        ],
+        "retroalimentacion": "Los 12 cuadriláteros son paralelogramos, ya que 4 + 3 + 5 = 12."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.ejes-simetria-cuadrilateros",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Argumenta afirmaciones sobre relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P5-08"
+    ],
+    "bloque": "Cuadriláteros y ángulos",
+    "nombre": "Ejes de simetría de los cuadriláteros",
+    "disciplina": "geometria",
+    "descripcionCorta": "Encuentra los ejes de simetría de cada cuadrilátero y explica por qué unos tienen más que otros.",
+    "palabrasClave": [
+      "eje de simetría",
+      "cuadrilátero",
+      "plegado",
+      "reflexión",
+      "simetría axial"
+    ],
+    "prerrequisitos": [
+      "mat.p5.clasificar-cuadrilateros"
+    ],
+    "ordenSugerido": 86,
+    "ideaCentral": "Un eje de simetría es una línea imaginaria que divide al cuadrilátero en dos mitades exactamente coincidentes; las figuras con mayor regularidad (como el cuadrado) tienen más ejes de simetría.",
+    "pasos": [
+      "Imagina o realiza el doblado de la figura a lo largo de una línea recta que pase por su centro.",
+      "Comprueba si las dos partes coinciden perfectamente borde con borde y vértice con vértice sin sobrar nada.",
+      "Prueba doblando por las líneas medias (que unen puntos medios de lados opuestos) y por las diagonales.",
+      "Cuenta y registra el número total de líneas válidas comprobadas para ese cuadrilátero."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una clase de origami en Cusco, Manuel dobla una hoja cuadrada para encontrar todas sus líneas de simetría.",
+        "desarrollo": "Dobla por la mitad horizontal, luego por la mitad vertical (2 ejes mediatrices). Después dobla por cada una de las dos diagonales esquina con esquina (2 ejes diagonales). Las dos mitades coinciden en los 4 casos.",
+        "respuesta": "El cuadrado tiene exactamente 4 ejes de simetría."
+      },
+      {
+        "situacion": "Elena dobla un recorte con forma de rectángulo común (no cuadrado).",
+        "desarrollo": "Dobla por las líneas medias vertical y horizontal y las mitades calzan bien (2 ejes). Al doblar por la diagonal, las esquinas quedan en lugares opuestos y no coinciden.",
+        "respuesta": "El rectángulo tiene solo 2 ejes de simetría (no sus diagonales)."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que las diagonales de cualquier rectángulo son ejes de simetría.",
+        "correccion": "Dobla un papel rectangular por la diagonal: notarás que las esquinas no se superponen, por lo que la diagonal no es eje de simetría en el rectángulo no cuadrado."
+      },
+      {
+        "error": "Pensar que el romboide general tiene 2 ejes de simetría.",
+        "correccion": "Comprueba doblando un romboide: debido a sus ángulos inclinados, ninguna línea recta permite que las mitades coincidan; tiene 0 ejes de simetría."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Eje de simetría",
+        "significado": "Línea recta que divide una figura de modo que una mitad es el reflejo exacto de la otra."
+      },
+      {
+        "termino": "Simetría axial",
+        "significado": "Correspondencia exacta en la disposición de los puntos de una figura respecto a una recta llamada eje."
+      },
+      {
+        "termino": "Superposición",
+        "significado": "Acción de colocar una mitad sobre la otra de modo que coincidan todos sus puntos y bordes."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos ejes de simetría tiene un cuadrado perfecto? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los dos ejes que pasan por los puntos medios de los lados opuestos.",
+          "Agrega los dos ejes que pasan por las diagonales opuestas.",
+          "La suma total es dos más dos."
+        ],
+        "retroalimentacion": "El cuadrado tiene 4 ejes de simetría: dos mediatrices y dos diagonales."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos ejes de simetría tiene un rectángulo no cuadrado? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda que solo coinciden los pliegues por las mitades de los lados paralelos.",
+          "Las diagonales no coinciden al doblar un rectángulo común.",
+          "Tiene un eje vertical y un eje horizontal."
+        ],
+        "retroalimentacion": "El rectángulo no cuadrado tiene exactamente 2 ejes de simetría."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un rombo no cuadrado tiene sus 2 ejes de simetría sobre sus diagonales.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina doblar un rombo haciendo coincidir sus vértices opuestos.",
+          "Al doblar por cualquiera de sus dos diagonales, los lados coinciden exactamente.",
+          "Sus únicas dos líneas de simetría son sus dos diagonales."
+        ],
+        "retroalimentacion": "Es verdadero, las dos diagonales de un rombo actúan como sus únicos ejes de simetría."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuántos ejes de simetría tiene un trapezoide escaleno común cuyos lados y ángulos son todos desiguales?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0 ejes de simetría"
+          },
+          {
+            "id": "b",
+            "texto": "1 eje de simetría diagonal"
+          },
+          {
+            "id": "c",
+            "texto": "2 ejes perpendiculares"
+          },
+          {
+            "id": "d",
+            "texto": "4 ejes de simetría"
+          }
+        ],
+        "pistas": [
+          "Observa que una figura completamente asimétrica no tiene mitades iguales.",
+          "Ningún doblado logrará que dos partes encajen.",
+          "La cantidad de ejes es cero."
+        ],
+        "retroalimentacion": "Tiene 0 ejes de simetría porque al ser totalmente asimétrico no existe línea de reflejo."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Por qué la diagonal de un rectángulo de 8 cm por 4 cm no es un eje de simetría?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Porque las diagonales del rectángulo no son líneas rectas"
+          },
+          {
+            "id": "b",
+            "texto": "Porque mide más de 20 centímetros"
+          },
+          {
+            "id": "c",
+            "texto": "Porque al doblar por ella los vértices libres no coinciden, saliéndose de la figura"
+          },
+          {
+            "id": "d",
+            "texto": "Porque divide al rectángulo en dos triángulos de áreas diferentes"
+          }
+        ],
+        "pistas": [
+          "Recuerda la prueba práctica del plegado de una hoja de cuaderno.",
+          "Aunque divide al rectángulo en dos triángulos congruentes, no coinciden por reflexión sobre la diagonal.",
+          "Las puntas dobladas sobresalen hacia afuera de los bordes."
+        ],
+        "retroalimentacion": "Porque al doblar por ella los vértices libres no coinciden, saliéndose de la figura geométrica."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos ejes de simetría tiene un trapecio isósceles? Escribe solo el número.",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda que un trapecio isósceles tiene sus dos lados no paralelos de igual medida.",
+          "Busca la línea vertical que une los puntos medios de sus dos bases paralelas.",
+          "Esa línea media es su único eje posible."
+        ],
+        "retroalimentacion": "El trapecio isósceles tiene únicamente 1 eje de simetría, que une los puntos medios de sus bases."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un romboide común (paralelogramo propiamente dicho con lados contiguos desiguales y ángulos no rectos) tiene 2 ejes de simetría.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Comprueba si al doblar un romboide por cualquier línea sus esquinas inclinadas coinciden.",
+          "La inclinación de sus ángulos impide la coincidencia por reflexión axial.",
+          "El romboide tiene simetría central o rotacional, pero no axial."
+        ],
+        "retroalimentacion": "Es falso, el romboide general tiene 0 ejes de simetría axial."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Entre un cuadrado y un rectángulo no cuadrado, ¿cuál de las dos figuras tiene mayor cantidad de ejes de simetría?",
+        "respuesta": "el cuadrado",
+        "alternativasAceptadas": [
+          "cuadrado",
+          "un cuadrado"
+        ],
+        "pistas": [
+          "Compara los 4 ejes del primero con los 2 ejes del segundo.",
+          "El número cuatro es mayor que el número dos.",
+          "Escribe el nombre de la figura regular."
+        ],
+        "retroalimentacion": "El cuadrado posee 4 ejes de simetría frente a los 2 del rectángulo no cuadrado."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un artesano en Ayacucho diseña una baldosa cuadrangular con exactamente 2 ejes de simetría perpendiculares y cuatro lados de igual medida. ¿Qué figura geométrica describe su diseño?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un cuadrado"
+          },
+          {
+            "id": "b",
+            "texto": "Un rombo no cuadrado"
+          },
+          {
+            "id": "c",
+            "texto": "Un trapezoide asimétrico"
+          },
+          {
+            "id": "d",
+            "texto": "Un romboide con lados desiguales"
+          }
+        ],
+        "pistas": [
+          "Analiza qué cuadrilátero tiene 4 lados iguales pero solo 2 ejes de simetría (no 4).",
+          "Si tuviera 4 ejes sería un cuadrado.",
+          "Al tener solo 2 ejes sobre sus diagonales, se trata del rombo no cuadrado."
+        ],
+        "retroalimentacion": "Un rombo no cuadrado tiene 4 lados iguales pero únicamente 2 ejes de simetría sobre sus diagonales."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Suma el número de ejes de simetría de un cuadrado, más los de un rectángulo no cuadrado, más los de un trapecio isósceles. ¿Cuál es la suma total? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica la cantidad de ejes de cada figura: cuadrado (4), rectángulo (2) y trapecio isósceles (1).",
+          "Plantea la adición 4 + 2 + 1.",
+          "El resultado de la suma es siete."
+        ],
+        "retroalimentacion": "Sumando los ejes: 4 (cuadrado) + 2 (rectángulo) + 1 (trapecio isósceles) = 7."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Toda línea recta que divida a un cuadrilátero en dos figuras de igual área es obligatoriamente un eje de simetría.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Considera la diagonal de un rectángulo: divide al rectángulo en dos triángulos de igual área.",
+          "Verifica si al doblar por esa diagonal los triángulos coinciden exactamente vértice con vértice.",
+          "Tener la misma área no garantiza coincidencia por reflexión."
+        ],
+        "retroalimentacion": "Es falso, porque la diagonal de un rectángulo divide el área en dos partes iguales pero no es un eje de simetría."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Por qué un cuadrilátero regular como el cuadrado tiene más ejes de simetría que cualquier otro cuadrilátero?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Porque sus diagonales son más cortas que sus lados"
+          },
+          {
+            "id": "b",
+            "texto": "Porque su área siempre se calcula multiplicando base por altura"
+          },
+          {
+            "id": "c",
+            "texto": "Porque no se puede doblar en diagonales oblicuas"
+          },
+          {
+            "id": "d",
+            "texto": "Porque combina la máxima igualdad geométrica: cuatro lados congruentes y cuatro ángulos congruentes"
+          }
+        ],
+        "pistas": [
+          "Piensa en cómo la regularidad geométrica aporta simetría en múltiples direcciones.",
+          "La coincidencia de lados y ángulos iguales permite que coincidan tanto las mediatrices como las diagonales.",
+          "La máxima simetría proviene de su regularidad perfecta."
+        ],
+        "retroalimentacion": "Porque combina la máxima igualdad geométrica: cuatro lados congruentes y cuatro ángulos congruentes, permitiendo 4 ejes de reflexión."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

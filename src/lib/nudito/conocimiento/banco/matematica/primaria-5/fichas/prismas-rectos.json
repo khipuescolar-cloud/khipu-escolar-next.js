@@ -1,0 +1,1586 @@
+[
+  {
+    "clave": "mat.p5.prismas-entorno",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-P5-01"
+    ],
+    "bloque": "Prismas rectos",
+    "nombre": "Prismas rectos en el entorno",
+    "disciplina": "geometria",
+    "descripcionCorta": "Asocia cajas, edificios y objetos con prismas de base triangular, cuadrada o rectangular.",
+    "palabrasClave": [
+      "prisma recto",
+      "base triangular",
+      "base cuadrada",
+      "base rectangular"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 55,
+    "ideaCentral": "Un prisma recto tiene dos bases iguales y paralelas; sus caras laterales son rectángulos. Puedes reconocerlo en cajas y construcciones observando la forma de las bases, aunque el objeto esté girado.",
+    "pasos": [
+      "Observa el objeto completo y busca dos caras opuestas iguales.",
+      "Identifica si esas caras son triángulos, cuadrados o rectángulos.",
+      "Comprueba que las caras que las unen son rectángulos.",
+      "Nombra el prisma según su base."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una caja de zapatos tiene dos caras opuestas rectangulares y caras laterales rectangulares.",
+        "desarrollo": "Las bases son rectángulos iguales y paralelos.",
+        "respuesta": "Se parece a un prisma recto de base rectangular."
+      },
+      {
+        "situacion": "Un empaque de chocolate tiene dos extremos triangulares y tres costados rectangulares.",
+        "desarrollo": "Los triángulos son bases iguales y los costados las unen.",
+        "respuesta": "Se parece a un prisma recto de base triangular."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Nombrar el prisma por una cara lateral.",
+        "correccion": "Identifica primero las dos bases iguales y paralelas."
+      },
+      {
+        "error": "Pensar que deja de ser prisma si se acuesta.",
+        "correccion": "Girar un objeto no cambia sus caras ni la forma de sus bases."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Prisma recto",
+        "significado": "Sólido con dos bases iguales y paralelas unidas por caras rectangulares."
+      },
+      {
+        "termino": "Base",
+        "significado": "Una de las dos caras iguales y paralelas que nombran al prisma."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja de zapatos tiene bases rectangulares iguales. ¿A qué sólido se parece?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Pirámide triangular"
+          },
+          {
+            "id": "b",
+            "texto": "Cono"
+          },
+          {
+            "id": "c",
+            "texto": "Prisma de base rectangular"
+          },
+          {
+            "id": "d",
+            "texto": "Esfera"
+          }
+        ],
+        "pistas": [
+          "Busca las dos caras opuestas iguales.",
+          "Las caras son rectángulos.",
+          "El nombre del prisma usa la forma de la base."
+        ],
+        "retroalimentacion": "Se parece a un prisma de base rectangular; la caja no tiene base triangular."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un empaque con dos extremos triangulares iguales y tres caras laterales rectangulares se parece a un prisma triangular recto.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa los dos extremos.",
+          "Ambos son triángulos iguales.",
+          "Las tres caras rectangulares los conectan."
+        ],
+        "retroalimentacion": "Es verdadero: sus bases triangulares identifican un prisma triangular recto."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un bloque tiene dos bases cuadradas iguales y caras laterales rectangulares. ¿Qué forma tiene su base? Escribe una palabra.",
+        "respuesta": "cuadrada",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las bases son las dos caras iguales.",
+          "El enunciado dice que esas caras son cuadrados.",
+          "Nombra la forma como adjetivo femenino de base."
+        ],
+        "retroalimentacion": "La base es cuadrada; las caras laterales rectangulares no cambian ese nombre."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál objeto se parece más a un prisma recto de base triangular?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Envase de chocolate triangular"
+          },
+          {
+            "id": "b",
+            "texto": "Pelota"
+          },
+          {
+            "id": "c",
+            "texto": "Lata redonda"
+          },
+          {
+            "id": "d",
+            "texto": "Cono de tránsito"
+          }
+        ],
+        "pistas": [
+          "Busca dos extremos con tres lados.",
+          "Los extremos deben ser iguales.",
+          "Un envase alargado en forma de cuña puede tener esos extremos."
+        ],
+        "retroalimentacion": "El envase de chocolate triangular tiene bases triangulares; una pelota no tiene caras planas."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una caja con bases rectangulares se coloca de lado, deja de parecerse a un prisma recto.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Girar no quita caras.",
+          "Las bases siguen siendo dos rectángulos iguales.",
+          "La clasificación depende de la forma, no de estar de pie."
+        ],
+        "retroalimentacion": "Es falso: la caja sigue pareciéndose a un prisma de base rectangular."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un edificio sencillo tiene dos caras opuestas cuadradas y cuatro costados rectangulares. ¿Cuál descripción es correcta?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Prisma triangular"
+          },
+          {
+            "id": "b",
+            "texto": "Cilindro"
+          },
+          {
+            "id": "c",
+            "texto": "Pirámide cuadrada"
+          },
+          {
+            "id": "d",
+            "texto": "Prisma de base cuadrada"
+          }
+        ],
+        "pistas": [
+          "Las caras opuestas iguales pueden ser bases.",
+          "Aquí las bases tienen cuatro lados iguales.",
+          "Nombra el prisma por esas bases cuadradas."
+        ],
+        "retroalimentacion": "Es un prisma recto de base cuadrada; los costados rectangulares no hacen triangular la base."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un paquete largo tiene dos extremos en forma de triángulo y sus lados largos son rectángulos. Completa: prisma de base _____.",
+        "respuesta": "triangular",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los extremos iguales son las bases.",
+          "Cada extremo tiene tres lados.",
+          "La palabra que corresponde a una base de tres lados es triangular."
+        ],
+        "retroalimentacion": "La base es triangular; llamar rectangular a la base confunde extremos y costados."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál rasgo distingue una caja prismática recta de una pirámide?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una base y una punta"
+          },
+          {
+            "id": "b",
+            "texto": "Dos bases iguales y paralelas"
+          },
+          {
+            "id": "c",
+            "texto": "Solo una cara curva"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguna cara plana"
+          }
+        ],
+        "pistas": [
+          "Una pirámide termina en una punta.",
+          "El prisma conserva dos bases iguales y paralelas.",
+          "Elige la descripción de esas dos bases."
+        ],
+        "retroalimentacion": "Dos bases iguales y paralelas distinguen al prisma; una sola base con vértice describe una pirámide."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una caja con dos extremos cuadrados y costados rectangulares puede describirse como prisma de base cuadrada aunque sea más larga que ancha.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La longitud no cambia la forma de los extremos.",
+          "Los dos extremos siguen siendo cuadrados.",
+          "Las caras laterales siguen siendo rectángulos."
+        ],
+        "retroalimentacion": "Es verdadero: la base cuadrada define el nombre aunque el prisma sea alargado."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se muestran tres objetos: caja de cereal con extremos rectangulares, envase en cuña con extremos triangulares y pelota. ¿Cuáles pueden modelarse como prismas rectos?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo la pelota"
+          },
+          {
+            "id": "b",
+            "texto": "Solo la cuña"
+          },
+          {
+            "id": "c",
+            "texto": "La caja y la cuña"
+          },
+          {
+            "id": "d",
+            "texto": "Los tres"
+          }
+        ],
+        "pistas": [
+          "La pelota carece de caras planas.",
+          "La caja tiene extremos rectangulares paralelos.",
+          "La cuña tiene extremos triangulares paralelos."
+        ],
+        "retroalimentacion": "La caja de cereal y el envase en cuña pueden ser prismas; la pelota es redonda."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una maqueta tiene dos caras opuestas iguales de 4 lados, todos del mismo largo y con ángulos rectos. ¿Qué base tiene el prisma? Escribe una palabra.",
+        "respuesta": "cuadrada",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la figura de cuatro lados iguales.",
+          "También debe tener cuatro ángulos rectos.",
+          "Esa figura es un cuadrado."
+        ],
+        "retroalimentacion": "La base es cuadrada; solo decir rectangular pierde la característica de lados iguales."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un objeto tiene una base triangular y tres caras laterales triangulares que se juntan en una punta. ¿Por qué no es un prisma recto triangular?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sus caras laterales no son rectángulos"
+          },
+          {
+            "id": "b",
+            "texto": "Tiene dos extremos triangulares"
+          },
+          {
+            "id": "c",
+            "texto": "Los triángulos tienen tres lados"
+          },
+          {
+            "id": "d",
+            "texto": "Está apoyado de lado"
+          }
+        ],
+        "pistas": [
+          "Un prisma recto triangular necesita costados rectangulares.",
+          "Aquí los costados llegan a una punta.",
+          "Compara la forma de las caras laterales."
+        ],
+        "retroalimentacion": "No corresponde: las caras laterales no son rectángulos; parecen formar una pirámide."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.elementos-prismas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P5-04"
+    ],
+    "bloque": "Prismas rectos",
+    "nombre": "Elementos de los prismas rectos",
+    "disciplina": "geometria",
+    "descripcionCorta": "Identifica bases, caras laterales, aristas y vértices de prismas rectos.",
+    "palabrasClave": [
+      "base",
+      "cara lateral",
+      "arista",
+      "vértice",
+      "prisma"
+    ],
+    "prerrequisitos": [
+      "mat.p5.prismas-entorno"
+    ],
+    "ordenSugerido": 56,
+    "ideaCentral": "En un prisma recto, las dos bases son polígonos iguales y paralelos. Las caras laterales las unen; una arista es el borde donde se encuentran dos caras y un vértice es la esquina donde se juntan aristas.",
+    "pasos": [
+      "Localiza las dos bases iguales y paralelas.",
+      "Señala las caras laterales que conectan ambas bases.",
+      "Sigue un borde para identificar una arista.",
+      "Busca las esquinas para reconocer vértices."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una caja rectangular cerrada está sobre una mesa.",
+        "desarrollo": "La cara superior y la inferior pueden verse como bases; las cuatro paredes son caras laterales. Un borde de la tapa es arista y una esquina es vértice.",
+        "respuesta": "Se distinguen bases, caras laterales, aristas y vértices."
+      },
+      {
+        "situacion": "Un prisma triangular de cartón tiene dos extremos triangulares.",
+        "desarrollo": "Entre esos extremos hay tres rectángulos. Las uniones entre caras forman aristas.",
+        "respuesta": "Tiene dos bases triangulares y tres caras laterales."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Llamar vértice a un borde completo.",
+        "correccion": "El vértice es un punto o esquina; el borde es una arista."
+      },
+      {
+        "error": "Contar la base como cara lateral.",
+        "correccion": "Las bases son las dos caras iguales y paralelas; las laterales las unen."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Cara lateral",
+        "significado": "Cara que conecta las dos bases de un prisma."
+      },
+      {
+        "termino": "Arista",
+        "significado": "Segmento donde se unen dos caras."
+      },
+      {
+        "termino": "Vértice",
+        "significado": "Esquina donde se encuentran aristas."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una caja cerrada, ¿cómo se llama el borde donde se encuentran dos caras?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cara"
+          },
+          {
+            "id": "b",
+            "texto": "Arista"
+          },
+          {
+            "id": "c",
+            "texto": "Base"
+          },
+          {
+            "id": "d",
+            "texto": "Interior"
+          }
+        ],
+        "pistas": [
+          "No es toda una superficie.",
+          "Es un segmento entre dos caras.",
+          "Ese segmento recibe el nombre de arista."
+        ],
+        "retroalimentacion": "Se llama arista; una cara ocupa una región, no solo el borde."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Las dos bases de un prisma recto son iguales y paralelas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ubica una base en cada extremo.",
+          "Ambas tienen la misma forma y tamaño.",
+          "No se cruzan; son paralelas."
+        ],
+        "retroalimentacion": "Es verdadero: esa pareja de caras caracteriza al prisma."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La esquina de una caja donde se juntan varios bordes se llama _____.",
+        "respuesta": "vértice",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en un punto, no en un segmento.",
+          "Los bordes que llegan allí son aristas.",
+          "La esquina común se llama vértice."
+        ],
+        "retroalimentacion": "La esquina es un vértice; la arista es el borde que llega a ella."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un prisma triangular tiene dos extremos triangulares. ¿Cuántas bases tiene?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una"
+          },
+          {
+            "id": "b",
+            "texto": "Tres"
+          },
+          {
+            "id": "c",
+            "texto": "Cuatro"
+          },
+          {
+            "id": "d",
+            "texto": "Dos"
+          }
+        ],
+        "pistas": [
+          "Los extremos iguales son las bases.",
+          "Hay un triángulo en cada extremo.",
+          "Cuenta los dos extremos."
+        ],
+        "retroalimentacion": "Tiene dos bases; tres es la cantidad de caras laterales en este caso."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un prisma triangular recto, las tres caras que unen las bases son rectángulos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las bases son triángulos.",
+          "Cada uno de sus tres lados tiene un costado.",
+          "Al ser recto, esos costados son rectángulos."
+        ],
+        "retroalimentacion": "Es verdadero: hay tres caras laterales rectangulares."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al tocar una caja, Lucía recorre con el dedo una línea que une dos esquinas. ¿Qué elemento recorrió?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una arista"
+          },
+          {
+            "id": "b",
+            "texto": "Una base"
+          },
+          {
+            "id": "c",
+            "texto": "Una cara lateral"
+          },
+          {
+            "id": "d",
+            "texto": "El interior"
+          }
+        ],
+        "pistas": [
+          "Una esquina sola sería un vértice.",
+          "Lucía recorrió una línea de borde.",
+          "El borde entre esquinas es una arista."
+        ],
+        "retroalimentacion": "Recorrió una arista; un vértice es solo la esquina final."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Las paredes de un prisma recto que conectan sus dos bases reciben el nombre de caras _____.",
+        "respuesta": "laterales",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No se trata de los dos extremos.",
+          "Estas caras están en los costados.",
+          "Completa con la palabra laterales."
+        ],
+        "retroalimentacion": "Son caras laterales; las bases son las dos caras opuestas iguales."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un prisma de base cuadrada tiene una cara lateral por cada lado de la base. ¿Cuántas caras laterales tiene? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La base cuadrada tiene cuatro lados.",
+          "Cada lado se une a la otra base por un rectángulo.",
+          "Cuenta cuatro rectángulos laterales."
+        ],
+        "retroalimentacion": "No confundas las dos bases con caras laterales: son 4."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja tiene seis caras: dos bases rectangulares y otras cuatro caras. ¿Cómo se llaman esas otras cuatro?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Aristas"
+          },
+          {
+            "id": "b",
+            "texto": "Vértices"
+          },
+          {
+            "id": "c",
+            "texto": "Caras laterales"
+          },
+          {
+            "id": "d",
+            "texto": "Diagonales"
+          }
+        ],
+        "pistas": [
+          "Separa las dos bases del total.",
+          "Quedan cuatro caras que conectan extremos.",
+          "Son las caras laterales."
+        ],
+        "retroalimentacion": "Son caras laterales; llamarlas bases haría seis bases, cosa que un prisma no tiene."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un prisma triangular, un punto donde se encuentran dos lados de la base y una arista lateral es un vértice.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En la base hay esquinas.",
+          "Una arista lateral llega a cada esquina.",
+          "Donde se reúnen esos bordes hay un vértice."
+        ],
+        "retroalimentacion": "Es verdadero: allí se juntan aristas; no es una cara completa."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Si marcas con lápiz solo los segmentos donde se unen caras de una caja, ¿qué elemento geométrico estás marcando? Escribe una palabra.",
+        "respuesta": "aristas",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No pintas las superficies.",
+          "Solo trazas los bordes rectos.",
+          "Esos bordes se llaman aristas."
+        ],
+        "retroalimentacion": "Marcas aristas; las caras son superficies y los vértices son puntos."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una maqueta de prisma triangular muestra dos bases triangulares y tres caras laterales. ¿Cuántas caras tiene en total? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las dos bases.",
+          "Añade los tres rectángulos laterales.",
+          "Calcula 2 + 3."
+        ],
+        "retroalimentacion": "Contar solo los laterales da 3; el prisma tiene 5 caras en total."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.desarrollo-prismas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Argumenta afirmaciones sobre relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P5-08"
+    ],
+    "bloque": "Prismas rectos",
+    "nombre": "Desarrollo plano de prismas rectos",
+    "disciplina": "geometria",
+    "descripcionCorta": "Construye prismas a partir de plantillas y anticipa qué plantilla forma cada prisma.",
+    "palabrasClave": [
+      "desarrollo plano",
+      "plantilla",
+      "bases",
+      "caras laterales"
+    ],
+    "prerrequisitos": [
+      "mat.p5.elementos-prismas"
+    ],
+    "ordenSugerido": 87,
+    "ideaCentral": "Un desarrollo plano muestra todas las caras de un prisma desplegadas sin superposición. Para anticipar qué prisma formará una plantilla, revisa que tenga dos bases iguales y una cara lateral rectangular por cada lado de la base.",
+    "pasos": [
+      "Reconoce las dos figuras iguales que serán bases.",
+      "Cuenta los lados de una base.",
+      "Comprueba que haya esa cantidad de rectángulos laterales.",
+      "Imagina doblar por las aristas y unir las bases sin huecos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una plantilla tiene dos triángulos iguales y tres rectángulos.",
+        "desarrollo": "Cada lado de un triángulo conecta con un rectángulo; al doblar se cierran las caras.",
+        "respuesta": "Puede formar un prisma triangular recto."
+      },
+      {
+        "situacion": "Otra plantilla tiene dos cuadrados iguales y solo tres rectángulos laterales.",
+        "desarrollo": "Cada cuadrado tiene cuatro lados y falta un rectángulo para cerrar un costado.",
+        "respuesta": "La plantilla está incompleta para un prisma de base cuadrada."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Usar una sola base en la plantilla.",
+        "correccion": "Un prisma cerrado necesita dos bases iguales."
+      },
+      {
+        "error": "Contar los rectángulos sin mirar los lados de la base.",
+        "correccion": "Cada lado de la base necesita una cara lateral."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Desarrollo plano",
+        "significado": "Conjunto de caras desplegadas que puede doblarse para formar un sólido."
+      },
+      {
+        "termino": "Plantilla",
+        "significado": "Dibujo recortable de las caras de un sólido."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una plantilla tiene dos triángulos iguales y tres rectángulos. ¿Qué puede formar?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Prisma cuadrado"
+          },
+          {
+            "id": "b",
+            "texto": "Prisma triangular"
+          },
+          {
+            "id": "c",
+            "texto": "Cubo"
+          },
+          {
+            "id": "d",
+            "texto": "Cono"
+          }
+        ],
+        "pistas": [
+          "Los triángulos serán bases.",
+          "Hay un rectángulo por cada lado triangular.",
+          "Al doblar, resulta un prisma triangular."
+        ],
+        "retroalimentacion": "Puede formar un prisma triangular; el nombre viene de sus dos bases triangulares."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una plantilla de prisma cerrado necesita dos bases iguales.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en los dos extremos del sólido.",
+          "Una base cierra cada extremo.",
+          "Las bases deben coincidir en forma y tamaño."
+        ],
+        "retroalimentacion": "Es verdadero: sin una de las bases el prisma quedaría abierto."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una base cuadrada tiene cuatro lados. ¿Cuántos rectángulos laterales necesita su desarrollo plano? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada lado de la base lleva una pared.",
+          "Cuenta los lados del cuadrado.",
+          "Son cuatro paredes rectangulares."
+        ],
+        "retroalimentacion": "Poner solo tres deja un costado abierto; hacen falta 4 rectángulos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Dos cuadrados iguales y cuatro rectángulos forman una plantilla. ¿Qué forma tienen las bases? Escribe una palabra.",
+        "respuesta": "cuadrada",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica las dos figuras repetidas.",
+          "Esas dos figuras son cuadrados.",
+          "Describe la base con un adjetivo femenino."
+        ],
+        "retroalimentacion": "Las bases son cuadradas; los cuatro rectángulos son caras laterales."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una plantilla muestra dos bases triangulares y solo dos rectángulos laterales. ¿Qué le falta?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una base"
+          },
+          {
+            "id": "b",
+            "texto": "Dos triángulos"
+          },
+          {
+            "id": "c",
+            "texto": "Tres cuadrados"
+          },
+          {
+            "id": "d",
+            "texto": "Un rectángulo lateral"
+          }
+        ],
+        "pistas": [
+          "Un triángulo tiene tres lados.",
+          "Cada lado necesita un costado rectangular.",
+          "Hay dos costados; calcula cuántos faltan."
+        ],
+        "retroalimentacion": "Falta un rectángulo lateral; con solo dos no se cierra el prisma triangular."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos rectángulos iguales para bases y cuatro rectángulos laterales pueden formar un prisma recto de base rectangular.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una base rectangular tiene cuatro lados.",
+          "Hay cuatro caras laterales disponibles.",
+          "Las dos bases iguales cierran los extremos."
+        ],
+        "retroalimentacion": "Es verdadero: la cantidad y forma de caras son compatibles con ese prisma."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una plantilla tiene dos triángulos y tres rectángulos. Si retiras uno de los triángulos, ¿qué elemento faltará al armarla? Responde con una palabra.",
+        "respuesta": "base",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los triángulos cierran extremos opuestos.",
+          "Después de quitar uno queda un extremo abierto.",
+          "El elemento ausente es una base."
+        ],
+        "retroalimentacion": "Faltará una base; las tres caras laterales siguen presentes."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Para un prisma con base de cuatro lados, cuentas dos bases y las caras laterales necesarias. ¿Cuántas figuras planas hay en la plantilla completa? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuatro lados en la base.",
+          "Eso exige cuatro rectángulos laterales.",
+          "Añade las dos bases."
+        ],
+        "retroalimentacion": "Contar solo las paredes da 4; la plantilla completa tiene 6 caras."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos plantillas tienen dos triángulos cada una. A tiene tres rectángulos laterales; B tiene cuatro. ¿Cuál coincide con un prisma triangular recto?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo A"
+          },
+          {
+            "id": "b",
+            "texto": "Solo B"
+          },
+          {
+            "id": "c",
+            "texto": "Ambas"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguna"
+          }
+        ],
+        "pistas": [
+          "Cada triángulo tiene tres lados.",
+          "Se necesita un costado por cada lado.",
+          "Compara tres con cuatro rectángulos."
+        ],
+        "retroalimentacion": "La plantilla A coincide: tres rectángulos para tres lados; B tiene uno de más."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una plantilla con dos bases cuadradas y tres caras laterales rectangulares cierra por completo un prisma cuadrangular.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El cuadrado tiene cuatro bordes.",
+          "Cada borde necesita un rectángulo lateral.",
+          "Solo se ofrecen tres costados."
+        ],
+        "retroalimentacion": "Es falso: falta una cuarta cara lateral para cerrar el prisma."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un desarrollo plano de prisma triangular tiene dos bases y tres laterales. Si se dibujaron 4 de sus caras, ¿cuántas faltan? Escribe solo el número.",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las caras necesarias: 2 + 3.",
+          "La plantilla completa necesita cinco.",
+          "Resta las cuatro ya dibujadas."
+        ],
+        "retroalimentacion": "Confundir bases con laterales puede dar dos; falta 1 cara para llegar a cinco."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una niña propone una plantilla de dos cuadrados de distinto tamaño y cuatro rectángulos. ¿Qué debe corregir para armar un prisma recto?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Quitar tres rectángulos"
+          },
+          {
+            "id": "b",
+            "texto": "Añadir una tercera base"
+          },
+          {
+            "id": "c",
+            "texto": "Igualar el tamaño de los cuadrados"
+          },
+          {
+            "id": "d",
+            "texto": "Cambiar un cuadrado por círculo"
+          }
+        ],
+        "pistas": [
+          "Las dos bases de un prisma son congruentes.",
+          "Aquí los cuadrados tienen tamaños distintos.",
+          "Debe igualar ambos cuadrados."
+        ],
+        "retroalimentacion": "Debe hacer las bases del mismo tamaño; cuatro rectángulos no resuelven esa diferencia."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.caras-aristas-segun-base",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Argumenta afirmaciones sobre relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-P5-08"
+    ],
+    "bloque": "Prismas rectos",
+    "nombre": "Caras, aristas y vértices según la base",
+    "disciplina": "geometria",
+    "descripcionCorta": "Relaciona el número de lados de la base con el número de caras, aristas y vértices del prisma.",
+    "palabrasClave": [
+      "lados de base",
+      "caras",
+      "aristas",
+      "vértices",
+      "prisma"
+    ],
+    "prerrequisitos": [
+      "mat.p5.elementos-prismas"
+    ],
+    "ordenSugerido": 88,
+    "ideaCentral": "Si la base de un prisma tiene n lados, hay n caras laterales, dos bases, 3n aristas y 2n vértices. Puedes comprender estos conteos observando los dos contornos de las bases y las uniones entre sus esquinas.",
+    "pasos": [
+      "Cuenta los lados de una base.",
+      "Añade dos a ese número para obtener todas las caras.",
+      "Cuenta los lados de ambas bases y una unión por cada vértice para las aristas.",
+      "Cuenta las esquinas de las dos bases para hallar los vértices."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un prisma triangular tiene bases de tres lados.",
+        "desarrollo": "Son 3 caras laterales + 2 bases = 5 caras; 3 + 3 + 3 = 9 aristas y 3 + 3 = 6 vértices.",
+        "respuesta": "Tiene 5 caras, 9 aristas y 6 vértices."
+      },
+      {
+        "situacion": "Una caja prismática tiene bases cuadradas.",
+        "desarrollo": "Cada base tiene 4 lados: 4 + 2 = 6 caras, 4 + 4 + 4 = 12 aristas y 4 + 4 = 8 vértices.",
+        "respuesta": "Tiene 6 caras, 12 aristas y 8 vértices."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar solo las aristas de una base.",
+        "correccion": "Incluye las aristas de ambas bases y las que las unen."
+      },
+      {
+        "error": "Sumar dos para hallar vértices.",
+        "correccion": "Las dos bases repiten sus esquinas: duplica el número de lados de la base."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Cara",
+        "significado": "Superficie plana que limita el prisma."
+      },
+      {
+        "termino": "Arista lateral",
+        "significado": "Borde que une un vértice de una base con el correspondiente de la otra."
+      },
+      {
+        "termino": "Vértice",
+        "significado": "Esquina donde se encuentran aristas."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La base de un prisma triangular tiene 3 lados. ¿Cuántas caras laterales hay? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada lado de la base corresponde a un costado.",
+          "Cuenta los tres lados del triángulo.",
+          "Hay un rectángulo lateral por lado."
+        ],
+        "retroalimentacion": "Son 3 caras laterales; sumar las dos bases daría el total de caras, 5."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un prisma de base cuadrada tiene dos bases y cuatro caras laterales. ¿Cuántas caras tiene en total?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "8"
+          },
+          {
+            "id": "d",
+            "texto": "12"
+          }
+        ],
+        "pistas": [
+          "Identifica cuatro caras de costado.",
+          "Añade las dos bases.",
+          "Calcula 4 + 2."
+        ],
+        "retroalimentacion": "Tiene 6 caras; 4 cuenta solo las laterales."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un prisma triangular tiene seis vértices: tres en cada base.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada triángulo tiene tres esquinas.",
+          "Hay dos triángulos base.",
+          "Cuenta 3 + 3."
+        ],
+        "retroalimentacion": "Es verdadero: las dos bases suman 6 vértices."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una base rectangular tiene 4 lados. ¿Cuántas aristas hay solo en las dos bases? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuatro bordes en una base.",
+          "La otra base repite cuatro.",
+          "Suma 4 + 4, sin uniones laterales."
+        ],
+        "retroalimentacion": "Son 8 aristas de bases; 12 sería el total con las uniones laterales."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un prisma tiene una base de 5 lados. ¿Cuántas caras tiene en total?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "7"
+          },
+          {
+            "id": "d",
+            "texto": "10"
+          }
+        ],
+        "pistas": [
+          "Habrá cinco caras laterales.",
+          "También hay dos bases.",
+          "Suma 5 + 2."
+        ],
+        "retroalimentacion": "Tiene 7 caras; cinco cuenta solo los costados."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un prisma con base hexagonal, cada base tiene 6 vértices. ¿Cuántos vértices hay en total? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay dos bases.",
+          "Cada una aporta seis esquinas.",
+          "Calcula 6 + 6."
+        ],
+        "retroalimentacion": "No cuentes una sola base: el prisma tiene 12 vértices."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un prisma de base cuadrada tiene 12 aristas: cuatro en cada base y cuatro que unen las bases.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las dos bases aportan 4 + 4.",
+          "Hay cuatro uniones entre esquinas correspondientes.",
+          "Suma 8 + 4."
+        ],
+        "retroalimentacion": "Es verdadero: 12 aristas; 8 omitiría las uniones laterales."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En un prisma triangular hay 3 aristas en cada base y 3 que unen las bases. ¿Qué suma representa el total? Escríbela sin resultado.",
+        "respuesta": "3+3+3",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Anota primero las aristas de una base.",
+          "Añade las tres de la segunda.",
+          "Completa con las tres uniones."
+        ],
+        "retroalimentacion": "La suma es 3+3+3; omitir un grupo deja aristas sin contar."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un prisma tiene 10 vértices. Si ambas bases tienen igual número de lados, ¿cuántas caras tiene en total? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Reparte los diez vértices entre dos bases.",
+          "Cada base tiene cinco lados y hay cinco laterales.",
+          "Añade dos bases a las cinco caras laterales."
+        ],
+        "retroalimentacion": "Confundir vértices con caras daría 10; el prisma tiene 7 caras."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una maqueta prismática tiene 18 aristas. ¿Cuántos lados tiene cada base?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "4"
+          },
+          {
+            "id": "c",
+            "texto": "9"
+          },
+          {
+            "id": "d",
+            "texto": "6"
+          }
+        ],
+        "pistas": [
+          "Las aristas forman tres grupos iguales.",
+          "Hay un grupo en cada base y otro de uniones.",
+          "Divide 18 entre 3."
+        ],
+        "retroalimentacion": "Cada base tiene 6 lados; 9 cuenta dos grupos de aristas."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una base pasa de 3 a 4 lados, el prisma correspondiente gana una cara, tres aristas y dos vértices.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las caras: 5 y 6.",
+          "Compara las aristas: 9 y 12.",
+          "Compara los vértices: 6 y 8."
+        ],
+        "retroalimentacion": "Es verdadero: las diferencias son 1 cara, 3 aristas y 2 vértices."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un prisma tiene 8 caras en total. ¿Cuántos vértices tienen sus dos bases juntas? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Quita las dos bases de las ocho caras.",
+          "Quedan seis laterales, una por lado de base.",
+          "Cada una de las dos bases tiene seis esquinas."
+        ],
+        "retroalimentacion": "Usar 8 como vértices confunde caras con esquinas; hay 12 vértices."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.capacidad-prismas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-P5-01"
+    ],
+    "bloque": "Prismas rectos",
+    "nombre": "Capacidad de prismas con cubos unidad",
+    "disciplina": "geometria",
+    "descripcionCorta": "Calcula cuántos cubos unidad llenan una caja contando capas.",
+    "palabrasClave": [
+      "prisma",
+      "cubos unidad",
+      "capas",
+      "capacidad"
+    ],
+    "prerrequisitos": [
+      "mat.p5.elementos-prismas"
+    ],
+    "ordenSugerido": 112,
+    "ideaCentral": "La capacidad de una caja con forma de prisma es la cantidad de cubos unidad que caben en su interior sin dejar huecos. Cuenta los cubos de una capa y multiplícalos por el número de capas.",
+    "pasos": [
+      "Cuenta cuántos cubos hay a lo largo y a lo ancho de la base.",
+      "Multiplica esos dos conteos para saber cuántos cubos forman una capa.",
+      "Cuenta las capas de abajo hacia arriba.",
+      "Multiplica los cubos de una capa por las capas y expresa la respuesta en cubos unidad."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una caja de útiles tiene 3 cubos de largo, 2 de ancho y 4 capas.",
+        "desarrollo": "Cada capa contiene 3 × 2 = 6 cubos; las 4 capas contienen 6 × 4 = 24.",
+        "respuesta": "Caben 24 cubos unidad."
+      },
+      {
+        "situacion": "Una cajita para bloques tiene 5 cubos por capa y 3 capas.",
+        "desarrollo": "Repito la misma capa tres veces: 5 + 5 + 5 = 15.",
+        "respuesta": "Caben 15 cubos unidad."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar solo los cubos visibles de arriba.",
+        "correccion": "También hay cubos en las capas que quedan debajo."
+      },
+      {
+        "error": "Sumar largo, ancho y capas.",
+        "correccion": "Cuenta los cubos de una capa con largo × ancho; luego multiplica por las capas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Cubo unidad",
+        "significado": "Bloque pequeño que se usa como unidad para llenar un prisma."
+      },
+      {
+        "termino": "Capa",
+        "significado": "Grupo de cubos que ocupa un mismo nivel de la caja."
+      },
+      {
+        "termino": "Capacidad",
+        "significado": "Cantidad de cubos unidad que llena el interior."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una caja tiene 4 cubos en cada capa y 2 capas. ¿Cuántos cubos unidad caben? Escribe solo el número.",
+        "respuesta": 8,
+        "pistas": [
+          "Identifica los 4 cubos de una capa.",
+          "Hay dos capas iguales: 4 + 4.",
+          "Multiplica 4 por 2."
+        ],
+        "retroalimentacion": "Contar solo una capa daría 4; las dos suman 8 cubos unidad.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "La base de una caja se cubre con 3 filas de 2 cubos. ¿Cuántos cubos hay en esa capa?",
+        "respuesta": "c",
+        "pistas": [
+          "Cada fila tiene 2 cubos.",
+          "Repite esos 2 cubos tres veces.",
+          "Calcula 3 × 2."
+        ],
+        "retroalimentacion": "Sumar 3 + 2 da 5, pero hay 3 filas de 2: la opción 6 es correcta.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "5"
+          },
+          {
+            "id": "c",
+            "texto": "6"
+          },
+          {
+            "id": "d",
+            "texto": "9"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una caja con 6 cubos por capa y una sola capa tiene capacidad de 6 cubos unidad.",
+        "respuesta": true,
+        "pistas": [
+          "La caja tiene un único nivel.",
+          "Todos los cubos caben en esa capa.",
+          "Con una capa, la capacidad coincide con los cubos de la capa."
+        ],
+        "retroalimentacion": "Es verdadero: 6 cubos en la única capa son 6 cubos unidad.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una cajita mide 2 cubos de largo y 3 de ancho; tiene una capa. ¿Cuántos cubos unidad la llenan? Escribe solo el número.",
+        "respuesta": 6,
+        "pistas": [
+          "Dibuja dos filas de tres cubos.",
+          "Una capa contiene 2 × 3 cubos.",
+          "Solo existe esa capa."
+        ],
+        "retroalimentacion": "Sumar lados daría 5; 2 × 3 = 6 cubos unidad.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una caja para tizas tiene base de 3 por 4 cubos y 2 capas. ¿Cuántos cubos unidad caben? Escribe solo el número.",
+        "respuesta": 24,
+        "pistas": [
+          "Primero cuenta la base de 3 por 4.",
+          "Cada capa tiene 12 cubos.",
+          "Duplica los 12 cubos de una capa."
+        ],
+        "retroalimentacion": "Quedarse en 12 ignora la segunda capa: 12 × 2 = 24.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja contiene 5 cubos en cada una de sus 4 capas. ¿Qué cálculo da su capacidad?",
+        "respuesta": "b",
+        "pistas": [
+          "Las capas son grupos iguales.",
+          "El grupo de 5 se repite 4 veces.",
+          "Busca la multiplicación 5 × 4."
+        ],
+        "retroalimentacion": "Sumar 5 + 4 no cuenta grupos: 5 × 4 = 20 cubos unidad.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 + 4 = 9"
+          },
+          {
+            "id": "b",
+            "texto": "5 × 4 = 20"
+          },
+          {
+            "id": "c",
+            "texto": "5 × 5 = 25"
+          },
+          {
+            "id": "d",
+            "texto": "4 × 4 = 16"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En una caja caben 18 cubos unidad repartidos en 3 capas iguales. ¿Cuántos cubos hay por capa? Escribe solo el número.",
+        "respuesta": "6",
+        "pistas": [
+          "Reparte los 18 cubos en tres grupos iguales.",
+          "Piensa qué número repetido tres veces suma 18.",
+          "Calcula 18 ÷ 3."
+        ],
+        "retroalimentacion": "No son 18 en cada capa: son 6, porque 6 × 3 = 18.",
+        "alternativasAceptadas": [
+          "seis"
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos cajas con 8 cubos por capa tienen igual capacidad aunque una tenga 2 capas y la otra 3.",
+        "respuesta": false,
+        "pistas": [
+          "La cantidad por capa sí es igual.",
+          "Compara 8 × 2 con 8 × 3.",
+          "Una guarda 16 cubos y la otra 24."
+        ],
+        "retroalimentacion": "Es falso: 16 y 24 cubos unidad son capacidades distintas.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una caja tiene base de 4 por 3 cubos y 5 capas, pero ya guarda 24 cubos. ¿Cuántos cubos unidad libres quedan? Escribe solo el número.",
+        "respuesta": 36,
+        "pistas": [
+          "Halla primero los cubos de una capa: 4 × 3.",
+          "Cinco capas guardan 60 cubos.",
+          "Quita los 24 cubos ya guardados de los 60."
+        ],
+        "retroalimentacion": "Olvidar los cubos ocupados da 60; quedan 60 − 24 = 36 lugares.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos cajas tienen la misma base de 2 por 6 cubos. La primera tiene 3 capas y la segunda 4. ¿Cuántos cubos unidad más caben en la segunda?",
+        "respuesta": "d",
+        "pistas": [
+          "Las bases iguales forman capas de 12 cubos.",
+          "La segunda tiene una capa adicional.",
+          "Esa capa extra admite 2 × 6 cubos."
+        ],
+        "retroalimentacion": "Comparar solo las alturas da 1; la capa extra aloja 12 cubos unidad.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1 cubo unidad"
+          },
+          {
+            "id": "b",
+            "texto": "4 cubos unidad"
+          },
+          {
+            "id": "c",
+            "texto": "6 cubos unidad"
+          },
+          {
+            "id": "d",
+            "texto": "12 cubos unidad"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Para llenar una caja se usan 48 cubos unidad. Si cada capa tiene 4 filas de 3 cubos, ¿cuántas capas se llenan? Escribe solo el número.",
+        "respuesta": 4,
+        "pistas": [
+          "Cuenta una capa con 4 × 3.",
+          "Cada capa necesita 12 cubos.",
+          "Divide 48 entre 12."
+        ],
+        "retroalimentacion": "Dividir entre 4 filas daría 12; las capas son 48 ÷ 12 = 4.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una caja de base 3 por 3 cubos y 2 capas puede guardar exactamente tantos cubos unidad como otra de base 3 por 2 y 3 capas.",
+        "respuesta": true,
+        "pistas": [
+          "Calcula primero la capacidad de la primera: 3 × 3 × 2.",
+          "La segunda tiene 3 × 2 cubos por capa.",
+          "Compara 18 con 6 × 3."
+        ],
+        "retroalimentacion": "Es verdadero: ambas cajas guardan 18 cubos unidad, aunque tengan bases y capas diferentes.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

@@ -1,0 +1,1898 @@
+[
+  {
+    "clave": "mat.p5.equivalencias-balanzas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P5-01"
+    ],
+    "bloque": "Ecuaciones",
+    "nombre": "Equivalencias con balanzas",
+    "disciplina": "algebra",
+    "descripcionCorta": "Representa con balanzas en equilibrio relaciones entre objetos de masa desconocida.",
+    "palabrasClave": [
+      "balanza",
+      "equilibrio",
+      "igualdad",
+      "masa desconocida",
+      "equivalencia"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 12,
+    "ideaCentral": "Una balanza equilibrada representa dos masas iguales. Puedes comparar sus platillos y quitar la misma masa de ambos sin perder el equilibrio.",
+    "pasos": [
+      "Dibuja o lee los objetos de cada platillo.",
+      "Escribe qué masas conocidas y desconocidas aparecen en cada lado.",
+      "Si la balanza está equilibrada, relaciona ambos lados con «igual a».",
+      "Para descubrir una masa, quita cantidades iguales de ambos platillos y comprueba."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En un puesto de Arequipa, una bolsa cerrada y una pesa de 2 kg equilibran una pesa de 7 kg. ¿Cuánto pesa la bolsa?",
+        "desarrollo": "Los platillos valen lo mismo. Quito 2 kg de ambos lados: bolsa = 7 - 2.",
+        "respuesta": "La bolsa pesa 5 kg."
+      },
+      {
+        "situacion": "Dos cajas iguales equilibran una pesa de 8 kg. ¿Cuánto pesa cada caja?",
+        "desarrollo": "Las cajas tienen la misma masa y juntas pesan 8 kg. Reparto 8 en dos partes iguales.",
+        "respuesta": "Cada caja pesa 4 kg."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Restar una pesa de un solo platillo y mantener el signo igual.",
+        "correccion": "Para conservar el equilibrio, quita la misma masa de ambos lados."
+      },
+      {
+        "error": "Suponer que cada objeto desconocido pesa todo lo que hay en el otro platillo.",
+        "correccion": "Si hay varias copias iguales, reparte la masa total entre ellas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Equilibrio",
+        "significado": "Estado en el que ambos platillos tienen igual masa."
+      },
+      {
+        "termino": "Equivalencia",
+        "significado": "Relación entre dos masas iguales."
+      },
+      {
+        "termino": "Masa desconocida",
+        "significado": "Peso de un objeto que aún no conocemos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una balanza horizontal con 3 kg a cada lado está equilibrada.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara ambos platillos.",
+          "El izquierdo marca 3 kg.",
+          "El derecho también marca 3 kg."
+        ],
+        "retroalimentacion": "Es verdadero: 3 kg y 3 kg son masas iguales."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un paquete cerrado equilibra una pesa de 6 kg. ¿Cuántos kg pesa el paquete? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La balanza está horizontal.",
+          "Las masas de ambos lados son iguales.",
+          "El paquete pesa tanto como la pesa de 6 kg."
+        ],
+        "retroalimentacion": "Si inventaste otro peso, recuerda el equilibrio: el paquete pesa 6 kg."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué representa una balanza en equilibrio con una caja a la izquierda y 4 kg a la derecha?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La caja pesa más de 4 kg"
+          },
+          {
+            "id": "b",
+            "texto": "La caja pesa 4 kg"
+          },
+          {
+            "id": "c",
+            "texto": "La caja pesa menos de 4 kg"
+          },
+          {
+            "id": "d",
+            "texto": "No se puede comparar"
+          }
+        ],
+        "pistas": [
+          "En equilibrio ambos platillos tienen igual masa.",
+          "El platillo derecho tiene 4 kg.",
+          "La caja del izquierdo debe igualar esos 4 kg."
+        ],
+        "retroalimentacion": "Que esté a la izquierda no cambia la masa: la caja pesa 4 kg."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Dos platillos tienen exactamente la misma masa. ¿Cómo se llama ese estado? Escribe una palabra.",
+        "respuesta": "equilibrio",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en una balanza que queda horizontal.",
+          "Ningún platillo baja más que el otro.",
+          "Ese estado se llama equilibrio."
+        ],
+        "retroalimentacion": "Una balanza de masas iguales está en equilibrio."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una bolsa y una pesa de 2 kg equilibran una pesa de 9 kg. ¿Cuántos kg pesa la bolsa? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos platillos tienen 9 kg.",
+          "Quita 2 kg de cada lado.",
+          "La bolsa vale 9 - 2 = 7 kg."
+        ],
+        "retroalimentacion": "Sumar la pesa adicional da demasiado: la bolsa pesa 7 kg."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "A la izquierda hay una caja y 3 kg; a la derecha, 8 kg. ¿Qué igualdad representa el equilibrio?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "caja = 3 + 8"
+          },
+          {
+            "id": "b",
+            "texto": "caja - 3 = 8"
+          },
+          {
+            "id": "c",
+            "texto": "caja + 3 = 8"
+          },
+          {
+            "id": "d",
+            "texto": "caja + 8 = 3"
+          }
+        ],
+        "pistas": [
+          "Anota todo lo que hay en el platillo izquierdo.",
+          "La caja y 3 kg están juntos.",
+          "El lado izquierdo iguala los 8 kg del derecho."
+        ],
+        "retroalimentacion": "Separar la pesa del lado equivocado falla: la igualdad es caja + 3 = 8."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una balanza está equilibrada, quitar 2 kg de cada platillo mantiene el equilibrio.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina que ambos lados pierden lo mismo.",
+          "La diferencia entre platillos sigue siendo cero.",
+          "Por eso el equilibrio se conserva."
+        ],
+        "retroalimentacion": "Es verdadero: quitar 2 kg a cada lado mantiene masas iguales."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Dos bolsas iguales equilibran 10 kg. ¿Cuántos kg pesa cada bolsa? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las dos bolsas juntas pesan 10 kg.",
+          "Tienen igual masa.",
+          "Reparte 10 kg entre 2 bolsas."
+        ],
+        "retroalimentacion": "Asignar 10 kg a cada una duplicaría la masa: cada bolsa pesa 5 kg."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Dos sacos iguales y una pesa de 2 kg equilibran 14 kg. ¿Cuántos kg pesa cada saco? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero separa la pesa conocida.",
+          "Los dos sacos suman 14 - 2 = 12 kg.",
+          "Divide 12 kg entre dos sacos iguales."
+        ],
+        "retroalimentacion": "Olvidar quitar los 2 kg da 7; cada saco pesa 6 kg."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una balanza equilibrada hay dos cajas iguales y 4 kg frente a 16 kg. ¿Qué acción permite hallar cada caja sin romper la igualdad?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Quitar 4 kg solo del lado de las cajas"
+          },
+          {
+            "id": "b",
+            "texto": "Dividir solo 16 kg entre dos"
+          },
+          {
+            "id": "c",
+            "texto": "Añadir 4 kg al lado de 16 kg"
+          },
+          {
+            "id": "d",
+            "texto": "Quitar 4 kg de ambos lados y repartir 12 kg entre dos"
+          }
+        ],
+        "pistas": [
+          "Las cajas comparten platillo con la pesa de 4 kg.",
+          "Quita primero esa pesa de ambos lados.",
+          "Quedan dos cajas frente a 12 kg; reparte esa masa."
+        ],
+        "retroalimentacion": "Restar de un solo platillo rompe el equilibrio; hay que quitar 4 kg de ambos lados y repartir 12 kg entre dos."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Tres paquetes iguales y 1 kg equilibran 10 kg. Cada paquete pesa 3 kg.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta la pesa de 1 kg del total.",
+          "Los tres paquetes suman 9 kg.",
+          "9 dividido entre 3 es 3 kg."
+        ],
+        "retroalimentacion": "Es verdadero: 3 paquetes de 3 kg y 1 kg suman 10 kg."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un canasto y dos pesas de 3 kg equilibran dos pesas de 5 kg. ¿Cuántos kg pesa el canasto? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la masa de cada grupo de pesas.",
+          "A la derecha hay 10 kg; las pesas izquierdas suman 6 kg.",
+          "El canasto pesa 10 - 6 kg."
+        ],
+        "retroalimentacion": "Restar solo una pesa da un resultado falso: el canasto pesa 4 kg."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.ecuaciones-simples",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-P5-03"
+    ],
+    "bloque": "Ecuaciones",
+    "nombre": "Ecuaciones simples (x + a = b)",
+    "disciplina": "algebra",
+    "descripcionCorta": "Interpreta la letra como un número desconocido que hace verdadera la igualdad.",
+    "palabrasClave": [
+      "ecuación",
+      "incógnita",
+      "igualdad",
+      "suma",
+      "comprobación"
+    ],
+    "prerrequisitos": [
+      "mat.p5.equivalencias-balanzas"
+    ],
+    "ordenSugerido": 13,
+    "ideaCentral": "En una ecuación como x + 4 = 9, la letra representa un número desconocido. Lo encuentras restando el sumando conocido y compruebas que la igualdad resulte verdadera.",
+    "pasos": [
+      "Identifica la letra y el número que se le suma.",
+      "Resta ese número al resultado del lado derecho.",
+      "Escribe el valor obtenido para la letra.",
+      "Sustituye la letra por el valor y comprueba la suma."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En la feria de Trujillo, una caja con x mandarinas más 3 mandarinas sueltas suma 11. ¿Cuánto vale x?",
+        "desarrollo": "La igualdad es x + 3 = 11. Calculo 11 - 3 = 8 y compruebo 8 + 3 = 11.",
+        "respuesta": "x vale 8."
+      },
+      {
+        "situacion": "Una niña juntó x figuritas y recibió 7 más; ahora tiene 15. ¿Qué número falta?",
+        "desarrollo": "Resuelvo x + 7 = 15 restando 15 - 7 = 8. La comprobación es 8 + 7 = 15.",
+        "respuesta": "La incógnita vale 8."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar el número conocido al total para hallar x.",
+        "correccion": "Si x más una cantidad da el total, resta esa cantidad al total."
+      },
+      {
+        "error": "Dar un valor sin comprobar la igualdad.",
+        "correccion": "Reemplaza x por tu respuesta y revisa que ambos lados sean iguales."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Ecuación",
+        "significado": "Igualdad con un número desconocido."
+      },
+      {
+        "termino": "Incógnita",
+        "significado": "Letra que representa el número por descubrir."
+      },
+      {
+        "termino": "Comprobar",
+        "significado": "Sustituir la letra y verificar que la igualdad sea cierta."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Si x + 2 = 7, ¿cuánto vale x? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el número que junto con 2 da 7.",
+          "Resta 2 a 7.",
+          "7 - 2 = 5; verifica 5 + 2 = 7."
+        ],
+        "retroalimentacion": "Sumar 7 y 2 no encuentra el faltante: x vale 5."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué valor hace verdadera la igualdad x + 4 = 10?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "10"
+          },
+          {
+            "id": "d",
+            "texto": "14"
+          }
+        ],
+        "pistas": [
+          "Resta el sumando conocido del total.",
+          "Calcula 10 - 4.",
+          "Prueba 6 + 4 = 10."
+        ],
+        "retroalimentacion": "Elegir 14 suma en vez de restar; el valor correcto es 6."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En y + 3 = 8, la letra y representa un número desconocido.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa qué símbolo no tiene valor escrito.",
+          "El 3 y el 8 son conocidos.",
+          "La letra y ocupa el lugar del número que falta."
+        ],
+        "retroalimentacion": "Es verdadero: y es la incógnita de esa ecuación."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La igualdad a + 5 = 5 se cumple cuando a vale ¿cuánto? Escribe solo el número.",
+        "respuesta": 0,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa qué número no cambia el 5 al sumarse.",
+          "Resta 5 - 5.",
+          "El resultado es 0; comprueba 0 + 5 = 5."
+        ],
+        "retroalimentacion": "Pensar que a debe ser 5 duplica el total; a vale 0."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En b + 9 = 21, halla b y escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 9 ya está incluido en 21.",
+          "Calcula 21 - 9.",
+          "12 + 9 = 21."
+        ],
+        "retroalimentacion": "Sumar 9 al 21 agranda la igualdad; b vale 12."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "¿Qué letra es la incógnita en m + 6 = 14? Escribe solo la letra.",
+        "respuesta": "m",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La incógnita es lo que todavía no conoces.",
+          "Los números 6 y 14 están dados.",
+          "La letra del primer término es m."
+        ],
+        "retroalimentacion": "El signo igual no es la incógnita; la letra desconocida es m."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un estudiante propone x = 7 para x + 8 = 15. ¿Qué comprobación demuestra que acertó?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7 + 8 = 14"
+          },
+          {
+            "id": "b",
+            "texto": "15 + 8 = 23"
+          },
+          {
+            "id": "c",
+            "texto": "7 + 8 = 15"
+          },
+          {
+            "id": "d",
+            "texto": "7 - 8 = 15"
+          }
+        ],
+        "pistas": [
+          "Sustituye x por el 7 propuesto.",
+          "La operación de la ecuación es suma.",
+          "Suma 7 y 8 y compara con 15."
+        ],
+        "retroalimentacion": "Restar cambia la ecuación; la comprobación correcta es 7 + 8 = 15."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El valor x = 6 hace verdadera la ecuación x + 7 = 12.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sustituye x por 6.",
+          "Calcula 6 + 7.",
+          "La suma es 13, distinta de 12."
+        ],
+        "retroalimentacion": "Es falso: 6 + 7 = 13; para 12, x debe ser 5."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Carmen dice que x + 6 = 17 y Pedro dice que x + 2 = 13. Si ambos usan el mismo x, ¿cuánto vale? Escribe solo el número.",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resuelve una ecuación y prueba en la otra.",
+          "17 - 6 = 11.",
+          "Comprueba que 11 + 2 = 13."
+        ],
+        "retroalimentacion": "Resolver solo una sin comprobar podría ocultar un error; x vale 11."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En x + 5 = 18, Sofía escribió x = 23. ¿Cuál corrección explica su error?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Debe sumar 18 + 5 otra vez"
+          },
+          {
+            "id": "b",
+            "texto": "Debe usar x = 18 porque 5 desaparece"
+          },
+          {
+            "id": "c",
+            "texto": "Debe dividir 18 entre 5"
+          },
+          {
+            "id": "d",
+            "texto": "Debe restar 18 - 5 y comprobar 13 + 5 = 18"
+          }
+        ],
+        "pistas": [
+          "23 sale de sumar 18 + 5.",
+          "El 5 ya forma parte del total 18.",
+          "Resta 5 y comprueba con la suma original."
+        ],
+        "retroalimentacion": "Sofía sumó el total y el sumando; debe restar 18 - 5 y comprobar 13 + 5 = 18."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Si p + 4 = 13 y q + p = 20, ¿cuánto vale q? Escribe solo el número.",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Encuentra primero p.",
+          "De p + 4 = 13 resulta p = 9.",
+          "Luego q + 9 = 20; resta 20 - 9."
+        ],
+        "retroalimentacion": "Usar 13 como p confunde total e incógnita: q vale 11."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si z + 9 = 24, entonces z = 15 y al reemplazarla se obtiene 15 + 9 = 24.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el valor que falta en 9 + algo = 24.",
+          "24 - 9 = 15.",
+          "Verifica que 15 + 9 da 24."
+        ],
+        "retroalimentacion": "Es verdadero: z vale 15 y la sustitución mantiene la igualdad."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.plantear-ecuaciones",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P5-01"
+    ],
+    "bloque": "Ecuaciones",
+    "nombre": "Planteamiento de ecuaciones a partir de problemas",
+    "disciplina": "algebra",
+    "descripcionCorta": "Traduce una situación con un valor desconocido a una ecuación con una letra.",
+    "palabrasClave": [
+      "plantear ecuación",
+      "dato desconocido",
+      "letra",
+      "situación",
+      "igualdad"
+    ],
+    "prerrequisitos": [
+      "mat.p5.ecuaciones-simples"
+    ],
+    "ordenSugerido": 44,
+    "ideaCentral": "Puedes representar una situación con un valor desconocido usando una letra y una igualdad. La ecuación debe conservar qué se agrega, qué se quita y cuál es el total descrito.",
+    "pasos": [
+      "Lee el problema y decide qué cantidad no conoces.",
+      "Asigna una letra a esa cantidad.",
+      "Reconoce la operación que relaciona los datos.",
+      "Escribe la igualdad y verifica que cada término represente lo dicho."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una biblioteca de Lima había x libros y llegaron 5; ahora hay 18. ¿Qué ecuación representa la historia?",
+        "desarrollo": "x representa los libros iniciales. Llegaron 5, así que se suman; el total final es 18.",
+        "respuesta": "x + 5 = 18."
+      },
+      {
+        "situacion": "Un puesto vendió 4 panes de una canasta con p panes y quedaron 9. ¿Cómo se plantea?",
+        "desarrollo": "p es la cantidad inicial. Vender 4 la reduce; quedan 9.",
+        "respuesta": "p - 4 = 9."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Poner el total como la letra aunque el problema dice cuál es.",
+        "correccion": "La letra representa solo la cantidad que no se conoce."
+      },
+      {
+        "error": "Usar suma cuando la historia dice que se retiraron objetos.",
+        "correccion": "Identifica si la cantidad crece o disminuye antes de escribir la operación."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Plantear",
+        "significado": "Traducir los datos del problema a una igualdad."
+      },
+      {
+        "termino": "Variable",
+        "significado": "Letra que representa una cantidad que no conocemos."
+      },
+      {
+        "termino": "Término",
+        "significado": "Cada cantidad o letra que interviene en la ecuación."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Lucía tenía x lápices y recibió 3 más; ahora tiene 10. ¿Qué ecuación expresa la historia?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x - 3 = 10"
+          },
+          {
+            "id": "b",
+            "texto": "x + 3 = 10"
+          },
+          {
+            "id": "c",
+            "texto": "3 - x = 10"
+          },
+          {
+            "id": "d",
+            "texto": "x + 10 = 3"
+          }
+        ],
+        "pistas": [
+          "x representa los lápices iniciales.",
+          "Recibir 3 aumenta la cantidad.",
+          "La suma de x y 3 debe ser 10."
+        ],
+        "retroalimentacion": "Usar resta describe perder lápices; la ecuación es x + 3 = 10."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un cuaderno cuesta x soles y un lapicero 2 soles, pagar 7 soles por ambos se representa con x + 2 = 7.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Relaciona el costo de los dos objetos.",
+          "Se pagan x soles y 2 soles juntos.",
+          "La suma de ambos costos es el pago total de 7."
+        ],
+        "retroalimentacion": "Es verdadero: x + 2 = 7 representa ambos costos y el total."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una caja tiene n naranjas; se agregan 4 y ahora hay 12. Escribe la ecuación con n, sin espacios.",
+        "respuesta": "n+4=12",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "n es la cantidad inicial.",
+          "Agregar 4 indica sumar.",
+          "El resultado final de n + 4 es 12."
+        ],
+        "retroalimentacion": "Restar representaría quitar naranjas; la ecuación es n+4=12."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "A una bolsa con m canicas le quitan 2 y quedan 6. ¿Cuál igualdad corresponde?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "m - 2 = 6"
+          },
+          {
+            "id": "b",
+            "texto": "m + 2 = 6"
+          },
+          {
+            "id": "c",
+            "texto": "2 - m = 6"
+          },
+          {
+            "id": "d",
+            "texto": "m - 6 = 2"
+          }
+        ],
+        "pistas": [
+          "m representa lo que había al comienzo.",
+          "Quitar 2 disminuye el contenido.",
+          "Después de quitar 2, el resultado es 6."
+        ],
+        "retroalimentacion": "Sumar describiría agregar canicas; corresponde m - 2 = 6."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si se reparten por igual 18 galletas entre x niñas y cada una recibe 3, la situación se representa con 18 ÷ x = 3.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica el total y el número de participantes.",
+          "18 galletas se dividen entre x niñas.",
+          "El resultado por niña es 3."
+        ],
+        "retroalimentacion": "Es verdadero: 18 ÷ x = 3 expresa el reparto."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una feria, cuatro entradas del mismo precio p cuestan 20 soles en total. ¿Qué ecuación lo representa?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "p + 4 = 20"
+          },
+          {
+            "id": "b",
+            "texto": "20p = 4"
+          },
+          {
+            "id": "c",
+            "texto": "4p = 20"
+          },
+          {
+            "id": "d",
+            "texto": "p - 4 = 20"
+          }
+        ],
+        "pistas": [
+          "p es el costo de una entrada.",
+          "Hay cuatro costos iguales.",
+          "Multiplica 4 por p para obtener 20."
+        ],
+        "retroalimentacion": "Sumar 4 a un precio no representa cuatro entradas; la ecuación es 4p = 20."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El doble de una cantidad x más 3 es 13. Escribe la ecuación con x, sin espacios.",
+        "respuesta": "2x+3=13",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El doble de x se escribe 2x.",
+          "A ese doble se suman 3.",
+          "La suma resultante es 13."
+        ],
+        "retroalimentacion": "No dupliques el 3: la ecuación es 2x+3=13."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un bus tenía 25 pasajeros; bajaron b y quedaron 17. ¿Qué ecuación conserva el orden de la historia?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "b - 25 = 17"
+          },
+          {
+            "id": "b",
+            "texto": "25 + b = 17"
+          },
+          {
+            "id": "c",
+            "texto": "17 - b = 25"
+          },
+          {
+            "id": "d",
+            "texto": "25 - b = 17"
+          }
+        ],
+        "pistas": [
+          "La cantidad inicial conocida es 25.",
+          "Bajar pasajeros exige una resta.",
+          "Se resta b de 25 y quedan 17."
+        ],
+        "retroalimentacion": "Cambiar el orden de la resta altera la historia; corresponde 25 - b = 17."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una familia compra 3 panes a p soles cada uno y un jugo de 4 soles; paga 10 soles. La ecuación 3(p + 4) = 10 representa la compra.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Distingue cuántos panes y cuántos jugos compraron.",
+          "El factor 3 multiplica solo el precio de los panes.",
+          "El jugo se suma una sola vez: 3p + 4 = 10."
+        ],
+        "retroalimentacion": "Es falso: 3(p + 4) cobraría tres jugos; la ecuación correcta es 3p + 4 = 10."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Marta tenía a figuritas, regaló 5 y luego ganó 2; terminó con 11. ¿Qué ecuación sigue esos cambios?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "a - 5 + 2 = 11"
+          },
+          {
+            "id": "b",
+            "texto": "a + 5 - 2 = 11"
+          },
+          {
+            "id": "c",
+            "texto": "a - 5 - 2 = 11"
+          },
+          {
+            "id": "d",
+            "texto": "11 - 5 + 2 = a"
+          }
+        ],
+        "pistas": [
+          "Empieza con a figuritas.",
+          "Regalar 5 resta; ganar 2 suma.",
+          "Después de ambos cambios, el total es 11."
+        ],
+        "retroalimentacion": "Invertir los cambios altera el relato; la igualdad es a - 5 + 2 = 11."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una cuerda de c metros se corta en 3 partes iguales. Cada parte mide 4 metros. Escribe la ecuación con c, sin espacios.",
+        "respuesta": "c/3=4",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "c es la longitud completa.",
+          "Tres partes iguales significan dividir c entre 3.",
+          "Cada parte mide 4: c/3 debe ser 4."
+        ],
+        "retroalimentacion": "Multiplicar c por 3 daría tres cuerdas completas; la ecuación es c/3=4."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tres hermanos reúnen sus ahorros: Ana tiene x soles, Beto tiene el doble y Carla tiene 5 soles. Juntos tienen 20. ¿Qué igualdad corresponde?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x + 2 + 5 = 20"
+          },
+          {
+            "id": "b",
+            "texto": "2x + 5 = 20"
+          },
+          {
+            "id": "c",
+            "texto": "x + 2x + 5 = 20"
+          },
+          {
+            "id": "d",
+            "texto": "x + 2x + 20 = 5"
+          }
+        ],
+        "pistas": [
+          "Anota el aporte de cada hermano por separado.",
+          "Ana aporta x; Beto, 2x; Carla, 5.",
+          "La suma de los tres aportes da 20."
+        ],
+        "retroalimentacion": "Omitir los ahorros de Ana reduce el total; la ecuación es x + 2x + 5 = 20."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.ecuaciones-aditivas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-P5-04"
+    ],
+    "bloque": "Ecuaciones",
+    "nombre": "Ecuaciones aditivas: x + a = b y x − a = b",
+    "disciplina": "algebra",
+    "descripcionCorta": "Halla la incógnita sumando o restando el mismo número en ambos lados.",
+    "palabrasClave": [
+      "ecuación aditiva",
+      "incógnita",
+      "operación inversa",
+      "despejar incógnita",
+      "igualdad"
+    ],
+    "prerrequisitos": [
+      "mat.p5.ecuaciones-simples"
+    ],
+    "ordenSugerido": 45,
+    "ideaCentral": "Una ecuación aditiva representa una balanza en equilibrio con una cantidad desconocida. Para despejar la incógnita y mantener la igualdad, aplicas la operación contraria en ambos miembros.",
+    "pasos": [
+      "Identifica el término numérico que acompaña a la incógnita y su signo.",
+      "Aplica la operación inversa en los dos lados de la igualdad (si suma, resta; si resta, suma).",
+      "Calcula las operaciones aritméticas para encontrar el valor de la letra.",
+      "Sustituye el valor hallado en la ecuación original para verificar que la igualdad se cumpla."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Mariana tenía x bolsas de quinua en su puesto de Huancayo. Vendió 18 bolsas y ahora le quedan 27 bolsas (x − 18 = 27). ¿Cuántas bolsas tenía al inicio?",
+        "desarrollo": "Para anular la resta de 18, sumamos 18 en ambos lados de la igualdad: x − 18 + 18 = 27 + 18. Obtenemos x = 45.",
+        "respuesta": "Al inicio tenía 45 bolsas de quinua."
+      },
+      {
+        "situacion": "En el mercado de Surquillo, una canasta con tunas pesa p kilogramos. Se agregan 14 kg de papayas y la balanza marca 32 kg en total (p + 14 = 32). ¿Cuánto pesa la canasta de tunas?",
+        "desarrollo": "Para despejar p, restamos 14 en ambos lados: p + 14 − 14 = 32 − 14. Así, p = 18.",
+        "respuesta": "La canasta de tunas pesa 18 kg."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar en lugar de restar cuando la incógnita tiene una suma (por ejemplo, en x + 15 = 40 hacer x = 40 + 15).",
+        "correccion": "La suma se deshace restando la misma cantidad en ambos miembros para mantener la igualdad."
+      },
+      {
+        "error": "Modificar solo uno de los lados de la ecuación, desbalanceando la igualdad.",
+        "correccion": "Cualquier suma o resta que apliques a la izquierda debes aplicarla exactamente igual a la derecha."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Incógnita",
+        "significado": "Valor desconocido que se busca determinar y se representa con una letra."
+      },
+      {
+        "termino": "Despejar",
+        "significado": "Aislar la incógnita a un lado de la igualdad mediante operaciones inversas."
+      },
+      {
+        "termino": "Operación inversa",
+        "significado": "Operación matemática que anula el efecto de otra; la resta anula la suma."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Resuelve la siguiente ecuación aditiva: x + 23 = 50. Escribe solo el número que representa el valor de x.",
+        "respuesta": 27,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa que al número x se le están sumando 23 unidades para llegar a 50.",
+          "Deshaz esa suma restando 23 en el miembro derecho: 50 − 23.",
+          "Efectúa la resta prestando de las decenas: 50 menos 23 da el resultado final."
+        ],
+        "retroalimentacion": "Al restar 23 en ambos miembros obtenemos x = 50 − 23 = 27."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué acción debes realizar en ambos lados de la igualdad para despejar la letra y en la ecuación y − 16 = 34?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sumar 16"
+          },
+          {
+            "id": "b",
+            "texto": "Restar 16"
+          },
+          {
+            "id": "c",
+            "texto": "Sumar 34"
+          },
+          {
+            "id": "d",
+            "texto": "Restar 34"
+          }
+        ],
+        "pistas": [
+          "Fíjate en el signo que precede al número 16 en el miembro izquierdo.",
+          "La operación que acompaña a la letra y es una sustracción de 16.",
+          "Para anular una resta de 16 debes aplicar su operación opuesta, que es la adición."
+        ],
+        "retroalimentacion": "Como 16 está restando a la incógnita, para despejarla se debe sumar 16 en ambos lados."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la ecuación aditiva m + 40 = 95, el valor numérico de m es igual a 55.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta 40 al número 95 para despejar la incógnita m.",
+          "Comprueba sumando: reemplaza m por 55 y calcula 55 + 40.",
+          "Verifica si la suma calculada coincide exactamente con 95."
+        ],
+        "retroalimentacion": "Es verdadero porque al restar 95 − 40 obtenemos m = 55, y se verifica que 55 + 40 = 95."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "A una cantidad desconocida z se le disminuyen 12 unidades y se obtiene como resultado 28 (z − 12 = 28). ¿Cuál es el valor de z?",
+        "respuesta": "40",
+        "alternativasAceptadas": [
+          "40",
+          "z = 40",
+          "z=40"
+        ],
+        "pistas": [
+          "La expresión z − 12 = 28 indica que z era mayor que 28 antes de la disminución.",
+          "Aplica la operación inversa sumando 12 a 28.",
+          "Suma las unidades: 8 + 2 = 10, y luego añade las decenas."
+        ],
+        "retroalimentacion": "Despejamos sumando 12 en ambos miembros: z = 28 + 12 = 40."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un depósito de granos en Cusco, un saco de maíz amarillo más una tara de 74 kg equilibra exactamente una carga de 160 kg (b + 74 = 160). ¿Cuántos kilogramos pesa el saco b? Escribe solo el número.",
+        "respuesta": 86,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El peso total de 160 kg incluye los 74 kg adicionales y el peso del saco b.",
+          "Para encontrar b, realiza la sustracción 160 − 74.",
+          "Resta primero 70 a 160 (queda 90) y luego resta las 4 unidades restantes."
+        ],
+        "retroalimentacion": "Efectuando la operación inversa tenemos b = 160 − 74 = 86 kilogramos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Determina el valor de la incógnita k que satisface la ecuación k − 45 = 128.",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "83"
+          },
+          {
+            "id": "b",
+            "texto": "173"
+          },
+          {
+            "id": "c",
+            "texto": "163"
+          },
+          {
+            "id": "d",
+            "texto": "183"
+          }
+        ],
+        "pistas": [
+          "El término 45 está restando en el lado de la incógnita k.",
+          "Despeja la letra k sumando 45 al número 128.",
+          "Calcula la suma con canje: 8 + 5 = 13 (llevas 1), 2 + 4 + 1 = 7, y la centena 1."
+        ],
+        "retroalimentacion": "Al aplicar la suma inversa obtenemos k = 128 + 45 = 173."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La solución de la ecuación 85 + w = 142 es w = 67.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Despeja la incógnita w restando 85 al número 142.",
+          "Calcula cuidadosamente 142 − 85 haciendo los canjes necesarios.",
+          "Comprueba si 85 + 67 da 142 o si supera esa cantidad."
+        ],
+        "retroalimentacion": "Es falso porque 142 − 85 = 57; si sumamos 85 + 67 obtenemos 152, no 142."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Don Tomás pagó S/ 68 por herramientas agrícolas y le quedaron S/ 152 de su presupuesto inicial d (d − 68 = 152). ¿Cuántos soles tenía Don Tomás al inicio?",
+        "respuesta": "220",
+        "alternativasAceptadas": [
+          "220",
+          "220 soles",
+          "S/ 220",
+          "d = 220"
+        ],
+        "pistas": [
+          "La cantidad inicial d debe ser igual a lo que gastó más lo que le sobró.",
+          "Suma 68 a 152 para hallar el valor de la incógnita d.",
+          "Calcula: 152 + 68 sumando primero las unidades (2 + 8 = 10)."
+        ],
+        "retroalimentacion": "Sumando en ambos lados: d = 152 + 68 = 220 soles."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un vivero de Tarapoto, la cantidad de plantones x cumple la igualdad x + 58 + 42 = 230. ¿Cuál es el valor numérico de x? Escribe solo el número.",
+        "respuesta": 130,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Agrupa primero los dos números conocidos que suman en el lado izquierdo: 58 + 42.",
+          "La suma 58 + 42 es exactamente igual a 100, dejando la ecuación como x + 100 = 230.",
+          "Despeja x restando 100 al total 230."
+        ],
+        "retroalimentacion": "Al asociar los términos conocidos tenemos x + 100 = 230; restando 100 obtenemos x = 130."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se conoce que la incógnita m satisface m − 36 = 114. ¿Cuál de las siguientes afirmaciones describe de manera exacta el valor de m?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "m es un número menor que 100"
+          },
+          {
+            "id": "b",
+            "texto": "m es un número impar"
+          },
+          {
+            "id": "c",
+            "texto": "m es igual a 150"
+          },
+          {
+            "id": "d",
+            "texto": "m es igual a 78"
+          }
+        ],
+        "pistas": [
+          "Despeja m sumando 36 a 114.",
+          "Calcula: 114 + 36 sumando 4 + 6 = 10 en las unidades.",
+          "El resultado de 114 + 36 termina en cero y es una centena y media exacta."
+        ],
+        "retroalimentacion": "Al despejar la incógnita sumando 36 se obtiene m = 114 + 36 = 150."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos balanzas marcan las ecuaciones a + 95 = 210 y b − 40 = 75, entonces el valor de a es exactamente igual al valor de b.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el valor de a restando: 210 − 95.",
+          "Calcula el valor de b sumando: 75 + 40.",
+          "Compara ambos resultados: comprueba si 115 es el resultado de ambas ecuaciones."
+        ],
+        "retroalimentacion": "Es verdadero porque a = 210 − 95 = 115 y b = 75 + 40 = 115; ambos valores son iguales."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un fondo escolar en Arequipa reunió cierta cantidad de dinero c. Tras recibir una donación de S/ 245 y pagar S/ 110 por transporte, disponen de S/ 680 (c + 245 − 110 = 680). ¿Cuántos soles representaba el fondo inicial c?",
+        "respuesta": "545",
+        "alternativasAceptadas": [
+          "545",
+          "545 soles",
+          "S/ 545",
+          "c = 545"
+        ],
+        "pistas": [
+          "Simplifica primero los números del lado izquierdo calculando 245 − 110.",
+          "La diferencia es 135, por lo que la ecuación se reduce a c + 135 = 680.",
+          "Resta 135 a 680 para hallar el valor inicial de c."
+        ],
+        "retroalimentacion": "Reduciendo términos queda c + 135 = 680; luego restamos c = 680 − 135 = 545 soles."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.ecuaciones-multiplicativas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-P5-04"
+    ],
+    "bloque": "Ecuaciones",
+    "nombre": "Ecuaciones multiplicativas: a × x = b",
+    "disciplina": "algebra",
+    "descripcionCorta": "Halla la incógnita dividiendo ambos lados entre el mismo número.",
+    "palabrasClave": [
+      "ecuación multiplicativa",
+      "coeficiente",
+      "división",
+      "despejar incógnita",
+      "igualdad"
+    ],
+    "prerrequisitos": [
+      "mat.p5.ecuaciones-aditivas"
+    ],
+    "ordenSugerido": 46,
+    "ideaCentral": "En una ecuación multiplicativa, la incógnita está multiplicada por un número conocido. Para despejar la incógnita y mantener la balanza equilibrada, divides ambos miembros entre ese mismo número.",
+    "pasos": [
+      "Identifica el coeficiente numérico que multiplica a la incógnita.",
+      "Aplica la operación inversa dividiendo ambos miembros de la ecuación entre ese coeficiente.",
+      "Calcula la división resultante para obtener el valor numérico de la letra.",
+      "Comprueba el resultado multiplicando el valor obtenido por el coeficiente inicial."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una panadería de Piura empaquetan alfajores en 6 cajas idénticas con x alfajores cada una. Si en total empaquetaron 72 alfajores (6 × x = 72), ¿cuántos alfajores hay en cada caja?",
+        "desarrollo": "Para despejar x, dividimos ambos lados de la igualdad entre 6: (6 × x) ÷ 6 = 72 ÷ 6. Obtenemos x = 12.",
+        "respuesta": "Cada caja contiene 12 alfajores."
+      },
+      {
+        "situacion": "Cuatro amigos de Trujillo compraron un regalo que costó S/ 140 en partes exactamente iguales (4 × y = 140). ¿Cuántos soles aportó cada amigo?",
+        "desarrollo": "Dividimos ambos lados entre 4: y = 140 ÷ 4. Al dividir 140 entre 4 obtenemos 35.",
+        "respuesta": "Cada amigo aportó S/ 35."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Restar en vez de dividir para despejar (por ejemplo, en 5 × x = 30 hacer x = 30 − 5).",
+        "correccion": "La operación contraria de multiplicar es dividir; debes dividir entre 5 a ambos lados."
+      },
+      {
+        "error": "Dividir entre la incógnita en lugar de dividir entre el número que la multiplica.",
+        "correccion": "Debes dividir ambos miembros entre el coeficiente numérico para dejar la letra aislada."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Coeficiente",
+        "significado": "Número constante que multiplica directamente a la variable o incógnita."
+      },
+      {
+        "termino": "Operación inversa",
+        "significado": "Operación que deshace el efecto de otra; la división deshace a la multiplicación."
+      },
+      {
+        "termino": "Solución",
+        "significado": "Valor que hace que una ecuación se convierta en una igualdad numérica verdadera."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Encuentra el valor de la incógnita x en la ecuación multiplicativa: 7 × x = 56. Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda qué número multiplicado por 7 da como resultado 56.",
+          "Aplica la operación inversa dividiendo 56 entre 7.",
+          "Consulta la tabla del 7: 7 × 7 = 49, suma 7 más para llegar a 56."
+        ],
+        "retroalimentacion": "Dividiendo ambos miembros entre 7 tenemos x = 56 ÷ 7 = 8."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el procedimiento adecuado para despejar la incógnita en la ecuación 9 × y = 108?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Restar 9 a ambos lados de la igualdad"
+          },
+          {
+            "id": "b",
+            "texto": "Sumar 9 a ambos lados de la igualdad"
+          },
+          {
+            "id": "c",
+            "texto": "Dividir ambos lados de la igualdad entre 9"
+          },
+          {
+            "id": "d",
+            "texto": "Multiplicar ambos lados de la igualdad por 9"
+          }
+        ],
+        "pistas": [
+          "La letra y está afectada por una multiplicación por 9.",
+          "Para aislar la incógnita y dejarla con coeficiente 1 se debe usar la operación inversa.",
+          "La operación inversa de la multiplicación es la división."
+        ],
+        "retroalimentacion": "Como 9 multiplica a la incógnita, se debe dividir entre 9 en ambos lados de la igualdad."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si se resuelve la ecuación 4 × m = 48, el valor de m es 12.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Efectúa la división de 48 entre 4 para despejar m.",
+          "Divide las decenas: 4 ÷ 4 = 1 decena; divide las unidades: 8 ÷ 4 = 2 unidades.",
+          "Verifica multiplicando: 4 × 12 = 48."
+        ],
+        "retroalimentacion": "Es verdadero porque 48 ÷ 4 = 12 y se confirma que 4 × 12 = 48."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una comerciante colocó k manzanas en 5 bolsas con la misma cantidad cada una. Si en total embolsó 45 manzanas (5 × k = 45), ¿cuántas manzanas k puso en cada bolsa?",
+        "respuesta": "9",
+        "alternativasAceptadas": [
+          "9",
+          "9 manzanas",
+          "k = 9",
+          "k=9"
+        ],
+        "pistas": [
+          "Reparte las 45 manzanas en partes iguales entre las 5 bolsas.",
+          "Calcula el cociente de 45 dividido entre 5.",
+          "Piensa en la tabla del 5: 5 por qué número da 45."
+        ],
+        "retroalimentacion": "Dividiendo 45 entre 5 obtenemos k = 9 manzanas por bolsa."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un taller de artesanía textil en Ayacucho se usan 8 ovillos de lana para tejer cada manta. Si en un pedido se utilizaron 192 ovillos en total (8 × w = 192), ¿cuántas mantas w se elaboraron? Escribe solo el número.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Plantea la división de 192 ovillos entre los 8 que requiere cada manta.",
+          "Divide primero 19 entre 8: da 2 y sobran 3 decenas.",
+          "Junta las 3 decenas con el 2 para formar 32, y divide 32 entre 8."
+        ],
+        "retroalimentacion": "Al dividir 192 entre 8 obtenemos exactamente w = 24 mantas elaboradas."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al resolver la ecuación multiplicativa 12 × p = 180, ¿qué número representa el valor de p?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12"
+          },
+          {
+            "id": "b",
+            "texto": "15"
+          },
+          {
+            "id": "c",
+            "texto": "18"
+          },
+          {
+            "id": "d",
+            "texto": "20"
+          }
+        ],
+        "pistas": [
+          "Despeja la incógnita p calculando 180 dividido entre 12.",
+          "Divide 18 entre 12: cabe 1 vez y sobran 6.",
+          "Baja el cero formando 60: 60 dividido entre 12 es 5."
+        ],
+        "retroalimentacion": "Efectuando la división 180 ÷ 12 obtenemos p = 15."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La solución de la ecuación 6 × z = 156 es z = 24.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el cociente exacto de 156 entre 6.",
+          "Divide 15 entre 6: cabe 2 veces (12) y sobran 3.",
+          "Al bajar el 6 queda 36; 36 entre 6 resulta 6, formando 26 y no 24."
+        ],
+        "retroalimentacion": "Es falso porque 156 ÷ 6 = 26; si multiplicamos 6 × 24 obtenemos 144, no 156."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un agricultor en Cañete distribuyó sacos de camote en lotes iguales. La ecuación que modela el peso total es 15 × n = 150. ¿Qué valor toma n?",
+        "respuesta": "10",
+        "alternativasAceptadas": [
+          "10",
+          "n = 10",
+          "n=10"
+        ],
+        "pistas": [
+          "Divide el total 150 entre el coeficiente 15.",
+          "Observa que 150 es 15 seguido de un cero.",
+          "Todo número multiplicado por 10 añade un cero a su derecha."
+        ],
+        "retroalimentacion": "Dividiendo 150 entre 15 obtenemos n = 10."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un almacén de Quillabamba hay 3 cajas idénticas con b barras de chocolate cada una y un paquete suelto de 10 barras, sumando 100 barras en total (3 × b + 10 = 100). Primero se resta 10 a 100 obteniendo 3 × b = 90. ¿Cuántas barras b tiene cada caja? Escribe solo el número.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La ecuación multiplicativa resultante para las 3 cajas es 3 × b = 90.",
+          "Despeja b dividiendo 90 entre 3.",
+          "Calcula: 9 decenas divididas entre 3 dan 3 decenas completas."
+        ],
+        "retroalimentacion": "Al dividir 90 entre 3 obtenemos b = 30 barras por caja."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una librería de Tacna, 4 cuadernos cuestan S/ 36 (4 × p = 36), lo que indica que cada cuaderno cuesta S/ 9. Si otro cliente gastó S/ 72 comprando c cuadernos al mismo precio unitario (9 × c = 72), ¿cuántos cuadernos c compró?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6 cuadernos"
+          },
+          {
+            "id": "b",
+            "texto": "7 cuadernos"
+          },
+          {
+            "id": "c",
+            "texto": "8 cuadernos"
+          },
+          {
+            "id": "d",
+            "texto": "9 cuadernos"
+          }
+        ],
+        "pistas": [
+          "Debes resolver la ecuación 9 × c = 72 dividiendo el gasto total entre el precio de cada cuaderno.",
+          "Divide 72 entre 9 para hallar la cantidad c de cuadernos.",
+          "Revisa la tabla del 9: 9 × 8 = 72."
+        ],
+        "retroalimentacion": "Dividiendo 72 entre 9 encontramos que el cliente compró 8 cuadernos."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos ecuaciones distintas son 8 × u = 200 y 5 × v = 125, entonces el valor de u es exactamente igual al valor de v.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el valor de u dividiendo 200 entre 8.",
+          "Calcula el valor de v dividiendo 125 entre 5.",
+          "Comprueba si ambos cocientes resultan ser 25."
+        ],
+        "retroalimentacion": "Es verdadero porque 200 ÷ 8 = 25 y 125 ÷ 5 = 25; ambas incógnitas valen 25."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un minibus realiza 7 viajes diarios transportando su capacidad completa de p pasajeros. En 4 días completos trasladó 560 pasajeros. Si cada día trasladó 140 pasajeros (7 × p = 140), ¿cuántos pasajeros p entran en cada viaje?",
+        "respuesta": "20",
+        "alternativasAceptadas": [
+          "20",
+          "20 pasajeros",
+          "p = 20",
+          "p=20"
+        ],
+        "pistas": [
+          "Plantea la ecuación 7 × p = 140 para los 7 viajes de una jornada.",
+          "Divide 140 entre 7 para despejar la capacidad p.",
+          "Calcula: 14 decenas entre 7 son 2 decenas."
+        ],
+        "retroalimentacion": "Dividiendo 140 entre 7 obtenemos p = 20 pasajeros por viaje."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.comprobar-solucion-ecuacion",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 24,
+    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+    "desempenosOrigen": [
+      "MAT-C24-P5-05"
+    ],
+    "bloque": "Ecuaciones",
+    "nombre": "Comprobación de la solución de ecuaciones de un paso",
+    "disciplina": "algebra",
+    "descripcionCorta": "Sustituye el valor hallado y justifica con las propiedades de la igualdad.",
+    "palabrasClave": [
+      "comprobación",
+      "sustitución",
+      "igualdad numérica",
+      "verificación",
+      "solución verdadera"
+    ],
+    "prerrequisitos": [
+      "mat.p5.ecuaciones-multiplicativas"
+    ],
+    "ordenSugerido": 81,
+    "ideaCentral": "Comprobar la solución de una ecuación consiste en sustituir la incógnita por el valor encontrado y realizar los cálculos. Si ambos miembros resultan con el mismo valor numérico, la solución queda justificada.",
+    "pasos": [
+      "Escribe la ecuación original tal como fue planteada.",
+      "Sustituye la letra de la incógnita por el valor numérico obtenido.",
+      "Resuelve las operaciones indicadas en el miembro que contenía la letra.",
+      "Compara el resultado con el otro miembro: si los valores son idénticos, la solución es correcta."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Carlos resolvió la ecuación x + 28 = 75 y obtuvo x = 47. ¿Cómo comprueba si su respuesta es correcta?",
+        "desarrollo": "Sustituye 47 en el lugar de x en la ecuación original: 47 + 28. Realiza la suma: 47 + 28 = 75. Como 75 es igual a 75, la igualdad se cumple.",
+        "respuesta": "La solución x = 47 es correcta porque cumple la igualdad."
+      },
+      {
+        "situacion": "En una faena pesquera en Chimbote se planteó 6 × y = 138 y se propuso que y = 24. ¿Es 24 la solución válida?",
+        "desarrollo": "Sustituimos y por 24 en el primer miembro: 6 × 24. Al calcular: 6 × 20 = 120 y 6 × 4 = 24, dando 144. Como 144 no es igual a 138, la igualdad no se cumple.",
+        "respuesta": "El número 24 no es solución porque 6 × 24 da 144 y no 138."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Comprobar el resultado en una ecuación intermedia donde ya se cometió un error de cálculo.",
+        "correccion": "Siempre se debe sustituir en la ecuación original inicial para garantizar la validez."
+      },
+      {
+        "error": "Asumir que la solución es correcta sin calcular efectivamente el valor numérico de ambos miembros.",
+        "correccion": "Debes resolver completamente las operaciones aritméticas y confirmar que ambos lados dan el mismo número."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Sustituir",
+        "significado": "Colocar un valor numérico específico en el lugar que ocupaba una letra en la expresión."
+      },
+      {
+        "termino": "Igualdad verdadera",
+        "significado": "Proposición matemática donde las cantidades a la izquierda y derecha del signo igual tienen exactamente el mismo valor."
+      },
+      {
+        "termino": "Justificación",
+        "significado": "Explicación basada en cálculos y propiedades matemáticas que demuestra por qué una afirmación es cierta."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al sustituir x = 14 en la ecuación x + 19 = 33, se obtiene 14 + 19 = 33, por lo tanto 14 es la solución correcta.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Reemplaza la letra x por el número 14 en la expresión izquierda.",
+          "Calcula la suma 14 + 19 sumando primero las unidades (4 + 9 = 13).",
+          "Verifica si el total obtenido coincide con el número 33 del lado derecho."
+        ],
+        "retroalimentacion": "Es verdadero porque 14 + 19 es exactamente 33, satisfaciendo la igualdad."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al verificar si m = 12 es solución de la ecuación 8 × m = 96, ¿cuál es el cálculo de comprobación que se debe plantear?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8 + 12 = 20"
+          },
+          {
+            "id": "b",
+            "texto": "96 − 8 = 88"
+          },
+          {
+            "id": "c",
+            "texto": "8 × 12 = 96"
+          },
+          {
+            "id": "d",
+            "texto": "96 ÷ 12 = 8"
+          }
+        ],
+        "pistas": [
+          "En la ecuación original 8 × m = 96, el 8 está multiplicando a la letra m.",
+          "Sustituir significa cambiar la m por el número 12 manteniendo la multiplicación.",
+          "El cálculo directo de comprobación consiste en multiplicar 8 por 12."
+        ],
+        "retroalimentacion": "Para comprobar se sustituye la variable en el miembro izquierdo calculando 8 × 12, que da 96."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Qué valor numérico resulta al calcular el miembro izquierdo de la ecuación y − 6 = 9 cuando se sustituye y = 15? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Reemplaza la variable y por el número 15 en la expresión y − 6.",
+          "Efectúa la resta directa: 15 menos 6.",
+          "El resultado de esa resta debe coincidir con el miembro derecho de la ecuación."
+        ],
+        "retroalimentacion": "Al sustituir obtenemos 15 − 6 = 9, comprobando que se cumple la igualdad."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Si sustituyes k = 8 en la expresión 5 × k, ¿qué resultado numérico obtienes?",
+        "respuesta": "40",
+        "alternativasAceptadas": [
+          "40",
+          "cuarenta"
+        ],
+        "pistas": [
+          "Reemplaza la letra k por el valor 8 en el producto.",
+          "Calcula la multiplicación: 5 multiplicado por 8.",
+          "Revisa la tabla del 5 sumando cinco veces el 8."
+        ],
+        "retroalimentacion": "Multiplicando 5 por 8 obtenemos 40."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Daniel afirma que la solución de x − 27 = 54 es x = 71. Al realizar la comprobación calcula 71 − 27 y obtiene 44. ¿Qué se puede concluir con certeza sobre la afirmación de Daniel?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Es incorrecta porque 71 − 27 no da 54"
+          },
+          {
+            "id": "b",
+            "texto": "Es correcta porque la resta dio un número par"
+          },
+          {
+            "id": "c",
+            "texto": "Es correcta porque 71 es mayor que 54"
+          },
+          {
+            "id": "d",
+            "texto": "Es incorrecta porque debió multiplicar 71 por 27"
+          }
+        ],
+        "pistas": [
+          "Compara el resultado obtenido en el cálculo (44) con el valor que requería la ecuación (54).",
+          "Si al sustituir no se obtiene el número del segundo miembro, el valor propuesto no es solución.",
+          "La diferencia entre 71 y 27 es 44, por lo que no se alcanza el valor 54."
+        ],
+        "retroalimentacion": "La afirmación es incorrecta porque al sustituir 71 se obtiene 44, que no es igual a 54 (la solución real es 81)."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El número 16 es la solución de la ecuación 5 × z = 85 porque 5 × 16 = 85.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 5 por 16: 5 × 10 = 50 y 5 × 6 = 30.",
+          "Suma ambos productos parciales: 50 + 30 = 80.",
+          "Observa si 80 es igual a 85 o si es menor."
+        ],
+        "retroalimentacion": "Es falso porque 5 × 16 = 80; para que resulte 85 la solución debe ser 17."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Para determinar cuál de los valores 18, 21 o 24 es la solución de la ecuación w + 39 = 60, comprobamos sumando cada número con 39. ¿Cuál de ellos hace verdadera la igualdad? Escribe solo el número.",
+        "respuesta": 21,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Prueba con 18: 18 + 39 = 57 (falta para llegar a 60).",
+          "Prueba con 21: calcula 21 + 39 sumando 1 + 9 = 10 y 20 + 30 = 50.",
+          "Verifica que 24 + 39 daría 63, pasándose del valor buscado."
+        ],
+        "retroalimentacion": "Sustituyendo 21 se tiene 21 + 39 = 60, satisfaciendo exactamente la ecuación."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Sofía afirma en Ica que la solución de 9 × p = 153 es p = 17. Al sustituir p por 17 en el producto 9 × 17, ¿qué número exacto se obtiene para comprobar si su respuesta es correcta?",
+        "respuesta": "153",
+        "alternativasAceptadas": [
+          "153",
+          "ciento cincuenta y tres"
+        ],
+        "pistas": [
+          "Calcula la multiplicación: 9 por 17.",
+          "Multiplica por partes: 9 × 10 = 90 y 9 × 7 = 63.",
+          "Suma los resultados: 90 + 63."
+        ],
+        "retroalimentacion": "Calculando 9 × 17 obtenemos 153, confirmando que la solución es verdadera."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Cuatro estudiantes comprobaron la ecuación 7 × a = 119. ¿Cuál de los siguientes argumentos justifica de forma matemáticamente correcta la solución?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "a = 16 porque 7 × 16 = 112 y se aproxima a 119"
+          },
+          {
+            "id": "b",
+            "texto": "a = 17 porque 7 × 17 = 119 y cumple la igualdad"
+          },
+          {
+            "id": "c",
+            "texto": "a = 18 porque 119 − 7 = 112"
+          },
+          {
+            "id": "d",
+            "texto": "a = 19 porque al sumar 119 + 7 da 126"
+          }
+        ],
+        "pistas": [
+          "Una solución en una ecuación exacta debe satisfacer la igualdad con precisión, sin aproximaciones.",
+          "Multiplica 7 por 17: 7 × 10 = 70 y 7 × 7 = 49; 70 + 49 = 119.",
+          "La justificación correcta comprueba la igualdad sustituyendo el valor exacto."
+        ],
+        "retroalimentacion": "La justificación correcta es que a = 17 porque al sustituir se tiene 7 × 17 = 119, cumpliendo la igualdad de forma exacta."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si sustituyes x = 32 en las ecuaciones x + 18 = 50 y 2 × x = 64, ambas igualdades resultan simultáneamente verdaderas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Comprueba la primera ecuación: calcula 32 + 18.",
+          "Comprueba la segunda ecuación: calcula 2 × 32.",
+          "Comprueba si la primera da 50 y la segunda da 64."
+        ],
+        "retroalimentacion": "Es verdadero porque 32 + 18 = 50 y 2 × 32 = 64; el valor 32 verifica ambas igualdades a la vez."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Al comprobar la ecuación b − 48 = 137 se prueban los números 175 y 185. Como 185 − 48 = 137 mientras que 175 − 48 = 127, ¿cuál de los dos números es la solución legítima? Escribe solo el número.",
+        "respuesta": 185,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Verifica cuál de los dos números produce exactamente el valor 137 al restarle 48.",
+          "Con 175 obtuviste 127, que es 10 unidades menor que 137.",
+          "Con 185 obtuviste exactamente 137, coincidiendo con el miembro derecho."
+        ],
+        "retroalimentacion": "El valor correcto es 185 porque 185 − 48 = 137 cumple la igualdad."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En una comunidad de Puno, un productor sostiene que 12 carneros vendidos a S/ p cada uno generaron S/ 840 (12 × p = 840) y propone que p = 70. Para justificar el cálculo ante la asamblea, ¿qué resultado da la multiplicación 12 × 70?",
+        "respuesta": "840",
+        "alternativasAceptadas": [
+          "840",
+          "ochocientos cuarenta",
+          "S/ 840"
+        ],
+        "pistas": [
+          "Multiplica 12 por 7 decenas.",
+          "Calcula primero 12 × 7: 10 × 7 = 70 y 2 × 7 = 14, sumando 84.",
+          "Agrega el cero correspondiente a la decena para obtener el total."
+        ],
+        "retroalimentacion": "Al calcular 12 × 70 obtenemos 840, justificando que el precio unitario propuesto es correcto."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

@@ -1,0 +1,1286 @@
+[
+  {
+    "clave": "mat.p5.variables-cualitativas-cuantitativas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 25,
+    "capacidad": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+    "desempenosOrigen": [
+      "MAT-C25-P5-01"
+    ],
+    "bloque": "Datos y tablas",
+    "nombre": "Variables cualitativas y cuantitativas discretas",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Clasifica las características de una población según sean cualidades o conteos.",
+    "palabrasClave": [
+      "variable cualitativa",
+      "variable cuantitativa",
+      "discreta",
+      "estadística",
+      "conteo"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 24,
+    "ideaCentral": "Una variable estadística es cualitativa cuando describe una cualidad, preferencia o categoría con palabras, y cuantitativa discreta cuando representa una cantidad contable con números enteros.",
+    "pasos": [
+      "Formula mentalmente la pregunta que se hace a las personas encuestadas.",
+      "Observa el tipo de respuesta obtenida: si se responde con palabras o con números.",
+      "Si la respuesta es una cualidad o gusto (como color o plato favorito), clasifícala como variable cualitativa.",
+      "Si la respuesta proviene de contar elementos en números enteros (como número de hermanos o libros leídos), clasifícala como variable cuantitativa discreta."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En un colegio de Puno se pregunta a los estudiantes cuál es su plato típico preferido.",
+        "desarrollo": "Las respuestas son palabras: trucha frita, chairo, thimpo de carachi. No son números que se sumen, sino gustos y cualidades.",
+        "respuesta": "Es una variable cualitativa."
+      },
+      {
+        "situacion": "El profesor de educación física registra cuántas canastas encestó cada alumno en un partido.",
+        "desarrollo": "Las respuestas son valores numéricos enteros obtenidos por conteo: 0, 2, 5, 8 canastas.",
+        "respuesta": "Es una variable cuantitativa discreta."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir números de identificación (como el número de camiseta o DNI) con variables cuantitativas.",
+        "correccion": "Recuerda que un número de DNI o camiseta funciona como una etiqueta o código que identifica, no representa una cantidad contable."
+      },
+      {
+        "error": "Creer que la frecuencia o cantidad de votos convierte a la variable cualitativa en cuantitativa.",
+        "correccion": "Distingue la variable (lo que se responde, por ejemplo «color azul») de la frecuencia (cuántas personas eligieron esa respuesta)."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Variable estadística",
+        "significado": "Característica o cualidad de los individuos de una población que puede tomar diferentes valores y ser investigada."
+      },
+      {
+        "termino": "Variable cualitativa",
+        "significado": "Característica que expresa una cualidad, atributo o preferencia mediante palabras o categorías no numéricas."
+      },
+      {
+        "termino": "Variable cuantitativa discreta",
+        "significado": "Característica expresada en números enteros exactos que se obtienen mediante el conteo de unidades."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se realiza una consulta sobre el curso favorito de los estudiantes de quinto grado. ¿Qué tipo de variable estadística es?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Variable cuantitativa continua"
+          },
+          {
+            "id": "b",
+            "texto": "Variable cuantitativa discreta"
+          },
+          {
+            "id": "c",
+            "texto": "Variable cualitativa"
+          },
+          {
+            "id": "d",
+            "texto": "Variable numérica decimal"
+          }
+        ],
+        "pistas": [
+          "Fíjate en las posibles respuestas: Comunicación, Matemática, Arte, Ciencias.",
+          "Las respuestas consisten en nombres de cursos, no en cifras numéricas.",
+          "Una característica expresada en palabras corresponde a una cualidad."
+        ],
+        "retroalimentacion": "Es una variable cualitativa porque las respuestas corresponden a nombres de asignaturas y no a cantidades numéricas."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se pregunta a un grupo de familias cuántos hijos tienen en edad escolar. ¿Qué tipo de variable es?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Variable cuantitativa discreta"
+          },
+          {
+            "id": "b",
+            "texto": "Variable cualitativa ordinal"
+          },
+          {
+            "id": "c",
+            "texto": "Variable cualitativa nominal"
+          },
+          {
+            "id": "d",
+            "texto": "Variable sin datos posibles"
+          }
+        ],
+        "pistas": [
+          "Observa que las respuestas serán 1, 2, 3 o más hijos.",
+          "Los datos son números enteros que provienen del conteo de personas.",
+          "Las cantidades enteras contables definen a las variables cuantitativas discretas."
+        ],
+        "retroalimentacion": "Es una variable cuantitativa discreta porque expresa un conteo mediante números enteros exactos."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La fruta preferida por los compradores en el mercado mayorista es una variable cuantitativa.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cómo responderían los compradores: plátano, manzana, papaya o mandarina.",
+          "Las frutas son nombres de productos, no números calculados.",
+          "Describe una cualidad o preferencia gustativa."
+        ],
+        "retroalimentacion": "Es falso, porque la fruta preferida se expresa con palabras, siendo una variable cualitativa."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La variable «número de cuyes criados en una granja de Huancayo», ¿es cualitativa o cuantitativa?",
+        "respuesta": "cuantitativa",
+        "alternativasAceptadas": [
+          "es cuantitativa",
+          "variable cuantitativa",
+          "cuantitativa discreta"
+        ],
+        "pistas": [
+          "Verifica si los cuyes se cuentan con números.",
+          "Un granjero responderá con una cifra como 15, 20 o 50 animales.",
+          "Las variables numéricas reciben este calificativo."
+        ],
+        "retroalimentacion": "Es cuantitativa porque se mide mediante el conteo numérico de animales."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la ficha de matrícula se solicitan cuatro datos: Lugar de nacimiento, Talla de uniforme (S, M, L), Número de hermanos y Color favorito. ¿Cuál de estos cuatro datos es una variable cuantitativa discreta?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Lugar de nacimiento"
+          },
+          {
+            "id": "b",
+            "texto": "Número de hermanos"
+          },
+          {
+            "id": "c",
+            "texto": "Talla de uniforme"
+          },
+          {
+            "id": "d",
+            "texto": "Color favorito"
+          }
+        ],
+        "pistas": [
+          "Examina cuál de las cuatro opciones se responde con un número entero producto de un conteo.",
+          "El lugar, la talla y el color son palabras o categorías.",
+          "La cantidad de hermanos es el único valor numérico contable."
+        ],
+        "retroalimentacion": "El número de hermanos es la única variable cuantitativa discreta porque resulta de contar personas con números enteros."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El número de camiseta que lleva un futbolista en la espalda (por ejemplo el 9 o el 10) es una variable cuantitativa porque tiene dígitos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Reflexiona si el dorsal representa un conteo o simplemente identifica al jugador.",
+          "No tiene sentido sumar las camisetas del delantero 9 y del volante 10 para obtener 19.",
+          "Funciona como una etiqueta o nombre simbólico."
+        ],
+        "retroalimentacion": "Es falso, porque el número de camiseta es un código de identificación (cualitativa), no una cantidad que se pueda contar o promediar."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "De la siguiente lista de variables: (1) Distrito de residencia, (2) Cantidad de libros leídos, (3) Postre favorito, (4) Mascotas en casa, (5) Música preferida, ¿cuántas son variables cuantitativas discretas? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica cuáles se responden con números enteros contables.",
+          "La cantidad de libros (2) y las mascotas en casa (4) son conteos numéricos.",
+          "El distrito, el postre y la música son palabras cualitativas."
+        ],
+        "retroalimentacion": "Hay 2 variables cuantitativas discretas: cantidad de libros leídos y mascotas en casa."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Si en una encuesta 18 personas respondieron «verde» y 12 respondieron «rojo», ¿el color preferido es cualitativo o cuantitativo?",
+        "respuesta": "cualitativo",
+        "alternativasAceptadas": [
+          "cualitativa",
+          "es cualitativo",
+          "es cualitativa"
+        ],
+        "pistas": [
+          "Distingue entre la característica preguntada y el conteo de votos.",
+          "La pregunta indaga por el color, no por cuántas personas votaron.",
+          "Los colores son cualidades no numéricas."
+        ],
+        "retroalimentacion": "Es cualitativo porque la variable registrada es el color elegido, más allá del número de votantes."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un equipo de estudiantes en Iquitos investiga el transporte fluvial y recoge dos datos de cada embarcación: «Tipo de embarcación (peque-peque, lancha o deslizador)» y «Número de chalecos salvavidas a bordo». ¿Qué clasificación metodológica corresponde a cada variable?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ambas variables son cuantitativas discretas"
+          },
+          {
+            "id": "b",
+            "texto": "Ambas variables son cualitativas nominales"
+          },
+          {
+            "id": "c",
+            "texto": "La primera es cuantitativa discreta y la segunda es cualitativa"
+          },
+          {
+            "id": "d",
+            "texto": "La primera es cualitativa y la segunda es cuantitativa discreta"
+          }
+        ],
+        "pistas": [
+          "Analiza por separado las respuestas de cada una de las dos preguntas.",
+          "El tipo de embarcación se responde con una palabra descriptiva.",
+          "El número de chalecos salvavidas se responde con un conteo entero positivo."
+        ],
+        "retroalimentacion": "La primera es cualitativa y la segunda es cuantitativa discreta porque combina una categoría descriptiva con un conteo numérico."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una biblioteca se registran 6 campos: Código del libro, Idioma del texto, Páginas leídas al día, Número de ejemplares prestados, Género literario y Calificación del servicio (Malo, Regular, Bueno). ¿Cuántas variables son cualitativas? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa cuáles campos corresponden a palabras o códigos identificadores.",
+          "Son cualitativas: Código del libro, Idioma, Género literario y Calificación del servicio.",
+          "Cuenta los cuatro campos identificados."
+        ],
+        "retroalimentacion": "Son 4 variables cualitativas: Código (identificador), Idioma, Género y Calificación del servicio."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si codificas las respuestas «Sí» con el número 1 y «No» con el número 0 en una hoja de cálculo, la variable se transforma automáticamente en cuantitativa discreta.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Considera si los números 1 y 0 representan un conteo real o solo reemplazan palabras.",
+          "Asignar un número como código no cambia la naturaleza de la cualidad estudiada.",
+          "El significado de fondo sigue siendo una afirmación o negación cualitativa."
+        ],
+        "retroalimentacion": "Es falso, porque asignar números artificiales como etiquetas no cambia la naturaleza cualitativa de la respuesta binaria."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de las siguientes preguntas genera una variable cuantitativa discreta adecuada para quinto grado?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "¿Cuál es el nombre de tu mascota?"
+          },
+          {
+            "id": "b",
+            "texto": "¿Cuántos goles anotó tu equipo en el campeonato escolar?"
+          },
+          {
+            "id": "c",
+            "texto": "¿De qué color es la bandera de tu departamento?"
+          },
+          {
+            "id": "d",
+            "texto": "¿Te gusta la mazamorra morada?"
+          }
+        ],
+        "pistas": [
+          "Busca la pregunta cuya respuesta sea un número entero que provenga de contar eventos.",
+          "Los goles se cuentan uno a uno: 0, 1, 2, 3...",
+          "Esta pregunta produce datos numéricos discretos."
+        ],
+        "retroalimentacion": "¿Cuántos goles anotó tu equipo en el campeonato escolar? genera una variable cuantitativa discreta basada en un conteo entero."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.planificar-encuesta",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 25,
+    "capacidad": "Usa estrategias y procedimientos para recopilar y procesar datos",
+    "desempenosOrigen": [
+      "MAT-C25-P5-04"
+    ],
+    "bloque": "Datos y tablas",
+    "nombre": "Planificación y aplicación de una encuesta",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Define la pregunta, las opciones y a quiénes encuestar, y registra las respuestas.",
+    "palabrasClave": [
+      "encuesta",
+      "población",
+      "muestra",
+      "pregunta cerrada",
+      "recolección de datos"
+    ],
+    "prerrequisitos": [
+      "mat.p5.variables-cualitativas-cuantitativas"
+    ],
+    "ordenSugerido": 25,
+    "ideaCentral": "Planificar una encuesta implica definir el propósito de la investigación, determinar la población o muestra, redactar preguntas claras con opciones precisas y organizar el registro ordenado de las respuestas.",
+    "pasos": [
+      "Define el objetivo claro de lo que deseas investigar en tu comunidad escolar o local.",
+      "Identifica a quiénes vas a encuestar (la población) y a cuántos consultarás (la muestra).",
+      "Redacta una o dos preguntas claras, evitando confusiones y ofreciendo opciones de respuesta excluyentes y completas.",
+      "Aplica la encuesta utilizando un formato de registro o lista de cotejo para anotar cada respuesta sin omitir datos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Los estudiantes de quinto grado en Tacna quieren organizar los quioscos saludables del colegio.",
+        "desarrollo": "Fijan el objetivo: conocer la fruta preferida en el recreo. Población: 60 alumnos de quinto grado. Pregunta: «¿Qué fruta prefieres consumir en el recreo: plátano, manzana, mandarina o uva?». Registran las respuestas en una hoja con casilleros.",
+        "respuesta": "La encuesta quedó planificada con objetivo, muestra, pregunta y tabla de registro."
+      },
+      {
+        "situacion": "En Huancavelica, Juan y Rosa encuestan sobre el medio de transporte usado para llegar a la escuela.",
+        "desarrollo": "Pregunta: «¿Cómo vienes usualmente a la escuela? Opciones: caminando, en bicicleta, en combi, en mototaxi». Consultan a 30 compañeros y van marcando con palotes cada respuesta.",
+        "respuesta": "Recopilan los datos ordenadamente según lo planificado."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Elaborar preguntas abiertas ambiguas cuyas respuestas sean difíciles de clasificar y tabular.",
+        "correccion": "Utiliza preguntas cerradas con alternativas bien definidas para que las respuestas se puedan contar de forma exacta."
+      },
+      {
+        "error": "Encuestar solo a los mejores amigos y pretender que represente la opinión de todo el colegio.",
+        "correccion": "Selecciona una muestra variada que represente adecuadamente a los distintos integrantes del grupo estudiado."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Encuesta",
+        "significado": "Técnica de recolección de datos mediante la aplicación de un cuestionario estructurado a un grupo de personas."
+      },
+      {
+        "termino": "Población",
+        "significado": "Conjunto total de individuos, objetos o medidas que poseen una característica común observable."
+      },
+      {
+        "termino": "Muestra",
+        "significado": "Subconjunto representativo seleccionado a partir de una población para realizar un estudio."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué paso se debe realizar antes de comenzar a hacer preguntas a las personas en una encuesta?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Dibujar el gráfico de barras final con conclusiones"
+          },
+          {
+            "id": "b",
+            "texto": "Publicar los resultados en el periódico escolar"
+          },
+          {
+            "id": "c",
+            "texto": "Calcular la media aritmética de datos inexistentes"
+          },
+          {
+            "id": "d",
+            "texto": "Definir el tema, el objetivo y redactar preguntas claras con sus opciones"
+          }
+        ],
+        "pistas": [
+          "Piensa en la etapa de preparación previa a la recolección de información.",
+          "No puedes encuestar sin tener preparado el cuestionario y saber qué buscas.",
+          "La planificación define el objetivo y las preguntas."
+        ],
+        "retroalimentacion": "Definir el tema, el objetivo y redactar preguntas claras con sus opciones es el paso fundamental de planificación previa."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La muestra en una investigación estadística es un grupo seleccionado de personas que representa a toda la población.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda la relación entre la totalidad (población) y la parte analizada (muestra).",
+          "Cuando la población es muy grande, se toma una parte representativa.",
+          "Esa parte seleccionada se llama muestra."
+        ],
+        "retroalimentacion": "Efectivamente, la muestra es una parte representativa de la población que permite inferir conclusiones."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Cómo se llama el conjunto completo de todos los estudiantes de un colegio cuando son el objeto de estudio (población o muestra)?",
+        "respuesta": "población",
+        "alternativasAceptadas": [
+          "poblacion",
+          "la población",
+          "la poblacion"
+        ],
+        "pistas": [
+          "Se refiere a la totalidad absoluta de individuos del grupo.",
+          "No es solo una pequeña parte, sino todos en conjunto.",
+          "Comienza con la letra p."
+        ],
+        "retroalimentacion": "Se llama población al conjunto total de individuos que comparten la característica objeto de estudio."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de las siguientes es una pregunta cerrada con opciones bien delimitadas para una encuesta sobre hábitos de lectura?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "¿Cuántos libros leíste el mes pasado? (A) Ninguno, (B) Uno o dos, (C) Tres o más"
+          },
+          {
+            "id": "b",
+            "texto": "Cuéntame qué opinas de los libros en general"
+          },
+          {
+            "id": "c",
+            "texto": "¿Qué te pareció el final del cuento que leíste la semana pasada?"
+          },
+          {
+            "id": "d",
+            "texto": "Escribe una poesía sobre la lectura en tu cuaderno"
+          }
+        ],
+        "pistas": [
+          "Busca la alternativa que ofrece opciones directas y fáciles de tabular.",
+          "Las preguntas abiertas de opinión libre no tienen alternativas fijas.",
+          "La primera opción presenta alternativas precisas y mutuamente excluyentes."
+        ],
+        "retroalimentacion": "¿Cuántos libros leíste el mes pasado? (A) Ninguno, (B) Uno o dos, (C) Tres o más presenta opciones claras que facilitan el conteo."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un colegio hay 400 alumnos en total. Para una encuesta rápida, los organizadores deciden encuestar a la décima parte de la población. ¿A cuántos estudiantes encuestarán? Escribe solo el número.",
+        "respuesta": 40,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la décima parte de 400 dividiendo entre 10.",
+          "Plantea la operación 400 ÷ 10.",
+          "El resultado de la división es cuarenta."
+        ],
+        "retroalimentacion": "La décima parte de 400 se obtiene dividiendo entre 10: 400 ÷ 10 = 40 estudiantes."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Martín quiere saber qué juego de mesa prefieren los 200 estudiantes de primaria, pero solo le pregunta a 4 amigos de su misma mesa. ¿Por qué su muestra no es adecuada?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Porque debió encuestar a profesores y directores en lugar de alumnos"
+          },
+          {
+            "id": "b",
+            "texto": "Porque los juegos de mesa no se pueden graficar"
+          },
+          {
+            "id": "c",
+            "texto": "Porque 4 personas son muy pocas y tienen gustos similares, no representando la variedad del grupo"
+          },
+          {
+            "id": "d",
+            "texto": "Porque la encuesta debió hacerse por correo electrónico"
+          }
+        ],
+        "pistas": [
+          "Evalúa si 4 amigos representan la diversidad de opiniones de 200 niños.",
+          "Una muestra debe ser suficientemente numerosa y variada.",
+          "Consultar solo a amigos cercanos sesga los resultados."
+        ],
+        "retroalimentacion": "Porque 4 personas son muy pocas y tienen gustos similares, no representando la variedad del grupo estudiado."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una pregunta cerrada facilita la organización de los datos en tablas de frecuencias.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cómo se cuentan respuestas idénticas agrupadas en pocas opciones.",
+          "Al tener opciones preestablecidas, el conteo con palotes es rápido y directo.",
+          "Ahorra tiempo y evita interpretaciones confusas."
+        ],
+        "retroalimentacion": "Es verdadero, porque las respuestas fijas permiten agrupar y contar las frecuencias de manera inmediata."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Para registrar las respuestas sobre el terreno de manera rápida mientras las personas van respondiendo, ¿qué marca gráfica o signo se suele utilizar comúnmente?",
+        "respuesta": "palote",
+        "alternativasAceptadas": [
+          "palotes",
+          "el palote",
+          "trazos",
+          "rayas"
+        ],
+        "pistas": [
+          "Se trata de líneas verticales que se agrupan de cinco en cinco.",
+          "Cada línea representa el voto o respuesta de un participante.",
+          "Su nombre empieza con la letra p."
+        ],
+        "retroalimentacion": "Se utiliza el palote (líneas de conteo agrupadas de cinco en cinco) para anotar con rapidez cada respuesta."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Luciana prepara una encuesta: «¿Cuál es tu pasatiempo favorito? Opciones: fútbol, deportes, vóley u otros». ¿Qué defecto presenta esta pregunta?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "No tiene la opción de música"
+          },
+          {
+            "id": "b",
+            "texto": "Las opciones no son mutuamente excluyentes porque fútbol y vóley ya son deportes"
+          },
+          {
+            "id": "c",
+            "texto": "Las preguntas de pasatiempos están prohibidas en primaria"
+          },
+          {
+            "id": "d",
+            "texto": "Tiene demasiadas opciones de respuesta"
+          }
+        ],
+        "pistas": [
+          "Revisa si una misma respuesta encaja en dos categorías distintas.",
+          "Si alguien juega fútbol, podría dudar entre marcar «Fútbol» o «Deportes».",
+          "Las alternativas deben ser independientes sin contenerse unas dentro de otras."
+        ],
+        "retroalimentacion": "Las opciones no son mutuamente excluyentes porque fútbol y vóley ya son deportes, lo que genera confusión al responder y tabular."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un aula de 30 estudiantes se aplicó una encuesta con la opción múltiple: Manzana, Plátano o Naranja. Si 14 eligieron Manzana, 9 eligieron Plátano y el resto eligió Naranja, ¿cuántos eligieron Naranja? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los estudiantes que eligieron Manzana y Plátano: 14 + 9.",
+          "Resta esa suma del total de 30 alumnos del aula.",
+          "Calcula 30 menos 23."
+        ],
+        "retroalimentacion": "Sumando 14 + 9 = 23. Los que eligieron Naranja son 30 - 23 = 7 estudiantes."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una encuesta bien planificada, es válido formular preguntas tendenciosas como: «¿Verdad que el recreo debería durar dos horas?».",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Analiza si la pregunta orienta o influye en la respuesta del entrevistado.",
+          "Las preguntas deben ser neutrales e imparciales para no alterar la veracidad de los datos.",
+          "Inducir la respuesta invalida la calidad de la investigación estadística."
+        ],
+        "retroalimentacion": "Es falso, porque las preguntas deben ser neutras y objetivas sin inducir una respuesta determinada."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un grupo quiere investigar el tiempo diario que dedican los niños a las tareas escolares en Piura. ¿Cuál es el instrumento más adecuado y ordenado para registrar los datos durante la aplicación?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una hoja de registro con casillas de intervalos de tiempo para marcar con palotes y anotar observaciones"
+          },
+          {
+            "id": "b",
+            "texto": "Un dibujo libre en una cartulina sin formato"
+          },
+          {
+            "id": "c",
+            "texto": "Grabar un video largo sin anotar nada por escrito"
+          },
+          {
+            "id": "d",
+            "texto": "Memorizar los datos para escribirlos al día siguiente"
+          }
+        ],
+        "pistas": [
+          "Busca el método sistemático que garantiza no olvidar ni perder las respuestas de los participantes.",
+          "Una plantilla estructurada con casilleros permite registrar de inmediato cada dato.",
+          "El registro escrito en casillas es el estándar de recolección estadística."
+        ],
+        "retroalimentacion": "Una hoja de registro con casillas de intervalos de tiempo para marcar con palotes y anotar observaciones asegura la exactitud de los datos recopilados."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.tabla-frecuencias-5",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 25,
+    "capacidad": "Usa estrategias y procedimientos para recopilar y procesar datos",
+    "desempenosOrigen": [
+      "MAT-C25-P5-04"
+    ],
+    "bloque": "Datos y tablas",
+    "nombre": "Tabla de frecuencias absolutas",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Organiza los datos en una tabla con conteo, frecuencia y total.",
+    "palabrasClave": [
+      "frecuencia absoluta",
+      "conteo",
+      "tabla",
+      "total"
+    ],
+    "prerrequisitos": [
+      "mat.p5.planificar-encuesta"
+    ],
+    "ordenSugerido": 26,
+    "ideaCentral": "Una tabla de frecuencias reúne cada respuesta en una fila. La frecuencia absoluta indica cuántas veces apareció cada dato; al sumar las frecuencias obtienes el total.",
+    "pasos": [
+      "Escribe una fila por cada respuesta diferente.",
+      "Haz un palote por cada aparición de la respuesta.",
+      "Cuenta los palotes y escribe la frecuencia absoluta.",
+      "Suma las frecuencias y comprueba el total."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En Huancayo, seis estudiantes eligieron fruta: tuna, pera, tuna, plátano, pera, tuna. ¿Cuántas eligieron tuna?",
+        "desarrollo": "Agrupo los datos: tuna |||, pera ||, plátano |. La fila de tuna tiene tres palotes.",
+        "respuesta": "La frecuencia de tuna es 3."
+      },
+      {
+        "situacion": "Una tabla de loncheras muestra pan 4, fruta 5 y mazamorra 2. ¿Cuántas respuestas hay?",
+        "desarrollo": "Sumo las frecuencias de las tres filas: 4 + 5 + 2 = 11.",
+        "respuesta": "El total es 11 respuestas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar una respuesta dos veces.",
+        "correccion": "Recorre la lista dato por dato y haz un solo palote por respuesta."
+      },
+      {
+        "error": "Confundir cantidad de categorías con total.",
+        "correccion": "Suma las frecuencias para hallar el total; contar filas solo da las categorías."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Frecuencia absoluta",
+        "significado": "Cantidad de veces que aparece un dato."
+      },
+      {
+        "termino": "Categoría",
+        "significado": "Cada respuesta diferente que ocupa una fila."
+      },
+      {
+        "termino": "Total",
+        "significado": "Suma de las frecuencias."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Votos por refresco: chicha ||||, limonada ||, agua |||. ¿Cuál es la frecuencia de chicha? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las marcas junto a chicha.",
+          "Chicha tiene el grupo ||||.",
+          "Cada raya es un voto: son cuatro."
+        ],
+        "retroalimentacion": "Si contaste todas las bebidas, revisa solo chicha: su frecuencia es 4."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la tabla de mascotas, perro tiene 5 marcas y gato 3. ¿Qué frecuencia corresponde a gato?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8"
+          },
+          {
+            "id": "b",
+            "texto": "3"
+          },
+          {
+            "id": "c",
+            "texto": "5"
+          },
+          {
+            "id": "d",
+            "texto": "2"
+          }
+        ],
+        "pistas": [
+          "Ubica la fila gato.",
+          "Allí hay tres marcas.",
+          "La frecuencia copia las marcas de su propia fila."
+        ],
+        "retroalimentacion": "Sumar ambas filas da el total; la frecuencia de gato es 3."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La frecuencia absoluta de una categoría indica cuántas veces se registró esa respuesta.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa qué representa un palote.",
+          "Un palote corresponde a una respuesta.",
+          "Contar los palotes da la frecuencia absoluta."
+        ],
+        "retroalimentacion": "Es verdadero: frecuencia absoluta es la cantidad de respuestas de esa categoría."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Datos: soga, trompo, soga, yaces, soga. ¿Cuántas filas de categorías necesita la tabla? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca nombres diferentes.",
+          "Soga se repite, pero ocupa una sola fila.",
+          "Los juegos distintos son soga, trompo y yaces."
+        ],
+        "retroalimentacion": "Contar cada aparición como fila confunde datos con categorías: hacen falta 3 filas."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La tabla de frutas tiene mango 6, mandarina 4 y plátano 3. ¿Cuál es el total de respuestas? Escribe solo el número.",
+        "respuesta": 13,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total reúne todas las filas.",
+          "Suma 6 y 4 antes de añadir plátano.",
+          "6 + 4 + 3 = 13."
+        ],
+        "retroalimentacion": "Olvidar una fila reduce el total: son 13 respuestas."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Aparecieron ceviche, causa, ceviche y juane. ¿Qué categoría lleva dos palotes? Escribe el plato.",
+        "respuesta": "ceviche",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el plato repetido.",
+          "El primero y el tercero son iguales.",
+          "Esas dos respuestas son ceviche."
+        ],
+        "retroalimentacion": "No confundas repetición con orden: ceviche lleva dos palotes."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un registro tiene quinua |||, arroz |||| y papa ||. ¿Qué fila lleva frecuencia 4?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "papa"
+          },
+          {
+            "id": "b",
+            "texto": "quinua"
+          },
+          {
+            "id": "c",
+            "texto": "arroz"
+          },
+          {
+            "id": "d",
+            "texto": "total"
+          }
+        ],
+        "pistas": [
+          "Relaciona cada fila con sus palotes.",
+          "Cuatro palotes aparecen junto a arroz.",
+          "Arroz muestra ||||, equivalente a 4."
+        ],
+        "retroalimentacion": "La frecuencia 4 corresponde a arroz; quinua tiene 3 y papa 2."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una tabla muestra paseo 7 y lectura 5. El total de respuestas es 2 porque hay dos filas.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Distingue filas y respuestas.",
+          "Las filas contienen 7 y 5 respuestas.",
+          "Suma 7 + 5 para hallar el total."
+        ],
+        "retroalimentacion": "Es falso: hay 2 categorías, pero 12 respuestas."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una clase de 20, las frecuencias son fútbol 8, vóley 5, ajedrez 4 y dibujo sin anotar. Todos eligieron una actividad. ¿Qué frecuencia falta? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las cuatro frecuencias suman 20.",
+          "Las conocidas suman 8 + 5 + 4 = 17.",
+          "Resta 20 - 17."
+        ],
+        "retroalimentacion": "Sumar al total no sirve: dibujo tiene frecuencia 3."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Doce respuestas: rojo, azul, rojo, verde, azul, rojo, verde, azul, azul, verde, rojo, azul. ¿Qué tabla es correcta?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "rojo 3, azul 5, verde 4, total 12"
+          },
+          {
+            "id": "b",
+            "texto": "rojo 4, azul 4, verde 4, total 12"
+          },
+          {
+            "id": "c",
+            "texto": "rojo 4, azul 5, verde 3, total 11"
+          },
+          {
+            "id": "d",
+            "texto": "rojo 4, azul 5, verde 3, total 12"
+          }
+        ],
+        "pistas": [
+          "Cuenta cada color por separado.",
+          "Rojo aparece 4 veces; azul, 5.",
+          "Verde aparece 3 veces y 4 + 5 + 3 = 12."
+        ],
+        "retroalimentacion": "Omitir una respuesta deja 11; la tabla correcta es rojo 4, azul 5, verde 3, total 12."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una tabla marca cuy ||||| ||, conejo |||| y pez |||. Dos estudiantes más eligen conejo. ¿Cuál es ahora el total? Escribe solo el número.",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las tres filas iniciales.",
+          "Cuy 7, conejo 4 y pez 3 suman 14.",
+          "Añade las 2 respuestas nuevas al total 14."
+        ],
+        "retroalimentacion": "Cambiar solo conejo sin actualizar el total deja 14; ahora son 16."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Con frecuencias 6, 4 y 5, registrar otra respuesta en la segunda categoría eleva su frecuencia a 5 y el total de 15 a 16.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero 6 + 4 + 5.",
+          "La nueva respuesta aumenta la segunda fila de 4 a 5.",
+          "Al añadir un dato, el total también crece de 15 a 16."
+        ],
+        "retroalimentacion": "Es verdadero: la segunda frecuencia pasa a 5 y el total a 16."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.doble-entrada-5",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 25,
+    "capacidad": "Usa estrategias y procedimientos para recopilar y procesar datos",
+    "desempenosOrigen": [
+      "MAT-C25-P5-04"
+    ],
+    "bloque": "Datos y tablas",
+    "nombre": "Tablas de doble entrada con dos variables",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Organiza datos que combinan dos variables en filas y columnas.",
+    "palabrasClave": [
+      "doble entrada",
+      "fila",
+      "columna",
+      "intersección",
+      "total"
+    ],
+    "prerrequisitos": [
+      "mat.p5.tabla-frecuencias-5"
+    ],
+    "ordenSugerido": 61,
+    "ideaCentral": "Una tabla de doble entrada cruza dos características. Para leer una cantidad, buscas una fila y una columna y miras la casilla donde se encuentran.",
+    "pasos": [
+      "Elige una variable para las filas y otra para las columnas.",
+      "Registra cada dato en la casilla que corresponda a ambas variables.",
+      "Lee una casilla cruzando su fila y su columna.",
+      "Suma casillas de una fila o columna solo cuando se pida un total."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La tabla de deportes tiene filas niñas y niños, columnas vóley y fútbol. En niñas y vóley hay 6. ¿Qué representa?",
+        "desarrollo": "Cruzo la fila niñas con la columna vóley; la casilla contiene 6.",
+        "respuesta": "Seis niñas eligieron vóley."
+      },
+      {
+        "situacion": "En la fila quinto A hay 4 que eligieron danza y 7 música. ¿Cuántos de quinto A participaron?",
+        "desarrollo": "Las dos casillas pertenecen a la misma fila. Sumo 4 + 7.",
+        "respuesta": "Participaron 11 estudiantes de quinto A."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Leer una casilla de otra fila por fijarse solo en la columna.",
+        "correccion": "Sigue con el dedo la fila y la columna hasta su intersección."
+      },
+      {
+        "error": "Sumar toda la tabla cuando se pide el total de una fila.",
+        "correccion": "Suma solo las casillas de la fila indicada."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Fila",
+        "significado": "Línea horizontal de la tabla."
+      },
+      {
+        "termino": "Columna",
+        "significado": "Línea vertical de la tabla."
+      },
+      {
+        "termino": "Intersección",
+        "significado": "Casilla donde coinciden una fila y una columna."
+      },
+      {
+        "termino": "Total marginal",
+        "significado": "Suma al final de una fila o columna."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Tabla de frutas: filas 5.° A y 5.° B; columnas mango y manzana. En 5.° A con mango hay 6. ¿Cuántos de 5.° A eligieron mango? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la fila 5.° A.",
+          "Después ubica la columna mango.",
+          "La casilla común muestra 6."
+        ],
+        "retroalimentacion": "Mirar otra columna cambia la respuesta: 5.° A y mango se cruzan en 6."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una tabla con filas costa y sierra, y columnas bus y tren, ¿qué casilla muestra viajes en tren desde la sierra?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "costa × bus"
+          },
+          {
+            "id": "b",
+            "texto": "costa × tren"
+          },
+          {
+            "id": "c",
+            "texto": "sierra × tren"
+          },
+          {
+            "id": "d",
+            "texto": "sierra × bus"
+          }
+        ],
+        "pistas": [
+          "La región determina la fila.",
+          "El medio de viaje determina la columna.",
+          "Cruza sierra con tren."
+        ],
+        "retroalimentacion": "Confundir el medio lleva a bus; la casilla correcta es sierra × tren."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una tabla de doble entrada, una casilla interior combina una categoría de fila con una de columna.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en lo que señalan los dos encabezados.",
+          "La fila aporta una característica.",
+          "La columna aporta otra y ambas se cruzan en la casilla."
+        ],
+        "retroalimentacion": "Es verdadero: cada casilla interior corresponde a dos categorías."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Tabla de animales: filas perro y gato; columnas macho y hembra. ¿Qué variable aparece en las columnas? Escribe una palabra.",
+        "respuesta": "sexo",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Macho y hembra son las categorías de las columnas.",
+          "Ambas categorías describen una misma característica.",
+          "La característica se llama sexo."
+        ],
+        "retroalimentacion": "No nombres solo una categoría: la variable de las columnas es sexo."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tabla de talleres: fila 5.° A: dibujo 4, teatro 3; fila 5.° B: dibujo 5, teatro 2. ¿Cuántos de 5.° B eligieron dibujo? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No sumes: se pide una casilla.",
+          "Busca la fila 5.° B.",
+          "En la columna dibujo de esa fila aparece 5."
+        ],
+        "retroalimentacion": "Tomar el 4 de 5.° A cambia el grupo; la respuesta es 5."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una tabla de movilidad, la fila caminando tiene niñas 7 y niños 5. ¿Cuál es el total de esa fila? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La fila caminando tiene dos casillas.",
+          "Suma niñas 7 y niños 5.",
+          "7 + 5 = 12."
+        ],
+        "retroalimentacion": "Leer una sola casilla omite al otro grupo: el total caminando es 12."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tabla de libros: aventuras: 5.° A 8, 5.° B 6; ciencia: 5.° A 4, 5.° B 7. ¿Cuántos libros de ciencia hay en total?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "11"
+          },
+          {
+            "id": "b",
+            "texto": "12"
+          },
+          {
+            "id": "c",
+            "texto": "13"
+          },
+          {
+            "id": "d",
+            "texto": "25"
+          }
+        ],
+        "pistas": [
+          "Busca la fila ciencia.",
+          "Allí figuran 4 y 7.",
+          "Suma 4 + 7 = 11; no incluyas aventuras."
+        ],
+        "retroalimentacion": "Sumar aventuras mezcla categorías; ciencia suma 11 libros."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una tabla, la columna danza contiene 3 estudiantes de 5.° A y 4 de 5.° B. Su total es 7.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para total de columna, suma sus filas.",
+          "Danza tiene 3 y 4.",
+          "3 + 4 = 7."
+        ],
+        "retroalimentacion": "Es verdadero: la columna danza reúne 7 estudiantes."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una feria, la tabla tiene filas sábado y domingo; columnas mañana y tarde. Sábado: 9 y 6. Domingo: 7 y una casilla vacía. Si el total es 30, ¿cuánto vale la casilla vacía? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total reúne las cuatro casillas.",
+          "Las conocidas suman 9 + 6 + 7 = 22.",
+          "Resta 30 - 22 para hallar domingo por la tarde."
+        ],
+        "retroalimentacion": "No uses solo el total del domingo: la casilla faltante es 8."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tabla de loncheras: 5.° A fruta 6, pan 4; 5.° B fruta 3, pan 5. ¿Cuál afirmación es correcta?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "En total eligieron fruta 8"
+          },
+          {
+            "id": "b",
+            "texto": "En 5.° B participaron 10"
+          },
+          {
+            "id": "c",
+            "texto": "Pan fue elegido por 10"
+          },
+          {
+            "id": "d",
+            "texto": "En 5.° A participaron 10"
+          }
+        ],
+        "pistas": [
+          "Comprueba cada afirmación con su fila o columna.",
+          "La fila 5.° A contiene 6 y 4.",
+          "6 + 4 = 10; fruta total 9, pan total 9, 5.° B total 8."
+        ],
+        "retroalimentacion": "Confundir fila con columna cambia totales: en 5.° A participaron 10."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Tabla de lectura: niñas leyeron cuento 8 y poesía 5; niños leyeron cuento 6 y poesía 4. ¿Cuántos leyeron cuento más que poesía? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula por separado las dos columnas.",
+          "Cuento suma 8 + 6 = 14; poesía, 5 + 4 = 9.",
+          "Compara 14 y 9 mediante resta."
+        ],
+        "retroalimentacion": "Restar casillas aisladas no compara géneros completos: la diferencia es 5."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Tabla de juegos: niñas ajedrez 4, damas 3; niños ajedrez 2, damas 5. Hay igual cantidad de participantes en ajedrez y damas.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el total de cada juego.",
+          "Ajedrez reúne 4 + 2 = 6.",
+          "Damas reúne 3 + 5 = 8; compara 6 y 8."
+        ],
+        "retroalimentacion": "Es falso: ajedrez tiene 6 y damas 8; los totales no son iguales."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

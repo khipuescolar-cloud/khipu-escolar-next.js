@@ -1,0 +1,4784 @@
+[
+  {
+    "clave": "mat.p5.propiedad-distributiva",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P5-03",
+      "MAT-C23-P5-04"
+    ],
+    "bloque": "Operaciones con naturales",
+    "nombre": "Propiedad distributiva de la multiplicación",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Expresa un producto como suma o resta de productos y la usa en cálculos.",
+    "palabrasClave": [
+      "distributiva",
+      "producto",
+      "suma",
+      "resta"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 8,
+    "ideaCentral": "La multiplicación se distribuye sobre una suma o una resta: a × (b + c) = a × b + a × c. Puedes partir un factor para facilitar el cálculo sin cambiar el resultado.",
+    "pasos": [
+      "Escoge un factor que puedas separar en suma o resta.",
+      "Multiplica el otro factor por cada parte.",
+      "Suma o resta los productos parciales según corresponda.",
+      "Comprueba con la multiplicación original."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Para 7 × 23, separa 23 en 20 + 3.",
+        "desarrollo": "7 × 20 + 7 × 3 = 140 + 21.",
+        "respuesta": "161."
+      },
+      {
+        "situacion": "Calcula 9 × 48 usando 50 − 2.",
+        "desarrollo": "9 × 50 − 9 × 2 = 450 − 18.",
+        "respuesta": "432."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Multiplicar solo una parte del paréntesis.",
+        "correccion": "Distribuye el factor por ambos términos."
+      },
+      {
+        "error": "Sumar productos al separar con resta.",
+        "correccion": "Con (b − c), resta el segundo producto."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Factor",
+        "significado": "Número que participa en una multiplicación."
+      },
+      {
+        "termino": "Producto parcial",
+        "significado": "Resultado de multiplicar por una parte del factor."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 4 × (10 + 3) distribuyendo. Escribe solo el número.",
+        "respuesta": 52,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 4 por 10.",
+          "Multiplica también 4 por 3.",
+          "Suma 40 + 12."
+        ],
+        "retroalimentacion": "Si obtuviste 43, olvidaste multiplicar el 3; resulta 52."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué expresión equivale a 6 × (20 + 5)?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6 × 20 + 5"
+          },
+          {
+            "id": "b",
+            "texto": "6 × 20 + 6 × 5"
+          },
+          {
+            "id": "c",
+            "texto": "6 + 20 × 5"
+          }
+        ],
+        "pistas": [
+          "El 6 se aplica a ambos sumandos.",
+          "Primero va 6 × 20.",
+          "Después suma 6 × 5."
+        ],
+        "retroalimentacion": "6 × 20 + 6 × 5 es equivalente; dejar el 5 sin multiplicar cambia el valor."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "8 × (30 − 2) = 8 × 30 − 8 × 2.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa que el paréntesis contiene una resta.",
+          "Distribuye el 8 a 30 y a 2.",
+          "Mantén el signo menos entre los productos."
+        ],
+        "retroalimentacion": "Verdadero: ambos lados valen 224."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Usa 5 × (40 + 6). ¿Cuál es el resultado? Escribe solo el número.",
+        "respuesta": 230,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 5 × 40.",
+          "Calcula 5 × 6.",
+          "Junta 200 y 30."
+        ],
+        "retroalimentacion": "La suma de los productos parciales es 230."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para hallar 12 × 19 con 20 − 1, elige el desarrollo correcto.",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12 × 20 + 1"
+          },
+          {
+            "id": "b",
+            "texto": "12 × 20 − 1"
+          },
+          {
+            "id": "c",
+            "texto": "12 × 20 − 12 × 1"
+          },
+          {
+            "id": "d",
+            "texto": "12 × 2 − 12 × 1"
+          }
+        ],
+        "pistas": [
+          "19 = 20 − 1.",
+          "Reparte el 12 a los dos términos.",
+          "El segundo término es 12 × 1 y se resta."
+        ],
+        "retroalimentacion": "12 × 20 − 12 × 1 da 228; restar solo 1 da 239."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 15 × 32 separando 32 en 30 + 2. Escribe solo el número.",
+        "respuesta": 480,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "15 × 30 = 450.",
+          "15 × 2 = 30.",
+          "Suma ambos productos."
+        ],
+        "retroalimentacion": "No basta 450: al agregar 30 obtienes 480."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "7 × 48 se puede calcular como 7 × 50 − 7 × 2.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "48 está dos unidades debajo de 50.",
+          "Multiplica 7 por 50.",
+          "Quita el producto correspondiente a dos sietes."
+        ],
+        "retroalimentacion": "Verdadero: 350 − 14 = 336, igual que 7 × 48."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Completa la igualdad: 9 × (10 + 4) = 90 + ___. Escribe solo el término faltante.",
+        "respuesta": "36",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "90 corresponde a 9 × 10.",
+          "Falta distribuir 9 al 4.",
+          "Calcula 9 × 4."
+        ],
+        "retroalimentacion": "El término faltante es 36; sumar solo 4 sería incompleto."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un estudiante afirma 14 × 27 = 14 × 20 + 7. ¿Qué corrección conserva la igualdad?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cambiar 20 por 2"
+          },
+          {
+            "id": "b",
+            "texto": "Restar 7"
+          },
+          {
+            "id": "c",
+            "texto": "Sumar 14 al final"
+          },
+          {
+            "id": "d",
+            "texto": "Cambiar + 7 por + 14 × 7"
+          }
+        ],
+        "pistas": [
+          "27 se separa en 20 + 7.",
+          "El 14 debe multiplicar ambas partes.",
+          "El producto omitido es 14 × 7."
+        ],
+        "retroalimentacion": "Cambiar + 7 por + 14 × 7 corrige la distribución."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula 25 × 39 usando 40 − 1. Escribe solo el número.",
+        "respuesta": 975,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "25 × 40 es 1 000.",
+          "25 × 1 es 25.",
+          "Resta 25 a 1 000."
+        ],
+        "retroalimentacion": "La resta da 975; 1 000 corresponde a 25 × 40."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para 18 × (12 + 8), sumar 18 × 12 y 18 × 8 da el mismo resultado que 18 × 20.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Junta 12 + 8.",
+          "El paréntesis vale 20.",
+          "La distributiva conserva ese producto."
+        ],
+        "retroalimentacion": "Verdadero: 216 + 144 = 360 y 18 × 20 = 360."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Completa: 13 × 46 = 13 × 50 − ___. Escribe solo el producto faltante.",
+        "respuesta": "52",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "46 está a 4 de 50.",
+          "Debes quitar cuatro grupos de 13.",
+          "Calcula 13 × 4."
+        ],
+        "retroalimentacion": "Falta 52; restar solo 4 no compensa la diferencia entre factores."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.relacion-cuatro-operaciones",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P5-03"
+    ],
+    "bloque": "Operaciones con naturales",
+    "nombre": "Relación entre las cuatro operaciones",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Explica que la resta deshace la suma y la división deshace la multiplicación.",
+    "palabrasClave": [
+      "operaciones inversas",
+      "suma",
+      "resta",
+      "multiplicación",
+      "división"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 9,
+    "ideaCentral": "La resta deshace una suma y la división deshace una multiplicación exacta. Puedes usar esa relación para hallar un dato desconocido o comprobar una respuesta.",
+    "pasos": [
+      "Identifica la operación original.",
+      "Elige su operación inversa.",
+      "Usa los datos conocidos para recuperar el valor faltante.",
+      "Comprueba rehaciendo la operación original."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Se juntan 38 y 27 cuadernos. ¿Cómo recuperas 27 del total?",
+        "desarrollo": "38 + 27 = 65; 65 − 38 = 27.",
+        "respuesta": "La resta recupera 27."
+      },
+      {
+        "situacion": "Hay 8 bolsas con 12 panes cada una. ¿Cómo recuperas el número de bolsas?",
+        "desarrollo": "8 × 12 = 96; 96 ÷ 12 = 8.",
+        "respuesta": "Son 8 bolsas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que suma y división se deshacen.",
+        "correccion": "Suma se empareja con resta; multiplicación con división."
+      },
+      {
+        "error": "Olvidar comprobar el dato hallado.",
+        "correccion": "Repite la operación inicial y verifica el total."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Operación inversa",
+        "significado": "Operación que permite deshacer el efecto de otra."
+      },
+      {
+        "termino": "Cociente",
+        "significado": "Resultado de una división."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Si 45 + 28 = 73, ¿cuánto es 73 − 45? Escribe solo el número.",
+        "respuesta": 28,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta deshace suma.",
+          "El total es 73.",
+          "Quita la parte 45 para recuperar la otra."
+        ],
+        "retroalimentacion": "73 − 45 = 28; es la parte que se agregó."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué operación comprueba 9 × 14 = 126?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "126 + 9 = 135"
+          },
+          {
+            "id": "b",
+            "texto": "126 ÷ 14 = 9"
+          },
+          {
+            "id": "c",
+            "texto": "126 − 14 = 112"
+          }
+        ],
+        "pistas": [
+          "Elige la inversa de multiplicar.",
+          "Divide el producto por un factor.",
+          "126 repartido entre 14 devuelve 9."
+        ],
+        "retroalimentacion": "126 ÷ 14 = 9 comprueba la multiplicación; sumar no la deshace."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La división puede deshacer una multiplicación exacta.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en 6 × 4.",
+          "El producto es 24.",
+          "24 ÷ 4 recupera 6."
+        ],
+        "retroalimentacion": "Verdadero: dividir el producto por un factor recupera el otro."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Completa 37 + ___ = 90. Escribe solo el número.",
+        "respuesta": 53,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa la inversa de sumar.",
+          "Al total 90 quítale 37.",
+          "90 − 37 da la parte faltante."
+        ],
+        "retroalimentacion": "El número es 53 porque 37 + 53 = 90."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja con cierta cantidad de lápices recibe 35 y termina con 92. ¿Cómo hallas los que había?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "92 + 35"
+          },
+          {
+            "id": "b",
+            "texto": "92 ÷ 35"
+          },
+          {
+            "id": "c",
+            "texto": "92 − 35"
+          }
+        ],
+        "pistas": [
+          "Agregar se deshace quitando.",
+          "92 es el total final.",
+          "Resta los 35 que se agregaron."
+        ],
+        "retroalimentacion": "92 − 35 recupera 57 lápices iniciales."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Si 13 grupos iguales tienen 156 fichas, ¿cuántas hay por grupo? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total salió de una multiplicación.",
+          "Divide 156 entre 13.",
+          "Comprueba multiplicando 13 por tu cociente."
+        ],
+        "retroalimentacion": "Hay 12 por grupo: 13 × 12 = 156."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para comprobar 204 − 78 = 126, puedes calcular 126 + 78.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La suma es inversa de la resta.",
+          "Reúne la diferencia y lo quitado.",
+          "Si obtienes 204, la resta es correcta."
+        ],
+        "retroalimentacion": "Verdadero: 126 + 78 = 204."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Completa: 18 × ___ = 234. Escribe solo el factor faltante.",
+        "respuesta": "13",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide el producto por el factor conocido.",
+          "Calcula 234 ÷ 18.",
+          "18 × 13 permite comprobar."
+        ],
+        "retroalimentacion": "El factor es 13; 18 × 13 = 234."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mara dice que 64 ÷ 8 = 9. ¿Qué comprobación revela el error?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "64 + 8 = 72"
+          },
+          {
+            "id": "b",
+            "texto": "64 − 8 = 56"
+          },
+          {
+            "id": "c",
+            "texto": "9 + 8 = 17"
+          },
+          {
+            "id": "d",
+            "texto": "9 × 8 = 72, no 64"
+          }
+        ],
+        "pistas": [
+          "Multiplica cociente propuesto por divisor.",
+          "El divisor es 8 y el supuesto cociente 9.",
+          "Compara 9 × 8 con 64."
+        ],
+        "retroalimentacion": "9 × 8 = 72, no 64; el cociente correcto es 8."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "A un número le restan 47 y obtienen 186. ¿Cuál era el número? Escribe solo el número.",
+        "respuesta": 233,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Deshaz la resta con suma.",
+          "Reúne 186 y 47.",
+          "Comprueba restando 47 al total hallado."
+        ],
+        "retroalimentacion": "Era 233, pues 233 − 47 = 186."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 15 × 24 = 360, entonces 360 ÷ 15 = 24 y 360 ÷ 24 = 15.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay dos factores y un producto.",
+          "Divide el producto por cada factor por separado.",
+          "Cada división devuelve el otro factor."
+        ],
+        "retroalimentacion": "Verdadero: ambas divisiones comprueban 15 × 24 = 360."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un alumno escribió 58 + 27 = 85 y luego 85 − 58 = 26. ¿Qué número debe reemplazar al 26? Escribe solo el número.",
+        "respuesta": "27",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La resta debe recuperar el sumando quitado.",
+          "Calcula 85 − 58.",
+          "Comprueba que 58 más tu respuesta da 85."
+        ],
+        "retroalimentacion": "Debe ser 27; 26 daría 84 al sumarlo con 58."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.suma-resta-seis-cifras",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P5-04"
+    ],
+    "bloque": "Operaciones con naturales",
+    "nombre": "Suma y resta con números de hasta seis cifras",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Suma y resta números grandes con canjes y verifica el resultado.",
+    "palabrasClave": [
+      "suma",
+      "resta",
+      "canje",
+      "seis cifras"
+    ],
+    "prerrequisitos": [
+      "mat.p5.descomponer-seis-cifras"
+    ],
+    "ordenSugerido": 10,
+    "ideaCentral": "Para sumar o restar números grandes, alinea las cifras por orden y realiza los canjes necesarios. Comprueba una resta con suma y una suma con resta.",
+    "pasos": [
+      "Coloca unidades bajo unidades y así con cada orden.",
+      "Opera de derecha a izquierda.",
+      "Canjea diez unidades de un orden por una del siguiente cuando haga falta.",
+      "Verifica con la operación inversa."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una biblioteca tenía 234 785 libros y recibió 18 946.",
+        "desarrollo": "234 785 + 18 946 = 253 731; hay canjes en unidades y centenas.",
+        "respuesta": "253 731 libros."
+      },
+      {
+        "situacion": "Un depósito guardaba 400 200 cuadernos y envió 78 450.",
+        "desarrollo": "400 200 − 78 450 = 321 750; se pide prestado a órdenes superiores.",
+        "respuesta": "321 750 cuadernos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Alinear por la izquierda números de distinta longitud.",
+        "correccion": "Alinea por unidades: las cifras del mismo orden van en columna."
+      },
+      {
+        "error": "Olvidar disminuir la columna que presta.",
+        "correccion": "Cada canje quita una unidad al orden superior."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Canje",
+        "significado": "Cambio de una unidad de un orden por diez del orden inferior."
+      },
+      {
+        "termino": "Diferencia",
+        "significado": "Resultado de restar."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Suma 123 456 + 234 111. Escribe solo el número.",
+        "respuesta": 357567,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Alinea los seis órdenes.",
+          "Suma unidades: 6 + 1 = 7.",
+          "Continúa columna por columna."
+        ],
+        "retroalimentacion": "La suma es 357 567; no desplaces ninguna columna."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuánto es 508 000 − 8 000?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "580 000"
+          },
+          {
+            "id": "b",
+            "texto": "500 000"
+          },
+          {
+            "id": "c",
+            "texto": "508 800"
+          }
+        ],
+        "pistas": [
+          "Se quitan 8 millares.",
+          "508 millares menos 8 millares son 500.",
+          "Escribe los tres ceros finales."
+        ],
+        "retroalimentacion": "500 000; restar 8 000 no altera la centena de millar."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "200 030 + 40 000 = 240 030.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las decenas de millar.",
+          "20 000 + 40 000 = 60 000 junto a 180 030 restantes.",
+          "También puedes sumar 200 030 + 40 000 directamente."
+        ],
+        "retroalimentacion": "Verdadero: la suma da 240 030."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Resta 75 842 − 12 300. Escribe solo el número.",
+        "respuesta": 63542,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Alinea las unidades.",
+          "Resta 12 millares y 3 centenas.",
+          "Las últimas dos cifras quedan 42."
+        ],
+        "retroalimentacion": "La diferencia es 63 542; 12 300 no se resta como 123."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Suma 295 678 + 14 765. ¿Qué resultado obtienes?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "309 443"
+          },
+          {
+            "id": "b",
+            "texto": "310 343"
+          },
+          {
+            "id": "c",
+            "texto": "310 443"
+          },
+          {
+            "id": "d",
+            "texto": "311 443"
+          }
+        ],
+        "pistas": [
+          "Empieza por 8 + 5 y lleva 1.",
+          "En centenas, 6 + 7 y el canje producen 14.",
+          "Revisa los millares tras los canjes."
+        ],
+        "retroalimentacion": "310 443 es correcto; olvidar un canje cambia los millares."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 600 005 − 239 876. Escribe solo el número.",
+        "respuesta": 360129,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Necesitarás canjear a través de ceros.",
+          "Comprueba con 239 876 + tu diferencia.",
+          "El resultado de esa suma debe ser 600 005."
+        ],
+        "retroalimentacion": "La resta da 360 129; verifica: 360 129 + 239 876 = 600 005."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 458 320 − 76 450 = 381 870, entonces 381 870 + 76 450 = 458 320.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma deshace la resta.",
+          "Junta la diferencia con lo sustraído.",
+          "381 870 + 76 450 se puede agrupar por millares."
+        ],
+        "retroalimentacion": "Verdadero: la comprobación devuelve 458 320."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una escuela reunió 87 950 hojas y otra 126 875. ¿Cuántas reunieron juntas? Escribe solo el número.",
+        "respuesta": 214825,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una cantidad tiene cinco cifras: alinea unidades.",
+          "Suma 87 950 + 126 875.",
+          "En centenas se produce un canje."
+        ],
+        "retroalimentacion": "Reunieron 214 825 hojas; no alinees por la primera cifra."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un registro marca 300 000 unidades. Se retiran 99 999. ¿Cuántas quedan?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "200 000"
+          },
+          {
+            "id": "b",
+            "texto": "201 001"
+          },
+          {
+            "id": "c",
+            "texto": "199 999"
+          },
+          {
+            "id": "d",
+            "texto": "200 001"
+          }
+        ],
+        "pistas": [
+          "99 999 es una unidad menos que 100 000.",
+          "300 000 − 100 000 = 200 000.",
+          "Al quitar una unidad menos, queda una más."
+        ],
+        "retroalimentacion": "Quedan 200 001; 200 000 quitaría 100 000 completas."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una feria esperaba 245 600 visitas; recibió 198 745. ¿Cuántas faltaron para llegar a la meta? Escribe solo el número.",
+        "respuesta": 46855,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara meta con asistencia.",
+          "Resta 245 600 − 198 745.",
+          "Comprueba sumando la diferencia a 198 745."
+        ],
+        "retroalimentacion": "Faltaron 46 855; la suma de comprobación es 245 600."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 132 850 + 68 175 = 201 025, al restar 68 175 de 201 025 se obtiene 132 850.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa la operación inversa.",
+          "El total es 201 025.",
+          "Quita el segundo sumando."
+        ],
+        "retroalimentacion": "Verdadero: 201 025 − 68 175 = 132 850."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Completa 457 900 − ___ = 389 475. Escribe solo el número faltante.",
+        "respuesta": "68425",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La resta se deshace sumando.",
+          "Halla el sustraendo con 457 900 − 389 475.",
+          "Comprueba 389 475 + tu respuesta."
+        ],
+        "retroalimentacion": "Falta 68 425; esa cantidad devuelve 457 900 al sumarla."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.multiplicacion-dos-tres-cifras",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P5-04"
+    ],
+    "bloque": "Operaciones con naturales",
+    "nombre": "Multiplicación por números de dos y tres cifras",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Multiplica con el algoritmo usual ordenando los productos parciales.",
+    "palabrasClave": [
+      "multiplicación",
+      "productos parciales",
+      "algoritmo",
+      "canje"
+    ],
+    "prerrequisitos": [
+      "mat.p5.propiedad-distributiva"
+    ],
+    "ordenSugerido": 11,
+    "ideaCentral": "Al multiplicar por dos o tres cifras, calcula un producto parcial por cada cifra del multiplicador. Cada parcial se coloca según el valor de esa cifra y luego se suman.",
+    "pasos": [
+      "Multiplica primero por las unidades y anota el parcial.",
+      "Multiplica por las decenas y coloca el parcial un lugar a la izquierda.",
+      "Si hay centenas, repite dos lugares a la izquierda.",
+      "Suma los productos parciales y comprueba con una estimación."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "El vivero vende 124 plantas por caja en 23 cajas.",
+        "desarrollo": "124 × 3 = 372; 124 × 20 = 2 480; sumo 2 852.",
+        "respuesta": "2 852 plantas."
+      },
+      {
+        "situacion": "Hay 36 asientos por bus en 105 buses.",
+        "desarrollo": "36 × 100 = 3 600 y 36 × 5 = 180.",
+        "respuesta": "3 780 asientos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Escribir el parcial de las decenas sin desplazarlo.",
+        "correccion": "Multiplicar por 20 agrega un cero al valor de multiplicar por 2."
+      },
+      {
+        "error": "Olvidar una cifra del multiplicador.",
+        "correccion": "Calcula un parcial por cada cifra, incluso si el cero aporta un parcial nulo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Producto parcial",
+        "significado": "Resultado de multiplicar por una cifra según su orden."
+      },
+      {
+        "termino": "Multiplicador",
+        "significado": "Factor cuyas cifras se usan para los parciales."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 24 × 12. Escribe solo el número.",
+        "respuesta": 288,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa 12 en 10 + 2.",
+          "24 × 10 = 240.",
+          "24 × 2 = 48; suma ambos."
+        ],
+        "retroalimentacion": "El producto es 288; 240 omite las unidades del multiplicador."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué parcial corresponde a las decenas en 43 × 26?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "43 × 2 = 86"
+          },
+          {
+            "id": "b",
+            "texto": "43 × 20 = 860"
+          },
+          {
+            "id": "c",
+            "texto": "43 × 6 = 258"
+          }
+        ],
+        "pistas": [
+          "El 2 de 26 vale 20.",
+          "Multiplica 43 por dos decenas.",
+          "El parcial debe ser diez veces 86."
+        ],
+        "retroalimentacion": "43 × 20 = 860; 86 trata el 2 como unidades."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 32 × 104, el producto parcial de las decenas es cero.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa la cifra de decenas de 104.",
+          "Esa cifra es 0.",
+          "32 × 0 decenas aporta cero."
+        ],
+        "retroalimentacion": "Verdadero: no hay contribución de decenas en 104."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Multiplica 125 × 20. Escribe solo el número.",
+        "respuesta": 2500,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero 125 × 2.",
+          "Dos decenas equivalen a veinte.",
+          "Al producto por 2, añade un cero."
+        ],
+        "retroalimentacion": "125 × 20 = 2 500; 250 sería por 2."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un cálculo muestra 56 × 34 = 56 × 30 + 56 × 4. ¿Cuál es el producto?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1 680"
+          },
+          {
+            "id": "b",
+            "texto": "1 804"
+          },
+          {
+            "id": "c",
+            "texto": "1 904"
+          },
+          {
+            "id": "d",
+            "texto": "2 004"
+          }
+        ],
+        "pistas": [
+          "56 × 30 = 1 680.",
+          "56 × 4 = 224.",
+          "Suma ambos parciales."
+        ],
+        "retroalimentacion": "1 904; detenerse en 1 680 omite las unidades."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Halla 208 × 15. Escribe solo el número.",
+        "respuesta": 3120,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa 15 en 10 + 5.",
+          "208 × 10 = 2 080.",
+          "208 × 5 = 1 040; suma."
+        ],
+        "retroalimentacion": "El producto es 3 120; no olvides el parcial por cinco."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El producto 47 × 103 equivale a 47 × 100 + 47 × 3.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Descompón 103 por órdenes.",
+          "La decena es cero.",
+          "Solo aportan centenas y unidades."
+        ],
+        "retroalimentacion": "Verdadero: 4 700 + 141 = 4 841."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 84 × 27. Escribe solo el número.",
+        "respuesta": 2268,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "84 × 20 = 1 680.",
+          "84 × 7 = 588.",
+          "Suma 1 680 + 588."
+        ],
+        "retroalimentacion": "2 268; sumar 168 + 588 olvidaría el valor de las decenas."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al calcular 312 × 204, ¿qué parciales no nulos necesitas sumar?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "312 × 2 y 312 × 4"
+          },
+          {
+            "id": "b",
+            "texto": "312 × 20 y 312 × 4"
+          },
+          {
+            "id": "c",
+            "texto": "312 × 200 y 312 × 40"
+          },
+          {
+            "id": "d",
+            "texto": "312 × 200 y 312 × 4"
+          }
+        ],
+        "pistas": [
+          "En 204 hay centenas, cero decenas y unidades.",
+          "El 2 vale 200.",
+          "El 4 vale 4; el cero no aporta."
+        ],
+        "retroalimentacion": "312 × 200 y 312 × 4 son los parciales útiles."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un taller arma 136 kits cada día durante 124 días. ¿Cuántos kits arma? Escribe solo el número.",
+        "respuesta": 16864,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa 124 en 100 + 20 + 4.",
+          "Los parciales son 13 600, 2 720 y 544.",
+          "Súmalos en orden."
+        ],
+        "retroalimentacion": "Arma 16 864 kits; omitir las decenas quitaría 2 720."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 305 × 48, sumar 305 × 8 y 305 × 40 da 14 640.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 305 × 8.",
+          "Calcula 305 × 40.",
+          "2 440 + 12 200 = 14 640."
+        ],
+        "retroalimentacion": "Verdadero: los dos parciales están alineados por su valor."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En 72 × 125, ya se anotaron 72 × 100 = 7 200 y 72 × 5 = 360. ¿Qué parcial falta? Escribe solo el número.",
+        "respuesta": "1440",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Falta la cifra de decenas de 125.",
+          "Esa cifra representa 20.",
+          "Calcula 72 × 20."
+        ],
+        "retroalimentacion": "Falta 1 440; 72 × 2 = 144 no conserva el orden de las decenas."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.problemas-cuatro-operaciones-5",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-P5-01"
+    ],
+    "bloque": "Operaciones con naturales",
+    "nombre": "Problemas con las cuatro operaciones",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Elige la operación que modela situaciones de agregar, comparar, igualar, reiterar o repartir.",
+    "palabrasClave": [
+      "problemas",
+      "agregar",
+      "comparar",
+      "reiterar",
+      "repartir"
+    ],
+    "prerrequisitos": [
+      "mat.p5.multiplicacion-dos-tres-cifras"
+    ],
+    "ordenSugerido": 27,
+    "ideaCentral": "La situación indica qué operación necesitas: agregar cantidades, comparar una diferencia, repetir grupos iguales o repartir en partes iguales. Traduce las palabras a una operación y comprueba si la respuesta tiene sentido.",
+    "pasos": [
+      "Señala qué se conoce y qué se pide.",
+      "Decide si las cantidades se juntan, comparan, repiten o reparten.",
+      "Escribe y resuelve la operación adecuada.",
+      "Explica la respuesta con la unidad del problema."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una librería tenía 240 cuadernos y recibió 85.",
+        "desarrollo": "Se agrega una cantidad: 240 + 85 = 325.",
+        "respuesta": "Tiene 325 cuadernos."
+      },
+      {
+        "situacion": "Se reparten 144 semillas por igual en 12 sobres.",
+        "desarrollo": "Es reparto: 144 ÷ 12 = 12.",
+        "respuesta": "12 semillas por sobre."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Multiplicar cuando solo se agregan dos cantidades distintas.",
+        "correccion": "Multiplica si hay grupos iguales repetidos."
+      },
+      {
+        "error": "Restar para saber un total después de recibir más.",
+        "correccion": "Al agregar, el total aumenta; usa suma."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Reiterar",
+        "significado": "Repetir una misma cantidad varias veces."
+      },
+      {
+        "termino": "Repartir",
+        "significado": "Distribuir un total en grupos iguales."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una campaña reunió 165 libros el lunes y 87 el martes. ¿Cuántos reunió en total? Escribe solo el número.",
+        "respuesta": 252,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se juntan dos cantidades.",
+          "La operación es una suma.",
+          "Calcula 165 + 87."
+        ],
+        "retroalimentacion": "Son 252 libros; restar calcularía una diferencia."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un equipo obtuvo 345 puntos y otro 298. ¿Qué operación halla cuántos puntos más obtuvo el primero?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "345 + 298"
+          },
+          {
+            "id": "b",
+            "texto": "345 − 298"
+          },
+          {
+            "id": "c",
+            "texto": "345 × 298"
+          }
+        ],
+        "pistas": [
+          "La pregunta pide una diferencia.",
+          "Compara el mayor con el menor.",
+          "Resta 298 de 345."
+        ],
+        "retroalimentacion": "345 − 298 muestra la diferencia de 47 puntos."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para saber cuántos panes hay en 8 bolsas de 15 panes cada una, puedes multiplicar 8 × 15.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada bolsa tiene igual cantidad.",
+          "Hay ocho grupos de quince.",
+          "Multiplicar abrevia la suma repetida."
+        ],
+        "retroalimentacion": "Verdadero: 8 × 15 = 120 panes."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Hay 96 entradas para repartir en 8 salones por igual. ¿Cuántas recibe cada salón? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se distribuye un total.",
+          "Divide 96 entre 8.",
+          "Comprueba multiplicando el reparto por 8."
+        ],
+        "retroalimentacion": "Cada salón recibe 12 entradas; 8 × 12 = 96."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un bus lleva 42 pasajeros y suben 17 más. ¿Cuál es la operación adecuada?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "42 − 17"
+          },
+          {
+            "id": "b",
+            "texto": "42 × 17"
+          },
+          {
+            "id": "c",
+            "texto": "42 + 17"
+          },
+          {
+            "id": "d",
+            "texto": "42 ÷ 17"
+          }
+        ],
+        "pistas": [
+          "Los pasajeros nuevos se agregan.",
+          "El total final debe superar 42.",
+          "La suma reúne quienes ya iban y quienes subieron."
+        ],
+        "retroalimentacion": "42 + 17 modela la situación y da 59 pasajeros."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una chacra cosechó 580 kg de papa y vendió 235 kg. ¿Cuántos kg quedan? Escribe solo el número.",
+        "respuesta": 345,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Vender reduce lo disponible.",
+          "Resta la venta de la cosecha.",
+          "Calcula 580 − 235."
+        ],
+        "retroalimentacion": "Quedan 345 kg; sumar contaría los vendidos dos veces."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si hay 24 cajas con 18 lápices cada una, dividir 24 entre 18 da el total de lápices.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay grupos iguales.",
+          "Son 24 grupos de 18.",
+          "Para el total, multiplica 24 × 18."
+        ],
+        "retroalimentacion": "Falso: se multiplica y hay 432 lápices."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El colegio compró 9 paquetes iguales y pagó 270 soles. ¿Cuánto costó cada paquete? Escribe solo el número.",
+        "respuesta": "30",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Conoces el precio de todos los paquetes.",
+          "Reparte el costo entre 9.",
+          "Calcula 270 ÷ 9."
+        ],
+        "retroalimentacion": "Cada paquete costó 30 soles; 9 × 30 = 270."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se deben guardar 168 pelotas en redes de 12 pelotas. ¿Qué cálculo responde cuántas redes se necesitan?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "168 + 12"
+          },
+          {
+            "id": "b",
+            "texto": "168 − 12"
+          },
+          {
+            "id": "c",
+            "texto": "168 × 12"
+          },
+          {
+            "id": "d",
+            "texto": "168 ÷ 12"
+          }
+        ],
+        "pistas": [
+          "Se pregunta por la cantidad de grupos.",
+          "Cada grupo tiene 12 pelotas.",
+          "Divide el total entre el tamaño de grupo."
+        ],
+        "retroalimentacion": "168 ÷ 12 da 14 redes; multiplicar hallaría pelotas a partir de redes."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Ana tenía cierta cantidad de figuritas. Regaló 48 y ahora tiene 137. ¿Cuántas tenía? Escribe solo el número.",
+        "respuesta": 185,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El dato inicial es mayor que 137.",
+          "Deshaz el regalo sumando.",
+          "137 + 48 recupera la cantidad inicial."
+        ],
+        "retroalimentacion": "Tenía 185; 185 − 48 = 137."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una feria vendió 315 entradas el sábado y 274 el domingo, la diferencia entre ambos días se halla con 315 − 274.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Diferencia significa cuánto más.",
+          "El sábado tiene el número mayor.",
+          "Resta 274 de 315."
+        ],
+        "retroalimentacion": "Verdadero: la diferencia es 41 entradas."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Para un mural se usan 16 azulejos por fila. Hay 13 filas. ¿Cuántos azulejos se necesitan? Escribe solo el número.",
+        "respuesta": "208",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las filas tienen igual cantidad.",
+          "Son 13 grupos de 16.",
+          "Multiplica 16 × 13."
+        ],
+        "retroalimentacion": "Se necesitan 208 azulejos; sumar 16 + 13 no cuenta todos los grupos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.multiplos-de-un-numero",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P5-03"
+    ],
+    "bloque": "Operaciones con naturales",
+    "nombre": "Múltiplos de un número",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Genera los múltiplos de un número y reconoce si un número es múltiplo de otro.",
+    "palabrasClave": [
+      "múltiplos",
+      "tabla",
+      "producto",
+      "divisibilidad"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 28,
+    "ideaCentral": "Los múltiplos de un número se obtienen al multiplicarlo por 0, 1, 2, 3 y así sucesivamente. Para reconocer uno, comprueba si la división por ese número es exacta.",
+    "pasos": [
+      "Elige el número base.",
+      "Multiplica por números naturales sucesivos para generar múltiplos.",
+      "Para comprobar un candidato, divídelo entre la base.",
+      "Si el residuo es cero, sí es múltiplo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una banda desfila en filas de 6. ¿Puede formar 42 integrantes?",
+        "desarrollo": "6 × 7 = 42; la división 42 ÷ 6 es exacta.",
+        "respuesta": "42 es múltiplo de 6."
+      },
+      {
+        "situacion": "Una artesana hace collares con 8 cuentas. ¿Cuántas cuentas necesita para 5 collares?",
+        "desarrollo": "8 × 5 = 40.",
+        "respuesta": "40 cuentas; es múltiplo de 8."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que 25 es múltiplo de 4 porque está cerca de 24.",
+        "correccion": "El múltiplo debe ser un producto exacto; 25 deja residuo 1."
+      },
+      {
+        "error": "Detener la lista en el décimo múltiplo.",
+        "correccion": "Los múltiplos continúan sin límite."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Múltiplo",
+        "significado": "Producto de un número por un entero no negativo."
+      },
+      {
+        "termino": "Residuo",
+        "significado": "Cantidad que sobra al dividir."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuál es el quinto múltiplo positivo de 7? Escribe solo el número.",
+        "respuesta": 35,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta 7, 14, 21…",
+          "El quinto se obtiene con 7 × 5.",
+          "Multiplica cinco veces siete."
+        ],
+        "retroalimentacion": "Es 35; contar 0 como primero cambiaría la consigna de positivo."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es múltiplo de 9?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "32"
+          },
+          {
+            "id": "b",
+            "texto": "45"
+          },
+          {
+            "id": "c",
+            "texto": "52"
+          },
+          {
+            "id": "d",
+            "texto": "68"
+          }
+        ],
+        "pistas": [
+          "Busca un producto de 9.",
+          "9 × 5 = 45.",
+          "Los otros dejan residuo al dividir entre 9."
+        ],
+        "retroalimentacion": "45 es múltiplo de 9 porque 9 × 5 = 45."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "48 es múltiplo de 6.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide 48 entre 6.",
+          "6 × 8 produce 48.",
+          "La división no deja residuo."
+        ],
+        "retroalimentacion": "Verdadero: 48 = 6 × 8."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Completa 12, 24, 36, ___, 60. Escribe solo el número faltante.",
+        "respuesta": "48",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada término aumenta 12.",
+          "Después de 36 suma otro 12.",
+          "Comprueba que luego sigue 60."
+        ],
+        "retroalimentacion": "Falta 48; son múltiplos sucesivos de 12."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál NO es múltiplo de 8?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "32"
+          },
+          {
+            "id": "b",
+            "texto": "56"
+          },
+          {
+            "id": "c",
+            "texto": "62"
+          },
+          {
+            "id": "d",
+            "texto": "72"
+          }
+        ],
+        "pistas": [
+          "Comprueba cada número con la tabla del 8.",
+          "8 × 7 = 56 y 8 × 9 = 72.",
+          "62 queda entre 56 y 64."
+        ],
+        "retroalimentacion": "62 no es múltiplo de 8; deja residuo 6."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Qué múltiplo de 15 sigue inmediatamente después de 90? Escribe solo el número.",
+        "respuesta": 105,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "90 = 15 × 6.",
+          "El siguiente es 15 × 7.",
+          "También puedes sumar 15 a 90."
+        ],
+        "retroalimentacion": "Sigue 105; 100 no es producto exacto de 15."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Toda cantidad que es múltiplo de 10 termina en 0.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en 10 × cualquier entero.",
+          "Multiplicar por diez añade un cero final.",
+          "Verifica 30, 70, 120."
+        ],
+        "retroalimentacion": "Verdadero: los múltiplos de 10 terminan en 0."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una caja guarda 14 libros. ¿Cuántos libros hay en 8 cajas llenas? Escribe solo el número.",
+        "respuesta": 112,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total debe ser múltiplo de 14.",
+          "Calcula 14 × 8.",
+          "10 × 8 + 4 × 8 = 80 + 32."
+        ],
+        "retroalimentacion": "Hay 112 libros; es el octavo múltiplo positivo de 14."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Entre 80 y 90, ¿qué múltiplo de 11 aparece?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "71"
+          },
+          {
+            "id": "b",
+            "texto": "77"
+          },
+          {
+            "id": "c",
+            "texto": "80"
+          },
+          {
+            "id": "d",
+            "texto": "88"
+          }
+        ],
+        "pistas": [
+          "Busca los productos de 11 cercanos a 80.",
+          "11 × 7 = 77 está por debajo de 80.",
+          "11 × 8 cae entre 80 y 90."
+        ],
+        "retroalimentacion": "88 es el múltiplo de 11 en ese intervalo; 77 queda fuera."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "El 72 es múltiplo de un número mayor que 8 y menor que 10. ¿Cuál es? Escribe solo el número.",
+        "respuesta": "9",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el único entero entre 8 y 10.",
+          "Ese entero es 9.",
+          "Comprueba 72 ÷ 9."
+        ],
+        "retroalimentacion": "Es 9 porque 72 ÷ 9 = 8 sin residuo."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 54 es múltiplo de 9, entonces 54 + 9 también es múltiplo de 9.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "54 = 9 × 6.",
+          "Suma otro grupo de 9.",
+          "Quedan siete grupos de 9."
+        ],
+        "retroalimentacion": "Verdadero: 54 + 9 = 63 = 9 × 7."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El menor múltiplo positivo de 18 mayor que 100 es ¿cuál? Escribe solo el número.",
+        "respuesta": 108,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "18 × 5 = 90.",
+          "El siguiente múltiplo se obtiene sumando 18.",
+          "Comprueba que cae por encima de 100."
+        ],
+        "retroalimentacion": "Es 108; 90 está por debajo de 100."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.multiplos-comunes",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P5-03"
+    ],
+    "bloque": "Operaciones con naturales",
+    "nombre": "Múltiplos comunes en situaciones cotidianas",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Encuentra cuándo coinciden dos sucesos que se repiten cada cierto tiempo.",
+    "palabrasClave": [
+      "múltiplos comunes",
+      "coincidencia",
+      "periodicidad",
+      "mínimo común múltiplo"
+    ],
+    "prerrequisitos": [
+      "mat.p5.multiplos-de-un-numero"
+    ],
+    "ordenSugerido": 29,
+    "ideaCentral": "Cuando dos sucesos se repiten cada cierto número de unidades, coinciden en los múltiplos comunes de ambos períodos. El primer múltiplo común positivo indica la primera coincidencia después del inicio.",
+    "pasos": [
+      "Escribe varios múltiplos positivos de cada período.",
+      "Marca los valores que aparecen en las dos listas.",
+      "Elige el primero si preguntan por la próxima coincidencia.",
+      "Suma ese intervalo al momento inicial y revisa la unidad."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Dos talleres se hacen cada 4 y 6 días desde hoy.",
+        "desarrollo": "Múltiplos de 4: 4, 8, 12; de 6: 6, 12.",
+        "respuesta": "Vuelven a coincidir en 12 días."
+      },
+      {
+        "situacion": "Dos luces parpadean cada 5 y 8 segundos.",
+        "desarrollo": "Los múltiplos comunes empiezan en 40.",
+        "respuesta": "Coinciden después de 40 segundos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Elegir un múltiplo de solo un período.",
+        "correccion": "La coincidencia debe estar en las dos listas."
+      },
+      {
+        "error": "Contar el inicio como próxima coincidencia.",
+        "correccion": "Para la siguiente, busca el primer múltiplo común positivo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Período",
+        "significado": "Tiempo entre dos repeticiones de un suceso."
+      },
+      {
+        "termino": "Múltiplo común",
+        "significado": "Número que es múltiplo de dos o más números."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Dos timbres suenan juntos ahora; uno cada 2 min y otro cada 3 min. ¿En cuántos min vuelven a coincidir? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lista 2, 4, 6.",
+          "Lista 3, 6.",
+          "El primer valor repetido es el intervalo buscado."
+        ],
+        "retroalimentacion": "Coinciden en 6 min; 3 no es múltiplo de 2."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es un múltiplo común de 4 y 5?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "15"
+          },
+          {
+            "id": "b",
+            "texto": "20"
+          },
+          {
+            "id": "c",
+            "texto": "24"
+          },
+          {
+            "id": "d",
+            "texto": "25"
+          }
+        ],
+        "pistas": [
+          "Escribe productos de 4.",
+          "Escribe productos de 5.",
+          "20 aparece en ambas listas."
+        ],
+        "retroalimentacion": "20 es común: 4 × 5 y 5 × 4."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "12 es múltiplo común de 3 y 4.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Comprueba 12 ÷ 3.",
+          "Comprueba también 12 ÷ 4.",
+          "Ambas divisiones son exactas."
+        ],
+        "retroalimentacion": "Verdadero: 12 = 3 × 4 = 4 × 3."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Dos juegos se repiten cada 3 y 6 turnos. ¿Cuántos turnos hasta la primera coincidencia? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los múltiplos de 6 empiezan en 6.",
+          "6 también es múltiplo de 3.",
+          "No hay múltiplo positivo de 6 antes de 6."
+        ],
+        "retroalimentacion": "La primera coincidencia es en 6 turnos."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una alarma suena cada 6 min y otra cada 8 min. ¿Cuándo vuelven a sonar juntas?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12 min"
+          },
+          {
+            "id": "b",
+            "texto": "18 min"
+          },
+          {
+            "id": "c",
+            "texto": "24 min"
+          },
+          {
+            "id": "d",
+            "texto": "48 min"
+          }
+        ],
+        "pistas": [
+          "Escribe 6, 12, 18, 24.",
+          "Para 8: 8, 16, 24.",
+          "El primer común es 24."
+        ],
+        "retroalimentacion": "A los 24 min; 12 y 18 no son múltiplos de 8."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una visita ocurre cada 9 días y otra cada 12 días. ¿Cuántos días hasta coincidir por primera vez? Escribe solo el número.",
+        "respuesta": 36,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lista 9, 18, 27, 36.",
+          "Lista 12, 24, 36.",
+          "El primer valor compartido es 36."
+        ],
+        "retroalimentacion": "Coinciden en 36 días; 18 no es múltiplo de 12."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos sucesos ocurren cada 5 y 10 días, la primera coincidencia futura será en 5 días.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "5 es múltiplo de 5.",
+          "Pregunta si 5 también es múltiplo de 10.",
+          "El primer múltiplo positivo de 10 es 10."
+        ],
+        "retroalimentacion": "Falso: coinciden en 10 días, no en 5."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Dos rutas salen juntas y repiten salidas cada 4 y 7 horas. ¿Cuántas horas después coinciden? Escribe solo el número.",
+        "respuesta": "28",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca un múltiplo de 7 que también sea de 4.",
+          "7, 14 y 21 no son de 4.",
+          "28 sí es 4 × 7."
+        ],
+        "retroalimentacion": "Se encuentran a las 28 horas; ambos períodos lo dividen."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un club se reúne cada 6 días y otro cada 10. Se reunieron hoy. ¿En qué día futuro coinciden por segunda vez?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10"
+          },
+          {
+            "id": "b",
+            "texto": "20"
+          },
+          {
+            "id": "c",
+            "texto": "24"
+          },
+          {
+            "id": "d",
+            "texto": "60"
+          }
+        ],
+        "pistas": [
+          "Primero halla la primera coincidencia.",
+          "El primer común positivo de 6 y 10 es 30.",
+          "La segunda será otro intervalo de 30."
+        ],
+        "retroalimentacion": "El día 60 es la segunda coincidencia futura; el día 30 es la primera."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Dos ferias coinciden hoy y vuelven cada 8 y 12 días. ¿Cuántos días pasan hasta la tercera coincidencia futura? Escribe solo el número.",
+        "respuesta": 72,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer común positivo es 24.",
+          "Las coincidencias futuras son 24, 48, 72.",
+          "Cuenta tres fechas después de hoy."
+        ],
+        "retroalimentacion": "La tercera es a los 72 días; hoy no cuenta como futura."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos señales se repiten cada 4 y 6 segundos, coincidirán en los segundos 12 y 24 después de iniciar juntas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "12 es divisible entre 4 y 6.",
+          "24 también es divisible entre ambos.",
+          "Ambos tiempos son múltiplos del primer común 12."
+        ],
+        "retroalimentacion": "Verdadero: 12 y 24 son múltiplos comunes."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una luz destella cada 9 s y otra cada 15 s. Si coinciden ahora, ¿cuántos segundos faltan para la siguiente coincidencia? Escribe solo el número.",
+        "respuesta": "45",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los múltiplos de 15 son 15, 30, 45.",
+          "Los de 9 son 9, 18, 27, 36, 45.",
+          "El primero compartido es 45."
+        ],
+        "retroalimentacion": "Faltan 45 segundos; 30 no es múltiplo de 9."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.propiedades-calculo-mental",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P5-03",
+      "MAT-C23-P5-04"
+    ],
+    "bloque": "Operaciones con naturales",
+    "nombre": "Propiedades de las operaciones en el cálculo mental",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Usa las propiedades conmutativa, asociativa y distributiva para calcular de forma abreviada.",
+    "palabrasClave": [
+      "cálculo mental",
+      "conmutativa",
+      "asociativa",
+      "distributiva"
+    ],
+    "prerrequisitos": [
+      "mat.p5.propiedad-distributiva"
+    ],
+    "ordenSugerido": 30,
+    "ideaCentral": "Puedes cambiar el orden de sumandos o factores, agruparlos de forma conveniente y descomponer factores para calcular mentalmente. Estas propiedades conservan el resultado si respetas las operaciones.",
+    "pasos": [
+      "Busca parejas que formen decenas, centenas o millares completos.",
+      "Reordena o agrupa sumas y productos cuando convenga.",
+      "Si un factor está cerca de un número redondo, descompón con la distributiva.",
+      "Comprueba el resultado con otra agrupación."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula 25 + 68 + 75 mentalmente.",
+        "desarrollo": "Agrupo 25 + 75 = 100; luego 100 + 68.",
+        "respuesta": "168."
+      },
+      {
+        "situacion": "Calcula 19 × 5 sin algoritmo.",
+        "desarrollo": "Uso 20 × 5 − 1 × 5 = 100 − 5.",
+        "respuesta": "95."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Aplicar conmutativa a una resta como 8 − 3 = 3 − 8.",
+        "correccion": "Solo cambia el orden en sumas y multiplicaciones."
+      },
+      {
+        "error": "Separar 19 × 5 como 20 × 5 − 1.",
+        "correccion": "Resta 1 × 5, porque el 5 multiplica ambas partes."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Conmutativa",
+        "significado": "Cambiar el orden en una suma o producto sin cambiar el resultado."
+      },
+      {
+        "termino": "Asociativa",
+        "significado": "Cambiar cómo se agrupan sumandos o factores."
+      },
+      {
+        "termino": "Distributiva",
+        "significado": "Multiplicar cada parte de una suma o resta."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula mentalmente 38 + 62 + 15. Escribe solo el número.",
+        "respuesta": 115,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Agrupa 38 y 62.",
+          "Esa pareja suma 100.",
+          "Agrega 15 al centenar."
+        ],
+        "retroalimentacion": "El total es 115; agrupar no altera la suma."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué pareja conviene juntar primero en 25 + 48 + 75?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "25 y 48"
+          },
+          {
+            "id": "b",
+            "texto": "25 y 75"
+          },
+          {
+            "id": "c",
+            "texto": "48 y 75"
+          }
+        ],
+        "pistas": [
+          "Busca una centena exacta.",
+          "25 necesita 75 para llegar a 100.",
+          "Deja 48 para sumarlo después."
+        ],
+        "retroalimentacion": "25 y 75 forman 100; así el total es 148."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "7 × 4 da lo mismo que 4 × 7.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se intercambian los factores.",
+          "La multiplicación es conmutativa.",
+          "Ambos productos valen 28."
+        ],
+        "retroalimentacion": "Verdadero: cambiar el orden de factores conserva 28."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 5 × 20 × 2 agrupando de forma cómoda. Escribe solo el número.",
+        "respuesta": 200,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Junta 5 y 2.",
+          "5 × 2 = 10.",
+          "Multiplica 10 × 20."
+        ],
+        "retroalimentacion": "El resultado es 200; reagrupar factores no lo cambia."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para calcular 47 + 29 + 53, ¿qué agrupación es más directa?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "47 + 29 primero"
+          },
+          {
+            "id": "b",
+            "texto": "29 + 53 primero"
+          },
+          {
+            "id": "c",
+            "texto": "47 + 53 primero"
+          }
+        ],
+        "pistas": [
+          "Busca una pareja que complete cien.",
+          "47 necesita 53.",
+          "Luego suma 29 al centenar."
+        ],
+        "retroalimentacion": "47 + 53 primero da 100 y el total 129."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula mentalmente 18 × 5 como 20 × 5 − 2 × 5. Escribe solo el número.",
+        "respuesta": 90,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "20 × 5 = 100.",
+          "2 × 5 = 10.",
+          "Resta los dos productos."
+        ],
+        "retroalimentacion": "Da 90; restar solo 2 sería un uso incompleto de la distributiva."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 12 + 35 + 8 puedes juntar primero 12 + 8 sin cambiar el total.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los tres términos se suman.",
+          "Puedes reordenar 8 y 35.",
+          "12 + 8 = 20; después suma 35."
+        ],
+        "retroalimentacion": "Verdadero: el total sigue siendo 55."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Calcula 4 × 25 × 7 agrupando 4 × 25. Escribe solo el número.",
+        "respuesta": "700",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "4 × 25 = 100.",
+          "Ahora queda 100 × 7.",
+          "Siete centenas son 700."
+        ],
+        "retroalimentacion": "El producto es 700; la agrupación hace visible el centenar."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un alumno calcula 16 × 49 como 16 × 50 − 16. ¿Qué valor obtiene?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "764"
+          },
+          {
+            "id": "b",
+            "texto": "800"
+          },
+          {
+            "id": "c",
+            "texto": "816"
+          },
+          {
+            "id": "d",
+            "texto": "784"
+          }
+        ],
+        "pistas": [
+          "16 × 50 = 800.",
+          "16 × 1 = 16.",
+          "800 − 16 = 784."
+        ],
+        "retroalimentacion": "784 es el valor: 16 × 50 = 800 y 800 − 16 = 784."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula mentalmente 125 × 8 × 3 agrupando dos factores. Escribe solo el número.",
+        "respuesta": 3000,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Agrupa 125 × 8.",
+          "Ese producto es 1 000.",
+          "Multiplica el millar por 3."
+        ],
+        "retroalimentacion": "Resulta 3 000; cambiar agrupación conserva el producto."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para calcular 99 × 6, sirve hacer 100 × 6 − 1 × 6.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "99 es uno menos que 100.",
+          "Distribuye el 6 a ambos términos.",
+          "600 − 6 = 594."
+        ],
+        "retroalimentacion": "Verdadero: la distributiva da 594."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Completa 36 + 64 + 27 = 100 + ___. Escribe solo el número faltante.",
+        "respuesta": "27",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca qué pareja suma 100.",
+          "36 + 64 = 100.",
+          "El tercer sumando queda intacto."
+        ],
+        "retroalimentacion": "Falta 27; reagrupar no cambia esa cantidad."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.division-dos-cifras",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P5-04"
+    ],
+    "bloque": "Operaciones con naturales",
+    "nombre": "División entre un número de dos cifras",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Divide estimando cada cifra del cociente y comprobando con el residuo.",
+    "palabrasClave": [
+      "división",
+      "divisor de dos cifras",
+      "cociente",
+      "residuo"
+    ],
+    "prerrequisitos": [
+      "mat.p5.relacion-cuatro-operaciones"
+    ],
+    "ordenSugerido": 31,
+    "ideaCentral": "Para dividir entre un número de dos cifras, estimas cada cifra del cociente y restas el producto correspondiente. El residuo siempre debe ser menor que el divisor.",
+    "pasos": [
+      "Toma del dividendo las primeras cifras suficientes para dividir.",
+      "Estima cuántas veces cabe el divisor sin pasarte.",
+      "Multiplica, resta y baja la cifra siguiente.",
+      "Comprueba divisor × cociente + residuo = dividendo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una escuela reparte 345 hojas en paquetes de 15.",
+        "desarrollo": "15 cabe 2 veces en 34; queda 4, bajo 5 y 15 cabe 3 veces en 45.",
+        "respuesta": "23 paquetes, sin residuo."
+      },
+      {
+        "situacion": "Se guardan 157 pelotas en cajas de 12.",
+        "desarrollo": "12 × 13 = 156; sobra 1.",
+        "respuesta": "13 cajas llenas y 1 pelota suelta."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Aceptar un residuo mayor que el divisor.",
+        "correccion": "Todavía cabe otro grupo; ajusta el cociente."
+      },
+      {
+        "error": "Olvidar bajar la siguiente cifra.",
+        "correccion": "Después de restar, baja la próxima cifra del dividendo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Divisor",
+        "significado": "Número entre el que se divide."
+      },
+      {
+        "termino": "Cociente",
+        "significado": "Cantidad de grupos completos."
+      },
+      {
+        "termino": "Residuo",
+        "significado": "Cantidad que queda sin formar otro grupo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Divide 96 entre 12. Escribe solo el cociente.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca un producto de 12 igual a 96.",
+          "12 × 8 = 96.",
+          "El residuo es cero."
+        ],
+        "retroalimentacion": "El cociente es 8; 12 × 8 = 96."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el cociente de 144 ÷ 16?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8"
+          },
+          {
+            "id": "b",
+            "texto": "9"
+          },
+          {
+            "id": "c",
+            "texto": "10"
+          },
+          {
+            "id": "d",
+            "texto": "11"
+          }
+        ],
+        "pistas": [
+          "Prueba 16 × 9.",
+          "16 × 10 = 160, un grupo de más.",
+          "160 − 16 = 144."
+        ],
+        "retroalimentacion": "El cociente es 9 porque 16 × 9 = 144."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 85 ÷ 20, el cociente es 4 y el residuo es 5.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "20 × 4 = 80.",
+          "85 − 80 = 5.",
+          "Cinco es menor que el divisor 20."
+        ],
+        "retroalimentacion": "Verdadero: 85 = 20 × 4 + 5."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Se reparten 130 tarjetas en sobres de 13. ¿Cuántos sobres llenos hay? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca cuántas veces cabe 13 en 130.",
+          "13 × 10 = 130.",
+          "La división es exacta."
+        ],
+        "retroalimentacion": "Hay 10 sobres; no sobra ninguna tarjeta."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al dividir 275 entre 25, ¿qué cociente obtienes?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9"
+          },
+          {
+            "id": "b",
+            "texto": "10"
+          },
+          {
+            "id": "c",
+            "texto": "11"
+          },
+          {
+            "id": "d",
+            "texto": "12"
+          }
+        ],
+        "pistas": [
+          "25 × 10 = 250.",
+          "Quedan 25 después de diez grupos.",
+          "Cabe un grupo más de 25."
+        ],
+        "retroalimentacion": "El cociente es 11; 25 × 11 = 275."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Divide 693 entre 21. Escribe solo el cociente.",
+        "respuesta": 33,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "21 × 30 = 630.",
+          "Quedan 63.",
+          "63 = 21 × 3."
+        ],
+        "retroalimentacion": "El cociente es 33; 21 × 33 = 693."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 418 ÷ 20 da cociente 20 y residuo 18, la comprobación 20 × 20 + 18 = 418 es correcta.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica divisor por cociente.",
+          "20 × 20 = 400.",
+          "Agrega el residuo 18."
+        ],
+        "retroalimentacion": "Verdadero: 400 + 18 = 418 y 18 < 20."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En 527 ÷ 17, ¿cuál es el cociente? Escribe solo el número.",
+        "respuesta": "31",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "17 × 30 = 510.",
+          "527 − 510 = 17.",
+          "Cabe un grupo adicional."
+        ],
+        "retroalimentacion": "El cociente es 31; 17 × 31 = 527."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un alumno dice que 578 ÷ 24 tiene cociente 23 y residuo 26. ¿Qué corrección corresponde?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cociente 23, residuo 2"
+          },
+          {
+            "id": "b",
+            "texto": "Cociente 25, residuo 2"
+          },
+          {
+            "id": "c",
+            "texto": "Cociente 24, residuo 26"
+          },
+          {
+            "id": "d",
+            "texto": "Cociente 24, residuo 2"
+          }
+        ],
+        "pistas": [
+          "Un residuo no puede superar al divisor.",
+          "24 × 23 = 552 y quedan 26.",
+          "Toma un grupo adicional de 24; quedan 2."
+        ],
+        "retroalimentacion": "Cociente 24, residuo 2: 24 × 24 + 2 = 578."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una tienda empaca 958 lápices en cajas de 32. ¿Cuántas cajas llenas obtiene? Escribe solo el número.",
+        "respuesta": 29,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "32 × 30 = 960, un poco más que el total.",
+          "Prueba una caja menos.",
+          "32 × 29 = 928; quedan 30 lápices."
+        ],
+        "retroalimentacion": "Obtiene 29 cajas llenas; 30 excedería 958 lápices."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 1 005 ÷ 25, el cociente 40 y el residuo 5 satisfacen la comprobación.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 25 × 40.",
+          "El producto es 1 000.",
+          "Suma 5 y compara con 1 005."
+        ],
+        "retroalimentacion": "Verdadero: 25 × 40 + 5 = 1 005, con residuo menor que 25."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Completa 947 = 36 × 26 + residuo. ¿Cuál es el residuo? Escribe solo el número.",
+        "respuesta": "11",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 36 × 26.",
+          "El producto es 936.",
+          "Resta 936 de 947 y comprueba que sea menor que 36."
+        ],
+        "retroalimentacion": "El residuo es 11; 936 + 11 = 947."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.descomponer-dividendo",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P5-04"
+    ],
+    "bloque": "Operaciones con naturales",
+    "nombre": "División descomponiendo el dividendo",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Divide repartiendo el dividendo en partes fáciles, como 156 ÷ 12 = 120 ÷ 12 + 36 ÷ 12.",
+    "palabrasClave": [
+      "división",
+      "dividendo",
+      "descomposición",
+      "cocientes parciales"
+    ],
+    "prerrequisitos": [
+      "mat.p5.propiedad-distributiva"
+    ],
+    "ordenSugerido": 32,
+    "ideaCentral": "Puedes dividir un número separándolo en sumandos que sean fáciles de repartir por el mismo divisor. Luego sumas los cocientes parciales.",
+    "pasos": [
+      "Busca dos partes del dividendo que sean múltiplos del divisor.",
+      "Divide cada parte por el divisor original.",
+      "Suma los cocientes parciales y comprueba multiplicando por el divisor."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una biblioteca reparte 156 libros en 12 estantes iguales.",
+        "desarrollo": "156 = 120 + 36; 120 ÷ 12 = 10 y 36 ÷ 12 = 3.",
+        "respuesta": "Van 13 libros en cada estante."
+      },
+      {
+        "situacion": "Se reparten 84 panes entre 7 puestos.",
+        "desarrollo": "84 = 70 + 14; 70 ÷ 7 = 10 y 14 ÷ 7 = 2.",
+        "respuesta": "Cada puesto recibe 12 panes."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dividir solo una de las partes.",
+        "correccion": "Divide todas las partes entre el mismo divisor y suma los resultados."
+      },
+      {
+        "error": "Separar el dividendo en sumandos que no se pueden dividir exactamente.",
+        "correccion": "Escoge múltiplos conocidos del divisor, como 10 veces o 5 veces ese número."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Dividendo",
+        "significado": "Cantidad total que se va a repartir."
+      },
+      {
+        "termino": "Divisor",
+        "significado": "Número de grupos iguales."
+      },
+      {
+        "termino": "Cociente parcial",
+        "significado": "Resultado de dividir una parte del total."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Descompón 66 en 60 + 6 para calcular 66 ÷ 6. ¿Cuál es el cociente? Escribe solo el número.",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide primero 60 entre 6.",
+          "Luego calcula 6 ÷ 6.",
+          "Suma los cocientes 10 y 1."
+        ],
+        "retroalimentacion": "Si olvidaste la segunda parte, recuerda que 60 ÷ 6 = 10 y 6 ÷ 6 = 1: el resultado es 11."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para repartir 96 semillas en 8 bolsas, ¿qué separación permite dividir cada parte exactamente entre 8?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "90 + 6"
+          },
+          {
+            "id": "b",
+            "texto": "70 + 26"
+          },
+          {
+            "id": "c",
+            "texto": "80 + 16"
+          },
+          {
+            "id": "d",
+            "texto": "95 + 1"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca múltiplos de 8.",
+          "80 es 10 veces 8.",
+          "La parte que falta de 96 es 16, también múltiplo de 8."
+        ],
+        "retroalimentacion": "La separación útil es 80 + 16: ambas partes son divisibles entre 8."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para calcular 72 ÷ 9, se puede hacer 45 ÷ 9 + 27 ÷ 9.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Comprueba si las dos partes forman 72.",
+          "45 + 27 = 72.",
+          "Ambas partes se dividen exactamente entre 9."
+        ],
+        "retroalimentacion": "Es verdadero: 45 ÷ 9 = 5 y 27 ÷ 9 = 3; 5 + 3 = 8."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una docente calcula 48 ÷ 4 como (40 ÷ 4) + (8 ÷ 4). ¿Qué obtiene? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el cociente de 40 entre 4.",
+          "La segunda parte es 8 ÷ 4 = 2.",
+          "Junta 10 y 2."
+        ],
+        "retroalimentacion": "No basta con 40 ÷ 4: 10 + 2 = 12."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el cociente de 156 ÷ 12 si separas el dividendo en 120 + 36?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10"
+          },
+          {
+            "id": "b",
+            "texto": "13"
+          },
+          {
+            "id": "c",
+            "texto": "16"
+          },
+          {
+            "id": "d",
+            "texto": "23"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "120 ÷ 12 vale 10.",
+          "36 ÷ 12 vale 3.",
+          "Suma los dos cocientes parciales."
+        ],
+        "retroalimentacion": "120 ÷ 12 + 36 ÷ 12 = 10 + 3 = 13."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Se distribuyen 144 cuadernos entre 12 salones. Usa 120 + 24. ¿Cuántos recibe cada salón? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "120 ÷ 12 = 10.",
+          "Calcula 24 ÷ 12.",
+          "A los 10 cuadernos añade 2."
+        ],
+        "retroalimentacion": "Dividir solo 120 dejaría 24 cuadernos fuera: 10 + 2 = 12 por salón."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Al dividir 105 ÷ 5 con 100 + 5, ¿qué dos cocientes parciales obtienes? Escríbelos en ese orden, separados por coma.",
+        "respuesta": "20, 1",
+        "alternativasAceptadas": [
+          "20,1"
+        ],
+        "pistas": [
+          "Divide 100 entre 5 para obtener el primer número.",
+          "Divide 5 entre 5 para obtener el segundo.",
+          "Escribe primero 20 y después 1."
+        ],
+        "retroalimentacion": "Los cocientes parciales son 20 y 1; juntos forman 21."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 132 = 100 + 32, entonces 132 ÷ 4 = 100 ÷ 4 + 32 ÷ 4.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa que las partes sumen el dividendo.",
+          "100 y 32 son divisibles entre 4.",
+          "25 + 8 debe coincidir con 132 ÷ 4."
+        ],
+        "retroalimentacion": "Es verdadero: 25 + 8 = 33 y 33 × 4 = 132."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un club divide 252 entradas entre 12 grupos. Descompón 252 en 240 + 12. ¿Cuántas entradas recibe cada grupo? Escribe solo el número.",
+        "respuesta": 21,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "240 es 20 veces 12.",
+          "El resto de la descomposición es un grupo de 12.",
+          "Suma 20 + 1 y verifica con 12."
+        ],
+        "retroalimentacion": "Si respondiste 20, faltó repartir 12 entradas: 240 ÷ 12 + 12 ÷ 12 = 21."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Luis propone calcular 198 ÷ 9 usando 180 + 18. ¿Qué cuenta comprueba su respuesta?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "20 × 9 = 198"
+          },
+          {
+            "id": "b",
+            "texto": "18 × 9 = 198"
+          },
+          {
+            "id": "c",
+            "texto": "22 + 9 = 198"
+          },
+          {
+            "id": "d",
+            "texto": "22 × 9 = 198"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide cada sumando entre 9.",
+          "180 ÷ 9 = 20 y 18 ÷ 9 = 2.",
+          "El cociente total, 22, multiplicado por 9 debe dar 198."
+        ],
+        "retroalimentacion": "La comprobación es 22 × 9 = 198; 20 sería solo un cociente parcial."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Para 324 ÷ 18, Ana usa 180 + 144. Primero obtiene 10. ¿Qué cociente parcial falta para llegar al resultado? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 10 sale de 180 ÷ 18.",
+          "Debes dividir la otra parte, 144, entre 18.",
+          "18 × 8 = 144."
+        ],
+        "retroalimentacion": "El cociente parcial que falta es 8; por eso 324 ÷ 18 = 10 + 8 = 18."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Marta afirma que 216 ÷ 12 puede resolverse como 120 ÷ 12 + 96 ÷ 12, y el resultado es 18.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Comprueba que 120 + 96 sea 216.",
+          "Los cocientes parciales son 10 y 8.",
+          "Al sumar 10 + 8 obtienes 18."
+        ],
+        "retroalimentacion": "Es verdadero: 10 + 8 = 18 y 18 × 12 = 216."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.estimar-productos-cocientes",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P5-04"
+    ],
+    "bloque": "Operaciones con naturales",
+    "nombre": "Estimación de productos y cocientes",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Redondea factores o dividendo para anticipar el resultado aproximado.",
+    "palabrasClave": [
+      "estimación",
+      "producto",
+      "cociente",
+      "redondeo"
+    ],
+    "prerrequisitos": [
+      "mat.p5.redondear-naturales",
+      "mat.p5.multiplicacion-dos-tres-cifras"
+    ],
+    "ordenSugerido": 33,
+    "ideaCentral": "Una estimación permite anticipar si un producto o un cociente tiene un tamaño razonable. Redondea a números fáciles, calcula y recuerda que el resultado es aproximado.",
+    "pasos": [
+      "Identifica si debes estimar una multiplicación o división.",
+      "Cambia los números por otros cercanos y fáciles de calcular.",
+      "Opera con los números redondeados.",
+      "Compara la estimación con el resultado exacto para detectar errores grandes."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una feria vende 19 bolsas con 31 mandarinas cada una.",
+        "desarrollo": "Aproximo 19 a 20 y 31 a 30; 20 × 30 = 600.",
+        "respuesta": "Se esperan cerca de 600 mandarinas."
+      },
+      {
+        "situacion": "Se distribuyen 242 hojas entre 6 equipos.",
+        "desarrollo": "Aproximo 242 a 240; 240 ÷ 6 = 40.",
+        "respuesta": "Unas 40 hojas por equipo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Tomar la estimación como un resultado exacto.",
+        "correccion": "Indica «aproximadamente» y distingue los números redondeados de los originales."
+      },
+      {
+        "error": "Redondear a números que siguen siendo difíciles de operar.",
+        "correccion": "Elige decenas o centenas próximas que permitan calcular mentalmente."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Estimar",
+        "significado": "Calcular un valor cercano sin hacer toda la operación exacta."
+      },
+      {
+        "termino": "Redondear",
+        "significado": "Sustituir un número por otro cercano y más sencillo."
+      },
+      {
+        "termino": "Producto",
+        "significado": "Resultado de una multiplicación."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Aproxima 21 × 29 usando 20 × 30. ¿Cuál es el producto estimado? Escribe solo el número.",
+        "respuesta": 600,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cambia 21 por 20.",
+          "Cambia 29 por 30.",
+          "Multiplica 2 × 3 y agrega dos ceros."
+        ],
+        "retroalimentacion": "La estimación es 20 × 30 = 600; 21 × 29 no se usa para esta cuenta aproximada."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para estimar 49 × 8 mentalmente, ¿qué producto cercano y fácil usarías?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "50 × 8"
+          },
+          {
+            "id": "b",
+            "texto": "40 × 5"
+          },
+          {
+            "id": "c",
+            "texto": "90 × 8"
+          },
+          {
+            "id": "d",
+            "texto": "49 × 9"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Redondea 49 a una decena próxima.",
+          "50 está a una unidad de 49.",
+          "Conserva el factor 8."
+        ],
+        "retroalimentacion": "La cuenta conveniente es 50 × 8 = 400, cercana a 49 × 8."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al estimar 198 ÷ 2 con 200 ÷ 2, se obtiene aproximadamente 100.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca una centena cercana a 198.",
+          "200 está muy próximo a 198.",
+          "La mitad de 200 es 100."
+        ],
+        "retroalimentacion": "Es verdadero: 200 ÷ 2 = 100; el cociente exacto de 198 ÷ 2 es 99."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Redondea 39 a 40 y calcula aproximadamente 39 × 5. Escribe solo el número estimado.",
+        "respuesta": 200,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No multipliques 39 directamente.",
+          "Usa 40 × 5.",
+          "4 × 5 = 20; agrega un cero."
+        ],
+        "retroalimentacion": "La estimación pedida es 200, aunque el producto exacto es 195."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una librería tiene 61 paquetes de 9 lápices. Redondea 61 a 60 y 9 a 10. ¿Cuántos lápices estimas?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "540"
+          },
+          {
+            "id": "b",
+            "texto": "549"
+          },
+          {
+            "id": "c",
+            "texto": "600"
+          },
+          {
+            "id": "d",
+            "texto": "610"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La cantidad aproximada de paquetes es 60.",
+          "La cantidad aproximada por paquete es 10.",
+          "Calcula 60 × 10."
+        ],
+        "retroalimentacion": "La estimación es 600 lápices; 549 sería el total exacto."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Para 298 ÷ 3, cambia 298 por 300. ¿Cuál es el cociente aproximado? Escribe solo el número.",
+        "respuesta": 100,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Elige 300 como dividendo cercano.",
+          "Conserva el divisor 3.",
+          "300 ÷ 3 es una centena."
+        ],
+        "retroalimentacion": "300 ÷ 3 = 100; 298 ÷ 3 no da exactamente 100."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "¿Qué número cercano a 397 permite estimar fácilmente 397 ÷ 4 como 100? Escribe el dividendo redondeado.",
+        "respuesta": "400",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca un múltiplo de 4 próximo a 397.",
+          "Cuatro centenas se reparten en cuatro grupos de una centena.",
+          "El número buscado es la centena inmediatamente superior a 397."
+        ],
+        "retroalimentacion": "Se usa 400 porque 400 ÷ 4 = 100."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si aproximas 72 × 11 mediante 70 × 10, la estimación es 700.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa los dos números redondeados.",
+          "72 se cambia por 70 y 11 por 10.",
+          "Siete decenas por diez son setecientos."
+        ],
+        "retroalimentacion": "Es verdadero: 70 × 10 = 700, una estimación de 72 × 11."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Para prever 48 × 21, aproxima a 50 × 20. ¿Qué valor obtienes? Escribe solo el número.",
+        "respuesta": 1000,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Redondea ambos factores como indica el enunciado.",
+          "5 × 2 = 10.",
+          "50 × 20 añade dos ceros al producto de 5 × 2."
+        ],
+        "retroalimentacion": "La estimación es 1000; multiplicar solo 50 × 2 daría un valor demasiado bajo."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Pedro calcula 603 ÷ 6 y dice que el cociente es 1000. ¿Qué estimación muestra que se equivocó?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "600 ÷ 3 ≈ 200"
+          },
+          {
+            "id": "b",
+            "texto": "600 ÷ 6 ≈ 100"
+          },
+          {
+            "id": "c",
+            "texto": "600 × 6 ≈ 3600"
+          },
+          {
+            "id": "d",
+            "texto": "60 ÷ 6 ≈ 10"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "603 está cerca de 600.",
+          "Calcula 600 ÷ 6.",
+          "Un resultado cercano a 100 descarta 1000."
+        ],
+        "retroalimentacion": "600 ÷ 6 ≈ 100; 1000 es diez veces mayor de lo razonable."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para 98 × 51, aproximar a 100 × 50 da cerca de 500, así que 500 es una estimación razonable.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero 100 × 50.",
+          "Una centena por cincuenta son cinco millares.",
+          "500 queda diez veces por debajo de 5000."
+        ],
+        "retroalimentacion": "Es falso: 100 × 50 = 5000, no 500; la estimación razonable es 5000."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Se deben distribuir 798 tarjetas entre 8 grupos. Usa 800 ÷ 8 para estimar las tarjetas por grupo. Escribe solo el número.",
+        "respuesta": 100,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "798 está a dos unidades de 800.",
+          "Reparte 800 en ocho partes.",
+          "8 × 100 = 800."
+        ],
+        "retroalimentacion": "La estimación es 100 tarjetas por grupo; la división exacta de 798 tendría resto."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.numero-inicial-inversas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P5-04"
+    ],
+    "bloque": "Operaciones con naturales",
+    "nombre": "Hallar el número inicial con operaciones inversas",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Recupera el valor de partida deshaciendo una cadena de operaciones.",
+    "palabrasClave": [
+      "operación inversa",
+      "número inicial",
+      "deshacer",
+      "comprobación"
+    ],
+    "prerrequisitos": [
+      "mat.p5.relacion-cuatro-operaciones"
+    ],
+    "ordenSugerido": 34,
+    "ideaCentral": "Para recuperar un número de partida, recorre las operaciones desde el resultado final hacia atrás. Deshaz cada paso con su operación inversa y verifica avanzando de nuevo.",
+    "pasos": [
+      "Escribe la cadena de operaciones en el orden en que ocurrió.",
+      "Empieza por el resultado final y deshaz la última operación.",
+      "Continúa hacia atrás hasta llegar al número inicial.",
+      "Repite la cadena hacia delante para comprobar."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un número se duplica y luego se le suman 5; termina en 25.",
+        "desarrollo": "Deshago +5: 25 − 5 = 20. Deshago ×2: 20 ÷ 2 = 10.",
+        "respuesta": "El número inicial fue 10."
+      },
+      {
+        "situacion": "A una cantidad de figuritas se le restan 8 y luego se divide entre 3; queda 4.",
+        "desarrollo": "Deshago ÷3: 4 × 3 = 12. Deshago −8: 12 + 8 = 20.",
+        "respuesta": "Había 20 figuritas al inicio."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Deshacer las operaciones en el mismo orden en que se hicieron.",
+        "correccion": "Empieza por la última operación y retrocede paso a paso."
+      },
+      {
+        "error": "Usar la misma operación para volver atrás.",
+        "correccion": "La inversa de sumar es restar; la de multiplicar es dividir."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Operación inversa",
+        "significado": "Operación que deshace otra: suma y resta, multiplicación y división."
+      },
+      {
+        "termino": "Número inicial",
+        "significado": "Cantidad antes de aplicar la primera operación."
+      },
+      {
+        "termino": "Cadena de operaciones",
+        "significado": "Secuencia de cambios aplicados a un número."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Pienso un número, le sumo 7 y obtengo 20. ¿Cuál era? Escribe solo el número.",
+        "respuesta": 13,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La última operación fue sumar 7.",
+          "Para deshacer +7, resta 7.",
+          "Calcula 20 − 7."
+        ],
+        "retroalimentacion": "El número era 13; sumar 7 a 13 da 20."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "A una cantidad se le resta 9 y quedan 16. ¿Qué operación permite hallar la cantidad inicial?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "16 − 9"
+          },
+          {
+            "id": "b",
+            "texto": "16 + 9"
+          },
+          {
+            "id": "c",
+            "texto": "16 × 9"
+          },
+          {
+            "id": "d",
+            "texto": "16 ÷ 9"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La resta disminuyó la cantidad.",
+          "Para volver al inicio debes reponer 9.",
+          "Calcula 16 + 9."
+        ],
+        "retroalimentacion": "La operación inversa es 16 + 9 = 25; volver a restar 9 alejaría del inicio."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un número se multiplica por 4 y da 28, se recupera dividiendo 28 entre 4.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La operación inicial fue ×4.",
+          "La inversa de multiplicar es dividir.",
+          "28 ÷ 4 = 7 y 7 × 4 = 28."
+        ],
+        "retroalimentacion": "Es verdadero: el número inicial es 7."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una caja tenía cierta cantidad de tizas. Tras repartir 6 quedan 18. ¿Cuántas había antes? Escribe solo el número.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Repartir 6 aquí significa quitar 6 del total.",
+          "Para recuperar el inicio agrega las 6 tizas.",
+          "Suma 18 + 6."
+        ],
+        "retroalimentacion": "Había 24 tizas: 24 − 6 = 18."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un número se multiplica por 3 y después se le suma 4; el final es 25. Halla el inicial. Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Deshaz primero la suma de 4.",
+          "25 − 4 = 21.",
+          "Divide 21 entre 3."
+        ],
+        "retroalimentacion": "El inicial es 7: 7 × 3 + 4 = 25."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "A un número se le resta 5 y luego se duplica; termina en 30. ¿Qué operación haces primero para volver atrás? Escribe la cuenta.",
+        "respuesta": "30 ÷ 2",
+        "alternativasAceptadas": [
+          "30/2",
+          "30:2"
+        ],
+        "pistas": [
+          "La operación más reciente fue duplicar.",
+          "Duplicar equivale a multiplicar por 2.",
+          "Deshaz la duplicación dividiendo el final entre 2."
+        ],
+        "retroalimentacion": "Primero haces 30 ÷ 2 = 15; después sumas 5 para hallar 20."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "A cierta cantidad se le suman 8 y luego se divide entre 2; sale 12. ¿Cuál era la cantidad?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "10"
+          },
+          {
+            "id": "c",
+            "texto": "20"
+          },
+          {
+            "id": "d",
+            "texto": "16"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empieza en 12 y deshaz ÷2.",
+          "12 × 2 = 24.",
+          "Deshaz +8 restando 8 a 24."
+        ],
+        "retroalimentacion": "La cantidad era 16: (16 + 8) ÷ 2 = 12."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si se resta 4 a un número y luego se multiplica por 5 para obtener 30, el número inicial es 10.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Deshaz primero ×5.",
+          "30 ÷ 5 = 6.",
+          "Antes de restar 4 había 6 + 4."
+        ],
+        "retroalimentacion": "Es verdadero: 10 − 4 = 6 y 6 × 5 = 30."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una feria, después de triplicar una cantidad y quitarle 12, quedan 48. ¿Cuál fue la cantidad inicial? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recupera primero los 12 que se quitaron.",
+          "48 + 12 = 60.",
+          "Divide 60 entre 3 para deshacer el triple."
+        ],
+        "retroalimentacion": "La partida fue 20; 20 × 3 − 12 = 48."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un juego toma un número, le suma 6, lo multiplica por 4 y le resta 8. El resultado es 72. ¿Qué camino de regreso es correcto?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "+8, ÷4, −6"
+          },
+          {
+            "id": "b",
+            "texto": "−6, ÷4, +8"
+          },
+          {
+            "id": "c",
+            "texto": "+8, ×4, −6"
+          },
+          {
+            "id": "d",
+            "texto": "−8, ÷4, +6"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Deshaz la última resta de 8.",
+          "Luego deshaz la multiplicación por 4.",
+          "La suma inicial de 6 se deshace al final."
+        ],
+        "retroalimentacion": "El regreso correcto es +8, ÷4, −6: 72 → 80 → 20 → 14."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un número dividido entre 3, después aumentado en 7, termina en 19. El número inicial fue 36.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Quita primero los 7 añadidos.",
+          "19 − 7 = 12.",
+          "Deshaz ÷3 multiplicando 12 por 3."
+        ],
+        "retroalimentacion": "Es verdadero: 36 ÷ 3 + 7 = 19."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El saldo de una colecta se duplicó, luego se gastaron 15 soles y quedaron 45 soles. ¿Cuántos soles había al inicio? Escribe solo el número.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Antes del gasto había 45 + 15 soles.",
+          "Eso da 60 soles tras duplicarse.",
+          "Divide 60 entre 2."
+        ],
+        "retroalimentacion": "Al inicio había 30 soles: 30 × 2 − 15 = 45."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.justificar-relaciones-inversas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P5-06",
+      "MAT-C23-P5-07"
+    ],
+    "bloque": "Operaciones con naturales",
+    "nombre": "Justificación con operaciones inversas",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Comprueba resultados y argumenta afirmaciones usando la operación inversa.",
+    "palabrasClave": [
+      "comprobación",
+      "suma",
+      "resta",
+      "multiplicación",
+      "división"
+    ],
+    "prerrequisitos": [
+      "mat.p5.numero-inicial-inversas"
+    ],
+    "ordenSugerido": 35,
+    "ideaCentral": "Una operación inversa permite comprobar si un cálculo es correcto. Explica qué relación debe cumplirse y muestra la cuenta que la confirma.",
+    "pasos": [
+      "Identifica la operación y el resultado que vas a revisar.",
+      "Elige la operación inversa: resta para suma, suma para resta, división para multiplicación o multiplicación para división.",
+      "Calcula y compara con el número original.",
+      "Explica por qué la igualdad confirma o descarta la afirmación."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Rosa afirma que 47 + 28 = 75.",
+        "desarrollo": "Compruebo con 75 − 28 = 47, que recupera el primer sumando.",
+        "respuesta": "La afirmación es correcta."
+      },
+      {
+        "situacion": "Se dice que 96 ÷ 8 = 11.",
+        "desarrollo": "Compruebo con 11 × 8 = 88, distinto de 96.",
+        "respuesta": "La afirmación es falsa; 96 ÷ 8 = 12."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Afirmar que una división es correcta solo porque el cociente parece razonable.",
+        "correccion": "Multiplica el cociente por el divisor y verifica que recuperas el dividendo."
+      },
+      {
+        "error": "Cambiar los números al hacer la comprobación.",
+        "correccion": "La inversa debe usar el mismo resultado y uno de los números de la operación original."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Comprobar",
+        "significado": "Verificar un resultado mediante una cuenta relacionada."
+      },
+      {
+        "termino": "Inversa",
+        "significado": "Operación que permite recuperar un número original."
+      },
+      {
+        "termino": "Argumento",
+        "significado": "Explicación con cuentas que sostiene una afirmación."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Como 18 + 7 = 25, se cumple 25 − 7 = 18.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La resta deshace una suma.",
+          "Quita de 25 el sumando 7.",
+          "Si recuperas 18, la relación se cumple."
+        ],
+        "retroalimentacion": "Es verdadero: 25 − 7 = 18 comprueba la suma."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué cuenta comprueba que 6 × 9 = 54?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "54 + 9 = 63"
+          },
+          {
+            "id": "b",
+            "texto": "54 − 6 = 48"
+          },
+          {
+            "id": "c",
+            "texto": "54 ÷ 9 = 6"
+          },
+          {
+            "id": "d",
+            "texto": "54 × 9 = 486"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La división deshace la multiplicación.",
+          "Usa el producto 54 y uno de los factores.",
+          "Al dividir 54 entre 9 debes recuperar 6."
+        ],
+        "retroalimentacion": "54 ÷ 9 = 6 confirma que 6 × 9 = 54."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Para comprobar 83 − 29 = 54, escribe la suma inversa con los tres números.",
+        "respuesta": "54 + 29 = 83",
+        "alternativasAceptadas": [
+          "29 + 54 = 83"
+        ],
+        "pistas": [
+          "La resta quitó 29 de 83.",
+          "Repón 29 al resultado 54.",
+          "La suma debe regresar a 83."
+        ],
+        "retroalimentacion": "La comprobación es 54 + 29 = 83, por eso la resta es correcta."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La cuenta 42 ÷ 7 = 6 se verifica porque 6 × 7 = 42.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El producto deshace la división.",
+          "Multiplica cociente por divisor.",
+          "6 × 7 recupera el dividendo 42."
+        ],
+        "retroalimentacion": "Es verdadero: 6 × 7 = 42 confirma 42 ÷ 7 = 6."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mateo dice que 64 − 18 = 48. ¿Qué comprobación revela su error?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "48 − 18 = 30"
+          },
+          {
+            "id": "b",
+            "texto": "48 + 18 = 66"
+          },
+          {
+            "id": "c",
+            "texto": "48 × 18 = 864"
+          },
+          {
+            "id": "d",
+            "texto": "64 + 18 = 82"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 18 al resultado que propuso.",
+          "48 + 18 no vuelve a 64.",
+          "El resultado correcto debe sumar 64 al añadirle 18."
+        ],
+        "retroalimentacion": "48 + 18 = 66, no 64; la resta correcta es 64 − 18 = 46."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para verificar 15 × 4 = 60, la cuenta 60 ÷ 15 = 4 es útil.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La división recupera un factor.",
+          "Usa 60 como dividendo.",
+          "Al dividir 60 entre 15 sale el otro factor, 4."
+        ],
+        "retroalimentacion": "Es verdadero: 60 ÷ 15 = 4 confirma la multiplicación."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Sofía escribió 72 ÷ 8 = 9. ¿Qué multiplicación justifica su cociente?",
+        "respuesta": "9 × 8 = 72",
+        "alternativasAceptadas": [
+          "8 × 9 = 72"
+        ],
+        "pistas": [
+          "Multiplica el cociente por el divisor.",
+          "El cociente es 9 y el divisor es 8.",
+          "El producto debe recuperar 72."
+        ],
+        "retroalimentacion": "9 × 8 = 72 demuestra que el cociente 9 es correcto."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 37 + 26 = 63, entonces 63 − 37 = 26.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La resta puede quitar cualquiera de los dos sumandos.",
+          "Quita 37 de la suma 63.",
+          "Debes recuperar el otro sumando, 26."
+        ],
+        "retroalimentacion": "Es verdadero: 63 − 37 = 26."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un grupo asegura que 144 ÷ 12 = 13. ¿Cuál es la mejor razón para rechazarlo?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "13 + 12 = 25"
+          },
+          {
+            "id": "b",
+            "texto": "144 − 12 = 132"
+          },
+          {
+            "id": "c",
+            "texto": "144 + 13 = 157"
+          },
+          {
+            "id": "d",
+            "texto": "13 × 12 = 156"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica el cociente propuesto por el divisor.",
+          "13 × 12 = 156.",
+          "Compara 156 con el dividendo 144."
+        ],
+        "retroalimentacion": "13 × 12 = 156, no 144; el cociente correcto es 12."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Clara justifica 120 − 47 = 73 con 73 + 47 = 120. Su argumento es válido.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La suma puede deshacer la resta.",
+          "Repón los 47 quitados a 73.",
+          "73 + 47 recupera 120."
+        ],
+        "retroalimentacion": "Es verdadero: la suma inversa confirma el resultado 73."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Se afirma que 18 × 7 = 126. Escribe una división inversa que recupere 18.",
+        "respuesta": "126 ÷ 7 = 18",
+        "alternativasAceptadas": [
+          "126/7 = 18",
+          "126:7 = 18"
+        ],
+        "pistas": [
+          "Parte del producto 126.",
+          "Divide entre el factor 7.",
+          "El cociente debe ser el otro factor, 18."
+        ],
+        "retroalimentacion": "126 ÷ 7 = 18 confirma la multiplicación; dividir entre 18 recuperaría 7."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una compañera obtuvo 57 al hacer 92 − 35. ¿Qué explicación usa la inversa para aprobar su cálculo?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "57 + 35 = 92"
+          },
+          {
+            "id": "b",
+            "texto": "57 − 35 = 22"
+          },
+          {
+            "id": "c",
+            "texto": "92 + 35 = 127"
+          },
+          {
+            "id": "d",
+            "texto": "57 × 35 = 1995"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Añade el número quitado, 35, al resultado 57.",
+          "57 + 35 = 92.",
+          "Recuperar 92 valida la resta."
+        ],
+        "retroalimentacion": "57 + 35 = 92; la cuenta inversa confirma que 92 − 35 = 57."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.operaciones-combinadas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P5-03",
+      "MAT-C23-P5-04"
+    ],
+    "bloque": "Operaciones con naturales",
+    "nombre": "Operaciones combinadas sin signos de agrupación",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Aplica el orden: primero multiplicaciones y divisiones, luego sumas y restas.",
+    "palabrasClave": [
+      "jerarquía",
+      "multiplicación",
+      "división",
+      "suma",
+      "resta"
+    ],
+    "prerrequisitos": [
+      "mat.p5.multiplicacion-dos-tres-cifras",
+      "mat.p5.division-dos-cifras"
+    ],
+    "ordenSugerido": 64,
+    "ideaCentral": "En una expresión sin paréntesis, primero resuelves multiplicaciones y divisiones de izquierda a derecha. Después haces sumas y restas, también de izquierda a derecha.",
+    "pasos": [
+      "Localiza las multiplicaciones y divisiones de la expresión.",
+      "Resuélvelas en el orden en que aparecen.",
+      "Resuelve luego las sumas y restas de izquierda a derecha.",
+      "Comprueba que copiaste bien los números y los signos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una bodega hay 8 + 3 × 4 paquetes.",
+        "desarrollo": "Primero 3 × 4 = 12; luego 8 + 12 = 20.",
+        "respuesta": "Hay 20 paquetes."
+      },
+      {
+        "situacion": "Calcula 30 − 12 ÷ 3 + 2.",
+        "desarrollo": "Primero 12 ÷ 3 = 4; luego 30 − 4 + 2 = 28.",
+        "respuesta": "El resultado es 28."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Resolver siempre desde el primer signo, aunque sea suma.",
+        "correccion": "Multiplicaciones y divisiones tienen prioridad sobre suma y resta."
+      },
+      {
+        "error": "Hacer primero una suma que está después de una resta.",
+        "correccion": "Entre suma y resta, avanza de izquierda a derecha."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Jerarquía de operaciones",
+        "significado": "Orden acordado para resolver operaciones distintas."
+      },
+      {
+        "termino": "Prioridad",
+        "significado": "Operación que se resuelve antes que otras."
+      },
+      {
+        "termino": "Expresión",
+        "significado": "Conjunto de números y operaciones."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 5 + 2 × 6. Escribe solo el número.",
+        "respuesta": 17,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La multiplicación va primero.",
+          "2 × 6 = 12.",
+          "Suma 5 + 12."
+        ],
+        "retroalimentacion": "Si sumaste 5 + 2 antes, cambiaste la prioridad: 5 + 12 = 17."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué operación debes hacer primero en 18 − 4 × 3?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "18 − 4"
+          },
+          {
+            "id": "b",
+            "texto": "18 × 4"
+          },
+          {
+            "id": "c",
+            "texto": "4 × 3"
+          },
+          {
+            "id": "d",
+            "texto": "18 − 3"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el signo con prioridad.",
+          "La multiplicación va antes que la resta.",
+          "El producto indicado es 4 × 3."
+        ],
+        "retroalimentacion": "Primero se calcula 4 × 3, y luego se resta el resultado de 18."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La expresión 24 ÷ 6 + 7 vale 11.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resuelve la división antes de sumar.",
+          "24 ÷ 6 = 4.",
+          "4 + 7 = 11."
+        ],
+        "retroalimentacion": "Es verdadero: 24 ÷ 6 + 7 = 4 + 7 = 11."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un cartel muestra 20 − 3 × 5. ¿Qué número resulta? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero calcula 3 × 5.",
+          "El producto es 15.",
+          "Resta 20 − 15."
+        ],
+        "retroalimentacion": "El resultado es 5; restar 3 antes de multiplicar daría otro valor."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Resuelve 36 ÷ 6 + 4 × 3. Escribe solo el número.",
+        "respuesta": 18,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay una división y una multiplicación antes de la suma.",
+          "36 ÷ 6 = 6 y 4 × 3 = 12.",
+          "Suma 6 + 12."
+        ],
+        "retroalimentacion": "El valor es 18; no sumes 6 + 4 antes de multiplicar."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el valor de 40 − 8 ÷ 2 − 3?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "13"
+          },
+          {
+            "id": "b",
+            "texto": "33"
+          },
+          {
+            "id": "c",
+            "texto": "29"
+          },
+          {
+            "id": "d",
+            "texto": "36"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La división 8 ÷ 2 va primero.",
+          "Queda 40 − 4 − 3.",
+          "Haz las restas de izquierda a derecha."
+        ],
+        "retroalimentacion": "40 − 4 − 3 = 33; la división se hace antes de restar."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 6 + 18 ÷ 3 × 2, primero se divide 18 entre 3 y luego se multiplica por 2.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "División y multiplicación tienen igual prioridad.",
+          "Entre ellas se avanza de izquierda a derecha.",
+          "18 ÷ 3 aparece antes que ×2."
+        ],
+        "retroalimentacion": "Es verdadero: 18 ÷ 3 × 2 = 6 × 2 = 12; después se suma 6."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En 7 × 4 + 15 ÷ 5, escribe los dos resultados que debes obtener antes de sumar, en ese orden y separados por coma.",
+        "respuesta": "28, 3",
+        "alternativasAceptadas": [
+          "28,3"
+        ],
+        "pistas": [
+          "Calcula la multiplicación de la izquierda.",
+          "7 × 4 = 28.",
+          "La división de la derecha, 15 ÷ 5, da 3."
+        ],
+        "retroalimentacion": "Los resultados previos son 28 y 3; la suma final sería 31."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula 48 ÷ 4 × 2 + 5. Escribe solo el número.",
+        "respuesta": 29,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "División y multiplicación se hacen de izquierda a derecha.",
+          "48 ÷ 4 = 12; después 12 × 2 = 24.",
+          "Al final suma 5."
+        ],
+        "retroalimentacion": "El resultado es 29; hacer 4 × 2 primero daría un cálculo distinto."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una alumna dice que 50 − 6 × 4 + 8 vale 184 porque hizo 50 − 6 primero. ¿Cuál es el valor correcto?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "18"
+          },
+          {
+            "id": "b",
+            "texto": "26"
+          },
+          {
+            "id": "c",
+            "texto": "42"
+          },
+          {
+            "id": "d",
+            "texto": "34"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Da prioridad a 6 × 4.",
+          "La expresión queda 50 − 24 + 8.",
+          "Avanza de izquierda a derecha: 26 + 8."
+        ],
+        "retroalimentacion": "El valor correcto es 34; 50 − 6 no se resuelve antes que 6 × 4."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La cuenta 30 + 24 ÷ 6 − 2 × 3 da 28.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resuelve 24 ÷ 6 y 2 × 3.",
+          "Queda 30 + 4 − 6.",
+          "34 − 6 es 28."
+        ],
+        "retroalimentacion": "Es verdadero: 30 + 4 − 6 = 28."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Evalúa 72 ÷ 8 × 3 − 5 + 2. Escribe solo el número.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empieza por 72 ÷ 8.",
+          "9 × 3 = 27.",
+          "Luego 27 − 5 + 2, de izquierda a derecha."
+        ],
+        "retroalimentacion": "El resultado es 24; 27 − 5 = 22 y 22 + 2 = 24."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.problemas-varias-etapas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-P5-01",
+      "MAT-C23-P5-07"
+    ],
+    "bloque": "Operaciones con naturales",
+    "nombre": "Problemas de varias etapas con números naturales",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Planifica y resuelve situaciones que requieren tres o más operaciones.",
+    "palabrasClave": [
+      "planificación",
+      "varias etapas",
+      "operaciones",
+      "problemas"
+    ],
+    "prerrequisitos": [
+      "mat.p5.problemas-cuatro-operaciones-5",
+      "mat.p5.operaciones-combinadas"
+    ],
+    "ordenSugerido": 65,
+    "ideaCentral": "Un problema de varias etapas se resuelve organizando los datos y calculando resultados intermedios. Cada operación debe responder una pregunta pequeña que acerque a la respuesta final.",
+    "pasos": [
+      "Lee el problema y marca qué se pregunta.",
+      "Ordena los datos y decide qué debes averiguar primero.",
+      "Realiza las operaciones una por una y anota los resultados intermedios.",
+      "Comprueba si el resultado responde la pregunta y tiene sentido."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Para una feria, 3 aulas reúnen 20 libros cada una, venden 18 y reparten lo restante en 6 cajas.",
+        "desarrollo": "Primero 3 × 20 = 60; después 60 − 18 = 42; finalmente 42 ÷ 6 = 7.",
+        "respuesta": "Van 7 libros por caja."
+      },
+      {
+        "situacion": "Una asociación compra 4 paquetes de 15 vasos y 2 paquetes de 10; usa 35 vasos.",
+        "desarrollo": "4 × 15 = 60; 2 × 10 = 20; 60 + 20 = 80; 80 − 35 = 45.",
+        "respuesta": "Quedan 45 vasos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Usar el primer dato y responder sin completar las etapas.",
+        "correccion": "Anota qué dato nuevo produce cada operación y continúa hasta responder la pregunta."
+      },
+      {
+        "error": "Restar una cantidad antes de juntar todos los grupos.",
+        "correccion": "Calcula primero el total disponible y luego quita lo usado."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Etapa",
+        "significado": "Paso de cálculo que produce un dato necesario para el siguiente."
+      },
+      {
+        "termino": "Resultado intermedio",
+        "significado": "Cantidad obtenida antes de la respuesta final."
+      },
+      {
+        "termino": "Plan",
+        "significado": "Orden de operaciones para resolver un problema."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Tres equipos juntan 12 tapitas cada uno, luego reciben 8 más y entregan 14. ¿Cuántas quedan? Escribe solo el número.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 3 × 12.",
+          "A 36 añade 8.",
+          "De 44 quita 14."
+        ],
+        "retroalimentacion": "Quedan 30; omitir las 8 recibidas daría un total incorrecto."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tienda recibe 4 cajas con 10 panes, vende 15 y guarda el resto en 5 bolsas iguales. ¿Qué plan sigue el orden del relato?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4 + 10, −15, ÷5"
+          },
+          {
+            "id": "b",
+            "texto": "4 × 10, −15, ÷5"
+          },
+          {
+            "id": "c",
+            "texto": "4 × 10, ÷5, −15"
+          },
+          {
+            "id": "d",
+            "texto": "15 − 4, ×10, ÷5"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero halla los panes recibidos.",
+          "Luego resta los 15 vendidos.",
+          "Por último divide lo que queda entre 5 bolsas."
+        ],
+        "retroalimentacion": "El plan «4 × 10, −15, ÷5» sigue el relato: primero hay 40 panes, luego 25 y finalmente 5 por bolsa."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Cinco grupos aportan 6 soles cada uno; agregan 10 soles y compran algo de 25 soles. Les quedan 15 soles.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero junta los aportes de los cinco grupos.",
+          "5 × 6 = 30; agrega 10.",
+          "Al total de 40 quita 25."
+        ],
+        "retroalimentacion": "Es verdadero: 30 + 10 − 25 = 15 soles."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una profesora prepara 2 paquetes de 18 hojas y otro de 14; entrega 20. ¿Cuántas hojas conserva? Escribe solo el número.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos primeros paquetes tienen 2 × 18 hojas.",
+          "Suma las 14 del otro paquete.",
+          "Al total de 50 quita las 20 entregadas."
+        ],
+        "retroalimentacion": "Conserva 30 hojas: 36 + 14 − 20 = 30."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En el quiosco hay 6 bandejas con 8 sánguches. Se venden 18 y el resto se reparte por igual entre 5 mesas. ¿Cuántos van en cada mesa? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero 6 × 8.",
+          "Después de vender 18 quedan 30.",
+          "Reparte 30 entre 5 mesas."
+        ],
+        "retroalimentacion": "Cada mesa recibe 6 sánguches: (48 − 18) ÷ 5 = 6."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Cuatro familias llevan 9 naranjas cada una. Donan 12 y reparten el resto entre 3 vecinos. Escribe, en orden, los tres resultados intermedios hasta la respuesta, separados por coma.",
+        "respuesta": "36, 24, 8",
+        "alternativasAceptadas": [
+          "36,24,8"
+        ],
+        "pistas": [
+          "Multiplica 4 × 9 para hallar el total.",
+          "Resta 12 al total 36.",
+          "Divide las 24 restantes entre 3."
+        ],
+        "retroalimentacion": "Los pasos dan 36, 24 y 8; saltar la donación cambiaría el reparto."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una brigada recoge 3 sacos de 25 botellas y 15 sueltas; aparta 30 para reciclaje. ¿Cuántas botellas le quedan?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "45"
+          },
+          {
+            "id": "b",
+            "texto": "75"
+          },
+          {
+            "id": "c",
+            "texto": "60"
+          },
+          {
+            "id": "d",
+            "texto": "90"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tres sacos aportan 3 × 25.",
+          "A 75 añade las 15 sueltas.",
+          "De 90 aparta 30."
+        ],
+        "retroalimentacion": "Quedan 60 botellas; se debe sumar lo suelto antes de apartar 30."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una clase compra 4 rollos de 12 metros de cinta, usa 18 metros y divide lo restante en 6 tiras: cada tira mide 5 metros.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula los metros comprados.",
+          "4 × 12 = 48; después de usar 18 quedan 30.",
+          "Divide 30 entre 6."
+        ],
+        "retroalimentacion": "Es verdadero: cada tira mide 5 metros."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una campaña recibe 8 cajas de 15 cuadernos y 30 cuadernos sueltos. Entrega 54 y reparte el resto entre 6 aulas. ¿Cuántos recibe cada aula? Escribe solo el número.",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las cajas aportan 8 × 15 = 120.",
+          "Con los sueltos hay 150; tras entregar 54 quedan 96.",
+          "Reparte 96 entre 6 aulas."
+        ],
+        "retroalimentacion": "Cada aula recibe 16 cuadernos: (120 + 30 − 54) ÷ 6 = 16."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una excursión van 5 grupos de 18 estudiantes. Faltan 6, llegan 2 docentes y todos los presentes suben a buses de 43 asientos. ¿Cuántos buses se llenan exactamente?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "3"
+          },
+          {
+            "id": "c",
+            "texto": "4"
+          },
+          {
+            "id": "d",
+            "texto": "5"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero los estudiantes inscritos.",
+          "Resta ausentes y suma docentes.",
+          "El total 86 se divide entre 43."
+        ],
+        "retroalimentacion": "Se llenan 2 buses: 5 × 18 − 6 + 2 = 86 y 86 ÷ 43 = 2."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una feria tiene 7 mesas con 12 macetas y recibe 16 más. Si vende 40 y distribuye el resto en 5 estantes, coloca 12 en cada estante.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 7 × 12.",
+          "84 + 16 − 40 = 60.",
+          "Divide 60 entre 5."
+        ],
+        "retroalimentacion": "Es verdadero: hay 60 macetas disponibles y van 12 por estante."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un municipio prepara 9 paquetes de 20 plantones y 60 adicionales. Si siembra 72 por la mañana y 48 por la tarde, ¿cuántos quedan para repartir por igual entre 6 barrios? Escribe solo el número por barrio.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "9 × 20 + 60 = 240 plantones.",
+          "Se sembraron 72 + 48 = 120.",
+          "Los 120 restantes se dividen entre 6 barrios."
+        ],
+        "retroalimentacion": "Cada barrio recibe 20; olvidar una de las siembras duplicaría la respuesta."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.operaciones-con-parentesis",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P5-04"
+    ],
+    "bloque": "Operaciones con naturales",
+    "nombre": "Operaciones combinadas con paréntesis",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Resuelve primero lo que está entre paréntesis y escribe expresiones que modelan un problema.",
+    "palabrasClave": [
+      "paréntesis",
+      "agrupación",
+      "expresión",
+      "orden de operaciones"
+    ],
+    "prerrequisitos": [
+      "mat.p5.operaciones-combinadas"
+    ],
+    "ordenSugerido": 66,
+    "ideaCentral": "Los paréntesis señalan qué cálculo se realiza primero. Después de resolverlos, aplica el orden habitual de multiplicación, división, suma y resta.",
+    "pasos": [
+      "Identifica la operación dentro de cada paréntesis.",
+      "Resuelve los paréntesis y copia el resto sin cambiarlo.",
+      "Calcula multiplicaciones y divisiones.",
+      "Termina con sumas y restas y revisa el sentido del resultado."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Tres bolsas tienen 5 lápices y 2 borradores cada una.",
+        "desarrollo": "La expresión es 3 × (5 + 2); primero 5 + 2 = 7 y luego 3 × 7 = 21.",
+        "respuesta": "Hay 21 objetos."
+      },
+      {
+        "situacion": "De 30 panes se separan 6 y el resto se divide entre 4 vecinos.",
+        "desarrollo": "La expresión es (30 − 6) ÷ 4; 24 ÷ 4 = 6.",
+        "respuesta": "Cada vecino recibe 6 panes."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Ignorar el paréntesis y multiplicar antes de sumar dentro de él.",
+        "correccion": "Resuelve primero todo lo que está dentro del paréntesis."
+      },
+      {
+        "error": "Aplicar el paréntesis solo al número más cercano.",
+        "correccion": "El paréntesis agrupa la expresión completa que contiene."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Paréntesis",
+        "significado": "Signos ( ) que agrupan una parte de la expresión."
+      },
+      {
+        "termino": "Agrupar",
+        "significado": "Señalar operaciones que se consideran juntas."
+      },
+      {
+        "termino": "Expresión numérica",
+        "significado": "Cuenta escrita con números y signos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 4 × (3 + 2). Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resuelve la suma dentro de (3 + 2).",
+          "3 + 2 = 5.",
+          "Multiplica 4 × 5."
+        ],
+        "retroalimentacion": "El resultado es 20; 4 × 3 + 2 omite la agrupación."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué se resuelve primero en (18 − 6) ÷ 3?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "18 ÷ 3"
+          },
+          {
+            "id": "b",
+            "texto": "18 − 6"
+          },
+          {
+            "id": "c",
+            "texto": "6 ÷ 3"
+          },
+          {
+            "id": "d",
+            "texto": "18 + 6"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la parte entre paréntesis.",
+          "La resta está agrupada.",
+          "Calcula 18 − 6 antes de dividir."
+        ],
+        "retroalimentacion": "Primero se hace 18 − 6 = 12; luego 12 ÷ 3 = 4."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La expresión 5 × (7 − 3) vale 20.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero resta dentro del paréntesis.",
+          "7 − 3 = 4.",
+          "5 × 4 = 20."
+        ],
+        "retroalimentacion": "Es verdadero: el paréntesis produce 4 y el producto es 20."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En (24 + 12) ÷ 6, ¿cuál es el resultado? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 24 + 12.",
+          "El paréntesis vale 36.",
+          "Divide 36 entre 6."
+        ],
+        "retroalimentacion": "El valor es 6; dividir solo 12 entre 6 rompe el grupo."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Hay 3 cajas con 8 vasos rojos y 4 azules cada una. ¿Qué expresión representa todos los vasos?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 + (8 × 4)"
+          },
+          {
+            "id": "b",
+            "texto": "(3 × 8) + 4"
+          },
+          {
+            "id": "c",
+            "texto": "3 × (8 + 4)"
+          },
+          {
+            "id": "d",
+            "texto": "(3 + 8) × 4"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada caja contiene dos colores.",
+          "Primero junta 8 + 4 dentro de una caja.",
+          "Ese total se repite 3 veces."
+        ],
+        "retroalimentacion": "La expresión es 3 × (8 + 4) = 36 vasos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 50 − (6 × 4 + 2). Escribe solo el número.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Dentro del paréntesis, multiplica primero.",
+          "6 × 4 + 2 = 26.",
+          "Resta 50 − 26."
+        ],
+        "retroalimentacion": "El resultado es 24; el 2 también está dentro del paréntesis."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Se reparten 36 galletas después de guardar 12. Para 4 niños, escribe la expresión con paréntesis que indica cuántas recibe cada uno.",
+        "respuesta": "(36 − 12) ÷ 4",
+        "alternativasAceptadas": [
+          "(36-12)/4",
+          "(36-12):4"
+        ],
+        "pistas": [
+          "Primero retira las 12 guardadas.",
+          "Agrupa la resta 36 − 12.",
+          "Divide lo que queda entre 4."
+        ],
+        "retroalimentacion": "La expresión es (36 − 12) ÷ 4 y cada niño recibe 6 galletas."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "(8 + 4) × 2 y 8 + 4 × 2 dan el mismo resultado.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resuelve el paréntesis en la primera expresión.",
+          "(8 + 4) × 2 = 24.",
+          "En la segunda, 4 × 2 va antes de sumar 8 y da 16."
+        ],
+        "retroalimentacion": "Es falso: las expresiones valen 24 y 16."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Resuelve (48 − 12) ÷ (3 + 3) + 5. Escribe solo el número.",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los paréntesis valen 36 y 6.",
+          "Después divide 36 ÷ 6.",
+          "Suma 5 al cociente 6."
+        ],
+        "retroalimentacion": "El valor es 11; hay que resolver ambos paréntesis antes de dividir."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tienda arma 5 paquetes de (6 caramelos + 2 chocolates) y regala 7 dulces. ¿Qué cuenta calcula los que quedan?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(5 × 6) + 2 − 7"
+          },
+          {
+            "id": "b",
+            "texto": "5 × (6 + 2 − 7)"
+          },
+          {
+            "id": "c",
+            "texto": "5 + (6 × 2) − 7"
+          },
+          {
+            "id": "d",
+            "texto": "5 × (6 + 2) − 7"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Agrupa los 8 dulces de cada paquete.",
+          "Multiplica por los 5 paquetes.",
+          "Resta los 7 regalados al final."
+        ],
+        "retroalimentacion": "La cuenta es 5 × (6 + 2) − 7 = 33."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 4 × (9 + 3) ÷ 6, el resultado es 8.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El paréntesis vale 12.",
+          "Multiplica y divide de izquierda a derecha.",
+          "4 × 12 = 48; 48 ÷ 6 = 8."
+        ],
+        "retroalimentacion": "Es verdadero: el resultado es 8."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una brigada tiene 90 plantas; reserva (12 + 18) y reparte el resto en (2 + 3) jardines. ¿Cuántas plantas van a cada jardín? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La reserva suma 30 plantas.",
+          "Quedan 90 − 30 = 60; los jardines son 5.",
+          "Divide 60 entre 5."
+        ],
+        "retroalimentacion": "Van 12 plantas a cada jardín: (90 − (12 + 18)) ÷ (2 + 3) = 12."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

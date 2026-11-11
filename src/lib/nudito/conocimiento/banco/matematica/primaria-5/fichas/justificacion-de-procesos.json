@@ -1,0 +1,342 @@
+[
+  {
+    "clave": "mat.p5.justificar-resolucion",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-P5-07"
+    ],
+    "bloque": "Justificación de procesos",
+    "nombre": "Justificación del proceso de resolución",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Explica paso a paso cómo resolvió un problema y verifica si la respuesta tiene sentido.",
+    "palabrasClave": [
+      "justificacion",
+      "proceso de resolucion",
+      "verificacion",
+      "sentido del resultado",
+      "argumentacion matematica"
+    ],
+    "prerrequisitos": [
+      "mat.p5.problemas-cuatro-operaciones-5"
+    ],
+    "ordenSugerido": 43,
+    "ideaCentral": "Justificar una resolución matemática implica explicar con claridad las razones por las que se eligió cada operación, detallar los pasos seguidos y verificar si la respuesta final responde a la pregunta planteada y es coherente con la realidad del problema.",
+    "pasos": [
+      "Relee el problema e identifica con precisión los datos conocidos, las condiciones y lo que se pide averiguar.",
+      "Explica por qué seleccionaste una determinada operación (por ejemplo: multiplicar porque se repite una cantidad o restar porque se busca una diferencia).",
+      "Muestra los cálculos ordenados paso a paso sin omitir las etapas intermedias.",
+      "Comprueba el resultado utilizando una operación inversa o una estrategia alternativa de cálculo.",
+      "Verifica el sentido común de la respuesta en el contexto real (por ejemplo, si se trata de personas, dinero o medidas físicas)."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una librería de Trujillo, don Juan vende 15 cajas con 24 cuadernos cada una a S/ 5 por cuaderno. Un alumno afirma que para saber el ingreso total primero se multiplica 15 × 24 y luego ese resultado por 5. ¿Es correcta su justificación?",
+        "desarrollo": "Primero se halla la cantidad total de cuadernos agrupando las 15 cajas de 24: 15 × 24 = 360 cuadernos. Luego, cada cuaderno vale S/ 5, por lo que 360 × 5 = S/ 1800. La justificación es plenamente válida porque descompone el problema en el total de unidades y el valor monetario global.",
+        "respuesta": "Sí, es correcta porque modela primero la cantidad total de cuadernos y luego su valor total en soles."
+      },
+      {
+        "situacion": "Un panadero en Cusco reparte 125 panes en bolsas de 6 panes cada una. Obtiene 20 bolsas y le sobran 5 panes. ¿Cómo justifica que su reparto es exacto?",
+        "desarrollo": "Aplica la relación de la división: Dividendo = (divisor × cociente) + residuo. Comprueba: (6 × 20) + 5 = 120 + 5 = 125 panes. Como el residuo (5) es menor que el divisor (6), la división es correcta.",
+        "respuesta": "Justifica comprobando que 20 × 6 + 5 = 125 y verificando que el residuo es menor que 6."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dar únicamente el número final como respuesta sin explicar qué representa ni qué operaciones se realizaron.",
+        "correccion": "Una justificación completa requiere explicar qué magnitud se calculó en cada paso y por qué esa operación conduce a la solución."
+      },
+      {
+        "error": "Aceptar respuestas que no tienen sentido en la realidad (por ejemplo, obtener un número decimal al contar personas o animales vivos).",
+        "correccion": "Siempre evalúa si el resultado es razonable según el tipo de objeto que se está contando o midiendo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Justificación",
+        "significado": "Explicación lógica con argumentos y propiedades matemáticas que demuestra por qué un procedimiento es correcto."
+      },
+      {
+        "termino": "Verificación",
+        "significado": "Comprobación del resultado mediante operaciones inversas, estimaciones o métodos alternativos."
+      },
+      {
+        "termino": "Sentido del resultado",
+        "significado": "Coherencia lógica que debe tener el valor obtenido respecto a las condiciones del mundo real del problema."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Justificar la resolución de un problema matemático consiste únicamente en anotar el número final de la respuesta sin necesidad de mostrar los cálculos ni explicarlos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en el significado de la palabra argumentar o justificar.",
+          "Una justificación debe mostrar el camino seguido para llegar a la solución.",
+          "Escribir solo un número no explica las razones de la elección de operaciones."
+        ],
+        "retroalimentacion": "Es falso: justificar requiere fundamentar paso a paso por qué se realizaron las operaciones y comprobar el sentido del resultado."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para averiguar cuánto dinero ahorró un escolar en 12 semanas guardando exactamente S/ 25 cada semana, ¿cuál de las siguientes operaciones justifica de forma directa el cálculo?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "25 + 12"
+          },
+          {
+            "id": "b",
+            "texto": "12 × 25"
+          },
+          {
+            "id": "c",
+            "texto": "25 ÷ 12"
+          },
+          {
+            "id": "d",
+            "texto": "25 - 12"
+          }
+        ],
+        "pistas": [
+          "Se trata de una cantidad de dinero que se repite periódicamente.",
+          "Reiterar S/ 25 a lo largo de 12 semanas equivale a 12 grupos de 25.",
+          "La operación que modela grupos iguales es la multiplicación."
+        ],
+        "retroalimentacion": "Se justifica con 12 × 25 porque representa la reiteración de S/ 25 durante 12 semanas (dando S/ 300)."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un estudiante resolvió la división 450 ÷ 9 = 50. ¿Qué operación de multiplicación permite verificar que ese resultado es correcto? Escribe la igualdad en la forma a x b = c.",
+        "respuesta": "9 x 50 = 450",
+        "alternativasAceptadas": [
+          "9 x 50 = 450",
+          "50 x 9 = 450",
+          "9 * 50 = 450",
+          "50 * 9 = 450"
+        ],
+        "pistas": [
+          "Usa la operación inversa de la división.",
+          "Multiplica el divisor por el cociente hallado.",
+          "El producto debe ser igual al dividendo 450."
+        ],
+        "retroalimentacion": "La multiplicación inversa 9 × 50 = 450 verifica que la división efectuada es exacta."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Para trasladar a 48 estudiantes a una visita escolar en combis de 15 pasajeros cada una, se calcula 48 ÷ 15 = 3 con residuo 3. ¿Cuántas combis completas se necesitan como mínimo para que todos los estudiantes viajen sentados? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "3 combis pueden transportar 3 × 15 = 45 estudiantes.",
+          "Aún quedan 3 estudiantes que no pueden quedarse sin viajar.",
+          "Se debe añadir una combi más para transportar a esos 3 alumnos."
+        ],
+        "retroalimentacion": "3 combis llevan a 45 alumnos y para los 3 restantes se necesita una combi más: se requieren 4 combis en total."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una huerta de Lunahuaná se cosecharon 340 manzanas. Se retiraron 20 manzanas malogradas y el resto se acomodó en cajas de 16 manzanas. ¿Cuál de las siguientes expresiones justifica el proceso y da la cantidad correcta de cajas?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(340 - 20) ÷ 16 y da 20 cajas"
+          },
+          {
+            "id": "b",
+            "texto": "(340 ÷ 16) - 20 y da 1 caja"
+          },
+          {
+            "id": "c",
+            "texto": "340 - (20 ÷ 16) y da 338 cajas"
+          },
+          {
+            "id": "d",
+            "texto": "(340 + 20) ÷ 16 y da 22 cajas"
+          }
+        ],
+        "pistas": [
+          "Primero se deben descontar las manzanas dañadas antes de colocarlas en cajas.",
+          "La resta 340 - 20 = 320 va entre paréntesis.",
+          "Luego se reparte 320 ÷ 16, lo que da exactamente 20 cajas."
+        ],
+        "retroalimentacion": "El procedimiento correcto es descontar primero las manzanas en buen estado y luego repartirlas: (340 - 20) ÷ 16 = 320 ÷ 16 = 20 cajas."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al calcular cuántos buses de 40 asientos se necesitan para transportar a 165 turistas a las ruinas de Chan Chan, 165 ÷ 40 es 4 con residuo 5; por lo tanto, contratar 4 buses es suficiente para que viajen todos sentados.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cuántos pasajeros entran en 4 buses: 4 × 40 = 160.",
+          "Observa qué sucede con los 5 turistas sobrantes.",
+          "En la realidad, ninguna persona puede viajar parada o quedarse fuera del viaje."
+        ],
+        "retroalimentacion": "Es falso: en 4 buses solo viajan 160 turistas; para que los 165 viajen sentados se requiere contratar 5 buses."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un comerciante en Gamarra compra 18 camisas a S/ 35 cada una y vende todas a S/ 50 cada una. Para hallar la ganancia total, calcula la ganancia por camisa (50 - 35 = 15) y luego multiplica 18 × 15. ¿A cuántos soles asciende la ganancia total obtenida? Escribe solo el número.",
+        "respuesta": 270,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Gana S/ 15 en cada una de las 18 camisas.",
+          "Multiplica 18 por 15.",
+          "18 × 10 = 180 y 18 × 5 = 90; 180 + 90 = 270."
+        ],
+        "retroalimentacion": "La ganancia unitaria es 50 - 35 = S/ 15. Multiplicada por las 18 prendas resulta una ganancia total de S/ 270."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Alicia resolvió un problema sobre compra de útiles escolares y llegó a la conclusión de que «cada cuaderno costó S/ -8». ¿Esta respuesta tiene sentido en el contexto real de una compra en la tienda? Escribe si o no.",
+        "respuesta": "no",
+        "alternativasAceptadas": [
+          "no"
+        ],
+        "pistas": [
+          "Analiza si un precio monetario en un mercado puede ser una cantidad negativa.",
+          "El dinero que se paga por un bien siempre es un valor positivo o cero.",
+          "Un precio negativo indica un error en el planteamiento matemático."
+        ],
+        "retroalimentacion": "No tiene sentido: los precios comerciales de bienes reales no pueden ser números negativos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una planta de conservas de Chimbote se empaquetan latas de atún en cajas de 24 unidades. Se han producido 1500 latas. El supervisor afirma: «Con 62 cajas no alcanza, se necesitan 63 cajas para guardar todas las latas». ¿Qué cálculo justifica formalmente la afirmación del supervisor?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "62 × 24 = 1488 latas, por lo que sobran 12 latas que requieren una caja adicional número 63"
+          },
+          {
+            "id": "b",
+            "texto": "1500 ÷ 24 da exactamente 62 sin residuo alguno"
+          },
+          {
+            "id": "c",
+            "texto": "63 × 24 = 1500 latas justas y completas"
+          },
+          {
+            "id": "d",
+            "texto": "Con 60 cajas era suficiente porque 60 × 24 supera 1500"
+          }
+        ],
+        "pistas": [
+          "Multiplica 62 cajas por 24 latas: 62 × 24 = 1488.",
+          "Calcula la diferencia: 1500 - 1488 = 12 latas restantes.",
+          "Esas 12 latas necesitan una caja más (la caja 63)."
+        ],
+        "retroalimentacion": "62 cajas guardan 1488 latas; para no dejar fuera las 12 latas sobrantes es imprescindible usar una caja 63."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Cuatro estudiantes explican su resolución para el problema: «Un camión sale de Piura con 420 sacos de arroz. En Sullana descarga la mitad de su carga y en Tambogrande descarga 80 sacos más. ¿Cuántos sacos le quedan?». ¿Quién presentó el razonamiento correcto?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Alberto: «Multipliqué 420 × 2 y le sumé 80 sacos»"
+          },
+          {
+            "id": "b",
+            "texto": "Carlos: «Dividí 420 entre 80 y luego le resté 2»"
+          },
+          {
+            "id": "c",
+            "texto": "Diana: «Sumé 210 + 80 = 290 sacos que le quedan»"
+          },
+          {
+            "id": "d",
+            "texto": "Beatriz: «A la mitad que es 210 sacos le resté los 80 que descargó después: 210 - 80 = 130 sacos»"
+          }
+        ],
+        "pistas": [
+          "Calcula la mitad de 420 sacos: 420 ÷ 2 = 210 sacos descargados en Sullana.",
+          "Al camión le quedan 210 sacos tras esa primera parada.",
+          "Al descargar 80 sacos más, restas: 210 - 80 = 130 sacos finales."
+        ],
+        "retroalimentacion": "Beatriz razona correctamente: de los 210 sacos que quedaban se descuentan 80 más, resultando 130 sacos."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Don Teodoro compró en Huancayo 8 sacos de forraje de 45 kg cada uno para sus animales. Durante 14 días consecutivos sus animales consumieron 22 kg diarios de forraje. Don Teodoro afirma que aún le sobran más de 50 kg de forraje. ¿Cuántos kilogramos exactos de forraje le quedaron al finalizar los 14 días? Escribe solo el número.",
+        "respuesta": 52,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla el forraje total inicial: 8 × 45 = 360 kg.",
+          "Calcula el forraje consumido en dos semanas: 14 × 22 = 308 kg.",
+          "Resta el consumo del total: 360 - 308."
+        ],
+        "retroalimentacion": "Disponía de 8 × 45 = 360 kg y consumieron 14 × 22 = 308 kg. Le sobran exactamente 360 - 308 = 52 kilogramos."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una carrera escolar de 100 metros planos en Ica se registraron los tiempos: Andrés 14,8 s; Beto 15,2 s; Camilo 14,2 s; Daniel 15,0 s. Un juez inexperto declaró ganador a Beto porque «15,2 es el número más grande». ¿Cuál es la justificación que corrige ese fallo?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Beto ganó porque en velocidad gana quien tiene el mayor tiempo registrado"
+          },
+          {
+            "id": "b",
+            "texto": "Hubo un empate general porque todos los tiempos tienen dos cifras enteras"
+          },
+          {
+            "id": "c",
+            "texto": "El ganador legítimo es Camilo porque en carreras de velocidad gana quien demora menos tiempo, y 14,2 es el menor"
+          },
+          {
+            "id": "d",
+            "texto": "Daniel debió ganar porque su tiempo termina en cero exacto"
+          }
+        ],
+        "pistas": [
+          "Recuerda cómo se mide el éxito en una prueba atlética de velocidad.",
+          "El competidor más veloz es aquel que tarda la menor cantidad de segundos en llegar a la meta.",
+          "Compara 14,8; 15,2; 14,2 y 15,0 para hallar el valor mínimo."
+        ],
+        "retroalimentacion": "En una carrera de velocidad gana quien emplea el menor tiempo posible: Camilo con 14,2 segundos es el legítimo ganador."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

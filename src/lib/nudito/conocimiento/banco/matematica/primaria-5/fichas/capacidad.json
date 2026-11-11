@@ -1,0 +1,331 @@
+[
+  {
+    "clave": "mat.p5.litro-decimales",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-P5-05",
+      "MAT-C26-P5-07"
+    ],
+    "bloque": "Capacidad",
+    "nombre": "Capacidad en litros con decimales",
+    "disciplina": "geometria",
+    "descripcionCorta": "Expresa capacidades como 1,5 L o 0,5 L y las compara.",
+    "palabrasClave": [
+      "litro",
+      "decimales",
+      "capacidad",
+      "mililitros",
+      "medio litro"
+    ],
+    "prerrequisitos": [
+      "mat.p5.numeros-decimales"
+    ],
+    "ordenSugerido": 113,
+    "ideaCentral": "La capacidad mide la cantidad de líquido que contiene un recipiente; mediante números decimales expresamos partes del litro, como 0,5 L (medio litro) o 1,25 L, y podemos compararlas alineando sus cifras.",
+    "pasos": [
+      "Ten presente que 1 litro (1 L) equivale a 1000 mililitros (1000 mL).",
+      "Relaciona las fracciones comunes con su escritura decimal: 1/2 L = 0,5 L y 1/4 L = 0,25 L.",
+      "Para comparar capacidades decimales, observa primero la parte entera y luego los décimos y centésimos.",
+      "Para sumar o restar capacidades, alinea los números por la coma decimal completando con ceros si es necesario."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una botella de emoliente tiene una etiqueta que marca 1,5 L. ¿Cuántos litros completos y qué fracción de litro contiene?",
+        "desarrollo": "El número 1 representa 1 litro entero. La cifra 5 en los décimos representa 5 décimos de litro, es decir, medio litro (500 mL).",
+        "respuesta": "Contiene 1 litro y medio (1500 mL)."
+      },
+      {
+        "situacion": "En una jarra mezclas 0,75 L de chicha morada con 1,25 L de agua de piña. ¿Cuánto líquido juntas en total?",
+        "desarrollo": "Sumamos alineando la coma: 0,75 + 1,25 = 2,00 L.",
+        "respuesta": "Juntas exactamente 2 litros de líquido."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que 1,25 L es mayor que 1,5 L porque 25 parece más grande que 5.",
+        "correccion": "Compara cifra por cifra: en los décimos, 5 es mayor que 2; 1,50 L supera a 1,25 L."
+      },
+      {
+        "error": "Confundir 0,5 L con 5 mililitros en lugar de 500 mililitros.",
+        "correccion": "Medio litro equivale a la mitad de 1000 mL, lo que corresponde a 500 mL."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Capacidad",
+        "significado": "Propiedad de un recipiente que indica el volumen de líquido que puede albergar."
+      },
+      {
+        "termino": "Litro (L)",
+        "significado": "Unidad básica del sistema métrico para la medición de capacidad."
+      },
+      {
+        "termino": "Mililitro (mL)",
+        "significado": "Milésima parte de un litro; se necesitan 1000 mililitros para completar 1 litro."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos mililitros contiene exactamente un recipiente de 1 litro de capacidad? Escribe solo el número.",
+        "respuesta": 1000,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda el prefijo mili-, que indica una milésima parte.",
+          "Un litro entero está compuesto por mil partes iguales de un mililitro.",
+          "El valor numérico es mil."
+        ],
+        "retroalimentacion": "Un litro contiene exactamente 1000 mililitros."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una botella con una capacidad de 0,5 L contiene exactamente medio litro de agua.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Expresa 0,5 como la fracción 5/10.",
+          "Al simplificar 5/10 dividiendo entre 5 se obtiene 1/2.",
+          "Un medio de litro es precisamente medio litro."
+        ],
+        "retroalimentacion": "La cifra 0,5 L equivale a la fracción 1/2 L o medio litro: la afirmación es verdadera."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de las siguientes cantidades en litros equivale exactamente a 250 mililitros?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0,25 L"
+          },
+          {
+            "id": "b",
+            "texto": "2,5 L"
+          },
+          {
+            "id": "c",
+            "texto": "0,025 L"
+          },
+          {
+            "id": "d",
+            "texto": "25 L"
+          }
+        ],
+        "pistas": [
+          "Divide 250 entre 1000 para pasar de mililitros a litros.",
+          "Mueve la coma decimal tres lugares hacia la izquierda.",
+          "El número resultante tiene un cero, coma y dos cifras decimales (25)."
+        ],
+        "retroalimentacion": "Dividiendo 250 entre 1000 obtenemos 0,25 L, que corresponde a un cuarto de litro."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Qué letra mayúscula se utiliza como símbolo internacional de la unidad de medida litro?",
+        "respuesta": "L",
+        "alternativasAceptadas": [
+          "L",
+          "l",
+          "letra L"
+        ],
+        "pistas": [
+          "Es la letra inicial de la palabra litro.",
+          "Se escribe comúnmente en mayúscula de imprenta.",
+          "Es una única letra del alfabeto."
+        ],
+        "retroalimentacion": "El símbolo estándar del litro es la letra L mayúscula."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una tienda de abarrotes en Cusco se exhiben tres envases de néctar: el envase P marca 1,25 L, el envase Q marca 1,5 L y el envase R marca 1,05 L. ¿Cuál de los tres envases tiene mayor capacidad?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El envase P"
+          },
+          {
+            "id": "b",
+            "texto": "El envase Q"
+          },
+          {
+            "id": "c",
+            "texto": "El envase R"
+          },
+          {
+            "id": "d",
+            "texto": "Los tres tienen igual capacidad"
+          }
+        ],
+        "pistas": [
+          "Añade un cero para igualar las cifras decimales: 1,25 L; 1,50 L; 1,05 L.",
+          "Compara los décimos de cada número decimal.",
+          "El valor 1,50 L contiene 5 décimos frente a 2 y 0 décimos de los otros."
+        ],
+        "retroalimentacion": "El envase Q con 1,5 L (1,50 L) supera a 1,25 L y a 1,05 L en capacidad."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Don Tomás vació dos botellas de agua mineral de 0,5 L cada una y una botella adicional de 1,5 L en una olla grande. ¿Cuántos litros de agua juntó en total? Escribe solo el número.",
+        "respuesta": 2.5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma primero las dos botellas de medio litro: 0,5 más 0,5.",
+          "Esa primera suma da 1 litro entero.",
+          "Suma ahora 1 litro más 1,5 litros de la última botella."
+        ],
+        "retroalimentacion": "Sumando 0,5 más 0,5 más 1,5 obtenemos exactamente 2,5 litros."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una jarra que contiene 1,4 L de jugo de maracuyá tiene mayor capacidad que otra jarra que contiene 1,09 L.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la parte entera de ambos números: ambas tienen 1 litro entero.",
+          "Observa la cifra de los décimos: en 1,4 hay 4 décimos y en 1,09 hay 0 décimos.",
+          "Como 4 es mayor que 0, 1,4 L es superior a 1,09 L."
+        ],
+        "retroalimentacion": "Al comparar los décimos, 1,4 L (1,40 L) es mayor que 1,09 L: la afirmación es verdadera."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Si a una jarra de 1 litro de capacidad le faltan 0,3 litros para llenarse por completo, ¿cuántos litros de líquido contiene adentro? Escríbelo con coma como 0,7.",
+        "respuesta": "0,7",
+        "alternativasAceptadas": [
+          "0,7",
+          "0.7",
+          "0,7 L",
+          "0,70"
+        ],
+        "pistas": [
+          "Resta 0,3 del litro completo expresado como 1,0.",
+          "Efectúa la operación: 1,0 menos 0,3.",
+          "La diferencia entrega 7 décimos de litro."
+        ],
+        "retroalimentacion": "Restando 1,0 menos 0,3 obtenemos 0,7 litros de líquido en la jarra."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para preparar chicha morada en el aniversario del colegio, la tutora necesita reunir 4,5 L de agua hervida. Si ya cuenta con 3 botellas de 0,75 L y una botella de 1,5 L, ¿cuántos litros de agua le faltan para completar la receta?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0,75 L"
+          },
+          {
+            "id": "b",
+            "texto": "1 L"
+          },
+          {
+            "id": "c",
+            "texto": "0,5 L"
+          },
+          {
+            "id": "d",
+            "texto": "1,25 L"
+          }
+        ],
+        "pistas": [
+          "Multiplica 3 por 0,75 L para hallar el líquido de las tres botellas (2,25 L).",
+          "Suma 2,25 L más la botella de 1,5 L para obtener el total disponible (3,75 L).",
+          "Resta 3,75 L de los 4,50 L requeridos para hallar lo que falta."
+        ],
+        "retroalimentacion": "Tiene 2,25 L + 1,5 L = 3,75 L; al restar 4,50 L menos 3,75 L se obtiene que faltan 0,75 L."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Se desea repartir un bidón de 6 litros de jugo de lúcuma en vasos de 0,25 litros cada uno. ¿Cuántos vasos llenos se obtendrán en total? Escribe solo el número.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda que 0,25 L es la cuarta parte de 1 litro.",
+          "En cada litro completo caben exactamente 4 vasos de 0,25 L.",
+          "Multiplica los 6 litros totales por 4 vasos por litro."
+        ],
+        "retroalimentacion": "Cada litro llena 4 vasos; por consiguiente, 6 litros multiplicados por 4 llenan 24 vasos."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Tres envases de 0,4 L de yogur contienen en conjunto más líquido que un solo envase grande de 1,15 L.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 3 por 0,4 L para obtener la cantidad total de los tres envases.",
+          "El producto es 1,2 litros.",
+          "Compara 1,20 L con 1,15 L."
+        ],
+        "retroalimentacion": "Tres envases de 0,4 L suman 1,2 L, lo que supera a 1,15 L: la afirmación es verdadera."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un tanque de agua para riego en una chacra de Huancavelica contiene 12,8 litros. Si durante el día se consumen 3,45 litros por la mañana y 5,15 litros por la tarde, ¿cuántos litros de agua quedan en el tanque?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4,2 litros"
+          },
+          {
+            "id": "b",
+            "texto": "5,2 litros"
+          },
+          {
+            "id": "c",
+            "texto": "3,8 litros"
+          },
+          {
+            "id": "d",
+            "texto": "4,5 litros"
+          }
+        ],
+        "pistas": [
+          "Suma el consumo de la mañana y de la tarde: 3,45 más 5,15.",
+          "El gasto total del día es de 8,60 litros.",
+          "Resta 8,60 de los 12,80 litros iniciales del tanque."
+        ],
+        "retroalimentacion": "El consumo total es 3,45 + 5,15 = 8,6 L; restando 12,8 menos 8,6 quedan 4,2 litros."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

@@ -1,0 +1,1546 @@
+[
+  {
+    "clave": "mat.p5.proporcionalidad-tablas",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P5-01"
+    ],
+    "bloque": "Proporcionalidad",
+    "nombre": "Tablas de proporcionalidad",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Organiza en una tabla dos magnitudes que aumentan o disminuyen en la misma razón.",
+    "palabrasClave": [
+      "tabla",
+      "magnitudes",
+      "filas",
+      "razón"
+    ],
+    "prerrequisitos": [
+      "mat.p5.multiplicacion-dos-tres-cifras"
+    ],
+    "ordenSugerido": 82,
+    "ideaCentral": "Una tabla de proporcionalidad relaciona dos cantidades: cada unidad de la primera corresponde siempre a la misma cantidad de la segunda. Ordena pares en filas y comprueba que el multiplicador se mantiene.",
+    "pasos": [
+      "Escribe los nombres y unidades de las dos magnitudes en columnas.",
+      "Coloca cada par de datos en una misma fila.",
+      "Halla cuánto corresponde a una unidad.",
+      "Completa otras filas usando siempre ese mismo factor."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En la feria, cada bolsa contiene 4 panes.",
+        "desarrollo": "Anoto bolsas 1, 2 y 3; panes 4, 8 y 12. Cada fila usa el factor 4.",
+        "respuesta": "La tabla queda 1→4, 2→8, 3→12."
+      },
+      {
+        "situacion": "Una combi cobra S/ 3 por pasajero en un viaje escolar.",
+        "desarrollo": "Para 1, 2 y 4 pasajeros, multiplico por 3: 3, 6 y 12 soles.",
+        "respuesta": "La tabla muestra pares (1,3), (2,6), (4,12)."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Poner datos de distintas parejas en la misma fila.",
+        "correccion": "Cada fila representa una situación completa: cantidad y su correspondiente."
+      },
+      {
+        "error": "Sumar el precio unitario solo una vez al pasar de 2 a 4 unidades.",
+        "correccion": "Al duplicar unidades también se duplica el total."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Magnitud",
+        "significado": "Cantidad que se puede medir o contar."
+      },
+      {
+        "termino": "Par correspondiente",
+        "significado": "Dos valores de una misma situación ubicados en la misma fila."
+      },
+      {
+        "termino": "Factor",
+        "significado": "Número fijo por el que se multiplica una magnitud para obtener la otra."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Cada cuaderno cuesta S/ 5. En la tabla, 1 cuaderno → 5 soles; 2 cuadernos → ¿cuántos soles? Escribe solo el número.",
+        "respuesta": 10,
+        "pistas": [
+          "El costo de un cuaderno es 5.",
+          "Dos cuadernos son dos grupos de 5.",
+          "Calcula 2 × 5."
+        ],
+        "retroalimentacion": "Escribir 7 sumando cantidad y precio confunde columnas: son 10 soles.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una tabla de 1 bolsa → 3 mandarinas y 2 bolsas → 6 mandarinas, ¿qué par corresponde a 3 bolsas?",
+        "respuesta": "a",
+        "pistas": [
+          "Cada bolsa aporta 3 mandarinas.",
+          "Para tres bolsas repite tres veces 3.",
+          "Busca el par cuyo segundo valor sea 9."
+        ],
+        "retroalimentacion": "La fila 3 → 9 conserva 3 mandarinas por bolsa.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 → 9"
+          },
+          {
+            "id": "b",
+            "texto": "3 → 6"
+          },
+          {
+            "id": "c",
+            "texto": "3 → 12"
+          },
+          {
+            "id": "d",
+            "texto": "3 → 3"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La tabla 1 lápiz → S/ 2 y 2 lápices → S/ 4 mantiene el mismo precio por lápiz.",
+        "respuesta": true,
+        "pistas": [
+          "Revisa el costo de un lápiz.",
+          "En la segunda fila hay el doble de lápices.",
+          "El costo también pasa de 2 a 4."
+        ],
+        "retroalimentacion": "Es verdadero: ambas filas indican S/ 2 por lápiz.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una tabla muestra cajas 1, 2, 3 y pelotas 6, 12, 18. ¿Cuántas pelotas corresponden a una caja? Escribe solo el número.",
+        "respuesta": "6",
+        "pistas": [
+          "Lee la primera fila de la tabla.",
+          "Una caja está emparejada con 6 pelotas.",
+          "Comprueba que 2 cajas corresponden a 12."
+        ],
+        "retroalimentacion": "No son 12 por caja; cada caja tiene 6 pelotas.",
+        "alternativasAceptadas": [
+          "seis"
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Para preparar jugo se usan 2 limones por jarra. La tabla tiene jarras 1, 3, 5. ¿Qué número va con 5 jarras? Escribe solo el número.",
+        "respuesta": 10,
+        "pistas": [
+          "Conserva el factor 2 limones por jarra.",
+          "La tercera fila representa cinco jarras.",
+          "Calcula 5 × 2."
+        ],
+        "retroalimentacion": "Colocar 7 suma columnas; con 5 jarras van 10 limones.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La tabla de botellas y vasos dice 1→4, 2→8, 4→16. ¿Qué fila cabe entre la segunda y la tercera?",
+        "respuesta": "c",
+        "pistas": [
+          "Una botella llena 4 vasos.",
+          "Para tres botellas multiplica 3 por 4.",
+          "La fila buscada termina en 12."
+        ],
+        "retroalimentacion": "La fila 3→12 mantiene cuatro vasos por botella.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3→10"
+          },
+          {
+            "id": "b",
+            "texto": "3→11"
+          },
+          {
+            "id": "c",
+            "texto": "3→12"
+          },
+          {
+            "id": "d",
+            "texto": "3→16"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la tabla de entradas, 2 niños → S/ 8 y 4 niños → S/ 12 forman una relación proporcional.",
+        "respuesta": false,
+        "pistas": [
+          "Compara cuántos niños hay.",
+          "De 2 a 4 se duplica la cantidad.",
+          "Si fuera proporcional, 8 también se duplicaría."
+        ],
+        "retroalimentacion": "Es falso: para cuatro niños deberían ser S/ 16, no S/ 12.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una tabla de paquetes de galletas muestra 2→14 y 4→28. Si mantiene la razón, ¿qué total corresponde a 6 paquetes? Escribe solo el número.",
+        "respuesta": 42,
+        "pistas": [
+          "Halla galletas por paquete: 14 ÷ 2.",
+          "Hay 7 por paquete.",
+          "Multiplica 6 × 7."
+        ],
+        "retroalimentacion": "Sumar 6 al 28 no mantiene la razón; corresponden 42 galletas.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la tabla metros de tela → precio figuran 2→S/ 18 y 5→S/ 45. ¿Qué par puede añadirse sin romper la proporción?",
+        "respuesta": "b",
+        "pistas": [
+          "Calcula el precio de un metro con 18 ÷ 2.",
+          "Cada metro cuesta S/ 9; comprueba 5 × 9.",
+          "Para tres metros corresponde 3 × 9."
+        ],
+        "retroalimentacion": "El par 3→S/ 27 usa el precio constante de S/ 9 por metro.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3→S/ 18"
+          },
+          {
+            "id": "b",
+            "texto": "3→S/ 27"
+          },
+          {
+            "id": "c",
+            "texto": "4→S/ 32"
+          },
+          {
+            "id": "d",
+            "texto": "6→S/ 45"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "La tabla de paquetes y fichas tiene 3→12, 6→24 y 9→?. Sin cambiar el factor, ¿qué número falta? Escribe solo el número.",
+        "respuesta": 36,
+        "pistas": [
+          "Encuentra cuántas fichas hay por paquete: 12 ÷ 3.",
+          "Comprueba el factor 4 con 6→24.",
+          "Aplica 9 × 4."
+        ],
+        "retroalimentacion": "Poner 30 por sumar 6 ignora el factor; faltan 36 fichas.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una tabla con filas 2→10, 4→20 y 8→40 mantiene el mismo factor aunque no incluya la fila 1→5.",
+        "respuesta": true,
+        "pistas": [
+          "Revisa cada segunda cifra dividida entre la primera.",
+          "10 ÷ 2 y 20 ÷ 4 dan 5.",
+          "40 ÷ 8 también da 5."
+        ],
+        "retroalimentacion": "Es verdadero: el factor 5 se conserva en todas las filas.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Al ordenar datos de vasos de quinua, encuentras estos pares: 2 vasos requieren 6 cucharadas y 5 vasos requieren 15. ¿Qué par escribirías para 3 vasos? Usa el formato 3→n.",
+        "respuesta": "3→9",
+        "pistas": [
+          "Identifica cucharadas por vaso: 6 ÷ 2.",
+          "Son 3 cucharadas por vaso; 15 ÷ 5 lo confirma.",
+          "Para tres vasos calcula 3 × 3."
+        ],
+        "retroalimentacion": "El par correcto es 3→9; escribir 3→6 mezclaría filas.",
+        "alternativasAceptadas": [
+          "3 -> 9",
+          "3 a 9"
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.proporcionalidad-cambio-constante",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-P5-03"
+    ],
+    "bloque": "Proporcionalidad",
+    "nombre": "La proporcionalidad como cambio constante",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Reconoce que al doble, triple o mitad de una magnitud le corresponde lo mismo en la otra.",
+    "palabrasClave": [
+      "doble",
+      "triple",
+      "mitad",
+      "proporción"
+    ],
+    "prerrequisitos": [
+      "mat.p5.proporcionalidad-tablas"
+    ],
+    "ordenSugerido": 83,
+    "ideaCentral": "En una relación directamente proporcional, cambiar una magnitud por un factor cambia la otra por el mismo factor. Si duplicas, triplicas o tomas la mitad de una, haces igual con su pareja.",
+    "pasos": [
+      "Identifica dos valores que se corresponden.",
+      "Observa si la primera magnitud se duplica, triplica o reduce a la mitad.",
+      "Aplica ese mismo cambio a la segunda.",
+      "Comprueba que las dos parejas mantienen la misma razón."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Dos bolsas llevan 8 panes; cuatro bolsas son el doble.",
+        "desarrollo": "Duplico también los panes: 8 × 2 = 16.",
+        "respuesta": "Cuatro bolsas llevan 16 panes."
+      },
+      {
+        "situacion": "Seis pulseras usan 18 cuentas; tres pulseras son la mitad.",
+        "desarrollo": "Divido entre 2 tanto 6 como 18.",
+        "respuesta": "Tres pulseras usan 9 cuentas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Duplicar una magnitud y sumar 2 a la otra.",
+        "correccion": "Duplicar significa multiplicar por 2 en ambas magnitudes."
+      },
+      {
+        "error": "Reducir a la mitad solo una columna.",
+        "correccion": "Las dos cantidades correspondientes cambian por el mismo factor."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Doble",
+        "significado": "Cantidad obtenida al multiplicar por 2."
+      },
+      {
+        "termino": "Triple",
+        "significado": "Cantidad obtenida al multiplicar por 3."
+      },
+      {
+        "termino": "Mitad",
+        "significado": "Cantidad obtenida al dividir entre 2."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Dos paquetes traen 6 lápices. Al comprar el doble de paquetes iguales, ¿cuántos lápices recibes? Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "El doble de dos paquetes son cuatro.",
+          "Duplica también los 6 lápices.",
+          "Calcula 6 × 2."
+        ],
+        "retroalimentacion": "Sumar dos a 6 daría 8; el doble de 6 es 12 lápices.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una receta para 1 porción usa 3 cucharadas de avena. Para 3 porciones, ¿qué cambio haces con la avena?",
+        "respuesta": "c",
+        "pistas": [
+          "Compara una porción con tres.",
+          "Tres es el triple de uno.",
+          "La avena cambia con el mismo factor."
+        ],
+        "retroalimentacion": "La triplicas: de 3 pasas a 9 cucharadas.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La reduces a la mitad"
+          },
+          {
+            "id": "b",
+            "texto": "La duplicas"
+          },
+          {
+            "id": "c",
+            "texto": "La triplicas"
+          },
+          {
+            "id": "d",
+            "texto": "Le sumas 3 porciones"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 4 cajas iguales guardan 20 libros, 8 cajas guardan 40 libros.",
+        "respuesta": true,
+        "pistas": [
+          "De 4 a 8 cajas hay un doble.",
+          "Duplica los 20 libros.",
+          "20 × 2 da 40."
+        ],
+        "retroalimentacion": "Es verdadero: el doble de cajas guarda el doble de libros, 40.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una cuerda de 2 metros cuesta S/ 10. Otra del mismo tipo mide 4 metros. ¿El precio se duplica, triplica o reduce a la mitad?",
+        "respuesta": "se duplica",
+        "pistas": [
+          "Compara 4 metros con 2 metros.",
+          "4 es dos veces 2.",
+          "El precio cambia por ese mismo factor."
+        ],
+        "retroalimentacion": "Se duplica: 4 metros costarían S/ 20.",
+        "alternativasAceptadas": [
+          "duplica",
+          "el doble"
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tres cajas de témperas contienen 12 frascos. Si llevas 9 cajas, ¿cuántos frascos hay? Escribe solo el número.",
+        "respuesta": 36,
+        "pistas": [
+          "De 3 a 9 cajas hay un triple.",
+          "Triplica los 12 frascos.",
+          "Calcula 12 × 3."
+        ],
+        "retroalimentacion": "Sumar 6 a 12 confunde aumento con factor; hay 36 frascos.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una familia compra 6 choclos por S/ 18. Si compra solo 3 al mismo precio por choclo, ¿cuánto paga?",
+        "respuesta": "a",
+        "pistas": [
+          "Tres choclos son la mitad de seis.",
+          "Toma la mitad de S/ 18.",
+          "18 ÷ 2 = 9."
+        ],
+        "retroalimentacion": "La mitad del precio es S/ 9; restar tres soles no conserva la proporción.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "S/ 9"
+          },
+          {
+            "id": "b",
+            "texto": "S/ 15"
+          },
+          {
+            "id": "c",
+            "texto": "S/ 21"
+          },
+          {
+            "id": "d",
+            "texto": "S/ 36"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si las porciones de mazamorra se triplican de 2 a 6, los vasos de leche de la receta pasan de 4 a 7.",
+        "respuesta": false,
+        "pistas": [
+          "De 2 a 6 se multiplica por 3.",
+          "Multiplica 4 vasos por 3.",
+          "Compara 12 con 7."
+        ],
+        "retroalimentacion": "Es falso: se necesitan 12 vasos, no 7.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Para 8 cometas se usan 24 varillas. ¿Cuántas varillas se usan para la mitad de cometas? Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "La mitad de 8 cometas son 4.",
+          "Divide también las 24 varillas entre 2.",
+          "24 ÷ 2 = 12."
+        ],
+        "retroalimentacion": "Dividir solo las cometas deja mal la pareja; se usan 12 varillas.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un puesto vende 5 mangos por S/ 15. La compra pasa a 15 mangos del mismo precio. ¿Cuál explicación es correcta?",
+        "respuesta": "d",
+        "pistas": [
+          "Compara 15 mangos con 5.",
+          "La cantidad se multiplicó por 3.",
+          "Haz 15 soles × 3."
+        ],
+        "retroalimentacion": "El precio se triplica a S/ 45; sumar diez confunde mangos con soles.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Se suman S/ 10 al total"
+          },
+          {
+            "id": "b",
+            "texto": "El precio se duplica a S/ 30"
+          },
+          {
+            "id": "c",
+            "texto": "El precio baja a S/ 5"
+          },
+          {
+            "id": "d",
+            "texto": "El precio se triplica a S/ 45"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una escuela arma 12 kits con 36 hojas. Si debe armar 6 kits y luego el doble de esa cantidad, ¿cuántas hojas necesita al final? Escribe solo el número.",
+        "respuesta": 36,
+        "pistas": [
+          "Seis kits son la mitad de 12.",
+          "El doble de seis vuelve a 12 kits.",
+          "Para 12 kits la pareja dada es 36 hojas."
+        ],
+        "retroalimentacion": "Detenerse en 18 hojas ignora el último doble; al final son 36.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una relación proporcional, pasar de 4 a 12 en una magnitud y de 10 a 30 en la otra conserva el mismo cambio.",
+        "respuesta": true,
+        "pistas": [
+          "De 4 a 12 hay un factor 3.",
+          "De 10 a 30 también hay factor 3.",
+          "Compara los dos factores."
+        ],
+        "retroalimentacion": "Es verdadero: ambas magnitudes se triplican.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un artesano usa 18 cuentas para 3 pulseras. Mara afirma que para 9 pulseras se necesitan 24 porque sumó 6. ¿Qué cambio correcto corresponde a las cuentas: doble, triple o mitad?",
+        "respuesta": "triple",
+        "pistas": [
+          "De 3 a 9 pulseras se multiplica por 3.",
+          "No se suma la diferencia 6 a las cuentas.",
+          "Multiplica también 18 por 3."
+        ],
+        "retroalimentacion": "Corresponde el triple: serían 54 cuentas, no 24.",
+        "alternativasAceptadas": [
+          "el triple",
+          "triplicar"
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.valores-proporcionales",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-P5-04"
+    ],
+    "bloque": "Proporcionalidad",
+    "nombre": "Valores faltantes en magnitudes proporcionales",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Encuentra valores desconocidos multiplicando o dividiendo por el mismo número.",
+    "palabrasClave": [
+      "valor faltante",
+      "factor",
+      "tabla",
+      "división"
+    ],
+    "prerrequisitos": [
+      "mat.p5.proporcionalidad-cambio-constante"
+    ],
+    "ordenSugerido": 84,
+    "ideaCentral": "Para encontrar un valor faltante en magnitudes proporcionales, observa cómo cambió el dato conocido y aplica el mismo factor a su pareja. También puedes hallar primero el valor por unidad.",
+    "pasos": [
+      "Ubica el par completo y el lugar vacío.",
+      "Halla el factor entre los dos valores de la misma magnitud.",
+      "Multiplica o divide el valor correspondiente por ese factor.",
+      "Comprueba que el valor por unidad sigue igual."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Tres panes cuestan S/ 6; seis panes cuestan una cantidad desconocida.",
+        "desarrollo": "De 3 a 6 se duplica; duplico también 6 soles.",
+        "respuesta": "Seis panes cuestan S/ 12."
+      },
+      {
+        "situacion": "Cinco bolsitas contienen 20 semillas; una bolsita contiene una cantidad desconocida.",
+        "desarrollo": "Divido entre 5 ambas cantidades: 20 ÷ 5 = 4.",
+        "respuesta": "Una bolsita contiene 4 semillas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Aplicar el factor a un dato de la columna equivocada.",
+        "correccion": "Multiplica o divide la pareja del dato que cambió."
+      },
+      {
+        "error": "Hallar el factor con una suma cuando se pide el doble.",
+        "correccion": "Para conservar la proporción usa multiplicación o división."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Valor faltante",
+        "significado": "Número desconocido de un par proporcional."
+      },
+      {
+        "termino": "Factor de cambio",
+        "significado": "Número por el que multiplicas o divides para pasar de un dato a otro."
+      },
+      {
+        "termino": "Valor unitario",
+        "significado": "Cantidad que corresponde a una unidad."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una bolsa trae 4 caramelos. ¿Cuántos caramelos traen 3 bolsas iguales? Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "Una bolsa corresponde a 4.",
+          "Tres bolsas son el triple.",
+          "Calcula 4 × 3."
+        ],
+        "retroalimentacion": "Sumar 3 a 4 da 7; el valor faltante es 12 caramelos.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si 2 vasos de refresco necesitan 6 cubos de hielo, ¿cuántos necesitan 4 vasos iguales?",
+        "respuesta": "b",
+        "pistas": [
+          "Cuatro vasos son el doble de dos.",
+          "Duplica también los seis cubos.",
+          "6 × 2 = 12."
+        ],
+        "retroalimentacion": "La opción 12 conserva tres cubos por vaso.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8"
+          },
+          {
+            "id": "b",
+            "texto": "12"
+          },
+          {
+            "id": "c",
+            "texto": "16"
+          },
+          {
+            "id": "d",
+            "texto": "24"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una tabla proporcional, si 1 paquete contiene 7 tarjetas, 2 paquetes contienen 14.",
+        "respuesta": true,
+        "pistas": [
+          "El segundo dato es el doble del primero.",
+          "Duplica las 7 tarjetas.",
+          "7 × 2 = 14."
+        ],
+        "retroalimentacion": "Es verdadero: dos paquetes iguales contienen 14 tarjetas.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Cuatro lapiceros cuestan S/ 12. ¿Cuánto cuesta uno? Escribe solo el número de soles.",
+        "respuesta": 3,
+        "pistas": [
+          "Busca el valor de una unidad.",
+          "Divide el total entre cuatro lapiceros.",
+          "12 ÷ 4 = 3."
+        ],
+        "retroalimentacion": "Tomar 12 como precio unitario confunde total y unidad: cuesta S/ 3.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En una tabla 3 paquetes → 15 fichas y 6 paquetes → __ fichas, ¿qué número falta?",
+        "respuesta": "30",
+        "pistas": [
+          "De 3 paquetes a 6 hay un doble.",
+          "Duplica las 15 fichas.",
+          "15 × 2 = 30."
+        ],
+        "retroalimentacion": "El valor faltante es 30; sumar tres a 15 no conserva la razón.",
+        "alternativasAceptadas": [
+          "treinta"
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Ocho metros de cinta cuestan S/ 24. ¿Cuántos soles cuestan 2 metros de la misma cinta? Escribe solo el número.",
+        "respuesta": 6,
+        "pistas": [
+          "De ocho metros a dos divides entre 4.",
+          "Divide también 24 entre 4.",
+          "24 ÷ 4 = 6."
+        ],
+        "retroalimentacion": "Dividir 24 entre 2 confunde destino con factor: son S/ 6.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una receta indica 5 tazas de harina para 10 panes. Si haces 20 panes, ¿cuántas tazas usas?",
+        "respuesta": "c",
+        "pistas": [
+          "Compara 20 panes con 10.",
+          "El número de panes se duplica.",
+          "Duplica las 5 tazas."
+        ],
+        "retroalimentacion": "La opción 10 tazas es la correcta; la opción 20 confunde panes con tazas.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5"
+          },
+          {
+            "id": "b",
+            "texto": "7"
+          },
+          {
+            "id": "c",
+            "texto": "10"
+          },
+          {
+            "id": "d",
+            "texto": "20"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 6 botellas llenan 18 vasos, entonces 3 botellas llenan 12 vasos del mismo tamaño.",
+        "respuesta": false,
+        "pistas": [
+          "Tres botellas son la mitad de seis.",
+          "La mitad de 18 vasos es 9.",
+          "Compara 9 con 12."
+        ],
+        "retroalimentacion": "Es falso: tres botellas llenan 9 vasos, no 12.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una tabla da 4 costales → 28 kg. ¿Cuántos kilogramos corresponden a 10 costales iguales? Escribe solo el número.",
+        "respuesta": 70,
+        "pistas": [
+          "Halla primero los kilogramos de un costal.",
+          "28 ÷ 4 = 7 kg por costal.",
+          "Para diez costales calcula 7 × 10."
+        ],
+        "retroalimentacion": "Multiplicar 28 por 10 toma cuatro costales como uno; son 70 kg.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "La tabla de pasajes dice 3 personas → S/ 12 y 9 personas → __. ¿Qué par completa la tabla?",
+        "respuesta": "a",
+        "pistas": [
+          "De tres a nueve personas hay un triple.",
+          "Triplica S/ 12.",
+          "12 × 3 = 36."
+        ],
+        "retroalimentacion": "El par 9 → S/ 36 conserva S/ 4 por persona.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9 → S/ 36"
+          },
+          {
+            "id": "b",
+            "texto": "9 → S/ 24"
+          },
+          {
+            "id": "c",
+            "texto": "9 → S/ 18"
+          },
+          {
+            "id": "d",
+            "texto": "9 → S/ 48"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una caja con 12 lápices alcanza para 4 estudiantes por igual. Si llegan 7 estudiantes y todos reciben la misma cantidad, ¿cuántos lápices hacen falta en total? Escribe solo el número.",
+        "respuesta": 9,
+        "pistas": [
+          "Cada estudiante recibe 12 ÷ 4 lápices.",
+          "Siete estudiantes necesitan 7 × 3 = 21.",
+          "Ya hay 12; calcula 21 − 12."
+        ],
+        "retroalimentacion": "Responder 21 da el total necesario; faltan 9 lápices.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Para 15 tamales se usan 5 hojas de plátano grandes. ¿Cuántos tamales corresponderían a 2 hojas con la misma proporción? Escribe solo el número.",
+        "respuesta": "6",
+        "pistas": [
+          "Encuentra tamales por hoja: 15 ÷ 5.",
+          "Son tres tamales por hoja.",
+          "Multiplica 3 × 2."
+        ],
+        "retroalimentacion": "No son 10 tamales por restar hojas: corresponden 6.",
+        "alternativasAceptadas": [
+          "seis"
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.problemas-proporcionalidad",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-P5-01",
+      "MAT-C24-P5-04"
+    ],
+    "bloque": "Proporcionalidad",
+    "nombre": "Problemas de proporcionalidad en recetas y precios",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Resuelve situaciones cotidianas de magnitudes directamente proporcionales.",
+    "palabrasClave": [
+      "receta",
+      "precio",
+      "proporción",
+      "valor unitario"
+    ],
+    "prerrequisitos": [
+      "mat.p5.valores-proporcionales"
+    ],
+    "ordenSugerido": 110,
+    "ideaCentral": "En recetas y compras con precio fijo por unidad, las cantidades son directamente proporcionales. Encuentra lo que corresponde a una unidad o usa un factor común para resolver el problema.",
+    "pasos": [
+      "Identifica las dos cantidades relacionadas y un par conocido.",
+      "Comprueba que cada unidad tiene la misma cantidad o precio.",
+      "Halla el valor unitario o el factor de cambio.",
+      "Calcula lo pedido y revisa si la respuesta tiene sentido en el contexto."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Cuatro vasos de emoliente cuestan S/ 12.",
+        "desarrollo": "Cada vaso cuesta 12 ÷ 4 = 3 soles; seis cuestan 6 × 3.",
+        "respuesta": "Seis vasos cuestan S/ 18."
+      },
+      {
+        "situacion": "Una receta usa 2 plátanos para 4 porciones.",
+        "desarrollo": "Ocho porciones son el doble de cuatro; duplico los plátanos.",
+        "respuesta": "Se necesitan 4 plátanos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar porciones al número de ingredientes.",
+        "correccion": "Las porciones y los ingredientes cambian por el mismo factor, no por la misma suma."
+      },
+      {
+        "error": "Usar el precio total como precio de una unidad.",
+        "correccion": "Divide el total entre las unidades antes de calcular una compra nueva."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Precio unitario",
+        "significado": "Costo de una sola unidad."
+      },
+      {
+        "termino": "Porción",
+        "significado": "Parte de una receta destinada a una persona."
+      },
+      {
+        "termino": "Proporción",
+        "significado": "Relación que mantiene el mismo valor por unidad."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Cada choclo cuesta S/ 2. ¿Cuántos soles pagarás por 4 choclos? Escribe solo el número.",
+        "respuesta": 8,
+        "pistas": [
+          "Cada choclo aporta dos soles al total.",
+          "Repite cuatro veces el precio 2.",
+          "Calcula 4 × 2."
+        ],
+        "retroalimentacion": "Sumar 4 + 2 da 6, pero el costo es S/ 8.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para una limonada se usan 3 limones por jarra. ¿Cuántos limones necesitas para 2 jarras iguales?",
+        "respuesta": "b",
+        "pistas": [
+          "Una jarra usa tres limones.",
+          "Dos jarras duplican la receta.",
+          "3 × 2 = 6."
+        ],
+        "retroalimentacion": "La opción 6 limones duplica los tres de una jarra.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "8"
+          },
+          {
+            "id": "d",
+            "texto": "9"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si cada paquete de quinua cuesta S/ 5, tres paquetes cuestan S/ 15.",
+        "respuesta": true,
+        "pistas": [
+          "Mantén el precio de S/ 5 por paquete.",
+          "Tres paquetes son tres grupos iguales.",
+          "5 × 3 = 15."
+        ],
+        "retroalimentacion": "Es verdadero: tres paquetes cuestan S/ 15.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una receta para 2 personas usa 4 huevos. ¿Cuántos huevos se usan para 4 personas? Escribe solo el número.",
+        "respuesta": "8",
+        "pistas": [
+          "Cuatro personas son el doble de dos.",
+          "Duplica también los cuatro huevos.",
+          "4 × 2 = 8."
+        ],
+        "retroalimentacion": "Usar 6 huevos por sumar dos rompe la proporción; se usan 8.",
+        "alternativasAceptadas": [
+          "ocho"
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tres cuadernos iguales cuestan S/ 18. ¿Cuántos soles cuestan 5? Escribe solo el número.",
+        "respuesta": 30,
+        "pistas": [
+          "Encuentra el costo de un cuaderno: 18 ÷ 3.",
+          "Cada cuaderno cuesta S/ 6.",
+          "Multiplica 5 × 6."
+        ],
+        "retroalimentacion": "Tomar 18 como costo unitario exagera la compra; son S/ 30.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una receta para 6 porciones lleva 12 cucharadas de kiwicha. Para 3 porciones, ¿cuál cantidad corresponde?",
+        "respuesta": "d",
+        "pistas": [
+          "Tres porciones son la mitad de seis.",
+          "Reduce también a la mitad las 12 cucharadas.",
+          "12 ÷ 2 = 6."
+        ],
+        "retroalimentacion": "La opción 6 cucharadas mantiene dos por porción.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 cucharadas"
+          },
+          {
+            "id": "b",
+            "texto": "4 cucharadas"
+          },
+          {
+            "id": "c",
+            "texto": "12 cucharadas"
+          },
+          {
+            "id": "d",
+            "texto": "6 cucharadas"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos bolsas de arroz cuestan S/ 16, cuatro bolsas del mismo precio cuestan S/ 24.",
+        "respuesta": false,
+        "pistas": [
+          "Cuatro bolsas son el doble de dos.",
+          "Duplica S/ 16.",
+          "Compara S/ 32 con S/ 24."
+        ],
+        "retroalimentacion": "Es falso: cuatro bolsas cuestan S/ 32.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una feria, 5 panes cuestan S/ 10. ¿Cuántos soles cuestan 8 panes al mismo precio? Escribe solo el número.",
+        "respuesta": 16,
+        "pistas": [
+          "Divide diez soles entre cinco panes.",
+          "Cada pan cuesta S/ 2.",
+          "Calcula 8 × 2."
+        ],
+        "retroalimentacion": "Sumar tres al total da S/ 13; ocho panes cuestan S/ 16.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para 4 raciones de ensalada se usan 6 tomates. Quieres 12 raciones. ¿Cuántos tomates compras?",
+        "respuesta": "c",
+        "pistas": [
+          "Doce raciones son tres veces cuatro.",
+          "Multiplica también seis tomates por tres.",
+          "6 × 3 = 18."
+        ],
+        "retroalimentacion": "La opción 18 tomates triplica la receta; sumar ocho no sirve.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12"
+          },
+          {
+            "id": "b",
+            "texto": "15"
+          },
+          {
+            "id": "c",
+            "texto": "18"
+          },
+          {
+            "id": "d",
+            "texto": "24"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una familia compró 3 kg de papa por S/ 9. Si compra 7 kg y paga con S/ 25, ¿cuánto vuelto recibe en soles? Escribe solo el número.",
+        "respuesta": 4,
+        "pistas": [
+          "Halla el precio por kilogramo: 9 ÷ 3.",
+          "Siete kilogramos cuestan 7 × 3 = 21.",
+          "Resta 21 a 25."
+        ],
+        "retroalimentacion": "Responder 21 da el costo, no el vuelto: recibe S/ 4.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "La receta de 8 panes usa 4 tazas de harina. Para hornear 12 panes, ¿cuántas tazas necesitas? Escribe solo el número.",
+        "respuesta": "6",
+        "pistas": [
+          "Cuatro panes son la mitad de ocho y usan dos tazas.",
+          "De ocho a doce agregas cuatro panes.",
+          "Suma dos tazas a las cuatro iniciales."
+        ],
+        "retroalimentacion": "Sumar cuatro tazas por los cuatro panes adicionales da 8; se necesitan 6.",
+        "alternativasAceptadas": [
+          "seis"
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una receta para 3 porciones usa 6 cucharadas de cacao y 9 de azúcar. Para 6 porciones, usar 12 de cacao y 18 de azúcar mantiene ambas proporciones.",
+        "respuesta": true,
+        "pistas": [
+          "Seis porciones son el doble de tres.",
+          "Duplica por separado seis y nueve cucharadas.",
+          "Obtienes 12 de cacao y 18 de azúcar."
+        ],
+        "retroalimentacion": "Es verdadero: cada ingrediente se duplicó junto con las porciones.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.proporcional-o-no",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 24,
+    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+    "desempenosOrigen": [
+      "MAT-C24-P5-05"
+    ],
+    "bloque": "Proporcionalidad",
+    "nombre": "Magnitudes proporcionales y no proporcionales",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Decide con ejemplos si dos magnitudes varían proporcionalmente.",
+    "palabrasClave": [
+      "proporcional",
+      "razón",
+      "precio fijo",
+      "cuota"
+    ],
+    "prerrequisitos": [
+      "mat.p5.proporcionalidad-cambio-constante"
+    ],
+    "ordenSugerido": 111,
+    "ideaCentral": "Dos magnitudes son directamente proporcionales cuando al multiplicar una por un factor, la otra cambia por el mismo factor. Comprueba varios pares: si el valor por unidad cambia o hay un cargo fijo, la relación no es proporcional.",
+    "pasos": [
+      "Escoge dos pares de valores de la situación.",
+      "Calcula el segundo valor dividido entre el primero en cada par.",
+      "Compara los valores por unidad.",
+      "Decide si son iguales y explica con un par que confirme o contradiga."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un cuaderno cuesta S/ 4; dos cuestan S/ 8.",
+        "desarrollo": "8 ÷ 2 = 4, igual al costo de uno.",
+        "respuesta": "Estos pares son proporcionales."
+      },
+      {
+        "situacion": "Un taxi cobra S/ 5 de inicio y S/ 2 por kilómetro.",
+        "desarrollo": "Un kilómetro cuesta S/ 7 y dos cuestan S/ 9; 7 ÷ 1 no es igual a 9 ÷ 2.",
+        "respuesta": "Distancia y costo no son proporcionales."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir que todo lo que aumenta es proporcional.",
+        "correccion": "Además de crecer, debe conservar el mismo factor en todos los pares."
+      },
+      {
+        "error": "Mirar una sola fila de la tabla.",
+        "correccion": "Compara al menos dos pares; uno solo no permite decidir."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Razón constante",
+        "significado": "Mismo valor de una magnitud por cada unidad de la otra."
+      },
+      {
+        "termino": "Cargo fijo",
+        "significado": "Pago que se agrega aunque no aumente la cantidad usada."
+      },
+      {
+        "termino": "Contraejemplo",
+        "significado": "Par de datos que demuestra que una regla falla."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una bolsa cuesta S/ 3 y dos bolsas iguales cuestan S/ 6; estos dos pares conservan el precio por bolsa.",
+        "respuesta": true,
+        "pistas": [
+          "Divide el costo de dos bolsas entre dos.",
+          "6 ÷ 2 = 3.",
+          "Coincide con el costo de una bolsa."
+        ],
+        "retroalimentacion": "Es verdadero: en ambos pares cada bolsa cuesta S/ 3.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué tabla conserva el mismo número de panes por bolsa?",
+        "respuesta": "a",
+        "pistas": [
+          "Una bolsa lleva cuatro panes.",
+          "Dos bolsas deberían llevar el doble.",
+          "El doble de cuatro es ocho."
+        ],
+        "retroalimentacion": "La tabla 1→4, 2→8 conserva cuatro panes por bolsa.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1→4, 2→8"
+          },
+          {
+            "id": "b",
+            "texto": "1→4, 2→6"
+          },
+          {
+            "id": "c",
+            "texto": "1→4, 2→5"
+          },
+          {
+            "id": "d",
+            "texto": "1→4, 2→9"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La tabla 1 botella → 5 vasos y 2 botellas → 10 vasos, ¿es proporcional? Responde sí o no.",
+        "respuesta": "sí",
+        "pistas": [
+          "Compara la segunda fila con la primera.",
+          "Se duplican botellas y vasos.",
+          "El factor es el mismo en ambos valores."
+        ],
+        "retroalimentacion": "Sí: 2 botellas y 10 vasos son el doble de 1 y 5.",
+        "alternativasAceptadas": [
+          "si"
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 1 entrada cuesta S/ 8 y 2 entradas cuestan S/ 10, el precio total es proporcional al número de entradas.",
+        "respuesta": false,
+        "pistas": [
+          "Dos entradas deberían costar el doble.",
+          "El doble de S/ 8 es S/ 16.",
+          "S/ 10 no coincide con S/ 16."
+        ],
+        "retroalimentacion": "Es falso: el precio por entrada cambia de S/ 8 a S/ 5.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un club cobra S/ 4 de inscripción más S/ 2 por sesión. Una sesión cuesta S/ 6 y dos, S/ 8. ¿Qué conclusión corresponde?",
+        "respuesta": "c",
+        "pistas": [
+          "Para ser proporcional, duplicar sesiones duplicaría S/ 6.",
+          "Dos sesiones costarían S/ 12 si lo fuera.",
+          "En realidad cuestan S/ 8 por la inscripción fija."
+        ],
+        "retroalimentacion": "No es proporcional: S/ 6 y S/ 8 no conservan un costo por sesión.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Es proporcional porque ambos costos suben"
+          },
+          {
+            "id": "b",
+            "texto": "Es proporcional porque hay dos sesiones"
+          },
+          {
+            "id": "c",
+            "texto": "No es proporcional porque el cargo fijo cambia el costo por sesión"
+          },
+          {
+            "id": "d",
+            "texto": "No se puede comparar"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los pares 2 kg → S/ 10 y 6 kg → S/ 30 representan un precio proporcional.",
+        "respuesta": true,
+        "pistas": [
+          "De 2 kg a 6 kg se triplica.",
+          "Triplica también los diez soles.",
+          "10 × 3 = 30."
+        ],
+        "retroalimentacion": "Es verdadero: ambos pares dan S/ 5 por kilogramo.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una planta mide 10 cm hoy y 12 cm mañana; otra medición indica 14 cm pasado mañana. ¿El tiempo en días 0, 1, 2 y la altura 10, 12, 14 son proporcionales? Responde sí o no.",
+        "respuesta": "no",
+        "pistas": [
+          "En el día cero ya mide 10 cm.",
+          "Una proporción directa partiría de cero cuando el tiempo es cero.",
+          "Además, 12 ÷ 1 no coincide con 14 ÷ 2."
+        ],
+        "retroalimentacion": "No: la altura inicial y las razones distintas impiden una proporción.",
+        "alternativasAceptadas": [
+          "no es proporcional"
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una tabla de paquetes y cromos aparecen 2→6, 4→12 y 6→17. ¿Qué fila rompe la proporción?",
+        "respuesta": "d",
+        "pistas": [
+          "Las dos primeras filas dan tres cromos por paquete.",
+          "Seis paquetes deberían dar 6 × 3.",
+          "El resultado esperado es 18, no 17."
+        ],
+        "retroalimentacion": "La fila 6→17 rompe la razón de tres cromos por paquete.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ninguna"
+          },
+          {
+            "id": "b",
+            "texto": "2→6"
+          },
+          {
+            "id": "c",
+            "texto": "4→12"
+          },
+          {
+            "id": "d",
+            "texto": "6→17"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un servicio cobra S/ 3 por cada hora y S/ 5 adicionales una sola vez. Para 1 hora son S/ 8 y para 3 horas S/ 14; costo y horas son proporcionales.",
+        "respuesta": false,
+        "pistas": [
+          "Si fuera proporcional, tres horas costarían tres veces S/ 8.",
+          "3 × 8 = 24, distinto de 14.",
+          "Los S/ 5 fijos explican la diferencia."
+        ],
+        "retroalimentacion": "Es falso: S/ 8 y S/ 14 no mantienen la misma razón.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos tablas empiezan 2→8. Tabla A sigue 4→16 y 6→24; tabla B sigue 4→12 y 6→16. ¿Cuál es proporcional?",
+        "respuesta": "b",
+        "pistas": [
+          "En A, divide cada segundo dato entre el primero.",
+          "8 ÷ 2, 16 ÷ 4 y 24 ÷ 6 dan 4.",
+          "En B, 12 ÷ 4 da 3 y rompe la razón inicial."
+        ],
+        "retroalimentacion": "Solo A conserva el factor 4; B cambia de 4 a 3.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo B"
+          },
+          {
+            "id": "b",
+            "texto": "Solo A"
+          },
+          {
+            "id": "c",
+            "texto": "Ambas"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguna"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un puesto ofrece 3 naranjas por S/ 6 y 6 naranjas por S/ 12, pero 9 por S/ 15. ¿Es proporcional la tabla completa? Responde sí o no.",
+        "respuesta": "no",
+        "pistas": [
+          "Los dos primeros pares dan S/ 2 por naranja.",
+          "Nueve naranjas a ese precio costarían S/ 18.",
+          "La última oferta cuesta S/ 15."
+        ],
+        "retroalimentacion": "No: la fila de nueve naranjas cambia el precio por unidad.",
+        "alternativasAceptadas": [
+          "no es proporcional"
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si al duplicar metros de tela de 2 a 4 el precio pasa de S/ 14 a S/ 28, pero al triplicarlos de 2 a 6 pasa a S/ 35, todos los pares siguen siendo proporcionales.",
+        "respuesta": false,
+        "pistas": [
+          "De dos a seis metros hay un triple.",
+          "El triple de S/ 14 es S/ 42.",
+          "S/ 35 contradice el factor 7 por metro."
+        ],
+        "retroalimentacion": "Es falso: seis metros deberían costar S/ 42, no S/ 35.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

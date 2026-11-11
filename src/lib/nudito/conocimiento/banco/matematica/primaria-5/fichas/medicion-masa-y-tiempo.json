@@ -1,0 +1,1932 @@
+[
+  {
+    "clave": "mat.p5.decadas-siglos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P5-05"
+    ],
+    "bloque": "Medición: masa y tiempo",
+    "nombre": "Décadas y siglos",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Relaciona años, décadas y siglos y ubica hechos en el siglo que corresponde.",
+    "palabrasClave": [
+      "decada",
+      "siglo",
+      "tiempo",
+      "ano",
+      "centena de anos"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 39,
+    "ideaCentral": "Una década o decenio es un periodo de 10 años y un siglo o centuria es un periodo de 100 años (equivalente a 10 décadas). Para ubicar un año en su siglo correspondiente, se analiza la centena y se añade 1 a los dígitos que preceden a las decenas (salvo en los años que terminan exactamente en 00).",
+    "pasos": [
+      "Recuerda las equivalencias básicas: 1 década = 10 años; 1 siglo = 100 años = 10 décadas; 1 milenio = 1000 años = 10 siglos.",
+      "Para convertir décadas a años, multiplica por 10; para convertir siglos a años, multiplica por 100.",
+      "Para ubicar un año de 4 cifras en su siglo: si termina en 00 (por ejemplo 1900), toma las centenas (siglo XIX). Si no termina en 00 (por ejemplo 1821), toma las dos primeras cifras y súmale 1 (18 + 1 = 19, siglo XIX).",
+      "Calcula la cantidad de décadas o siglos transcurridos dividiendo la diferencia de años entre 10 o 100 respectivamente."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La Independencia del Perú se proclamó en el año 1821. ¿En qué siglo ocurrió este acontecimiento histórico?",
+        "desarrollo": "El año 1821 no termina en 00. Sus dos primeras cifras son 18 (centenas). Sumamos 1: 18 + 1 = 19. El siglo transcurre desde el año 1801 hasta el 1900.",
+        "respuesta": "Ocurrió en el siglo XIX (siglo diecinueve)."
+      },
+      {
+        "situacion": "Un colegio tradicional de Arequipa fue fundado hace 7 décadas. ¿Cuántos años de historia tiene el colegio?",
+        "desarrollo": "Multiplicamos la cantidad de décadas por 10 años: 7 × 10 = 70 años.",
+        "respuesta": "Tiene 70 años de historia."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que el año 1821 pertenece al siglo XVIII porque empieza con 18.",
+        "correccion": "El siglo XVIII terminó en el año 1800. Todos los años entre 1801 y 1900 pertenecen al siglo XIX."
+      },
+      {
+        "error": "Sumar 1 al siglo en años que terminan en doble cero (por ejemplo, decir que el año 2000 pertenece al siglo XXI).",
+        "correccion": "Los años que terminan en 00 cierran el siglo; por tanto, el año 2000 es el último año del siglo XX, no el primero del XXI."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Década",
+        "significado": "Periodo de tiempo equivalente a 10 años consecutivos; también llamado decenio."
+      },
+      {
+        "termino": "Siglo",
+        "significado": "Periodo de tiempo equivalente a 100 años consecutivos o a 10 décadas; también llamado centuria."
+      },
+      {
+        "termino": "Milenio",
+        "significado": "Periodo de tiempo equivalente a 1000 años o a 10 siglos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos años dura exactamente una década? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El prefijo deca- proviene del griego y significa diez.",
+          "Una década es sinónimo de decenio.",
+          "Contiene diez años consecutivos."
+        ],
+        "retroalimentacion": "Una década equivale exactamente a un periodo de 10 años."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un siglo equivale exactamente a 10 décadas completas de años.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un siglo tiene 100 años.",
+          "Cada década tiene 10 años.",
+          "Divide 100 entre 10."
+        ],
+        "retroalimentacion": "Es verdadero: 10 décadas × 10 años por década = 100 años = 1 siglo."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuántos años han transcurrido a lo largo de 4 siglos completos?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "40 años"
+          },
+          {
+            "id": "b",
+            "texto": "400 años"
+          },
+          {
+            "id": "c",
+            "texto": "4000 años"
+          },
+          {
+            "id": "d",
+            "texto": "40 000 años"
+          }
+        ],
+        "pistas": [
+          "1 siglo equivale a 100 años.",
+          "Multiplica la cantidad de siglos (4) por 100.",
+          "4 × 100 = 400."
+        ],
+        "retroalimentacion": "4 siglos multiplicados por 100 años cada uno equivalen a 400 años."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿A cuántos años equivale exactamente un siglo? Escribe solo el número.",
+        "respuesta": "100",
+        "alternativasAceptadas": [
+          "100",
+          "cien"
+        ],
+        "pistas": [
+          "La palabra siglo también se denomina centuria.",
+          "Centuria se relaciona con el número cien.",
+          "Tiene cien años."
+        ],
+        "retroalimentacion": "Un siglo o centuria equivale a 100 años."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La ciudadela inca de Machu Picchu fue dada a conocer científicamente al mundo en el año 1911. ¿A qué siglo pertenece ese año?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Siglo XX (siglo 20)"
+          },
+          {
+            "id": "b",
+            "texto": "Siglo XIX (siglo 19)"
+          },
+          {
+            "id": "c",
+            "texto": "Siglo XXI (siglo 21)"
+          },
+          {
+            "id": "d",
+            "texto": "Siglo XVIII (siglo 18)"
+          }
+        ],
+        "pistas": [
+          "El año 1911 no termina en 00.",
+          "Toma las centenas (19) y súmale 1: 19 + 1 = 20.",
+          "El siglo transcurrió entre 1901 y 2000."
+        ],
+        "retroalimentacion": "Como 1911 está entre 1901 y 2000, pertenece al siglo XX (19 + 1 = 20)."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una casona colonial en Trujillo tiene 3 siglos y 4 décadas de antigüedad construida. ¿Cuántos años de antigüedad tiene en total? Escribe solo el número.",
+        "respuesta": 340,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte los 3 siglos a años: 3 × 100 = 300 años.",
+          "Convierte las 4 décadas a años: 4 × 10 = 40 años.",
+          "Suma: 300 + 40."
+        ],
+        "retroalimentacion": "3 siglos (300 años) más 4 décadas (40 años) suman 340 años de antigüedad."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El año 2024 pertenece al siglo XX.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El siglo XX concluyó el 31 de diciembre del año 2000.",
+          "El 1 de enero de 2001 comenzó el siglo XXI.",
+          "El año 2024 está dentro del periodo 2001-2100."
+        ],
+        "retroalimentacion": "Es falso: el año 2024 pertenece al siglo XXI (que inició en 2001 y finalizará en 2100)."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una comunidad campesina en Puno celebró 8 décadas desde su reconocimiento legal formal. ¿Cuántos años cumplió desde entonces? Escribe solo el número.",
+        "respuesta": "80",
+        "alternativasAceptadas": [
+          "80",
+          "ochenta"
+        ],
+        "pistas": [
+          "Multiplica el número de décadas por 10.",
+          "Calcula 8 × 10.",
+          "Son ochenta años."
+        ],
+        "retroalimentacion": "8 décadas multiplicadas por 10 años equivalen a 80 años cumplidos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "El Combate de Angamos ocurrió en el año 1879 y el Combate del 2 de Mayo ocurrió en 1866. Ambos hechos ocurrieron en el mismo siglo. ¿A qué siglo corresponden y cuántos años transcurrieron entre ambos acontecimientos?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Siglo XVIII y 15 años de diferencia"
+          },
+          {
+            "id": "b",
+            "texto": "Siglo XX y 13 años de diferencia"
+          },
+          {
+            "id": "c",
+            "texto": "Siglo XIX y 13 años de diferencia"
+          },
+          {
+            "id": "d",
+            "texto": "Siglo XIX y 11 años de diferencia"
+          }
+        ],
+        "pistas": [
+          "Para ubicar 1866 y 1879 en su siglo: 18 + 1 = 19 (siglo XIX).",
+          "Calcula la diferencia de años: 1879 - 1866.",
+          "1879 menos 1866 es igual a 13."
+        ],
+        "retroalimentacion": "Ambos ocurrieron en el siglo XIX (1801-1900) y entre 1866 y 1879 transcurrieron 1879 - 1866 = 13 años."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Entre el año 1500 (época del Tahuantinsuyo) y el año 2000 transcurrió exactamente medio milenio (500 años). ¿Cuántas décadas completas de años transcurrieron en ese lapso de 500 años? Escribe solo el número.",
+        "respuesta": 50,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada década consta de 10 años.",
+          "Divide los 500 años entre 10 años por década.",
+          "500 ÷ 10 = 50."
+        ],
+        "retroalimentacion": "Dividiendo 500 años entre 10 años por década se obtienen exactamente 50 décadas."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Analiza las siguientes tres afirmaciones sobre la demarcación de los siglos en el calendario:\n1. El año 1800 es el último año del siglo XVIII.\n2. El año 1900 es el primer año del siglo XX.\n3. El año 2000 es el último año del siglo XX.\n¿Cuáles afirmaciones son verdaderas?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo la 1"
+          },
+          {
+            "id": "b",
+            "texto": "Solo la 2"
+          },
+          {
+            "id": "c",
+            "texto": "La 1 y la 2"
+          },
+          {
+            "id": "d",
+            "texto": "La 1 y la 3"
+          }
+        ],
+        "pistas": [
+          "Un siglo empieza en el año que termina en 01 y termina en el año que termina en 00.",
+          "El siglo XVIII terminó en 1800 (afirmación 1 verdadera).",
+          "El siglo XIX terminó en 1900 (la afirmación 2 es falsa, porque 1900 fue el último del siglo XIX, no el primero del XX); y el siglo XX terminó en 2000 (afirmación 3 verdadera)."
+        ],
+        "retroalimentacion": "Los siglos terminan en los años con doble cero: 1800 cerró el siglo XVIII y 2000 cerró el siglo XX; 1900 fue el último del siglo XIX."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "La Universidad Nacional Mayor de San Marcos en Lima fue fundada en el año 1551. En el año 2001 celebró un gran aniversario conmemorativo. ¿Cuántos años exactos transcurrieron entre 1551 y 2001? Escribe solo el número.",
+        "respuesta": 450,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta el año de fundación del año del aniversario: 2001 - 1551.",
+          "Descompón la resta: 2001 - 1501 = 500; 500 - 50 = 450.",
+          "Verifica sumando 1551 + 450."
+        ],
+        "retroalimentacion": "Restando 2001 - 1551 se obtienen exactamente 450 años transcurridos (4 siglos y medio o 45 décadas)."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.numeros-romanos-siglos",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P5-05"
+    ],
+    "bloque": "Medición: masa y tiempo",
+    "nombre": "Números romanos para escribir siglos",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Lee y escribe siglos con números romanos, como siglo XXI.",
+    "palabrasClave": [
+      "numeros romanos",
+      "siglos",
+      "equivalencias temporales",
+      "siglo XXI",
+      "numeracion romana"
+    ],
+    "prerrequisitos": [
+      "mat.p5.decadas-siglos"
+    ],
+    "ordenSugerido": 40,
+    "ideaCentral": "Los siglos se nombran tradicionalmente con números romanos usando los símbolos fundamentales I, V, X, L y C. Para saber a qué siglo corresponde un año determinado, sumas 1 a las centenas cuando el año no termina en doble cero.",
+    "pasos": [
+      "Recuerda el valor de los símbolos romanos básicos: I = 1, V = 5, X = 10, L = 50 y C = 100.",
+      "Para escribir el número del siglo, combina las letras sumando valores (como XV = 15 o XX = 20) o restando si una menor antecede a una mayor (como IV = 4 o IX = 9).",
+      "Para averiguar el siglo de un año, observa sus dos últimas cifras: si son 00, el siglo es el número formado por las cifras anteriores (el año 1800 es el siglo XVIII); si no terminan en 00, toma las cifras anteriores y suma 1 (el año 1821 es 18 + 1 = 19, es decir, siglo XIX)."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En el Centro Histórico de Lima, una casona colonial fue construida en el año 1780. ¿A qué siglo pertenece ese año y cómo se escribe en números romanos?",
+        "desarrollo": "El año 1780 no termina en 00. Tomamos las centenas que son 17 y sumamos 1: 17 + 1 = 18. Luego escribimos 18 en numeración romana: 10 + 5 + 1 + 1 + 1 = XVIII.",
+        "respuesta": "Pertenece al siglo XVIII."
+      },
+      {
+        "situacion": "El Museo Tumbas Reales de Sipán exhibe un texto que menciona un descubrimiento del siglo XXI. ¿Qué número arábigo representa este siglo?",
+        "desarrollo": "Descomponemos las letras: X vale 10, dos X valen 20 y la I vale 1. Sumamos: 10 + 10 + 1 = 21.",
+        "respuesta": "Representa el siglo 21."
+      },
+      {
+        "situacion": "Un colegio en Arequipa celebró su fundación ocurrida exactamente en el año 1900. ¿Qué siglo era?",
+        "desarrollo": "Como el año 1900 termina en 00, no se suma 1. Simplemente tomamos las centenas: 19. El número 19 en romano es XIX (10 + 9).",
+        "respuesta": "Fue en el siglo XIX."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Escribir cuatro letras iguales seguidas, como escribir IIII para 4 o XXXX para 40.",
+        "correccion": "En la numeración romana no se pueden repetir más de tres veces seguidas las letras I, X o C. El 4 se escribe IV y el 40 se escribe XL."
+      },
+      {
+        "error": "Sumar siempre 1 incluso cuando el año termina en 00 (por ejemplo decir que el año 2000 es siglo XXI).",
+        "correccion": "Los años que terminan exactamente en 00 son el último año de su siglo; por lo tanto, el año 2000 pertenece al siglo XX, y el siglo XXI comenzó en 2001."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Siglo",
+        "significado": "Período de tiempo equivalente a 100 años consecutivos."
+      },
+      {
+        "termino": "Número romano",
+        "significado": "Sistema de numeración que emplea letras mayúsculas con valores asignados por la antigua Roma."
+      },
+      {
+        "termino": "Sustracción romana",
+        "significado": "Regla donde un símbolo de menor valor colocado a la izquierda de otro mayor le resta su valor (ejemplo: IX = 10 - 1 = 9)."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cómo se escribe el siglo 16 en números romanos?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "XIV"
+          },
+          {
+            "id": "b",
+            "texto": "XVI"
+          },
+          {
+            "id": "c",
+            "texto": "XVII"
+          },
+          {
+            "id": "d",
+            "texto": "XV"
+          }
+        ],
+        "pistas": [
+          "El número 16 se descompone en 10 + 5 + 1.",
+          "La letra X vale 10, la letra V vale 5 y la letra I vale 1.",
+          "Coloca las letras sumando sus valores de izquierda a derecha: X + V + I."
+        ],
+        "retroalimentacion": "El siglo 16 se compone de 10 (X), 5 (V) y 1 (I), formando XVI."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La proclamación de la independencia del Perú ocurrió en el siglo XIX. ¿Qué número arábigo representa este siglo? Escribe solo el número.",
+        "respuesta": 19,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Descompón la expresión XIX en dos partes: X e IX.",
+          "La primera X vale 10. La combinación IX vale 9 (10 menos 1).",
+          "Suma ambos valores: 10 + 9."
+        ],
+        "retroalimentacion": "X vale 10 e IX vale 9; al sumarlos 10 + 9 obtenemos 19."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El siglo actual es el siglo XXI, que equivale a 21 siglos transcurridos desde el inicio de la era común.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el valor de XXI: X = 10, X = 10, I = 1.",
+          "La suma es 10 + 10 + 1 = 21.",
+          "Nuestro año actual (en los 2000) pertenece al siglo 21."
+        ],
+        "retroalimentacion": "XXI representa 10 + 10 + 1 = 21, y actualmente vivimos en el siglo XXI."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe en números romanos el siglo catorce (siglo 14).",
+        "respuesta": "XIV",
+        "alternativasAceptadas": [
+          "xiv",
+          "Siglo XIV",
+          "siglo xiv"
+        ],
+        "pistas": [
+          "El 14 se descompone en 10 + 4.",
+          "El 10 se representa con X y el 4 se representa con IV.",
+          "Junta ambas partes para formar el número romano."
+        ],
+        "retroalimentacion": "El número 14 se escribe combinando X (10) y IV (4), resultando XIV."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La Universidad Nacional Mayor de San Marcos fue fundada en el año 1551 en Lima. ¿A qué siglo pertenece este año histórico?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Siglo XV"
+          },
+          {
+            "id": "b",
+            "texto": "Siglo XVII"
+          },
+          {
+            "id": "c",
+            "texto": "Siglo XVI"
+          },
+          {
+            "id": "d",
+            "texto": "Siglo XIV"
+          }
+        ],
+        "pistas": [
+          "Fíjate en las centenas del año 1551: son 15 centenas y sobran 51 años.",
+          "Como no termina en 00, debes sumar 1 a las centenas: 15 + 1 = 16.",
+          "Convierte el número 16 a números romanos."
+        ],
+        "retroalimentacion": "Como 1551 no termina en 00, sumamos 1 a 15, obteniendo 16, que se escribe Siglo XVI."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un galeón español naufragó frente a las costas de Paita en el siglo XVII. ¿A cuántos años en total equivalen 17 siglos? Escribe solo el número.",
+        "respuesta": 1700,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero traduce XVII a número: 10 + 5 + 1 + 1 = 17.",
+          "Recuerda que 1 siglo equivale exactamente a 100 años.",
+          "Multiplica 17 por 100 para obtener el total de años."
+        ],
+        "retroalimentacion": "XVII equivale a 17 siglos; multiplicando 17 por 100 años por siglo obtenemos 1700."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El año 1800 pertenece al siglo XIX porque sus dos primeras cifras son 18 y siempre se le suma 1.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa las dos últimas cifras del año 1800: son 00.",
+          "Cuando un año termina en 00, es el último año de ese siglo, no del siguiente.",
+          "Por ello, el año 1800 es el cierre del siglo XVIII, no del siglo XIX."
+        ],
+        "retroalimentacion": "Los años que terminan en 00 no suman 1; el año 1800 corresponde exactamente al último año del siglo XVIII."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "La batalla de Ayacucho consolidó la independencia de América del Sur en el año 1824. ¿En qué siglo ocurrió? Escribe tu respuesta en números romanos.",
+        "respuesta": "XIX",
+        "alternativasAceptadas": [
+          "xix",
+          "Siglo XIX",
+          "siglo xix"
+        ],
+        "pistas": [
+          "El año es 1824, cuyas centenas son 18.",
+          "Como termina en 24 (distinto de 00), suma 1 a 18: 18 + 1 = 19.",
+          "Escribe 19 en números romanos usando X (10) e IX (9)."
+        ],
+        "retroalimentacion": "Al año 1824 le corresponde el siglo 18 + 1 = 19, que se escribe XIX."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un cronista en Cusco escribió un manuscrito en el año 1601 y su bisnieto lo imprimió en el año 1700. ¿A qué siglos corresponden respectivamente el año del manuscrito y el año de la impresión?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Siglo XVII y siglo XVII"
+          },
+          {
+            "id": "b",
+            "texto": "Siglo XVI y siglo XVII"
+          },
+          {
+            "id": "c",
+            "texto": "Siglo XVII y siglo XVIII"
+          },
+          {
+            "id": "d",
+            "texto": "Siglo XVI y siglo XVIII"
+          }
+        ],
+        "pistas": [
+          "Para 1601: no termina en 00, así que sumas 1 a 16: 16 + 1 = 17 (siglo XVII).",
+          "Para 1700: termina exactamente en 00, por lo que es el último año del siglo 17 (siglo XVII).",
+          "Ambos acontecimientos sucedieron en el mismo siglo: el siglo XVII."
+        ],
+        "retroalimentacion": "El año 1601 es el primer año del siglo XVII y el año 1700 es el último año de ese mismo siglo, por lo que ambos corresponden a Siglo XVII y siglo XVII."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una investigación histórica en Trujillo abarca sucesos desde el inicio del siglo XV hasta el final del siglo XVIII. ¿Cuántos años de historia comprende en total este período? Escribe solo el número.",
+        "respuesta": 400,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica los siglos: siglo XV es el siglo 15 y siglo XVIII es el siglo 18.",
+          "Calcula cuántos siglos transcurren: del siglo 15 al 18 inclusive son los siglos 15, 16, 17 y 18 (4 siglos enteros).",
+          "Multiplica la cantidad de siglos (4) por 100 años que tiene cada uno."
+        ],
+        "retroalimentacion": "Abarca 4 siglos completos (XV, XVI, XVII y XVIII); 4 por 100 da 400 años."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Observa las siguientes cuatro afirmaciones sobre siglos y números romanos. ¿Cuál de ellas es totalmente correcta?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El siglo XX comenzó el 1 de enero de 1900 y terminó en 1999."
+          },
+          {
+            "id": "b",
+            "texto": "El año 1492 corresponde al siglo XIV porque empieza con 14."
+          },
+          {
+            "id": "c",
+            "texto": "El número romano VV representa el siglo diez."
+          },
+          {
+            "id": "d",
+            "texto": "El siglo XXI comenzó el 1 de enero de 2001 y terminará el 31 de diciembre de 2100."
+          }
+        ],
+        "pistas": [
+          "Los siglos empiezan en el año 1 y terminan en el año 100 de cada ciclo.",
+          "El año 2000 fue el último año del siglo XX, por lo que el siglo XXI comenzó en 2001 y concluye en 2100.",
+          "Las demás alternativas tienen errores: 1492 es siglo XV, 1900 fue siglo XIX y el 10 se escribe X, nunca VV."
+        ],
+        "retroalimentacion": "La afirmación verdadera es que El siglo XXI comenzó el 1 de enero de 2001 y terminará el 31 de diciembre de 2100."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una muralla colonial se empezó a edificar en 1585 y las obras concluyeron en 1610. ¿En qué siglo se iniciaron las obras? Escribe el siglo en números romanos.",
+        "respuesta": "XVI",
+        "alternativasAceptadas": [
+          "xvi",
+          "Siglo XVI",
+          "siglo xvi"
+        ],
+        "pistas": [
+          "La pregunta pide el siglo de inicio, es decir, del año 1585.",
+          "Como 1585 no termina en 00, toma las centenas (15) y suma 1: 15 + 1 = 16.",
+          "Escribe el número 16 en números romanos: 10 + 5 + 1."
+        ],
+        "retroalimentacion": "El inicio fue en 1585; al sumar 1 a las 15 centenas obtenemos el siglo 16, que se escribe XVI."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.linea-de-tiempo",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P5-05"
+    ],
+    "bloque": "Medición: masa y tiempo",
+    "nombre": "Líneas de tiempo",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Representa intervalos de años, décadas y siglos en una línea de tiempo y calcula duraciones.",
+    "palabrasClave": [
+      "linea de tiempo",
+      "intervalos de tiempo",
+      "duracion",
+      "decadas",
+      "escala temporal"
+    ],
+    "prerrequisitos": [
+      "mat.p5.decadas-siglos"
+    ],
+    "ordenSugerido": 41,
+    "ideaCentral": "Una línea de tiempo permite ordenar cronológicamente sucesos del pasado o del presente usando una escala uniforme. Para calcular la duración de un acontecimiento o el tiempo entre dos hechos, restas el año inicial del año final.",
+    "pasos": [
+      "Determina el punto inicial y el punto final del período a representar.",
+      "Elige una escala adecuada y constante (por ejemplo, 1 centímetro o 1 marca cada 10 años o cada 50 años).",
+      "Ubica los acontecimientos en orden cronológico de izquierda a derecha sobre la recta.",
+      "Para hallar la duración entre dos hechos, resta la fecha inicial de la fecha final: Duración = Año final - Año inicial."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una clase de historia en Huancayo, los estudiantes elaboran una línea de tiempo desde la independencia en 1821 hasta el bicentenario en 2021. ¿Cuántos años transcurrieron?",
+        "desarrollo": "Restamos el año inicial del año final: 2021 - 1821 = 200 años. Esto equivale exactamente a 2 siglos o 20 décadas.",
+        "respuesta": "Transcurrieron 200 años."
+      },
+      {
+        "situacion": "Un artesano de Chulucanas inició su taller en 1980 y en el año 2010 recibió un premio por sus 30 años de labor. Si en su línea de tiempo cada división representa 1 década, ¿cuántas divisiones hay entre ambas fechas?",
+        "desarrollo": "Calculamos la diferencia de años: 2010 - 1980 = 30 años. Como cada división representa 1 década (10 años), dividimos 30 entre 10: 30 / 10 = 3 divisiones.",
+        "respuesta": "Hay 3 divisiones."
+      },
+      {
+        "situacion": "Sobre una línea de tiempo graduada de 25 en 25 años, el primer punto marcado es 1900. ¿Qué año corresponde a la tercera marca después de 1900?",
+        "desarrollo": "Cada marca avanza 25 años. Tres marcas avanzan 3 x 25 = 75 años. Sumamos al inicio: 1900 + 75 = 1975.",
+        "respuesta": "Corresponde al año 1975."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Colocar los años sin respetar una distancia proporcional o cambiar la escala a mitad de la línea.",
+        "correccion": "Una línea de tiempo debe mantener la misma distancia para períodos iguales (por ejemplo, si 10 años miden 2 cm, otros 10 años deben medir también 2 cm)."
+      },
+      {
+        "error": "Sumar los años en vez de restarlos al calcular la duración transcurrida entre dos momentos.",
+        "correccion": "Para saber cuánto tiempo pasó entre dos fechas, se resta el año mayor menos el año menor (Año final - Año inicial)."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Cronología",
+        "significado": "Ordenamiento de los acontecimientos históricos según las fechas en que sucedieron."
+      },
+      {
+        "termino": "Escala temporal",
+        "significado": "Proporción que asigna una distancia fija en el dibujo a una cantidad constante de tiempo."
+      },
+      {
+        "termino": "Intervalo",
+        "significado": "Espacio de tiempo que transcurre entre dos momentos o sucesos determinados."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En una línea de tiempo escolar, la construcción del puente colgante comenzó en 2012 y terminó en 2019. ¿Cuántos años duró la construcción? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica el año final (2019) y el año inicial (2012).",
+          "Resta el año inicial del año final.",
+          "Calcula: 2019 - 2012."
+        ],
+        "retroalimentacion": "La duración se obtiene restando 2019 - 2012, lo que resulta en 7 años."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una línea de tiempo tiene marcas cada 10 años (1 década). Si empieza en 1950, ¿cuál es el año de la segunda marca siguiente?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1960"
+          },
+          {
+            "id": "b",
+            "texto": "1965"
+          },
+          {
+            "id": "c",
+            "texto": "1970"
+          },
+          {
+            "id": "d",
+            "texto": "1980"
+          }
+        ],
+        "pistas": [
+          "La primera marca después de 1950 suma 10 años: 1950 + 10 = 1960.",
+          "La segunda marca avanza otros 10 años: 1960 + 10 = 1970.",
+          "Compara con las opciones ofrecidas."
+        ],
+        "retroalimentacion": "Avanzando dos décadas (20 años) desde 1950 llegamos a 1970."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una línea de tiempo correctamente construida, los acontecimientos más antiguos se ubican a la izquierda y los más recientes a la derecha.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cómo se lee normalmente una recta numérica convencional.",
+          "El tiempo avanza de izquierda a derecha.",
+          "Por convención, el pasado va a la izquierda y el futuro o presente hacia la derecha."
+        ],
+        "retroalimentacion": "Las líneas de tiempo occidentales avanzan cronológicamente de izquierda a derecha."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Si un período histórico inició en 1800 y concluyó en 1900, ¿cuántos siglos completos duró? Escribe la cantidad en letras o número.",
+        "respuesta": "1",
+        "alternativasAceptadas": [
+          "un siglo",
+          "uno",
+          "1 siglo"
+        ],
+        "pistas": [
+          "Resta las dos fechas: 1900 - 1800.",
+          "La resta da 100 años.",
+          "Recuerda cuántos años equivalen a un siglo."
+        ],
+        "retroalimentacion": "Entre 1800 y 1900 transcurrieron 100 años, que equivalen exactamente a 1 siglo."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La ciudadela de Caral fue investigada intensamente entre 1994 y 2019. ¿Cuántos años duró este período de excavaciones continuas? Escribe solo el número.",
+        "respuesta": 25,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El año inicial es 1994 y el año final es 2019.",
+          "Resta 2019 - 1994.",
+          "Puedes hacer 2019 - 2000 = 19, y 2000 - 1994 = 6; luego 19 + 6."
+        ],
+        "retroalimentacion": "Restando 2019 - 1994 obtenemos exactamente 25 años."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una línea de tiempo sobre la historia de Puno, la escala indica que 5 centímetros representan 50 años. ¿Cuántos centímetros se necesitan para representar un lapso de 120 años?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10 centímetros"
+          },
+          {
+            "id": "b",
+            "texto": "12 centímetros"
+          },
+          {
+            "id": "c",
+            "texto": "15 centímetros"
+          },
+          {
+            "id": "d",
+            "texto": "14 centímetros"
+          }
+        ],
+        "pistas": [
+          "Si 5 cm equivalen a 50 años, calcula cuántos años representa 1 cm: 50 / 5 = 10 años por centímetro.",
+          "Ahora averigua cuántos centímetros se necesitan para 120 años dividiendo 120 entre 10.",
+          "120 / 10 = 12."
+        ],
+        "retroalimentacion": "Cada centímetro representa 10 años; por lo tanto, para 120 años se requieren 12 centímetros."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Entre la proclamación de la independencia en 1821 y la batalla de Tarapacá en 1879 transcurrieron exactamente 6 décadas.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la cantidad exacta de años: 1879 - 1821.",
+          "1879 - 1821 = 58 años.",
+          "Seis décadas son 6 x 10 = 60 años. 58 años no son 6 décadas completas."
+        ],
+        "retroalimentacion": "Transcurrieron 58 años, que es menos de 6 décadas completas (60 años)."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un museo de Iquitos presenta una línea de tiempo dividida en segmentos de 20 años cada uno. Si el evento A está en 1860 y el evento B está tres segmentos más adelante, ¿en qué año ocurrió el evento B?",
+        "respuesta": "1920",
+        "alternativasAceptadas": [
+          "el año 1920",
+          "año 1920"
+        ],
+        "pistas": [
+          "Cada segmento representa 20 años.",
+          "Tres segmentos hacia adelante representan 3 x 20 = 60 años.",
+          "Suma esos 60 años a la fecha inicial: 1860 + 60."
+        ],
+        "retroalimentacion": "Avanzando 3 segmentos de 20 años (60 años) desde 1860 se llega al año 1920."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una línea de tiempo histórico del Perú se registran tres hitos: Creación del Virreinato (1542), Rebelión de Túpac Amaru II (1780) y Combate del 2 de Mayo (1866). ¿Cuánto tiempo transcurrió entre el primer hito y el tercero?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "238 años"
+          },
+          {
+            "id": "b",
+            "texto": "314 años"
+          },
+          {
+            "id": "c",
+            "texto": "304 años"
+          },
+          {
+            "id": "d",
+            "texto": "324 años"
+          }
+        ],
+        "pistas": [
+          "El primer hito es en 1542 y el tercero es en 1866.",
+          "Resta el año del primer hito del año del tercero: 1866 - 1542.",
+          "1866 - 1542 = 324 años."
+        ],
+        "retroalimentacion": "La diferencia entre 1866 y 1542 es 1866 - 1542 = 324 años."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una línea de tiempo de 80 cm de largo representa 400 años de historia andina. ¿A cuántos años equivale un segmento de 6 cm en dicha línea? Escribe solo el número.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cuántos años representa cada centímetro dividiendo 400 entre 80.",
+          "400 / 80 = 5 años por centímetro.",
+          "Multiplica ese valor por 6 cm: 5 x 6."
+        ],
+        "retroalimentacion": "Cada centímetro equivale a 400 / 80 = 5 años; por tanto, 6 cm equivalen a 6 x 5 = 30 años."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la línea de tiempo de una familia cusqueña, el abuelo nació en 1935 y vivió 82 años. Su nieto nació cuando el abuelo cumplió exactamente 5 décadas de vida. ¿En qué año nació el nieto y en qué año falleció el abuelo?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El nieto nació en 1985 y el abuelo falleció en 2017."
+          },
+          {
+            "id": "b",
+            "texto": "El nieto nació en 1980 y el abuelo falleció en 2015."
+          },
+          {
+            "id": "c",
+            "texto": "El nieto nació en 1985 y el abuelo falleció en 2015."
+          },
+          {
+            "id": "d",
+            "texto": "El nieto nació en 1975 y el abuelo falleció en 2017."
+          }
+        ],
+        "pistas": [
+          "5 décadas son 50 años. El nieto nació en 1935 + 50 = 1985.",
+          "El abuelo vivió 82 años: 1935 + 82 = 2017.",
+          "Busca la opción que contenga ambas fechas correctas."
+        ],
+        "retroalimentacion": "El nieto nació a los 50 años del abuelo (1935 + 50 = 1985) y el abuelo falleció a los 82 años (1935 + 82 = 2017)."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En una recta de tiempo con escala regular, el año 1920 está ubicado a 4 cm del origen (año 1900). ¿A cuántos centímetros del origen debe ubicarse el año 1970?",
+        "respuesta": "14",
+        "alternativasAceptadas": [
+          "14 cm",
+          "14 centimetros",
+          "a 14 cm"
+        ],
+        "pistas": [
+          "De 1900 a 1920 hay 20 años y miden 4 cm.",
+          "Calcula cuántos años mide 1 cm: 20 / 4 = 5 años por centímetro.",
+          "Calcula la distancia de 1900 a 1970: son 70 años. Divide 70 entre 5."
+        ],
+        "retroalimentacion": "Como cada centímetro equivale a 5 años, los 70 años transcurridos hasta 1970 corresponden a 70 / 5 = 14 centímetros."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.convertir-unidades-tiempo",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P5-05"
+    ],
+    "bloque": "Medición: masa y tiempo",
+    "nombre": "Conversión de horas, minutos y segundos",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Convierte unidades de tiempo usando multiplicaciones y divisiones entre 60.",
+    "palabrasClave": [
+      "conversion de tiempo",
+      "horas a minutos",
+      "minutos a segundos",
+      "sistema sexagesimal",
+      "equivalencias temporales"
+    ],
+    "prerrequisitos": [
+      "mat.p5.multiplicacion-dos-tres-cifras"
+    ],
+    "ordenSugerido": 42,
+    "ideaCentral": "El tiempo se mide en el sistema sexagesimal, donde cada unidad mayor contiene 60 de la unidad inmediata inferior: 1 hora = 60 minutos y 1 minuto = 60 segundos. Para pasar de una unidad mayor a menor multiplicas por 60, y de menor a mayor divides entre 60.",
+    "pasos": [
+      "Identifica la unidad de partida y la unidad a la que deseas convertir.",
+      "Para convertir de horas a minutos, multiplica el número de horas por 60.",
+      "Para convertir de minutos a segundos, multiplica el número de minutos por 60.",
+      "Para convertir directamente de horas a segundos, multiplica por 3600 (60 x 60).",
+      "Para pasar de una unidad menor a una mayor, divide entre 60 (o entre 3600 si vas de segundos a horas)."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un viaje en bus interprovincial desde Chiclayo hasta Piura dura 3 horas y 15 minutos. ¿A cuántos minutos equivale la duración total del viaje?",
+        "desarrollo": "Primero convertimos las 3 horas a minutos multiplicando por 60: 3 x 60 = 180 minutos. Luego sumamos los 15 minutos restantes: 180 + 15 = 195 minutos.",
+        "respuesta": "El viaje dura 195 minutos."
+      },
+      {
+        "situacion": "En una competencia escolar de natación en San Juan de Lurigancho, un nadador registró 240 segundos en su prueba. ¿A cuántos minutos equivale esa marca?",
+        "desarrollo": "Para pasar de segundos a minutos dividimos entre 60: 240 / 60 = 4 minutos exactos.",
+        "respuesta": "Equivale a 4 minutos."
+      },
+      {
+        "situacion": "¿Cuántos segundos hay en 2 horas completas?",
+        "desarrollo": "Convertimos 2 horas a minutos: 2 x 60 = 120 minutos. Luego convertimos esos minutos a segundos: 120 x 60 = 7200 segundos (o directamente 2 x 3600 = 7200).",
+        "respuesta": "Hay 7200 segundos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Multiplicar o dividir por 100 pensando que el tiempo funciona como el sistema decimal de monedas o metros.",
+        "correccion": "El tiempo utiliza una base de 60 (sexagesimal); una hora tiene 60 minutos y un minuto tiene 60 segundos, nunca 100."
+      },
+      {
+        "error": "Interpretar 2 horas y media como 2,30 horas en lugar de 2,5 horas o 150 minutos.",
+        "correccion": "Media hora son 30 minutos (la mitad de 60), lo que en decimal equivale a 0,5 horas (30/60)."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Sistema sexagesimal",
+        "significado": "Sistema de numeración en base 60 utilizado para medir ángulos y unidades de tiempo."
+      },
+      {
+        "termino": "Minuto",
+        "significado": "Unidad de tiempo que equivale a la sexagésima parte de una hora o a 60 segundos."
+      },
+      {
+        "termino": "Segundo",
+        "significado": "Unidad fundamental de tiempo en el sistema internacional."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una función de títeres en el parque de Barranco duró 4 horas completas. ¿Cuántos minutos duró la función? Escribe solo el número.",
+        "respuesta": 240,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda que 1 hora tiene 60 minutos.",
+          "Para pasar de horas a minutos debes multiplicar por 60.",
+          "Calcula: 4 x 60."
+        ],
+        "retroalimentacion": "Multiplicamos 4 horas por 60 minutos cada una: 4 x 60 = 240 minutos."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿A cuántos minutos equivalen 300 segundos?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 minutos"
+          },
+          {
+            "id": "b",
+            "texto": "3 minutos"
+          },
+          {
+            "id": "c",
+            "texto": "6 minutos"
+          },
+          {
+            "id": "d",
+            "texto": "50 minutos"
+          }
+        ],
+        "pistas": [
+          "Para pasar de segundos a minutos se divide entre 60.",
+          "Divide 300 entre 60.",
+          "300 / 60 es igual a 30 / 6."
+        ],
+        "retroalimentacion": "Dividiendo 300 entre 60 obtenemos 5 minutos."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Media hora equivale exactamente a 30 minutos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una hora entera tiene 60 minutos.",
+          "La mitad de 60 es 60 dividido entre 2.",
+          "60 / 2 = 30."
+        ],
+        "retroalimentacion": "La mitad de 60 minutos es efectivamente 30 minutos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Cuántos segundos hay en 3 minutos? Escribe solo el número.",
+        "respuesta": "180",
+        "alternativasAceptadas": [
+          "180 segundos",
+          "180 s"
+        ],
+        "pistas": [
+          "1 minuto tiene 60 segundos.",
+          "Multiplica 3 por 60.",
+          "3 x 60 = 180."
+        ],
+        "retroalimentacion": "Al multiplicar 3 minutos por 60 segundos obtenemos 180 segundos."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un tren que va de Huancayo a Huancavelica tardó 2 horas y 45 minutos en llegar a su primera parada. ¿Cuántos minutos duró ese tramo? Escribe solo el número.",
+        "respuesta": 165,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte las 2 horas a minutos multiplicando por 60: 2 x 60 = 120 minutos.",
+          "Suma los 45 minutos restantes.",
+          "Calcula: 120 + 45."
+        ],
+        "retroalimentacion": "2 horas son 120 minutos; sumando 45 minutos obtenemos 165 minutos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una atleta entrena corriendo durante 150 minutos continuos. ¿Cómo se expresa este tiempo en horas y minutos?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1 hora y 50 minutos"
+          },
+          {
+            "id": "b",
+            "texto": "2 horas y 15 minutos"
+          },
+          {
+            "id": "c",
+            "texto": "2 horas y 30 minutos"
+          },
+          {
+            "id": "d",
+            "texto": "3 horas y 10 minutos"
+          }
+        ],
+        "pistas": [
+          "Averigua cuántas veces cabe 60 en 150: 60 x 2 = 120.",
+          "Esto corresponde a 2 horas enteras.",
+          "Resta los minutos usados: 150 - 120 = 30 minutos restantes."
+        ],
+        "retroalimentacion": "150 minutos se reparten en 120 minutos (2 horas) más 30 minutos sobrantes: 2 horas y 30 minutos."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 1 hora hay 3600 segundos porque se multiplican 60 minutos por 60 segundos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "1 hora tiene 60 minutos.",
+          "Cada minuto tiene 60 segundos.",
+          "Calcula 60 x 60: 6 x 6 = 36 con dos ceros, es decir, 3600."
+        ],
+        "retroalimentacion": "Una hora contiene 60 x 60 = 3600 segundos."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un video documental sobre Machu Picchu dura 1 hora y 20 minutos. ¿Cuántos segundos dura en total? Escribe solo el número.",
+        "respuesta": "4800",
+        "alternativasAceptadas": [
+          "4800 segundos",
+          "4800 s"
+        ],
+        "pistas": [
+          "Expresa 1 hora y 20 minutos en minutos: 60 + 20 = 80.",
+          "Ahora convierte los 80 minutos a segundos multiplicando por 60.",
+          "80 x 60 = 4800."
+        ],
+        "retroalimentacion": "80 minutos equivalen a 80 x 60 = 4800 segundos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una panadería de Cusco, el horno estuvo encendido durante tres tandas de pan: la primera duró 1 hora y 25 minutos; la segunda duró 50 minutos; y la tercera, 45 minutos. ¿Cuántas horas completas estuvo encendido el horno si expresas el total en horas exactas? (Pista: calcula primero el total de minutos y pásalo a horas). Escribe solo el número de horas.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Pasa todo a minutos: la primera tanda es 60 + 25 = 85 minutos.",
+          "Suma los tres tiempos: 85 + 50 + 45 = 180 minutos.",
+          "Al dividir 180 minutos entre 60 obtienes las horas."
+        ],
+        "retroalimentacion": "El tiempo total fue 85 + 50 + 45 = 180 minutos, que al dividirse entre 60 da exactamente 3 horas."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tres estudiantes cronometraron el tiempo que tardaron en resolver un reto matemático. Mateo tardó 1 hora y 12 minutos; Camila tardó 74 minutos; y Rosa tardó 4380 segundos. ¿Quién completó el reto en el menor tiempo?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Mateo"
+          },
+          {
+            "id": "b",
+            "texto": "Camila"
+          },
+          {
+            "id": "c",
+            "texto": "Rosa"
+          },
+          {
+            "id": "d",
+            "texto": "Mateo y Rosa empataron"
+          }
+        ],
+        "pistas": [
+          "Lleva los tres tiempos a minutos antes de compararlos.",
+          "Mateo: 1 hora y 12 minutos = 60 + 12 = 72 minutos.",
+          "Camila: ya está en 74 minutos. Rosa: 4380 / 60 = 73 minutos. El menor es 72 minutos."
+        ],
+        "retroalimentacion": "Mateo tardó 72 minutos, Rosa tardó 73 minutos y Camila tardó 74 minutos; por lo tanto, Mateo demoró menos tiempo."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un partido de fútbol con alargue y descansos duró en total 135 minutos. El árbitro quiere saber cuánto tiempo falta para completar 2 horas y media de transmisión televisiva. ¿Cuántos minutos faltan?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10 minutos"
+          },
+          {
+            "id": "b",
+            "texto": "15 minutos"
+          },
+          {
+            "id": "c",
+            "texto": "20 minutos"
+          },
+          {
+            "id": "d",
+            "texto": "5 minutos"
+          }
+        ],
+        "pistas": [
+          "Calcula cuántos minutos son 2 horas y media: 2 x 60 = 120 minutos, más 30 minutos = 150 minutos.",
+          "El partido duró 135 minutos.",
+          "Resta: 150 - 135."
+        ],
+        "retroalimentacion": "2 horas y media son 150 minutos; restando 150 - 135 obtenemos 15 minutos."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una bomba de agua en un regadío de Ica funciona durante 2 horas, 18 minutos y 40 segundos. ¿Cuántos segundos en total estuvo en funcionamiento? Escribe solo el número.",
+        "respuesta": "8320",
+        "alternativasAceptadas": [
+          "8320 segundos",
+          "8320 s"
+        ],
+        "pistas": [
+          "Primero, 2 horas equivalen a 2 × 3600 = 7200 segundos.",
+          "Luego, 18 minutos equivalen a 18 × 60 = 1080 segundos.",
+          "Suma todo junto: 7200 + 1080 + 40."
+        ],
+        "retroalimentacion": "Sumamos 7200 (horas) + 1080 (minutos) + 40 (segundos) = 8320 segundos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.masa-fracciones-decimales",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P5-05"
+    ],
+    "bloque": "Medición: masa y tiempo",
+    "nombre": "Masa en kilogramos con fracciones y decimales",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Expresa masas como 1/2 kg, 3/4 kg o 0,5 kg y las compara.",
+    "prerrequisitos": [
+      "mat.p5.fracciones-decimales"
+    ],
+    "ordenSugerido": 108,
+    "palabrasClave": [
+      "masa",
+      "kilogramo",
+      "medio",
+      "cuarto",
+      "decimal"
+    ],
+    "ideaCentral": "Las fracciones y los decimales pueden describir una misma masa en kilogramos. Por ejemplo, 1/2 kg y 0,5 kg pesan igual.",
+    "pasos": [
+      "Divide el kilogramo en partes iguales según el denominador.",
+      "Identifica cuántas partes se toman según el numerador.",
+      "Convierte mitades o cuartos a decimales: 1/2 = 0,5; 1/4 = 0,25; 3/4 = 0,75.",
+      "Para comparar masas, escríbelas en la misma forma y compara sus valores."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una vendedora separa 1/2 kg de lentejas. ¿Cómo anota esa masa en decimal?",
+        "desarrollo": "La mitad de un kilogramo equivale a cinco décimos.",
+        "respuesta": "Anota 0,5 kg."
+      },
+      {
+        "situacion": "Un paquete de avena pesa 3/4 kg y otro pesa 0,5 kg. ¿Cuál pesa más?",
+        "desarrollo": "Tres cuartos equivalen a 0,75; medio equivale a 0,50. Como 0,75 > 0,50, el primero pesa más.",
+        "respuesta": "Pesa más el paquete de 3/4 kg."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Leer 1/4 kg como 0,4 kg.",
+        "correccion": "Un cuarto equivale a 0,25 kg; cuatro décimos son 0,4 kg."
+      },
+      {
+        "error": "Comparar 0,5 y 0,75 solo por la cantidad de cifras.",
+        "correccion": "Escribe 0,5 como 0,50 y compara 50 con 75 centésimos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "kilogramo",
+        "significado": "Unidad de masa que se escribe kg."
+      },
+      {
+        "termino": "medio kilogramo",
+        "significado": "La mitad de 1 kg, igual a 0,5 kg."
+      },
+      {
+        "termino": "cuarto de kilogramo",
+        "significado": "Una de cuatro partes de 1 kg, igual a 0,25 kg."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una bolsa indica 1/2 kg de quinua. Escribe esa masa con coma decimal.",
+        "respuesta": "0,5",
+        "pistas": [
+          "Divide un kilogramo en dos mitades iguales.",
+          "Cada mitad equivale a cinco décimos de kilogramo.",
+          "Escribe cinco décimos con un cero antes de la coma."
+        ],
+        "retroalimentacion": "1/2 kg equivale a 0,5 kg; 0,2 kg sería solo dos décimos.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué masa tiene una bolsa marcada con 3/4 kg?",
+        "respuesta": "c",
+        "pistas": [
+          "Piensa en cuatro partes iguales de un kilogramo.",
+          "Cada cuarto vale 0,25 kg.",
+          "Suma tres cuartos: 0,25 + 0,25 + 0,25."
+        ],
+        "retroalimentacion": "3/4 kg son 0,75 kg; 0,25 kg representa un solo cuarto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0,25 kg"
+          },
+          {
+            "id": "b",
+            "texto": "0,5 kg"
+          },
+          {
+            "id": "c",
+            "texto": "0,75 kg"
+          },
+          {
+            "id": "d",
+            "texto": "1,25 kg"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un paquete de 0,5 kg tiene la misma masa que uno de 1/2 kg.",
+        "respuesta": true,
+        "pistas": [
+          "Compara medio kilogramo con cinco décimos.",
+          "1/2 significa una de dos partes iguales.",
+          "Cinco de diez partes también ocupan la mitad."
+        ],
+        "retroalimentacion": "Es verdadero: 0,5 kg y 1/2 kg son dos escrituras de la misma masa."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una receta pide un cuarto de kilogramo de maní. Escríbelo como fracción usando números y barra.",
+        "respuesta": "1/4",
+        "pistas": [
+          "La unidad se divide en cuatro porciones iguales.",
+          "La receta usa solo una de esas cuatro porciones.",
+          "Coloca 1 arriba y 4 abajo de la barra."
+        ],
+        "retroalimentacion": "Un cuarto de kilogramo se escribe 1/4 kg; 4/1 serían cuatro kilogramos.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la feria, una bolsa pesa 0,75 kg y otra 1/2 kg. ¿Cuál pesa más?",
+        "respuesta": "a",
+        "pistas": [
+          "Convierte 1/2 kg a decimal para compararlas.",
+          "Medio kilogramo es 0,5 kg.",
+          "Compara 0,75 con 0,50."
+        ],
+        "retroalimentacion": "La bolsa de 0,75 kg pesa más que la de 1/2 kg, que pesa 0,50 kg.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La de 0,75 kg"
+          },
+          {
+            "id": "b",
+            "texto": "La de 1/2 kg"
+          },
+          {
+            "id": "c",
+            "texto": "Pesan igual"
+          },
+          {
+            "id": "d",
+            "texto": "No se pueden comparar"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una caja tiene 1/4 kg de cacao y otra 1/4 kg. ¿Cuántos kilogramos hay entre ambas? Escribe la respuesta como fracción.",
+        "respuesta": "1/2",
+        "pistas": [
+          "Reúne dos cuartos de kilogramo.",
+          "1/4 + 1/4 = 2/4.",
+          "Simplifica 2/4 dividiendo entre 2."
+        ],
+        "retroalimentacion": "Las dos cajas reúnen 1/2 kg; sumar los denominadores daría un resultado equivocado.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "0,25 kg de queso pesa menos que 1/2 kg de queso.",
+        "respuesta": true,
+        "pistas": [
+          "Convierte medio kilogramo en décimos.",
+          "1/2 kg equivale a 0,50 kg.",
+          "Compara 0,25 y 0,50."
+        ],
+        "retroalimentacion": "Es verdadero: 0,25 kg es un cuarto y pesa menos que 0,50 kg."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una balanza marca 1,5 kg de papas. ¿Cuál expresión representa esa masa?",
+        "respuesta": "d",
+        "pistas": [
+          "Separa el kilogramo entero del medio kilogramo.",
+          "El 5 después de la coma indica cinco décimos.",
+          "Cinco décimos equivalen a 1/2."
+        ],
+        "retroalimentacion": "1,5 kg es 1 kg y 1/2 kg; 1/5 kg sería 0,2 kg.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1 kg y 1/5 kg"
+          },
+          {
+            "id": "b",
+            "texto": "5 kg y 1/2 kg"
+          },
+          {
+            "id": "c",
+            "texto": "1/2 kg"
+          },
+          {
+            "id": "d",
+            "texto": "1 kg y 1/2 kg"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "María tiene 3/4 kg de harina y usa 1/2 kg. ¿Cuánta harina le queda?",
+        "respuesta": "b",
+        "pistas": [
+          "Representa la mitad con cuartos.",
+          "1/2 kg equivale a 2/4 kg.",
+          "Resta 3/4 menos 2/4."
+        ],
+        "retroalimentacion": "Le queda 1/4 kg; restar 3 menos 2 y 4 menos 4 no funciona.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/2 kg"
+          },
+          {
+            "id": "b",
+            "texto": "1/4 kg"
+          },
+          {
+            "id": "c",
+            "texto": "2/4 kg"
+          },
+          {
+            "id": "d",
+            "texto": "1 kg"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Dos sacos contienen 0,5 kg y 0,75 kg de arroz. ¿Cuál es la masa total en kg? Escribe con coma decimal.",
+        "respuesta": "1,25",
+        "pistas": [
+          "Alinea las comas de ambas masas.",
+          "Escribe 0,5 como 0,50.",
+          "Suma 0,50 + 0,75."
+        ],
+        "retroalimentacion": "La masa total es 1,25 kg; 0,80 surge de sumar mal los décimos y centésimos.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si agregas 1/4 kg a una bolsa de 0,75 kg, completas exactamente 1 kg.",
+        "respuesta": true,
+        "pistas": [
+          "Convierte el cuarto a decimal.",
+          "1/4 kg corresponde a 0,25 kg.",
+          "Suma 0,75 + 0,25."
+        ],
+        "retroalimentacion": "Es verdadero: 0,75 kg más 0,25 kg completa 1 kg."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para una mazamorra se necesitan 1,5 kg de fruta. Hay 3/4 kg. ¿Qué masa falta?",
+        "respuesta": "c",
+        "pistas": [
+          "Expresa 1,5 kg como 1,50 kg.",
+          "Tres cuartos de kilogramo son 0,75 kg.",
+          "Resta 1,50 menos 0,75."
+        ],
+        "retroalimentacion": "Faltan 0,75 kg; 0,5 kg no alcanza para completar 1,5 kg.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0,25 kg"
+          },
+          {
+            "id": "b",
+            "texto": "0,5 kg"
+          },
+          {
+            "id": "c",
+            "texto": "0,75 kg"
+          },
+          {
+            "id": "d",
+            "texto": "1,25 kg"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.convertir-kg-g",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P5-05"
+    ],
+    "bloque": "Medición: masa y tiempo",
+    "nombre": "Conversión entre kilogramos y gramos",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Convierte medidas de masa multiplicando o dividiendo entre 1000.",
+    "prerrequisitos": [
+      "mat.p5.masa-fracciones-decimales"
+    ],
+    "ordenSugerido": 109,
+    "palabrasClave": [
+      "kilogramo",
+      "gramo",
+      "conversión",
+      "mil",
+      "masa"
+    ],
+    "ideaCentral": "Un kilogramo equivale a 1000 gramos. Multiplica por 1000 para pasar de kg a g; divide entre 1000 para volver a kg.",
+    "pasos": [
+      "Reconoce la unidad de partida y la unidad pedida.",
+      "Si pasas de kg a g, multiplica la cantidad por 1000.",
+      "Si pasas de g a kg, divide la cantidad entre 1000.",
+      "Comprueba si el resultado tiene sentido: el número de gramos suele ser mayor que el de kilogramos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La caja de mangos pesa 2,5 kg. ¿Cuántos gramos son?",
+        "desarrollo": "Multiplica 2,5 por 1000.",
+        "respuesta": "Son 2500 g."
+      },
+      {
+        "situacion": "Un paquete marca 1250 g. ¿Cuántos kg son?",
+        "desarrollo": "Divide 1250 entre 1000.",
+        "respuesta": "Son 1,25 kg."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Multiplicar gramos por 1000 para obtener kilogramos.",
+        "correccion": "Al pasar de g a kg se divide entre 1000."
+      },
+      {
+        "error": "Pensar que 0,5 kg son 50 g.",
+        "correccion": "Medio kilogramo son 500 g, pues la mitad de 1000 es 500."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "kilogramo",
+        "significado": "Unidad de masa equivalente a 1000 gramos."
+      },
+      {
+        "termino": "gramo",
+        "significado": "Unidad de masa mil veces menor que el kilogramo."
+      },
+      {
+        "termino": "convertir",
+        "significado": "Expresar la misma masa con otra unidad."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una bolsa tiene 2 kg de arroz. ¿Cuántos gramos son? Escribe solo el número.",
+        "respuesta": 2000,
+        "pistas": [
+          "Cada kilogramo contiene 1000 gramos.",
+          "Hay dos grupos de 1000 gramos.",
+          "Multiplica 2 por 1000."
+        ],
+        "retroalimentacion": "2 kg son 2000 g; multiplicar por 100 daría diez veces menos."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una etiqueta dice 5000 g. ¿Cuántos kilogramos indica?",
+        "respuesta": "b",
+        "pistas": [
+          "Para pasar de gramos a kilogramos, divide entre 1000.",
+          "Busca cuántos grupos de 1000 hay en 5000.",
+          "Calcula 5000 ÷ 1000."
+        ],
+        "retroalimentacion": "5000 g equivalen a 5 kg; 50 kg corresponderían a 50 000 g.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0,5 kg"
+          },
+          {
+            "id": "b",
+            "texto": "5 kg"
+          },
+          {
+            "id": "c",
+            "texto": "50 kg"
+          },
+          {
+            "id": "d",
+            "texto": "500 kg"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una pesa de 1 kg equivale a 1000 g.",
+        "respuesta": true,
+        "pistas": [
+          "Recuerda la relación base entre ambas unidades.",
+          "El prefijo kilo significa mil.",
+          "Un kilogramo reúne mil gramos."
+        ],
+        "retroalimentacion": "Es verdadero: 1 kg = 1000 g."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "El saco de maíz pesa 3 kg. ¿Qué número de gramos debe aparecer en la balanza? Escribe solo el número.",
+        "respuesta": 3000,
+        "pistas": [
+          "Cada kg son 1000 g.",
+          "Tres kilogramos reúnen tres millares de gramos.",
+          "Calcula 3 × 1000."
+        ],
+        "retroalimentacion": "La balanza marca 3000 g; 300 g representan menos de un kilogramo."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué masa en gramos corresponde a 1,5 kg de quinua?",
+        "respuesta": "d",
+        "pistas": [
+          "Separa 1,5 kg en 1 kg y 0,5 kg.",
+          "1 kg = 1000 g y medio kg = 500 g.",
+          "Suma 1000 y 500."
+        ],
+        "retroalimentacion": "1,5 kg son 1500 g; 1050 g confunde los 500 g de medio kilo.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "150 g"
+          },
+          {
+            "id": "b",
+            "texto": "1050 g"
+          },
+          {
+            "id": "c",
+            "texto": "15 000 g"
+          },
+          {
+            "id": "d",
+            "texto": "1500 g"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una caja registra 7500 g. ¿Cuántos kilogramos pesa? Escribe solo el número.",
+        "respuesta": 7.5,
+        "pistas": [
+          "Divide 7500 entre 1000.",
+          "7000 g son 7 kg.",
+          "Los 500 g restantes son 0,5 kg."
+        ],
+        "retroalimentacion": "7500 g son 7,5 kg; 75 kg serían 75 000 g."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "250 g equivalen a 2,5 kg.",
+        "respuesta": false,
+        "pistas": [
+          "Compara 250 g con los 1000 g de un kilogramo.",
+          "250 es la cuarta parte de 1000.",
+          "Por eso 250 g equivalen a 0,25 kg."
+        ],
+        "retroalimentacion": "Es falso: 250 g son 0,25 kg; 2,5 kg son 2500 g."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Para una receta usan 1/2 kg de harina. ¿Cuántos gramos son? Escribe solo el número.",
+        "respuesta": "500",
+        "pistas": [
+          "Medio kilogramo es la mitad de 1000 g.",
+          "Divide 1000 entre 2.",
+          "Comprueba que dos paquetes de esa masa completan 1 kg."
+        ],
+        "retroalimentacion": "1/2 kg equivale a 500 g; 50 g es una vigésima parte de 1 kg.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Dos bolsas pesan 1,25 kg y 750 g. ¿Cuántos gramos pesan juntas? Escribe solo el número.",
+        "respuesta": 2000,
+        "pistas": [
+          "Convierte primero 1,25 kg a gramos.",
+          "1,25 kg son 1250 g.",
+          "Suma 1250 g y 750 g."
+        ],
+        "retroalimentacion": "Pesan 2000 g en total; sumar 1,25 y 750 sin convertir unidades no sirve."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un pedido hay 3 kg de café. Se entregan 800 g. ¿Cuántos gramos faltan?",
+        "respuesta": "a",
+        "pistas": [
+          "Pasa los 3 kg a gramos.",
+          "3 kg son 3000 g.",
+          "Resta 800 a 3000."
+        ],
+        "retroalimentacion": "Faltan 2200 g; 3800 g sería sumar lo entregado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2200 g"
+          },
+          {
+            "id": "b",
+            "texto": "2800 g"
+          },
+          {
+            "id": "c",
+            "texto": "3200 g"
+          },
+          {
+            "id": "d",
+            "texto": "3800 g"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una caja de 2,4 kg y otra de 600 g suman exactamente 3 kg.",
+        "respuesta": true,
+        "pistas": [
+          "Convierte 2,4 kg a gramos.",
+          "2,4 kg son 2400 g.",
+          "Suma 2400 g y 600 g; compara con 3000 g."
+        ],
+        "retroalimentacion": "Es verdadero: 2400 + 600 = 3000 g, es decir, 3 kg."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una feria vende cuatro paquetes de 250 g de maní. ¿Cuántos kilogramos de maní hay en total? Escribe solo el número.",
+        "respuesta": 1,
+        "pistas": [
+          "Primero reúne los cuatro paquetes en gramos.",
+          "4 × 250 g = 1000 g.",
+          "Convierte 1000 g a kilogramos."
+        ],
+        "retroalimentacion": "Los cuatro paquetes suman 1 kg; 4 kg exigirían 4000 g."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

@@ -1,0 +1,1315 @@
+[
+  {
+    "clave": "mat.p5.nociones-probabilidad",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-P5-02"
+    ],
+    "bloque": "Azar",
+    "nombre": "Seguro, más probable y menos probable en juegos de azar",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Describe la posibilidad de resultados al lanzar dados o monedas y al girar ruletas.",
+    "palabrasClave": [
+      "probabilidad",
+      "suceso seguro",
+      "mas probable",
+      "menos probable",
+      "imposible"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 98,
+    "ideaCentral": "En un juego de azar, un suceso es seguro si siempre ocurre e imposible si nunca puede suceder. Cuando hay varias opciones posibles, el resultado con más casos a favor es el más probable.",
+    "pasos": [
+      "Identifica todos los resultados posibles que pueden salir en el juego.",
+      "Cuenta cuántos de esos resultados cumplen la condición que estás analizando (casos favorables).",
+      "Compara la cantidad de casos a favor con el total para determinar si es seguro, más probable, menos probable o imposible."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una tómbola escolar hay 8 boletos azules y 2 boletos rojos. ¿Qué color es más probable sacar?",
+        "desarrollo": "Hay 8 opciones de sacar azul frente a solo 2 opciones de sacar rojo sobre 10 boletos en total. El azul tiene más casos favorables.",
+        "respuesta": "Es más probable sacar un boleto azul."
+      },
+      {
+        "situacion": "En una caja opaca solo guardaste 6 monedas de un sol. ¿Cómo se describe la posibilidad de sacar una moneda de un sol sin mirar?",
+        "desarrollo": "Todas las monedas de la caja son de un sol; no existe ninguna otra posibilidad al meter la mano.",
+        "respuesta": "Es un suceso seguro."
+      },
+      {
+        "situacion": "Lanzas un dado común de seis caras numeradas del 1 al 6. ¿Qué posibilidad hay de obtener el número 9?",
+        "desarrollo": "Las caras solo tienen números del 1 al 6; el 9 no figura en el dado.",
+        "respuesta": "Es un suceso imposible."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que 'más probable' significa que va a salir obligatoriamente en el siguiente intento.",
+        "correccion": "El azar no garantiza el resultado; solo nos indica qué opción tiene mayor ventaja numérica."
+      },
+      {
+        "error": "Confundir un suceso imposible con uno poco probable.",
+        "correccion": "Imposible tiene cero casos favorables; poco probable tiene pocos casos favorables pero sí puede suceder."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Suceso seguro",
+        "significado": "Resultado que siempre ocurre porque coincide con todos los casos posibles."
+      },
+      {
+        "termino": "Suceso imposible",
+        "significado": "Resultado que nunca puede ocurrir porque no tiene casos favorables."
+      },
+      {
+        "termino": "Más probable",
+        "significado": "Suceso que reúne mayor cantidad de resultados a favor que los demás."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al lanzar un dado de seis caras con números del 1 al 6, obtener un número menor que 7 es un suceso seguro.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa los números que tiene el dado: 1, 2, 3, 4, 5 y 6.",
+          "Comprueba si cada uno de esos seis números es menor que 7.",
+          "Si todos los casos posibles cumplen la condición, el suceso siempre ocurre."
+        ],
+        "retroalimentacion": "Como los números 1, 2, 3, 4, 5 y 6 son menores que 7, es seguro que saldrá uno de ellos: la afirmación es verdadera."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una feria comunal de Huancayo, una ruleta tiene 9 casilleros rojos y 3 casilleros verdes de igual tamaño. ¿Cómo se describe el suceso de que la aguja se detenga en un casillero rojo?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Imposible"
+          },
+          {
+            "id": "b",
+            "texto": "Más probable"
+          },
+          {
+            "id": "c",
+            "texto": "Menos probable"
+          },
+          {
+            "id": "d",
+            "texto": "Seguro"
+          }
+        ],
+        "pistas": [
+          "Compara la cantidad de casilleros de cada color: 9 rojos y 3 verdes.",
+          "El color rojo ocupa la mayor parte de la ruleta pero no la totalidad.",
+          "Tener más casilleros a favor convierte al suceso en la opción con mayor ventaja."
+        ],
+        "retroalimentacion": "El color rojo tiene 9 casilleros frente a 3 verdes, por lo que detenerse en rojo es más probable."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En una alcancía cerrada solo hay 10 monedas de 2 soles. Si extraes una moneda al azar, ¿qué término describe sacar una moneda de 5 soles: seguro, posible o imposible?",
+        "respuesta": "imposible",
+        "alternativasAceptadas": [
+          "imposible",
+          "suceso imposible",
+          "es imposible"
+        ],
+        "pistas": [
+          "Fíjate en el contenido de la alcancía: solo contiene monedas de 2 soles.",
+          "Comprueba si existe alguna moneda de 5 soles dentro.",
+          "Un resultado que no tiene ninguna opción de salir recibe un calificativo concreto."
+        ],
+        "retroalimentacion": "No hay ninguna moneda de 5 soles en la alcancía, por lo que ese resultado es imposible."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una bolsa para sorteo contiene 8 bolitas amarillas y 5 bolitas verdes. ¿Cuántas bolitas favorecen al suceso de extraer una bolita amarilla? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta exclusivamente las bolitas del color que te piden.",
+          "Las bolitas amarillas son los casos favorables para este suceso.",
+          "El enunciado indica que hay 8 bolitas de ese color en la bolsa."
+        ],
+        "retroalimentacion": "Hay 8 bolitas amarillas, por lo que existen exactamente 8 casos favorables."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mateo guarda en una caja 10 chocotejas de lúcuma, 5 de pecana y 2 de castaña. Si toma una chocoteja sin mirar, ¿cuál relleno es el menos probable de obtener?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Castaña"
+          },
+          {
+            "id": "b",
+            "texto": "Lúcuma"
+          },
+          {
+            "id": "c",
+            "texto": "Pecana"
+          },
+          {
+            "id": "d",
+            "texto": "Todos tienen igual posibilidad"
+          }
+        ],
+        "pistas": [
+          "Anota las cantidades: 10 de lúcuma, 5 de pecana y 2 de castaña.",
+          "Busca el sabor que cuenta con la menor cantidad de unidades en la caja.",
+          "El sabor con menor número de casos favorables es el que tiene menor posibilidad."
+        ],
+        "retroalimentacion": "El relleno de castaña tiene solo 2 unidades frente a 5 y 10, por lo que castaña es el menos probable."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al lanzar simultáneamente dos monedas peruanas de un sol, obtener sello en ambas monedas es un suceso imposible.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en los resultados que pueden salir: (cara, cara), (cara, sello), (sello, cara) y (sello, sello).",
+          "Nota que la combinación de dos sellos sí forma parte de los resultados posibles.",
+          "Un resultado que puede ocurrir, aunque no sea seguro, no es imposible."
+        ],
+        "retroalimentacion": "Ambas monedas pueden caer en sello al mismo tiempo, así que el suceso sí es posible y la afirmación es falsa."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En un juego escolar hay 12 tarjetas numeradas del 1 al 12. Sacar un número par tiene 6 casos favorables y sacar un número impar también tiene 6 casos favorables. ¿Cómo se dice que son estas dos posibilidades: equiprobables o distintas?",
+        "respuesta": "equiprobables",
+        "alternativasAceptadas": [
+          "equiprobables",
+          "iguales",
+          "son equiprobables"
+        ],
+        "pistas": [
+          "Verifica que ambos sucesos cuentan con exactamente 6 casos a favor de 12.",
+          "Tienen la misma cantidad de opciones de salir.",
+          "El término técnico para sucesos con idéntica probabilidad empieza con equi-."
+        ],
+        "retroalimentacion": "Al tener la misma cantidad de casos favorables sobre el mismo total, son sucesos equiprobables."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una kermés en Cusco hay 20 sobres cerrados. Exactamente 14 sobres contienen vales de consumo y el resto contiene mensajes de agradecimiento. ¿Cuántos sobres hacen menos probable sacar un mensaje de agradecimiento? Escribe solo el número de sobres con mensaje de agradecimiento.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la diferencia restando los 14 sobres con vale del total de 20.",
+          "La resta 20 menos 14 entrega los sobres con mensaje.",
+          "Comprueba que esa cantidad es menor que 14."
+        ],
+        "retroalimentacion": "Restando 20 menos 14 obtenemos 6 sobres con mensajes de agradecimiento."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una urna contiene 7 fichas rojas, 6 fichas verdes y 5 fichas amarillas. Si se retiran 3 fichas rojas y no se regresan a la urna, ¿cuál color pasa a ser el más probable al extraer una ficha al azar?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Rojo"
+          },
+          {
+            "id": "b",
+            "texto": "Amarillo"
+          },
+          {
+            "id": "c",
+            "texto": "Verde"
+          },
+          {
+            "id": "d",
+            "texto": "Rojo y verde por igual"
+          }
+        ],
+        "pistas": [
+          "Calcula cuántas fichas rojas quedan: 7 menos 3 es igual a 4.",
+          "Compara ahora las cantidades restantes: 4 rojas, 6 verdes y 5 amarillas.",
+          "Identifica cuál de los tres colores tiene ahora la mayor cantidad."
+        ],
+        "retroalimentacion": "Al quedar 4 rojas, 6 verdes y 5 amarillas, el color con más casos favorables es verde."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una rifa de 100 boletos para apoyar el viaje de promoción a Iquitos, Lucía compró 18 boletos y Carlos compró 25 boletos. ¿Por cuántos boletos supera Carlos a Lucía en oportunidades a favor? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Determina los casos favorables de Carlos (25) y los de Lucía (18).",
+          "Calcula la diferencia numérica entre ambas cantidades.",
+          "Resta 25 menos 18 para obtener el resultado."
+        ],
+        "retroalimentacion": "Carlos tiene 25 menos 18, es decir, 7 boletos más a su favor que Lucía."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al lanzar un dado regular de seis caras, obtener un número primo (2, 3 o 5) tiene la misma probabilidad que obtener un número compuesto (4 o 6).",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los números primos en el dado: son el 2, 3 y 5 (3 casos).",
+          "Cuenta los números compuestos en el dado: son el 4 y 6 (2 casos), recordando que el 1 no es primo ni compuesto.",
+          "Compara si 3 casos favorables equivalen a 2 casos favorables."
+        ],
+        "retroalimentacion": "Hay 3 números primos y solo 2 compuestos, por lo que no tienen la misma probabilidad; la afirmación es falsa."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una ruleta circular está dividida en 12 sectores iguales numerados del 1 al 12. Se define el suceso X como «obtener un múltiplo de 4» y el suceso Y como «obtener un múltiplo de 5». ¿Qué afirmación describe correctamente la comparación de sus probabilidades?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El suceso Y es más probable que el suceso X"
+          },
+          {
+            "id": "b",
+            "texto": "Ambos sucesos son equiprobables"
+          },
+          {
+            "id": "c",
+            "texto": "El suceso X es imposible"
+          },
+          {
+            "id": "d",
+            "texto": "El suceso X es más probable que el suceso Y"
+          }
+        ],
+        "pistas": [
+          "Halla los múltiplos de 4 del 1 al 12: son 4, 8 y 12 (3 casos favorables).",
+          "Halla los múltiplos de 5 del 1 al 12: son 5 y 10 (2 casos favorables).",
+          "Compara 3 casos frente a 2 casos para deducir cuál suceso tiene mayor posibilidad."
+        ],
+        "retroalimentacion": "El suceso X tiene 3 casos (4, 8, 12) y el suceso Y tiene 2 casos (5, 10), por lo que el suceso X es más probable que el suceso Y."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.experimentos-aleatorios",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 25,
+    "capacidad": "Usa estrategias y procedimientos para recopilar y procesar datos",
+    "desempenosOrigen": [
+      "MAT-C25-P5-05"
+    ],
+    "bloque": "Azar",
+    "nombre": "Registro de resultados de experimentos aleatorios",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Repite un experimento de azar, registra sus resultados y los organiza en una tabla.",
+    "palabrasClave": [
+      "experimento aleatorio",
+      "registro de datos",
+      "frecuencia",
+      "tabla de frecuencias",
+      "conteo"
+    ],
+    "prerrequisitos": [
+      "mat.p5.nociones-probabilidad",
+      "mat.p5.tabla-frecuencias-5"
+    ],
+    "ordenSugerido": 99,
+    "ideaCentral": "Un experimento aleatorio se repite varias veces bajo las mismas pautas para observar sus resultados y anotarlos en una tabla mediante marcas de conteo y frecuencias absolutas.",
+    "pasos": [
+      "Define con claridad el experimento y los posibles resultados que pueden presentarse.",
+      "Realiza cada ensayo con cuidado y anota cada resultado con una marca de conteo (palote).",
+      "Agrupa las marcas de cinco en cinco para facilitar la lectura.",
+      "Suma las marcas de cada fila para obtener la frecuencia absoluta y comprueba que el total coincida con el número de ensayos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Camila lanzó una moneda 20 veces al aire y anotó 11 veces cara y 9 veces sello en su cuaderno.",
+        "desarrollo": "Organizó una tabla con dos filas: cara (11) y sello (9). La suma 11 + 9 da exactamente 20 lanzamientos.",
+        "respuesta": "La frecuencia de cara es 11 y la de sello es 9."
+      },
+      {
+        "situacion": "En una clase de Piura se extrajo una bolita con reposición 30 veces de una bolsa con bolitas rojas y verdes, obteniendo 18 rojas.",
+        "desarrollo": "Si de 30 extracciones 18 fueron rojas, las verdes se obtienen restando 30 menos 18, lo que resulta 12.",
+        "respuesta": "Salieron 18 bolitas rojas y 12 verdes."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Olvidar reponer la ficha en experimentos donde las condiciones deben mantenerse idénticas.",
+        "correccion": "En ensayos con reposición, devuelve siempre el objeto extraído antes de intentar el siguiente turno."
+      },
+      {
+        "error": "Contar mal las marcas y obtener un total que no coincide con las repeticiones efectuadas.",
+        "correccion": "Verifica siempre que la suma de las frecuencias sea exactamente igual al total de lanzamientos registrados."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Experimento aleatorio",
+        "significado": "Acción cuyo resultado exacto no se puede anticipar con certeza antes de realizarla."
+      },
+      {
+        "termino": "Frecuencia absoluta",
+        "significado": "Número de veces que se repite un suceso concreto a lo largo de un experimento."
+      },
+      {
+        "termino": "Conteo",
+        "significado": "Registro ordenado de datos mediante trazos agrupados usualmente de cinco en cinco."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un registro escolar de 25 lanzamientos de un dado, la cara con el número 4 acumuló las marcas |||| ||. ¿Cuál es su frecuencia absoluta? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer bloque cerrado |||| representa 5 marcas agrupadas.",
+          "Agrega las 2 marcas individuales que acompañan al bloque.",
+          "Suma 5 más 2 para obtener el valor numérico."
+        ],
+        "retroalimentacion": "El grupo de cinco más dos marcas individuales da una frecuencia absoluta de 7."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de las siguientes actividades corresponde a un experimento aleatorio?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Medir con una regla la longitud de un lápiz nuevo"
+          },
+          {
+            "id": "b",
+            "texto": "Lanzar una moneda al aire y registrar si cae cara o sello"
+          },
+          {
+            "id": "c",
+            "texto": "Contar cuántas patas tiene un perro en el parque"
+          },
+          {
+            "id": "d",
+            "texto": "Calentar agua hasta que hierva a 100 grados Celsius"
+          }
+        ],
+        "pistas": [
+          "Recuerda que un experimento aleatorio depende enteramente de la suerte o el azar.",
+          "Medir objetos o contar características fijas da siempre un resultado predecible.",
+          "El lanzamiento de una moneda produce un resultado incierto en cada intento."
+        ],
+        "retroalimentacion": "Lanzar una moneda al aire y registrar si cae cara o sello depende del azar, por lo que es un experimento aleatorio."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si realizas 30 lanzamientos de una moneda y anotas los resultados en una tabla, la suma de las frecuencias de cara y sello debe dar 30.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada lanzamiento produce únicamente cara o sello.",
+          "Ningún intento puede quedar sin registrarse ni contarse dos veces.",
+          "La suma de todas las partes debe igualar al total de ensayos ejecutados."
+        ],
+        "retroalimentacion": "Todos los lanzamientos se reparten entre cara y sello, por lo que la suma de sus frecuencias es 30: la afirmación es verdadera."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Qué nombre recibe el número que indica cuántas veces se repitió un determinado resultado en una tabla: frecuencia o promedio?",
+        "respuesta": "frecuencia",
+        "alternativasAceptadas": [
+          "frecuencia",
+          "la frecuencia",
+          "frecuencia absoluta"
+        ],
+        "pistas": [
+          "Piensa en la palabra usada para la cantidad de repeticiones de un dato.",
+          "Aparece en las columnas de las tablas de conteo.",
+          "Elige entre las dos opciones sugeridas en la pregunta."
+        ],
+        "retroalimentacion": "El número de veces que se repite un resultado se llama frecuencia."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Sofía hizo girar una ruleta tricolor 40 veces y anotó sus resultados: el verde salió 14 veces y el azul 16 veces. Si solo había verde, azul y amarillo, ¿cuántas veces salió el color amarillo? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las frecuencias que ya conoces: 14 más 16.",
+          "Esa suma parcial da 30 giros registrados.",
+          "Resta 30 del total de 40 giros para hallar las salidas de amarillo."
+        ],
+        "retroalimentacion": "Sumando 14 y 16 tenemos 30; al restar 40 menos 30 resulta que el amarillo salió 10 veces."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Joaquín extrajo una ficha de una caja 50 veces, devolviéndola tras cada intento. En su tabla registró: ficha roja (22 veces), ficha verde (18 veces) y ficha negra (10 veces). ¿Qué resultado obtuvo la menor frecuencia?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ficha roja"
+          },
+          {
+            "id": "b",
+            "texto": "Ficha verde"
+          },
+          {
+            "id": "c",
+            "texto": "Ficha negra"
+          },
+          {
+            "id": "d",
+            "texto": "Todas tuvieron igual frecuencia"
+          }
+        ],
+        "pistas": [
+          "Revisa los números registrados: roja 22, verde 18 y negra 10.",
+          "Compara las tres cantidades para identificar el valor más bajo.",
+          "El número 10 es menor que 18 y que 22."
+        ],
+        "retroalimentacion": "La ficha negra acumuló solo 10 apariciones, siendo la menor frecuencia de la tabla."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al lanzar una moneda 10 veces al aire, es completamente imposible que el resultado sea 7 caras y 3 sellos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda que cada tirada es independiente y libre de caer en cara o sello.",
+          "En 10 lanzamientos pueden salir diversas combinaciones, como 5 y 5, 6 y 4, o 7 y 3.",
+          "El resultado 7 caras y 3 sellos es perfectamente factible en la realidad."
+        ],
+        "retroalimentacion": "Obtener 7 caras y 3 sellos es un suceso posible que ocurre con frecuencia en la práctica; la afirmación es falsa."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En un experimento con fichas en una bolsa, la acción de regresar la ficha sacada antes del siguiente turno se llama extracción con... ¿reposición o anulación?",
+        "respuesta": "reposicion",
+        "alternativasAceptadas": [
+          "reposicion",
+          "reposición",
+          "con reposicion",
+          "con reposición"
+        ],
+        "pistas": [
+          "El término proviene del verbo reponer, que significa volver a poner en su lugar.",
+          "Garantiza que la cantidad de fichas en la bolsa siga siendo la misma en cada intento.",
+          "Escoge una de las dos alternativas planteadas en la pregunta."
+        ],
+        "retroalimentacion": "Volver a colocar la ficha en la bolsa corresponde a una extracción con reposición."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tres estudiantes lanzaron un dado 60 veces en total y registraron los resultados pares: el 2 salió 11 veces, el 4 salió 9 veces y el 6 salió 12 veces. ¿Cuántas veces obtuvieron un número impar en total?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "32 veces"
+          },
+          {
+            "id": "b",
+            "texto": "28 veces"
+          },
+          {
+            "id": "c",
+            "texto": "30 veces"
+          },
+          {
+            "id": "d",
+            "texto": "26 veces"
+          }
+        ],
+        "pistas": [
+          "Suma todas las frecuencias de los números pares: 11 más 9 más 12.",
+          "La suma de las caras pares es 32 lanzamientos.",
+          "Resta esa cantidad del total de 60 lanzamientos para hallar los impares."
+        ],
+        "retroalimentacion": "Hubo 32 lanzamientos con número par; restando 60 menos 32 obtenemos 28 veces con número impar."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un ensayo de 50 extracciones con reposición, la frecuencia de la bolita blanca fue el doble que la de la bolita negra. Si solo se extrajeron esas dos clases de bolitas y además se anularon 2 extracciones dudosas dejando 48 válidas, ¿cuál fue la frecuencia de la bolita negra? Escribe solo el número.",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Trabaja con el total de ensayos válidos: 48 extracciones.",
+          "Si la bolita negra tiene una parte y la blanca el doble, juntas suman tres partes iguales.",
+          "Divide 48 entre 3 para conocer el valor de una parte."
+        ],
+        "retroalimentacion": "Dividiendo 48 entre 3 obtenemos 16 para la bolita negra (y 32 para la blanca)."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si al tirar un dado 100 veces el número 5 sale registrado 22 veces, la frecuencia relativa observada de ese número es de 22 de cada 100 lanzamientos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la cantidad de éxitos (22) frente al total de ensayos (100).",
+          "La frecuencia relativa expresa la proporción de casos observados sobre el conjunto total.",
+          "Expresar 22 sobre 100 refleja con exactitud los datos del experimento."
+        ],
+        "retroalimentacion": "El número 5 apareció 22 veces en 100 intentos, lo que corresponde exactamente a 22 de cada 100: la afirmación es verdadera."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Valeria lanzó una perinola de cuatro caras (numeradas del 1 al 4) un total de 80 veces. Anotó en su libreta: cara 1 (18 veces), cara 2 (24 veces), cara 3 (20 veces) y cara 4 (el resto). ¿Cuántas veces salió la cara 4?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "18 veces"
+          },
+          {
+            "id": "b",
+            "texto": "22 veces"
+          },
+          {
+            "id": "c",
+            "texto": "16 veces"
+          },
+          {
+            "id": "d",
+            "texto": "20 veces"
+          }
+        ],
+        "pistas": [
+          "Suma las frecuencias conocidas: 18 más 24 más 20.",
+          "Esa suma da 62 apariciones entre las tres primeras caras.",
+          "Resta 62 del total de 80 lanzamientos para hallar la frecuencia de la cara 4."
+        ],
+        "retroalimentacion": "Sumando 18, 24 y 20 obtenemos 62; al restar 80 menos 62 resulta que la cara 4 salió 18 veces."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.diagrama-arbol",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 25,
+    "capacidad": "Usa estrategias y procedimientos para recopilar y procesar datos",
+    "desempenosOrigen": [
+      "MAT-C25-P5-05"
+    ],
+    "bloque": "Azar",
+    "nombre": "Resultados posibles con diagramas de árbol",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Cuenta todos los resultados de experimentos de dos pasos con un diagrama.",
+    "palabrasClave": [
+      "diagrama de arbol",
+      "espacio muestral",
+      "combinaciones",
+      "experimento compuesto",
+      "ramas"
+    ],
+    "prerrequisitos": [
+      "mat.p5.nociones-probabilidad"
+    ],
+    "ordenSugerido": 117,
+    "ideaCentral": "Un diagrama de árbol organiza y muestra de forma gráfica todas las combinaciones posibles de un experimento de varias etapas ramificando cada opción paso a paso.",
+    "pasos": [
+      "Traza un punto de origen y abre tantas ramas principales como opciones existan en la primera etapa.",
+      "Desde el final de cada rama principal, abre ramas secundarias para las alternativas de la segunda etapa.",
+      "Recorre cada camino desde el inicio hasta el extremo para escribir la combinación resultante.",
+      "Multiplica el número de opciones de la primera etapa por el de la segunda etapa para comprobar el conteo total."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Para el desayuno escolar hay 2 bebidas (quinua o avena) y 3 acompañamientos (pan con queso, pan con palta o pan con huevo). ¿Cuántos desayunos combinados existen?",
+        "desarrollo": "Desde el inicio salen 2 ramas principales y de cada una se desprenden 3 secundarias. Multiplicamos 2 por 3.",
+        "respuesta": "Hay 6 combinaciones diferentes de desayuno."
+      },
+      {
+        "situacion": "Se lanza una moneda dos veces seguidas. ¿Cuáles son todos los resultados posibles que muestra el árbol?",
+        "desarrollo": "Primera tirada: cara (C) o sello (S). Segunda tirada: de C salen C y S; de S salen C y S. Obtenemos (C,C), (C,S), (S,C) y (S,S).",
+        "respuesta": "Hay 4 resultados posibles en total."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar las ramas de cada nivel en lugar de multiplicarlas al calcular el total.",
+        "correccion": "Cada opción de la primera etapa se combina con todas las de la segunda; por eso se multiplican."
+      },
+      {
+        "error": "Olvidar dibujar las opciones secundarias en alguna de las ramas principales.",
+        "correccion": "Asegúrate de que cada rama del primer nivel tenga la misma cantidad de ramificaciones en el segundo nivel."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Diagrama de árbol",
+        "significado": "Esquema gráfico ramificado que enumera ordenadamente todos los resultados de un experimento."
+      },
+      {
+        "termino": "Rama",
+        "significado": "Línea que conecta una etapa con una opción específica en el diagrama."
+      },
+      {
+        "termino": "Espacio muestral",
+        "significado": "Conjunto formado por la totalidad de resultados posibles de una situación de azar."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Para el almuerzo en un comedor popular de Huancayo, puedes elegir entre 2 entradas (sopa de verduras o ensalada mixta) y 2 segundos (estofado de pollo o trucha frita). ¿Cuántos menús distintos se pueden formar? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica cuántas entradas hay disponibles: 2 opciones.",
+          "Cada entrada se puede combinar con 2 segundos distintos.",
+          "Multiplica 2 por 2 para hallar el total de parejas posibles."
+        ],
+        "retroalimentacion": "Multiplicando 2 opciones de entrada por 2 opciones de segundo obtenemos 4 menús combinados."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al construir un diagrama de árbol para dos lanzamientos consecutivos de una moneda, el dibujo finaliza con exactamente 4 ramas en sus extremos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En el primer lanzamiento hay 2 caminos: cara y sello.",
+          "De cada uno de esos caminos salen otras 2 ramas para el segundo tiro.",
+          "El producto 2 por 2 da 4 puntas o extremos terminales."
+        ],
+        "retroalimentacion": "El árbol genera las combinaciones (C,C), (C,S), (S,C) y (S,S), dando 4 ramas finales: la afirmación es verdadera."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una picantería en Arequipa ofrece 3 opciones de refresco tradicional (chicha de jora, chicha morada y emoliente) y 4 platos típicos de fondo. ¿Cuántos almuerzos con refresco y plato de fondo diferentes se pueden pedir?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7"
+          },
+          {
+            "id": "b",
+            "texto": "12"
+          },
+          {
+            "id": "c",
+            "texto": "10"
+          },
+          {
+            "id": "d",
+            "texto": "14"
+          }
+        ],
+        "pistas": [
+          "Aplica el principio de multiplicación para opciones combinadas.",
+          "Tienes 3 refrescos y cada uno se ramifica hacia 4 platos.",
+          "Calcula el producto de 3 multiplicado por 4."
+        ],
+        "retroalimentacion": "Multiplicando 3 refrescos por 4 platos típicos se obtienen 12 almuerzos diferentes."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Cómo se llama cada una de las líneas que se abren desde un punto en este esquema gráfico: rama o raíz?",
+        "respuesta": "rama",
+        "alternativasAceptadas": [
+          "rama",
+          "la rama",
+          "ramas"
+        ],
+        "pistas": [
+          "La palabra hace alusión directa a las partes de un árbol vegetal.",
+          "Conecta las etapas sucesivas del experimento.",
+          "Selecciona una de las dos alternativas dadas en la pregunta."
+        ],
+        "retroalimentacion": "Cada línea que parte de un nodo en el diagrama recibe el nombre de rama."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Marita lanza una moneda de un sol y luego gira una ruleta dividida en 3 colores iguales: rojo, amarillo y verde. ¿Cuántos resultados posibles contiene el espacio muestral completo?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5"
+          },
+          {
+            "id": "b",
+            "texto": "8"
+          },
+          {
+            "id": "c",
+            "texto": "6"
+          },
+          {
+            "id": "d",
+            "texto": "9"
+          }
+        ],
+        "pistas": [
+          "La moneda tiene 2 resultados posibles en la primera fase.",
+          "La ruleta aporta 3 resultados posibles en la segunda fase.",
+          "Multiplica 2 por 3 para encontrar la cantidad total de parejas."
+        ],
+        "retroalimentacion": "El espacio muestral contiene 2 por 3, es decir, 6 resultados posibles."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una tienda de artesanías en Chulucanas se fabrican vasijas en 4 tamaños distintos y cada tamaño se decora en 3 colores tradicionales. ¿Cuántos modelos diferentes de vasijas se pueden elegir? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Dibuja o imagina un árbol con 4 ramas iniciales para los tamaños.",
+          "Desde cada rama de tamaño salen 3 ramas de colores.",
+          "Efectúa la multiplicación de 4 por 3."
+        ],
+        "retroalimentacion": "Multiplicando 4 tamaños por 3 colores obtenemos 12 modelos diferentes."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si tiras un dado común de 6 caras y enseguida lanzas una moneda al aire, el diagrama de árbol genera un total de 8 resultados posibles.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cuántas opciones ofrece el dado: son 6 números.",
+          "Cada uno de esos 6 números se junta con 2 opciones de la moneda.",
+          "Multiplica 6 por 2 en lugar de sumar 6 más 2."
+        ],
+        "retroalimentacion": "El cálculo correcto es 6 multiplicado por 2, lo que resulta en 12 combinaciones y no 8; la afirmación es falsa."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Al conjunto que reúne todos los resultados obtenidos al recorrer todas las ramas del árbol se le denomina espacio... ¿muestral o parcial?",
+        "respuesta": "muestral",
+        "alternativasAceptadas": [
+          "muestral",
+          "espacio muestral"
+        ],
+        "pistas": [
+          "Es el término matemático que agrupa todos los casos posibles de un experimento.",
+          "Proviene de la palabra muestra.",
+          "Elige entre las dos opciones presentadas al final de la pregunta."
+        ],
+        "retroalimentacion": "El conjunto de todos los resultados posibles se denomina espacio muestral."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una heladería en Iquitos ofrece servir sus helados en cono o vaso, con sabores de aguaje, camu camu o lúcuma, y con cobertura de miel o chocolate. ¿Cuántas combinaciones diferentes de helado se pueden armar en total?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12"
+          },
+          {
+            "id": "b",
+            "texto": "7"
+          },
+          {
+            "id": "c",
+            "texto": "10"
+          },
+          {
+            "id": "d",
+            "texto": "16"
+          }
+        ],
+        "pistas": [
+          "Cuenta las opciones de cada etapa: 2 recipientes, 3 sabores y 2 coberturas.",
+          "Multiplica primero 2 recipientes por 3 sabores para obtener 6.",
+          "Multiplica ese resultado de 6 por las 2 opciones de cobertura."
+        ],
+        "retroalimentacion": "El cálculo de 2 recipientes por 3 sabores por 2 coberturas da exactamente 12 combinaciones."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Para un campeonato de ajedrez relámpago se arman parejas mixtas combinando 5 niños de 5.° A con 4 niñas de 5.° B. Si una de las niñas se retira antes de hacer el sorteo, ¿cuántas parejas posibles quedan en el diagrama de árbol? Escribe solo el número.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Determina cuántas niñas quedan disponibles tras la retirada: 4 menos 1 es 3.",
+          "Mantén el número de niños del aula A: siguen siendo 5.",
+          "Multiplica 5 niños por las 3 niñas que participan."
+        ],
+        "retroalimentacion": "Con 5 niños y 3 niñas disponibles, 5 por 3 genera 15 parejas posibles."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al lanzar dos dados comunes de 6 caras, exactamente 6 de las 36 parejas posibles de resultados dan como suma el número 7.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total de resultados del árbol de dos dados es 6 por 6, igual a 36.",
+          "Escribe las parejas que suman 7: (1,6), (2,5), (3,4), (4,3), (5,2) y (6,1).",
+          "Cuenta cuántas parejas anotaste en la lista anterior."
+        ],
+        "retroalimentacion": "Las 6 parejas favorables son (1,6), (2,5), (3,4), (4,3), (5,2) y (6,1), por lo que la afirmación es verdadera."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se desea formar un código de dos cifras diferentes utilizando los dígitos 2, 4 y 6 sin repetir ninguno. Al trazar el árbol, ¿cuántos números pares de dos cifras distintas se logran formar?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9"
+          },
+          {
+            "id": "b",
+            "texto": "4"
+          },
+          {
+            "id": "c",
+            "texto": "3"
+          },
+          {
+            "id": "d",
+            "texto": "6"
+          }
+        ],
+        "pistas": [
+          "Para la primera cifra dispones de 3 opciones (2, 4 o 6).",
+          "Como no se puede repetir el dígito, para la segunda cifra quedan solo 2 opciones.",
+          "Multiplica 3 por 2 y nota que todos los números terminan en cifra par."
+        ],
+        "retroalimentacion": "Se pueden formar 24, 26, 42, 46, 62 y 64; todos son pares y suman un total de 6 números."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p5.comparar-posibilidades",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 25,
+    "capacidad": "Sustenta conclusiones o decisiones con base en la información obtenida",
+    "desempenosOrigen": [
+      "MAT-C25-P5-06"
+    ],
+    "bloque": "Azar",
+    "nombre": "Comparación de la posibilidad de dos sucesos",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Predice cuál de dos sucesos tiene mayor posibilidad contando casos favorables.",
+    "palabrasClave": [
+      "casos favorables",
+      "casos posibles",
+      "probabilidad comparada",
+      "prediccion",
+      "fraccion de probabilidad"
+    ],
+    "prerrequisitos": [
+      "mat.p5.diagrama-arbol"
+    ],
+    "ordenSugerido": 118,
+    "ideaCentral": "Para saber qué suceso tiene mayor posibilidad de ocurrir, contamos los casos favorables de cada uno y los comparamos respecto al total de resultados posibles.",
+    "pasos": [
+      "Determina el número total de resultados posibles del experimento.",
+      "Cuenta los casos que favorecen al primer suceso y los que favorecen al segundo suceso.",
+      "Si ambos juegan sobre el mismo total, el suceso con más casos a favor es el más probable.",
+      "Si los totales son diferentes, compara las fracciones que representan los casos favorables sobre el total."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una caja hay 7 canicas azules y 3 canicas rojas. ¿Qué suceso tiene mayor posibilidad: sacar azul o sacar roja?",
+        "desarrollo": "Sobre 10 canicas en total, sacar azul tiene 7 casos a favor y sacar roja tiene 3. Como 7 es mayor que 3, azul tiene ventaja.",
+        "respuesta": "Sacar una canica azul tiene mayor posibilidad."
+      },
+      {
+        "situacion": "Al lanzar un dado de seis caras, ¿es más probable sacar un número par (2, 4, 6) o sacar un número mayor que 4 (5, 6)?",
+        "desarrollo": "El suceso par tiene 3 casos favorables y el suceso mayor que 4 tiene 2 casos favorables.",
+        "respuesta": "Es más probable sacar un número par."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Comparar solo las cantidades a favor cuando las bolsas o recipientes tienen totales distintos.",
+        "correccion": "Cuando los totales difieren, debes comparar la fracción o proporción de cada suceso respecto a su conjunto."
+      },
+      {
+        "error": "Creer que una pequeña diferencia en casos favorables garantiza la victoria en un juego corto.",
+        "correccion": "La probabilidad indica tendencia matemática, pero el azar individual puede dar sorpresas a corto plazo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Casos favorables",
+        "significado": "Resultados que cumplen exactamente con la condición deseada en el suceso."
+      },
+      {
+        "termino": "Casos posibles",
+        "significado": "Conjunto total de todos los resultados que pueden presentarse en el juego."
+      },
+      {
+        "termino": "Probabilidad",
+        "significado": "Medida que indica qué tan factible es que ocurra un evento determinado."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una ruleta dividida en 8 sectores iguales con 5 sectores rojos y 3 azules, la posibilidad de obtener rojo es mayor que la de obtener azul.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los sectores de cada color: 5 rojos frente a 3 azules.",
+          "Ambos colores se disputan el mismo total de 8 sectores.",
+          "El color con mayor cantidad numérica tiene mayor posibilidad."
+        ],
+        "retroalimentacion": "Hay 5 sectores rojos frente a 3 azules sobre el mismo total, por lo que la afirmación es verdadera."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una caja hay 9 tarjetas verdes, 4 tarjetas amarillas y 2 tarjetas blancas. Si extraes una tarjeta sin mirar, ¿cuál de los tres sucesos tiene la menor posibilidad?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Extraer tarjeta verde"
+          },
+          {
+            "id": "b",
+            "texto": "Extraer tarjeta amarilla"
+          },
+          {
+            "id": "c",
+            "texto": "Extraer tarjeta blanca"
+          },
+          {
+            "id": "d",
+            "texto": "Todos tienen la misma posibilidad"
+          }
+        ],
+        "pistas": [
+          "Revisa la cantidad de tarjetas de cada color: 9 verdes, 4 amarillas y 2 blancas.",
+          "El suceso con menos casos favorables es el menos probable.",
+          "El número 2 es la cantidad más pequeña de las tres."
+        ],
+        "retroalimentacion": "Extraer tarjeta blanca solo tiene 2 casos favorables, siendo el suceso con menor posibilidad."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En una bolsa opaca hay 12 caramelos de chicha morada y 8 caramelos de limón. ¿Cuántos casos favorables tiene el suceso de sacar un caramelo de chicha morada? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica la condición pedida: sacar caramelo de chicha morada.",
+          "Busca en el texto cuántos caramelos de ese sabor existen.",
+          "El valor directo indicado en el problema es 12."
+        ],
+        "retroalimentacion": "Hay 12 caramelos de chicha morada en la bolsa, por lo que existen 12 casos favorables."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Si dos sucesos diferentes tienen exactamente 6 casos favorables sobre un mismo total de 12 resultados, decimos que tienen... ¿igual o distinta posibilidad?",
+        "respuesta": "igual",
+        "alternativasAceptadas": [
+          "igual",
+          "la misma",
+          "misma",
+          "igual posibilidad"
+        ],
+        "pistas": [
+          "Compara los dos números favorables: ambos son 6.",
+          "Ambos se dividen entre el mismo total de 12.",
+          "Elige entre las dos palabras propuestas en la pregunta."
+        ],
+        "retroalimentacion": "Al compartir idéntica cantidad de casos favorables sobre el mismo total, tienen igual posibilidad."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al lanzar un dado común de 6 caras, se definen dos sucesos: el suceso M es «obtener un número par» (2, 4, 6) y el suceso N es «obtener un número mayor que 4» (5, 6). ¿Cuál de los dos sucesos tiene mayor posibilidad?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El suceso N"
+          },
+          {
+            "id": "b",
+            "texto": "El suceso M"
+          },
+          {
+            "id": "c",
+            "texto": "Tienen exactamente igual posibilidad"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguno puede ocurrir"
+          }
+        ],
+        "pistas": [
+          "Cuenta los casos favorables del suceso M: son 3 números (2, 4 y 6).",
+          "Cuenta los casos favorables del suceso N: son 2 números (5 y 6).",
+          "Compara 3 casos frente a 2 casos sobre las 6 caras del dado."
+        ],
+        "retroalimentacion": "El suceso M tiene 3 casos favorables mientras que el suceso N tiene solo 2, por lo que el suceso M tiene mayor posibilidad."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una caja A hay 3 bolitas rojas de un total de 10 bolitas. En una caja B hay 8 bolitas rojas de un total de 20 bolitas. ¿Cuántas bolitas rojas favorables contiene la caja B? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Localiza la información correspondiente a la caja B en el enunciado.",
+          "Fíjate cuántas bolitas rojas se mencionan para esa caja.",
+          "El número solicitado está expresado directamente como 8."
+        ],
+        "retroalimentacion": "La caja B contiene exactamente 8 bolitas rojas a su favor."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al extraer una carta de una baraja de 52 naipes, sacar una carta del palo de corazones (13 cartas) tiene mayor posibilidad que sacar un as de cualquier palo (4 cartas).",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los casos favorables: 13 cartas de corazones frente a 4 ases en total.",
+          "Ambos sucesos se calculan sobre la misma baraja de 52 cartas.",
+          "Tener 13 opciones otorga una ventaja clara sobre tener 4 opciones."
+        ],
+        "retroalimentacion": "Hay 13 cartas de corazones frente a solo 4 ases, por lo que sacar corazones tiene mayor posibilidad: la afirmación es verdadera."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Cuando expresamos que 4 de cada 10 fichas son rojas escribiendo 4/10, ¿qué tipo de expresión numérica estamos utilizando: fracción o porcentaje?",
+        "respuesta": "fraccion",
+        "alternativasAceptadas": [
+          "fraccion",
+          "fracción",
+          "una fraccion",
+          "una fracción"
+        ],
+        "pistas": [
+          "Lleva un numerador arriba y un denominador abajo separados por una barra.",
+          "Indica una parte tomada de un todo dividido en partes iguales.",
+          "Escoge entre los dos términos sugeridos en la pregunta."
+        ],
+        "retroalimentacion": "Escribir 4/10 representa una fracción matemática."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "La urna 1 contiene 6 bolitas verdes de un total de 10 bolitas. La urna 2 contiene 15 bolitas verdes de un total de 25 bolitas. ¿En cuál de las dos urnas hay mayor posibilidad de sacar una bolita verde?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "En la urna 1"
+          },
+          {
+            "id": "b",
+            "texto": "En la urna 2"
+          },
+          {
+            "id": "c",
+            "texto": "En ambas urnas la posibilidad es exactamente la misma"
+          },
+          {
+            "id": "d",
+            "texto": "No se pueden comparar porque tienen distintos totales"
+          }
+        ],
+        "pistas": [
+          "Simplifica la fracción de la urna 1: 6/10 equivale a 3/5.",
+          "Simplifica la fracción de la urna 2: 15/25 dividiendo entre 5 también da 3/5.",
+          "Comprueba si ambas fracciones representan la misma proporción."
+        ],
+        "retroalimentacion": "Tanto 6/10 como 15/25 simplifican a 3/5 (60 %), por lo que en ambas urnas la posibilidad es exactamente la misma."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Pedro tiene una bolsa con 14 canicas negras y 6 canicas blancas. ¿Cuántas canicas blancas debe agregar a la bolsa para que sacar una blanca tenga la misma posibilidad que sacar una negra? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para que tengan igual posibilidad, debe haber la misma cantidad de canicas de cada color.",
+          "El objetivo es igualar la cantidad de blancas a las 14 negras.",
+          "Calcula cuánto le falta a 6 para llegar a 14 mediante una resta."
+        ],
+        "retroalimentacion": "Restando 14 menos 6 obtenemos 8 canicas blancas que se deben agregar."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al tirar dos dados simultáneamente, el suceso de obtener una suma igual a 7 tiene más casos favorables que el suceso de obtener una suma igual a 10.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Enumera las parejas que suman 7: (1,6), (2,5), (3,4), (4,3), (5,2) y (6,1), que son 6 casos.",
+          "Enumera las parejas que suman 10: (4,6), (5,5) y (6,4), que son solo 3 casos.",
+          "Compara 6 casos frente a 3 casos."
+        ],
+        "retroalimentacion": "La suma 7 cuenta con 6 combinaciones y la suma 10 solo con 3, por lo que la afirmación es verdadera."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una kermés escolar en Piura hay dos juegos: en el Juego 1 ganas si sacas una bola blanca de una bolsa con 2 blancas y 3 negras (2 de 5); en el Juego 2 ganas si sacas una bola blanca de una bolsa con 5 blancas y 5 negras (5 de 10). ¿Qué juego te brinda mayor probabilidad de ganar?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El Juego 2"
+          },
+          {
+            "id": "b",
+            "texto": "El Juego 1"
+          },
+          {
+            "id": "c",
+            "texto": "Ambos juegos ofrecen igual probabilidad"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguno permite ganar premios"
+          }
+        ],
+        "pistas": [
+          "Convierte la probabilidad del Juego 1 a decimal: 2 dividido entre 5 es 0,40 (40 %).",
+          "Convierte la probabilidad del Juego 2 a decimal: 5 dividido entre 10 es 0,50 (50 %).",
+          "Compara 50 % con 40 % para ver cuál opción ofrece mayor ventaja."
+        ],
+        "retroalimentacion": "El Juego 2 ofrece 5 de 10 (50 %) frente al Juego 1 que ofrece solo 2 de 5 (40 %), por lo que el Juego 2 brinda mayor probabilidad."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]
