@@ -94,7 +94,7 @@ function cursosDe(s: SalonPlan): [string, string][] {
     return [
       ["Matemática", s.tutor], ["Comunicación", s.tutor], ["Personal Social", s.tutor], ["Ciencia y Tecnología", ciencia],
       ["Arte y Cultura", s.tutor], ["Educación Física", "raul"], ["Educación Religiosa", s.tutor], ["Inglés", "pamela"],
-      ...(s.clave === "P5A" ? [["Aritmética", "pedro"]] as [string, string][] : []),
+      ...(s.clave === "P4A" ? [["Aritmética", "pedro"]] as [string, string][] : []),
     ];
   }
   const primeros = ["S1A", "S1B", "S2A"].includes(s.clave);
