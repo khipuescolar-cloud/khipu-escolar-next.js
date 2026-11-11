@@ -34,16 +34,19 @@ describe("plan de estudios por colegio", () => {
     expect((await guardarMallaGrado(ctx, { anio: 2026, nivel: "primaria", grado: 3, cursoColegioIds: [id] })).creados).toBe(0);
   });
 
-  it("conserva un curso con asistencia y avisa al quitarlo de la malla", async () => {
+  it("conserva cursos con asistencia o sesión de Nudito y avisa al quitarlo de la malla", async () => {
     const ctx = a.ctxDe("direccion");
     const curso = await a.db.curso.findFirstOrThrow({ where: { salonId: a.salon.id, cursoColegio: { cursoKhipu: "algebra" } } });
     await a.db.asistencia.create({ data: {
       tenantId: a.tenant.id, alumnoId: a.alumnos.mateo.id, cursoId: curso.id, ambito: curso.id,
       fecha: new Date("2026-04-01"), hora: "08:00", estado: "llego",
     } });
+    const cursoNudito = await a.db.curso.findFirstOrThrow({ where: { salonId: a.otroSalon.id, cursoColegio: { cursoKhipu: "algebra" } } });
+    await a.db.nuditoSesion.create({ data: { tenantId: a.tenant.id, alumnoId: a.alumnos.mateo.id, membershipId: a.miembros.tutora.membership.id, cursoId: cursoNudito.id, semilla: 1 } });
     const r = await guardarMallaGrado(ctx, { anio: 2026, nivel: "primaria", grado: 3, cursoColegioIds: [] });
-    expect(r.avisos.join(" ")).toContain("conserva asistencia");
+    expect(r.avisos.join(" ")).toContain("conserva datos asociados");
     expect(await a.db.curso.findUnique({ where: { id: curso.id } })).not.toBeNull();
+    expect(await a.db.curso.findUnique({ where: { id: cursoNudito.id } })).not.toBeNull();
     expect(r.borrados).toBeGreaterThan(0);
   });
 
