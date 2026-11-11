@@ -61,7 +61,7 @@ describe("área CNEB de los cursos", () => {
     await db.curso.delete({ where: { id } });
   });
 
-  it("cursos de Nudito del alumno: solo su salón, una entrada por área", async () => {
+  it("cursos de Nudito del alumno: solo su salón y una entrada por curso Khipu", async () => {
     await rellenarAreasCursos(c.tenant.id);
     const extra = await db.curso.create({ data: { tenantId: c.tenant.id, salonId: c.salon.id, nombre: "Razonamiento matemático", areaCneb: "matematica" } });
     const com = await db.curso.create({ data: { tenantId: c.tenant.id, salonId: c.salon.id, nombre: "Comunicación", areaCneb: "comunicacion" } });
@@ -69,13 +69,14 @@ describe("área CNEB de los cursos", () => {
     const cursos = await cursosNuditoDelAlumno(c.db, c.alumnos.mateo.id, ["matematica", "comunicacion", "ciencia-tecnologia"]);
     expect(cursos).toEqual([
       { cursoId: c.cursoTutora.id, nombre: "Matemática", area: "matematica" },
+      { cursoId: extra.id, nombre: "Razonamiento matemático", area: "matematica" },
       { cursoId: com.id, nombre: "Comunicación", area: "comunicacion" },
     ]);
     // La Ciencia del 5.° A (otro salón) no aparece; con áreas limitadas, solo esas.
     expect(await cursosNuditoDelAlumno(c.db, c.alumnos.mateo.id, ["comunicacion"])).toHaveLength(1);
     expect((await cursosNuditoDelAlumno(c.db, c.alumnos.thiago.id, ["ciencia-tecnologia"]))[0].cursoId).toBe(c.cursoAjeno.id);
     // La madre de Mateo lo ve; no ve a Thiago.
-    expect(await cursosNuditoDeAlumno(c.ctxDe("madre"), c.alumnos.mateo.id)).toHaveLength(2);
+    expect(await cursosNuditoDeAlumno(c.ctxDe("madre"), c.alumnos.mateo.id)).toHaveLength(3);
     await esperarProhibido(cursosNuditoDeAlumno(c.ctxDe("madre"), c.alumnos.thiago.id));
     await db.curso.deleteMany({ where: { id: { in: [extra.id, com.id, arte.id] } } });
   });

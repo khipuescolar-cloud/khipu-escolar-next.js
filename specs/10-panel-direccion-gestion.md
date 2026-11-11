@@ -55,3 +55,6 @@ Hub de gestión con tarjetas y pestañas de sección en las subpáginas; alumnos
 
 ## Redirect URLs locales
 `supabase/config.toml` permite `lvh.me` y `*.lvh.me` en los puertos 3000–3030, así el enlace de invitación y recuperación vuelve al puerto del worktree.
+
+## Plan de estudios (servicio, sin interfaz nueva)
+Dirección y administración pueden guardar cursos y malla mediante el servicio. `crearSalon` (dirección) y la carga masiva aplican la malla anual al salón nuevo. `crearCurso` enlaza el curso manual con `CursoColegio` y registra su oferta anual. La configuración visual de cursos y casillas por grado se diseñará dentro del panel de dirección/administración (specs/51).

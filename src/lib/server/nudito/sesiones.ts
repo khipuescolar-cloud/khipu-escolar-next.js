@@ -32,6 +32,7 @@ import type { MensajeIA, ProveedorIA } from "../nudito-plus/proveedor";
 import type { TenantContext } from "../tenant";
 import { claveCache, guardarCache, leerCache, registrarConsumo } from "./ia/consumo";
 import { conValidacion } from "./ia/esquemas";
+import { temaTienePractica } from "@/lib/nudito/conocimiento/servidor";
 import { temasPublicadosDelAlumno, progresoDelPlan } from "./plan-publicado";
 import { esquemaLeccion } from "@/lib/nudito/leccion";
 import { obtenerProveedorTutor } from "./ia/proveedor";
@@ -87,10 +88,10 @@ async function sesionPropia(ctx: TenantContext, acceso: AccesoNudito, sesionId: 
   return s;
 }
 
-async function temaDeSesion(ctx: TenantContext, sesion: { area: string | null; temaClave: string | null }, nivel: NivelNudito): Promise<Tema> {
+async function temaDeSesion(ctx: TenantContext, sesion: { area: string | null; temaClave: string | null; cursoId: string | null }, nivel: NivelNudito, acceso: AccesoNudito): Promise<Tema> {
   if (!sesion.area || !sesion.temaClave) throw new ErrorDeNegocio("Primero elige un tema.");
   const tema = await temaDelArea(ctx.db, sesion.area as AreaNudito, nivel, sesion.temaClave);
-  if (!tema) throw new ErrorDeNegocio("Ese tema ya no está disponible. Elige otro.");
+  if (!tema || !(await temaTienePractica(tema.clave)) || !(await temasPublicadosDelAlumno(ctx, acceso, sesion.cursoId ?? sesion.area)).some(t => t.clave === tema.clave)) throw new ErrorDeNegocio("Ese tema ya no está disponible. Elige otro.");
   return tema;
 }
 
@@ -175,18 +176,17 @@ export async function elegirCurso(ctx: TenantContext, acceso: AccesoNudito, entr
   const { nivel, grado } = await datosDelSalon(ctx, acceso);
   await ctx.db.nuditoSesion.update({ where: { id: sesion.id }, data: { cursoId: curso.cursoId, area: curso.area, temaClave: null, gradoTema: null, fase: "tema", ultimaActividadAt: new Date() } });
 
-  const visibles = await temasPublicadosDelAlumno(ctx, acceso, curso.area);
+  const visibles = await temasPublicadosDelAlumno(ctx, acceso, curso.cursoId);
   const alumnoG = gradoAbsoluto(nivel, grado);
   const dominios = await dominiosDe(ctx, acceso.alumno.id, visibles.map((t) => t.clave));
+  const preparados = new Map(await Promise.all(visibles.map(async t => [t.clave, await temaTienePractica(t.clave)] as const)));
   return {
     temas: visibles
       .map((t) => {
         const estado = (dominios.get(t.clave)?.estado ?? "no_iniciado") as EstadoDominio;
-        const recomendado = estado !== "dominado" && (gradoAbsoluto(t.nivel, t.grado) === alumnoG || estado === "reforzar");
-        return { vista: vistaTema(t, estado, recomendado), recomendado, posicion: gradoAbsoluto(t.nivel, t.grado) };
-      })
-      .sort((a, b) => Number(b.recomendado) - Number(a.recomendado) || b.posicion - a.posicion || a.vista.nombre.localeCompare(b.vista.nombre))
-      .map((x) => x.vista),
+        const recomendado = estado !== "dominado" && gradoAbsoluto(t.nivel, t.grado) === alumnoG;
+        return { ...vistaTema(t, estado, recomendado), pronto: !preparados.get(t.clave) };
+      }),
   };
 }
 
@@ -194,9 +194,10 @@ export async function elegirTema(ctx: TenantContext, acceso: AccesoNudito, entra
   const sesion = await sesionPropia(ctx, acceso, entrada.sesionId);
   if (!sesion.area) throw new ErrorDeNegocio("Primero elige un curso.");
   const area = sesion.area as AreaNudito;
-  const temas = await temasPublicadosDelAlumno(ctx, acceso, area);
+  const temas = await temasPublicadosDelAlumno(ctx, acceso, sesion.cursoId ?? area);
   const tema = temas.find(t => t.clave === entrada.temaClave);
-  if (!tema) return { tipo: "no_reconocido", sugerencias: temas.slice(0, 3), mensaje: "Ese tema aún no está preparado. Elige uno de la lista." };
+  if (!tema) return { tipo: "no_reconocido", sugerencias: temas.slice(0, 3), mensaje: "Ese tema todavía no está en el plan publicado. Elige uno de la lista." };
+  if (!(await temaTienePractica(tema.clave))) return { tipo: "no_reconocido", sugerencias: [], mensaje: "Pronto: estamos preparando la práctica de este tema." };
   const dominio = (await dominiosDe(ctx, acceso.alumno.id, [tema.clave])).get(tema.clave);
   const dificultad = acotarDificultad(tema, dominio?.dificultad ?? tema.dificultad.min);
   await ctx.db.nuditoSesion.update({ where: { id: sesion.id }, data: { temaClave: tema.clave, gradoTema: tema.grado, dificultad, fase: "repaso", ultimaActividadAt: new Date() } });
@@ -207,11 +208,12 @@ export async function elegirTema(ctx: TenantContext, acceso: AccesoNudito, entra
 export async function pedirRepaso(ctx: TenantContext, acceso: AccesoNudito, entrada: EntradaApi<"pedirRepaso">, opciones: { otraVez?: boolean; duda?: string } = {}): Promise<SalidaApi<"pedirRepaso">> {
   const sesion = await sesionPropia(ctx, acceso, entrada.sesionId);
   const { nivel } = await datosDelSalon(ctx, acceso);
-  const tema = await temaDeSesion(ctx, sesion, nivel);
+  const tema = await temaDeSesion(ctx, sesion, nivel, acceso);
   await ctx.db.nuditoSesion.update({ where: { id: sesion.id }, data: { fase: sesion.fase === "bienvenida" || sesion.fase === "tema" ? "repaso" : sesion.fase, ultimaActividadAt: new Date() } });
   const leccion = await ctx.db.nuditoLeccion.findFirst({ where: { temaClave: tema.clave, estado: "publicada" }, orderBy: { version: "desc" }, select: { contenido: true, version: true } });
   const ficha = leccion ? null : await fichaPorClave(tema.clave);
-  if (!leccion && !ficha) throw new ErrorDeNegocio("Tu colegio está preparando este tema.");
+  // Sin lección publicada ni ficha del banco: repaso del catálogo (specs/48).
+  if (!leccion && !ficha) return { idea: tema.repaso.idea, ejemplo: tema.repaso.ejemplo, explicacion: tema.repaso.errorFrecuente ? "Cuidado: " + tema.repaso.errorFrecuente : "", recursos: tema.recursos.map(r => ({ tipo: "enlace" as const, titulo: r.titulo, valor: r.url })) };
   if (ficha) return { idea: ficha.ideaCentral, ejemplo: ficha.ejemplos.map(e => e.situacion + " " + e.desarrollo).join("\n"), explicacion: ficha.pasos.join("\n"), recursos: [] };
   if (!leccion) throw new ErrorDeNegocio("Tu colegio está preparando este tema.");
   const contenido = esquemaLeccion.parse(leccion.contenido);
@@ -244,7 +246,7 @@ export async function pedirRepaso(ctx: TenantContext, acceso: AccesoNudito, entr
 export async function siguienteEjercicio(ctx: TenantContext, acceso: AccesoNudito, entrada: EntradaApi<"siguienteEjercicio">): Promise<SalidaApi<"siguienteEjercicio">> {
   const sesion = await sesionPropia(ctx, acceso, entrada.sesionId);
   const { nivel } = await datosDelSalon(ctx, acceso);
-  const tema = await temaDeSesion(ctx, sesion, nivel);
+  const tema = await temaDeSesion(ctx, sesion, nivel, acceso);
 
   // Un ejercicio abierto se devuelve tal cual (reanudar o doble clic: idempotente).
   const abierto = await ctx.db.nuditoEjercicio.findFirst({ where: { sesionId: sesion.id, cerradoAt: null }, orderBy: { orden: "desc" } });
@@ -257,7 +259,7 @@ export async function siguienteEjercicio(ctx: TenantContext, acceso: AccesoNudit
 
   const dominio = await ctx.db.nuditoDominio.findUnique({ where: { alumnoId_temaClave: { alumnoId: acceso.alumno.id, temaClave: tema.clave } } });
   const comprobacion = dominio?.estado === "en_comprobacion";
-  const plan = dominio?.estado === "dominado" ? await progresoDelPlan(ctx, acceso.alumno.id, tema.area) : null;
+  const plan = dominio?.estado === "dominado" ? await progresoDelPlan(ctx, acceso.alumno.id, sesion.cursoId ?? tema.area) : null;
   const dificultad = plan?.completo ? tema.dificultad.max : acotarDificultad(tema, dominio?.dificultad ?? sesion.dificultad);
   const orden = hechos + 1;
   // Variedad: semilla por sesión + orden (determinista y distinta en cada ejercicio).
@@ -466,7 +468,7 @@ export async function preguntar(ctx: TenantContext, acceso: AccesoNudito, entrad
 
   // Contexto mínimo para la IA: tema + ejercicio público abierto + ≤4 turnos; nunca nombres completos, notas ni datos del colegio.
   const { nivel } = await datosDelSalon(ctx, acceso);
-  const tema = sesion.temaClave ? await temaDeSesion(ctx, sesion, nivel).catch(() => null) : null;
+  const tema = sesion.temaClave ? await temaDeSesion(ctx, sesion, nivel, acceso).catch(() => null) : null;
   const abierto = await ctx.db.nuditoEjercicio.findFirst({ where: { sesionId: sesion.id, cerradoAt: null }, select: { enunciado: true } });
   const sistema = [
     "Eres Nudito, tutor escolar. Guía con preguntas, sin dar la respuesta final. Solo temas del curso.",
@@ -539,7 +541,7 @@ export async function finalizar(ctx: TenantContext, acceso: AccesoNudito, entrad
   const base = conIntento.length === 0
     ? `¡Gracias por pasar, ${nombre}!`
     : aciertos === conIntento.length ? `¡Excelente, ${nombre}! Acertaste todos.` : aciertos > 0 ? `¡Buen trabajo, ${nombre}! Acertaste ${aciertos} de ${conIntento.length}.` : `¡Gracias por practicar, ${nombre}! Cada intento te ayuda a aprender.`;
-  const plan = sesion.area ? await progresoDelPlan(ctx, acceso.alumno.id, sesion.area as AreaNudito) : null;
+  const plan = sesion.area ? await progresoDelPlan(ctx, acceso.alumno.id, sesion.cursoId ?? sesion.area as AreaNudito) : null;
   const habilidades = temas.filter(t => t.estado === "dominado" || aciertos > 0).map(t => t.nombre);
   const dificultades = temas.filter(t => t.estado === "reforzar" || aciertos < conIntento.length).map(t => t.nombre);
   const recomendaciones = plan?.completo ? ["Repasa libremente los temas del plan.", "Prueba la profundización en el nivel más difícil."] : dificultades.length ? ["Revisa la explicación y vuelve a intentar el tema con las pistas."] : ["Continúa con otro tema del plan cuando quieras."];

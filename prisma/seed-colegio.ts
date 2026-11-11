@@ -4,6 +4,9 @@
 import { randomUUID } from "node:crypto";
 import type { PrismaClient } from "../src/generated/prisma/client";
 import type { Genero, Nivel, Rol } from "../src/generated/prisma/enums";
+import { normalizar } from "../src/lib/cneb/catalogo";
+import { detectarCursoKhipu } from "../src/lib/cursos-khipu/catalogo";
+import { aprobarTodosLosTemas } from "../scripts/curriculum/aprobar-todo";
 import {
   DOMINIO_COLEGIO, DOMINIO_FAMILIAS, NOMBRE_COLEGIO, SLUG_COLEGIO, VERSION_CONSENTIMIENTO, anioEscolar, asegurarUsuariosAuth,
   crearAzar, enParalelo, fechaDb, hashToken, hoyLima, instante, sinTildes, sumarDias, tokenCarnet, type Azar,
@@ -91,6 +94,7 @@ function cursosDe(s: SalonPlan): [string, string][] {
     return [
       ["Matemática", s.tutor], ["Comunicación", s.tutor], ["Personal Social", s.tutor], ["Ciencia y Tecnología", ciencia],
       ["Arte y Cultura", s.tutor], ["Educación Física", "raul"], ["Educación Religiosa", s.tutor], ["Inglés", "pamela"],
+      ...(s.clave === "P4A" ? [["Aritmética", "pedro"]] as [string, string][] : []),
     ];
   }
   const primeros = ["S1A", "S1B", "S2A"].includes(s.clave);
@@ -98,6 +102,7 @@ function cursosDe(s: SalonPlan): [string, string][] {
     ["Matemática", primeros ? "alberto" : "ricardo"], ["Comunicación", primeros ? "monica" : "teresa"], ["Inglés", "daniel"],
     ["Ciencias Sociales", "fernando"], ["Desarrollo Personal, Ciudadanía y Cívica", "carla"], ["Ciencia y Tecnología", primeros ? "oscar" : "veronica"],
     ["Educación para el Trabajo", "gustavo"], ["Arte y Cultura", "lourdes"], ["Educación Física", "cesar"], ["Educación Religiosa", "juancarlos"],
+    ...(s.clave === "S4A" ? [["Química", "veronica"], ["Física", "oscar"]] as [string, string][] : []),
   ];
 }
 
@@ -301,9 +306,28 @@ export async function sembrarColegio(prisma: PrismaClient) {
     return { id, tenantId, nombre: s.nombre, nivel: s.nivel, grado: s.grado, seccion: s.seccion, anio, tutorId: membresia.get(s.tutor)! };
   });
   await prisma.salon.createMany({ data: salones });
-  await prisma.curso.createMany({
-    data: SALONES.flatMap((s) => cursosDe(s).map(([nombre, profe]) => ({ tenantId, salonId: salonId.get(s.clave)!, nombre, profesorId: membresia.get(profe)! }))),
-  });
+  const definiciones = new Map<string, { id: string; tenantId: string; cursoKhipu: string | null; nombre: string }>();
+  const ofertas = new Map<string, { tenantId: string; cursoColegioId: string; anio: number; nivel: Nivel; grado: number }>();
+  const cursosSembrados = SALONES.flatMap((salon) => cursosDe(salon).map(([nombre, profe]) => {
+    const ficha = detectarCursoKhipu(nombre, salon.nivel === "academia" ? undefined : salon.nivel);
+    const clave = ficha?.clave ?? "otro:" + normalizar(nombre);
+    let definicion = definiciones.get(clave);
+    if (!definicion) {
+      definicion = { id: randomUUID(), tenantId, cursoKhipu: ficha?.clave ?? null, nombre: ficha?.nombre ?? nombre };
+      definiciones.set(clave, definicion);
+    }
+    ofertas.set([definicion.id, anio, salon.nivel, salon.grado].join("|"), {
+      tenantId, cursoColegioId: definicion.id, anio, nivel: salon.nivel, grado: salon.grado,
+    });
+    return { tenantId, salonId: salonId.get(salon.clave)!, cursoColegioId: definicion.id, nombre, profesorId: membresia.get(profe)!, areaCneb: ficha?.area ?? null };
+  }));
+  await prisma.cursoColegio.createMany({ data: [...definiciones.values()] });
+  await prisma.cursoColegioGrado.createMany({ data: [...ofertas.values()] });
+  await prisma.curso.createMany({ data: cursosSembrados });
+
+  // Aprobación inicial de todo el catálogo, con revisor y auditoría de plataforma.
+  const aprobacionInicial = await aprobarTodosLosTemas(prisma, "admin@khipuescolar.demo");
+  console.log("  Temas curriculares revisados:", aprobacionInicial);
 
   // 5. Alumnos, cuentas propias y carnets QR.
   await prisma.alumno.createMany({

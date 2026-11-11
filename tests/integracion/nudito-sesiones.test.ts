@@ -108,7 +108,7 @@ beforeAll(async () => {
   // Thiago (5.° A, primaria) con cuenta propia; su madre (Rosa) es su apoderada y dio el consentimiento de IA.
   await db.salon.update({ where: { id: c.otroSalon.id }, data: { grado: 5 } });
   await db.salon.update({ where: { id: c.salon.id }, data: { grado: 3 } });
-  await db.curso.update({ where: { id: c.cursoAjeno.id }, data: { areaCneb: "ciencia-tecnologia", areaCnebManual: true } });
+  await db.curso.update({ where: { id: c.cursoAjeno.id }, data: { nombre: "Ciencia y Tecnología", areaCneb: "ciencia-tecnologia", areaCnebManual: true } });
   cursos.cyt = c.cursoAjeno.id;
   cursos.mat = (await db.curso.create({ data: { tenantId: c.tenant.id, salonId: c.otroSalon.id, nombre: "Matemática", areaCneb: "matematica" } })).id;
   cursos.com = (await db.curso.create({ data: { tenantId: c.tenant.id, salonId: c.otroSalon.id, nombre: "Comunicación", areaCneb: "comunicacion" } })).id;

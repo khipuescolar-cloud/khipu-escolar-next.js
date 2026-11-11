@@ -55,8 +55,7 @@ decidir de forma **determinista** (sin IA) qué tema puede practicar cada alumno
      `manual = true`, auditado). «Automática» (`area = null`) vuelve al cálculo por nombre. Sin cambios no se escribe ni audita.
   5. `importarCneb` (specs/30) fija el área importada.
 - **Cursos de Nudito del alumno** (`cursosNuditoDelAlumno` / `cursosNuditoDeAlumno` con `requireAlumnoVisible`): solo
-  cursos de su salón con `area_cneb` en las áreas pedidas (⊆ `AREAS_NUDITO`), **una entrada por área** (gana el fijado a
-  mano y luego el nombre más corto), en el orden de `AREAS_NUDITO`.
+  cursos de su salón con `area_cneb` en las áreas pedidas (⊆ `AREAS_NUDITO`), una entrada por curso Khipu con Nudito, para separar áreas y cursos especializados como Química; las áreas mantienen su entrada aunque existan cursos especializados.
 - **Tema**: cumple `esquemaTema`; `desempenoCodigo` existe en `src/lib/cneb/*.json` y es de su área, competencia, nivel y
   grado; prerrequisitos existentes, de la misma área, de grado igual o menor y sin ciclos; recursos solo de dominios en
   `SitioPermitido` (hoy todos vacíos); fuente de `FUENTES_CONOCIDAS`; repaso breve (idea y ejemplo ≤ 400 caracteres).

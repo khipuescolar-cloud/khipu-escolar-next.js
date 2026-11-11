@@ -2,10 +2,11 @@ import { CircleCheck, Clock3, MessageSquare } from "lucide-react";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { FormAccion } from "@/components/FormAccion";
 import { PestanasNudito } from "@/components/nudito/PestanasNudito";
-import { temasDeConBanco } from "@/lib/nudito/conocimiento/servidor";
+import { temaTienePractica } from "@/lib/nudito/conocimiento/servidor";
+import { catalogoDelCurso, estadosEditoriales } from "@/lib/server/plan-anual/catalogo-curso";
 import { CatalogoTemario } from "./CatalogoTemario";
 import { CATALOGO_CNEB } from "@/lib/cneb/catalogo";
-import type { AreaNudito } from "@/lib/nudito/contratos";
+
 import { detalleTemario, estadoTemario, nombreTemaTemario } from "@/lib/server/plan-anual/temario";
 import { requireTenantContext } from "@/lib/server/tenant";
 import { temarioAccion } from "../actions";
@@ -25,7 +26,10 @@ export default async function TemarioDetalle({
   const editar = ctx.rol === "profesor";
   const accion = (tipo: string) => temarioAccion.bind(null, slug, id, tipo);
 
-  const catalogo = await temasDeConBanco(plan.area as AreaNudito, plan.nivel as "primaria" | "secundaria", plan.grado);
+  const catalogo = await catalogoDelCurso(ctx.db, plan);
+  const estados = await estadosEditoriales(ctx.db, catalogo.map(t => t.clave));
+  const borradores = catalogo.filter(t => estados.get(t.clave) !== "revisado").map(t => t.clave);
+  const sinPractica = (await Promise.all(catalogo.map(async t => ({ clave: t.clave, lista: await temaTienePractica(t.clave) })))).filter(t => !t.lista).map(t => t.clave);
   const nombres = await Promise.all(temas.map(t => nombreTemaTemario(t.temaClave)));
   const fecha = (d: Date) =>
     new Intl.DateTimeFormat("es-PE", { dateStyle: "medium", timeStyle: "short", timeZone: ctx.tenant.zonaHoraria }).format(d);
@@ -152,7 +156,7 @@ export default async function TemarioDetalle({
           </ol>
         </section>
 
-        <CatalogoTemario temas={catalogo} competencias={Object.fromEntries(CATALOGO_CNEB.flatMap(a => a.competencias.map(c => [c.numero, c.nombre])))} elegidos={temas.map(t => t.temaClave)} editar={editar} accion={accion("agregar")} />
+        <CatalogoTemario temas={catalogo} competencias={Object.fromEntries(CATALOGO_CNEB.flatMap(a => a.competencias.map(c => [c.numero, c.nombre])))} elegidos={temas.map(t => t.temaClave)} editar={editar} borradores={borradores} sinPractica={sinPractica} accion={accion("agregar")} />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, ChevronDown, Star } from "lucide-react";
+import { ArrowLeft, ChevronDown, Clock3, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Tema, TemaVista, ValidacionTema } from "@/lib/nudito/contratos";
 import { ENTRADA_PASO, EtiquetaEstado, TituloPaso, VozNudito, type NivelVista } from "./piezas";
@@ -36,18 +36,20 @@ export function SelectorTema({
   onElegir: (clave: string) => void;
   onVolver: () => void;
 }) {
-  const ordenados = [...temas].sort((a, b) => Number(b.recomendado) - Number(a.recomendado));
+  const ordenados = temas;
   // Primero los de su grado (recomendados) y los que ya practica; el resto (grados anteriores) va plegado para no
   // abrumar con decenas de tarjetas, sobre todo en el celular.
   const principales = ordenados.filter((t) => t.recomendado || t.estado !== "no_iniciado");
   const otros = ordenados.filter((t) => !principales.includes(t));
   const primaria = nivel === "primaria";
   const lista = `grid gap-3 ${primaria ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1"}`;
-  const tarjeta = (t: TemaVista) => (
+  const tarjeta = (t: TemaVista) => {
+    const pronto = (t as TemaVista & { pronto?: boolean }).pronto === true;
+    return (
     <li key={t.clave}>
       <button
         type="button"
-        disabled={ocupado}
+        disabled={ocupado || pronto}
         onClick={() => onElegir(t.clave)}
         className={`flex w-full flex-col gap-2 rounded-[var(--radio-lg)] border bg-superficie text-left outline-none transition-[transform,border-color] duration-200 hover:border-sec-trazo focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-60 motion-safe:hover:-translate-y-0.5 ${t.recomendado ? "border-maiz" : "border-borde-sutil"} ${primaria ? "min-h-20 p-4" : "min-h-14 p-3"}`}
       >
@@ -58,13 +60,14 @@ export function SelectorTema({
               Recomendado
             </span>
           )}
-          <EtiquetaEstado estado={t.estado} />
+          {pronto ? <span className="inline-flex items-center gap-1 rounded-full bg-superficie-2 px-2 py-0.5 text-etiqueta"><Clock3 className="size-3.5" strokeWidth={2} aria-hidden />Pronto</span> : <EtiquetaEstado estado={t.estado} />}
         </span>
         <span className={`font-titulo font-semibold ${primaria ? "text-lg" : "text-cuerpo"}`}>{t.nombre}</span>
         {t.subtema && <span className="text-cuerpo-sm text-muted-foreground">{t.subtema}</span>}
       </button>
     </li>
   );
+  };
 
   return (
     <section aria-labelledby="paso-tema" className={`flex flex-col gap-4 ${ENTRADA_PASO}`}>
