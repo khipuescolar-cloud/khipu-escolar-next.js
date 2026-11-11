@@ -1,0 +1,593 @@
+[
+  {
+    "clave": "mat.p4.redondeo-centena-millar",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Números hasta 10 000",
+    "nombre": "Redondeo a la decena, centena y millar",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Redondea números de cuatro cifras al múltiplo de 10, 100 o 1000 más cercano.",
+    "palabrasClave": [
+      "redondeo",
+      "decena,",
+      "centena",
+      "millar"
+    ],
+    "prerrequisitos": [
+      "mat.p4.recta-numerica-10000"
+    ],
+    "ordenSugerido": 10,
+    "ideaCentral": "Redondear es aproximar un número a una decena, centena o millar cercano. Mira la cifra inmediatamente a la derecha de la posición elegida: de 0 a 4 se conserva y de 5 a 9 se aumenta una unidad.",
+    "pasos": [
+      "Decide si redondeas a decenas, centenas o millares.",
+      "Ubica la cifra de esa posición.",
+      "Mira la cifra siguiente a la derecha.",
+      "Conserva o aumenta la cifra elegida y cambia las posteriores por cero."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Redondea 3467 a la centena.",
+        "desarrollo": "La centena es 4 y la decena siguiente es 6; se aumenta a 5.",
+        "respuesta": "3500."
+      },
+      {
+        "situacion": "Redondea 7824 al millar.",
+        "desarrollo": "La centena es 8, así que el millar 7 sube a 8.",
+        "respuesta": "8000."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Mirar la cifra de la izquierda para decidir.",
+        "correccion": "La cifra que decide está justo a la derecha de la posición que redondeas."
+      },
+      {
+        "error": "Conservar cifras después de la posición redondeada.",
+        "correccion": "Todas las cifras a la derecha se vuelven cero."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Redondear",
+        "significado": "Aproximar a una unidad de orden elegida."
+      },
+      {
+        "termino": "Decena cercana",
+        "significado": "Múltiplo de diez más cercano según la regla de redondeo."
+      },
+      {
+        "termino": "Millar cercano",
+        "significado": "Múltiplo de mil al que se aproxima el número."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Redondea 243 a la decena.",
+        "respuesta": 240,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La posición elegida es la decena.",
+          "Mira la unidad 3.",
+          "Como 3 < 5, conserva la decena 4."
+        ],
+        "retroalimentacion": "243 se redondea a 240; la unidad se vuelve cero."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿A qué centena se redondea 1238?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la decena 3.",
+          "Tres es menor que cinco.",
+          "Conserva la centena 2."
+        ],
+        "retroalimentacion": "1238 se redondea a 1200; 1300 exigiría decena de al menos 5.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1300"
+          },
+          {
+            "id": "b",
+            "texto": "1200"
+          },
+          {
+            "id": "c",
+            "texto": "1230"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "468 se redondea a 470 si se aproxima a la decena.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La unidad es 8.",
+          "Ocho hace subir la decena.",
+          "La decena 6 pasa a 7."
+        ],
+        "retroalimentacion": "Es verdadero: 468 ≈ 470 a la decena."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Redondea 6412 al millar.",
+        "respuesta": 6000,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La posición objetivo es el millar.",
+          "La centena siguiente es 4.",
+          "Cuatro no hace subir el 6."
+        ],
+        "retroalimentacion": "6412 se aproxima a 6000."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Aproxima 3756 a la centena.",
+        "respuesta": 3800,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La centena es 7.",
+          "La decena es 5.",
+          "Con 5, la centena sube a 8."
+        ],
+        "retroalimentacion": "3756 se redondea a 3800; no se conservan las decenas."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Redondea 8495 a la decena.",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la unidad 5.",
+          "La decena 9 debe subir una.",
+          "El aumento produce un canje de 9 decenas a una centena."
+        ],
+        "retroalimentacion": "8495 se redondea a 8500; 8490 ignoraría la regla para el 5.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8490"
+          },
+          {
+            "id": "b",
+            "texto": "8400"
+          },
+          {
+            "id": "c",
+            "texto": "8590"
+          },
+          {
+            "id": "d",
+            "texto": "8500"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si aproximas 5521 al millar, obtienes 6000.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La centena es 5.",
+          "Cinco hace subir el millar.",
+          "El millar 5 pasa a 6."
+        ],
+        "retroalimentacion": "Es verdadero: 5521 ≈ 6000 al millar."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿A qué centena se redondea 9949?",
+        "respuesta": 9900,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la decena 4.",
+          "Cuatro es menor que cinco.",
+          "La centena 9 se conserva."
+        ],
+        "retroalimentacion": "9949 se redondea a 9900; 10000 sería el siguiente centenar."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Aproxima 9996 a la decena.",
+        "respuesta": 10000,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La unidad 6 hace subir la decena.",
+          "La decena 9 produce un canje a la centena.",
+          "Todos los nueves se canjean hasta llegar a diez mil."
+        ],
+        "retroalimentacion": "9996 se redondea a 10000."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una cantidad es 7499. ¿A qué millar se aproxima?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La centena es 4.",
+          "Cuatro no hace subir el millar.",
+          "La parte posterior se cambia por ceros."
+        ],
+        "retroalimentacion": "7499 se aproxima a 7000; 8000 comenzaría desde 7500.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7000"
+          },
+          {
+            "id": "b",
+            "texto": "8000"
+          },
+          {
+            "id": "c",
+            "texto": "7500"
+          },
+          {
+            "id": "d",
+            "texto": "7400"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Redondea 8950 a la centena.",
+        "respuesta": 9000,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En 8950, el 5 está inmediatamente a la derecha de la centena.",
+          "La centena 9 sube una y se canjea.",
+          "El millar 8 pasa a 9."
+        ],
+        "retroalimentacion": "8950 se redondea a 9000; 8900 ignoraría el cinco."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "El número 6745 redondeado a la decena es 6750, pero redondeado al millar es 7000.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "A la decena decide la unidad 5.",
+          "Al millar decide la centena 7.",
+          "Aplica cada regla por separado."
+        ],
+        "retroalimentacion": "Es verdadero: las aproximaciones son 6750 y 7000."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.p4.completar-millar",
+    "area": "matematica",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-P4-04"
+    ],
+    "bloque": "Números hasta 10 000",
+    "nombre": "Completar al millar más cercano",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Calcula mentalmente cuánto falta a un número para llegar al siguiente millar.",
+    "palabrasClave": [
+      "completar",
+      "millar",
+      "cercano"
+    ],
+    "prerrequisitos": [
+      "mat.p4.equivalencias-um-c-d-u"
+    ],
+    "ordenSugerido": 11,
+    "ideaCentral": "Para completar un número hasta el siguiente millar, busca primero el próximo múltiplo de 1000 que sea mayor. La diferencia entre ese millar y el número inicial es lo que falta.",
+    "pasos": [
+      "Identifica entre qué dos millares está el número.",
+      "Elige el siguiente millar mayor.",
+      "Resta el número inicial de ese millar.",
+      "Comprueba sumando la diferencia al número inicial."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "¿Cuánto falta de 2700 a 3000?",
+        "desarrollo": "3000 − 2700 = 300.",
+        "respuesta": "Faltan 300."
+      },
+      {
+        "situacion": "¿Cuánto falta de 4580 al siguiente millar?",
+        "desarrollo": "El siguiente es 5000; 5000 − 4580 = 420.",
+        "respuesta": "Faltan 420."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Restar desde el millar anterior.",
+        "correccion": "La meta es el siguiente millar mayor que el número dado."
+      },
+      {
+        "error": "Responder el millar de llegada en vez de la diferencia.",
+        "correccion": "La pregunta pide cuánto falta, no a qué número se llega."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Siguiente millar",
+        "significado": "Primer múltiplo de 1000 mayor que el número actual."
+      },
+      {
+        "termino": "Complemento",
+        "significado": "Cantidad que falta para llegar a la meta."
+      },
+      {
+        "termino": "Diferencia",
+        "significado": "Resultado de restar el número actual a la meta."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuánto falta de 1200 para llegar al siguiente millar?",
+        "respuesta": 800,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "1200 está entre 1000 y 2000.",
+          "El siguiente millar es 2000.",
+          "2000 − 1200 = 800."
+        ],
+        "retroalimentacion": "Faltan 800; 2000 es la meta, no el complemento."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una colecta lleva 3500 soles. ¿Cuántos faltan para 4000?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "4000 es el siguiente millar.",
+          "Compara 3500 con 4000.",
+          "4000 − 3500 = 500."
+        ],
+        "retroalimentacion": "Faltan 500 soles; 3500 es lo reunido.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3500"
+          },
+          {
+            "id": "b",
+            "texto": "500"
+          },
+          {
+            "id": "c",
+            "texto": "4000"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Desde 2800 faltan 200 para completar 3000.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "3000 es el próximo millar.",
+          "Suma 2800 + 200.",
+          "Comprueba que llega a 3000."
+        ],
+        "retroalimentacion": "Es verdadero: el complemento es 200."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Si tienes 6100 puntos, ¿cuántos necesitas para completar 7000?",
+        "respuesta": 900,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "7000 sigue a 6000.",
+          "Resta 7000 − 6100.",
+          "Las centenas faltantes son nueve."
+        ],
+        "retroalimentacion": "Necesitas 900 puntos para completar el siguiente millar."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una caja contiene 4735 cuentas. ¿Cuántas faltan para 5000?",
+        "respuesta": 265,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La meta es 5000.",
+          "De 4735 a 4800 faltan 65.",
+          "De 4800 a 5000 faltan 200 más."
+        ],
+        "retroalimentacion": "Faltan 265; 4735 + 265 = 5000."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un odómetro marca 8990 km. ¿Cuánto falta para llegar al siguiente millar?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El siguiente millar es 9000.",
+          "Falta una decena de 8990 a 9000.",
+          "Calcula 9000 − 8990."
+        ],
+        "retroalimentacion": "Faltan 10 km, no 1000 km.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1010 km"
+          },
+          {
+            "id": "b",
+            "texto": "100 km"
+          },
+          {
+            "id": "c",
+            "texto": "9000 km"
+          },
+          {
+            "id": "d",
+            "texto": "10 km"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "A 5308 le faltan 692 para completar 6000.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "6000 es el siguiente millar.",
+          "Suma 5308 + 692.",
+          "Comprueba que el resultado es 6000."
+        ],
+        "retroalimentacion": "Es verdadero: 6000 − 5308 = 692."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un registro aparecen 7640 semillas. ¿Cuántas se agregan para alcanzar 8000?",
+        "respuesta": 360,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El millar siguiente es 8000.",
+          "De 7640 a 7700 faltan 60.",
+          "De 7700 a 8000 faltan 300."
+        ],
+        "retroalimentacion": "Se agregan 360 semillas; 7640 + 360 = 8000."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una biblioteca tiene 9997 fichas. ¿Cuántas necesita para llegar a 10000?",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El siguiente millar después de 9997 es 10000.",
+          "Cuenta 9998, 9999, 10000.",
+          "Son tres pasos."
+        ],
+        "retroalimentacion": "Necesita 3 fichas; 9997 + 3 = 10000."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una campaña reunió 6849 tapas. ¿Cuántas le faltan para el siguiente millar?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La meta es 7000.",
+          "De 6849 a 6900 faltan 51.",
+          "De 6900 a 7000 faltan 100."
+        ],
+        "retroalimentacion": "Faltan 151 tapas; 6849 + 151 = 7000.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "151"
+          },
+          {
+            "id": "b",
+            "texto": "149"
+          },
+          {
+            "id": "c",
+            "texto": "1151"
+          },
+          {
+            "id": "d",
+            "texto": "7000"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "¿Qué complemento lleva 8096 al siguiente millar?",
+        "respuesta": 904,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El siguiente millar mayor es 9000.",
+          "De 8096 a 8100 faltan 4.",
+          "De 8100 a 9000 faltan 900."
+        ],
+        "retroalimentacion": "El complemento es 904; verifica 8096 + 904 = 9000."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "De 9999 a su siguiente millar faltan 1 unidad.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El siguiente millar es 10000.",
+          "Cuenta una unidad desde 9999.",
+          "Comprueba 9999 + 1."
+        ],
+        "retroalimentacion": "Es verdadero: solo falta 1."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]
