@@ -32,6 +32,6 @@ La revisión en lote agrupa área, nivel, grado y disciplina. Revisa solo borrad
 
 ## Integración
 
-El lector curricular autorizado está en `src/lib/server/curriculum/autorizacion.ts`; el servicio global y de auditoría en `estado-editorial.ts`; el contrato de alumnos `temaVisibleParaAlumno` exige igualdad entre huella guardada y actual. La migración añade `huella_contenido_revisado`; no altera RLS ni agrega tenant al índice.
+El lector curricular autorizado está en `src/lib/server/curriculum/autorizacion.ts`; el servicio global y de auditoría en `estado-editorial.ts`; el contrato de alumnos `temaVisibleParaAlumno` exige igualdad entre huella guardada y actual. La aprobación inicial (`scripts/curriculum/aprobar-todo.ts`), la revisión individual y la revisión por bloque guardan la huella actual al aprobar o publicar. La aprobación inicial deja en borrador cualquier tema sin contenido resoluble para calcular su huella. La lista del alumno consulta el índice global una sola vez por curso y calcula huellas solo para las claves de la foto publicada; `sesiones.ts` reutiliza esa lista para listar y practicar. El catálogo docente conserva todos los temas con su estado editorial. La migración añade `huella_contenido_revisado`; no altera RLS ni agrega tenant al índice.
 
 La revisión real del checklist legal/pedagógico sigue siendo una declaración del revisor respaldada por metadatos verificables en base de datos; conservar la ficha y la lista de documentos de sustento queda para la evolución del CMS.

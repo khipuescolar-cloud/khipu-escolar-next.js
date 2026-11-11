@@ -5,8 +5,10 @@ import { mapearEstadoProgreso } from "@/lib/nudito/leccion";
 import { requireAlumnoVisible, type TenantContext } from "../tenant";
 import { auditar } from "../auditoria";
 import { cursoKhipu } from "@/lib/cursos-khipu/catalogo";
+import { temaVisibleParaAlumno } from "@/lib/server/curriculum/modelo";
+import { huellaActualDeTema } from "@/lib/curriculum/huella";
 import { requireLectorCurriculum } from "@/lib/server/curriculum/autorizacion";
-import { catalogoDelCurso, claveCursoAsignado } from "@/lib/server/plan-anual/catalogo-curso";
+import { catalogoDelCursoConIndice, claveCursoAsignado } from "@/lib/server/plan-anual/catalogo-curso";
 
 export type TemaDisponible = Tema;
 
@@ -31,9 +33,18 @@ export async function temasPublicadosDelAlumno(ctx: TenantContext, acceso: Acces
   // Se consulta una sola vez cada tabla, sin una consulta por tema.
   const foto = clavesDeVersion(version.temas);
   if (!foto.length) return [];
-  const catalogo = await catalogoDelCurso(ctx.db, { anio: salon.anio, nivel: salon.nivel, grado: salon.grado, area: clave });
+  const { temas: catalogo, indices } = await catalogoDelCursoConIndice(ctx.db, { anio: salon.anio, nivel: salon.nivel, grado: salon.grado, area: clave });
   const porClave = new Map(catalogo.map(t => [t.clave, t]));
-  return foto.flatMap(k => { const tema = porClave.get(k); return tema ? [tema] : []; });
+  const editorial = new Map(indices.map(i => [i.clave, i]));
+  const visibles: TemaDisponible[] = [];
+  for (const claveTema of foto) {
+    const tema = porClave.get(claveTema);
+    const indice = editorial.get(claveTema);
+    if (!tema || !indice || (indice.estado !== "revisado" && indice.estado !== "publicado")) continue;
+    const huellaActual = await huellaActualDeTema(claveTema);
+    if (temaVisibleParaAlumno(indice.estado, indice.huellaContenidoRevisado, huellaActual)) visibles.push(tema);
+  }
+  return visibles;
 }
 
 export async function progresoDelPlan(ctx: TenantContext, alumnoId: string, cursoIdOClave: string) {

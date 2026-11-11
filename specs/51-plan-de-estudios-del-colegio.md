@@ -22,7 +22,7 @@ Cada colegio dicta sus propios cursos, y no siempre son las áreas del CNEB. Muc
   - Incluye las áreas CNEB (sin «transversales») y los cursos especializados: Aritmética, Álgebra, Geometría, Trigonometría, Estadística, Razonamiento Matemático, Lenguaje, Literatura, Razonamiento Verbal, Plan Lector, Biología, Química y Física.
   - Cada curso tiene clave estable, área CNEB, niveles, prefijo de tema, sinónimos y `nudito`.
   - Cada especializado declara qué **disciplinas** cede su área.
-  - Razonamiento Matemático no cede ninguna disciplina; la selección explícita del plan anual determina sus temas.
+  - Razonamiento Matemático no cede disciplinas y su catálogo global queda vacío; necesita un banco propio de temas.
 - **Disciplinas** (`src/lib/nudito/conocimiento/disciplinas.ts`):
   - Matemática: aritmética, álgebra, geometría, trigonometría, estadística.
   - Comunicación: lenguaje, literatura, comprensión lectora, oralidad, escritura, razonamiento verbal.

@@ -6,6 +6,7 @@ import { pathToFileURL } from "node:url";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient } from "../../src/generated/prisma/client";
 import { temasGlobales, idDeFuente } from "../../src/lib/nudito/catalogo";
+import { huellaActualDeTema } from "../../src/lib/curriculum/huella";
 
 type TemaIndice = {
   clave: string; areaCneb: string; disciplinas: string[]; nivel: "primaria" | "secundaria"; grado: number;
@@ -42,7 +43,7 @@ async function temasDelBanco(): Promise<TemaIndice[]> {
   return [...salida.values()];
 }
 
-export async function aprobarTodosLosTemas(prisma: PrismaClient, correoRevisor: string) {
+export async function aprobarTodosLosTemas(prisma: PrismaClient, correoRevisor: string, soloClaves?: readonly string[]) {
   const revisor = await prisma.profile.findUnique({ where: { email: correoRevisor.toLowerCase().trim() } });
   if (!revisor || !(await prisma.adminPlataforma.findFirst({ where: { userId: revisor.id, activo: true } }))) {
     throw new Error("El revisor debe ser un super administrador activo de Khipu.");
@@ -56,21 +57,35 @@ export async function aprobarTodosLosTemas(prisma: PrismaClient, correoRevisor: 
       fuenteLocator: previo?.fuenteLocator ?? null, version: tema.version,
     });
   }
-  const filas = [...indice.values()];
+  const filtro = soloClaves ? new Set(soloClaves) : null;
+  const filas = [...indice.values()].filter((tema) => !filtro || filtro.has(tema.clave));
   let creados = 0;
   for (let i = 0; i < filas.length; i += 500) {
     creados += (await prisma.temaCurricular.createMany({ data: filas.slice(i, i + 500), skipDuplicates: true })).count;
   }
   const fecha = new Date();
-  const revisados = (await prisma.temaCurricular.updateMany({
-    where: { estado: "borrador" },
-    data: { estado: "revisado", revisadoPorId: revisor.id, revisadoAt: fecha },
-  })).count;
-  if (creados || revisados) await prisma.auditoriaPlataforma.create({
+  let revisados = 0;
+  let sinHuella = 0;
+  let huellasReparadas = 0;
+  for (let i = 0; i < filas.length; i += 40) {
+    const lote = await Promise.all(filas.slice(i, i + 40).map(async (tema) => ({ tema, huella: await huellaActualDeTema(tema.clave) })));
+    for (const { tema, huella } of lote) {
+      if (!huella) { sinHuella++; continue; }
+      revisados += (await prisma.temaCurricular.updateMany({
+        where: { clave: tema.clave, estado: "borrador" },
+        data: { estado: "revisado", revisadoPorId: revisor.id, revisadoAt: fecha, huellaContenidoRevisado: huella },
+      })).count;
+      huellasReparadas += (await prisma.temaCurricular.updateMany({
+        where: { clave: tema.clave, estado: { in: ["revisado", "publicado"] }, huellaContenidoRevisado: null },
+        data: { huellaContenidoRevisado: huella },
+      })).count;
+    }
+  }
+  if (creados || revisados || huellasReparadas || sinHuella) await prisma.auditoriaPlataforma.create({
     data: { actorId: revisor.id, accion: "curriculum_aprobacion_inicial", tenantId: null,
-      detalle: { nota: "aprobación inicial en bloque", creados, revisados, fecha: fecha.toISOString() } },
+      detalle: { nota: "aprobación inicial en bloque", creados, revisados, huellasReparadas, sinHuella, fecha: fecha.toISOString() } },
   });
-  return { catalogo: filas.length, creados, revisados };
+  return { catalogo: filas.length, creados, revisados, huellasReparadas, sinHuella };
 }
 
 async function main() {

@@ -77,8 +77,8 @@ test("dos profesores aceptan el temario y el alumno ve la versión habilitada en
   await a.waitForURL(/\/nudito\/temario\/[0-9a-f-]{36}/);
   planId=a.url().match(/temario\/([0-9a-f-]{36})/)![1];
   await expect(a.getByText("Sin temario",{exact:true})).toBeVisible();
-  await a.getByLabel("Números decimales").check();
-  await a.getByLabel("Suma y resta de fracciones").check();
+  await a.getByLabel("Números decimales", { exact: true }).check();
+  await a.getByLabel("Suma y resta de fracciones", { exact: true }).check();
   await a.getByRole("button",{name:"Agregar seleccionados"}).click();
   await expect(a.getByText(/En revisión \(falta aceptar:/)).toBeVisible();
   await a.getByRole("button",{name:"Acepto este temario"}).click();
