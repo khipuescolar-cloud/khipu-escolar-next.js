@@ -21,6 +21,7 @@ Plataforma web multitenant para colegios del Perú: asistencia con aviso a la fa
    - **nunca** claves, contraseñas, tokens ni datos reales de alumnos o familias (`[REDACTADO]`).
 3. **Un PR o merge sin su spec actualizada y su archivo de conversación no se integra.**
 4. No subas `.env`, credenciales ni datos personales. No agregues API keys de IA (Nudito funciona sin LLM por ahora).
+5. **Orquestación de modelos y ahorro de créditos.** Antes de ejecutar o delegar una tarea, evalúa qué modelo usar y cómo resolverla gastando lo mínimo: primero script o comando sin IA; luego el modelo más barato que dé la calidad exigida (local → Haiku/Codex Luna → Sonnet/Codex Sol → Opus → Fable solo para revisar calidad y lo más difícil); comprueba la cuota; divide por tipo (investigar, pensar, escribir, verificar) y pon un tope. Nunca uses un modelo pesado para algo chico. Detalle y tabla de usos en `docs/orquestacion-de-modelos.md`.
 
 ## Comandos
 

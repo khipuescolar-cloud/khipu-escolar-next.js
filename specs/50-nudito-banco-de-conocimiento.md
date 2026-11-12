@@ -56,6 +56,12 @@ Ejercicios de opción múltiple: el orden de las opciones está mezclado (la cor
 ## Avance de fichas (2026-11-11)
 Fichas completas, escritas a mano y revisadas por muestreo: Matemática 1.°, 2.°, 3.° y 4.° de primaria (490 fichas, 5 971 ejercicios). Proceso: lotes de 12 fichas por escritor (modelo medio), validación por lote, fusión por script y revisión por muestreo del supervisor. Las primeras versiones de 1.° y 2.° (hechas con plantilla) se descartaron y reescribieron; el validador ahora rechaza esa firma.
 
+## Regla de orden de trabajo (Carlos, 2026-11-11)
+1. **Primaria completa primero** (6 grados × Matemática, Comunicación y Ciencia y Tecnología). Primera reunión con el cliente: lunes 2026-11-16.
+2. **Secundaria grado por grado:** terminar 1.° de secundaria en los 3 cursos antes de pasar a 2.°, luego 3.°, 4.° y 5.°.
+3. Cada combinación se integra a `dev` solo cuando todas sus fichas validan y se revisó una muestra a mano.
+Proceso, herramientas, estado y límites de cuota: `docs/nudito/PROCESO-FICHAS.md` (traspaso para nuevas conversaciones).
+
 ## Pendientes
 - Revisión docente de los 33 temarios (ver «decisiones dudosas» en cada `.md`).
 - Escribir las fichas de las 32 combinaciones restantes (≈ 3 700 fichas), grado por grado, con el mismo proceso que Mat. 3.°: lotes por bloque, validador y revisión por muestreo. Mientras una combinación no tenga fichas, el profesor ve el catálogo anterior.
