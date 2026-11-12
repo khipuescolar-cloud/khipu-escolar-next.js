@@ -358,10 +358,15 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
                 Ver funciones
               </a>
             </div>
-            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-cuerpo-sm text-white/85">
-              {["Hecho para colegios del Perú", "Sin instalar nada", "Funciona en el celular", "Datos protegidos según la Ley 29733"].map((t) => (
-                <li key={t} className="flex items-center gap-2">
-                  <Check className="size-4 text-maiz" strokeWidth={2.5} aria-hidden /> {t}
+            <ul className="grid grid-cols-3 gap-0 border-t border-white/20 pt-5 text-white">
+              {[
+                { dato: "< 1 min", rotulo: "para pasar lista a un salón" },
+                { dato: "15 días", rotulo: "hábiles para justificar una falta" },
+                { dato: "Ley 29733", rotulo: "datos de alumnos protegidos" },
+              ].map((c, i) => (
+                <li key={c.dato} className={cn("flex flex-col gap-1 pr-3", i > 0 && "border-l border-white/20 pl-4")}>
+                  <span className="font-heading text-titulo-2 tabular-nums text-maiz">{c.dato}</span>
+                  <span className="text-cuerpo-sm text-white/85">{c.rotulo}</span>
                 </li>
               ))}
             </ul>
@@ -427,9 +432,7 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
               />
               <span className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-tinta/55 to-transparent" aria-hidden />
               <p className="absolute inset-x-3 bottom-3 flex items-center gap-2.5 rounded-md bg-superficie/95 px-3 py-2 text-cuerpo-sm font-semibold text-foreground shadow-sombra-1 backdrop-blur-sm">
-                <span className={cn("flex size-7 shrink-0 items-center justify-center rounded-full", f.llego ? "bg-llego-fondo text-llego" : "bg-indigo text-white")}>
-                  <f.Icono className="size-4" strokeWidth={2.5} aria-hidden />
-                </span>
+                <f.Icono className={cn("size-5 shrink-0", f.llego ? "text-llego" : "text-indigo")} strokeWidth={2.25} aria-hidden />
                 {f.texto}
               </p>
             </li>
@@ -448,22 +451,19 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
           {GRUPOS.map((g, i) => (
             <article key={g.id} id={g.id} aria-labelledby={`grupo-${g.id}`} className="grid scroll-mt-24 items-center gap-10 lg:grid-cols-2 lg:gap-14">
               <div className={cn("flex flex-col gap-6", i % 2 === 1 && "lg:order-2")}>
-                <span className="flex w-fit items-center gap-2 rounded-pildora border border-arena bg-superficie px-3 py-1 text-etiqueta tracking-wider text-foreground uppercase">
-                  <span className={cn("size-2.5 rounded-full", TONOS[g.tono].nudo)} aria-hidden />
-                  {g.nombre}
-                  <span className="font-normal text-muted-foreground normal-case">
-                    · {i + 1} de {GRUPOS.length}
-                  </span>
+                <span className="flex w-fit flex-col gap-2">
+                  <span className={cn("text-etiqueta tracking-wider uppercase", TONOS[g.tono].rotulo)}>{g.nombre}</span>
+                  <span className={cn("h-1 w-8 rounded-full", TONOS[g.tono].nudo)} aria-hidden />
                 </span>
                 <h3 id={`grupo-${g.id}`} className="font-heading text-titulo-1 text-balance">
                   {g.titulo}
                 </h3>
                 <ul className="flex flex-col gap-5">
-                  {g.funciones.map((f, n) => (
-                    <li key={f.titulo} className={cn("flex items-start gap-4", n === 0 && "rounded-md border border-arena bg-superficie-2 p-4")}>
+                  {g.funciones.map((f) => (
+                    <li key={f.titulo} className="flex items-start gap-4 border-b border-arena pb-5 last:border-b-0 last:pb-0">
                       <Icono Icono={f.Icono} tono={g.tono} />
                       <div className="flex flex-col gap-1">
-                        <h4 className={cn("text-cuerpo font-semibold", n === 0 && "font-heading text-lg")}>{f.titulo}</h4>
+                        <h4 className="font-heading text-cuerpo font-semibold">{f.titulo}</h4>
                         <p className="text-cuerpo-sm text-pretty text-foreground/80">{f.texto}</p>
                       </div>
                     </li>
@@ -617,10 +617,7 @@ export default async function LandingPage({ searchParams }: PageProps<"/">) {
       <section aria-labelledby="titulo-piloto" className="bg-maiz text-sobre-maiz">
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-12 sm:px-6 md:flex-row md:items-center md:justify-between">
           <div className="flex items-start gap-4">
-            <span className="flex size-12 shrink-0 items-center justify-center rounded-md bg-indigo text-white">
-              <School className="size-6" strokeWidth={2} aria-hidden />
-            </span>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 border-l-4 border-indigo pl-4">
               <h2 id="titulo-piloto" className="font-heading text-titulo-2 text-balance">
                 Programa piloto 2026: buscamos los primeros colegios
               </h2>

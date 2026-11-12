@@ -35,3 +35,10 @@
 > mi rey que tal que avances tenemos para este mes
 
 - Se ajustan tres títulos con vocabulario de colegio (Comunicación, chat y Académico). No se anuncian funciones que Sebas aún no termina (registro diario, auditoría).
+
+## Seguimiento 2026-11-12 (segunda tanda)
+> ok mi rey todo lo que es diseño y no rompa nada hazlo contrata agentes no se pero mejoralo creo en ti mi rey este proyecto nos dara de comer
+
+- Dos agentes de apoyo: un revisor de aspecto de plantilla (informe `docs/17` en el panel de Jafet) y un diseñador de pantallas académicas (prototipos en `docs/16`, fuera del repo).
+- Se aplica solo lo [SOLO DISEÑO] de bajo riesgo: cifras del hero, etiqueta de grupo sin píldora, sin círculos de ícono en leyendas, piloto y paneles de rol, contraste en `PestanasRoles`.
+- Pendiente de la revisión: paneles sólidos en lugar de pastel, rehacer Comunicación, franja de Problemas oscura, y capturas nuevas con hora coherente (esto último es para Sebas: script/seed).

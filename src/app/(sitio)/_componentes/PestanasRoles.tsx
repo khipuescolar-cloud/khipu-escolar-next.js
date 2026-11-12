@@ -103,7 +103,7 @@ export function PestanasRoles() {
               </span>
               <span className="flex flex-col">
                 <span className={cn("font-heading text-cuerpo font-semibold", !es && "text-foreground")}>{r.nombre}</span>
-                <span className={cn("text-cuerpo-sm", es ? "opacity-85" : "text-muted-foreground")}>{r.para}</span>
+                <span className={cn("text-cuerpo-sm", es ? "text-white" : "text-muted-foreground")}>{r.para}</span>
               </span>
             </button>
           );
@@ -131,16 +131,14 @@ export function PestanasRoles() {
                 <span className="absolute inset-0 -z-10 bg-linear-to-t from-black/55 via-black/25 to-transparent" aria-hidden />
                 <r.Icono className="size-10" strokeWidth={2} aria-hidden />
                 <div className="flex flex-col gap-2">
-                  <p className="text-cuerpo-sm opacity-85">{r.para}</p>
+                  <p className="text-cuerpo-sm text-white">{r.para}</p>
                   <h3 className="font-heading text-titulo-2 text-balance">{r.titulo}</h3>
                 </div>
               </div>
               <ul className="grid content-center gap-5 p-6 sm:p-8 md:grid-cols-2">
                 {r.puntos.map((p) => (
                   <li key={p} className="flex items-start gap-3 text-cuerpo text-pretty">
-                    <span className={cn("mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full", tono.solido)}>
-                      <Check className="size-4" strokeWidth={2.5} aria-hidden />
-                    </span>
+                    <Check className={cn("mt-0.5 size-5 shrink-0", tono.rotulo)} strokeWidth={2.5} aria-hidden />
                     {p}
                   </li>
                 ))}
