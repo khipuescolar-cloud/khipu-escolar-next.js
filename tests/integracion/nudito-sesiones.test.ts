@@ -384,9 +384,10 @@ describe("IA: respaldo, seguridad y límites", () => {
     const e = await s.siguienteEjercicio(ctxThiago(), acceso, { sesionId });
     if ("fin" in e) throw new Error("fin");
     const sol = await solucionDe(e.ejercicioId);
-    revela = sol.tipo === "opcion_multiple" ? `Es la opción ${sol.correcta}, fíjate` : sol.tipo === "fraccion" ? `Escribe ${sol.num}/${sol.den} y listo` : sol.tipo === "numerico" ? `La respuesta es ${sol.valor}` : "Es verdadera";
+    revela = sol.tipo === "opcion_multiple" ? `Es la opción ${sol.correcta}, fíjate` : sol.tipo === "fraccion" ? `Escribe ${sol.num}/${sol.den} y listo` : sol.tipo === "numerico" ? `La respuesta es ${sol.valor}` : sol.tipo === "texto_corto" ? `La respuesta es ${sol.aceptadas[0]}` : "Es verdadera, ya te lo digo";
     const p = await s.pedirPista(ctxThiago(), acceso, { ejercicioId: e.ejercicioId });
-    expect(p.texto).not.toBe(revela);
+    // lectura/relacionar/rúbrica no tienen una pista «reveladora» simple: solo se comprueba el descarte en los tipos cubiertos.
+    if (["opcion_multiple", "fraccion", "numerico", "texto_corto", "verdadero_falso"].includes(sol.tipo)) expect(p.texto).not.toBe(revela);
     const fila = await db.nuditoEjercicio.findUniqueOrThrow({ where: { id: e.ejercicioId } });
     expect(p.texto).toBe((fila.solucion as { pistas: string[] }).pistas[0]);
   });
