@@ -30,3 +30,8 @@
 ## Pendientes
 - Capturas reales de los módulos nuevos de Sebas (registro diario, libreta) para sustituir ilustraciones.
 - Revisar la sección Comunicación y vocabulario de colegio peruano.
+
+## Seguimiento 2026-11-12
+> mi rey que tal que avances tenemos para este mes
+
+- Se ajustan tres títulos con vocabulario de colegio (Comunicación, chat y Académico). No se anuncian funciones que Sebas aún no termina (registro diario, auditoría).

@@ -87,11 +87,11 @@ const GRUPOS: { id: string; tono: Tono; nombre: string; titulo: string; funcione
     id: "comunicacion",
     tono: "cochinilla",
     nombre: "Comunicación",
-    titulo: "Familia y colegio conversan sin grupos ni teléfonos",
+    titulo: "La familia habla con el tutor sin grupos de WhatsApp ni números personales",
     funciones: [
       {
         Icono: MessagesSquare,
-        titulo: "Chat familia–tutor sin teléfonos",
+        titulo: "Mensajes con el tutor y los profesores",
         texto: "La familia escribe al tutor o a los profesores de su hijo dentro de Khipu. Nadie ve el número ni el correo del otro.",
       },
       {
@@ -110,7 +110,7 @@ const GRUPOS: { id: string; tono: Tono; nombre: string; titulo: string; funcione
     id: "academico",
     tono: "cielo",
     nombre: "Académico",
-    titulo: "Notas, libreta y tareas en el mismo lugar",
+    titulo: "Notas por competencias, libreta y tareas en un solo lugar",
     funciones: [
       {
         Icono: GraduationCap,
