@@ -1,0 +1,1040 @@
+[
+  {
+    "clave": "cyt.p5.grupo-de-control",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 20,
+    "capacidad": "Diseña estrategias para hacer indagación",
+    "desempenosOrigen": [
+      "CYT-C20-P5-02"
+    ],
+    "bloque": "Plan del experimento",
+    "nombre": "Grupo de control y grupo experimental",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Explica por qué se compara con una muestra igual a la que no se le cambia nada.",
+    "palabrasClave": [
+      "grupo de control",
+      "grupo experimental",
+      "comparar",
+      "variable",
+      "experimento"
+    ],
+    "prerrequisitos": [
+      "cyt.p5.variables-experimento"
+    ],
+    "ordenSugerido": 45,
+    "ideaCentral": "En un experimento hay dos grupos casi iguales: el grupo experimental, al que le cambias la variable que quieres probar, y el grupo de control, al que no le cambias nada. Al comparar los dos sabes si el cambio fue la causa del resultado.",
+    "pasos": [
+      "Elige la variable que vas a probar, por ejemplo la luz o el abono.",
+      "Prepara dos grupos iguales en todo lo demás: mismas semillas, misma tierra, misma agua.",
+      "Cambia la variable solo en el grupo experimental; el de control se queda sin cambio.",
+      "Mide los dos grupos igual y compara resultados para sacar tu conclusión."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Ana quiere saber si el abono hace crecer más rápido los frijoles. Tiene 6 macetas iguales. ¿Cómo arma los grupos?",
+        "desarrollo": "Pone abono en 3 macetas (grupo experimental) y no pone abono en las otras 3 (grupo de control); todo lo demás es igual.",
+        "respuesta": "3 macetas con abono y 3 sin abono."
+      },
+      {
+        "situacion": "Un alumno de Arequipa prueba si el sol hace secar más rápido la ropa. Tiene dos pañuelos iguales. ¿Cuál es el grupo de control?",
+        "desarrollo": "El experimental va al sol. El de control se queda a la sombra, sin cambio.",
+        "respuesta": "El pañuelo que queda a la sombra."
+      },
+      {
+        "situacion": "Tras 10 días, los frijoles con abono miden 12 cm y los de control, 8 cm. ¿Qué concluyes?",
+        "desarrollo": "Como todo lo demás era igual, la diferencia viene del abono.",
+        "respuesta": "El abono ayudó a crecer más."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Cambiar varias cosas a la vez entre los dos grupos.",
+        "correccion": "Los dos grupos deben ser iguales salvo en la variable que pruebas."
+      },
+      {
+        "error": "Creer que el grupo de control no sirve porque no se le hace nada.",
+        "correccion": "Sirve para comparar: sin él no sabrías si el resultado ocurre con o sin el cambio."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Grupo de control",
+        "significado": "Grupo igual al otro, pero al que no se le cambia la variable."
+      },
+      {
+        "termino": "Grupo experimental",
+        "significado": "Grupo al que sí se le cambia la variable que se quiere probar."
+      },
+      {
+        "termino": "Variable",
+        "significado": "Algo que puede cambiar en un experimento, como la luz o la cantidad de agua."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un experimento, ¿cómo se llama el grupo al que NO se le cambia nada?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Grupo experimental"
+          },
+          {
+            "id": "b",
+            "texto": "Grupo de control"
+          },
+          {
+            "id": "c",
+            "texto": "Grupo de variable"
+          }
+        ],
+        "pistas": [
+          "Ese grupo sirve para comparar.",
+          "Es el que se queda como estaba.",
+          "Su nombre empieza con «control»."
+        ],
+        "retroalimentacion": "Es el grupo de control. El grupo experimental es el que sí recibe el cambio."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El grupo experimental es al que se le cambia la variable que se quiere probar.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cuál grupo recibe el cambio.",
+          "Se experimenta con él.",
+          "Es el grupo que recibe, por ejemplo, el abono."
+        ],
+        "retroalimentacion": "Es verdadero: el grupo experimental recibe el cambio de la variable."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Para probar si el agua con sal hace crecer más las plantas, una maceta se riega con agua sin sal. ¿Esa maceta es el grupo de «control» o «experimental»? Responde con una palabra.",
+        "respuesta": "control",
+        "alternativasAceptadas": [
+          "de control",
+          "grupo de control",
+          "el control"
+        ],
+        "pistas": [
+          "Esa maceta no recibe la sal.",
+          "La sal es el cambio que se prueba.",
+          "La que no recibe el cambio es la de control."
+        ],
+        "retroalimentacion": "Es el grupo de control: no recibe la sal, que es la variable."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para comparar bien dos grupos, ¿cómo deben ser?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Iguales, salvo en la variable que se prueba"
+          },
+          {
+            "id": "b",
+            "texto": "Muy distintos"
+          },
+          {
+            "id": "c",
+            "texto": "De distinto tamaño"
+          }
+        ],
+        "pistas": [
+          "Si todo fuera distinto, no sabrías qué causó la diferencia.",
+          "Solo debe cambiar una cosa.",
+          "Todo lo demás se mantiene igual."
+        ],
+        "retroalimentacion": "Deben ser iguales salvo en la variable que se prueba. Si fueran muy distintos o de distinto tamaño, no sabrías qué causó el resultado."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Luis prueba si la luz ayuda a que germinen las lentejas. Pone 5 lentejas en un frasco con luz y 5 iguales en otro frasco. ¿Qué debe hacer con el segundo para que sea el grupo de control?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Regarlo con jugo"
+          },
+          {
+            "id": "b",
+            "texto": "Ponerlo junto al primero sin cambiar nada"
+          },
+          {
+            "id": "c",
+            "texto": "Taparlo con un cartón para que no reciba luz"
+          }
+        ],
+        "pistas": [
+          "La variable que pruebas es la luz.",
+          "El de control no recibe el cambio, así que no recibiría luz extra.",
+          "Un frasco queda con luz y el otro debe quedar sin esa luz."
+        ],
+        "retroalimentacion": "Debe taparlo con un cartón para que no reciba luz: así se compara con el frasco con luz. Regarlo con jugo cambiaría otra variable."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En el experimento de los frijoles con abono, regar las macetas de control con más agua que las otras no afecta la comparación.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fíjate en cuántas cosas cambian entre los grupos.",
+          "Si solo debe cambiar el abono, la cantidad de agua debe ser igual.",
+          "Cambiar el agua mezcla dos variables."
+        ],
+        "retroalimentacion": "Es falso: si también cambia el agua, ya no sabes si el resultado se debe al abono o al agua."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Para probar si un fertilizante ayuda a una planta de tomate, se necesita una maceta sin fertilizante para comparar. ¿Cómo se llama esa maceta? Responde con dos palabras: grupo de ...",
+        "respuesta": "control",
+        "alternativasAceptadas": [
+          "grupo de control",
+          "de control"
+        ],
+        "pistas": [
+          "Es la maceta que sirve de comparación.",
+          "No recibe fertilizante.",
+          "Se llama como el grupo al que no se le cambia nada."
+        ],
+        "retroalimentacion": "Es la maceta de control: sin fertilizante, sirve para comparar."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ana prueba si el calor hace derretir más rápido el hielo. Tiene dos cubos iguales de hielo: uno al sol y otro a la sombra. ¿Cuál es el grupo experimental?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El cubo a la sombra"
+          },
+          {
+            "id": "b",
+            "texto": "El cubo al sol"
+          },
+          {
+            "id": "c",
+            "texto": "Los dos"
+          }
+        ],
+        "pistas": [
+          "El cambio que se prueba es el calor.",
+          "El cubo que recibe el calor es el que cambia.",
+          "Es el que está al sol."
+        ],
+        "retroalimentacion": "El cubo al sol, que recibe el calor. El de la sombra es el de control."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un alumno prueba si la música ayuda a que crezca una planta. Pone una planta cerca de un parlante y otra planta, de otra especie, sin música. Tras 2 semanas, la de la música creció más. ¿Qué problema tiene este experimento?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Los dos grupos no son iguales: son plantas de distinta especie"
+          },
+          {
+            "id": "b",
+            "texto": "La planta sin música no necesita agua"
+          },
+          {
+            "id": "c",
+            "texto": "Dos plantas son demasiadas"
+          }
+        ],
+        "pistas": [
+          "Mira qué cosas distintas hay entre las plantas, aparte de la música.",
+          "Si las plantas son de especies distintas, no sabes si el resultado se debe a la música.",
+          "Los grupos deben ser iguales salvo en la variable."
+        ],
+        "retroalimentacion": "El problema es que los grupos no son iguales: son plantas de distinta especie, así que la diferencia podría no deberse a la música."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si todas las macetas de un experimento reciben abono, no hay grupo de control y no se puede saber si el abono tuvo efecto.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en con qué compararías si todas reciben el cambio.",
+          "Sin una maceta sin abono no hay punto de comparación.",
+          "Falta el grupo que se queda sin cambio."
+        ],
+        "retroalimentacion": "Es verdadero: sin grupo de control no tienes con qué comparar."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Daniel pone 4 macetas con abono y otras 4 sin abono, todas con la misma tierra, semillas y agua. ¿Cuántas macetas forman el grupo de control? Responde con un número.",
+        "respuesta": "4",
+        "alternativasAceptadas": [
+          "cuatro"
+        ],
+        "pistas": [
+          "Cuenta las macetas que no reciben abono.",
+          "El abono es la variable.",
+          "Las que no reciben abono son el grupo de control."
+        ],
+        "retroalimentacion": "Son 4: las macetas sin abono forman el grupo de control; las otras 4 son el grupo experimental."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos grupos iguales de lombrices: al A se le da hojas picadas y al B no se le cambia la comida. Pasados 7 días, ambos grupos tienen el mismo número de lombrices. ¿Qué puedes concluir?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Las lombrices no comieron"
+          },
+          {
+            "id": "b",
+            "texto": "El experimento no sirve"
+          },
+          {
+            "id": "c",
+            "texto": "Las hojas picadas no cambiaron el número de lombrices"
+          }
+        ],
+        "pistas": [
+          "Compara el resultado del grupo experimental con el de control.",
+          "Si son iguales, el cambio no produjo diferencia.",
+          "La conclusión es sobre el efecto de la variable."
+        ],
+        "retroalimentacion": "Puedes concluir que las hojas picadas no cambiaron el número de lombrices. Un resultado sin diferencia también es válido."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "cyt.p5.cronograma-y-seguridad",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 20,
+    "capacidad": "Diseña estrategias para hacer indagación",
+    "desempenosOrigen": [
+      "CYT-C20-P5-02"
+    ],
+    "bloque": "Plan del experimento",
+    "nombre": "Cronograma y medidas de seguridad del experimento",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Organiza los días de observación y las precauciones que tomará.",
+    "palabrasClave": [
+      "cronograma",
+      "seguridad",
+      "observación",
+      "precauciones",
+      "días"
+    ],
+    "prerrequisitos": [
+      "cyt.p5.grupo-de-control"
+    ],
+    "ordenSugerido": 46,
+    "ideaCentral": "Antes de empezar un experimento, planificas qué harás cada día y qué precauciones tomarás. El cronograma te ordena en el tiempo y las medidas de seguridad evitan accidentes.",
+    "pasos": [
+      "Escribe cuánto durará el experimento y cada cuánto observarás.",
+      "Arma el cronograma: qué haces y mides cada día, como regar o medir.",
+      "Anota los riesgos posibles, como objetos calientes, vidrios o productos químicos.",
+      "Define una precaución para cada riesgo, como usar guantes, pedir ayuda a un adulto o lavar las manos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Rosa quiere observar cómo crece un frijol durante 10 días. Quiere medirlo cada 2 días. ¿Qué días mide?",
+        "desarrollo": "Empieza el día 0. Cada 2 días mide: 2, 4, 6, 8 y 10.",
+        "respuesta": "Los días 2, 4, 6, 8 y 10."
+      },
+      {
+        "situacion": "Un grupo de Tacna calentará agua con una cocinita para ver cuándo se evapora. ¿Qué precaución debe tomar?",
+        "desarrollo": "El agua caliente y la cocina pueden quemar. Debe trabajar con un adulto, alejar objetos y usar un paño seco.",
+        "respuesta": "Hacer el experimento con un adulto y usar un paño para no quemarse."
+      },
+      {
+        "situacion": "Un alumno quiere observar el moho en pan durante 7 días y tomar fotos cada día. ¿Qué precaución importante tiene?",
+        "desarrollo": "El moho puede causar alergias.",
+        "respuesta": "Usar mascarilla y guantes, y lavarse las manos al terminar."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Empezar el experimento sin escribir cuándo se observará.",
+        "correccion": "Anota días y horas de observación para no olvidar mediciones."
+      },
+      {
+        "error": "Pensar que la seguridad solo importa con fuego o químicos.",
+        "correccion": "También hay riesgos con vidrios, plantas desconocidas, moho o aparatos eléctricos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Cronograma",
+        "significado": "Lista de actividades ordenadas por días u horas."
+      },
+      {
+        "termino": "Precaución",
+        "significado": "Cuidado que tomas antes para evitar un accidente."
+      },
+      {
+        "termino": "Riesgo",
+        "significado": "Posibilidad de que algo cause daño."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué es un cronograma en un experimento?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El resultado final"
+          },
+          {
+            "id": "b",
+            "texto": "La lista de actividades ordenadas por días"
+          },
+          {
+            "id": "c",
+            "texto": "Los materiales que usarás"
+          }
+        ],
+        "pistas": [
+          "Piensa en un calendario de trabajo.",
+          "Indica qué se hace y cuándo.",
+          "La palabra se parece a «cronología»."
+        ],
+        "retroalimentacion": "Es la lista de actividades ordenadas por días. El resultado final y los materiales no son el cronograma."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Las medidas de seguridad sirven para evitar accidentes durante el experimento.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en para qué usas guantes o delantal.",
+          "Protegen a las personas.",
+          "Evitan quemaduras, cortes y otros daños."
+        ],
+        "retroalimentacion": "Es verdadero: sirven para evitar accidentes."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Si vas a medir una planta cada 3 días durante 9 días, empezando el día 0, ¿cuántas mediciones harás después del día 0? Responde con un número.",
+        "respuesta": "3",
+        "alternativasAceptadas": [
+          "tres"
+        ],
+        "pistas": [
+          "Cuenta los días 3, 6 y 9.",
+          "Son los días en que mides después del 0.",
+          "Hay tres días de medición."
+        ],
+        "retroalimentacion": "Harás 3 mediciones: los días 3, 6 y 9."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Vas a usar una cocinita para calentar agua. ¿Qué precaución es correcta?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Trabajar con un adulto"
+          },
+          {
+            "id": "b",
+            "texto": "Tocar el agua para ver si está caliente"
+          },
+          {
+            "id": "c",
+            "texto": "Dejar la cocinita encendida y salir"
+          }
+        ],
+        "pistas": [
+          "Busca la opción más segura.",
+          "Pedir ayuda a un adulto reduce el riesgo.",
+          "Tocar el agua caliente o dejar el fuego solo son peligros."
+        ],
+        "retroalimentacion": "Trabajar con un adulto es lo correcto. Tocar el agua o dejar la cocinita encendida sin cuidar es peligroso."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El experimento de Ana dura 14 días y ella quiere observar cada 7 días, empezando el día 0. ¿En qué días observa?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Días 7 y 21"
+          },
+          {
+            "id": "b",
+            "texto": "Solo el día 14"
+          },
+          {
+            "id": "c",
+            "texto": "Días 0, 7 y 14"
+          }
+        ],
+        "pistas": [
+          "Cuenta de 7 en 7 desde el 0.",
+          "0 + 7 = 7 y 7 + 7 = 14.",
+          "Incluye el inicio y el final."
+        ],
+        "retroalimentacion": "Observa los días 0, 7 y 14. Los días 7 y 21 no cubren el inicio ni terminan en 14."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un experimento con vidrio, como un vaso de laboratorio, no hace falta ninguna precaución porque el vidrio no es peligroso.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en qué pasa si un vaso de vidrio se rompe.",
+          "Los trozos cortan.",
+          "Por eso se manipula con cuidado."
+        ],
+        "retroalimentacion": "Es falso: el vidrio puede romperse y cortar, así que hay que manipularlo con cuidado."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Julia piensa probar si el vinagre hace burbujear un huevo. El vinagre puede irritar los ojos. ¿Qué debe usar para protegerse? Responde con dos palabras: lentes de ...",
+        "respuesta": "protección",
+        "alternativasAceptadas": [
+          "seguridad",
+          "lentes de protección",
+          "lentes de seguridad",
+          "proteccion"
+        ],
+        "pistas": [
+          "Piensa en la parte del cuerpo que podría dañarse.",
+          "Se protege con lentes especiales.",
+          "Son lentes que evitan salpicaduras."
+        ],
+        "retroalimentacion": "Debe usar lentes de protección (o de seguridad) para evitar salpicaduras en los ojos."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas es una buena precaución al terminar un experimento con tierra y plantas?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Comer rápido"
+          },
+          {
+            "id": "b",
+            "texto": "Lavarse las manos"
+          },
+          {
+            "id": "c",
+            "texto": "Guardar la tierra en la boca"
+          }
+        ],
+        "pistas": [
+          "Piensa en cómo quedan las manos después de tocar tierra.",
+          "Eliminar gérmenes es lo primero.",
+          "Se hace con agua y jabón."
+        ],
+        "retroalimentacion": "Lavarse las manos es la precaución. Comer rápido o llevar tierra a la boca son riesgos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Pedro quiere ver cuánto tarda en brotar un frijol. Su plan dice: «Día 1: sembrar; día 3: medir; día 5: medir; día 7: medir». ¿Qué falta en el plan?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una precaución de seguridad y quién regará los días intermedios"
+          },
+          {
+            "id": "b",
+            "texto": "Más días de medición"
+          },
+          {
+            "id": "c",
+            "texto": "Otro frijol idéntico"
+          }
+        ],
+        "pistas": [
+          "Revisa qué dice el plan sobre riesgos y riego.",
+          "Un buen plan también cuida a la persona y a la planta.",
+          "Lo que falta no son más días, sino cuidados."
+        ],
+        "retroalimentacion": "Falta una precaución de seguridad y el riego entre días. Más días o más frijoles no corrigen ese vacío."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un cronograma de 5 días con una medición diaria está bien organizado si indica la hora de cada medición.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa si el cronograma dice cuándo medir.",
+          "La hora evita olvidos.",
+          "Mide a la misma hora para comparar."
+        ],
+        "retroalimentacion": "Es verdadero: indicar días y horas ordena las mediciones."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En un experimento de 12 días, midieron los días 0, 4, 8 y 12. ¿Cada cuántos días midieron? Responde con un número.",
+        "respuesta": "4",
+        "alternativasAceptadas": [
+          "cuatro",
+          "cada 4",
+          "cada cuatro",
+          "cada 4 días"
+        ],
+        "pistas": [
+          "Resta días consecutivos de medición.",
+          "4 - 0 = 4.",
+          "8 - 4 también da el mismo número."
+        ],
+        "retroalimentacion": "Midieron cada 4 días."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mateo va a probar si el agua con sal congela a otra temperatura. Va a usar un congelador y un termómetro de vidrio. ¿Cuál es el plan de seguridad más completo?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Meter la mano al congelador sin guantes"
+          },
+          {
+            "id": "b",
+            "texto": "Dejar el termómetro en el piso"
+          },
+          {
+            "id": "c",
+            "texto": "Usar guantes para sacar los frascos fríos y cuidar el termómetro de vidrio con un adulto"
+          }
+        ],
+        "pistas": [
+          "Piensa en dos riesgos: el frío y el vidrio.",
+          "Guantes protegen del frío; el adulto ayuda con el vidrio.",
+          "Las otras opciones aumentan el riesgo."
+        ],
+        "retroalimentacion": "El plan completo es usar guantes y cuidar el termómetro de vidrio con un adulto. Meter la mano sin guantes o dejar el termómetro en el piso es peligroso."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "cyt.p5.fuentes-libros-revistas",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 20,
+    "capacidad": "Diseña estrategias para hacer indagación",
+    "desempenosOrigen": [
+      "CYT-C20-P5-02"
+    ],
+    "bloque": "Plan del experimento",
+    "nombre": "Libros, revistas y páginas de ciencia como fuentes",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Elige fuentes con autor y respaldo para buscar información sobre su hipótesis.",
+    "palabrasClave": [
+      "fuentes",
+      "autor",
+      "libros",
+      "revistas",
+      "hipótesis"
+    ],
+    "prerrequisitos": [
+      "cyt.p5.variables-experimento"
+    ],
+    "ordenSugerido": 47,
+    "ideaCentral": "Para buscar información sobre tu hipótesis conviene usar fuentes confiables: libros, revistas científicas, enciclopedias y páginas de ciencia que digan quién las escribió y en qué se basan. Así tu información tiene respaldo.",
+    "pasos": [
+      "Escribe la pregunta o hipótesis que quieres resolver.",
+      "Busca en libros, revistas de ciencia o páginas de instituciones conocidas.",
+      "Comprueba que la fuente tenga autor, fecha y organización que la respalde.",
+      "Compara con otra fuente antes de usar el dato en tu experimento."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Rosa quiere saber cuántas horas de sol necesita el maíz. Encuentra un libro de agronomía con autor y una página sin nombre. ¿Cuál elige?",
+        "desarrollo": "El libro tiene autor y respaldo; la página sin nombre no se sabe quién la escribió.",
+        "respuesta": "El libro de agronomía."
+      },
+      {
+        "situacion": "En Cusco, un alumno busca información sobre la papa en la página de una universidad. ¿Es buena fuente?",
+        "desarrollo": "Una universidad tiene especialistas y firma lo que publica.",
+        "respuesta": "Sí, es una fuente confiable."
+      },
+      {
+        "situacion": "Un video dice que las plantas crecen con música, pero no muestra autor ni datos. ¿Qué debes hacer?",
+        "desarrollo": "No hay respaldo, así que busca otra fuente con autor y datos.",
+        "respuesta": "No confiar y compararlo con otra fuente."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que todo lo que está en internet es verdadero.",
+        "correccion": "Cualquiera puede escribir en internet; verifica autor y respaldo."
+      },
+      {
+        "error": "Usar una sola fuente para tomar una decisión.",
+        "correccion": "Compara al menos dos fuentes confiables."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Fuente",
+        "significado": "Lugar de donde sacas información, como un libro o una revista."
+      },
+      {
+        "termino": "Autor",
+        "significado": "Persona o institución que escribió el texto."
+      },
+      {
+        "termino": "Respaldo",
+        "significado": "Datos, estudios o instituciones que confirman lo que se dice."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas es una fuente confiable para buscar información de ciencia?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un chisme sin nombre"
+          },
+          {
+            "id": "b",
+            "texto": "Un libro de ciencias con autor"
+          },
+          {
+            "id": "c",
+            "texto": "Un mensaje sin firma"
+          }
+        ],
+        "pistas": [
+          "Busca la fuente que dice quién la escribió.",
+          "Los libros de ciencia tienen autores.",
+          "Un chisme o un mensaje sin firma no tienen respaldo."
+        ],
+        "retroalimentacion": "Un libro de ciencias con autor es confiable. Un chisme o un mensaje sin firma no tienen respaldo."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una fuente confiable dice quién la escribió.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cómo sabes que alguien se hace responsable.",
+          "Un texto con autor es más fácil de verificar.",
+          "El autor da respaldo."
+        ],
+        "retroalimentacion": "Es verdadero: el autor permite verificar la información."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "A la persona que escribe un libro o artículo se le llama... Responde con una palabra.",
+        "respuesta": "autor",
+        "alternativasAceptadas": [
+          "el autor",
+          "autora"
+        ],
+        "pistas": [
+          "Es quien firma el texto.",
+          "Escribe el libro.",
+          "Empieza con «a»."
+        ],
+        "retroalimentacion": "Se le llama autor."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ana busca información para su experimento sobre la quinua. ¿Dónde puede buscar?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "En una revista de ciencia"
+          },
+          {
+            "id": "b",
+            "texto": "En un grafiti"
+          },
+          {
+            "id": "c",
+            "texto": "En un sueño"
+          }
+        ],
+        "pistas": [
+          "Elige un lugar donde publican científicos o especialistas.",
+          "Las revistas de ciencia tienen artículos revisados.",
+          "Los demás no tienen respaldo."
+        ],
+        "retroalimentacion": "Puede buscar en una revista de ciencia. Un grafiti o un sueño no son fuentes."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Rosa quiere saber a qué temperatura hierve el agua. ¿Qué fuente es mejor?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un comentario anónimo en una red social"
+          },
+          {
+            "id": "b",
+            "texto": "Un amigo que cree recordarlo"
+          },
+          {
+            "id": "c",
+            "texto": "Un libro de física de secundaria"
+          }
+        ],
+        "pistas": [
+          "Prefiere la fuente que tenga autor y base.",
+          "Un libro educativo ha sido revisado.",
+          "Un comentario anónimo no tiene respaldo."
+        ],
+        "retroalimentacion": "Es mejor un libro de física de secundaria. El comentario anónimo y el recuerdo de un amigo no tienen respaldo."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una página de internet sin autor y sin fecha es tan confiable como un libro con autor.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en qué puedes verificar de cada una.",
+          "Sin autor ni fecha no puedes saber si está actualizada o es seria.",
+          "El libro sí tiene datos que verificar."
+        ],
+        "retroalimentacion": "Es falso: sin autor ni fecha no hay forma de verificarla."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "La información sobre una hipótesis debe compararse con al menos otra fuente. ¿Cuántas fuentes mínimas se recomienda comparar en total? Responde con un número.",
+        "respuesta": "2",
+        "alternativasAceptadas": [
+          "dos"
+        ],
+        "pistas": [
+          "La palabra «otra» indica una más.",
+          "Una fuente más la que ya tienes.",
+          "Suma uno más uno."
+        ],
+        "retroalimentacion": "Se recomienda comparar al menos 2 fuentes."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué dato ayuda más a confiar en una página de ciencia?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Que tenga muchos colores"
+          },
+          {
+            "id": "b",
+            "texto": "Que la publique una universidad o instituto reconocido"
+          },
+          {
+            "id": "c",
+            "texto": "Que tenga muchos anuncios"
+          }
+        ],
+        "pistas": [
+          "Piensa en quién la respalda.",
+          "Una institución reconocida se hace responsable.",
+          "Los colores o los anuncios no prueban nada."
+        ],
+        "retroalimentacion": "Que la publique una universidad o instituto reconocido. Los colores o los anuncios no dan respaldo."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Luis lee en una página sin autor que «las plantas crecen el doble con música rock». Otra página, de una universidad, dice que el efecto no está comprobado. ¿Qué debe hacer?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Confiar en la universidad y verificar con otra fuente"
+          },
+          {
+            "id": "b",
+            "texto": "Confiar en la primera porque es más divertida"
+          },
+          {
+            "id": "c",
+            "texto": "Ignorar a las dos"
+          }
+        ],
+        "pistas": [
+          "Compara cuál fuente tiene respaldo.",
+          "La universidad es más confiable que la página sin autor.",
+          "Aun así, conviene contrastar con otra fuente."
+        ],
+        "retroalimentacion": "Debe confiar más en la universidad y verificar con otra fuente. Elegir la divertida o ignorar ambas no ayuda."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una revista de ciencia que cita estudios y da el nombre de sus autores es mejor fuente que un video que solo dice «los científicos dicen».",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en qué se puede comprobar de cada una.",
+          "Citar estudios y autores permite verificar.",
+          "«Los científicos dicen» no dice quiénes."
+        ],
+        "retroalimentacion": "Es verdadero: la revista da autores y estudios que puedes verificar."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Ana encontró el mismo dato en tres libros de autores distintos. ¿La información es más confiable o menos confiable? Responde con una palabra.",
+        "respuesta": "más",
+        "alternativasAceptadas": [
+          "mas",
+          "más confiable",
+          "mas confiable"
+        ],
+        "pistas": [
+          "Si varios autores coinciden, hay más respaldo.",
+          "Tres fuentes independientes dan el mismo dato.",
+          "La confianza aumenta."
+        ],
+        "retroalimentacion": "Es más confiable, porque varias fuentes independientes coinciden."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Diego quiere investigar «¿el agua de mar hierve a la misma temperatura que el agua de río?». ¿Cuál es la mejor búsqueda?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Preguntar a quien venda agua en la calle"
+          },
+          {
+            "id": "b",
+            "texto": "Mirar un anuncio de agua embotellada"
+          },
+          {
+            "id": "c",
+            "texto": "Un libro de química o una página de una universidad sobre punto de ebullición de soluciones"
+          }
+        ],
+        "pistas": [
+          "Elige la fuente que explique el tema con respaldo.",
+          "Los libros y universidades explican la ciencia.",
+          "Un anuncio tiene otro propósito."
+        ],
+        "retroalimentacion": "Lo mejor es un libro de química o una página universitaria sobre punto de ebullición. La respuesta de un vendedor o un anuncio no tienen respaldo científico."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

@@ -1,0 +1,660 @@
+[
+  {
+    "clave": "cyt.p5.prueba-comparativa",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 22,
+    "capacidad": "Evalúa y comunica el funcionamiento y los impactos de su alternativa de solución tecnológica",
+    "desempenosOrigen": [
+      "CYT-C22-P5-04"
+    ],
+    "bloque": "Prueba y comunicación",
+    "nombre": "Prueba comparativa del prototipo",
+    "disciplina": "tecnologia",
+    "descripcionCorta": "Mide la temperatura inicial y final en su envase y en otro igual para comparar.",
+    "palabrasClave": [
+      "prueba",
+      "temperatura",
+      "comparar",
+      "prototipo",
+      "medición"
+    ],
+    "prerrequisitos": [
+      "cyt.p5.verificar-y-ajustar"
+    ],
+    "ordenSugerido": 102,
+    "ideaCentral": "Para saber si tu prototipo funciona, lo pruebas junto a otro envase igual sin la mejora. Mides la temperatura al inicio y al final y calculas cuánto bajó. Gana el envase que perdió menos grados.",
+    "pasos": [
+      "Prepara tu envase y otro igual sin la mejora; pon la misma cantidad de agua caliente en los dos.",
+      "Mide la temperatura inicial de cada uno con el termómetro.",
+      "Espera el mismo tiempo, por ejemplo 30 minutos, y mide la temperatura final.",
+      "Resta: inicial menos final para ver cuánto bajó, y compara: el que bajó menos conserva mejor el calor."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En un envase con lana, el agua empezó en 70 °C y a los 30 min estaba en 62 °C. ¿Cuánto bajó?",
+        "desarrollo": "70 - 62 = 8.",
+        "respuesta": "Bajó 8 °C."
+      },
+      {
+        "situacion": "Otro envase igual sin lana bajó de 70 °C a 54 °C en 30 min. ¿Cuál conserva mejor?",
+        "desarrollo": "El de lana bajó 8 °C y el otro bajó 16 °C (70 - 54).",
+        "respuesta": "El de lana, porque perdió menos calor."
+      },
+      {
+        "situacion": "¿Por qué se usa la misma cantidad de agua en los dos?",
+        "desarrollo": "Para que la única diferencia sea la lana.",
+        "respuesta": "Para que la comparación sea justa."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Medir los envases en tiempos distintos.",
+        "correccion": "Mide los dos al mismo tiempo para que sea justo."
+      },
+      {
+        "error": "Restar al revés (final menos inicial).",
+        "correccion": "Resta inicial menos final para saber cuánto bajó la temperatura."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Temperatura",
+        "significado": "Medida de qué tan caliente o fría está una cosa; se mide en grados Celsius (°C)."
+      },
+      {
+        "termino": "Termómetro",
+        "significado": "Instrumento que mide la temperatura."
+      },
+      {
+        "termino": "Prueba comparativa",
+        "significado": "Prueba donde se compara tu prototipo con otro igual sin la mejora."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Con qué instrumento mides cuánto calor tiene el agua del envase?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Balanza"
+          },
+          {
+            "id": "b",
+            "texto": "Termómetro"
+          },
+          {
+            "id": "c",
+            "texto": "Regla"
+          }
+        ],
+        "pistas": [
+          "Piensa en el instrumento de la fiebre.",
+          "Mide grados.",
+          "Empieza con «ter»."
+        ],
+        "retroalimentacion": "Con un termómetro. La balanza mide masa y la regla mide longitud."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una prueba comparativa se mide la temperatura al inicio y al final.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cuántas mediciones necesitas para saber cuánto cambió.",
+          "Una al empezar y otra al terminar.",
+          "Así calculas la diferencia."
+        ],
+        "retroalimentacion": "Es verdadero: con las dos mediciones calculas cuánto bajó."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "El agua de un envase empezó en 60 °C y terminó en 50 °C. ¿Cuántos grados bajó la temperatura?",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta la temperatura inicial menos la final.",
+          "60 menos 50.",
+          "Son diez grados."
+        ],
+        "retroalimentacion": "Bajó 10 °C porque 60 - 50 = 10."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para comparar dos envases, ¿cómo deben ser el agua y el tiempo de espera?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Iguales en los dos"
+          },
+          {
+            "id": "b",
+            "texto": "Distintos en cada uno"
+          },
+          {
+            "id": "c",
+            "texto": "No importa"
+          }
+        ],
+        "pistas": [
+          "Si todo es igual salvo el envase, la comparación es justa.",
+          "Misma cantidad de agua y mismo tiempo.",
+          "Así sabes qué causó la diferencia."
+        ],
+        "retroalimentacion": "Deben ser iguales en los dos para que la comparación sea justa."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un envase con tela bajó de 75 °C a 66 °C en 30 minutos. ¿Cuántos grados bajó?",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Inicial menos final.",
+          "75 menos 66.",
+          "Resta con calma las unidades y decenas."
+        ],
+        "retroalimentacion": "Bajó 9 °C porque 75 - 66 = 9."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El envase A bajó 6 °C y el envase B bajó 14 °C en el mismo tiempo. ¿Cuál conserva mejor el calor?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El B"
+          },
+          {
+            "id": "b",
+            "texto": "Los dos igual"
+          },
+          {
+            "id": "c",
+            "texto": "El A"
+          }
+        ],
+        "pistas": [
+          "Pierde menos calor el que baja menos grados.",
+          "Compara 6 con 14.",
+          "6 es menor que 14."
+        ],
+        "retroalimentacion": "El A, porque bajó menos grados que el B."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un envase baja de 80 °C a 70 °C y otro baja de 80 °C a 60 °C en el mismo tiempo, el segundo conservó mejor el calor.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cuánto bajó cada uno.",
+          "El primero bajó 10 °C y el segundo 20 °C.",
+          "Conserva mejor el que baja menos."
+        ],
+        "retroalimentacion": "Es falso: el primero bajó 10 °C y el segundo 20 °C, así que conservó mejor el primero."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "¿Cómo se llama el envase igual al tuyo pero sin la mejora, que sirve para comparar? Responde con una palabra: «control» o «prototipo».",
+        "respuesta": "control",
+        "alternativasAceptadas": [
+          "de control",
+          "el control",
+          "grupo de control"
+        ],
+        "pistas": [
+          "No es el que mejoraste.",
+          "Es el que sirve de comparación.",
+          "Es el mismo nombre que el grupo sin cambio en un experimento."
+        ],
+        "retroalimentacion": "Es el de control: el envase sin la mejora. Tu envase mejorado es el prototipo."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Tu envase pasó de 72 °C a 61 °C y el envase igual sin lana pasó de 72 °C a 49 °C. ¿Cuántos grados menos perdió tu envase que el otro?",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cuánto bajó cada envase.",
+          "El tuyo bajó 11 °C y el otro 23 °C.",
+          "Resta 23 menos 11."
+        ],
+        "retroalimentacion": "El tuyo bajó 11 °C y el otro 23 °C, así que perdió 12 °C menos."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Julia midió su envase a las 8:00 y a las 8:30; el otro envase lo midió a las 8:00 y a las 9:00. Su envase perdió menos grados. ¿Es una buena comparación?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sí, porque su envase perdió menos"
+          },
+          {
+            "id": "b",
+            "texto": "No, porque midió tiempos distintos"
+          },
+          {
+            "id": "c",
+            "texto": "Sí, porque midió dos veces"
+          }
+        ],
+        "pistas": [
+          "Revisa si el tiempo de espera fue el mismo.",
+          "Uno fue 30 minutos y el otro 60 minutos.",
+          "Con más tiempo se pierde más calor."
+        ],
+        "retroalimentacion": "No es buena comparación porque midió tiempos distintos: con más tiempo, el otro envase perdió más. Que su envase perdiera menos no prueba nada."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un envase empezó con el agua a 85 °C y a los 40 minutos marcó 63 °C. Otro envase igual empezó a 85 °C y marcó 71 °C en el mismo tiempo. ¿Cuántos grados bajó el envase que conserva peor el calor?",
+        "respuesta": 22,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la baja de temperatura en cada uno.",
+          "Son 85 - 63 y 85 - 71.",
+          "Conserva peor el que más bajó: compara los dos resultados."
+        ],
+        "retroalimentacion": "El primero bajó 22 °C y el segundo 14 °C; conserva peor el primero, que bajó 22 °C."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para que la prueba sea justa, además de misma cantidad de agua y tiempo, el agua debe empezar con la misma temperatura en los dos envases.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en qué pasa si uno empieza más caliente.",
+          "Más caliente pierde calor más rápido.",
+          "La temperatura inicial debe ser igual."
+        ],
+        "retroalimentacion": "Es verdadero: con distinta temperatura inicial no se comparan bien."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "cyt.p5.beneficios-inconvenientes",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 22,
+    "capacidad": "Evalúa y comunica el funcionamiento y los impactos de su alternativa de solución tecnológica",
+    "desempenosOrigen": [
+      "CYT-C22-P5-04"
+    ],
+    "bloque": "Prueba y comunicación",
+    "nombre": "Beneficios e inconvenientes de la solución",
+    "disciplina": "tecnologia",
+    "descripcionCorta": "Explica cómo la construyó, qué dificultades superó y qué ventajas y desventajas tiene.",
+    "palabrasClave": [
+      "beneficios",
+      "inconvenientes",
+      "dificultades",
+      "comunicar",
+      "ventajas"
+    ],
+    "prerrequisitos": [
+      "cyt.p5.prueba-comparativa"
+    ],
+    "ordenSugerido": 103,
+    "ideaCentral": "Al terminar, cuentas cómo construiste tu solución, qué dificultades superaste y qué ventajas y desventajas tiene. Así otras personas entienden si les sirve y cómo mejorarla.",
+    "pasos": [
+      "Cuenta los pasos que seguiste para construir tu envase, en orden.",
+      "Explica qué dificultades tuviste y cómo las resolviste.",
+      "Escribe los beneficios: qué mejoró respecto al problema.",
+      "Escribe los inconvenientes: qué no logró o qué costó."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Ana hizo un envase con lana. Se le enfrió el chocolate al principio porque la tapa no cerraba bien. ¿Qué dificultad superó?",
+        "desarrollo": "No cerraba bien la tapa, así que cambió de tapa.",
+        "respuesta": "El cierre de la tapa."
+      },
+      {
+        "situacion": "El envase de Ana conserva el chocolate caliente 1 hora, pero pesa mucho. ¿Cuál es un beneficio y cuál es un inconveniente?",
+        "desarrollo": "Conserva caliente es lo bueno; pesar mucho es lo malo.",
+        "respuesta": "Beneficio: conserva el calor. Inconveniente: pesa."
+      },
+      {
+        "situacion": "Un alumno de Piura dice: «mi envase tiene un hueco por donde se pierde calor». ¿Qué debe decir al comunicar su trabajo?",
+        "desarrollo": "Debe contar el inconveniente y cómo lo mejoraría.",
+        "respuesta": "Que tiene esa desventaja y que puede mejorarlo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar solo lo bueno de la solución.",
+        "correccion": "Cuenta también los inconvenientes: ayudan a mejorar."
+      },
+      {
+        "error": "Olvidar explicar cómo se construyó.",
+        "correccion": "Cuenta los pasos en orden para que otros puedan repetirlo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Beneficio",
+        "significado": "Ventaja o cosa buena que trae la solución."
+      },
+      {
+        "termino": "Inconveniente",
+        "significado": "Desventaja o problema de la solución."
+      },
+      {
+        "termino": "Dificultad",
+        "significado": "Obstáculo que apareció al construir."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si tu envase conserva caliente la bebida, eso es...",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un inconveniente"
+          },
+          {
+            "id": "b",
+            "texto": "Un beneficio"
+          },
+          {
+            "id": "c",
+            "texto": "Un error"
+          }
+        ],
+        "pistas": [
+          "Es algo bueno de tu solución.",
+          "Resuelve el problema.",
+          "Se llama ventaja."
+        ],
+        "retroalimentacion": "Es un beneficio. Un inconveniente sería algo malo y un error no es esto."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al explicar tu solución debes contar cómo la construiste.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en que otros quieren saber cómo repetirla.",
+          "Cuenta los pasos.",
+          "Eso se llama comunicar."
+        ],
+        "retroalimentacion": "Es verdadero: contar los pasos ayuda a que otros entiendan y repitan."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "A lo malo o a la desventaja de una solución se le llama «inconveniente». Y a lo bueno, ¿cómo se le llama? Responde con una palabra.",
+        "respuesta": "beneficio",
+        "alternativasAceptadas": [
+          "beneficios",
+          "ventaja",
+          "el beneficio"
+        ],
+        "pistas": [
+          "Es lo contrario de inconveniente.",
+          "Es lo que sirve o ayuda.",
+          "Empieza con «b»."
+        ],
+        "retroalimentacion": "Se llama beneficio (o ventaja)."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "El envase de Luis es muy grande y no entra en su mochila. ¿Qué es eso?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un inconveniente"
+          },
+          {
+            "id": "b",
+            "texto": "Un beneficio"
+          },
+          {
+            "id": "c",
+            "texto": "Una ventaja"
+          }
+        ],
+        "pistas": [
+          "Es algo que no le conviene.",
+          "Es una desventaja.",
+          "Se llama inconveniente."
+        ],
+        "retroalimentacion": "Es un inconveniente. Un beneficio o una ventaja serían cosas buenas."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para comunicar su solución, Ana cuenta: «al principio la tapa goteaba; puse una cinta y ya no goteó». ¿Qué está explicando?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un beneficio del envase"
+          },
+          {
+            "id": "b",
+            "texto": "Una pregunta nueva"
+          },
+          {
+            "id": "c",
+            "texto": "Una dificultad y cómo la superó"
+          }
+        ],
+        "pistas": [
+          "Hubo un problema al construir.",
+          "Ella lo arregló con una cinta.",
+          "Eso es superar una dificultad."
+        ],
+        "retroalimentacion": "Explica una dificultad y cómo la superó. No es un beneficio ni una pregunta nueva."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un envase que conserva el calor pero cuesta mucho tiene un inconveniente.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa si el costo alto conviene.",
+          "El costo alto es desventaja.",
+          "Aunque cumpla el calor."
+        ],
+        "retroalimentacion": "Es verdadero: el costo alto es un inconveniente."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El envase de Rosa mantiene caliente la bebida 2 horas, pero se calienta por fuera y puede quemar. ¿Quemar es un beneficio o un inconveniente? Responde con una palabra.",
+        "respuesta": "inconveniente",
+        "alternativasAceptadas": [
+          "un inconveniente",
+          "desventaja"
+        ],
+        "pistas": [
+          "Piensa si quemar es bueno.",
+          "Quemar a quien lo agarra es un problema.",
+          "No es un beneficio."
+        ],
+        "retroalimentacion": "Es un inconveniente: puede quemar al agarrarlo."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas frases comunica una ventaja del envase?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La tapa es difícil de cerrar"
+          },
+          {
+            "id": "b",
+            "texto": "Conserva la bebida a más de 50 °C por una hora"
+          },
+          {
+            "id": "c",
+            "texto": "Cuesta más de lo esperado"
+          }
+        ],
+        "pistas": [
+          "Busca la frase que dice algo bueno.",
+          "Las otras dos dicen problemas.",
+          "La primera dice lo que logra."
+        ],
+        "retroalimentacion": "Una ventaja es que conserva la bebida a más de 50 °C por una hora. Las otras son inconvenientes."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Daniel explica: «Mi envase conserva el calor 90 minutos, es barato, pero es difícil de limpiar». ¿Cuántos beneficios y cuántos inconvenientes nombra?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 beneficios y 1 inconveniente"
+          },
+          {
+            "id": "b",
+            "texto": "1 beneficio y 2 inconvenientes"
+          },
+          {
+            "id": "c",
+            "texto": "3 beneficios"
+          }
+        ],
+        "pistas": [
+          "Separa lo bueno de lo malo.",
+          "Conservar 90 minutos y ser barato son buenos.",
+          "Difícil de limpiar es malo."
+        ],
+        "retroalimentacion": "Nombra 2 beneficios (conserva el calor y es barato) y 1 inconveniente (es difícil de limpiar)."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Contar un inconveniente de tu solución muestra que tu trabajo es malo y debes ocultarlo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en para qué sirve saber los inconvenientes.",
+          "Ayudan a mejorar el prototipo.",
+          "Ocultarlos no ayuda a nadie."
+        ],
+        "retroalimentacion": "Es falso: contar inconvenientes es parte de una buena comunicación y permite mejorar."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Al armar su envase, Carla no pudo pegar la lana con pegamento porque se despegaba con el calor y usó una cinta en su lugar. En este caso, ¿cómo se llama lo que pasó con el pegamento? Responde con una palabra: «dificultad» o «beneficio».",
+        "respuesta": "dificultad",
+        "alternativasAceptadas": [
+          "una dificultad",
+          "la dificultad"
+        ],
+        "pistas": [
+          "Algo no funcionó como se esperaba.",
+          "Ella encontró otra forma.",
+          "Fue un obstáculo."
+        ],
+        "retroalimentacion": "Fue una dificultad, que Carla superó cambiando el pegamento por cinta."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Luis presenta su envase a sus compañeros. ¿Qué parte de su presentación ayuda más a que otros puedan mejorar su idea?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Decir que es perfecto"
+          },
+          {
+            "id": "b",
+            "texto": "No mostrar la prueba"
+          },
+          {
+            "id": "c",
+            "texto": "Contar sus inconvenientes y qué cambiaría"
+          }
+        ],
+        "pistas": [
+          "Piensa en qué información permite mejorar.",
+          "Los inconvenientes muestran qué falta.",
+          "Decir que es perfecto no da información."
+        ],
+        "retroalimentacion": "Lo que más ayuda es contar sus inconvenientes y qué cambiaría. Decir que es perfecto o no mostrar la prueba no sirve para mejorar."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

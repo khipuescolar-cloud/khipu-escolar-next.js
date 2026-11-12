@@ -1,0 +1,379 @@
+[
+  {
+    "clave": "cyt.p5.contrastar-hipotesis",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 20,
+    "capacidad": "Analiza datos e información",
+    "desempenosOrigen": [
+      "CYT-C20-P5-04"
+    ],
+    "bloque": "Contraste y conclusiones",
+    "nombre": "Contrastar la hipótesis con los datos",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Decide si los datos confirman o rechazan la hipótesis y lo compara con la información científica.",
+    "palabrasClave": [
+      "hipótesis",
+      "datos",
+      "contrastar",
+      "conclusión",
+      "información científica"
+    ],
+    "prerrequisitos": [
+      "cyt.p5.grafico-de-lineas",
+      "cyt.p5.resumen-informacion-cientifica"
+    ],
+    "ordenSugerido": 78,
+    "ideaCentral": "Contrastar es comparar lo que pensabas (la hipótesis) con lo que muestran los datos. Si coinciden, los datos apoyan la hipótesis; si no, se rechaza. Luego comparas tu resultado con lo que dice la ciencia.",
+    "pasos": [
+      "Lee tu hipótesis otra vez.",
+      "Mira los datos que obtuviste.",
+      "Decide si los datos la apoyan o la rechazan.",
+      "Compara tu resultado con la información científica."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Hipótesis: «El hielo se derrite más rápido en agua tibia que en agua fría». Datos: en agua tibia tardó 5 min y en agua fría 12 min.",
+        "desarrollo": "El hielo tardó menos en el agua tibia, como se pensaba.",
+        "respuesta": "Los datos apoyan la hipótesis."
+      },
+      {
+        "situacion": "Hipótesis de Rosa: «En Puno, a 3800 m, el agua hierve a 100 °C». Su termómetro marcó 88 °C. La ciencia dice que a mayor altura el agua hierve a menor temperatura.",
+        "desarrollo": "88 °C es menos que 100 °C, y la ciencia explica por qué.",
+        "respuesta": "Se rechaza la hipótesis y el resultado coincide con la ciencia."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Cambiar los datos para que coincidan con la hipótesis.",
+        "correccion": "Los datos no se cambian; se cambia la hipótesis si no coinciden."
+      },
+      {
+        "error": "Pensar que una hipótesis rechazada es un fracaso.",
+        "correccion": "También se aprende cuando se rechaza una hipótesis."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Hipótesis",
+        "significado": "Posible respuesta que se pone a prueba."
+      },
+      {
+        "termino": "Contrastar",
+        "significado": "Comparar la hipótesis con los datos."
+      },
+      {
+        "termino": "Rechazar",
+        "significado": "Decidir que los datos no apoyan la hipótesis."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una hipótesis es una posible respuesta que se pone a prueba.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en lo que supones antes de experimentar.",
+          "Se supone una respuesta y se prueba.",
+          "Esa respuesta provisional es la hipótesis."
+        ],
+        "retroalimentacion": "Es verdadero: la hipótesis es una posible respuesta que se comprueba con datos.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si los datos coinciden con tu hipótesis, ¿qué se dice?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La hipótesis se olvida"
+          },
+          {
+            "id": "b",
+            "texto": "La hipótesis se rechaza"
+          },
+          {
+            "id": "c",
+            "texto": "Los datos apoyan la hipótesis"
+          },
+          {
+            "id": "d",
+            "texto": "La hipótesis es un dato"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los datos y la hipótesis dicen lo mismo.",
+          "No hay desacuerdo.",
+          "Los datos la sostienen."
+        ],
+        "retroalimentacion": "Se dice que «Los datos apoyan la hipótesis». Rechazar es cuando no coinciden.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Si los datos no coinciden con la hipótesis, ¿qué se hace con ella: aceptarla o rechazarla? Responde con una palabra.",
+        "respuesta": "rechazarla",
+        "alternativasAceptadas": [
+          "rechazar",
+          "se rechaza"
+        ],
+        "pistas": [
+          "Los datos dicen algo distinto.",
+          "La hipótesis no se sostiene.",
+          "Empieza con rec."
+        ],
+        "retroalimentacion": "Cuando los datos no coinciden se rechaza la hipótesis.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Hipótesis: «Los frejoles crecen más con luz que en la oscuridad». ¿Qué necesitas para contrastarla?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un dibujo bonito"
+          },
+          {
+            "id": "b",
+            "texto": "El nombre del científico"
+          },
+          {
+            "id": "c",
+            "texto": "Una opinión de un amigo"
+          },
+          {
+            "id": "d",
+            "texto": "Datos medidos del crecimiento con luz y sin luz"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay que comparar dos casos.",
+          "Se necesitan mediciones, no opiniones.",
+          "Datos de crecimiento con luz y en oscuridad."
+        ],
+        "retroalimentacion": "Necesitas «Datos medidos del crecimiento con luz y sin luz»; una opinión o un dibujo no sirven para contrastar.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Hipótesis: el hielo se derrite más rápido en agua tibia que en agua fría. Datos: agua tibia, 5 min; agua fría, 12 min. ¿Qué concluyes?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Los datos rechazan la hipótesis"
+          },
+          {
+            "id": "b",
+            "texto": "Los datos confirman la hipótesis"
+          },
+          {
+            "id": "c",
+            "texto": "No hay datos"
+          },
+          {
+            "id": "d",
+            "texto": "El agua fría derrite más rápido"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 5 min con 12 min.",
+          "Tarda menos en el agua tibia.",
+          "Eso es lo que decía la hipótesis."
+        ],
+        "retroalimentacion": "Los datos confirman la hipótesis: tardó 5 min en agua tibia y 12 en fría.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Hipótesis: «La albahaca crece más con más agua». Datos tras 10 días: con 100 ml creció 12 cm; con 200 ml creció 11 cm. ¿Qué concluyes?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Los datos no apoyan la hipótesis"
+          },
+          {
+            "id": "b",
+            "texto": "Los datos la confirman"
+          },
+          {
+            "id": "c",
+            "texto": "Falta la planta"
+          },
+          {
+            "id": "d",
+            "texto": "La albahaca no crece"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 12 cm con 11 cm.",
+          "Con más agua creció menos.",
+          "La hipótesis decía que crecería más."
+        ],
+        "retroalimentacion": "Los datos no apoyan la hipótesis: con más agua creció menos (11 cm contra 12 cm).",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una hipótesis es rechazada, el experimento fracasó y no se aprendió nada.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en lo que descubriste aunque no coincidiera.",
+          "Sabes que tu idea inicial no era correcta.",
+          "Eso también es un resultado valioso."
+        ],
+        "retroalimentacion": "Es falso: rechazar una hipótesis enseña algo nuevo.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Midiste frejoles: con luz 14 cm y sin luz 6 cm. ¿Cuántos cm más crecieron los frejoles con luz?",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las dos alturas.",
+          "Resta la menor de la mayor.",
+          "14 menos 6."
+        ],
+        "retroalimentacion": "14 cm − 6 cm = 8 cm más con luz.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Hipótesis: «El jabón con más espuma limpia mejor». Datos: el jabón A (mucha espuma) quitó 60 % de la mancha y el B (poca espuma) quitó 85 %. La ciencia dice que limpia el jabón al separar la grasa, no la espuma. ¿Qué concluyes?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Los datos confirman la hipótesis"
+          },
+          {
+            "id": "b",
+            "texto": "No se puede concluir nada"
+          },
+          {
+            "id": "c",
+            "texto": "Los datos rechazan la hipótesis y coinciden con la información científica"
+          },
+          {
+            "id": "d",
+            "texto": "El jabón B es mentira"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara cuánta mancha quitó cada jabón.",
+          "El de menos espuma limpió más.",
+          "La ciencia dice lo mismo."
+        ],
+        "retroalimentacion": "Los datos rechazan la hipótesis y coinciden con la información científica: el jabón con menos espuma limpió más.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Lucía midió una sola vez y concluyó que su hipótesis era correcta. ¿Qué le recomiendas?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Repetir la prueba varias veces para estar más segura"
+          },
+          {
+            "id": "b",
+            "texto": "No hacer nada"
+          },
+          {
+            "id": "c",
+            "texto": "Borrar el dato"
+          },
+          {
+            "id": "d",
+            "texto": "Decir que ya es una ley"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un solo dato puede ser un error.",
+          "Más pruebas dan más seguridad.",
+          "Repetir ayuda a confirmar."
+        ],
+        "retroalimentacion": "Debe «Repetir la prueba varias veces para estar más segura»: un solo dato puede ser casual.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si tus datos contradicen lo que dice un libro, debes cambiar los datos para que coincidan.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los datos son lo que mediste.",
+          "No se inventan ni cambian.",
+          "Se revisa el experimento y se explica la diferencia."
+        ],
+        "retroalimentacion": "Es falso: los datos no se cambian; se revisa el procedimiento y se explica la diferencia.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Rosa piensa que en Puno (3800 m) el agua hierve a 100 °C. Su termómetro marca 88 °C. La ciencia dice que a mayor altura el agua hierve a menor temperatura. ¿Qué concluye?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Se confirma la hipótesis"
+          },
+          {
+            "id": "b",
+            "texto": "El termómetro está roto sí o sí"
+          },
+          {
+            "id": "c",
+            "texto": "El agua de Puno no hierve"
+          },
+          {
+            "id": "d",
+            "texto": "Se rechaza: los datos (88 °C) no coinciden y la ciencia explica por qué"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 100 °C con 88 °C.",
+          "La altura baja el punto de ebullición.",
+          "Los datos y la ciencia coinciden entre sí."
+        ],
+        "retroalimentacion": "Se rechaza la hipótesis: «los datos (88 °C) no coinciden y la ciencia explica por qué». La altura baja la temperatura de ebullición.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

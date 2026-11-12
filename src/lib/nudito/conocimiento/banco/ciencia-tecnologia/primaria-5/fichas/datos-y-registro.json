@@ -1,0 +1,1429 @@
+[
+  {
+    "clave": "cyt.p5.datos-cualitativos-cuantitativos",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 20,
+    "capacidad": "Genera y registra datos e información",
+    "desempenosOrigen": [
+      "CYT-C20-P5-03"
+    ],
+    "bloque": "Datos y registro",
+    "nombre": "Datos cualitativos y datos cuantitativos",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Diferencia datos que describen cualidades de datos que se miden con números.",
+    "palabrasClave": [
+      "dato cualitativo",
+      "dato cuantitativo",
+      "observación",
+      "medición",
+      "unidad"
+    ],
+    "prerrequisitos": [
+      "cyt.p5.variables-experimento"
+    ],
+    "ordenSugerido": 48,
+    "ideaCentral": "Los datos cualitativos describen cualidades, como el color o el olor. Los datos cuantitativos se miden con números y unidades, como 12 cm o 18 °C. En una indagación usas ambos.",
+    "pasos": [
+      "Observa lo que vas a anotar.",
+      "Si lo describes con palabras (color, olor, textura), es cualitativo.",
+      "Si lo mides o cuentas con un número y una unidad, es cuantitativo.",
+      "Anota cada dato en su columna."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Observas una planta de quinua: «hojas verde claro» y «12 cm de altura». ¿Cuál es cada tipo?",
+        "desarrollo": "«Verde claro» describe una cualidad. «12 cm» es una medida con número y unidad.",
+        "respuesta": "«Verde claro» es cualitativo y «12 cm» es cuantitativo."
+      },
+      {
+        "situacion": "Tomas la temperatura del agua del río: 18 °C. ¿Qué tipo de dato es?",
+        "desarrollo": "Tiene número y unidad (°C), así que es una medición.",
+        "respuesta": "Es un dato cuantitativo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que un dato cuantitativo no necesita unidad.",
+        "correccion": "Siempre lleva unidad: cm, g, °C, ml…"
+      },
+      {
+        "error": "Pensar que el color se puede medir con una regla.",
+        "correccion": "El color es cualitativo; se describe con palabras."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Dato cualitativo",
+        "significado": "Dato que describe una cualidad con palabras."
+      },
+      {
+        "termino": "Dato cuantitativo",
+        "significado": "Dato que se mide o se cuenta con números."
+      },
+      {
+        "termino": "Unidad",
+        "significado": "Referencia con la que se expresa una medida, como cm o kg."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El color de una hoja es un dato cualitativo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa si el color se mide con números.",
+          "Se describe con palabras: verde, amarilla…",
+          "Lo que se describe con palabras es cualitativo."
+        ],
+        "retroalimentacion": "Es verdadero: el color describe una cualidad, no se mide con un número.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estos es un dato cuantitativo?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La hoja es verde"
+          },
+          {
+            "id": "b",
+            "texto": "El tallo es suave"
+          },
+          {
+            "id": "c",
+            "texto": "La planta tiene 7 hojas"
+          },
+          {
+            "id": "d",
+            "texto": "La flor huele dulce"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el dato con un número que cuenta algo.",
+          "Verde, suave y dulce son cualidades.",
+          "Solo una opción cuenta hojas."
+        ],
+        "retroalimentacion": "«La planta tiene 7 hojas» es cuantitativo: se cuenta con un número. Las otras opciones describen cualidades.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Los datos que se miden o se cuentan con números se llaman datos ______ . ¿Qué palabra falta?",
+        "respuesta": "cuantitativos",
+        "alternativasAceptadas": [
+          "cuantitativo",
+          "datos cuantitativos"
+        ],
+        "pistas": [
+          "Hay un tipo de dato que usa números.",
+          "Es el contrario de cualitativo.",
+          "Empieza con cuan."
+        ],
+        "retroalimentacion": "Se llaman datos cuantitativos.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estos es un dato cualitativo?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La piedra pesa 200 g"
+          },
+          {
+            "id": "b",
+            "texto": "La textura áspera de una piedra"
+          },
+          {
+            "id": "c",
+            "texto": "La piedra mide 8 cm"
+          },
+          {
+            "id": "d",
+            "texto": "Hay 3 piedras"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la descripción sin número.",
+          "Áspera describe cómo se siente.",
+          "Los demás tienen números y unidades."
+        ],
+        "retroalimentacion": "«La textura áspera de una piedra» es cualitativo: describe una cualidad. Los otros se miden o cuentan.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "«El agua del río Rímac está a 18 °C». ¿Qué tipo de dato es?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cualitativo, porque habla de un río"
+          },
+          {
+            "id": "b",
+            "texto": "Cualitativo, porque es agua"
+          },
+          {
+            "id": "c",
+            "texto": "Cuantitativo, porque habla de agua"
+          },
+          {
+            "id": "d",
+            "texto": "Cuantitativo, porque tiene un número y una unidad"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira si hay un número.",
+          "Hay 18 y la unidad °C.",
+          "Un número con unidad es una medición."
+        ],
+        "retroalimentacion": "Es cuantitativo porque tiene un número y una unidad (18 °C). Hablar de un río o de agua no lo hace cualitativo.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El olor de una fruta como la chirimoya se puede medir con una regla.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "¿La regla mide olores?",
+          "Una regla mide longitudes.",
+          "El olor se describe con palabras."
+        ],
+        "retroalimentacion": "Es falso: el olor es cualitativo y se describe con palabras; la regla mide longitud.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Observas: la quinua mide 12 cm, tiene 5 hojas, es verde clara y su tallo es delgado. ¿Cuántos datos cuantitativos hay?",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca los que tienen número.",
+          "Uno es la altura y otro es el número de hojas.",
+          "Verde clara y delgado no tienen número."
+        ],
+        "retroalimentacion": "Hay 2 datos cuantitativos: 12 cm y 5 hojas.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Mides la temperatura de una sopa con un termómetro. ¿Con qué unidad escribes el dato: °C o cm?",
+        "respuesta": "°C",
+        "alternativasAceptadas": [
+          "c",
+          "grados",
+          "grados celsius"
+        ],
+        "pistas": [
+          "Un termómetro mide qué tan caliente está algo.",
+          "Los cm miden longitud.",
+          "La temperatura se escribe en grados Celsius."
+        ],
+        "retroalimentacion": "La temperatura se escribe en °C.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tabla del frejol: color de hojas, verde oscuro; altura, 9 cm; aspecto del tallo, firme; número de hojas, 4. ¿Qué filas son cuantitativas?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Color y aspecto del tallo"
+          },
+          {
+            "id": "b",
+            "texto": "Altura y número de hojas"
+          },
+          {
+            "id": "c",
+            "texto": "Color y altura"
+          },
+          {
+            "id": "d",
+            "texto": "Aspecto del tallo y número de hojas"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca las filas que traen número.",
+          "Altura y hojas se miden o cuentan.",
+          "Color y aspecto son descripciones."
+        ],
+        "retroalimentacion": "Son cuantitativas «Altura y número de hojas»; color y aspecto son cualitativas.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un mismo fenómeno puede dar datos cualitativos y cuantitativos a la vez.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en una papa: color y peso.",
+          "El color es cualitativo y el peso es cuantitativo.",
+          "Un fenómeno ofrece ambos tipos de dato."
+        ],
+        "retroalimentacion": "Es verdadero: de un mismo objeto puedes anotar cualidades y medidas.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Quieres comparar con precisión si el hielo se derrite más rápido al sol o a la sombra. ¿Qué dato es más útil?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Los minutos que tarda en derretirse en cada lugar"
+          },
+          {
+            "id": "b",
+            "texto": "Que el hielo se ve bonito"
+          },
+          {
+            "id": "c",
+            "texto": "Que el día está agradable"
+          },
+          {
+            "id": "d",
+            "texto": "Que hay mucha gente"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para comparar con precisión necesitas números.",
+          "El tiempo se mide.",
+          "Los otros datos son opiniones."
+        ],
+        "retroalimentacion": "Es más útil «Los minutos que tarda en derretirse en cada lugar»: un dato cuantitativo comparable.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Lucía anota «la tierra está húmeda» y Pedro anota «la tierra pesa 50 g más». ¿Quién anotó un dato cuantitativo?",
+        "respuesta": "Pedro",
+        "alternativasAceptadas": [
+          "pedro"
+        ],
+        "pistas": [
+          "Busca la nota con una medida.",
+          "50 g es un número con unidad.",
+          "Húmeda es una descripción."
+        ],
+        "retroalimentacion": "Pedro anotó un dato cuantitativo (50 g); Lucía anotó uno cualitativo.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "cyt.p5.cuaderno-de-campo",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 20,
+    "capacidad": "Genera y registra datos e información",
+    "desempenosOrigen": [
+      "CYT-C20-P5-03"
+    ],
+    "bloque": "Datos y registro",
+    "nombre": "Cuaderno de campo y registro diario",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Anota fecha, observaciones y medidas de forma ordenada durante el experimento.",
+    "palabrasClave": [
+      "cuaderno de campo",
+      "registro",
+      "fecha",
+      "observaciones",
+      "medidas"
+    ],
+    "prerrequisitos": [
+      "cyt.p5.datos-cualitativos-cuantitativos"
+    ],
+    "ordenSugerido": 49,
+    "ideaCentral": "El cuaderno de campo es donde anotas, ordenadamente y en el momento, lo que observas y mides: fecha, hora, lugar, medidas con unidad y descripciones. Así tus datos se pueden revisar y comparar.",
+    "pasos": [
+      "Escribe fecha, hora y lugar.",
+      "Anota las medidas con su unidad.",
+      "Describe lo que observas con claridad.",
+      "Si te equivocas, tacha con una sola línea y escribe al lado."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "12/11, 8:00 a. m., patio: la planta mide 6 cm y tiene 3 hojas verdes. ¿Por qué es un buen registro?",
+        "desarrollo": "Tiene fecha, hora, lugar, medida con unidad y observación.",
+        "respuesta": "Está completo y ordenado."
+      },
+      {
+        "situacion": "El lunes anotas 4 cm y el miércoles 7 cm. ¿Cuánto creció?",
+        "desarrollo": "7 − 4 = 3.",
+        "respuesta": "Creció 3 cm."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Anotar sin fecha, como «Planta: bien».",
+        "correccion": "Escribe fecha y datos concretos."
+      },
+      {
+        "error": "Borrar o arrancar la hoja al equivocarte.",
+        "correccion": "Tacha con una línea y corrige al lado."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Registro",
+        "significado": "Anotación ordenada de datos."
+      },
+      {
+        "termino": "Observación",
+        "significado": "Lo que ves, hueles o notas al mirar con atención."
+      },
+      {
+        "termino": "Medida",
+        "significado": "Dato con número y unidad."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En el cuaderno de campo se anota la fecha de cada observación.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cómo sabrás cuándo hiciste cada anotación.",
+          "Necesitas el día.",
+          "La fecha es un dato básico."
+        ],
+        "retroalimentacion": "Es verdadero: sin fecha no puedes comparar cómo cambian las cosas.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué no puede faltar en cada registro?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El color del lápiz"
+          },
+          {
+            "id": "b",
+            "texto": "El nombre del vecino"
+          },
+          {
+            "id": "c",
+            "texto": "La fecha"
+          },
+          {
+            "id": "d",
+            "texto": "El precio del cuaderno"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa qué te ayuda a ordenar tus observaciones.",
+          "El lápiz, el vecino y el precio no cuentan nada del experimento.",
+          "Es un dato de tiempo."
+        ],
+        "retroalimentacion": "No puede faltar la fecha. El color del lápiz, el nombre del vecino y el precio no sirven para el registro.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Cómo se llama el cuaderno donde anotas lo que observas y mides durante el experimento?",
+        "respuesta": "cuaderno de campo",
+        "alternativasAceptadas": [
+          "de campo",
+          "el cuaderno de campo"
+        ],
+        "pistas": [
+          "Se lleva al lugar donde observas.",
+          "Su nombre incluye la palabra campo.",
+          "Es el cuaderno de ____."
+        ],
+        "retroalimentacion": "Se llama cuaderno de campo.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es una forma correcta de anotar una medida?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12"
+          },
+          {
+            "id": "b",
+            "texto": "12 cm"
+          },
+          {
+            "id": "c",
+            "texto": "alto"
+          },
+          {
+            "id": "d",
+            "texto": "más o menos grande"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una medida necesita número y unidad.",
+          "Alto o grande no dicen cuánto.",
+          "Solo una opción tiene ambos."
+        ],
+        "retroalimentacion": "La forma correcta es «12 cm», porque tiene número y unidad.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Te equivocas al anotar un dato. ¿Qué debes hacer?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Arrancar la hoja"
+          },
+          {
+            "id": "b",
+            "texto": "Borrar con fuerza"
+          },
+          {
+            "id": "c",
+            "texto": "Dejarlo así"
+          },
+          {
+            "id": "d",
+            "texto": "Tachar con una línea y escribir al lado el dato correcto"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un registro debe poder revisarse.",
+          "Si arrancas o borras, pierdes lo anotado.",
+          "Una sola línea deja leer lo que había."
+        ],
+        "retroalimentacion": "Debes «Tachar con una línea y escribir al lado el dato correcto»: así el registro sigue siendo claro.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Es mejor anotar al día siguiente, de memoria, para no interrumpir el experimento.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "¿Recordarás el dato exacto?",
+          "La memoria falla.",
+          "Se anota en el momento."
+        ],
+        "retroalimentacion": "Es falso: conviene anotar en el momento para no olvidar ni cambiar el dato.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál registro está más completo?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12/11, 8:00 a. m., patio: la planta mide 6 cm y tiene 3 hojas verdes"
+          },
+          {
+            "id": "b",
+            "texto": "Hoy medí"
+          },
+          {
+            "id": "c",
+            "texto": "Mide 6"
+          },
+          {
+            "id": "d",
+            "texto": "Lunes: crece"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca fecha, hora, lugar y medida.",
+          "Los otros son muy cortos.",
+          "Uno tiene todo eso."
+        ],
+        "retroalimentacion": "El más completo es «12/11, 8:00 a. m., patio: la planta mide 6 cm y tiene 3 hojas verdes».",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Anotaste la altura de una planta: el lunes 4 cm y el miércoles 7 cm. ¿Cuántos cm creció entre el lunes y el miércoles?",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las dos alturas.",
+          "Resta la altura del lunes a la del miércoles.",
+          "7 menos 4."
+        ],
+        "retroalimentacion": "7 cm − 4 cm = 3 cm.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Carlos anota: «Planta 1: bien». ¿Qué debe mejorar?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Agregar fecha, observaciones concretas y medidas con unidad"
+          },
+          {
+            "id": "b",
+            "texto": "Solo escribir con otro color"
+          },
+          {
+            "id": "c",
+            "texto": "Dibujar un marco"
+          },
+          {
+            "id": "d",
+            "texto": "Poner su apellido"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa qué datos faltan en «Planta 1: bien».",
+          "Falta decir cuándo y cuánto.",
+          "Hay que ser concretos."
+        ],
+        "retroalimentacion": "Debe «Agregar fecha, observaciones concretas y medidas con unidad». «Bien» no dice nada medible.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un cuaderno de campo puedes incluir dibujos o esquemas de lo observado.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "A veces dibujar explica mejor que escribir.",
+          "Un dibujo guarda detalles.",
+          "Es válido y útil."
+        ],
+        "retroalimentacion": "Es verdadero: los dibujos completan las observaciones.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En Iquitos anotas el lunes «llovió 15 mm» y el martes solo «llovió mucho». ¿Cuál es el problema de la nota del martes?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Está escrita con lápiz"
+          },
+          {
+            "id": "b",
+            "texto": "No es comparable con el lunes, porque no tiene medida"
+          },
+          {
+            "id": "c",
+            "texto": "Habla de lluvia"
+          },
+          {
+            "id": "d",
+            "texto": "Es muy larga"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las dos notas.",
+          "El lunes tiene número y el martes no.",
+          "Sin medida no se puede comparar."
+        ],
+        "retroalimentacion": "El problema es que «No es comparable con el lunes, porque no tiene medida».",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Anotas fecha, hora y medida. Además conviene escribir el ______ donde mides (el patio, el aula). ¿Qué palabra falta?",
+        "respuesta": "lugar",
+        "alternativasAceptadas": [
+          "el lugar",
+          "ubicación",
+          "la ubicación",
+          "sitio"
+        ],
+        "pistas": [
+          "Piensa dónde haces la observación.",
+          "Puede cambiar si mides en otro sitio.",
+          "Empieza con lu."
+        ],
+        "retroalimentacion": "Conviene anotar el lugar de la observación.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "cyt.p5.grafico-de-lineas",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 20,
+    "capacidad": "Genera y registra datos e información",
+    "desempenosOrigen": [
+      "CYT-C20-P5-03"
+    ],
+    "bloque": "Datos y registro",
+    "nombre": "Gráfico de líneas de un experimento",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Representa cómo cambia una medida en el tiempo con un gráfico de líneas.",
+    "palabrasClave": [
+      "gráfico de líneas",
+      "eje",
+      "tiempo",
+      "medida",
+      "tabla de datos"
+    ],
+    "prerrequisitos": [
+      "cyt.p5.cuaderno-de-campo"
+    ],
+    "ordenSugerido": 76,
+    "ideaCentral": "Un gráfico de líneas muestra cómo cambia una medida con el tiempo. El tiempo va en el eje horizontal, la medida en el vertical, y se unen los puntos con una línea.",
+    "pasos": [
+      "Escribe un título y marca los ejes con su unidad.",
+      "Pon el tiempo en el eje horizontal y la medida en el vertical.",
+      "Marca un punto por cada dato.",
+      "Une los puntos con una línea y observa si sube, baja o se mantiene."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Altura del frejol: día 1, 2 cm; día 3, 5 cm; día 5, 9 cm. ¿Cuánto creció entre los días 3 y 5?",
+        "desarrollo": "Del día 3 al 5 pasó de 5 cm a 9 cm: 9 − 5 = 4.",
+        "respuesta": "Creció 4 cm."
+      },
+      {
+        "situacion": "Temperatura en Cusco: 6 a. m. 4 °C; 12 m. 15 °C; 6 p. m. 9 °C.",
+        "desarrollo": "El punto más alto está a las 12 m.",
+        "respuesta": "La temperatura más alta fue al mediodía."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Poner el tiempo en el eje vertical.",
+        "correccion": "El tiempo va en el eje horizontal."
+      },
+      {
+        "error": "Olvidar el título o las unidades.",
+        "correccion": "Todo gráfico lleva título y unidades."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Eje",
+        "significado": "Línea del gráfico donde se escriben los valores."
+      },
+      {
+        "termino": "Gráfico de líneas",
+        "significado": "Gráfico que une puntos para mostrar cambios en el tiempo."
+      },
+      {
+        "termino": "Punto",
+        "significado": "Marca que representa un dato."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un gráfico de líneas sirve para ver cómo cambia una medida en el tiempo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en la temperatura durante el día.",
+          "Une los puntos para ver el cambio.",
+          "Se usa para cambios en el tiempo."
+        ],
+        "retroalimentacion": "Es verdadero: el gráfico de líneas muestra cómo cambia algo con el tiempo.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un gráfico de líneas del crecimiento de una planta, ¿qué suele ir en el eje horizontal?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La altura"
+          },
+          {
+            "id": "b",
+            "texto": "El tiempo (días)"
+          },
+          {
+            "id": "c",
+            "texto": "El nombre de la planta"
+          },
+          {
+            "id": "d",
+            "texto": "El color"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa qué va en el eje de abajo.",
+          "Se mide cuántos días pasaron.",
+          "Es el tiempo."
+        ],
+        "retroalimentacion": "En el eje horizontal va «El tiempo (días)»; la altura va en el vertical.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Cuando graficas la altura de una planta, ¿qué muestra el eje vertical?",
+        "respuesta": "altura",
+        "alternativasAceptadas": [
+          "la altura",
+          "la altura de la planta",
+          "la medida"
+        ],
+        "pistas": [
+          "Piensa en lo que mediste.",
+          "No es el tiempo.",
+          "Es lo que crece."
+        ],
+        "retroalimentacion": "El eje vertical muestra la altura de la planta.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué gráfico usarías para mostrar cómo cambió la temperatura cada hora en Arequipa?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un dibujo de la ciudad"
+          },
+          {
+            "id": "b",
+            "texto": "Una lista de nombres"
+          },
+          {
+            "id": "c",
+            "texto": "Un gráfico de líneas"
+          },
+          {
+            "id": "d",
+            "texto": "Un mapa"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en un cambio durante el tiempo.",
+          "Un mapa o una lista no muestran cambios.",
+          "Un gráfico que une puntos."
+        ],
+        "retroalimentacion": "Usarías un gráfico de líneas, porque muestra cómo cambia la temperatura con el tiempo.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Altura del frejol: día 3, 5 cm; día 5, 9 cm. ¿Cuántos cm creció entre el día 3 y el día 5?",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las alturas.",
+          "Resta la menor de la mayor.",
+          "9 menos 5."
+        ],
+        "retroalimentacion": "9 cm − 5 cm = 4 cm.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para hacer el gráfico hay que ponerle título y escribir las unidades en los ejes.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cómo otra persona lo entenderá.",
+          "El título dice de qué trata.",
+          "Las unidades dicen qué se mide."
+        ],
+        "retroalimentacion": "Es verdadero: el título y las unidades hacen entendible el gráfico.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La línea del gráfico sube de izquierda a derecha. ¿Qué significa?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La medida aumenta con el tiempo"
+          },
+          {
+            "id": "b",
+            "texto": "La medida baja"
+          },
+          {
+            "id": "c",
+            "texto": "La medida no cambia"
+          },
+          {
+            "id": "d",
+            "texto": "El experimento terminó"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sube con el paso del tiempo.",
+          "Subir indica que el valor crece.",
+          "Es lo contrario de bajar."
+        ],
+        "retroalimentacion": "Significa que «La medida aumenta con el tiempo».",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Temperatura en Cusco: 6 a. m., 4 °C; 12 m., 15 °C; 6 p. m., 9 °C. ¿A qué hora está el punto más alto?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6 a. m."
+          },
+          {
+            "id": "b",
+            "texto": "12 m."
+          },
+          {
+            "id": "c",
+            "texto": "6 p. m."
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el mayor valor.",
+          "15 °C es el mayor.",
+          "Ese valor es del mediodía."
+        ],
+        "retroalimentacion": "El punto más alto es a las 12 m., con 15 °C.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Datos de agua evaporada de un vaso: día 1, 200 ml; día 2, 190 ml; día 3, 180 ml; día 4, 170 ml. ¿Cómo se ve la línea?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sube de forma pareja"
+          },
+          {
+            "id": "b",
+            "texto": "Se mantiene horizontal"
+          },
+          {
+            "id": "c",
+            "texto": "Baja de forma pareja, 10 ml cada día"
+          },
+          {
+            "id": "d",
+            "texto": "Sube y baja varias veces"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cómo cambia el valor cada día.",
+          "Va disminuyendo.",
+          "Baja 10 ml cada vez."
+        ],
+        "retroalimentacion": "La línea «Baja de forma pareja, 10 ml cada día».",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos puntos del gráfico se unen con una línea horizontal, la medida no cambió entre esos momentos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una línea horizontal está a la misma altura.",
+          "La misma altura significa el mismo valor.",
+          "El valor no cambió."
+        ],
+        "retroalimentacion": "Es verdadero: una línea horizontal indica que la medida se mantuvo.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El agua caliente se enfría: minuto 0, 80 °C; minuto 5, 60 °C; minuto 10, 48 °C; minuto 15, 40 °C. ¿Cuántos grados bajó entre el minuto 0 y el minuto 10?",
+        "respuesta": 32,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa los datos de los minutos 0 y 10.",
+          "Resta la temperatura final de la inicial.",
+          "80 menos 48."
+        ],
+        "retroalimentacion": "80 °C − 48 °C = 32 °C.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Alex dibuja un gráfico con el eje horizontal «Altura (cm)» y el vertical «Días». ¿Qué error cometió?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Usó centímetros"
+          },
+          {
+            "id": "b",
+            "texto": "Puso título"
+          },
+          {
+            "id": "c",
+            "texto": "Intercambió las variables: el tiempo debe ir en el eje horizontal"
+          },
+          {
+            "id": "d",
+            "texto": "Dibujó puntos"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en dónde va el tiempo.",
+          "Los días deben ir abajo.",
+          "Las variables están cambiadas."
+        ],
+        "retroalimentacion": "El error es que «Intercambió las variables: el tiempo debe ir en el eje horizontal».",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "cyt.p5.resumen-informacion-cientifica",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 20,
+    "capacidad": "Genera y registra datos e información",
+    "desempenosOrigen": [
+      "CYT-C20-P5-03"
+    ],
+    "bloque": "Datos y registro",
+    "nombre": "Resumen de información científica",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Resume lo que dicen las fuentes sobre el fenómeno que investiga.",
+    "palabrasClave": [
+      "resumen",
+      "idea principal",
+      "fuente",
+      "información científica",
+      "palabras propias"
+    ],
+    "prerrequisitos": [
+      "cyt.p5.fuentes-libros-revistas"
+    ],
+    "ordenSugerido": 77,
+    "ideaCentral": "Resumir es decir con tus propias palabras las ideas principales de lo que lees, sin copiar todo ni inventar. Un buen resumen es corto, fiel a la fuente y anota de dónde viene la información.",
+    "pasos": [
+      "Lee el texto completo.",
+      "Subraya las ideas principales.",
+      "Escribe con tus palabras lo esencial, sin agregar datos nuevos.",
+      "Anota la fuente."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Texto: «La vicuña vive en la puna sobre los 3500 m y su lana es muy fina. Casi desaparece por la caza, pero hoy está protegida por ley». ¿Cómo lo resumes?",
+        "desarrollo": "Ideas principales: dónde vive, su lana, el peligro y la protección.",
+        "respuesta": "La vicuña de la puna da lana fina, casi desaparece por la caza y hoy está protegida."
+      },
+      {
+        "situacion": "Un texto de 120 palabras se resume en 30. ¿Cuántas palabras se quitaron?",
+        "desarrollo": "120 − 30 = 90.",
+        "respuesta": "Se quitaron 90 palabras."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Copiar el texto completo.",
+        "correccion": "Resume con tus propias palabras."
+      },
+      {
+        "error": "Añadir datos inventados.",
+        "correccion": "Solo se incluye lo que dice la fuente."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Resumen",
+        "significado": "Texto corto con las ideas principales."
+      },
+      {
+        "termino": "Idea principal",
+        "significado": "La idea más importante de un texto."
+      },
+      {
+        "termino": "Fuente",
+        "significado": "Lugar donde se obtuvo la información."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Resumir es copiar todo el texto.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un resumen es corto.",
+          "Copiar todo no reduce nada.",
+          "Se dice solo lo esencial."
+        ],
+        "retroalimentacion": "Es falso: resumir es escribir solo lo esencial con tus palabras.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un buen resumen incluye...",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Todos los detalles"
+          },
+          {
+            "id": "b",
+            "texto": "Datos inventados"
+          },
+          {
+            "id": "c",
+            "texto": "Opiniones"
+          },
+          {
+            "id": "d",
+            "texto": "Las ideas principales"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un resumen no es largo.",
+          "No se inventan datos.",
+          "Se queda con lo más importante."
+        ],
+        "retroalimentacion": "Incluye «Las ideas principales»; no todos los detalles ni datos inventados.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Cómo se llama la idea más importante de un párrafo? Responde con dos palabras.",
+        "respuesta": "idea principal",
+        "alternativasAceptadas": [
+          "la idea principal",
+          "principal"
+        ],
+        "pistas": [
+          "Es la que más pesa en el párrafo.",
+          "Los otros datos la apoyan.",
+          "Se llama idea …"
+        ],
+        "retroalimentacion": "Se llama idea principal.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué debes escribir al final del resumen para saber de dónde sacaste la información?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tu apodo"
+          },
+          {
+            "id": "b",
+            "texto": "La fuente (título, autor)"
+          },
+          {
+            "id": "c",
+            "texto": "El color del libro"
+          },
+          {
+            "id": "d",
+            "texto": "Cuántas páginas tiene"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay que decir de dónde viene la información.",
+          "Eso permite revisarla.",
+          "Es el origen."
+        ],
+        "retroalimentacion": "Debes escribir «La fuente (título, autor)» para poder comprobar la información.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Texto: «El picaflor de los Andes bate sus alas hasta 80 veces por segundo y se alimenta del néctar de las flores. Así puede quedarse quieto en el aire.» ¿Cuál es el mejor resumen?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El picaflor es un ave que vive en el Perú"
+          },
+          {
+            "id": "b",
+            "texto": "Los picaflores comen mucho"
+          },
+          {
+            "id": "c",
+            "texto": "El picaflor bate muy rápido las alas para quedarse quieto en el aire mientras toma néctar"
+          },
+          {
+            "id": "d",
+            "texto": "Las flores tienen néctar"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el resumen que incluya la causa y la acción.",
+          "Debe decir cómo se queda quieto.",
+          "Debe incluir lo del néctar."
+        ],
+        "retroalimentacion": "El mejor resumen es «El picaflor bate muy rápido las alas para quedarse quieto en el aire mientras toma néctar».",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un resumen se escribe con tus propias palabras.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Copiar no es resumir.",
+          "Hay que explicar lo que entendiste.",
+          "Usa tus palabras."
+        ],
+        "retroalimentacion": "Es verdadero: resumir implica explicar con tus palabras.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Texto: «La vicuña vive en la puna sobre los 3500 m y su lana es muy fina. Casi desaparece por la caza, pero hoy está protegida por ley.» ¿Cuál resumen conserva las ideas principales?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La vicuña de la puna da lana fina, casi desaparece por la caza y hoy está protegida"
+          },
+          {
+            "id": "b",
+            "texto": "La lana es fina"
+          },
+          {
+            "id": "c",
+            "texto": "La vicuña vive alto"
+          },
+          {
+            "id": "d",
+            "texto": "Hay una ley"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Elige el que junte todas las ideas.",
+          "Los otros solo toman una.",
+          "Debe incluir lo de la caza y la protección."
+        ],
+        "retroalimentacion": "Conserva las ideas «La vicuña de la puna da lana fina, casi desaparece por la caza y hoy está protegida».",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un texto de 120 palabras se resumió en 30 palabras. ¿Cuántas palabras se quitaron?",
+        "respuesta": 90,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara el texto original con el resumen.",
+          "Resta las palabras del resumen.",
+          "120 menos 30."
+        ],
+        "retroalimentacion": "120 − 30 = 90 palabras.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una fuente dice que el cóndor andino mide hasta 3 m con las alas abiertas; otra, que pesa hasta 15 kg. ¿Cómo las resumes?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El cóndor es grande"
+          },
+          {
+            "id": "b",
+            "texto": "El cóndor pesa 3 m"
+          },
+          {
+            "id": "c",
+            "texto": "El cóndor puede medir hasta 3 m con las alas abiertas y pesar hasta 15 kg"
+          },
+          {
+            "id": "d",
+            "texto": "El cóndor vuela alto"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Reúne los dos datos.",
+          "No mezcles las unidades.",
+          "3 m con 15 kg."
+        ],
+        "retroalimentacion": "Se resume así: «El cóndor puede medir hasta 3 m con las alas abiertas y pesar hasta 15 kg».",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al resumir información científica, puedes añadir datos inventados que suenen interesantes.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un resumen debe ser fiel.",
+          "Lo inventado no está en la fuente.",
+          "Solo se resume lo que dice."
+        ],
+        "retroalimentacion": "Es falso: un resumen no debe incluir datos que la fuente no dice.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un estudiante resume: «El agua hierve a 100 °C en todos lados». Su fuente dice que a mayor altura hierve a menos grados. ¿Qué falló?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Escribió muy corto"
+          },
+          {
+            "id": "b",
+            "texto": "El resumen no refleja lo que dice la fuente"
+          },
+          {
+            "id": "c",
+            "texto": "Usó números"
+          },
+          {
+            "id": "d",
+            "texto": "Citó la fuente"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara lo que dice el resumen con lo que dice la fuente.",
+          "Dicen cosas diferentes sobre la temperatura.",
+          "El resumen debía repetir la idea de la altura."
+        ],
+        "retroalimentacion": "Falló porque «El resumen no refleja lo que dice la fuente».",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Lees: «Los glaciares de la cordillera Blanca (Áncash) se derriten por el calentamiento del clima; su agua alimenta ríos que riegan cultivos». ¿Qué causa el derretimiento, según el texto?",
+        "respuesta": "calentamiento",
+        "alternativasAceptadas": [
+          "el calentamiento",
+          "calentamiento global",
+          "el calentamiento global",
+          "calentamiento del clima"
+        ],
+        "pistas": [
+          "Busca la palabra después de «por».",
+          "Es un cambio del clima.",
+          "Empieza con cal."
+        ],
+        "retroalimentacion": "Según el texto, la causa es el calentamiento del clima.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

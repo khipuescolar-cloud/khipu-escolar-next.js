@@ -1,0 +1,705 @@
+[
+  {
+    "clave": "cyt.p5.evaluar-procedimiento",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 20,
+    "capacidad": "Evalúa y comunica el proceso y resultados de su indagación",
+    "desempenosOrigen": [
+      "CYT-C20-P5-05"
+    ],
+    "bloque": "Evaluación y comunicación",
+    "nombre": "Evaluar si el procedimiento probó la hipótesis",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Reconoce fallas del procedimiento, como la falta de un grupo de control, y propone mejoras.",
+    "palabrasClave": [
+      "procedimiento",
+      "grupo de control",
+      "mejoras",
+      "repeticiones",
+      "conclusión"
+    ],
+    "prerrequisitos": [
+      "cyt.p5.contrastar-hipotesis"
+    ],
+    "ordenSugerido": 100,
+    "ideaCentral": "Después de un experimento se evalúa si el procedimiento sirvió para probar la hipótesis. Un buen procedimiento cambia una sola variable, tiene un grupo de control y repite las pruebas; si falla algo, se propone una mejora.",
+    "pasos": [
+      "Lee el procedimiento y recuerda cuál era la hipótesis.",
+      "Revisa que se cambie una sola variable y que haya un grupo de control.",
+      "Verifica si se repitieron las pruebas y si se midió bien.",
+      "Si hay fallas, propón una mejora concreta."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Rosa quiere saber si el abono ayuda a crecer a sus plantas, pero solo tiene plantas con abono. ¿Qué falta?",
+        "desarrollo": "No puede comparar con plantas que no recibieron abono.",
+        "respuesta": "Un grupo de control sin abono."
+      },
+      {
+        "situacion": "Un niño cambia el tipo de tierra y la cantidad de agua a la vez. ¿Qué falla?",
+        "desarrollo": "Cambió dos variables, así que no sabe cuál causó el efecto.",
+        "respuesta": "Debe cambiar una sola variable."
+      },
+      {
+        "situacion": "Una niña midió una sola vez. ¿Cómo mejora?",
+        "desarrollo": "Con una sola medición puede haber errores.",
+        "respuesta": "Repitiendo las pruebas varias veces."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que si el resultado coincide con lo que esperaba, el procedimiento fue bueno sin revisarlo.",
+        "correccion": "Un resultado correcto puede deberse a fallas; revisa si fue un procedimiento justo."
+      },
+      {
+        "error": "Creer que un grupo de control recibe el tratamiento.",
+        "correccion": "El grupo de control no recibe el cambio y sirve para comparar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Grupo de control",
+        "significado": "Grupo que no recibe el cambio y sirve para comparar."
+      },
+      {
+        "termino": "Procedimiento",
+        "significado": "Pasos que se siguen en la indagación."
+      },
+      {
+        "termino": "Mejora",
+        "significado": "Cambio que corrige una falla del procedimiento."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un grupo de control no recibe el cambio que se está probando.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en qué sirve para comparar.",
+          "Es el grupo «normal».",
+          "No recibe lo que se prueba."
+        ],
+        "retroalimentacion": "Es verdadero: el grupo de control no recibe el cambio y sirve para comparar.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al probar un fertilizante, ¿qué plantas serían el grupo de control?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Las que no reciben fertilizante"
+          },
+          {
+            "id": "b",
+            "texto": "Las que reciben más fertilizante"
+          },
+          {
+            "id": "c",
+            "texto": "Las que reciben el doble"
+          },
+          {
+            "id": "d",
+            "texto": "Las que se riegan con jugo"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Es el grupo con el que se compara.",
+          "No recibe el cambio.",
+          "Si el cambio es el fertilizante, estas no lo reciben."
+        ],
+        "retroalimentacion": "El grupo de control son las plantas sin fertilizante, para comparar con las que sí lo reciben.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "El grupo que no recibe el cambio y sirve para comparar se llama grupo de... Escribe una palabra.",
+        "respuesta": "control",
+        "alternativasAceptadas": [
+          "el control",
+          "de control"
+        ],
+        "pistas": [
+          "Es el nombre de este tema.",
+          "Empieza con «con».",
+          "Sirve para controlar la comparación."
+        ],
+        "retroalimentacion": "Se llama grupo de control.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un buen experimento se cambian varias variables a la vez.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cómo saber qué causó el efecto.",
+          "Con varios cambios no se sabe cuál influyó.",
+          "Se cambia solo una."
+        ],
+        "retroalimentacion": "Es falso: se cambia una sola variable.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Sara pone frejoles con luz y quiere saber si la luz los hace crecer más, pero no pone frejoles en la oscuridad. ¿Cuál es la falla?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Usó frejoles"
+          },
+          {
+            "id": "b",
+            "texto": "No tiene grupo de control"
+          },
+          {
+            "id": "c",
+            "texto": "Usó maceta"
+          },
+          {
+            "id": "d",
+            "texto": "Los riega"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "¿Con qué compara?",
+          "Le faltan frejoles sin el cambio.",
+          "Eso se llama grupo de control."
+        ],
+        "retroalimentacion": "Falta un grupo de control: frejoles en la oscuridad para comparar. Usar frejoles, macetas o regarlos no es la falla.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un niño midió una sola vez el crecimiento de la planta y le salió un dato raro. ¿Qué debe hacer para mejorar? Escribe una palabra.",
+        "respuesta": "repetir",
+        "alternativasAceptadas": [
+          "repetir las pruebas",
+          "repetir el experimento",
+          "repetición"
+        ],
+        "pistas": [
+          "Una sola medición puede tener errores.",
+          "Piensa en probar varias veces.",
+          "Empieza con «re»."
+        ],
+        "retroalimentacion": "Debe repetir las pruebas para estar seguro del resultado.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si el procedimiento cambia dos variables, la conclusión puede no ser confiable.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántas cosas cambian.",
+          "Si cambian dos, no se sabe cuál es la causa.",
+          "Eso debilita la conclusión."
+        ],
+        "retroalimentacion": "Es verdadero: con dos variables cambiadas no se sabe cuál causó el efecto.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Luis probó dos marcas de pilas, pero en una usó una linterna y en la otra un juguete distinto. ¿Qué falla tiene su procedimiento?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Usó pilas"
+          },
+          {
+            "id": "b",
+            "texto": "Cambió el aparato además de la marca"
+          },
+          {
+            "id": "c",
+            "texto": "Midió el tiempo"
+          },
+          {
+            "id": "d",
+            "texto": "Usó dos marcas"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta qué cosas cambian entre las dos pruebas.",
+          "El aparato también cambió.",
+          "Hay otra variable que no se controló."
+        ],
+        "retroalimentacion": "El problema es que cambió el aparato además de la marca; así no se sabe qué influyó.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos grupos de frejoles reciben luz distinta: uno en el patio y otro en el cuarto. El del patio crece más, pero también tenía otra tierra. ¿Qué mejora propones?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Poner la misma tierra en los dos grupos"
+          },
+          {
+            "id": "b",
+            "texto": "Cambiar el nombre del experimento"
+          },
+          {
+            "id": "c",
+            "texto": "Medir una sola vez"
+          },
+          {
+            "id": "d",
+            "texto": "Quitar el grupo del cuarto"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay otra variable distinta además de la luz.",
+          "Controla esa variable.",
+          "La tierra debe ser igual."
+        ],
+        "retroalimentacion": "Hay que poner la misma tierra, para que solo cambie la luz.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un experimento con una sola planta por grupo es tan confiable como uno con varias plantas por grupo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "¿Qué pasa si esa planta tiene una falla propia?",
+          "Con más plantas hay más seguridad.",
+          "Una muestra mayor da más confianza."
+        ],
+        "retroalimentacion": "Es falso: con varias plantas por grupo el resultado es más confiable.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una niña compara plantas con agua de caño y plantas con agua de lluvia, pero las puso en lugares con distinta luz. ¿Qué variable no controló? Escribe una palabra.",
+        "respuesta": "luz",
+        "alternativasAceptadas": [
+          "la luz",
+          "cantidad de luz"
+        ],
+        "pistas": [
+          "Revisa qué es distinto aparte del agua.",
+          "Mira el lugar.",
+          "No es el agua, es otra cosa que llega a la planta."
+        ],
+        "retroalimentacion": "No controló la luz: al ser distinta, no se sabe si el agua o la luz causó el cambio.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Matías concluye que «el abono hace crecer más» tras medir solo 2 plantas con abono y 2 sin abono, con una diferencia pequeña. ¿Cuál es la mejor mejora?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Concluir igual"
+          },
+          {
+            "id": "b",
+            "texto": "Usar más plantas y repetir el experimento"
+          },
+          {
+            "id": "c",
+            "texto": "Usar menos plantas"
+          },
+          {
+            "id": "d",
+            "texto": "Borrar los datos"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Con pocas plantas, el azar puede influir.",
+          "Más datos dan más seguridad.",
+          "Repetir ayuda a confirmar."
+        ],
+        "retroalimentacion": "La mejor mejora es usar más plantas y repetir el experimento, para confiar en la diferencia.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "cyt.p5.exposicion-indagacion",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 5,
+    "competenciaCneb": 20,
+    "capacidad": "Evalúa y comunica el proceso y resultados de su indagación",
+    "desempenosOrigen": [
+      "CYT-C20-P5-05"
+    ],
+    "bloque": "Evaluación y comunicación",
+    "nombre": "Exposición de una indagación con papelógrafo",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Organiza hipótesis, procedimiento, datos y conclusiones para exponerlos.",
+    "palabrasClave": [
+      "papelógrafo",
+      "exposición",
+      "hipótesis",
+      "datos",
+      "conclusión"
+    ],
+    "prerrequisitos": [
+      "cyt.p5.evaluar-procedimiento"
+    ],
+    "ordenSugerido": 101,
+    "ideaCentral": "Para exponer una indagación con papelógrafo se ordenan las partes: título y pregunta, hipótesis, procedimiento, datos y conclusiones. La letra debe ser grande y clara para que todos entiendan.",
+    "pasos": [
+      "Escribe un título y la pregunta que quisiste responder.",
+      "Anota la hipótesis y los materiales o pasos del procedimiento.",
+      "Muestra los datos en una tabla o un dibujo.",
+      "Termina con una conclusión que responda la pregunta y practica cómo vas a hablar."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un grupo estudió si el hielo se derrite más rápido al sol. ¿Qué escribe en el papelógrafo bajo «Datos»?",
+        "desarrollo": "En esta parte van los resultados medidos.",
+        "respuesta": "Una tabla con el tiempo que tardó en derretirse cada cubito."
+      },
+      {
+        "situacion": "¿Qué va en la última parte del papelógrafo?",
+        "desarrollo": "Es lo que responde a la pregunta inicial usando los datos.",
+        "respuesta": "La conclusión."
+      },
+      {
+        "situacion": "Un papelógrafo está lleno de letra pequeña y muchos dibujos desordenados. ¿Qué conviene mejorar?",
+        "desarrollo": "Se debe ver desde lejos y entender rápido.",
+        "respuesta": "Usar letra grande y organizar las partes."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Poner solo la conclusión y olvidar los datos.",
+        "correccion": "La conclusión debe apoyarse en los datos que presentas."
+      },
+      {
+        "error": "Copiar largos párrafos en el papelógrafo.",
+        "correccion": "Usa frases cortas, tablas o dibujos y explica el resto hablando."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Papelógrafo",
+        "significado": "Papel grande donde se escribe para mostrar a un grupo."
+      },
+      {
+        "termino": "Datos",
+        "significado": "Información que se obtiene al medir u observar."
+      },
+      {
+        "termino": "Conclusión",
+        "significado": "Respuesta final a la pregunta, apoyada en los datos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué va primero en un papelógrafo de indagación?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La conclusión"
+          },
+          {
+            "id": "b",
+            "texto": "El título y la pregunta"
+          },
+          {
+            "id": "c",
+            "texto": "Los dibujos sin orden"
+          },
+          {
+            "id": "d",
+            "texto": "Los agradecimientos"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa qué se debe saber antes de todo.",
+          "Se presenta de qué trata el trabajo.",
+          "El título y la pregunta abren la exposición."
+        ],
+        "retroalimentacion": "Primero van el título y la pregunta. La conclusión va al final y los dibujos deben estar ordenados.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un papelógrafo, la letra debe ser grande y clara.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en quien está al fondo del salón.",
+          "Debe poder leerse desde lejos.",
+          "La claridad importa."
+        ],
+        "retroalimentacion": "Es verdadero: la letra grande y clara ayuda a que todos lean.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La respuesta final a la pregunta, apoyada en los datos, se llama... Escribe una palabra.",
+        "respuesta": "conclusión",
+        "alternativasAceptadas": [
+          "conclusion",
+          "la conclusión",
+          "la conclusion"
+        ],
+        "pistas": [
+          "Va al final de la exposición.",
+          "Responde la pregunta.",
+          "Empieza con «con»."
+        ],
+        "retroalimentacion": "Esa parte se llama conclusión.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los datos de un experimento se muestran, por ejemplo, en una tabla.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una tabla ordena números.",
+          "Facilita leer los resultados.",
+          "Es una forma de presentar datos."
+        ],
+        "retroalimentacion": "Es verdadero: una tabla es una buena forma de mostrar datos.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un grupo escribe: «Hipótesis: si pongo más luz, la planta crecerá más». ¿Qué parte del papelógrafo sigue naturalmente después?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Los agradecimientos"
+          },
+          {
+            "id": "b",
+            "texto": "La conclusión"
+          },
+          {
+            "id": "c",
+            "texto": "El título"
+          },
+          {
+            "id": "d",
+            "texto": "El procedimiento con materiales y pasos"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ya tienes la hipótesis.",
+          "Falta explicar cómo se comprobó.",
+          "Se presentan materiales y pasos."
+        ],
+        "retroalimentacion": "Después de la hipótesis sigue el procedimiento, con materiales y pasos.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un grupo midió la altura de la planta cada día y la anotó. ¿Cómo se llama esa información? Escribe una palabra.",
+        "respuesta": "datos",
+        "alternativasAceptadas": [
+          "los datos"
+        ],
+        "pistas": [
+          "Son resultados medidos.",
+          "Se anotan en tablas.",
+          "Empieza con «da»."
+        ],
+        "retroalimentacion": "Esa información se llama datos.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Copiar párrafos largos en el papelógrafo es la mejor forma de explicar una indagación.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en la lectura a distancia.",
+          "Los párrafos largos cansan.",
+          "Es mejor frases cortas y dibujos."
+        ],
+        "retroalimentacion": "Es falso: conviene usar frases cortas, tablas o dibujos.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El papelógrafo de Luz tiene datos en una tabla, pero no dice qué pregunta quería responder. ¿Qué le falta?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Más colores"
+          },
+          {
+            "id": "b",
+            "texto": "Un nombre más largo"
+          },
+          {
+            "id": "c",
+            "texto": "Un título y la pregunta"
+          },
+          {
+            "id": "d",
+            "texto": "Letra más pequeña"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa lo que debe ir al principio.",
+          "Sin pregunta no se entiende el propósito.",
+          "Falta el comienzo."
+        ],
+        "retroalimentacion": "Le faltan un título y la pregunta, para entender qué se quería responder.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Elige el orden correcto de las partes de un papelógrafo.",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Conclusión, datos, hipótesis, título"
+          },
+          {
+            "id": "b",
+            "texto": "Título y pregunta, hipótesis, procedimiento, datos, conclusión"
+          },
+          {
+            "id": "c",
+            "texto": "Datos, título, conclusión, hipótesis"
+          },
+          {
+            "id": "d",
+            "texto": "Procedimiento, conclusión, título, datos"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empieza por lo que presenta el tema.",
+          "Termina con la respuesta.",
+          "Sigue el orden lógico de una indagación."
+        ],
+        "retroalimentacion": "El orden correcto es título y pregunta, hipótesis, procedimiento, datos y conclusión.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una conclusión que no tiene relación con los datos presentados está bien hecha porque suena interesante.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La conclusión debe apoyarse en datos.",
+          "Sin datos, no hay prueba.",
+          "Debe responder la pregunta."
+        ],
+        "retroalimentacion": "Es falso: la conclusión debe apoyarse en los datos.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un grupo presenta una tabla donde, al aumentar la luz, la planta crece más. ¿Qué parte del papelógrafo usa esos números para responder la pregunta? Escribe una palabra.",
+        "respuesta": "conclusión",
+        "alternativasAceptadas": [
+          "conclusion",
+          "la conclusión"
+        ],
+        "pistas": [
+          "Responde la pregunta inicial.",
+          "Usa los datos de la tabla.",
+          "Se escribe al final."
+        ],
+        "retroalimentacion": "La conclusión usa los datos de la tabla para responder la pregunta.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dani practica su exposición y nota que se queda callado mientras lee su papelógrafo. ¿Cuál es el mejor consejo?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Leer todo en voz baja"
+          },
+          {
+            "id": "b",
+            "texto": "Mirar al grupo y explicar con sus palabras apoyándose en el papelógrafo"
+          },
+          {
+            "id": "c",
+            "texto": "Dar la espalda"
+          },
+          {
+            "id": "d",
+            "texto": "Hablar muy rápido"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cómo comunicarte con el público.",
+          "El papelógrafo es un apoyo.",
+          "Hablar con claridad es lo importante."
+        ],
+        "retroalimentacion": "Lo mejor es mirar al grupo y explicar con sus palabras apoyándose en el papelógrafo.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]
