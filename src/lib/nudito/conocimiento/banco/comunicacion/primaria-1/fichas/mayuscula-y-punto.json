@@ -1,0 +1,759 @@
+[
+  {
+    "clave": "com.p1.mayuscula-al-inicio",
+    "area": "comunicacion",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 9,
+    "capacidad": "Utiliza convenciones del lenguaje escrito de forma pertinente",
+    "desempenosOrigen": [
+      "COM-C9-P1-02",
+      "COM-C9-P1-01"
+    ],
+    "bloque": "Mayúscula y punto",
+    "nombre": "Mayúscula al empezar y en los nombres",
+    "disciplina": "lenguaje",
+    "descripcionCorta": "Usa mayúscula al inicio de la oración y en los nombres propios.",
+    "palabrasClave": [
+      "mayúscula",
+      "oración",
+      "nombre propio",
+      "inicio"
+    ],
+    "prerrequisitos": [
+      "com.p1.escribo-oraciones"
+    ],
+    "ordenSugerido": 40,
+    "ideaCentral": "La primera letra de una oración se escribe con mayúscula. Los nombres de personas y lugares también empiezan con mayúscula.",
+    "pasos": [
+      "Busca dónde empieza la oración.",
+      "Escribe su primera letra en mayúscula.",
+      "Busca nombres de personas o lugares.",
+      "Revisa que esos nombres también empiecen con mayúscula."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "«ana juega».",
+        "desarrollo": "La oración empieza con Ana y Ana es un nombre.",
+        "respuesta": "«Ana juega»."
+      },
+      {
+        "situacion": "«viajo a lima».",
+        "desarrollo": "La oración empieza con Viajo; Lima es nombre de ciudad.",
+        "respuesta": "«Viajo a Lima»."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Escribir «lima» si hablas de la ciudad.",
+        "correccion": "Escribe «Lima» porque es nombre propio."
+      },
+      {
+        "error": "Poner mayúscula a todas las palabras.",
+        "correccion": "Usa mayúscula al inicio y en nombres propios."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "mayúscula",
+        "significado": "Letra grande como A, B o C."
+      },
+      {
+        "termino": "oración",
+        "significado": "Grupo de palabras que expresa una idea."
+      },
+      {
+        "termino": "nombre propio",
+        "significado": "Nombre particular de una persona o un lugar."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál oración empieza con mayúscula?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la primera letra de cada oración.",
+          "La palabra inicial es «El».",
+          "Debe comenzar con E grande."
+        ],
+        "retroalimentacion": "«El gato duerme.» comienza con E mayúscula.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "el gato duerme."
+          },
+          {
+            "id": "b",
+            "texto": "El gato duerme."
+          },
+          {
+            "id": "c",
+            "texto": "eL gato duerme."
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La oración «Mi mamá canta.» empieza de forma correcta.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa la primera letra.",
+          "La M de «Mi» es grande.",
+          "Una oración comienza con mayúscula."
+        ],
+        "retroalimentacion": "Es verdadero: «Mi mamá canta.» comienza con M mayúscula."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cómo se escribe el nombre de la niña Ana?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un nombre de persona es propio.",
+          "Los nombres propios empiezan con letra grande.",
+          "Elige Ana con A mayúscula."
+        ],
+        "retroalimentacion": "«Ana» lleva A mayúscula por ser nombre propio.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "ana"
+          },
+          {
+            "id": "b",
+            "texto": "aNa"
+          },
+          {
+            "id": "c",
+            "texto": "Ana"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Completa con la palabra bien escrita: «___ está en el Perú».",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La palabra inicial nombra una ciudad.",
+          "También empieza la oración.",
+          "Debe tener L mayúscula."
+        ],
+        "retroalimentacion": "«Lima» empieza con L mayúscula por ser ciudad y palabra inicial.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Lima"
+          },
+          {
+            "id": "b",
+            "texto": "lima"
+          },
+          {
+            "id": "c",
+            "texto": "lIMA"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál frase escribe bien el nombre de persona?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el nombre en la frase.",
+          "Pedro es nombre propio.",
+          "La P debe ser mayúscula."
+        ],
+        "retroalimentacion": "«Hoy llega Pedro.» escribe Pedro con P mayúscula.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Hoy llega pedro."
+          },
+          {
+            "id": "b",
+            "texto": "hoy llega Pedro."
+          },
+          {
+            "id": "c",
+            "texto": "Hoy llega pEdro."
+          },
+          {
+            "id": "d",
+            "texto": "Hoy llega Pedro."
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En «carmen dibuja», la primera palabra necesita una C mayúscula.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la primera letra de la frase.",
+          "Carmen es nombre de persona.",
+          "Además, comienza la oración."
+        ],
+        "retroalimentacion": "Es verdadero: debe escribirse «Carmen dibuja»."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Después de «El perro duerme.» empieza otra oración. ¿Cuál inicio es correcto?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La primera oración terminó.",
+          "La siguiente oración necesita letra inicial grande.",
+          "«Luego» debe iniciar con L mayúscula."
+        ],
+        "retroalimentacion": "«Luego despierta.» empieza correctamente la nueva oración.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "luego despierta."
+          },
+          {
+            "id": "b",
+            "texto": "Luego despierta."
+          },
+          {
+            "id": "c",
+            "texto": "lUego despierta."
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué dos palabras llevan mayúscula en «rosa visita cusco»?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el inicio de oración.",
+          "Rosa es persona y Cusco es ciudad.",
+          "Ambos nombres empiezan con mayúscula."
+        ],
+        "retroalimentacion": "Debe escribirse «Rosa visita Cusco».",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "solo visita"
+          },
+          {
+            "id": "b",
+            "texto": "solo cusco"
+          },
+          {
+            "id": "c",
+            "texto": "Rosa y Cusco"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Elige la escritura correcta de dos oraciones seguidas.",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica dónde termina la primera.",
+          "Cada oración nueva empieza con mayúscula.",
+          "También Ana es nombre propio."
+        ],
+        "retroalimentacion": "«Ana lee. Su hermano escucha.» usa mayúsculas al inicio de ambas oraciones.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ana lee. Su hermano escucha."
+          },
+          {
+            "id": "b",
+            "texto": "Ana lee. su hermano escucha."
+          },
+          {
+            "id": "c",
+            "texto": "ana lee. Su hermano escucha."
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "«Vivo en arequipa.» tiene todas las mayúsculas necesarias.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La V inicial está bien.",
+          "Arequipa es una ciudad.",
+          "El nombre de ciudad necesita A mayúscula."
+        ],
+        "retroalimentacion": "Es falso: debe escribirse «Vivo en Arequipa»."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una niña escribe «maría y josé juegan». ¿Qué corrección completa hace falta?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay dos nombres de personas.",
+          "María también inicia la oración.",
+          "Ambos nombres empiezan con letra grande."
+        ],
+        "retroalimentacion": "«María y José juegan» pone mayúscula al inicio y en los dos nombres.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "maría y José juegan"
+          },
+          {
+            "id": "b",
+            "texto": "María y josé juegan"
+          },
+          {
+            "id": "c",
+            "texto": "MARÍA Y JOSÉ JUEGAN"
+          },
+          {
+            "id": "d",
+            "texto": "María y José juegan"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué oración corrige el inicio y el nombre del lugar en «fuimos a puno»?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa la primera palabra.",
+          "Puno es nombre propio de ciudad.",
+          "Necesitas F y P mayúsculas."
+        ],
+        "retroalimentacion": "«Fuimos a Puno» corrige la F inicial y la P del nombre.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Fuimos a puno"
+          },
+          {
+            "id": "b",
+            "texto": "Fuimos a Puno"
+          },
+          {
+            "id": "c",
+            "texto": "fuimos a Puno"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "com.p1.punto-al-final",
+    "area": "comunicacion",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 9,
+    "capacidad": "Utiliza convenciones del lenguaje escrito de forma pertinente",
+    "desempenosOrigen": [
+      "COM-C9-P1-02"
+    ],
+    "bloque": "Mayúscula y punto",
+    "nombre": "El punto al terminar la oración",
+    "disciplina": "lenguaje",
+    "descripcionCorta": "Coloca punto al terminar una oración y reconoce dónde termina cada una.",
+    "palabrasClave": [
+      "punto",
+      "oración",
+      "final",
+      "pausa"
+    ],
+    "prerrequisitos": [
+      "com.p1.mayuscula-al-inicio"
+    ],
+    "ordenSugerido": 76,
+    "ideaCentral": "El punto señala que una oración terminó. Al leerlo, haces una pausa y sabes que la siguiente idea empieza después.",
+    "pasos": [
+      "Lee la idea completa.",
+      "Encuentra dónde termina esa idea.",
+      "Coloca un punto justo después de la última palabra.",
+      "Si hay otra oración, empieza a leerla después del punto."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "«El sol brilla».",
+        "desarrollo": "La idea termina en brilla.",
+        "respuesta": "«El sol brilla.»"
+      },
+      {
+        "situacion": "«Lola salta. Pablo corre».",
+        "desarrollo": "Son dos ideas completas.",
+        "respuesta": "«Lola salta. Pablo corre.»"
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Poner el punto en medio de una idea.",
+        "correccion": "Espera hasta la última palabra de la oración."
+      },
+      {
+        "error": "Olvidar el punto al terminar.",
+        "correccion": "Revisa el final de cada oración completa."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "punto",
+        "significado": "Signo (.) que marca el final de una oración."
+      },
+      {
+        "termino": "oración",
+        "significado": "Palabras que expresan una idea completa."
+      },
+      {
+        "termino": "pausa",
+        "significado": "Detención breve al leer."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál oración tiene punto al final?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira lo que hay tras «canta».",
+          "La idea ya terminó.",
+          "Busca el signo pequeño después de la última palabra."
+        ],
+        "retroalimentacion": "«El ave canta.» termina con punto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El ave canta."
+          },
+          {
+            "id": "b",
+            "texto": "El ave canta"
+          },
+          {
+            "id": "c",
+            "texto": "El. ave canta"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "«Mi casa es azul.» termina con un punto.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa el último signo.",
+          "Después de «azul» aparece un punto.",
+          "Ese signo marca el final."
+        ],
+        "retroalimentacion": "Es verdadero: hay un punto después de «azul»."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Completa la oración «La luna sale__». ¿Qué signo falta?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La idea ya está completa.",
+          "El signo va después de «sale».",
+          "Ese signo es un punto."
+        ],
+        "retroalimentacion": "Falta el punto: «La luna sale.»",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "una coma"
+          },
+          {
+            "id": "b",
+            "texto": "un guion"
+          },
+          {
+            "id": "c",
+            "texto": "un punto"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Dónde va el punto en «Rita riega la planta»?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee toda la acción.",
+          "«Planta» es la última palabra.",
+          "El punto se coloca después de ella."
+        ],
+        "retroalimentacion": "El punto va después de «planta»: «Rita riega la planta.»",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "después de Rita"
+          },
+          {
+            "id": "b",
+            "texto": "después de planta"
+          },
+          {
+            "id": "c",
+            "texto": "después de riega"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál escritura separa dos oraciones?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay una idea sobre Ana y otra sobre Luis.",
+          "La primera termina en «lee».",
+          "Coloca allí un punto."
+        ],
+        "retroalimentacion": "«Ana lee. Luis escucha.» separa las dos oraciones.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ana lee Luis escucha."
+          },
+          {
+            "id": "b",
+            "texto": "Ana. lee Luis escucha"
+          },
+          {
+            "id": "c",
+            "texto": "Ana lee Luis. escucha"
+          },
+          {
+            "id": "d",
+            "texto": "Ana lee. Luis escucha."
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En «El gato duerme. La perra juega.», cada oración tiene su punto.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el final de cada idea.",
+          "Hay un punto tras «duerme».",
+          "También hay otro tras «juega»."
+        ],
+        "retroalimentacion": "Es verdadero: ambas oraciones terminan con punto."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En «Mi abuela cocina Mi tío ayuda», ¿después de qué palabra termina la primera idea?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica la acción de la abuela.",
+          "Ella cocina.",
+          "La siguiente idea empieza con «Mi tío»."
+        ],
+        "retroalimentacion": "El punto va después de «cocina»: «Mi abuela cocina. Mi tío ayuda.»",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "cocina"
+          },
+          {
+            "id": "b",
+            "texto": "abuela"
+          },
+          {
+            "id": "c",
+            "texto": "tío"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Lee «Hoy llueve. Mañana saldrá el sol.» ¿Cuántas oraciones hay?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca los puntos.",
+          "Uno va tras «llueve» y otro tras «sol».",
+          "Cada punto cierra una oración."
+        ],
+        "retroalimentacion": "Hay dos oraciones: una termina en «llueve» y otra en «sol».",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "una"
+          },
+          {
+            "id": "b",
+            "texto": "tres"
+          },
+          {
+            "id": "c",
+            "texto": "dos"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál versión corrige los puntos de «Sara pinta Leo canta»?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca dos acciones de personas distintas.",
+          "«Sara pinta» es una idea completa.",
+          "«Leo canta» es otra y también termina con punto."
+        ],
+        "retroalimentacion": "«Sara pinta. Leo canta.» pone un punto al final de cada idea.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sara. pinta Leo canta."
+          },
+          {
+            "id": "b",
+            "texto": "Sara pinta. Leo canta."
+          },
+          {
+            "id": "c",
+            "texto": "Sara pinta Leo. canta."
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En «El perro. corre rápido.», el primer punto está bien porque «El perro» ya cuenta una acción completa.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el verbo de la acción.",
+          "«Corre» va con «El perro».",
+          "El punto no debe separar quién actúa de lo que hace."
+        ],
+        "retroalimentacion": "Es falso: «El perro corre rápido.» es una oración y el punto va al final."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos niñas escriben «La pelota rueda. Se detiene». ¿Qué falta para cerrar las dos ideas?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La primera ya termina en punto.",
+          "Mira la segunda idea.",
+          "Tras «detiene» falta el signo final."
+        ],
+        "retroalimentacion": "Falta un punto tras «detiene»: «La pelota rueda. Se detiene.»",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "un punto después de detiene"
+          },
+          {
+            "id": "b",
+            "texto": "un punto después de La"
+          },
+          {
+            "id": "c",
+            "texto": "un punto después de Se"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Dónde pondrías los puntos en «El bus llegó Los niños subieron El bus partió»?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica tres acciones completas.",
+          "Terminan en llegó, subieron y partió.",
+          "Cada una necesita un punto."
+        ],
+        "retroalimentacion": "Van puntos después de «llegó», «subieron» y «partió».",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "solo después de partió"
+          },
+          {
+            "id": "b",
+            "texto": "después de bus y niños"
+          },
+          {
+            "id": "c",
+            "texto": "después de llegó, subieron y partió"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

@@ -1,0 +1,1624 @@
+[
+  {
+    "clave": "com.p1.datos-de-un-relato",
+    "area": "comunicacion",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 7,
+    "capacidad": "Obtiene información del texto oral",
+    "desempenosOrigen": [
+      "COM-C7-P1-01"
+    ],
+    "bloque": "Escucha y comprensión de relatos",
+    "nombre": "Recordar datos de un relato",
+    "disciplina": "oralidad",
+    "descripcionCorta": "Recupera nombres, hechos y lugares de un relato breve que se le presenta.",
+    "palabrasClave": [
+      "relato",
+      "personaje",
+      "lugar",
+      "hecho"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 4,
+    "ideaCentral": "Al escuchar un relato, puedes recordar quién aparece, dónde ocurre y qué sucede. Esas pistas te ayudan a contar los datos sin inventar otros.",
+    "pasos": [
+      "Escucha el relato completo.",
+      "Recuerda quién hizo algo y dónde estaba.",
+      "Busca el hecho que sí se contó.",
+      "Responde solo con datos del relato."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La maestra cuenta que Ana llevó una semilla al huerto de la escuela. ¿Quién llevó la semilla?",
+        "desarrollo": "Busco la persona que hizo la acción de llevar.",
+        "respuesta": "Ana."
+      },
+      {
+        "situacion": "Escuchas que un perro se perdió junto al mercado y volvió a casa. ¿Dónde se perdió?",
+        "desarrollo": "El lugar aparece junto a la palabra «mercado».",
+        "respuesta": "Junto al mercado."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir un nombre que no aparece en el relato.",
+        "correccion": "Vuelve a escuchar quién hizo la acción."
+      },
+      {
+        "error": "Confundir el lugar con la acción.",
+        "correccion": "Pregunta «¿dónde?» para hallar el lugar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "personaje",
+        "significado": "Persona o animal que participa en un relato."
+      },
+      {
+        "termino": "hecho",
+        "significado": "Algo que sucede."
+      },
+      {
+        "termino": "lugar",
+        "significado": "Sitio donde ocurre algo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Julia guardó su lápiz en la mochila. ¿Quién guardó el lápiz?",
+        "respuesta": "Julia",
+        "pistas": [
+          "Busca quién hizo la acción.",
+          "El lápiz no se guardó solo: piensa en la persona mencionada.",
+          "El nombre está al inicio: Julia."
+        ],
+        "retroalimentacion": "El lápiz es el objeto; quien lo guardó fue Julia.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Pablo encontró una hoja en el patio. ¿Dónde estaba la hoja?",
+        "respuesta": "b",
+        "pistas": [
+          "Recuerda la palabra que indica sitio.",
+          "«Pablo» es la persona y «hoja» es el objeto.",
+          "El sitio dicho después de «en el» es el patio."
+        ],
+        "retroalimentacion": "La hoja estaba en el patio; Pablo es quien la encontró.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "mochila"
+          },
+          {
+            "id": "b",
+            "texto": "patio"
+          },
+          {
+            "id": "c",
+            "texto": "salón"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En el relato «Lola alimentó a su cuy», el animal es un cuy.",
+        "respuesta": true,
+        "pistas": [
+          "Identifica los dos seres del relato.",
+          "Lola es la niña.",
+          "El animal que Lola alimentó se llama cuy."
+        ],
+        "retroalimentacion": "Es verdadero: el cuy es el animal, no Lola.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Mateo llevó pan a su abuela. ¿Qué llevó Mateo?",
+        "respuesta": "pan",
+        "pistas": [
+          "Pregunta qué objeto llevó.",
+          "«Abuela» dice a quién se lo llevó.",
+          "El alimento nombrado es pan."
+        ],
+        "retroalimentacion": "Mateo llevó pan; la abuela recibió la visita.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La señora Rosa vendió choclos en la feria. ¿Quién vendió los choclos?",
+        "respuesta": "c",
+        "pistas": [
+          "Busca la persona que realizó la venta.",
+          "La feria es un lugar y los choclos son productos.",
+          "La vendedora es la señora Rosa."
+        ],
+        "retroalimentacion": "La señora Rosa vendió choclos; la feria fue el lugar.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "la feria"
+          },
+          {
+            "id": "b",
+            "texto": "los choclos"
+          },
+          {
+            "id": "c",
+            "texto": "la señora Rosa"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Nico vio una mariposa sobre una flor. La mariposa estaba debajo de la flor.",
+        "respuesta": false,
+        "pistas": [
+          "Compara la posición que escuchaste con la afirmación.",
+          "La palabra del relato es «sobre».",
+          "«Sobre» quiere decir encima, no debajo."
+        ],
+        "retroalimentacion": "Es falso: la mariposa estaba sobre la flor.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En el paseo, Milagros recogió una piedra cerca del río. ¿Qué recogió?",
+        "respuesta": "piedra",
+        "pistas": [
+          "Busca el objeto que Milagros tomó.",
+          "«Río» indica dónde estaba.",
+          "Después de «recogió una» se nombra la piedra."
+        ],
+        "retroalimentacion": "Milagros recogió una piedra; el río era el lugar.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Escuchas: «El abuelo sembró habas el lunes y el martes regó la tierra». ¿Qué hizo el martes?",
+        "respuesta": "a",
+        "pistas": [
+          "El relato menciona dos días y dos acciones.",
+          "El lunes sembró; busca lo que sigue.",
+          "El martes regó la tierra."
+        ],
+        "retroalimentacion": "El martes regó la tierra; sembrar habas ocurrió el lunes.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Regó la tierra"
+          },
+          {
+            "id": "b",
+            "texto": "Sembró habas"
+          },
+          {
+            "id": "c",
+            "texto": "Compró habas"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "La gata de Elena durmió bajo la mesa mientras llovía. ¿Dónde durmió?",
+        "respuesta": "bajo la mesa",
+        "pistas": [
+          "Busca el lugar de descanso.",
+          "La lluvia cuenta qué pasaba alrededor.",
+          "La frase que sigue a «durmió» es «bajo la mesa»."
+        ],
+        "retroalimentacion": "La gata durmió bajo la mesa, no bajo la lluvia.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Oye este relato: «Sara perdió su gorro en la plaza. Tomás lo halló junto al árbol y se lo devolvió». ¿Quién devolvió el gorro?",
+        "respuesta": "d",
+        "pistas": [
+          "Separa quien perdió de quien halló.",
+          "Sara perdió el gorro; otra persona lo encontró.",
+          "Quien lo halló junto al árbol fue Tomás."
+        ],
+        "retroalimentacion": "Tomás devolvió el gorro a Sara; Sara era quien lo había perdido.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sara"
+          },
+          {
+            "id": "b",
+            "texto": "el árbol"
+          },
+          {
+            "id": "c",
+            "texto": "la plaza"
+          },
+          {
+            "id": "d",
+            "texto": "Tomás"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "«Inés llenó una botella en casa y luego la llevó al colegio». Inés llenó la botella en el colegio.",
+        "respuesta": false,
+        "pistas": [
+          "Fíjate en los dos lugares.",
+          "La botella se llenó antes de llevarla.",
+          "La frase dice «llenó una botella en casa»."
+        ],
+        "retroalimentacion": "Es falso: Inés llenó la botella en casa y después la llevó al colegio.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "«Raúl compró una cometa roja. En la playa, el viento la levantó y luego cayó en la arena». ¿Qué levantó el viento?",
+        "respuesta": "cometa",
+        "pistas": [
+          "Sigue a qué se refiere «la».",
+          "Lo que compró Raúl era rojo.",
+          "El viento levantó la cometa, no la arena."
+        ],
+        "retroalimentacion": "El viento levantó la cometa; la arena fue donde cayó.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "com.p1.seguir-instrucciones",
+    "area": "comunicacion",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 7,
+    "capacidad": "Obtiene información del texto oral",
+    "desempenosOrigen": [
+      "COM-C7-P1-01"
+    ],
+    "bloque": "Escucha y comprensión de relatos",
+    "nombre": "Seguir instrucciones dadas por otro",
+    "disciplina": "oralidad",
+    "descripcionCorta": "Recupera los pasos de una instrucción y los realiza en el orden indicado.",
+    "palabrasClave": [
+      "instrucción",
+      "paso",
+      "orden",
+      "primero"
+    ],
+    "prerrequisitos": [
+      "com.p1.datos-de-un-relato"
+    ],
+    "ordenSugerido": 20,
+    "ideaCentral": "Una instrucción dice qué hacer y en qué orden. Si cambias el orden, el resultado puede ser distinto.",
+    "pasos": [
+      "Escucha todas las acciones.",
+      "Encuentra cuál va primero.",
+      "Sigue con la acción siguiente.",
+      "Comprueba que no saltaste ningún paso."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Te dicen: «Lava la manzana y luego cómela».",
+        "desarrollo": "Primero debes lavarla para que esté limpia.",
+        "respuesta": "Lavar y después comer."
+      },
+      {
+        "situacion": "Para hacer un dibujo: «Traza un círculo y coloréalo».",
+        "desarrollo": "Necesitas el círculo antes de darle color.",
+        "respuesta": "Trazar y después colorear."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Hacer el último paso primero.",
+        "correccion": "Fíjate en «primero», «después» y «al final»."
+      },
+      {
+        "error": "Olvidar una acción de la lista.",
+        "correccion": "Repite en voz baja cada paso antes de empezar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "instrucción",
+        "significado": "Mensaje que dice cómo hacer algo."
+      },
+      {
+        "termino": "paso",
+        "significado": "Cada acción de una instrucción."
+      },
+      {
+        "termino": "orden",
+        "significado": "Lugar que ocupa cada paso."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "«Abre el cuaderno y escribe tu nombre». ¿Qué haces primero?",
+        "respuesta": "a",
+        "pistas": [
+          "Hay dos acciones.",
+          "La segunda es escribir tu nombre.",
+          "Antes de escribir, abre el cuaderno."
+        ],
+        "retroalimentacion": "Primero abres el cuaderno; escribir tu nombre viene después.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Abrir el cuaderno"
+          },
+          {
+            "id": "b",
+            "texto": "Escribir el nombre"
+          },
+          {
+            "id": "c",
+            "texto": "Cerrar el cuaderno"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "«Ponte las medias y luego los zapatos». Los zapatos van antes que las medias.",
+        "respuesta": false,
+        "pistas": [
+          "Escucha la palabra «luego».",
+          "Las medias se mencionan primero.",
+          "Los zapatos van luego de las medias."
+        ],
+        "retroalimentacion": "Es falso: primero van las medias y luego los zapatos.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "«Lava el pincel, sécalo y guárdalo». ¿Qué haces al final?",
+        "respuesta": "guardarlo",
+        "pistas": [
+          "Busca la tercera acción.",
+          "Secar no es el último paso.",
+          "Después de secarlo debes guardarlo."
+        ],
+        "retroalimentacion": "El paso final es guardarlo; lavarlo y secarlo van antes.",
+        "alternativasAceptadas": [
+          "guardar",
+          "guarda el pincel"
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para preparar limonada: «Exprime el limón; después agrega agua». ¿Qué se agrega después?",
+        "respuesta": "c",
+        "pistas": [
+          "Busca la palabra «después».",
+          "El limón se exprime primero.",
+          "El líquido que se agrega es agua."
+        ],
+        "retroalimentacion": "Se agrega agua después de exprimir el limón.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "azúcar"
+          },
+          {
+            "id": "b",
+            "texto": "limón"
+          },
+          {
+            "id": "c",
+            "texto": "agua"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "«Dibuja una casa. Luego pinta el techo». Para seguir la indicación, dibujas la casa antes de pintar el techo.",
+        "respuesta": true,
+        "pistas": [
+          "Son dos acciones relacionadas.",
+          "No puedes pintar un techo sin dibujarlo.",
+          "La palabra «luego» pone pintar en segundo lugar."
+        ],
+        "retroalimentacion": "Es verdadero: primero dibujas la casa y luego pintas el techo.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "«Recorta el papel, dóblalo y pégalo». ¿Cuál es el segundo paso?",
+        "respuesta": "b",
+        "pistas": [
+          "Cuenta las acciones desde el inicio.",
+          "Recortar es el primero y pegar es el último.",
+          "Entre recortar y pegar está doblar."
+        ],
+        "retroalimentacion": "Doblar el papel es el segundo paso.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Pegar el papel"
+          },
+          {
+            "id": "b",
+            "texto": "Doblar el papel"
+          },
+          {
+            "id": "c",
+            "texto": "Recortar el papel"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "«Pon una semilla en la tierra; cúbrela; riégala». ¿Qué haces justo antes de regarla?",
+        "respuesta": "cubrirla",
+        "pistas": [
+          "Encuentra el paso final: regar.",
+          "Mira el paso que está en medio.",
+          "La semilla se cubre antes de echarle agua."
+        ],
+        "retroalimentacion": "Debes cubrir la semilla antes de regarla.",
+        "alternativasAceptadas": [
+          "cubrir",
+          "cubrir la semilla"
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La profesora dice: «Guarda los colores y luego entrega la hoja». Luis entrega la hoja y después guarda los colores. ¿Qué debe cambiar?",
+        "respuesta": "d",
+        "pistas": [
+          "Compara el orden de Luis con el de la profesora.",
+          "La profesora dijo «guarda» antes de «entrega».",
+          "Luis necesita guardar primero los colores."
+        ],
+        "retroalimentacion": "Debe guardar los colores antes de entregar la hoja.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Pintar otra hoja"
+          },
+          {
+            "id": "b",
+            "texto": "Entregar dos hojas"
+          },
+          {
+            "id": "c",
+            "texto": "Guardar la hoja"
+          },
+          {
+            "id": "d",
+            "texto": "Guardar los colores primero"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "«Primero ponte el mandil; luego mezcla la harina; al final limpia la mesa». Limpiar la mesa es el último paso.",
+        "respuesta": true,
+        "pistas": [
+          "Escucha la señal «al final».",
+          "Hay tres acciones en la receta.",
+          "Limpiar aparece después de mezclar."
+        ],
+        "retroalimentacion": "Es verdadero: limpiar la mesa viene al final.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "«Lava la papa, pélala y ponla en la olla». Si ya la lavaste, ¿qué sigue antes de ponerla en la olla?",
+        "respuesta": "a",
+        "pistas": [
+          "El lavado ya ocurrió.",
+          "Aún quedan pelar y poner en la olla.",
+          "Pelar va entre lavar y cocinar."
+        ],
+        "retroalimentacion": "Ahora debes pelar la papa; ponerla en la olla viene luego.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Pelarla"
+          },
+          {
+            "id": "b",
+            "texto": "Volver a lavarla"
+          },
+          {
+            "id": "c",
+            "texto": "Servirla"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "«Toma la tarjeta, escribe tu nombre, entrégala a la maestra». Ya tienes la tarjeta con tu nombre. ¿Qué paso falta?",
+        "respuesta": "entregarla",
+        "pistas": [
+          "Descarta lo que ya hiciste.",
+          "Ya tomaste la tarjeta y escribiste.",
+          "El tercer paso es dársela a la maestra."
+        ],
+        "retroalimentacion": "Falta entregarla a la maestra; tomarla y escribir ya están hechos.",
+        "alternativasAceptadas": [
+          "entregar",
+          "entregar la tarjeta"
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "«Primero recoge los juguetes; después barre; por último guarda la escoba». Si barres y guardas la escoba antes de recoger, seguiste bien el orden.",
+        "respuesta": false,
+        "pistas": [
+          "Compara la primera acción con lo que hiciste.",
+          "La indicación comienza con recoger juguetes.",
+          "Barrer y guardar van después de recoger."
+        ],
+        "retroalimentacion": "Es falso: debes recoger los juguetes antes de barrer y guardar la escoba.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "com.p1.de-que-trata-lo-que-escucho",
+    "area": "comunicacion",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 7,
+    "capacidad": "Obtiene información del texto oral",
+    "desempenosOrigen": [
+      "COM-C7-P1-02"
+    ],
+    "bloque": "Escucha y comprensión de relatos",
+    "nombre": "¿De qué trata y para qué se dice?",
+    "disciplina": "oralidad",
+    "descripcionCorta": "Dice el tema de un mensaje oral y si busca contar, pedir, avisar o enseñar.",
+    "palabrasClave": [
+      "tema",
+      "mensaje",
+      "avisar",
+      "pedir",
+      "contar"
+    ],
+    "prerrequisitos": [
+      "com.p1.datos-de-un-relato"
+    ],
+    "ordenSugerido": 21,
+    "ideaCentral": "El tema es aquello de lo que habla un mensaje. También puedes descubrir si quien habla quiere contar, pedir, avisar o enseñar algo.",
+    "pasos": [
+      "Escucha el mensaje completo.",
+      "Pregunta de qué se habla más.",
+      "Observa si se cuenta algo, se pide una acción, se avisa o se enseña.",
+      "Elige el tema y la intención que mejor encajan."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "«Mañana no habrá clases por la lluvia».",
+        "desarrollo": "Habla de las clases de mañana y comunica un cambio.",
+        "respuesta": "El tema son las clases; busca avisar."
+      },
+      {
+        "situacion": "«Por favor, préstame tu borrador».",
+        "desarrollo": "La persona necesita que otra haga algo.",
+        "respuesta": "Busca pedir el borrador."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Elegir un detalle pequeño como tema.",
+        "correccion": "Busca la idea que une todo el mensaje."
+      },
+      {
+        "error": "Confundir aviso con pedido.",
+        "correccion": "Un aviso informa; un pedido solicita que hagas algo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "tema",
+        "significado": "Asunto principal del mensaje."
+      },
+      {
+        "termino": "pedir",
+        "significado": "Solicitar algo a alguien."
+      },
+      {
+        "termino": "avisar",
+        "significado": "Informar sobre algo que pasará o cambió."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "«Hoy la biblioteca cierra temprano». ¿Para qué se dice?",
+        "respuesta": "b",
+        "pistas": [
+          "No se pide que prestes algo.",
+          "Comunica un cambio de horario.",
+          "Decir que cierra temprano es avisar."
+        ],
+        "retroalimentacion": "El mensaje busca avisar que la biblioteca cierra temprano.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Para jugar"
+          },
+          {
+            "id": "b",
+            "texto": "Para avisar"
+          },
+          {
+            "id": "c",
+            "texto": "Para saludar"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "«Por favor, pásame el vaso». ¿Qué busca hacer quien habla?",
+        "respuesta": "pedir",
+        "pistas": [
+          "Fíjate en «por favor».",
+          "La persona quiere recibir un objeto.",
+          "Solicitar un vaso es pedir."
+        ],
+        "retroalimentacion": "Quien habla quiere pedir el vaso.",
+        "alternativasAceptadas": [
+          "pedir un vaso"
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "«Ayer vi un picaflor en el jardín». El mensaje cuenta algo que pasó.",
+        "respuesta": true,
+        "pistas": [
+          "La palabra «ayer» señala un hecho pasado.",
+          "La persona dice lo que vio.",
+          "No da una orden ni pide un favor."
+        ],
+        "retroalimentacion": "Es verdadero: la persona cuenta que vio un picaflor.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "«El sábado habrá feria de libros en la plaza». ¿De qué trata?",
+        "respuesta": "c",
+        "pistas": [
+          "Piensa en el acontecimiento anunciado.",
+          "«Sábado» dice cuándo y «plaza» dónde.",
+          "La actividad principal es una feria de libros."
+        ],
+        "retroalimentacion": "El tema es la feria de libros; sábado y plaza son detalles.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "la lluvia"
+          },
+          {
+            "id": "b",
+            "texto": "los deportes"
+          },
+          {
+            "id": "c",
+            "texto": "la feria de libros"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "«Lávate las manos antes de comer para quitar la suciedad». El mensaje enseña cómo cuidarse.",
+        "respuesta": true,
+        "pistas": [
+          "Hay una acción y una razón.",
+          "La razón habla de quitar suciedad.",
+          "Se explica una forma de cuidarte."
+        ],
+        "retroalimentacion": "Es verdadero: enseña a lavarse las manos antes de comer.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "«Se perdió un perrito marrón cerca del mercado. Si lo ves, avisa a la portería». ¿Cuál es el tema?",
+        "respuesta": "a",
+        "pistas": [
+          "Busca lo que une las dos oraciones.",
+          "El mercado es solo el lugar.",
+          "Se habla del perrito perdido."
+        ],
+        "retroalimentacion": "El tema es el perrito perdido; el mercado ayuda a ubicarlo.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "un perrito perdido"
+          },
+          {
+            "id": "b",
+            "texto": "la venta de fruta"
+          },
+          {
+            "id": "c",
+            "texto": "el recreo"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "«Mamá, ¿puedes ayudarme a cerrar la mochila?». ¿Qué intenta hacer el niño?",
+        "respuesta": "pedir ayuda",
+        "pistas": [
+          "Es una pregunta dirigida a mamá.",
+          "El niño necesita que alguien haga algo.",
+          "Solicita ayuda para cerrar la mochila."
+        ],
+        "retroalimentacion": "El niño intenta pedir ayuda; no está contando que ya la cerró.",
+        "alternativasAceptadas": [
+          "pedir",
+          "ayuda"
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "«Primero echa tierra en la maceta. Después pon la semilla y riégala». ¿Qué intención tiene?",
+        "respuesta": "d",
+        "pistas": [
+          "Son pasos para hacer algo.",
+          "No cuenta un paseo pasado.",
+          "La secuencia explica cómo sembrar."
+        ],
+        "retroalimentacion": "El mensaje busca enseñar cómo sembrar en una maceta.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "avisar una fecha"
+          },
+          {
+            "id": "b",
+            "texto": "pedir una maceta"
+          },
+          {
+            "id": "c",
+            "texto": "contar un sueño"
+          },
+          {
+            "id": "d",
+            "texto": "enseñar a sembrar"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "«Atención: el patio estará cerrado durante el recreo». La intención principal es contar un cuento.",
+        "respuesta": false,
+        "pistas": [
+          "Observa la palabra «Atención».",
+          "Habla de un cambio en el patio.",
+          "Informar un cierre es avisar."
+        ],
+        "retroalimentacion": "Es falso: se avisa que el patio estará cerrado.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "«El lunes traeremos botellas limpias para hacer macetas. Guarda una en casa». ¿Cuál respuesta junta tema e intención?",
+        "respuesta": "b",
+        "pistas": [
+          "Busca el objeto que aparece en ambos enunciados.",
+          "Se habla de botellas para una actividad.",
+          "Además de informar, se pide guardar una botella."
+        ],
+        "retroalimentacion": "El tema son las botellas para macetas y se pide guardar una.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "el lunes y contar una fiesta"
+          },
+          {
+            "id": "b",
+            "texto": "botellas para macetas y pedir que guardes una"
+          },
+          {
+            "id": "c",
+            "texto": "la casa y enseñar a barrer"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "«¡Qué bien! Ayer logramos ordenar todos los libros de la biblioteca». ¿Qué acción hizo el grupo?",
+        "respuesta": "ordenar libros",
+        "pistas": [
+          "Busca el verbo que habla de lo que hicieron.",
+          "«Ayer» indica que ya pasó.",
+          "Lograron poner en orden los libros."
+        ],
+        "retroalimentacion": "El grupo logró ordenar libros; no está pidiendo libros.",
+        "alternativasAceptadas": [
+          "ordenaron libros",
+          "ordenar los libros"
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "«Para cruzar la calle, espera la luz verde y mira a ambos lados». ¿Cuál es el tema y para qué se dice?",
+        "respuesta": "c",
+        "pistas": [
+          "Busca las acciones que se explican.",
+          "Esperar la luz y mirar ayudan al cruzar.",
+          "Es una enseñanza sobre cruzar la calle."
+        ],
+        "retroalimentacion": "Trata de cruzar la calle y enseña a hacerlo con cuidado.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "la luz roja y pedir un semáforo"
+          },
+          {
+            "id": "b",
+            "texto": "los autos y contar una carrera"
+          },
+          {
+            "id": "c",
+            "texto": "cruzar la calle y enseñar cómo hacerlo"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "com.p1.adivinanzas",
+    "area": "comunicacion",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 7,
+    "capacidad": "Infiere e interpreta información del texto oral",
+    "desempenosOrigen": [
+      "COM-C7-P1-03"
+    ],
+    "bloque": "Escucha y comprensión de relatos",
+    "nombre": "Adivinanzas: descubrir la respuesta por sus pistas",
+    "disciplina": "oralidad",
+    "descripcionCorta": "Descubre la respuesta de una adivinanza a partir de las pistas que da.",
+    "palabrasClave": [
+      "adivinanza",
+      "pista",
+      "respuesta",
+      "deducir"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 22,
+    "ideaCentral": "Una adivinanza es un juego de pistas. Tú unes todas las pistas para descubrir una sola respuesta que encaje.",
+    "pasos": [
+      "Escucha toda la adivinanza.",
+      "Imagina lo que describe cada pista.",
+      "Descarta respuestas que no cumplan alguna pista.",
+      "Elige lo que cumple todas."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "«Soy amarillo, largo y se pela para comer».",
+        "desarrollo": "Busco una fruta amarilla, alargada y con cáscara.",
+        "respuesta": "El plátano."
+      },
+      {
+        "situacion": "«Tengo hojas de papel, pero no soy un árbol; guardo cuentos».",
+        "desarrollo": "Las hojas son páginas y dentro hay historias.",
+        "respuesta": "Un libro."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Responder tras la primera pista.",
+        "correccion": "Espera y compara todas las pistas."
+      },
+      {
+        "error": "Elegir algo que solo cumple una pista.",
+        "correccion": "Revisa si tu respuesta explica cada detalle."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "adivinanza",
+        "significado": "Juego de palabras para descubrir algo."
+      },
+      {
+        "termino": "pista",
+        "significado": "Dato que ayuda a descubrir la respuesta."
+      },
+      {
+        "termino": "deducir",
+        "significado": "Llegar a una respuesta uniendo pistas."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "«Soy redonda, puedo botar y juego contigo en el recreo». ¿Qué soy?",
+        "respuesta": "b",
+        "pistas": [
+          "Busca un objeto redondo.",
+          "Puede rebotar en el patio.",
+          "Se usa para jugar: es una pelota."
+        ],
+        "retroalimentacion": "La pelota es redonda y bota; una piedra redonda no suele botar.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "mesa"
+          },
+          {
+            "id": "b",
+            "texto": "pelota"
+          },
+          {
+            "id": "c",
+            "texto": "mochila"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "«Tengo dientes, pero no muerdo; arreglo tu cabello». ¿Qué soy?",
+        "respuesta": "peine",
+        "pistas": [
+          "Los dientes aquí no son de una boca.",
+          "Es un objeto para el cabello.",
+          "Sus púas se llaman dientes: es un peine."
+        ],
+        "retroalimentacion": "La respuesta es peine; sus dientes peinan, no muerden.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "«Doy luz de día y caliento la tierra». La respuesta puede ser el sol.",
+        "respuesta": true,
+        "pistas": [
+          "Busca algo que aparece de día.",
+          "También calienta la tierra.",
+          "El sol cumple ambas pistas."
+        ],
+        "retroalimentacion": "Es verdadero: el sol da luz de día y calor.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "«Tengo páginas y dibujos; me abres para leer». ¿Qué soy?",
+        "respuesta": "c",
+        "pistas": [
+          "Se puede abrir.",
+          "Tiene páginas con dibujos.",
+          "Sirve para leer: es un libro."
+        ],
+        "retroalimentacion": "Un libro tiene páginas y se abre para leer.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "zapato"
+          },
+          {
+            "id": "b",
+            "texto": "pizarra"
+          },
+          {
+            "id": "c",
+            "texto": "libro"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "«Tengo alas de colores, vuelo y visito flores». ¿Qué animal soy?",
+        "respuesta": "mariposa",
+        "pistas": [
+          "Es un animal que vuela.",
+          "Suele posarse en flores.",
+          "Sus alas pueden tener muchos colores: mariposa."
+        ],
+        "retroalimentacion": "La mariposa cumple las tres pistas; una flor no vuela.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "«Soy pequeño, llevo mi casa en la espalda y avanzo despacio». La respuesta es una liebre.",
+        "respuesta": false,
+        "pistas": [
+          "La liebre corre rápido.",
+          "Busca un animal lento con caparazón.",
+          "El caracol lleva su concha como casa."
+        ],
+        "retroalimentacion": "Es falso: la respuesta es caracol, no liebre.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "«Soy blanco, caigo de las nubes en gotas y mojo la chacra». ¿Qué soy?",
+        "respuesta": "a",
+        "pistas": [
+          "Viene de las nubes.",
+          "Cae en gotas y moja el suelo.",
+          "Se trata de la lluvia."
+        ],
+        "retroalimentacion": "La lluvia cae en gotas y moja la chacra; el viento no cae en gotas.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "lluvia"
+          },
+          {
+            "id": "b",
+            "texto": "viento"
+          },
+          {
+            "id": "c",
+            "texto": "tierra"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "«Soy de madera, tengo patas y sobre mí pones tu plato». ¿Qué mueble soy?",
+        "respuesta": "mesa",
+        "pistas": [
+          "Se trata de un mueble.",
+          "Puede tener cuatro patas.",
+          "Sostiene el plato mientras comes: mesa."
+        ],
+        "retroalimentacion": "La respuesta es mesa; una silla sostiene a una persona.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "«No tengo pies, pero corro por el valle; llevo agua hasta el mar». ¿Qué soy?",
+        "respuesta": "d",
+        "pistas": [
+          "«Corro» aquí habla de movimiento del agua.",
+          "Pasa por un valle.",
+          "El agua que fluye hacia el mar forma un río."
+        ],
+        "retroalimentacion": "El río corre por el valle y lleva agua al mar.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "camino"
+          },
+          {
+            "id": "b",
+            "texto": "nube"
+          },
+          {
+            "id": "c",
+            "texto": "tren"
+          },
+          {
+            "id": "d",
+            "texto": "río"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "«Tengo techo y ventanas; una familia vive dentro». Si respondo «casa», usé ambas pistas.",
+        "respuesta": true,
+        "pistas": [
+          "Relaciona techo y ventanas.",
+          "La familia vive dentro de ese lugar.",
+          "Una casa cumple ambas condiciones."
+        ],
+        "retroalimentacion": "Es verdadero: una casa tiene techo y ventanas y puede albergar una familia.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "«Me siembran en la chacra, crezco bajo tierra y me hierven para comer». ¿Qué respuesta reúne todas las pistas?",
+        "respuesta": "b",
+        "pistas": [
+          "Debe ser un alimento de la chacra.",
+          "La parte que comemos crece bajo tierra.",
+          "La papa se hierve y crece bajo tierra."
+        ],
+        "retroalimentacion": "La papa cumple todas las pistas; la manzana crece en árbol.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "manzana"
+          },
+          {
+            "id": "b",
+            "texto": "papa"
+          },
+          {
+            "id": "c",
+            "texto": "pescado"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "«Cuando estoy seco soy liviano; si me echas agua absorbo y limpio la mesa». ¿Qué soy?",
+        "respuesta": "esponja",
+        "pistas": [
+          "Es un objeto de limpieza.",
+          "Absorbe el agua.",
+          "Se usa para limpiar una superficie: esponja."
+        ],
+        "retroalimentacion": "La esponja absorbe agua y limpia la mesa; una piedra no absorbe.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "com.p1.palabras-por-el-contexto-oral",
+    "area": "comunicacion",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 7,
+    "capacidad": "Infiere e interpreta información del texto oral",
+    "desempenosOrigen": [
+      "COM-C7-P1-03"
+    ],
+    "bloque": "Escucha y comprensión de relatos",
+    "nombre": "Significado de una palabra por lo que se dice",
+    "disciplina": "oralidad",
+    "descripcionCorta": "Deduce qué significa una palabra nueva por las demás palabras del mensaje.",
+    "palabrasClave": [
+      "contexto",
+      "palabra nueva",
+      "significado",
+      "pista"
+    ],
+    "prerrequisitos": [
+      "com.p1.datos-de-un-relato"
+    ],
+    "ordenSugerido": 49,
+    "ideaCentral": "Cuando escuchas una palabra nueva, las palabras cercanas te ayudan a entenderla. Piensa en lo que pasa en el mensaje antes de elegir su significado.",
+    "pasos": [
+      "Escucha la oración completa.",
+      "Busca qué hace la persona o el objeto.",
+      "Prueba un significado que encaje.",
+      "Comprueba que toda la oración tenga sentido."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "«El piso estaba húmedo porque acababan de limpiarlo con agua».",
+        "desarrollo": "El agua deja el piso algo mojado.",
+        "respuesta": "Húmedo significa un poco mojado."
+      },
+      {
+        "situacion": "«La sopa estaba tibia; ya no quemaba».",
+        "desarrollo": "Si no quema, no está muy caliente.",
+        "respuesta": "Tibia significa poco caliente."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Adivinar solo por cómo suena la palabra.",
+        "correccion": "Usa las demás palabras de la oración."
+      },
+      {
+        "error": "Elegir un sentido que contradice el mensaje.",
+        "correccion": "Relee lo que ocurre antes y después."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "contexto",
+        "significado": "Palabras y hechos que rodean una palabra."
+      },
+      {
+        "termino": "significado",
+        "significado": "Lo que quiere decir una palabra."
+      },
+      {
+        "termino": "pista",
+        "significado": "Dato que ayuda a entender."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "«El pan estaba crujiente: sonó cuando lo mordí». ¿Qué quiere decir crujiente?",
+        "respuesta": "a",
+        "pistas": [
+          "Piensa en el sonido al morder.",
+          "Un pan blando no suele sonar así.",
+          "Crujiente es algo que hace un sonido al romperse."
+        ],
+        "retroalimentacion": "Crujiente quiere decir que suena al morderse; el sonido es la pista.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Que suena al morderlo"
+          },
+          {
+            "id": "b",
+            "texto": "Que está frío"
+          },
+          {
+            "id": "c",
+            "texto": "Que tiene miel"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "«La niña tenía sed y bebió agua». ¿Qué necesitaba la niña?",
+        "respuesta": "agua",
+        "pistas": [
+          "Mira lo que hizo después.",
+          "Bebió para quitar la sed.",
+          "Necesitaba agua."
+        ],
+        "retroalimentacion": "Tenía sed, por eso necesitaba agua, no comida.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "«El cuarto estaba oscuro; prendimos la luz para ver». Oscuro significa que había poca luz.",
+        "respuesta": true,
+        "pistas": [
+          "Observa qué hicieron para poder ver.",
+          "Prendieron la luz.",
+          "Antes de prenderla había poca luz."
+        ],
+        "retroalimentacion": "Es verdadero: oscuro indica que había poca luz.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "«La cometa se elevó y quedó muy arriba». ¿Qué hizo?",
+        "respuesta": "c",
+        "pistas": [
+          "La segunda parte aclara dónde quedó.",
+          "Quedó arriba.",
+          "Elevarse es subir."
+        ],
+        "retroalimentacion": "La cometa subió; «quedó muy arriba» lo explica.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "bajó"
+          },
+          {
+            "id": "b",
+            "texto": "se rompió"
+          },
+          {
+            "id": "c",
+            "texto": "subió"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "«El cuy se escondió bajo la banca porque tenía miedo». ¿Qué significa escondió?",
+        "respuesta": "se ocultó",
+        "pistas": [
+          "Piensa en lo que hizo el cuy por miedo.",
+          "Fue bajo la banca para que no lo vieran.",
+          "Esconderse es ocultarse."
+        ],
+        "retroalimentacion": "El cuy se ocultó bajo la banca; no salió a jugar.",
+        "alternativasAceptadas": [
+          "ocultó",
+          "se oculto"
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "«El camino era angosto; solo cabía una persona». Angosto quiere decir ancho.",
+        "respuesta": false,
+        "pistas": [
+          "Revisa cuántas personas cabían.",
+          "Solo cabía una.",
+          "Si hay poco espacio, es estrecho."
+        ],
+        "retroalimentacion": "Es falso: angosto significa estrecho, no ancho.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "«La manta era suave; acariciarla se sentía agradable». ¿Qué significa suave?",
+        "respuesta": "b",
+        "pistas": [
+          "La pista habla de cómo se siente al tocarla.",
+          "Acariciarla era agradable.",
+          "Suave es blanda al tacto."
+        ],
+        "retroalimentacion": "Suave describe una textura agradable al tocar la manta.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "áspera"
+          },
+          {
+            "id": "b",
+            "texto": "blanda al tacto"
+          },
+          {
+            "id": "c",
+            "texto": "muy pesada"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "«El abuelo llegó fatigado tras caminar lejos y se sentó a descansar». ¿Cómo estaba?",
+        "respuesta": "cansado",
+        "pistas": [
+          "Mira qué hizo al llegar.",
+          "Se sentó para descansar.",
+          "Fatigado quiere decir cansado."
+        ],
+        "retroalimentacion": "El abuelo estaba cansado por la caminata.",
+        "alternativasAceptadas": [
+          "cansada"
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "«La jarra estaba vacía; no quedaba ni una gota de chicha». ¿Qué indica vacía?",
+        "respuesta": "d",
+        "pistas": [
+          "La frase dice que no quedaba chicha.",
+          "No hay ni una gota dentro.",
+          "Vacía significa sin contenido."
+        ],
+        "retroalimentacion": "La jarra estaba sin contenido; «ni una gota» es la pista.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "llena"
+          },
+          {
+            "id": "b",
+            "texto": "rota"
+          },
+          {
+            "id": "c",
+            "texto": "nueva"
+          },
+          {
+            "id": "d",
+            "texto": "sin contenido"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "«El perro fue veloz: alcanzó la pelota antes que todos». Veloz significa que se movió muy rápido.",
+        "respuesta": true,
+        "pistas": [
+          "Mira quién llegó primero.",
+          "El perro alcanzó la pelota antes que todos.",
+          "Veloz describe gran rapidez."
+        ],
+        "retroalimentacion": "Es verdadero: veloz significa muy rápido.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "«Al salir la lluvia, el patio quedó resbaladizo y Julia caminó despacio para no caer». ¿Qué significa resbaladizo?",
+        "respuesta": "a",
+        "pistas": [
+          "Relaciona la lluvia con el piso.",
+          "Julia caminó lento para no caerse.",
+          "En un piso resbaladizo los pies pueden deslizarse."
+        ],
+        "retroalimentacion": "Resbaladizo significa que puedes deslizarte y caer; por eso Julia fue despacio.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Que hace deslizar los pies"
+          },
+          {
+            "id": "b",
+            "texto": "Que está lleno de flores"
+          },
+          {
+            "id": "c",
+            "texto": "Que tiene mucho ruido"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "«La caja era frágil; por eso la llevaron con cuidado para que no se rompiera». ¿Cómo era la caja?",
+        "respuesta": "delicada",
+        "pistas": [
+          "Observa por qué la llevaron con cuidado.",
+          "Podía romperse.",
+          "Frágil quiere decir delicada o fácil de romper."
+        ],
+        "retroalimentacion": "La caja era delicada; podía romperse si la trataban sin cuidado.",
+        "alternativasAceptadas": [
+          "facil de romper",
+          "fácil de romper"
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]
