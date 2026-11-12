@@ -10,14 +10,16 @@
 5. **Costo y modelos:** aplica `docs/orquestacion-de-modelos.md` (norma 5 de AGENTS.md). Resumen: el trabajo de escribir lo hacen Codex y, cuando haya cuota, Claude (Sonnet) en lotes. **No usar Fable para escribir** (2 % de su contador por 12 fichas y además baja el contador semanal general); solo para revisar muestras si Carlos lo pide. No usar modelos pesados para escribir cosas chicas.
 6. Salida breve (estilo caveman) para todos los agentes/modelos. No usar Artifacts/Docs de claude.ai. Preguntar antes de escribir en la nube (Supabase, Gmail, Cloudinary reales).
 
-## Estado al 2026-11-11 (17:45)
+## Estado al 2026-11-12 (17:15)
 | Curso | Temas/fichas | Integradas en `dev` | Notas |
 |---|---:|---:|---|
-| Matemática | 1 365 | 739 (1.°–6.° de primaria completos) | `mat-s1`: 96 de 142 escritas y validadas, sin integrar (lotes 10–12 pendientes) |
-| Comunicación | 1 139 | 0 | primaria 1–6 = 623 fichas pendientes |
-| Ciencia y Tecnología | 1 335 | 0 | primaria 1–6 = 630 fichas pendientes |
+| Matemática | 1 365 | 739 (1.°–6.° de primaria completos) | `mat-s1`: lotes escritos sin integrar |
+| Comunicación | 1 139 | 620 (1.°–6.° de primaria completos) | secundaria pendiente |
+| Ciencia y Tecnología | 1 335 | 630 (1.°–6.° de primaria completos) | secundaria pendiente |
 
-**Falta para la meta del lunes:** Comunicación primaria (6 grados) y Ciencia y Tecnología primaria (6 grados) ≈ 1 250 fichas ≈ 105 lotes de 12.
+**Meta del lunes cumplida a nivel de contenido:** toda la primaria tiene fichas (1 989) integradas en `dev` y aprobadas en la BD local. Carlos pidió aceptarlas sin muestreo por ahora; la revisión manual queda pendiente (specs/50). Sigue la secundaria grado por grado (`driver.py` con Codex; Sonnet cuando haya créditos).
+
+**Cómo se escribió la primaria:** Codex (6 lotes en paralelo, ~36 lotes por ventana de 5 h) y hasta 20 agentes Sonnet simultáneos (límite de la herramienta), ~110 mil tokens por lote. Para cerrar combinaciones escritas por agentes se usó un script que reutiliza `driver.trabajar`/`cerrar_combo` sobre los lotes ya existentes (con el driver parado para no chocar en git).
 
 ## Dónde está todo
 - Fichas: `src/lib/nudito/conocimiento/banco/<area>/<nivel>-<grado>/fichas/*.json`; temarios: `…/temario-propuesto.json`; esquema: `src/lib/nudito/conocimiento/esquema.ts`; validador del repo: `pnpm nudito:validar-banco` (specs/50).
@@ -38,7 +40,7 @@
 ## Lecciones aprendidas (no repetir)
 - Las fichas hechas con plantilla (mismo enunciado cambiando lugar/nombre/número; pistas «Mira los X en el Y»; prefijos «En el aula: …») pasaron un validador flojo. Hoy el validador las rechaza (specs/50). Aun así, **revisar muestras**: el validador no verifica que las cuentas ni los datos científicos sean correctos.
 - Fichas completas por combinación: el validador del repo exige 100–180 fichas por combinación **si hay carpeta `fichas/`**; por eso el driver fusiona una combinación solo cuando todos sus lotes validaron.
-- Tras agregar fichas, la **huella** de cada tema cambia y los alumnos dejan de verlo hasta volver a aprobarlo: correr `pnpm curriculum:aprobar-todo --revisor <correo>` (solo BD local; en la nube únicamente con permiso expreso de Carlos). Los temas sin ficha se muestran como «Práctica en preparación» (profesor) / «Pronto» (alumno).
+- Tras agregar fichas, la **huella** de cada tema cambia y los alumnos dejan de verlo hasta volver a aprobarlo: correr `pnpm curriculum:aprobar-todo --revisor admin@khipuescolar.demo` (solo BD local; **ojo:** el script solo aprueba temas en `borrador` o sin huella, no refresca huellas viejas: primero `update temas_curriculares set estado='borrador', huella_contenido_revisado=null, revisado_por_id=null, revisado_at=null where estado='revisado'` en la BD local y luego el script; en la nube únicamente con permiso expreso de Carlos). Los temas sin ficha se muestran como «Práctica en preparación» (profesor) / «Pronto» (alumno).
 - `pkill -f "<texto>"` puede matar tu propio shell si el comando contiene ese texto: usa el truco `[d]river.py`.
 - Rutas con espacios: entrecomilla siempre. `git add` solo de tus archivos; en el checkout principal hay un archivo ajeno sin commitear (`docs/evaluacion-modelo-de-negocio.md`), no tocarlo.
 - Cada sesión debe dejar su archivo en `conversaciones/` y las specs actualizadas (AGENTS.md).

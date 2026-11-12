@@ -349,7 +349,7 @@ describe("IA: respaldo, seguridad y límites", () => {
     fijarProveedorTutorParaPruebas(caido);
     const { acceso, sesionId } = await sesionConTema("mat", TEMA_MAT_FRACCIONES.clave);
     const rep = await s.pedirRepaso(ctxThiago(), acceso, { sesionId }, { otraVez: true });
-    expect(rep.explicacionIa).toContain(TEMA_MAT_FRACCIONES.repaso.idea);
+    expect(rep.explicacionIa).toContain("Primero conviértelas a partes iguales");
     const e = await s.siguienteEjercicio(ctxThiago(), acceso, { sesionId });
     if ("fin" in e) throw new Error("fin");
     const pista = await s.pedirPista(ctxThiago(), acceso, { ejercicioId: e.ejercicioId });
@@ -380,7 +380,7 @@ describe("IA: respaldo, seguridad y límites", () => {
     };
     fijarProveedorTutorParaPruebas(malo);
     const { acceso, sesionId } = await sesionConTema("mat", TEMA_MAT_FRACCIONES.clave);
-    expect((await s.pedirRepaso(ctxThiago(), acceso, { sesionId }, { otraVez: true })).explicacionIa).toContain(TEMA_MAT_FRACCIONES.repaso.idea);
+    expect((await s.pedirRepaso(ctxThiago(), acceso, { sesionId }, { otraVez: true })).explicacionIa).toContain("Primero conviértelas a partes iguales");
     const e = await s.siguienteEjercicio(ctxThiago(), acceso, { sesionId });
     if ("fin" in e) throw new Error("fin");
     const sol = await solucionDe(e.ejercicioId);
