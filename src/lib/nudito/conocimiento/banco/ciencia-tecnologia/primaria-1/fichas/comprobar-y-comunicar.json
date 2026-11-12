@@ -1,0 +1,955 @@
+[
+  {
+    "clave": "cyt.p1.describir-lo-registrado",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 20,
+    "capacidad": "Analiza datos e información",
+    "desempenosOrigen": [
+      "CYT-C20-P1-04"
+    ],
+    "bloque": "Comprobar y comunicar",
+    "nombre": "Describir lo que registré",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Describe las características de lo observado a partir de sus dibujos y cuadros.",
+    "palabrasClave": [
+      "observación",
+      "registro",
+      "dibujo",
+      "cuadro"
+    ],
+    "prerrequisitos": [
+      "cyt.p1.cuadro-de-observaciones"
+    ],
+    "ordenSugerido": 55,
+    "ideaCentral": "Después de observar, tú puedes mirar tu dibujo o cuadro para contar lo que viste. Describe solo los rasgos registrados, como color, tamaño o cantidad.",
+    "pasos": [
+      "Busca en tu dibujo o cuadro el objeto observado.",
+      "Mira qué rasgo quedó registrado: color, forma, tamaño o cantidad.",
+      "Dilo con palabras sencillas sin inventar datos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En el dibujo de una hoja aparece color verde y borde liso.",
+        "desarrollo": "Leo los dos rasgos dibujados: verde y borde liso.",
+        "respuesta": "La hoja era verde y tenía borde liso."
+      },
+      {
+        "situacion": "Un cuadro dice: lunes, 2 brotes; martes, 3 brotes.",
+        "desarrollo": "Comparo las cantidades anotadas: 3 es más que 2.",
+        "respuesta": "El martes se registró un brote más."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Describir un color que no aparece en el dibujo.",
+        "correccion": "Revisa el registro antes de decir el color."
+      },
+      {
+        "error": "Confundir lo observado con una suposición.",
+        "correccion": "Cuenta lo que ves en el cuadro o dibujo; deja aparte lo que imaginas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Registro",
+        "significado": "Dibujo o cuadro que guarda lo observado."
+      },
+      {
+        "termino": "Describir",
+        "significado": "Decir cómo es algo según lo observado."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "El dibujo de una flor muestra pétalos rojos. ¿Qué descripción usa el registro?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Pétalos azules"
+          },
+          {
+            "id": "b",
+            "texto": "Pétalos rojos"
+          },
+          {
+            "id": "c",
+            "texto": "Pétalos invisibles"
+          }
+        ],
+        "pistas": [
+          "Busca el color dibujado.",
+          "El registro dice rojos.",
+          "Describe el color que aparece, sin inventar otro."
+        ],
+        "retroalimentacion": "Pétalos rojos coincide con el dibujo; azules e invisibles no aparecen.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si en un cuadro dice «hoy: 2 hojas», puedes decir que registraste 2 hojas.",
+        "respuesta": true,
+        "pistas": [
+          "Lee la cantidad escrita.",
+          "El cuadro muestra el número 2.",
+          "La descripción debe conservar ese dato."
+        ],
+        "retroalimentacion": "Es verdadero: el cuadro registra 2 hojas.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "El dibujo de una piedra la muestra gris. ¿Qué color debes decir al describirla?",
+        "respuesta": "gris",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira el rasgo de color del dibujo.",
+          "No necesitas adivinar otro color.",
+          "El dibujo muestra gris."
+        ],
+        "retroalimentacion": "Debes decir gris; es el color registrado."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Registro: «semilla A: redonda». ¿Cuál descripción corresponde?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La semilla A es cuadrada"
+          },
+          {
+            "id": "b",
+            "texto": "La semilla A es redonda"
+          },
+          {
+            "id": "c",
+            "texto": "La semilla A es larga"
+          }
+        ],
+        "pistas": [
+          "Lee la forma anotada.",
+          "La palabra del registro es «redonda».",
+          "Elige una frase con esa misma forma."
+        ],
+        "retroalimentacion": "La semilla A es redonda; cuadrada y larga no están registradas.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un dibujo muestra una hoja pequeña; decir que era enorme respeta el registro.",
+        "respuesta": false,
+        "pistas": [
+          "Compara «pequeña» con «enorme».",
+          "Son tamaños diferentes.",
+          "La descripción debe decir pequeña."
+        ],
+        "retroalimentacion": "Es falso: el dibujo muestra una hoja pequeña, no enorme.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Cuadro: lunes 1 hormiga, martes 3 hormigas. ¿Qué viste el martes?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una hormiga"
+          },
+          {
+            "id": "b",
+            "texto": "Tres hormigas"
+          },
+          {
+            "id": "c",
+            "texto": "Cinco hormigas"
+          }
+        ],
+        "pistas": [
+          "Busca la fila «martes».",
+          "La cantidad al lado es 3.",
+          "Tres hormigas corresponde a ese día."
+        ],
+        "retroalimentacion": "El martes se registraron tres hormigas; una fue el lunes.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En el dibujo, una mariposa tiene alas amarillas. ¿Qué rasgo describes con «amarillas»?",
+        "respuesta": "color",
+        "alternativasAceptadas": [
+          "el color"
+        ],
+        "pistas": [
+          "La palabra «amarillas» no dice cuántas alas hay.",
+          "Indica cómo se ven las alas.",
+          "Amarillo es un color."
+        ],
+        "retroalimentacion": "Describes el color de las alas, no la cantidad."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Registro de una planta: tallo verde y dos hojas. ¿Qué frase reúne ambos datos?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tallo verde y dos hojas"
+          },
+          {
+            "id": "b",
+            "texto": "Tallo rojo y dos hojas"
+          },
+          {
+            "id": "c",
+            "texto": "Tallo verde y cinco hojas"
+          }
+        ],
+        "pistas": [
+          "Revisa primero el color del tallo.",
+          "Luego revisa la cantidad de hojas.",
+          "El registro dice verde y dos."
+        ],
+        "retroalimentacion": "Tallo verde y dos hojas reúne ambos datos; las otras frases cambian un rasgo.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un cuadro dice «mañana: 4 gotas; tarde: 2 gotas». Se registraron más gotas en la mañana.",
+        "respuesta": true,
+        "pistas": [
+          "Compara las dos cantidades.",
+          "Cuatro es mayor que dos.",
+          "La mañana tiene el valor 4."
+        ],
+        "retroalimentacion": "Es verdadero: 4 gotas en la mañana son más que 2 en la tarde.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dibujo: una concha con rayas y un punto. ¿Cuál frase se queda solo con lo registrado?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tiene rayas y un punto"
+          },
+          {
+            "id": "b",
+            "texto": "Vino del mar ayer"
+          },
+          {
+            "id": "c",
+            "texto": "Pesa dos kilos"
+          }
+        ],
+        "pistas": [
+          "Busca los rasgos visibles del dibujo.",
+          "No hay datos sobre fecha ni peso.",
+          "Las rayas y el punto sí aparecen."
+        ],
+        "retroalimentacion": "Tiene rayas y un punto es la descripción apoyada por el dibujo; fecha y peso se inventan.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Cuadro de semillas: primera = lisa; segunda = rugosa. ¿Cómo describes la segunda semilla?",
+        "respuesta": "rugosa",
+        "alternativasAceptadas": [
+          "es rugosa"
+        ],
+        "pistas": [
+          "Ubica la segunda semilla.",
+          "No uses el dato de la primera.",
+          "Junto a la segunda dice «rugosa»."
+        ],
+        "retroalimentacion": "La semilla preguntada es rugosa; «lisa» describe la otra semilla del cuadro."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dibujaste tres círculos pequeños, decir «dibujé tres círculos pequeños» usa tanto cantidad como tamaño registrados.",
+        "respuesta": true,
+        "pistas": [
+          "El dibujo incluye un número de círculos.",
+          "También muestra que son pequeños.",
+          "La frase conserva ambos rasgos."
+        ],
+        "retroalimentacion": "Es verdadero: la frase describe cantidad y tamaño del dibujo.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "cyt.p1.comparar-respuesta-y-observacion",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 20,
+    "capacidad": "Analiza datos e información",
+    "desempenosOrigen": [
+      "CYT-C20-P1-04"
+    ],
+    "bloque": "Comprobar y comunicar",
+    "nombre": "¿Mi respuesta era correcta?",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Compara su posible respuesta con lo observado y con lo que dice un texto leído en clase.",
+    "palabrasClave": [
+      "respuesta posible",
+      "observación",
+      "comparar",
+      "comprobar"
+    ],
+    "prerrequisitos": [
+      "cyt.p1.posibles-respuestas",
+      "cyt.p1.describir-lo-registrado"
+    ],
+    "ordenSugerido": 56,
+    "ideaCentral": "Antes de observar puedes dar una respuesta posible a tu pregunta. Después comparas esa idea con lo que viste y con un texto de clase para decir si coincide o si debes cambiarla.",
+    "pasos": [
+      "Recuerda cuál fue tu respuesta posible.",
+      "Lee lo que anotaste al observar.",
+      "Compara ambas frases y el texto leído en clase, si lo hay.",
+      "Di si tu idea coincidió o cómo la cambiarías."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Ana pensó: «La semilla brotará hoy». Su registro dice: «Hoy no hay brote».",
+        "desarrollo": "La idea y el registro dicen cosas distintas.",
+        "respuesta": "Su respuesta posible no coincidió; puede cambiarla."
+      },
+      {
+        "situacion": "Luis dijo: «El imán atraerá el clip». Observó que el clip se pegó al imán.",
+        "desarrollo": "Su idea de atraer coincide con lo que vio.",
+        "respuesta": "Su respuesta posible coincidió con la observación."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir que una idea fue correcta sin revisar el registro.",
+        "correccion": "Compara la frase inicial con lo que observaste."
+      },
+      {
+        "error": "Cambiar el registro para que coincida con tu idea.",
+        "correccion": "Conserva lo que viste y cambia tu respuesta si hace falta."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Respuesta posible",
+        "significado": "Lo que crees que puede ocurrir antes de observar."
+      },
+      {
+        "termino": "Coincidir",
+        "significado": "Decir lo mismo o ser compatible con el dato observado."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Idea: «La hoja flotará». Observación: «La hoja quedó en la superficie del agua». ¿Coinciden?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sí, coincide"
+          },
+          {
+            "id": "b",
+            "texto": "No, se hundió"
+          },
+          {
+            "id": "c",
+            "texto": "No se observó"
+          }
+        ],
+        "pistas": [
+          "Compara «flotará» con «quedó en la superficie».",
+          "Quedar arriba del agua es flotar.",
+          "La observación apoya la idea."
+        ],
+        "retroalimentacion": "Sí, coincide: quedar en la superficie significa que la hoja flotó.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Pedro pensó que una piedra flotaría, pero anotó que se hundió. Su idea coincidió con lo observado.",
+        "respuesta": false,
+        "pistas": [
+          "Una frase dice «flotaría».",
+          "El registro dice «se hundió».",
+          "Flotar y hundirse son resultados distintos."
+        ],
+        "retroalimentacion": "Es falso: la idea de flotar no coincidió con la piedra que se hundió.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Idea: «Habrá dos brotes». Registro: «Aparecieron dos brotes». ¿Coincidió?",
+        "respuesta": "sí",
+        "alternativasAceptadas": [
+          "si"
+        ],
+        "pistas": [
+          "Fíjate en el número de la idea.",
+          "El registro también dice dos.",
+          "Las dos frases tienen el mismo resultado."
+        ],
+        "retroalimentacion": "Sí coincidió: se esperaban dos brotes y se observaron dos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "María creyó que el algodón seco cambiaría a azul al mojarse. Lo vio blanco. ¿Qué debe cambiar?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El dato observado"
+          },
+          {
+            "id": "b",
+            "texto": "Su respuesta posible"
+          },
+          {
+            "id": "c",
+            "texto": "El color real del algodón"
+          }
+        ],
+        "pistas": [
+          "Mantén lo que realmente vio.",
+          "El registro dice blanco.",
+          "La idea decía azul; esa es la frase que debe corregir."
+        ],
+        "retroalimentacion": "Debe cambiar su respuesta posible; no debe cambiar el dato blanco observado.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Idea: «El papel se moverá con el abanico». Registro: «El papel se movió». Ambas frases son compatibles.",
+        "respuesta": true,
+        "pistas": [
+          "Una frase anticipa movimiento.",
+          "La otra anota movimiento.",
+          "El resultado coincide con lo previsto."
+        ],
+        "retroalimentacion": "Es verdadero: el papel se movió como se había pensado.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Idea: «La semilla A brota primero». Cuadro: día 2 brota B; día 4 brota A. ¿Coincidió la idea?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sí, A fue primero"
+          },
+          {
+            "id": "b",
+            "texto": "No, B fue primero"
+          },
+          {
+            "id": "c",
+            "texto": "No hubo brotes"
+          }
+        ],
+        "pistas": [
+          "Mira qué letra aparece en el día 2.",
+          "El día 2 va antes del día 4.",
+          "B brotó antes que A."
+        ],
+        "retroalimentacion": "No, B fue primero según el cuadro; la idea decía A.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El texto de clase dice «las plantas necesitan agua». Tu idea decía lo mismo y tu planta regada creció. ¿Tu idea coincidió o cambió?",
+        "respuesta": "coincidió",
+        "alternativasAceptadas": [
+          "coincidio"
+        ],
+        "pistas": [
+          "Compara tu idea con el texto.",
+          "Ambos dicen que la planta necesita agua.",
+          "La observación también es compatible."
+        ],
+        "retroalimentacion": "Coincidió: idea, texto y observación son compatibles."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Antes, Rosa dijo «el cubo de hielo seguirá duro al sol». Después vio agua en el plato. ¿Qué conclusión cabe?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La idea no coincidió"
+          },
+          {
+            "id": "b",
+            "texto": "La idea coincidió"
+          },
+          {
+            "id": "c",
+            "texto": "No hubo cambio"
+          }
+        ],
+        "pistas": [
+          "La idea decía que quedaría duro.",
+          "El registro muestra agua.",
+          "El hielo se derritió, distinto de la idea inicial."
+        ],
+        "retroalimentacion": "La idea no coincidió: al sol el hielo se derritió y apareció agua.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si lo observado contradice tu respuesta posible, puedes corregir tu respuesta sin borrar la observación.",
+        "respuesta": true,
+        "pistas": [
+          "El registro guarda lo que ocurrió.",
+          "Una idea inicial puede cambiar.",
+          "Corregir la idea conserva la evidencia."
+        ],
+        "retroalimentacion": "Es verdadero: se corrige la respuesta posible y se conserva lo observado.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Idea: «Las dos semillas brotarán». Registro: A brotó, B no. Texto: «Una semilla puede no brotar». ¿Qué respuesta respeta los datos?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Brotaron las dos"
+          },
+          {
+            "id": "b",
+            "texto": "Solo A brotó; debo cambiar mi idea"
+          },
+          {
+            "id": "c",
+            "texto": "Ninguna brotó"
+          }
+        ],
+        "pistas": [
+          "Revisa cada semilla por separado.",
+          "A sí brotó; B no.",
+          "El texto permite que una semilla no brote."
+        ],
+        "retroalimentacion": "Solo A brotó; debo cambiar mi idea. Decir que brotaron ambas contradice el registro.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Pensaste que un imán atraería una cuchara de plástico. No se pegó; el texto dice que ese plástico no es atraído. ¿Debes mantener o cambiar tu idea?",
+        "respuesta": "cambiar",
+        "alternativasAceptadas": [
+          "cambiarla"
+        ],
+        "pistas": [
+          "El resultado no fue el que esperabas.",
+          "El texto también explica que el plástico no fue atraído.",
+          "La idea inicial debe ajustarse a lo observado."
+        ],
+        "retroalimentacion": "Debes cambiar la idea: la cuchara de plástico no fue atraída."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Lucía registró tres hormigas, aunque había pensado que vería cinco. Decir «mi idea no coincidió» usa bien la comparación.",
+        "respuesta": true,
+        "pistas": [
+          "Compara cinco con tres.",
+          "Son cantidades diferentes.",
+          "La frase reconoce esa diferencia."
+        ],
+        "retroalimentacion": "Es verdadero: la idea de cinco no coincidió con las tres hormigas observadas.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "cyt.p1.contar-lo-aprendido",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 1,
+    "competenciaCneb": 20,
+    "capacidad": "Evalúa y comunica el proceso y resultados de su indagación",
+    "desempenosOrigen": [
+      "CYT-C20-P1-05"
+    ],
+    "bloque": "Comprobar y comunicar",
+    "nombre": "Contar lo que aprendí y lo que mejoraría",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Comunica con palabras o dibujos la respuesta a su pregunta, sus logros y sus dificultades.",
+    "palabrasClave": [
+      "comunicar",
+      "aprendizaje",
+      "dificultad",
+      "mejora"
+    ],
+    "prerrequisitos": [
+      "cyt.p1.comparar-respuesta-y-observacion"
+    ],
+    "ordenSugerido": 81,
+    "ideaCentral": "Al terminar una indagación, tú puedes contar qué pregunta respondiste, qué observaste y qué aprendiste. También puedes decir qué fue difícil y qué mejorarías la próxima vez.",
+    "pasos": [
+      "Recuerda la pregunta que investigaste.",
+      "Cuenta el resultado usando tu dibujo o cuadro.",
+      "Di qué aprendiste con una frase sencilla.",
+      "Menciona una dificultad y una mejora posible."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La pregunta era «¿Se mueve el papel con un abanico?». El papel se movió.",
+        "desarrollo": "El resultado observado responde la pregunta.",
+        "respuesta": "Aprendí que el aire del abanico puede mover el papel."
+      },
+      {
+        "situacion": "Al observar una hormiga, el dibujo quedó muy pequeño.",
+        "desarrollo": "El tamaño del dibujo dificultó mostrar detalles.",
+        "respuesta": "La próxima vez haré un dibujo más grande."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar solo lo que creías antes.",
+        "correccion": "Incluye el resultado que realmente observaste."
+      },
+      {
+        "error": "Decir «todo salió mal» sin señalar una mejora.",
+        "correccion": "Nombra la dificultad concreta y algo que harías distinto."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Resultado",
+        "significado": "Lo que pasó al observar o probar algo."
+      },
+      {
+        "termino": "Mejora",
+        "significado": "Cambio que puede ayudar a hacerlo mejor la próxima vez."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "El dibujo muestra que una semilla brotó. ¿Qué puedes contar al final?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La semilla brotó"
+          },
+          {
+            "id": "b",
+            "texto": "La semilla voló"
+          },
+          {
+            "id": "c",
+            "texto": "Nunca la observé"
+          }
+        ],
+        "pistas": [
+          "Mira el resultado dibujado.",
+          "Hay un brote en la semilla.",
+          "Cuenta lo observado, no algo inventado."
+        ],
+        "retroalimentacion": "La semilla brotó es el resultado del dibujo; no voló.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al contar tu indagación, puedes decir qué aprendiste con palabras o con un dibujo.",
+        "respuesta": true,
+        "pistas": [
+          "La comunicación puede tener más de una forma.",
+          "Un dibujo puede mostrar el resultado.",
+          "También puedes explicarlo con palabras."
+        ],
+        "retroalimentacion": "Es verdadero: palabras y dibujos pueden comunicar lo aprendido.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Probaste si un papel se mueve con el viento y viste que sí. ¿Qué fue el movimiento observado: pregunta o resultado?",
+        "respuesta": "resultado",
+        "alternativasAceptadas": [
+          "el resultado"
+        ],
+        "pistas": [
+          "La pregunta se hizo antes.",
+          "El movimiento ocurrió durante la prueba.",
+          "Lo que pasó en la prueba es el resultado."
+        ],
+        "retroalimentacion": "El movimiento fue el resultado, no la pregunta inicial."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Marta no vio bien una hormiga porque estaba lejos. ¿Qué puede mejorar?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Acercarse con cuidado la próxima vez"
+          },
+          {
+            "id": "b",
+            "texto": "Inventar detalles"
+          },
+          {
+            "id": "c",
+            "texto": "Borrar la pregunta"
+          }
+        ],
+        "pistas": [
+          "La dificultad fue la distancia.",
+          "Una mejora debe ayudar a observar mejor.",
+          "Acercarse con cuidado permite ver más detalles."
+        ],
+        "retroalimentacion": "Acercarse con cuidado la próxima vez mejora la observación; inventar detalles no.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si el cuadro dice «tres gotas», contar «vi cinco gotas» comunica fielmente el resultado.",
+        "respuesta": false,
+        "pistas": [
+          "Compara el dato del cuadro con la frase.",
+          "Tres y cinco son diferentes.",
+          "El resultado debe decir tres gotas."
+        ],
+        "retroalimentacion": "Es falso: el cuadro registra tres gotas, no cinco.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La pregunta era «¿El imán atrae el clip?». El clip se pegó. ¿Cuál frase cuenta lo aprendido?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El clip se convirtió en agua"
+          },
+          {
+            "id": "b",
+            "texto": "El imán no se probó"
+          },
+          {
+            "id": "c",
+            "texto": "El imán atrajo el clip"
+          }
+        ],
+        "pistas": [
+          "Recuerda la pregunta sobre atraer.",
+          "Pegarse al imán fue lo observado.",
+          "La primera frase expresa ese resultado."
+        ],
+        "retroalimentacion": "El imán atrajo el clip cuenta lo observado; las otras frases lo contradicen.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El dibujo de Luis salió borroso y no muestra bien la hoja. ¿Qué debe mencionar además de lo aprendido?",
+        "respuesta": "dificultad",
+        "alternativasAceptadas": [
+          "una dificultad"
+        ],
+        "pistas": [
+          "El dibujo borroso causó un problema.",
+          "No hace falta ocultarlo.",
+          "Ese problema se llama dificultad."
+        ],
+        "retroalimentacion": "Debe mencionar la dificultad del dibujo borroso y cómo podría mejorarla."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ana olvidó anotar el color de una flor. ¿Qué mejora concreta propone?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Decir cualquier color después"
+          },
+          {
+            "id": "b",
+            "texto": "Anotar el color al observar"
+          },
+          {
+            "id": "c",
+            "texto": "Dejar de mirar flores"
+          }
+        ],
+        "pistas": [
+          "El dato que faltó fue el color.",
+          "La mejora debe evitar que vuelva a faltar.",
+          "Anotarlo durante la observación resuelve el problema."
+        ],
+        "retroalimentacion": "Anotar el color al observar es una mejora concreta; inventarlo después no.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Contar «mi dibujo quedó pequeño; la próxima vez usaré una hoja más grande» incluye dificultad y mejora.",
+        "respuesta": true,
+        "pistas": [
+          "Identifica la parte que salió difícil.",
+          "Luego busca la acción para la próxima vez.",
+          "Aparecen ambas: dibujo pequeño y hoja grande."
+        ],
+        "retroalimentacion": "Es verdadero: la frase nombra la dificultad y una mejora.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Pregunta: «¿Qué semilla brota primero?». Cuadro: A brotó el lunes, B el miércoles. ¿Qué contarías?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "A brotó primero porque lunes va antes de miércoles"
+          },
+          {
+            "id": "b",
+            "texto": "B brotó primero porque miércoles va antes"
+          },
+          {
+            "id": "c",
+            "texto": "No hubo brotes"
+          }
+        ],
+        "pistas": [
+          "Lee los dos días del cuadro.",
+          "Lunes ocurre antes que miércoles.",
+          "A aparece el lunes, así que fue primera."
+        ],
+        "retroalimentacion": "A brotó primero porque lunes va antes de miércoles; el cuadro sí muestra brotes.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En una prueba de riego, una maceta no tenía etiqueta y confundiste sus datos. ¿Qué pondrías la próxima vez?",
+        "respuesta": "etiqueta",
+        "alternativasAceptadas": [
+          "una etiqueta",
+          "etiquetas"
+        ],
+        "pistas": [
+          "El problema fue no saber qué maceta era cuál.",
+          "Un nombre visible ayuda a distinguirlas.",
+          "Ese nombre puede ponerse en una etiqueta."
+        ],
+        "retroalimentacion": "Pondrías una etiqueta para distinguir la maceta; así no confundirías sus datos."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al explicar una prueba, decir qué observaste y cómo mejorarías un paso ayuda a comunicar tanto el resultado como el proceso.",
+        "respuesta": true,
+        "pistas": [
+          "Una parte dice qué pasó.",
+          "La otra dice qué harías distinto.",
+          "Ambas ayudan a contar la indagación."
+        ],
+        "retroalimentacion": "Es verdadero: observación y mejora comunican el resultado y el proceso.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]
