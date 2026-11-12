@@ -126,7 +126,7 @@ export function validarBanco(): { fichas: FichaConocimiento[]; errores: string[]
           pistas.add(normal);
         }
         if (e.tipo === "opcion_multiple") {
-          if (new Set(e.opciones?.map(o => o.id)).size !== e.opciones?.length || new Set(e.opciones?.map(o => normalizar(o.texto))).size !== e.opciones?.length) errores.push(f.clave + ": opciones duplicadas " + e.id);
+          if (new Set(e.opciones?.map(o => o.id)).size !== e.opciones?.length || new Set(e.opciones?.map(o => o.texto.trim())).size !== e.opciones?.length) errores.push(f.clave + ": opciones duplicadas " + e.id);
         }
         if (e.operacion) {
           const { tipo, a, b } = e.operacion;
