@@ -1,0 +1,708 @@
+[
+  {
+    "clave": "cyt.p6.controlar-variables",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 20,
+    "capacidad": "Diseña estrategias para hacer indagación",
+    "desempenosOrigen": [
+      "CYT-C20-P6-02"
+    ],
+    "bloque": "Diseño del experimento",
+    "nombre": "Control de variables en un experimento",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Planifica cómo mantener constantes las variables que podrían alterar el resultado.",
+    "palabrasClave": [
+      "variable independiente",
+      "variable dependiente",
+      "variable controlada",
+      "experimento",
+      "indagación"
+    ],
+    "prerrequisitos": [
+      "cyt.p6.identificar-tipos-de-variables"
+    ],
+    "ordenSugerido": 23,
+    "ideaCentral": "Para que un experimento sea justo, cambias solo una variable (la independiente), mides cómo responde otra (la dependiente) y mantienes iguales todas las demás (las variables controladas).",
+    "pasos": [
+      "Identifica qué vas a cambiar a propósito (variable independiente) y qué vas a medir (variable dependiente).",
+      "Haz una lista de todo lo demás que podría influir en el resultado.",
+      "Planifica cómo mantener cada una igual en todos los grupos: misma cantidad, mismo tamaño, mismo lugar, mismo tiempo.",
+      "Anota el plan: si cambian dos cosas a la vez, no sabrás cuál causó el resultado."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Camila quiere saber si la luz afecta la germinación de frijoles. Pone un vaso en la ventana y otro en un cajón oscuro.",
+        "desarrollo": "Cambia la luz (independiente) y mide si germinan (dependiente). Debe usar igual cantidad de agua, el mismo tipo de semillas, la misma tierra y la misma temperatura.",
+        "respuesta": "Debe controlar agua, semillas, tierra y temperatura."
+      },
+      {
+        "situacion": "Diego prueba si el azúcar se disuelve más rápido en agua caliente que en agua fría.",
+        "desarrollo": "Cambia la temperatura del agua. Debe usar el mismo volumen de agua, la misma cantidad de azúcar y agitar igual.",
+        "respuesta": "Controla volumen de agua, cantidad de azúcar y forma de agitar."
+      },
+      {
+        "situacion": "En una escuela de Huancayo, un grupo prueba abono en plantas de papa.",
+        "desarrollo": "Cambian la cantidad de abono y miden la altura. Mantienen igual la maceta, la tierra, el riego y la luz.",
+        "respuesta": "Control de maceta, tierra, riego y luz."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Cambiar dos cosas a la vez en el mismo experimento.",
+        "correccion": "Cambia una sola variable; si cambian dos, no sabrás cuál causó el resultado."
+      },
+      {
+        "error": "Pensar que controlar variables significa no medir nada.",
+        "correccion": "Controlar es mantener igual lo demás; igual se mide la variable dependiente."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Variable independiente",
+        "significado": "Lo que cambias a propósito."
+      },
+      {
+        "termino": "Variable dependiente",
+        "significado": "Lo que mides como resultado."
+      },
+      {
+        "termino": "Variable controlada",
+        "significado": "Lo que mantienes igual en todo el experimento."
+      },
+      {
+        "termino": "Experimento justo",
+        "significado": "Prueba donde solo cambia una variable."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cómo se llama la variable que cambias a propósito en un experimento?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Es la que tú decides modificar.",
+          "No es la que mides ni la que dejas igual.",
+          "Su nombre indica que no depende de nada más en la prueba."
+        ],
+        "retroalimentacion": "Es la variable independiente. La dependiente es la que mides y la controlada es la que mantienes igual.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Dependiente"
+          },
+          {
+            "id": "b",
+            "texto": "Independiente"
+          },
+          {
+            "id": "c",
+            "texto": "Controlada"
+          },
+          {
+            "id": "d",
+            "texto": "Constante"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un experimento justo se cambia solo una variable a la vez.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en qué pasaría si cambias dos cosas.",
+          "No sabrías cuál produjo el efecto.",
+          "Se cambia una sola y las demás se mantienen iguales."
+        ],
+        "retroalimentacion": "Es verdadero: solo se cambia una variable y las demás se controlan."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La variable que mides para ver el resultado se llama variable ... (una palabra)",
+        "respuesta": "dependiente",
+        "alternativasAceptadas": [
+          "la dependiente",
+          "variable dependiente"
+        ],
+        "pistas": [
+          "Es la que responde al cambio que tú haces.",
+          "Depende de la variable que cambiaste.",
+          "Empieza con «dep»."
+        ],
+        "retroalimentacion": "Es la variable dependiente: su valor depende de lo que cambias."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Isabel quiere saber si la luz afecta el crecimiento de unos frijoles. ¿Qué variable cambia?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee qué quiere comparar: el efecto de la luz.",
+          "Lo que quiere comprobar es la causa.",
+          "La causa que cambia es la luz."
+        ],
+        "retroalimentacion": "Cambia la cantidad de luz. La altura es lo que mide; el agua y la maceta deben mantenerse iguales.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La cantidad de agua"
+          },
+          {
+            "id": "b",
+            "texto": "El tipo de maceta"
+          },
+          {
+            "id": "c",
+            "texto": "La cantidad de luz"
+          },
+          {
+            "id": "d",
+            "texto": "La altura de la planta"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si a una planta le pones más agua y a otra más sol, el experimento es justo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántas cosas cambiaste.",
+          "Cambiaste dos a la vez.",
+          "No sabrás si fue el agua o el sol."
+        ],
+        "retroalimentacion": "Es falso: cambiaste dos variables y no podrás saber cuál causó la diferencia."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Diego prueba si el azúcar se disuelve más rápido en agua caliente que en fría. ¿Qué debe mantener igual?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en lo que no está probando.",
+          "La temperatura es lo que cambia; el tiempo es lo que mide.",
+          "Lo que se mantiene igual es la cantidad de agua y de azúcar."
+        ],
+        "retroalimentacion": "Debe mantener igual el volumen de agua y la cantidad de azúcar. La temperatura es la que cambia y el tiempo es el resultado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El volumen de agua y la cantidad de azúcar"
+          },
+          {
+            "id": "b",
+            "texto": "La temperatura del agua"
+          },
+          {
+            "id": "c",
+            "texto": "El tiempo que tarda en disolverse"
+          },
+          {
+            "id": "d",
+            "texto": "El color del vaso solamente"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Se prueban cuatro macetas con distinta cantidad de abono. Todas usan la misma tierra, el mismo riego y la misma luz. ¿Cuántas variables controladas se mencionan?",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta lo que se mantiene igual en todas las macetas.",
+          "La cantidad de abono no cuenta, porque cambia.",
+          "Son tierra, riego y luz."
+        ],
+        "retroalimentacion": "Son 3: tierra, riego y luz. El abono es la variable que cambia y no se controla."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Lo que se mantiene igual en todos los grupos del experimento se llama variable ... (una palabra)",
+        "respuesta": "controlada",
+        "alternativasAceptadas": [
+          "variable controlada",
+          "constante",
+          "la controlada"
+        ],
+        "pistas": [
+          "No cambia de un grupo a otro.",
+          "Se mantiene bajo control.",
+          "Termina como «trolada»."
+        ],
+        "retroalimentacion": "Se llama variable controlada: se mantiene igual en todos los grupos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Claudia prueba qué papel absorbe más agua con 3 tipos de papel. ¿Cuál plan controla mejor las variables?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lo único que debe cambiar es el tipo de papel.",
+          "El resto debe ser igual.",
+          "Busca la opción donde tamaño, agua y tiempo son iguales."
+        ],
+        "retroalimentacion": "El plan correcto usa papeles del mismo tamaño, el mismo volumen de agua y el mismo tiempo. Las demás cambian más de una cosa.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Usar un tipo de papel con 10 mL y otro con 50 mL"
+          },
+          {
+            "id": "b",
+            "texto": "Usar papeles de distinto tamaño y la misma agua"
+          },
+          {
+            "id": "c",
+            "texto": "Dejar un papel 1 minuto y otro 5 minutos"
+          },
+          {
+            "id": "d",
+            "texto": "Usar papeles del mismo tamaño, con el mismo volumen de agua y el mismo tiempo"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Ana pone una planta con luz y otra en un cajón, pero a la de la ventana le echa más agua. Aun así puede concluir que la luz causó la diferencia.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa cuántas cosas son distintas entre las dos plantas.",
+          "Ana cambió la luz y el agua.",
+          "No puede saber cuál variable influyó."
+        ],
+        "retroalimentacion": "Es falso: cambió dos variables (luz y agua), así que no puede atribuir la diferencia solo a la luz."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una tabla, Tomás disuelve 1 cucharada de azúcar en agua caliente y 3 cucharadas en agua fría. ¿Qué falla tiene su experimento?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara qué cambió además de la temperatura.",
+          "La cantidad de azúcar debía ser la misma.",
+          "Falló al controlar una variable."
+        ],
+        "retroalimentacion": "Falló porque la cantidad de azúcar no es igual en ambos casos. Debía mantenerse constante.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Usó cucharas"
+          },
+          {
+            "id": "b",
+            "texto": "La cantidad de azúcar no es igual en ambos casos"
+          },
+          {
+            "id": "c",
+            "texto": "Usó agua"
+          },
+          {
+            "id": "d",
+            "texto": "Midió el tiempo"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un grupo prueba 3 tipos de suelo (arenoso, arcilloso y con humus). Con el mismo vaso, usa 200 mL de agua en cada uno para ver cuánta agua se filtra. ¿Cuántos mL de agua usa en total?",
+        "respuesta": 600,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los tres suelos reciben la misma cantidad de agua.",
+          "Hay 3 suelos con 200 mL cada uno.",
+          "Calcula 3 × 200."
+        ],
+        "retroalimentacion": "3 × 200 = 600 mL. Esa igualdad de agua es una variable controlada."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "cyt.p6.instrumentos-de-medicion",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 20,
+    "capacidad": "Diseña estrategias para hacer indagación",
+    "desempenosOrigen": [
+      "CYT-C20-P6-02"
+    ],
+    "bloque": "Diseño del experimento",
+    "nombre": "Precisión al medir: probeta, cronómetro y balanza digital",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Elige el instrumento adecuado para cada variable y lee la medida con la menor división posible.",
+    "palabrasClave": [
+      "probeta",
+      "cronómetro",
+      "balanza digital",
+      "menor división",
+      "medición"
+    ],
+    "prerrequisitos": [
+      "cyt.p6.controlar-variables"
+    ],
+    "ordenSugerido": 24,
+    "ideaCentral": "Cada variable se mide con su instrumento: la probeta mide volumen, el cronómetro mide tiempo y la balanza digital mide masa. Para medir bien, elige el instrumento adecuado y lee la medida con la menor división de su escala.",
+    "pasos": [
+      "Identifica qué variable vas a medir: volumen, tiempo, masa, temperatura o longitud.",
+      "Elige el instrumento adecuado: probeta (mL), cronómetro (s), balanza digital (g), termómetro (°C) o regla (cm).",
+      "Observa la menor división de la escala: cuánto vale cada rayita.",
+      "Lee con la vista a nivel del instrumento; en la probeta, a la altura del nivel del líquido. Anota el número con su unidad."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Lucía quiere medir cuánta agua cabe en un vaso pequeño.",
+        "desarrollo": "El volumen de un líquido se mide con la probeta, en mililitros.",
+        "respuesta": "Usa una probeta y anota el volumen en mL."
+      },
+      {
+        "situacion": "Entre las marcas de 20 mL y 30 mL de una probeta hay 10 rayitas, y el líquido llega a la tercera rayita sobre el 20.",
+        "desarrollo": "Cada rayita vale 10 mL ÷ 10 = 1 mL; la tercera rayita sobre 20 es 23.",
+        "respuesta": "El volumen es 23 mL."
+      },
+      {
+        "situacion": "Mateo quiere medir cuánto tarda un papel en caer desde la mesa.",
+        "desarrollo": "El tiempo se mide con un cronómetro, en segundos.",
+        "respuesta": "Usa el cronómetro y anota los segundos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Leer la probeta mirando desde arriba.",
+        "correccion": "Mira a la altura del nivel del líquido para leer sin error."
+      },
+      {
+        "error": "Anotar «45» sin unidad.",
+        "correccion": "Escribe siempre la unidad, por ejemplo 45 g o 45 mL."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Probeta",
+        "significado": "Instrumento con escala que mide volumen de líquidos."
+      },
+      {
+        "termino": "Cronómetro",
+        "significado": "Instrumento que mide el tiempo en segundos."
+      },
+      {
+        "termino": "Balanza digital",
+        "significado": "Instrumento que mide la masa en gramos."
+      },
+      {
+        "termino": "Menor división",
+        "significado": "Lo que vale cada rayita más pequeña de la escala."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué instrumento se usa para medir el volumen de un líquido?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mide cuánto espacio ocupa un líquido.",
+          "Tiene forma de tubo con una escala en mL.",
+          "Se llama como un tubo de laboratorio."
+        ],
+        "retroalimentacion": "Se usa la probeta. El cronómetro mide tiempo, la balanza mide masa y la regla mide longitud.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cronómetro"
+          },
+          {
+            "id": "b",
+            "texto": "Balanza digital"
+          },
+          {
+            "id": "c",
+            "texto": "Regla"
+          },
+          {
+            "id": "d",
+            "texto": "Probeta"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El cronómetro se usa para medir el tiempo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en las carreras de atletismo.",
+          "Mide segundos y minutos.",
+          "Se usa para saber cuánto dura algo."
+        ],
+        "retroalimentacion": "Es verdadero: el cronómetro mide tiempo."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La balanza digital mide la masa. ¿En qué unidad se suele anotar, en gramos o en litros? Escribe la unidad.",
+        "respuesta": "gramos",
+        "alternativasAceptadas": [
+          "gramo",
+          "g"
+        ],
+        "pistas": [
+          "La masa de un objeto pequeño se anota con una unidad pequeña.",
+          "Los litros miden volumen, no masa.",
+          "La unidad empieza con «g»."
+        ],
+        "retroalimentacion": "La balanza digital da la masa en gramos. Los litros miden volumen."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué instrumento mide la masa de unas semillas?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La masa se mide con un instrumento que tiene un plato.",
+          "Muestra un número en una pantalla.",
+          "Se llama balanza."
+        ],
+        "retroalimentacion": "Se usa la balanza digital. La probeta mide volumen y el cronómetro, tiempo.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Probeta"
+          },
+          {
+            "id": "b",
+            "texto": "Balanza digital"
+          },
+          {
+            "id": "c",
+            "texto": "Termómetro"
+          },
+          {
+            "id": "d",
+            "texto": "Cronómetro"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una probeta, entre las marcas de 20 mL y 30 mL hay 10 rayitas. ¿Cuántos mL vale cada rayita?",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuántos mL hay entre las marcas numeradas.",
+          "Entre 20 y 30 hay 10 mL.",
+          "Divide 10 mL entre 10 rayitas."
+        ],
+        "retroalimentacion": "10 ÷ 10 = 1 mL por rayita. Si piensas que cada una vale 10 mL, confundiste la distancia entre marcas con la rayita."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al leer una probeta debes mirar desde arriba para ver mejor.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cómo cambia lo que ves si inclinas la cabeza.",
+          "Mirar de arriba o de abajo da una lectura distinta.",
+          "La vista debe quedar a nivel del líquido."
+        ],
+        "retroalimentacion": "Es falso: hay que mirar a la altura del nivel del líquido para no equivocarse."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Quieres saber cuánto tarda en derretirse un cubito de hielo en el patio. ¿Qué instrumento usas?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La pregunta es por el tiempo.",
+          "Debes contar cuánto dura el proceso.",
+          "El instrumento suena como «cronos», tiempo."
+        ],
+        "retroalimentacion": "Usas el cronómetro porque mides tiempo. La balanza, la probeta o la regla miden otras cosas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Probeta"
+          },
+          {
+            "id": "b",
+            "texto": "Balanza digital"
+          },
+          {
+            "id": "c",
+            "texto": "Cronómetro"
+          },
+          {
+            "id": "d",
+            "texto": "Regla"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "¿Qué instrumento usas para medir la temperatura del agua? (una palabra)",
+        "respuesta": "termómetro",
+        "alternativasAceptadas": [
+          "termometro",
+          "el termómetro",
+          "el termometro"
+        ],
+        "pistas": [
+          "Se mide en grados Celsius.",
+          "Tiene un tubo con una escala.",
+          "Empieza con «termo»."
+        ],
+        "retroalimentacion": "Se usa un termómetro, que mide temperatura en °C."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una probeta, entre las marcas de 40 mL y 50 mL hay 5 divisiones iguales, y el agua llega a la tercera división sobre el 40. ¿Cuántos mL marca?",
+        "respuesta": 46,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero halla cuánto vale cada división.",
+          "Entre 40 y 50 hay 10 mL repartidos en 5 divisiones.",
+          "Cada división vale 2 mL; súmale 3 × 2 al 40."
+        ],
+        "retroalimentacion": "Cada división vale 2 mL y 40 + 3 × 2 = 46 mL. Si piensas que cada una vale 1 mL, obtendrías 43."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para medir 5 mL de jarabe con precisión, ¿qué probeta conviene más?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa qué instrumento tiene la menor división.",
+          "Una probeta muy grande tiene rayitas muy separadas en mL.",
+          "Elige la pequeña, de divisiones finas."
+        ],
+        "retroalimentacion": "Conviene la de 10 mL con divisiones de 0,5 mL. La grande no permite leer 5 mL con precisión.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una de 10 mL con divisiones de 0,5 mL"
+          },
+          {
+            "id": "b",
+            "texto": "Una de 500 mL con divisiones de 10 mL"
+          },
+          {
+            "id": "c",
+            "texto": "Un vaso sin marcas"
+          },
+          {
+            "id": "d",
+            "texto": "Una olla grande"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un estudiante que anota 45 sin escribir la unidad ha registrado una medición completa.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa qué le falta al número 45 para tener sentido.",
+          "Puede ser 45 gramos, 45 mL o 45 segundos.",
+          "Falta la unidad."
+        ],
+        "retroalimentacion": "Es falso: sin unidad (g, mL, s) el dato queda incompleto."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para comparar cuánto tardan 3 papeles distintos en caer, ¿qué plan da medidas más confiables?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La variable es el tiempo de caída.",
+          "Medir varias veces reduce errores.",
+          "Elige la que usa cronómetro y repite la medida."
+        ],
+        "retroalimentacion": "Lo mejor es usar el cronómetro y repetir 3 veces para promediar. La regla o la balanza no miden tiempo.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Medir una sola vez con una regla"
+          },
+          {
+            "id": "b",
+            "texto": "Medir con una balanza"
+          },
+          {
+            "id": "c",
+            "texto": "Medir cada papel 3 veces con el cronómetro y sacar un promedio"
+          },
+          {
+            "id": "d",
+            "texto": "Mirar y decir cuál cae más rápido"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

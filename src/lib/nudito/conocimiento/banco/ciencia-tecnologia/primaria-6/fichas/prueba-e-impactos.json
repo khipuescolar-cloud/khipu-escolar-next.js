@@ -1,0 +1,683 @@
+[
+  {
+    "clave": "cyt.p6.prueba-final-requerimientos",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 22,
+    "capacidad": "Evalúa y comunica el funcionamiento y los impactos de su alternativa de solución tecnológica",
+    "desempenosOrigen": [
+      "CYT-C22-P6-04"
+    ],
+    "bloque": "Prueba e impactos",
+    "nombre": "Prueba final frente a los requerimientos",
+    "disciplina": "tecnologia",
+    "descripcionCorta": "Mide si la solución cumple cada requerimiento y explica su funcionamiento.",
+    "palabrasClave": [
+      "requerimientos",
+      "prueba",
+      "prototipo",
+      "medición",
+      "funcionamiento"
+    ],
+    "prerrequisitos": [
+      "cyt.p6.detectar-errores-construccion"
+    ],
+    "ordenSugerido": 109,
+    "ideaCentral": "Probar tu solución es medirla y comparar cada resultado con los requerimientos que te pusiste al inicio. Así sabes qué cumple, qué no, y puedes explicar por qué funciona.",
+    "pasos": [
+      "Escribe cada requerimiento con su valor (por ejemplo, «costar máximo 20 soles»).",
+      "Prueba el prototipo y mide con el instrumento adecuado: regla, balanza, reloj o jarra graduada.",
+      "Anota el resultado y compáralo con el requerimiento: ¿cumple o no cumple?",
+      "Explica con tus palabras cómo funciona cada parte y qué hay que mejorar si algo no cumple."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un grupo de Puno hizo un filtro de agua con botella. Debe filtrar 1 litro en máximo 10 minutos. En la prueba tardó 7 minutos.",
+        "desarrollo": "El límite es 10 minutos y el filtro tardó 7. Como 7 es menor que 10, está dentro del límite.",
+        "respuesta": "Cumple el requerimiento de tiempo."
+      },
+      {
+        "situacion": "Lucía construyó un puente de palitos que debe aguantar 2 kg. Al probarlo con una bolsa de arena, el puente se rompió con 1,5 kg.",
+        "desarrollo": "Se compara lo que soportó (1,5 kg) con lo pedido (2 kg). Soportó menos de lo requerido.",
+        "respuesta": "No cumple: le faltan 0,5 kg; hay que reforzar las uniones."
+      },
+      {
+        "situacion": "Un invernadero escolar en Huaraz debe medir 50 cm de alto como máximo. Al medirlo con la wincha marca 45 cm.",
+        "desarrollo": "45 cm es menor que 50 cm, por lo tanto respeta el límite de altura.",
+        "respuesta": "Cumple el requerimiento de altura."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir que la solución funciona porque «se ve bien», sin medir nada.",
+        "correccion": "Un buen resultado se demuestra con medidas y se compara con cada requerimiento."
+      },
+      {
+        "error": "Revisar solo un requerimiento y dar por terminada la prueba.",
+        "correccion": "Hay que comprobar todos los requerimientos; uno que falle ya obliga a mejorar el prototipo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Requerimiento",
+        "significado": "Condición que tu solución debe cumplir, como un tamaño, un costo o un tiempo."
+      },
+      {
+        "termino": "Prototipo",
+        "significado": "Primer modelo de la solución que se construye para probarlo."
+      },
+      {
+        "termino": "Prueba",
+        "significado": "Acción de medir cómo funciona la solución en condiciones reales."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué es un requerimiento en un proyecto tecnológico?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El color favorito del equipo"
+          },
+          {
+            "id": "b",
+            "texto": "El material que sobró"
+          },
+          {
+            "id": "c",
+            "texto": "El nombre del colegio"
+          },
+          {
+            "id": "d",
+            "texto": "Una condición que la solución debe cumplir"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en lo que el problema «pide» a la solución.",
+          "Un tamaño máximo o un costo límite son ejemplos.",
+          "Es una condición medible que se debe cumplir."
+        ],
+        "retroalimentacion": "Un requerimiento es una condición que la solución debe cumplir, por ejemplo un costo máximo. El color favorito o el nombre del colegio no son condiciones del problema."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Probar una solución significa comprobar si cumple cada requerimiento.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa para qué sirve la prueba final.",
+          "Los requerimientos se fijaron antes de construir.",
+          "La prueba los compara uno por uno con los resultados."
+        ],
+        "retroalimentacion": "Es verdadero: la prueba final compara los resultados medidos con cada requerimiento."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un carrito solar debe pesar menos de 2 kg y en la balanza marca 1,5 kg. ¿Cumple el requerimiento? Responde sí o no.",
+        "respuesta": "sí",
+        "alternativasAceptadas": [
+          "si"
+        ],
+        "pistas": [
+          "Compara el peso medido con el límite.",
+          "El límite es 2 kg y el carrito pesa 1,5 kg.",
+          "1,5 es menor que 2."
+        ],
+        "retroalimentacion": "Sí cumple: 1,5 kg es menor que el límite de 2 kg."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una cocina solar debía calentar agua en máximo 30 minutos y lo logró en 25 minutos. ¿Cuántos minutos antes del límite terminó?",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta el tiempo que tardó al tiempo máximo permitido.",
+          "Haz 30 menos 25.",
+          "Piensa: 25 + ? = 30."
+        ],
+        "retroalimentacion": "Terminó 5 minutos antes del límite: 30 - 25 = 5. Quien suma en vez de restar obtiene 55 y se equivoca."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un requerimiento pide que el prototipo cueste máximo 15 soles, pero los materiales costaron 18 soles. ¿Qué conclusión es correcta?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cumple, porque 18 es mayor que 15"
+          },
+          {
+            "id": "b",
+            "texto": "No cumple: se pasó por 3 soles del costo máximo"
+          },
+          {
+            "id": "c",
+            "texto": "Cumple, porque se compraron pocos materiales"
+          },
+          {
+            "id": "d",
+            "texto": "No se puede saber sin pintar el prototipo"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 18 con el costo máximo.",
+          "Máximo 15 significa que no debe pasar de 15.",
+          "18 menos 15 es lo que se pasó."
+        ],
+        "retroalimentacion": "No cumple: se pasó por 3 soles del costo máximo. Quien dice que cumple porque 18 es mayor que 15 confunde «máximo» con «mínimo»."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un prototipo cumple 3 de sus 4 requerimientos, se puede afirmar que cumple todos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántos requerimientos faltan por cumplir.",
+          "Para decir «todos», no puede faltar ninguno.",
+          "Tres de cuatro deja uno sin cumplir."
+        ],
+        "retroalimentacion": "Es falso: con 3 de 4 queda un requerimiento sin cumplir, así que hay que mejorarlo."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Para comprobar que un invernadero escolar mide 45 cm de alto, ¿qué instrumento de medida usarías? Responde con una palabra.",
+        "respuesta": "wincha",
+        "alternativasAceptadas": [
+          "cinta métrica",
+          "huincha",
+          "regla",
+          "metro"
+        ],
+        "pistas": [
+          "Piensa en medir una longitud.",
+          "Se usa un instrumento con centímetros marcados.",
+          "Una wincha o cinta métrica sirve."
+        ],
+        "retroalimentacion": "Para medir una altura usas una wincha (cinta métrica). La balanza mide masa y el reloj mide tiempo."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un filtro casero debe limpiar 2 litros en máximo 20 minutos. En la prueba limpió 1 litro en 8 minutos. Si mantiene ese ritmo, ¿cuántos minutos tardará en limpiar los 2 litros?",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuántas veces cabe 1 litro en 2 litros.",
+          "Son 2 litros, o sea el doble del litro probado.",
+          "Multiplica 8 minutos por 2."
+        ],
+        "retroalimentacion": "Tardará 16 minutos, porque 8 × 2 = 16, y 16 es menor que 20: cumple. Quien deja 8 minutos olvida que son dos litros."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tres puentes de palitos deben soportar al menos 2 kg. Resultados: puente A soportó 1,5 kg; puente B, 2,5 kg; puente C, 2 kg. ¿Cuáles cumplen el requerimiento?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo A"
+          },
+          {
+            "id": "b",
+            "texto": "B y C"
+          },
+          {
+            "id": "c",
+            "texto": "A y B"
+          },
+          {
+            "id": "d",
+            "texto": "Los tres"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "«Al menos 2 kg» incluye justo 2 kg.",
+          "Revisa cada puente con el valor de 2 kg.",
+          "A queda por debajo; B y C no."
+        ],
+        "retroalimentacion": "Cumplen B y C: 2,5 kg y 2 kg alcanzan «al menos 2 kg». El puente A solo soportó 1,5 kg."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un grupo probó su filtro. ¿Cuál es la mejor explicación de cómo funciona?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Funciona porque la botella es transparente y se ve bonita"
+          },
+          {
+            "id": "b",
+            "texto": "No se sabe, solo se anotó el tiempo"
+          },
+          {
+            "id": "c",
+            "texto": "Funciona porque se usó un tapón verde"
+          },
+          {
+            "id": "d",
+            "texto": "El agua pasa por capas de grava, arena y carbón que retienen la suciedad por tamaños"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una explicación dice qué hace cada parte.",
+          "Piensa en las capas por las que baja el agua.",
+          "Cada capa retiene partículas de distinto tamaño."
+        ],
+        "retroalimentacion": "La mejor explicación es que el agua pasa por capas de grava, arena y carbón que retienen la suciedad por tamaños. Describir el color de la botella no explica el funcionamiento."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si en la prueba un prototipo falla una vez y funciona otra, conviene repetir la prueba y anotar todos los resultados.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa si una sola prueba basta para estar seguro.",
+          "Resultados distintos dudan de una conclusión.",
+          "Repetir y registrar da datos más confiables."
+        ],
+        "retroalimentacion": "Es verdadero: repetir la prueba y anotar cada resultado da datos más confiables para decidir."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El costo máximo del filtro es 20 soles. Se gastó: arena 3 soles, grava 4, carbón 6, tela 5; la botella era reciclada y no costó. ¿Cuántos soles sobran del presupuesto?",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero suma lo que costó cada material.",
+          "3 + 4 + 6 + 5 es el total gastado.",
+          "Resta ese total a 20."
+        ],
+        "retroalimentacion": "Se gastaron 18 soles (3+4+6+5), por eso sobran 2 soles: 20 - 18 = 2. La botella reciclada no suma costo."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "cyt.p6.impactos-de-la-solucion",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 22,
+    "capacidad": "Evalúa y comunica el funcionamiento y los impactos de su alternativa de solución tecnológica",
+    "desempenosOrigen": [
+      "CYT-C22-P6-04"
+    ],
+    "bloque": "Prueba e impactos",
+    "nombre": "Impactos de la solución en distintos contextos",
+    "disciplina": "tecnologia",
+    "descripcionCorta": "Infiere efectos positivos y negativos de usar su solución en otros lugares.",
+    "palabrasClave": [
+      "impacto",
+      "efectos positivos",
+      "efectos negativos",
+      "contexto",
+      "solución tecnológica"
+    ],
+    "prerrequisitos": [
+      "cyt.p6.prueba-final-requerimientos"
+    ],
+    "ordenSugerido": 110,
+    "ideaCentral": "Una solución tecnológica puede tener efectos buenos y malos, y cambian según el lugar donde se use. Antes de recomendarla, piensa en las personas, el ambiente y los costos de cada contexto.",
+    "pasos": [
+      "Elige un lugar distinto al tuyo, por ejemplo la selva, la costa o la sierra.",
+      "Piensa cómo cambian el clima, los recursos y las costumbres allí.",
+      "Anota efectos positivos (ayuda) y negativos (problemas) para las personas y el ambiente.",
+      "Propón cómo mejorar la solución para reducir los efectos negativos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una cocina solar funciona muy bien en Arequipa, donde hay mucho sol. ¿Qué pasaría si se usa en Iquitos?",
+        "desarrollo": "Iquitos tiene muchos días nublados y lluvia, entonces recibe menos sol directo. La cocina tardaría más en calentar.",
+        "respuesta": "Efecto negativo: menos eficiente. Se podría combinar con otra fuente de calor."
+      },
+      {
+        "situacion": "Una comunidad de Cusco usa paneles solares para bombear agua en lugar de diésel.",
+        "desarrollo": "No se compra combustible y no se emite humo. Pero al terminar su vida útil los paneles deben desecharse bien.",
+        "respuesta": "Positivo: ahorro y aire limpio. Negativo: residuos si no se reciclan."
+      },
+      {
+        "situacion": "Un colegio de Piura usa filtros de botella que duran 6 meses y luego se desechan.",
+        "desarrollo": "Ayudan a tener agua más limpia, pero cada filtro viejo es basura si no se recicla.",
+        "respuesta": "Positivo: agua más segura. Negativo: residuos; se puede reciclar la botella."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que una solución que funciona en un lugar funcionará igual en cualquier otro.",
+        "correccion": "Cada lugar tiene clima, recursos y costumbres distintos; hay que revisar el contexto."
+      },
+      {
+        "error": "Mencionar solo los efectos positivos de la propia solución.",
+        "correccion": "Todo invento puede tener efectos negativos; reconocerlos permite mejorar el diseño."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Impacto",
+        "significado": "Efecto que produce una solución en las personas o en el ambiente."
+      },
+      {
+        "termino": "Contexto",
+        "significado": "Lugar y situación (clima, recursos, costumbres) donde se usa una solución."
+      },
+      {
+        "termino": "Residuo",
+        "significado": "Material que sobra o se desecha después de usar algo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué es el impacto de una solución tecnológica?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El efecto que produce en las personas o en el ambiente"
+          },
+          {
+            "id": "b",
+            "texto": "El precio que se paga por la solución"
+          },
+          {
+            "id": "c",
+            "texto": "La cantidad de materiales usados"
+          },
+          {
+            "id": "d",
+            "texto": "El tamaño del prototipo"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La palabra impacto se parece a «efecto».",
+          "Piensa en qué cambia al usar la solución.",
+          "Se trata de lo que pasa con las personas o el entorno."
+        ],
+        "retroalimentacion": "El impacto es el efecto que produce una solución en las personas o en el ambiente. El precio o el tamaño del prototipo son datos, no efectos."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una misma solución tecnológica puede tener efectos positivos y negativos a la vez.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en un invento que ayuda pero también deja basura.",
+          "Las ventajas y los problemas pueden aparecer juntos.",
+          "Por eso se evalúan ambos."
+        ],
+        "retroalimentacion": "Es verdadero: casi toda solución tiene a la vez ventajas y posibles problemas."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una cocina solar en Arequipa ahorra leña y reduce el humo en casa. Ese efecto, ¿es positivo o negativo?",
+        "respuesta": "positivo",
+        "alternativasAceptadas": [
+          "es positivo",
+          "positivo."
+        ],
+        "pistas": [
+          "Pregúntate si mejora la vida de las personas.",
+          "Menos humo en casa es bueno para la salud.",
+          "Es un efecto que ayuda."
+        ],
+        "retroalimentacion": "Es un efecto positivo: ahorra leña y reduce el humo, lo que cuida la salud."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una escuela usa linternas con pilas y las tira a la basura al gastarse. ¿Cuál es un efecto negativo?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Los niños pueden leer de noche"
+          },
+          {
+            "id": "b",
+            "texto": "La linterna es de plástico"
+          },
+          {
+            "id": "c",
+            "texto": "Las pilas usadas pueden contaminar el suelo y el agua"
+          },
+          {
+            "id": "d",
+            "texto": "Las linternas tienen luz blanca"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el efecto que daña el ambiente.",
+          "Las pilas contienen sustancias dañinas.",
+          "Leer de noche es una ventaja, no un daño."
+        ],
+        "retroalimentacion": "El efecto negativo es que las pilas usadas pueden contaminar el suelo y el agua. Leer de noche es positivo."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una cocina solar funciona bien en Cusco, funcionará igual de bien en la selva sin ningún cambio.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara el clima de Cusco con el de la selva.",
+          "En la selva hay más nubes y lluvia.",
+          "Menos sol directo cambia el resultado."
+        ],
+        "retroalimentacion": "Es falso: en la selva hay más nubes y lluvias, así que la cocina solar rendiría menos y necesitaría adaptarse."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un colegio de Iquitos quiere usar una cocina solar. Hay lluvias casi todas las tardes. ¿Qué impacto es más probable?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Calentará el agua más rápido que en el desierto"
+          },
+          {
+            "id": "b",
+            "texto": "Hará que deje de llover"
+          },
+          {
+            "id": "c",
+            "texto": "Muchas veces no tendrá suficiente sol para funcionar"
+          },
+          {
+            "id": "d",
+            "texto": "No cambiará nada"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa qué necesita la cocina para funcionar.",
+          "Con lluvia y nubes llega poco sol.",
+          "Eso afecta su uso cada tarde."
+        ],
+        "retroalimentacion": "Lo más probable es que muchas veces no tenga suficiente sol para funcionar, por las nubes y la lluvia. No puede calentar más rápido que en el desierto."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un pueblo cambia la bomba de agua a diésel por una con panel solar. ¿Qué recurso deja de comprar? Responde con una palabra.",
+        "respuesta": "combustible",
+        "alternativasAceptadas": [
+          "diésel",
+          "petróleo",
+          "gasolina",
+          "diesel"
+        ],
+        "pistas": [
+          "Piensa en lo que gastaba la bomba antes.",
+          "La bomba usaba diésel.",
+          "Es un tipo de energía que se compra: el ___."
+        ],
+        "retroalimentacion": "Deja de comprar combustible (diésel); el panel usa la luz del sol, que no se paga."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una familia de Ayacucho gastaba 4 soles por semana en velas. Con una lámpara solar ya no las compra. ¿Cuántos soles ahorra en 6 semanas?",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Es el mismo ahorro repetido cada semana.",
+          "Multiplica el gasto semanal por las semanas.",
+          "4 × 6."
+        ],
+        "retroalimentacion": "Ahorra 24 soles: 4 × 6 = 24. Si solo se toma una semana, se obtiene 4 y faltan semanas por sumar."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "El equipo evalúa su filtro de agua en dos lugares. Costa: hay tiendas de repuestos y poca lluvia. Selva: río con mucha arena y sin tiendas cerca. ¿Qué inferencia es la más razonable?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "En la selva el filtro se obstruirá más rápido y será difícil reponer piezas"
+          },
+          {
+            "id": "b",
+            "texto": "El filtro será igual de fácil de mantener en ambos lugares"
+          },
+          {
+            "id": "c",
+            "texto": "En la costa no se podrá usar"
+          },
+          {
+            "id": "d",
+            "texto": "En la selva no necesita limpieza"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara lo que cambia entre lugares: arena y repuestos.",
+          "Mucha arena tapa el filtro con rapidez.",
+          "Sin tiendas cerca, reponer piezas es más difícil."
+        ],
+        "retroalimentacion": "Lo razonable es que en la selva el filtro se obstruirá más rápido y será difícil reponer piezas. No es igual en ambos lugares, porque la arena y la falta de tiendas cambian el mantenimiento."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si descubres un efecto negativo en tu solución, debes descartarla por completo sin intentar mejorarla.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en qué se hace con un problema detectado.",
+          "Un problema puede reducirse con cambios.",
+          "Mejorar el diseño es parte del proceso."
+        ],
+        "retroalimentacion": "Es falso: un efecto negativo se puede reducir mejorando el diseño o el uso, en lugar de descartar todo."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un filtro de botella genera residuos al desecharse. ¿Cuál propuesta reduce ese impacto negativo sin perder el beneficio del agua limpia?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Usar más botellas nuevas cada semana"
+          },
+          {
+            "id": "b",
+            "texto": "Tirar el filtro en el río"
+          },
+          {
+            "id": "c",
+            "texto": "Dejar de filtrar el agua"
+          },
+          {
+            "id": "d",
+            "texto": "Hacer el filtro con envases reutilizables y reciclar sus partes al final"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca reducir residuos y seguir filtrando.",
+          "Reutilizar y reciclar disminuye la basura.",
+          "Tirar o comprar más empeora el problema."
+        ],
+        "retroalimentacion": "Lo mejor es hacer el filtro con envases reutilizables y reciclar sus partes. Usar botellas nuevas cada semana aumenta los residuos y tirarlo al río contamina."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una escuela de Piura usa 20 filtros. Cada filtro dura 6 meses y luego se desecha. Si siempre los reemplaza, ¿cuántos filtros desechará en 12 meses?",
+        "respuesta": 40,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cuántas veces se cambia cada filtro en 12 meses.",
+          "Cada filtro se reemplaza 2 veces al año.",
+          "Multiplica 20 por 2."
+        ],
+        "retroalimentacion": "Desechará 40 filtros: en 12 meses hay 2 cambios de 6 meses y 20 × 2 = 40. Contar solo 20 olvida el segundo cambio."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

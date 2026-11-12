@@ -1,0 +1,687 @@
+[
+  {
+    "clave": "cyt.p6.plano-con-dimensiones",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 22,
+    "capacidad": "Diseña la alternativa de solución tecnológica",
+    "desempenosOrigen": [
+      "CYT-C22-P6-02"
+    ],
+    "bloque": "Diseño",
+    "nombre": "Plano con dimensiones y escala",
+    "disciplina": "tecnologia",
+    "descripcionCorta": "Dibuja la solución con vistas, medidas reales y escala.",
+    "palabrasClave": [
+      "plano",
+      "vistas",
+      "cotas",
+      "escala",
+      "dimensiones"
+    ],
+    "prerrequisitos": [
+      "cyt.p6.problema-de-la-comunidad"
+    ],
+    "ordenSugerido": 58,
+    "ideaCentral": "Un plano muestra tu solución con vistas (frente, arriba y lado), medidas reales llamadas cotas y una escala que dice cuántas veces se redujo el dibujo. Con escala 1:10, 1 cm del dibujo representa 10 cm reales.",
+    "pasos": [
+      "Elige las vistas que mostrarán bien la forma: frontal, superior y lateral.",
+      "Escribe las medidas reales del objeto (cotas), siempre con su unidad.",
+      "Elige una escala que haga entrar el dibujo en la hoja, por ejemplo 1:10.",
+      "Para dibujar divide la medida real entre la escala; para leer el plano multiplica la medida del dibujo por la escala.",
+      "Revisa que todas las vistas coincidan y que tengan sus cotas."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Rosa quiere dibujar una mesa de 120 cm de largo con escala 1:10.",
+        "desarrollo": "Divide 120 ÷ 10 = 12.",
+        "respuesta": "En el plano la mesa mide 12 cm."
+      },
+      {
+        "situacion": "En un plano con escala 1:20, un tramo mide 6 cm.",
+        "desarrollo": "Multiplica 6 × 20 = 120.",
+        "respuesta": "El tramo real mide 120 cm."
+      },
+      {
+        "situacion": "Un grupo diseña un comedero para aves en Paracas.",
+        "desarrollo": "La vista frontal muestra alto y ancho; la superior, ancho y fondo.",
+        "respuesta": "Con estas dos vistas y sus cotas basta para construirlo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dibujar sin escala o sin cotas.",
+        "correccion": "El plano debe tener escala y medidas reales para construirlo."
+      },
+      {
+        "error": "Multiplicar cuando hay que dividir al dibujar.",
+        "correccion": "Al dibujar divide la medida real entre la escala; al leer, multiplica."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Escala",
+        "significado": "Relación entre el tamaño del dibujo y el real."
+      },
+      {
+        "termino": "Vista",
+        "significado": "Forma de ver el objeto: frontal, superior o lateral."
+      },
+      {
+        "termino": "Cota",
+        "significado": "Medida real escrita en el plano."
+      },
+      {
+        "termino": "Plano",
+        "significado": "Dibujo técnico con vistas, medidas y escala."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué significa la escala 1:10 en un plano?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una escala 1:10 reduce el tamaño.",
+          "El primer número es el dibujo y el segundo, la realidad.",
+          "1 cm del dibujo vale 10 cm del objeto."
+        ],
+        "retroalimentacion": "Significa que 1 cm del dibujo representa 10 cm reales. No agranda ni cuenta vistas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Que el dibujo es 10 veces más grande que el objeto"
+          },
+          {
+            "id": "b",
+            "texto": "Que 1 cm del dibujo representa 10 cm reales"
+          },
+          {
+            "id": "c",
+            "texto": "Que el objeto mide 1 cm"
+          },
+          {
+            "id": "d",
+            "texto": "Que hay 10 vistas"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un plano con dimensiones muestra las medidas reales del objeto.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las dimensiones son las medidas.",
+          "Se escriben en el plano como cotas.",
+          "Sirven para construir el objeto."
+        ],
+        "retroalimentacion": "Es verdadero: las dimensiones o cotas indican las medidas reales del objeto."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "A la medida real escrita en un plano se le llama ... (una palabra)",
+        "respuesta": "cota",
+        "alternativasAceptadas": [
+          "cotas",
+          "la cota"
+        ],
+        "pistas": [
+          "Se escribe con una línea y una flecha en cada extremo.",
+          "Indica cuánto mide cada parte.",
+          "Es una palabra de cuatro letras."
+        ],
+        "retroalimentacion": "Se llama cota. Indica la medida real de una parte del objeto."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué vista muestra el objeto visto desde arriba?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina que un pájaro lo mira desde el cielo.",
+          "La palabra «superior» se refiere a arriba.",
+          "Es la tercera opción."
+        ],
+        "retroalimentacion": "La vista superior muestra el objeto desde arriba. La frontal lo muestra de frente y la lateral, de costado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Vista frontal"
+          },
+          {
+            "id": "b",
+            "texto": "Vista lateral"
+          },
+          {
+            "id": "c",
+            "texto": "Vista superior"
+          },
+          {
+            "id": "d",
+            "texto": "Vista oculta"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una mesa mide 120 cm de largo. Se dibuja con escala 1:10. ¿Cuántos cm medirá en el plano?",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escala 1:10 significa que el dibujo es 10 veces menor.",
+          "Debes dividir la medida real entre 10.",
+          "Calcula 120 ÷ 10."
+        ],
+        "retroalimentacion": "120 ÷ 10 = 12 cm. Multiplicar daría 1 200, lo cual no cabe en la hoja."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un plano con escala 1:20, un tramo mide 5 cm. ¿Cuántos cm mide en la realidad?",
+        "respuesta": 100,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada centímetro del plano vale 20 cm reales.",
+          "Debes multiplicar la medida del plano por la escala.",
+          "Calcula 5 × 20."
+        ],
+        "retroalimentacion": "5 × 20 = 100 cm. Dividir daría 0,25 cm, que es un error de operación."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Con escala 1:5, el dibujo es más grande que el objeto real.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en el significado de 1:5.",
+          "Una escala con 1 delante reduce el tamaño.",
+          "El dibujo es 5 veces más pequeño."
+        ],
+        "retroalimentacion": "Es falso: con 1:5 el dibujo es 5 veces más pequeño que el objeto real."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La vista frontal de un comedero de aves muestra principalmente:",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La vista frontal se mira de frente.",
+          "De frente se ven dos medidas.",
+          "Son altura y ancho."
+        ],
+        "retroalimentacion": "La vista frontal muestra el alto y el ancho. El fondo se ve mejor en la vista superior o lateral.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El alto y el ancho"
+          },
+          {
+            "id": "b",
+            "texto": "Solo el fondo"
+          },
+          {
+            "id": "c",
+            "texto": "El color y el olor"
+          },
+          {
+            "id": "d",
+            "texto": "La temperatura"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un comedero real mide 30 cm de alto. Se dibuja con escala 1:6. ¿Cuántos cm medirá su alto en el plano?",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La escala 1:6 reduce 6 veces.",
+          "Debes dividir la medida real entre 6.",
+          "Calcula 30 ÷ 6."
+        ],
+        "retroalimentacion": "30 ÷ 6 = 5 cm. Al multiplicar obtendrías 180, que es una medida que no entra en la hoja."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Lucía quiere dibujar un puesto de feria de 2 m de largo en un espacio de 20 cm de la hoja. ¿Qué escala debe usar?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero pasa 2 m a centímetros.",
+          "Son 200 cm y deben entrar en 20 cm.",
+          "200 ÷ 20 = 10."
+        ],
+        "retroalimentacion": "Debe usar 1:10: 200 cm ÷ 10 = 20 cm. Con 1:5 el dibujo mediría 40 cm y no entraría; con 1:100 sería muy pequeño.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1:2"
+          },
+          {
+            "id": "b",
+            "texto": "1:5"
+          },
+          {
+            "id": "c",
+            "texto": "1:100"
+          },
+          {
+            "id": "d",
+            "texto": "1:10"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un plano con escala 1:20, 3 cm del dibujo equivalen a 23 cm reales.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa si hay que sumar o multiplicar.",
+          "La escala indica cuántas veces se amplía la medida para llegar a la real.",
+          "Son 3 × 20."
+        ],
+        "retroalimentacion": "Es falso: 3 × 20 = 60 cm. No se suma la escala."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estos es un plano completo para construir una mesa?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un plano técnico debe permitir construir sin adivinar.",
+          "Necesita forma, medidas y reducción.",
+          "Elige la opción con vistas, cotas y escala."
+        ],
+        "retroalimentacion": "Un plano completo tiene vistas, cotas y escala. Un dibujo sin números o una foto no sirven para construir.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un dibujo bonito sin números"
+          },
+          {
+            "id": "b",
+            "texto": "Vistas, cotas y escala"
+          },
+          {
+            "id": "c",
+            "texto": "Solo una foto"
+          },
+          {
+            "id": "d",
+            "texto": "Solo una lista de ideas"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "cyt.p6.presupuesto-prototipo",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 22,
+    "capacidad": "Diseña la alternativa de solución tecnológica",
+    "desempenosOrigen": [
+      "CYT-C22-P6-02"
+    ],
+    "bloque": "Diseño",
+    "nombre": "Presupuesto y costos de un prototipo",
+    "disciplina": "tecnologia",
+    "descripcionCorta": "Calcula cuánto costarán materiales y herramientas y busca opciones más baratas.",
+    "palabrasClave": [
+      "presupuesto",
+      "costo",
+      "precio unitario",
+      "materiales",
+      "alternativa"
+    ],
+    "prerrequisitos": [
+      "cyt.p6.plano-con-dimensiones"
+    ],
+    "ordenSugerido": 59,
+    "ideaCentral": "Un presupuesto calcula cuánto costarán los materiales y herramientas de tu prototipo: multiplicas cantidad por precio de cada uno y sumas todo. Si el total es muy alto, buscas alternativas más baratas que sigan funcionando.",
+    "pasos": [
+      "Haz una lista de materiales y herramientas con la cantidad de cada uno.",
+      "Anota el precio unitario en soles de cada elemento.",
+      "Calcula el costo de cada uno multiplicando cantidad por precio unitario.",
+      "Suma todos los costos para hallar el total y compáralo con el dinero disponible.",
+      "Si no alcanza, busca alternativas: reutilizar material, cambiarlo por uno más barato o pedir prestadas herramientas."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un grupo quiere construir un comedero. Necesita 4 tablas de S/ 3 cada una y una bolsa de clavos de S/ 2.",
+        "desarrollo": "Tablas: 4 × 3 = 12; clavos: 2; total 12 + 2 = 14.",
+        "respuesta": "El presupuesto es S/ 14."
+      },
+      {
+        "situacion": "Otro grupo calcula S/ 45, pero solo tiene S/ 40.",
+        "desarrollo": "Les faltan S/ 5; pueden reutilizar algunas tablas para reducir el gasto.",
+        "respuesta": "Buscar una alternativa más barata, sin perder resistencia."
+      },
+      {
+        "situacion": "Camila decide usar botellas recicladas para un riego casero.",
+        "desarrollo": "Las botellas recicladas cuestan S/ 0 y reducen el total.",
+        "respuesta": "Reutilizar baja el costo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar los precios sin multiplicar por la cantidad.",
+        "correccion": "Cada costo es cantidad × precio unitario; luego se suman."
+      },
+      {
+        "error": "Olvidar las herramientas en la lista de gastos.",
+        "correccion": "Incluye también herramientas, aunque a veces se pueden pedir prestadas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Presupuesto",
+        "significado": "Cálculo del dinero que se necesita para hacer algo."
+      },
+      {
+        "termino": "Precio unitario",
+        "significado": "Lo que cuesta una unidad de un material."
+      },
+      {
+        "termino": "Costo total",
+        "significado": "Suma de todos los costos."
+      },
+      {
+        "termino": "Alternativa",
+        "significado": "Otra opción que sirve para el mismo fin."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un presupuesto es el cálculo de cuánto cuestan los materiales y herramientas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa para qué sirve saber cuánto vas a gastar.",
+          "Se hace antes de comprar.",
+          "Es el cálculo del dinero necesario."
+        ],
+        "retroalimentacion": "Es verdadero: el presupuesto calcula el costo de lo que necesitas."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Compras 3 tablas y cada una cuesta S/ 4. ¿Cuántos soles gastas en total?",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada tabla cuesta lo mismo.",
+          "Hay 3 tablas a S/ 4.",
+          "Calcula 3 × 4."
+        ],
+        "retroalimentacion": "3 × 4 = 12 soles. Sumar 3 + 4 daría 7, que no representa tres tablas."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Lo que cuesta una sola unidad de un material se llama precio ... (una palabra)",
+        "respuesta": "unitario",
+        "alternativasAceptadas": [
+          "precio unitario",
+          "el unitario"
+        ],
+        "pistas": [
+          "Unidad es una sola pieza.",
+          "El precio de una pieza lleva el nombre de «unidad».",
+          "Empieza con «uni» y termina con «tario»."
+        ],
+        "retroalimentacion": "Se llama precio unitario: el costo de una unidad."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cómo se calcula el costo de un material?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Si compras varias unidades, el costo crece.",
+          "Se repite el precio tantas veces como unidades.",
+          "Es una multiplicación."
+        ],
+        "retroalimentacion": "Se multiplica cantidad por precio unitario. Sumar o restar no representa varias unidades.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sumando la cantidad y el precio"
+          },
+          {
+            "id": "b",
+            "texto": "Restando el precio a la cantidad"
+          },
+          {
+            "id": "c",
+            "texto": "Multiplicando cantidad por precio unitario"
+          },
+          {
+            "id": "d",
+            "texto": "Dividiendo el precio entre 2"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una familia compra clavos a S/ 2, pintura a S/ 8 y 2 brochas a S/ 3 cada una. ¿Cuántos soles gasta en total?",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero el costo de las brochas.",
+          "Las brochas cuestan 2 × 3 = 6.",
+          "Suma 2 + 8 + 6."
+        ],
+        "retroalimentacion": "2 + 8 + 6 = 16 soles. Si no multiplicas las brochas, obtendrías 13."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un presupuesto solo se incluyen los materiales, nunca las herramientas.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en lo que necesitas para construir.",
+          "Además de materiales, hay que cortar, clavar o pintar.",
+          "Las herramientas también tienen costo."
+        ],
+        "retroalimentacion": "Es falso: también se incluyen las herramientas, aunque a veces se pueden pedir prestadas."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El prototipo cuesta S/ 50 y el grupo solo tiene S/ 40. ¿Qué es lo más adecuado?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa cómo bajar el costo sin que falle.",
+          "Hay materiales que se pueden reutilizar.",
+          "Busca una solución más barata."
+        ],
+        "retroalimentacion": "Lo más adecuado es buscar alternativas más baratas, como reutilizar materiales. Cancelar o usar materiales inadecuados no soluciona nada.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Comprar igual y pedir el resto al azar"
+          },
+          {
+            "id": "b",
+            "texto": "Buscar alternativas más baratas, por ejemplo reutilizando materiales"
+          },
+          {
+            "id": "c",
+            "texto": "Cancelar el proyecto sin intentarlo"
+          },
+          {
+            "id": "d",
+            "texto": "Usar materiales que no sirven"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Al sumar todos los costos se obtiene el ... (dos palabras)",
+        "respuesta": "costo total",
+        "alternativasAceptadas": [
+          "el costo total",
+          "total"
+        ],
+        "pistas": [
+          "Es el resultado final de la suma.",
+          "Reúne todos los gastos.",
+          "Empieza con «costo»."
+        ],
+        "retroalimentacion": "Se obtiene el costo total: la suma de todos los costos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un comedero necesita 6 tablas a S/ 3 cada una, 2 bisagras a S/ 4 cada una y un martillo prestado que no cuesta nada. ¿Cuál es el presupuesto total en soles?",
+        "respuesta": 26,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula por separado tablas, bisagras y martillo.",
+          "Tablas: 6 × 3 = 18; bisagras: 2 × 4 = 8; martillo: 0.",
+          "Suma 18 + 8 + 0."
+        ],
+        "retroalimentacion": "18 + 8 + 0 = 26 soles. Olvidar multiplicar por las cantidades daría un total menor."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para bajar el costo de un prototipo sin perder calidad, ¿qué alternativa conviene?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La alternativa debe seguir funcionando.",
+          "No debes quitar lo necesario.",
+          "Reutilizar sirve si el material está en buen estado."
+        ],
+        "retroalimentacion": "Conviene reutilizar cajas de madera en buen estado. Quitar piezas o usar pegamento malo reduce la calidad.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Comprar menos de lo necesario"
+          },
+          {
+            "id": "b",
+            "texto": "Usar pegamento que no pega"
+          },
+          {
+            "id": "c",
+            "texto": "Quitar piezas importantes"
+          },
+          {
+            "id": "d",
+            "texto": "Reutilizar cajas de madera en buen estado en lugar de comprar tablas nuevas"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Comprar al por mayor siempre ahorra dinero, aunque no se necesite tanta cantidad.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en lo que pasa si compras más de lo que usas.",
+          "Lo que sobra es dinero gastado sin necesidad.",
+          "Solo conviene cuando realmente se necesita la cantidad."
+        ],
+        "retroalimentacion": "Es falso: comprar de más puede ser un gasto innecesario."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Jorge calcula que 4 pliegos de cartulina de S/ 2 cada uno cuestan S/ 6, porque suma 2 + 4. ¿Cuál fue su error?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa qué operación usó Jorge.",
+          "Hay 4 pliegos que cuestan S/ 2 cada uno.",
+          "La operación correcta repite el precio 4 veces."
+        ],
+        "retroalimentacion": "Sumó en lugar de multiplicar: 4 × 2 = 8 soles. Su resultado de 6 es incorrecto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sumó en lugar de multiplicar: 4 × 2 = 8"
+          },
+          {
+            "id": "b",
+            "texto": "Usó el número 4"
+          },
+          {
+            "id": "c",
+            "texto": "Olvidó dividir"
+          },
+          {
+            "id": "d",
+            "texto": "Eligió el material equivocado"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

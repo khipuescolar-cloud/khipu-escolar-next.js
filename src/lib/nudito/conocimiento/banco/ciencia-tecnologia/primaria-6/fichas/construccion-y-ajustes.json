@@ -1,0 +1,1398 @@
+[
+  {
+    "clave": "cyt.p6.circuitos-serie-paralelo",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 22,
+    "capacidad": "Implementa y valida la alternativa de solución tecnológica",
+    "desempenosOrigen": [
+      "CYT-C22-P6-02",
+      "CYT-C22-P6-03"
+    ],
+    "bloque": "Construcción y ajustes",
+    "nombre": "Circuitos en serie y en paralelo",
+    "disciplina": "tecnologia",
+    "descripcionCorta": "Arma ambos circuitos y explica qué pasa con los focos al quitar uno.",
+    "palabrasClave": [
+      "circuito eléctrico",
+      "serie",
+      "paralelo",
+      "foco",
+      "pila"
+    ],
+    "prerrequisitos": [
+      "cyt.p6.plano-con-dimensiones"
+    ],
+    "ordenSugerido": 86,
+    "ideaCentral": "En un circuito en serie la corriente tiene un solo camino: si quitas un foco, los demás se apagan. En un circuito en paralelo cada foco tiene su propia rama: si quitas uno, los otros siguen encendidos.",
+    "pasos": [
+      "Reúne una pila, cables y focos con sus portalámparas.",
+      "Para armar el circuito en serie, conecta los focos uno a continuación del otro, en una sola línea cerrada con la pila.",
+      "Para armar el circuito en paralelo, conecta cada foco en una rama distinta que sale de la pila y vuelve a ella.",
+      "Quita un foco y observa: en serie se apagan todos; en paralelo los demás siguen encendidos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Mara arma un circuito con una pila y dos focos conectados uno a continuación del otro. Desatornilla uno de los focos.",
+        "desarrollo": "Solo hay un camino para la corriente; al quitar un foco, el camino se corta y no pasa corriente por ninguna parte.",
+        "respuesta": "También se apaga el otro foco: es un circuito en serie."
+      },
+      {
+        "situacion": "Joel conecta dos focos en ramas separadas hacia la misma pila y quita uno de ellos.",
+        "desarrollo": "El foco que queda sigue teniendo su propio camino cerrado con la pila.",
+        "respuesta": "El otro foco sigue encendido: es un circuito en paralelo."
+      },
+      {
+        "situacion": "En una casa de Cajamarca, las luces de cada cuarto se prenden y se apagan sin afectar a las demás.",
+        "desarrollo": "Si estuvieran en serie, apagar una apagaría todas. Por eso la instalación de las casas usa ramas independientes.",
+        "respuesta": "Las luces de una casa están conectadas en paralelo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que en serie y en paralelo pasa lo mismo al quitar un foco.",
+        "correccion": "En serie se apagan todos los focos; en paralelo los demás siguen encendidos."
+      },
+      {
+        "error": "Pensar que un foco prende aunque el circuito tenga un corte.",
+        "correccion": "La corriente solo circula si el circuito está cerrado, sin cortes."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Circuito en serie",
+        "significado": "Circuito con un solo camino: los elementos van uno tras otro."
+      },
+      {
+        "termino": "Circuito en paralelo",
+        "significado": "Circuito con ramas separadas hacia la misma fuente."
+      },
+      {
+        "termino": "Circuito abierto",
+        "significado": "Circuito con un corte por donde no circula corriente."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un circuito en serie, si se desatornilla un foco, los demás se apagan.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cuántos caminos tiene la corriente en serie.",
+          "Solo hay un camino cerrado desde la pila.",
+          "Quitar un foco corta ese único camino."
+        ],
+        "retroalimentacion": "Es verdadero: en serie, al quitar un foco se abre el circuito y se apagan todos.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Los focos se conectan uno a continuación del otro, formando una sola línea con la pila. ¿Cómo se llama este circuito? Escribe una palabra.",
+        "respuesta": "serie",
+        "alternativasAceptadas": [
+          "en serie",
+          "circuito en serie"
+        ],
+        "pistas": [
+          "Cuenta los caminos que tiene la corriente.",
+          "Hay un solo camino, con los focos en fila.",
+          "La palabra empieza con s y se usa también para las series de televisión."
+        ],
+        "retroalimentacion": "Es un circuito en serie, con un solo camino para la corriente.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un circuito en paralelo, ¿qué pasa con los demás focos si quitas uno?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Se apagan todos"
+          },
+          {
+            "id": "b",
+            "texto": "Se funde la pila"
+          },
+          {
+            "id": "c",
+            "texto": "Siguen encendidos"
+          },
+          {
+            "id": "d",
+            "texto": "Brillan menos y se apagan"
+          }
+        ],
+        "pistas": [
+          "Cada foco está en una rama propia.",
+          "Las ramas restantes siguen cerradas con la pila.",
+          "La corriente sigue circulando por ellas."
+        ],
+        "retroalimentacion": "Siguen encendidos: cada foco tiene su rama. No se apagan todos, que es lo que pasa en serie.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para que un foco se encienda, el circuito debe estar cerrado.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa si la corriente puede pasar por un corte.",
+          "Necesita un camino completo desde la pila.",
+          "El camino sale de un borne de la pila y vuelve al otro."
+        ],
+        "retroalimentacion": "Es verdadero: sin camino completo no circula corriente.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Las luces de una casa se instalan en paralelo porque...",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "así gastan más energía"
+          },
+          {
+            "id": "b",
+            "texto": "así duran menos los focos"
+          },
+          {
+            "id": "c",
+            "texto": "así hace falta más cable"
+          },
+          {
+            "id": "d",
+            "texto": "así una luz funciona aunque otra se funda"
+          }
+        ],
+        "pistas": [
+          "Piensa en lo que pasaría si se fundiera la luz del baño y se apagaran las demás.",
+          "Cada luz necesita su propia rama.",
+          "La ventaja es la independencia de cada foco."
+        ],
+        "retroalimentacion": "En paralelo cada luz funciona aunque otra se funda. Las otras opciones no son ventajas.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos focos conectados cada uno en una rama separada hacia la pila forman un circuito en paralelo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa si los focos comparten el mismo camino o tienen el suyo.",
+          "Cada foco tiene una rama separada.",
+          "Ramas separadas desde la misma pila es la característica del paralelo."
+        ],
+        "retroalimentacion": "Es verdadero: ramas separadas, circuito en paralelo.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una guirnalda de Navidad antigua tiene 10 focos en serie y se funde uno. ¿Cuántos focos quedan encendidos? Escribe el número.",
+        "respuesta": "0",
+        "alternativasAceptadas": [
+          "cero",
+          "ninguno"
+        ],
+        "pistas": [
+          "En serie la corriente tiene un solo camino.",
+          "El foco fundido corta ese camino.",
+          "Si no hay camino cerrado, ninguno se enciende."
+        ],
+        "retroalimentacion": "Ninguno queda encendido: el foco fundido abre el único camino.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ana quiere un tablero donde dos focos sigan encendidos aunque quite uno. ¿Qué conexión usa?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Abierta"
+          },
+          {
+            "id": "b",
+            "texto": "Paralelo"
+          },
+          {
+            "id": "c",
+            "texto": "Serie"
+          },
+          {
+            "id": "d",
+            "texto": "Mixta con un solo camino"
+          }
+        ],
+        "pistas": [
+          "Necesita que cada foco tenga su propio camino.",
+          "Una línea única no sirve.",
+          "Es la conexión de las casas."
+        ],
+        "retroalimentacion": "Usa paralelo. En serie, al quitar uno, se apagan los dos.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Pedro arma un circuito con dos focos en serie y mide que cada uno brilla menos que un foco solo con la misma pila. ¿Qué explica esto?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La energía de la pila se reparte entre los dos focos"
+          },
+          {
+            "id": "b",
+            "texto": "Los focos están malogrados"
+          },
+          {
+            "id": "c",
+            "texto": "La pila produce menos energía con dos focos"
+          },
+          {
+            "id": "d",
+            "texto": "Los cables son más cortos"
+          }
+        ],
+        "pistas": [
+          "Compara con un solo foco conectado a la pila.",
+          "Hay una sola pila para dos focos en el mismo camino.",
+          "La energía de la pila se divide."
+        ],
+        "retroalimentacion": "La energía de la pila se reparte entre ambos focos, por eso brillan menos. No es que la pila produzca menos ni que los focos estén malogrados.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un circuito en paralelo con tres focos, si se funden dos, el tercero sigue encendido.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa cuántas ramas quedan cerradas.",
+          "Cada foco tiene su propia rama.",
+          "La rama del tercer foco sigue cerrada con la pila."
+        ],
+        "retroalimentacion": "Es verdadero: el tercer foco conserva su rama y sigue encendido.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Dos focos en paralelo con una pila brillan igual que un foco solo con esa pila. Si quitas uno de los dos, ¿cómo brilla el que queda: igual o menos? Escribe una palabra.",
+        "respuesta": "igual",
+        "alternativasAceptadas": [
+          "igual de fuerte",
+          "lo mismo"
+        ],
+        "pistas": [
+          "Cada foco tiene su rama conectada directamente a la pila.",
+          "Una rama no depende de la otra.",
+          "Quitar una rama no cambia a la otra."
+        ],
+        "retroalimentacion": "Brilla igual: en paralelo, cada rama funciona de forma independiente.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un equipo diseña luces para un nacimiento navideño y quiere que, si un foco se funde, los demás sigan encendidos. ¿Qué debe hacer?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Conectarlos en serie con un cable largo"
+          },
+          {
+            "id": "b",
+            "texto": "Quitar la pila"
+          },
+          {
+            "id": "c",
+            "texto": "Usar un solo foco"
+          },
+          {
+            "id": "d",
+            "texto": "Conectarlos en paralelo, cada uno en su rama"
+          }
+        ],
+        "pistas": [
+          "Piensa en cómo evitar que un foco fundido corte a los demás.",
+          "Cada foco necesita su propio camino.",
+          "Ese diseño se llama paralelo."
+        ],
+        "retroalimentacion": "Debe conectarlos en paralelo. En serie, un foco fundido apagaría todos.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "cyt.p6.electroiman",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 22,
+    "capacidad": "Implementa y valida la alternativa de solución tecnológica",
+    "desempenosOrigen": [
+      "CYT-C22-P6-03"
+    ],
+    "bloque": "Construcción y ajustes",
+    "nombre": "Construcción de un electroimán",
+    "disciplina": "tecnologia",
+    "descripcionCorta": "Construye un electroimán con un clavo, alambre y pila y prueba cómo aumentar su fuerza.",
+    "palabrasClave": [
+      "electroimán",
+      "corriente eléctrica",
+      "bobina",
+      "clavo de hierro",
+      "campo magnético"
+    ],
+    "prerrequisitos": [
+      "cyt.p6.circuitos-serie-paralelo"
+    ],
+    "ordenSugerido": 87,
+    "ideaCentral": "Un electroimán es un imán que funciona solo mientras pasa corriente por un alambre enrollado alrededor de un clavo de hierro. Su fuerza aumenta con más vueltas de alambre o con más pilas.",
+    "pasos": [
+      "Reúne un clavo de hierro, alambre de cobre con cobertura, una pila y clips.",
+      "Enrolla el alambre sobre el clavo, siempre en la misma dirección.",
+      "Conecta los extremos del alambre a la pila y acerca el clavo a los clips: los atrae.",
+      "Prueba una sola variable cada vez, más vueltas o más pilas, y cuenta cuántos clips levanta."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Lía enrolla 10 vueltas de alambre en un clavo, lo conecta a una pila y levanta 3 clips. Luego desconecta la pila.",
+        "desarrollo": "Al cortar la corriente, el clavo deja de ser imán y los clips caen.",
+        "respuesta": "Es un electroimán: atrae solo mientras hay corriente."
+      },
+      {
+        "situacion": "Con 20 vueltas, el mismo clavo y la misma pila levantan 6 clips.",
+        "desarrollo": "Al duplicar las vueltas, el campo magnético se hace más fuerte y levanta el doble.",
+        "respuesta": "Más vueltas, más fuerza."
+      },
+      {
+        "situacion": "En un colegio de Chiclayo conectan el electroimán de 20 vueltas a dos pilas en fila y levanta 9 clips.",
+        "desarrollo": "Dos pilas dan más corriente y el campo magnético crece.",
+        "respuesta": "Más pilas, más fuerza."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que el clavo siempre es un imán.",
+        "correccion": "El clavo solo atrae mientras pasa corriente por el alambre."
+      },
+      {
+        "error": "Cambiar a la vez vueltas y pilas para comparar.",
+        "correccion": "Para una prueba justa se cambia una sola variable por vez y las demás se mantienen iguales."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Electroimán",
+        "significado": "Imán que funciona solo cuando pasa corriente eléctrica."
+      },
+      {
+        "termino": "Bobina",
+        "significado": "Alambre enrollado en forma de espiral."
+      },
+      {
+        "termino": "Núcleo",
+        "significado": "Barra de hierro que se coloca dentro de la bobina."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un electroimán atrae clips solo mientras pasa corriente por el alambre.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en lo que ocurre al desconectar la pila.",
+          "Sin corriente no hay campo magnético.",
+          "El clavo atrae solo cuando el circuito está cerrado."
+        ],
+        "retroalimentacion": "Es verdadero: al cortar la corriente, los clips se sueltan.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿De qué metal es el clavo que se usa como núcleo de un electroimán? Escribe una palabra.",
+        "respuesta": "hierro",
+        "alternativasAceptadas": [
+          "el hierro",
+          "acero"
+        ],
+        "pistas": [
+          "Los imanes atraen este metal.",
+          "Los clavos comunes lo contienen.",
+          "Su nombre empieza con h."
+        ],
+        "retroalimentacion": "Es hierro (o acero): los imanes lo atraen y concentra el campo.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué se necesita para que un electroimán atraiga clips?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Luz solar"
+          },
+          {
+            "id": "b",
+            "texto": "Agua"
+          },
+          {
+            "id": "c",
+            "texto": "Corriente eléctrica"
+          },
+          {
+            "id": "d",
+            "texto": "Calor"
+          }
+        ],
+        "pistas": [
+          "Piensa en lo que entrega la pila.",
+          "Pasa por el alambre.",
+          "Es la electricidad."
+        ],
+        "retroalimentacion": "Se necesita corriente eléctrica. La luz, el agua o el calor no activan el electroimán.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El alambre se enrolla alrededor del clavo para formar una bobina.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en la forma del alambre.",
+          "Debe dar vueltas alrededor del clavo.",
+          "Esa forma de espiral se llama bobina."
+        ],
+        "retroalimentacion": "Es verdadero: la bobina refuerza el campo magnético.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cómo se puede aumentar la fuerza de un electroimán?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Desconectar la pila"
+          },
+          {
+            "id": "b",
+            "texto": "Quitar vueltas"
+          },
+          {
+            "id": "c",
+            "texto": "Agregar más vueltas de alambre"
+          },
+          {
+            "id": "d",
+            "texto": "Reemplazar el clavo por una vara de madera"
+          }
+        ],
+        "pistas": [
+          "Más alambre enrollado produce más campo magnético.",
+          "Una opción propone disminuirlo y otras anulan el efecto.",
+          "Se trata de enrollar más."
+        ],
+        "retroalimentacion": "Agregar vueltas aumenta la fuerza. Quitar vueltas o desconectar la pila la disminuye, y la madera no es magnética.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un clavo de plástico funciona igual que uno de hierro como núcleo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa si el plástico se pega a los imanes.",
+          "El hierro refuerza el campo magnético.",
+          "El plástico no es magnético."
+        ],
+        "retroalimentacion": "Es falso: el plástico no es magnético y no refuerza el campo.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Con 10 vueltas el electroimán levanta 3 clips y con 20 vueltas levanta 6. Si el patrón sigue igual, ¿cuántos clips levanta con 30 vueltas? Escribe el número.",
+        "respuesta": "9",
+        "alternativasAceptadas": [
+          "nueve"
+        ],
+        "pistas": [
+          "Busca cuánto aumenta cada 10 vueltas.",
+          "Cada 10 vueltas más suman 3 clips.",
+          "Suma 3 a la última cantidad."
+        ],
+        "retroalimentacion": "Levantaría 9 clips: 3, 6 y 9 forman un patrón de 3 en 3.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Lía pasa de una pila a dos pilas y mantiene el mismo clavo y las mismas vueltas. ¿Qué variable cambió?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El tamaño del clavo"
+          },
+          {
+            "id": "b",
+            "texto": "La corriente eléctrica"
+          },
+          {
+            "id": "c",
+            "texto": "El color del alambre"
+          },
+          {
+            "id": "d",
+            "texto": "El número de clips"
+          }
+        ],
+        "pistas": [
+          "Piensa qué entrega más energía al circuito.",
+          "Las pilas suministran la corriente.",
+          "Cambió lo que pasa por el alambre."
+        ],
+        "retroalimentacion": "Cambió la corriente eléctrica. El clavo, las vueltas y el alambre siguen igual.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para averiguar si más vueltas aumentan la fuerza, ¿qué debe mantenerse igual?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El número de vueltas"
+          },
+          {
+            "id": "b",
+            "texto": "El clavo y las pilas"
+          },
+          {
+            "id": "c",
+            "texto": "Nada: todo debe cambiar"
+          },
+          {
+            "id": "d",
+            "texto": "Solo el color del alambre"
+          }
+        ],
+        "pistas": [
+          "Solo se cambia la variable que se investiga.",
+          "Las demás deben quedar fijas.",
+          "El clavo y la fuente de energía no deben cambiar."
+        ],
+        "retroalimentacion": "Debe mantenerse igual el clavo y las pilas; solo cambian las vueltas.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si el electroimán se mantiene conectado mucho tiempo, el alambre y la pila pueden calentarse, por eso conviene desconectarlo entre pruebas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en lo que pasa cuando circula corriente por un cable fino.",
+          "La corriente genera calor.",
+          "Desconectar evita quemaduras."
+        ],
+        "retroalimentacion": "Es verdadero: la corriente calienta el alambre y la pila; se desconecta entre pruebas.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un equipo anota que con 1 pila el electroimán levanta 4 clips y con 2 pilas levanta el doble. ¿Cuántos clips levanta con 2 pilas? Escribe el número.",
+        "respuesta": "8",
+        "alternativasAceptadas": [
+          "ocho"
+        ],
+        "pistas": [
+          "Calcula el doble de la cantidad inicial.",
+          "El doble de 4.",
+          "Multiplica 4 por 2."
+        ],
+        "retroalimentacion": "Levanta 8 clips, el doble de 4.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un depósito de chatarra, una grúa levanta autos viejos y los suelta en otro sitio. ¿Qué característica del electroimán permite soltarlos?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Que se pueda cortar la corriente"
+          },
+          {
+            "id": "b",
+            "texto": "Que se caliente"
+          },
+          {
+            "id": "c",
+            "texto": "Que se mueva solo"
+          },
+          {
+            "id": "d",
+            "texto": "Que tenga más pilas"
+          }
+        ],
+        "pistas": [
+          "Piensa en lo que pasa cuando se desconecta la corriente.",
+          "El electroimán deja de atraer.",
+          "Basta con cortar la corriente."
+        ],
+        "retroalimentacion": "Al cortar la corriente el electroimán deja de atraer y suelta la carga.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "cyt.p6.calentador-solar",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 22,
+    "capacidad": "Implementa y valida la alternativa de solución tecnológica",
+    "desempenosOrigen": [
+      "CYT-C22-P6-01",
+      "CYT-C22-P6-02",
+      "CYT-C22-P6-03"
+    ],
+    "bloque": "Construcción y ajustes",
+    "nombre": "Proyecto: calentador solar de agua",
+    "disciplina": "tecnologia",
+    "descripcionCorta": "Construye un calentador con botellas y mangueras aplicando lo aprendido sobre radiación y aislantes.",
+    "palabrasClave": [
+      "calentador solar",
+      "radiación solar",
+      "aislante térmico",
+      "manguera negra",
+      "prototipo"
+    ],
+    "prerrequisitos": [
+      "cyt.p6.presupuesto-prototipo",
+      "cyt.p6.radiacion",
+      "cyt.p6.conductores-aislantes-termicos"
+    ],
+    "ordenSugerido": 88,
+    "ideaCentral": "Un calentador solar casero usa botellas y mangueras negras para absorber la radiación del Sol y calentar agua. Funciona mejor si lo oscuro absorbe el calor y los aislantes lo conservan.",
+    "pasos": [
+      "Define el problema: calentar agua usando la energía del Sol.",
+      "Elige materiales: manguera negra para absorber, plástico transparente para atrapar el calor y un aislante en la base.",
+      "Arma el prototipo: coloca la manguera en espiral dentro de una caja con cubierta transparente.",
+      "Prueba y mide: anota la temperatura del agua cada cierto tiempo y mejora el diseño."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Rocío deja dos mangueras con agua a 20 °C al sol: una negra y otra transparente.",
+        "desarrollo": "Después de una hora, la negra marca 35 °C y la transparente 28 °C: lo oscuro absorbe más radiación.",
+        "respuesta": "La manguera negra calienta más."
+      },
+      {
+        "situacion": "Un colegio de Arequipa cubre su prototipo con plástico transparente y mide 40 °C. Sin cubierta medía 32 °C.",
+        "desarrollo": "El plástico deja pasar la luz del Sol, pero evita que el calor escape.",
+        "respuesta": "La cubierta transparente mejora el calentamiento."
+      },
+      {
+        "situacion": "Un equipo de Puno coloca tecnopor bajo la manguera y el agua sale más caliente que antes.",
+        "desarrollo": "El tecnopor es un aislante térmico: evita que el calor se pierda hacia el suelo frío.",
+        "respuesta": "El aislante ayuda a conservar el calor."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que una manguera blanca calentaría más que una negra.",
+        "correccion": "El negro absorbe más radiación solar; el blanco la refleja."
+      },
+      {
+        "error": "Olvidar anotar la temperatura inicial del agua.",
+        "correccion": "Sin ese dato no se puede saber cuántos grados subió el agua."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Radiación solar",
+        "significado": "Energía que llega del Sol en forma de luz y calor."
+      },
+      {
+        "termino": "Aislante térmico",
+        "significado": "Material que evita que el calor pase con facilidad."
+      },
+      {
+        "termino": "Prototipo",
+        "significado": "Primer modelo que se arma para probar una idea."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un calentador solar usa la energía del Sol para calentar agua.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en dónde viene el calor.",
+          "No usa gas ni electricidad.",
+          "La fuente es el Sol."
+        ],
+        "retroalimentacion": "Es verdadero: aprovecha la radiación solar.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿De qué color se pinta la manguera para absorber más calor del Sol? Escribe el color.",
+        "respuesta": "negro",
+        "alternativasAceptadas": [
+          "el negro",
+          "negra"
+        ],
+        "pistas": [
+          "Piensa en el color de una polera en un día de sol.",
+          "Los colores oscuros absorben más.",
+          "Es el color más oscuro de todos."
+        ],
+        "retroalimentacion": "El negro absorbe más radiación solar que los colores claros.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué se calienta en el calentador solar?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El Sol"
+          },
+          {
+            "id": "b",
+            "texto": "El agua"
+          },
+          {
+            "id": "c",
+            "texto": "La Luna"
+          },
+          {
+            "id": "d",
+            "texto": "El aire frío del mar"
+          }
+        ],
+        "pistas": [
+          "Piensa en la finalidad del aparato.",
+          "Sirve para la ducha o para lavar.",
+          "Es el líquido que pasa por la manguera."
+        ],
+        "retroalimentacion": "Se calienta el agua que pasa por la manguera.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Bajo el Sol, el agua de una manguera negra se calienta más rápido que la de una blanca.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara cuánta radiación absorbe cada color.",
+          "El negro absorbe más.",
+          "Absorber más radiación calienta más rápido."
+        ],
+        "retroalimentacion": "Es verdadero: el negro absorbe más radiación.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un calentador solar, ¿para qué sirve el tecnopor bajo la manguera?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Para pintar la manguera"
+          },
+          {
+            "id": "b",
+            "texto": "Para reducir la pérdida de calor"
+          },
+          {
+            "id": "c",
+            "texto": "Para enfriar el agua"
+          },
+          {
+            "id": "d",
+            "texto": "Para hacer ruido"
+          }
+        ],
+        "pistas": [
+          "El tecnopor es un material aislante.",
+          "Evita que el calor pase al suelo.",
+          "Ayuda a conservar el calor en el agua."
+        ],
+        "retroalimentacion": "Reduce la pérdida de calor. No enfría ni pinta.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una cubierta de plástico transparente ayuda a que la caja conserve el calor.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cómo funciona un invernadero.",
+          "Deja pasar la luz.",
+          "El calor que entra no escapa con facilidad."
+        ],
+        "retroalimentacion": "Es verdadero: atrapa el calor como un invernadero.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El agua del prototipo estaba a 20 °C y después de dos horas marcó 38 °C. ¿Cuántos grados subió? Escribe el número.",
+        "respuesta": "18",
+        "alternativasAceptadas": [
+          "dieciocho"
+        ],
+        "pistas": [
+          "Compara la temperatura final con la inicial.",
+          "Resta la inicial a la final.",
+          "38 menos 20."
+        ],
+        "retroalimentacion": "Subió 18 °C, porque 38 − 20 = 18.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Antes de empezar la prueba de un prototipo, ¿qué conviene anotar?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El nombre del equipo"
+          },
+          {
+            "id": "b",
+            "texto": "El color del cielo"
+          },
+          {
+            "id": "c",
+            "texto": "El precio de las botellas"
+          },
+          {
+            "id": "d",
+            "texto": "La temperatura inicial del agua"
+          }
+        ],
+        "pistas": [
+          "Necesitas un dato de partida para comparar.",
+          "Sin saber desde dónde empezó, no sabes cuánto subió.",
+          "Se mide con un termómetro antes de exponer al sol."
+        ],
+        "retroalimentacion": "Conviene anotar la temperatura inicial para comparar con la final.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un equipo mide que su agua llega a 35 °C pero se enfría rápido al atardecer. ¿Qué mejora le conviene?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Pintar la manguera de blanco"
+          },
+          {
+            "id": "b",
+            "texto": "Quitar la cubierta transparente"
+          },
+          {
+            "id": "c",
+            "texto": "Colocar un aislante alrededor de la caja"
+          },
+          {
+            "id": "d",
+            "texto": "Usar una manguera más corta"
+          }
+        ],
+        "pistas": [
+          "Piensa en lo que evita que el calor se escape.",
+          "El problema es la pérdida de calor.",
+          "Un material aislante cuida la temperatura."
+        ],
+        "retroalimentacion": "Colocar un aislante alrededor. Pintar de blanco o quitar la cubierta aumentaría las pérdidas.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para comparar dos diseños de calentador de manera justa, se debe probarlos en el mismo lugar, a la misma hora y con la misma cantidad de agua.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa qué debe ser igual en una prueba justa.",
+          "Solo cambia el diseño.",
+          "Todo lo demás se mantiene igual."
+        ],
+        "retroalimentacion": "Es verdadero: solo debe cambiar lo que se quiere comparar.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un equipo anota 20 °C, 26 °C y 32 °C en tres mediciones seguidas. Si el aumento por medición se mantiene, ¿cuántos °C marcará la cuarta? Escribe el número.",
+        "respuesta": "38",
+        "alternativasAceptadas": [
+          "38 °C",
+          "treinta y ocho"
+        ],
+        "pistas": [
+          "Busca cuánto sube entre una medición y la siguiente.",
+          "Sube 6 °C cada vez.",
+          "Suma 6 a 32."
+        ],
+        "retroalimentacion": "Marcará 38 °C, porque 32 + 6 = 38.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "El agua del prototipo llegó a 55 °C y la pasarán a un balde para lavarse las manos. ¿Qué precaución tiene más sentido?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Probar con cuidado o mezclarla con agua fría para evitar quemaduras"
+          },
+          {
+            "id": "b",
+            "texto": "Meter la mano de golpe para comprobarla"
+          },
+          {
+            "id": "c",
+            "texto": "Dejarla en la caja para siempre"
+          },
+          {
+            "id": "d",
+            "texto": "Tapar el balde con plástico"
+          }
+        ],
+        "pistas": [
+          "Piensa en la seguridad de las personas.",
+          "Esa temperatura puede quemar la piel.",
+          "Conviene bajar la temperatura antes de usarla."
+        ],
+        "retroalimentacion": "Debe probarla con cuidado o mezclarla con agua fría; a 55 °C se puede quemar la piel.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "cyt.p6.detectar-errores-construccion",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 22,
+    "capacidad": "Implementa y valida la alternativa de solución tecnológica",
+    "desempenosOrigen": [
+      "CYT-C22-P6-03"
+    ],
+    "bloque": "Construcción y ajustes",
+    "nombre": "Detectar errores de medidas y materiales",
+    "disciplina": "tecnologia",
+    "descripcionCorta": "Revisa cada parte, encuentra imprecisiones y corrige medidas o materiales.",
+    "palabrasClave": [
+      "prototipo",
+      "plano",
+      "error de medida",
+      "material",
+      "corrección"
+    ],
+    "prerrequisitos": [
+      "cyt.p6.calentador-solar"
+    ],
+    "ordenSugerido": 89,
+    "ideaCentral": "Antes de dar por terminado tu prototipo, compara cada parte con el plano: mide de nuevo y revisa que el material sirva para lo que debe hacer. Lo que no coincida, lo corriges y vuelves a medir.",
+    "pasos": [
+      "Ten a la mano el plano con las medidas y la lista de materiales.",
+      "Mide cada parte ya construida y compárala con el plano.",
+      "Anota la diferencia entre lo medido y lo planeado: ese es el error.",
+      "Pregúntate si cada material cumple su función (resiste, aísla, no se moja).",
+      "Corrige la parte y vuelve a medir para comprobar que ya coincide."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Marta arma un puente con palitos. El plano pide vigas de 30 cm y una de ellas mide 27 cm. ¿Qué error hay?",
+        "desarrollo": "30 - 27 = 3. La viga es 3 cm más corta que lo planeado.",
+        "respuesta": "Hay un error de 3 cm: hay que cortar otra viga de 30 cm."
+      },
+      {
+        "situacion": "Luis hace el techo de una casita de maqueta con papel periódico. La casita debe aguantar la lluvia de Huaraz.",
+        "desarrollo": "El papel se empapa y se rompe con el agua. El problema no es la medida sino el material.",
+        "respuesta": "El material es inadecuado: conviene usar plástico o una lámina impermeable."
+      },
+      {
+        "situacion": "Ana construye una caja que debe entrar en un cajón de 25 cm de ancho. Al medirla, tiene 26 cm.",
+        "desarrollo": "26 - 25 = 1. Sobra 1 cm y la caja no entra.",
+        "respuesta": "Hay que recortar 1 cm de ancho y volver a medir."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Medir una sola vez y asumir que todo está bien.",
+        "correccion": "Mide cada parte y compárala con el plano; así descubres diferencias pequeñas."
+      },
+      {
+        "error": "Corregir una pieza sin volver a medirla.",
+        "correccion": "Después de corregir, mide de nuevo para comprobar que ya coincide con el plano."
+      },
+      {
+        "error": "Revisar solo las medidas y olvidar si el material sirve para su función.",
+        "correccion": "Revisa las dos cosas: medidas y material."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Prototipo",
+        "significado": "Primer modelo de tu solución, hecho para probarlo y mejorarlo."
+      },
+      {
+        "termino": "Plano",
+        "significado": "Dibujo con las medidas que sirve de guía para construir."
+      },
+      {
+        "termino": "Error de medida",
+        "significado": "Diferencia entre lo que mide la pieza y lo que pedía el plano."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "El plano pide una tabla de 40 cm de largo para una repisa, pero la que cortaste mide 38 cm. ¿Cuántos centímetros te faltan?",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara lo que pide el plano con lo que mediste.",
+          "El plano pide 40 cm y tu tabla tiene 38 cm.",
+          "Resta: 40 - 38."
+        ],
+        "retroalimentacion": "Un error típico es sumar 40 + 38. Hay que restar: 40 - 38 = 2, te faltan 2 cm."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Después de construir un prototipo, conviene comparar sus medidas con las del plano.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa para qué sirve el plano una vez que ya construiste.",
+          "El plano es la guía de cuánto debe medir cada parte.",
+          "Comparar permite encontrar partes mal medidas."
+        ],
+        "retroalimentacion": "Es verdadero: comparar con el plano permite detectar errores y corregirlos."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Quieres comprobar el largo de una pieza de madera. ¿Qué instrumento usas?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cinta métrica"
+          },
+          {
+            "id": "b",
+            "texto": "Balanza"
+          },
+          {
+            "id": "c",
+            "texto": "Termómetro"
+          },
+          {
+            "id": "d",
+            "texto": "Cronómetro"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa qué magnitud mides: largo.",
+          "Un instrumento de largo tiene centímetros marcados.",
+          "La balanza mide masa, el termómetro temperatura y el cronómetro tiempo."
+        ],
+        "retroalimentacion": "Se usa la cinta métrica, que mide largo. La balanza mide masa, el termómetro temperatura y el cronómetro tiempo."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Quieres hacer un paraguas de juguete que no deje pasar el agua. ¿Qué material es inadecuado para la tela?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Plástico delgado"
+          },
+          {
+            "id": "b",
+            "texto": "Papel periódico"
+          },
+          {
+            "id": "c",
+            "texto": "Tela impermeable"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La tela debe resistir el agua.",
+          "Piensa qué pasa con un papel cuando se moja.",
+          "Dos materiales repelen el agua; uno se deshace."
+        ],
+        "retroalimentacion": "El papel periódico se empapa y se rompe, por eso es inadecuado. El plástico delgado y la tela impermeable sí repelen el agua."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El plano de un banquito pide 4 patas de 15 cm. Mediste: 15 cm, 15 cm, 13 cm y 15 cm. ¿Cuántos centímetros de error tiene la pata incorrecta?",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca cuál de las cuatro medidas es distinta de la del plano.",
+          "La pata de 13 cm es la que no coincide.",
+          "Resta la medida del plano menos esa pata: 15 - 13."
+        ],
+        "retroalimentacion": "La pata de 13 cm es la errada; confundirla con 3 cm sería restar mal. 15 - 13 = 2, falta 2 cm."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una pieza mide más de lo que indica el plano, no hay error porque sobra material.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa si la pieza podría encajar donde debe ir.",
+          "Si el hueco es exacto, una pieza más larga no cabe.",
+          "Cualquier diferencia con el plano es un error, aunque sobre material."
+        ],
+        "retroalimentacion": "Es falso: una pieza más larga también es un error, pues puede no encajar. Hay que recortarla."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El eje de palito de chupete del carrito de Lucía se dobla cuando le pone peso. ¿Qué corrección es mejor?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Poner más peso sobre el carrito"
+          },
+          {
+            "id": "b",
+            "texto": "Pintar el eje de otro color"
+          },
+          {
+            "id": "c",
+            "texto": "Cambiar el eje por una varilla más rígida"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El problema es que el material se dobla.",
+          "Más peso o pintura no hacen más fuerte al palito.",
+          "Necesitas un material que resista sin doblarse."
+        ],
+        "retroalimentacion": "Cambiar el eje por una varilla más rígida resuelve el problema. Poner más peso lo doblaría más y pintar el eje no lo hace más fuerte."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "¿Cómo se llama el dibujo con medidas que usas para comparar tu construcción? Responde con una palabra.",
+        "respuesta": "plano",
+        "alternativasAceptadas": [
+          "el plano"
+        ],
+        "pistas": [
+          "Es un dibujo que se hace antes de construir.",
+          "Incluye las medidas de cada parte.",
+          "Empieza con p y es lo que sigue un constructor."
+        ],
+        "retroalimentacion": "Se llama plano: es la guía con las medidas. Sin él no puedes saber si la pieza tiene error."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El plano de una caja pide 20 cm de base y 10 cm de altura. La caja construida mide 20 cm de base y 12 cm de altura. ¿Dónde está el error?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "En la altura"
+          },
+          {
+            "id": "b",
+            "texto": "En la base"
+          },
+          {
+            "id": "c",
+            "texto": "En ninguna parte"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara cada medida con la del plano, una por una.",
+          "La base coincide: 20 cm y 20 cm.",
+          "La altura pedía 10 cm y salió 12 cm."
+        ],
+        "retroalimentacion": "El error está en la altura: es 2 cm mayor. La base sí coincide con el plano de 20 cm."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El plano de un puente pide 3 vigas de 25 cm y 2 de 10 cm. Marta cortó las 3 grandes de 24 cm y las 2 chicas de 10 cm. ¿Cuántos centímetros de madera usó de menos que lo planeado?",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero cuánta madera pedía el plano.",
+          "Plano: 3 × 25 + 2 × 10 = 95 cm. Marta: 3 × 24 + 2 × 10.",
+          "Marta usó 92 cm; resta 95 - 92."
+        ],
+        "retroalimentacion": "Quien solo revisa una viga olvida que son tres con error de 1 cm. 95 - 92 = 3, usó 3 cm menos."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Teodoro hizo una balsa de cartón sin impermeabilizar con las medidas exactas del plano, pero se deshace en el agua. ¿Dónde está el error?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "En las medidas, que coinciden con el plano"
+          },
+          {
+            "id": "b",
+            "texto": "En el color de la balsa"
+          },
+          {
+            "id": "c",
+            "texto": "En el nombre del proyecto"
+          },
+          {
+            "id": "d",
+            "texto": "En el material: el cartón sin impermeabilizar se empapa"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las medidas coinciden, así que mira otra cosa.",
+          "La balsa se deshace al mojarse.",
+          "Piensa qué le pasa al cartón con el agua y qué material debió elegir."
+        ],
+        "retroalimentacion": "Se debe al material: el cartón sin impermeabilizar se empapa y se deshace. Las medidas coinciden, así que no son el problema."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una pieza debe encajar en un hueco de 8 cm, pero la tuya mide 9 cm. Para corregirla, ¿hay que cortar o alargar?",
+        "respuesta": "cortar",
+        "alternativasAceptadas": [
+          "recortar",
+          "cortarla",
+          "hay que cortar"
+        ],
+        "pistas": [
+          "Compara 9 cm con 8 cm.",
+          "La pieza es más grande que el hueco.",
+          "Para que entre, debe hacerse más corta."
+        ],
+        "retroalimentacion": "Hay que cortar 1 cm: la pieza sobra 1 cm. Alargarla la haría aún menos apta para el hueco."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

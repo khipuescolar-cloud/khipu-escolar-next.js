@@ -1,0 +1,756 @@
+[
+  {
+    "clave": "cyt.p6.tendencias-en-graficos",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 20,
+    "capacidad": "Analiza datos e información",
+    "desempenosOrigen": [
+      "CYT-C20-P6-04"
+    ],
+    "bloque": "Análisis y conclusiones",
+    "nombre": "Tendencias en gráficos de dos variables",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Describe si una variable aumenta, disminuye o no cambia al variar la otra.",
+    "palabrasClave": [
+      "tendencia",
+      "gráfico",
+      "variable",
+      "aumenta",
+      "disminuye",
+      "datos"
+    ],
+    "prerrequisitos": [
+      "cyt.p6.proporcionalidad-en-datos"
+    ],
+    "ordenSugerido": 84,
+    "ideaCentral": "Un gráfico de dos variables muestra cómo cambia una cuando cambia la otra. Si los valores suben, la tendencia es de aumento; si bajan, de disminución; y si se mantienen parecidos, no hay cambio.",
+    "pasos": [
+      "Identifica qué variable está en cada eje (qué se cambia y qué se mide).",
+      "Lee los primeros y los últimos valores.",
+      "Compara: ¿suben, bajan o se mantienen?",
+      "Escribe la tendencia con una frase: «Al aumentar X, Y aumenta (o disminuye o no cambia)»."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una tabla: horas de luz 2, 4, 6, 8; altura de la planta 5, 9, 14, 18 cm. ¿Cuál es la tendencia?",
+        "desarrollo": "Al subir las horas de luz, la altura también sube: 5, 9, 14, 18.",
+        "respuesta": "A más luz, mayor altura: la tendencia es de aumento."
+      },
+      {
+        "situacion": "Temperatura del agua 10, 20, 30, 40 °C; cantidad de azúcar disuelta (g) 20, 25, 33, 42. ¿Qué observas?",
+        "desarrollo": "Al calentar el agua, se disuelve más azúcar.",
+        "respuesta": "La tendencia es de aumento."
+      },
+      {
+        "situacion": "Peso de un cuy 400, 400, 400, 400 g según días 1, 2, 3, 4 en que no se le dio alimento extra. ¿Qué tendencia hay?",
+        "desarrollo": "Los valores se mantienen iguales.",
+        "respuesta": "No hay cambio."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Leer solo el último dato y no la tendencia completa.",
+        "correccion": "La tendencia se ve comparando todos los datos, no solo uno."
+      },
+      {
+        "error": "Decir que si una variable sube, la otra siempre baja.",
+        "correccion": "Depende: pueden subir juntas, bajar juntas o una no cambiar. Se debe leer el gráfico."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Variable",
+        "significado": "Característica que puede cambiar o medirse."
+      },
+      {
+        "termino": "Tendencia",
+        "significado": "Dirección en que cambian los datos: aumento, disminución o sin cambio."
+      },
+      {
+        "termino": "Eje",
+        "significado": "Línea del gráfico donde se escribe una variable."
+      },
+      {
+        "termino": "Dato",
+        "significado": "Valor medido u observado."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tabla muestra: días 1, 2, 3 y altura de la planta 3, 6, 9 cm. ¿Qué tendencia tiene la altura?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Aumenta"
+          },
+          {
+            "id": "b",
+            "texto": "Disminuye"
+          },
+          {
+            "id": "c",
+            "texto": "No cambia"
+          },
+          {
+            "id": "d",
+            "texto": "Sube y baja"
+          }
+        ],
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira los valores en orden.",
+          "3, 6, 9: ¿suben o bajan?",
+          "Cada altura es mayor que la anterior."
+        ],
+        "retroalimentacion": "La altura 3, 6, 9 cm sube: aumenta con los días."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si los datos son 50, 40, 30, 20, la tendencia es de disminución.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee de izquierda a derecha.",
+          "Cada valor es menor que el anterior.",
+          "Bajan."
+        ],
+        "retroalimentacion": "Es verdadero: los valores bajan, la tendencia es de disminución."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Los datos de una variable son 5, 5, 5, 5. ¿Cuál es la tendencia? Escribe «aumenta», «disminuye» o «no cambia».",
+        "respuesta": "no cambia",
+        "alternativasAceptadas": [
+          "se mantiene",
+          "igual",
+          "no varía",
+          "no hay cambio",
+          "sin cambio"
+        ],
+        "pistas": [
+          "Compara cada valor con el anterior.",
+          "Todos son iguales.",
+          "Ninguno sube ni baja."
+        ],
+        "retroalimentacion": "Todos los valores son 5: no cambia."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un gráfico de líneas, la línea baja de izquierda a derecha. ¿Qué indica?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Los valores aumentan"
+          },
+          {
+            "id": "b",
+            "texto": "No hay datos"
+          },
+          {
+            "id": "c",
+            "texto": "Los valores no cambian"
+          },
+          {
+            "id": "d",
+            "texto": "Los valores disminuyen"
+          }
+        ],
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una línea que baja…",
+          "El valor de arriba pasa a abajo.",
+          "Disminuye."
+        ],
+        "retroalimentacion": "Una línea que baja indica que los valores disminuyen. Si subiera, aumentarían."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Temperatura (°C): 10, 20, 30, 40. Hielo derretido (g): 2, 5, 9, 14. ¿Qué tendencia tiene el hielo derretido al subir la temperatura?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Disminuye"
+          },
+          {
+            "id": "b",
+            "texto": "No cambia"
+          },
+          {
+            "id": "c",
+            "texto": "Aumenta"
+          },
+          {
+            "id": "d",
+            "texto": "Primero baja y luego sube"
+          }
+        ],
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cómo cambia la masa de hielo derretido.",
+          "2, 5, 9, 14.",
+          "Cada masa es mayor que la anterior."
+        ],
+        "retroalimentacion": "Al subir la temperatura, el hielo derretido aumenta."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si al aumentar la distancia a una fogata la temperatura disminuye, ambas variables aumentan.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira qué hace la temperatura.",
+          "Cuanto más lejos, menos calor.",
+          "Una sube y la otra baja."
+        ],
+        "retroalimentacion": "Es falso: la distancia aumenta pero la temperatura disminuye."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Distancia al fogón: 1, 2, 3 m; temperatura: 40, 30, 20 °C. ¿La temperatura aumenta o disminuye al alejarse? Escribe una palabra.",
+        "respuesta": "disminuye",
+        "alternativasAceptadas": [
+          "baja",
+          "decrece",
+          "desciende",
+          "disminuyó"
+        ],
+        "pistas": [
+          "Compara 40, 30, 20.",
+          "Cada valor es menor.",
+          "Al alejarte, el calor se siente menos."
+        ],
+        "retroalimentacion": "Al alejarte la temperatura disminuye."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tabla muestra: nivel de agua dado (mL): 0, 50, 100, 150 y crecimiento (cm): 1, 4, 7, 10. ¿Qué frase describe la tendencia?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "A más agua, mayor crecimiento"
+          },
+          {
+            "id": "b",
+            "texto": "A más agua, menor crecimiento"
+          },
+          {
+            "id": "c",
+            "texto": "El crecimiento no cambia"
+          },
+          {
+            "id": "d",
+            "texto": "El agua disminuye"
+          }
+        ],
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara agua y crecimiento.",
+          "Las dos columnas van de menor a mayor.",
+          "Más agua viene con más centímetros."
+        ],
+        "retroalimentacion": "A más agua, mayor crecimiento: ambos suben."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tabla de presión del aire (kPa) según altura: 0 m 100, 1 000 m 90, 2 000 m 80, 3 000 m 70. ¿Cuál es la mejor descripción?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Al subir, la presión aumenta"
+          },
+          {
+            "id": "b",
+            "texto": "Al subir, la presión no cambia"
+          },
+          {
+            "id": "c",
+            "texto": "Al subir, la presión disminuye"
+          },
+          {
+            "id": "d",
+            "texto": "Al bajar, la presión disminuye"
+          }
+        ],
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee de menor a mayor altura.",
+          "100, 90, 80, 70.",
+          "Cada presión es menor que la anterior."
+        ],
+        "retroalimentacion": "Al subir la altura, la presión disminuye. Los valores bajan de 100 a 70."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En unos datos: 10, 12, 11, 13, 14, 16, la tendencia general es de aumento aunque haya una pequeña bajada.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara el primero con el último.",
+          "10 al inicio y 16 al final.",
+          "Hay una bajada pequeña, pero sube en general."
+        ],
+        "retroalimentacion": "Es verdadero: de 10 a 16, en general aumenta."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Unos datos: 20, 18, 16, 14, 12 según horas de ejercicio 1, 2, 3, 4, 5. Si el siguiente dato sigue la tendencia, ¿cuál sería? Escribe el número.",
+        "respuesta": "10",
+        "alternativasAceptadas": [
+          "10 unidades"
+        ],
+        "pistas": [
+          "Mira cuánto baja cada vez.",
+          "Baja 2 cada vez.",
+          "12 menos 2."
+        ],
+        "retroalimentacion": "Baja 2 por hora, así que el siguiente es 10."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una estudiante dice: «Como la temperatura sube y las lluvias se mantienen, la lluvia depende de la temperatura». ¿Qué corresponde decir?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tiene razón"
+          },
+          {
+            "id": "b",
+            "texto": "Que la lluvia también sube"
+          },
+          {
+            "id": "c",
+            "texto": "Que no hay datos"
+          },
+          {
+            "id": "d",
+            "texto": "Que no hay relación entre ambas, porque la lluvia no cambia"
+          }
+        ],
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Si una no cambia, ¿sigue a la otra?",
+          "La lluvia se mantiene igual.",
+          "No muestra relación en esos datos."
+        ],
+        "retroalimentacion": "Si la lluvia no cambia aunque la temperatura sube, no hay relación en esos datos."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  },
+  {
+    "clave": "cyt.p6.evidencia-y-opinion",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 20,
+    "capacidad": "Analiza datos e información",
+    "desempenosOrigen": [
+      "CYT-C20-P6-04"
+    ],
+    "bloque": "Análisis y conclusiones",
+    "nombre": "Evidencia científica y opinión",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Diferencia una conclusión basada en datos de una opinión personal.",
+    "palabrasClave": [
+      "evidencia",
+      "opinión",
+      "conclusión",
+      "datos",
+      "hipótesis"
+    ],
+    "prerrequisitos": [
+      "cyt.p6.tendencias-en-graficos"
+    ],
+    "ordenSugerido": 85,
+    "ideaCentral": "Una conclusión científica se apoya en evidencia: datos medidos u observados que otros pueden comprobar. Una opinión es lo que alguien piensa o siente y no necesita datos.",
+    "pasos": [
+      "Lee la afirmación y pregúntate: ¿qué dato la apoya?",
+      "Busca números, mediciones u observaciones repetidas.",
+      "Si no hay datos, solo es una opinión o una creencia.",
+      "Escribe tu conclusión citando el dato que la sostiene."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "«Las plantas con más luz crecieron 18 cm y las plantas con poca luz, 9 cm.» ¿Es evidencia u opinión?",
+        "desarrollo": "Tiene medidas (18 cm y 9 cm) obtenidas de una comparación.",
+        "respuesta": "Es evidencia."
+      },
+      {
+        "situacion": "«Creo que el color verde es el más bonito para una planta.» ¿Es evidencia u opinión?",
+        "desarrollo": "Habla de gustos y no tiene mediciones.",
+        "respuesta": "Es una opinión."
+      },
+      {
+        "situacion": "«Como en mi casa llovió ayer, el clima del país está cambiando.» ¿Está bien sustentada?",
+        "desarrollo": "Un solo dato de un día no alcanza para concluir sobre el clima.",
+        "respuesta": "No, es una conclusión sin suficiente evidencia."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que una opinión es evidencia si mucha gente la repite.",
+        "correccion": "La evidencia se basa en datos que se pueden medir y comprobar, no en cuánta gente lo dice."
+      },
+      {
+        "error": "Sacar una conclusión con un solo dato.",
+        "correccion": "Una conclusión sólida necesita varios datos o repeticiones."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Evidencia",
+        "significado": "Datos u observaciones que apoyan una conclusión."
+      },
+      {
+        "termino": "Opinión",
+        "significado": "Lo que una persona piensa o siente, sin necesidad de datos."
+      },
+      {
+        "termino": "Conclusión",
+        "significado": "Respuesta final que se obtiene analizando los datos."
+      },
+      {
+        "termino": "Repetición",
+        "significado": "Hacer de nuevo una prueba para confirmar resultados."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una conclusión científica se apoya en datos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en qué la hace confiable.",
+          "Los datos se pueden medir.",
+          "Se apoya en evidencia."
+        ],
+        "retroalimentacion": "Es verdadero: una conclusión científica se basa en evidencia."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas frases es una opinión?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La papa mide 8 cm"
+          },
+          {
+            "id": "b",
+            "texto": "Me parece que la lluvia es triste"
+          },
+          {
+            "id": "c",
+            "texto": "El agua hierve a 100 °C"
+          },
+          {
+            "id": "d",
+            "texto": "La planta creció 5 cm"
+          }
+        ],
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la frase sin medidas.",
+          "Habla de un sentimiento.",
+          "Es lo que alguien piensa."
+        ],
+        "retroalimentacion": "«Me parece que la lluvia es triste» es una opinión: no tiene datos medibles."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Los datos medidos que apoyan una conclusión se llaman… Escribe una palabra.",
+        "respuesta": "evidencia",
+        "alternativasAceptadas": [
+          "la evidencia",
+          "datos",
+          "evidencias"
+        ],
+        "pistas": [
+          "Es lo contrario de opinión.",
+          "Empieza con «e».",
+          "Se llama evidencia."
+        ],
+        "retroalimentacion": "Se llama evidencia."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál frase está apoyada por evidencia?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Creo que me va a ir bien"
+          },
+          {
+            "id": "b",
+            "texto": "Dicen que sirve"
+          },
+          {
+            "id": "c",
+            "texto": "En 3 pruebas la planta con luz creció más que la planta sin luz"
+          },
+          {
+            "id": "d",
+            "texto": "Seguro es verdad"
+          }
+        ],
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca datos de pruebas.",
+          "Menciona 3 pruebas.",
+          "Hay una comparación medida."
+        ],
+        "retroalimentacion": "La frase de las 3 pruebas se apoya en datos medidos. Las otras solo expresan creencias."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Marco midió que las semillas con agua germinaron 8 de 10 y las semillas sin agua, 0 de 10. ¿Qué conclusión está sustentada?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Las semillas con agua germinaron más"
+          },
+          {
+            "id": "b",
+            "texto": "Las semillas sin agua son lindas"
+          },
+          {
+            "id": "c",
+            "texto": "El agua es costosa"
+          },
+          {
+            "id": "d",
+            "texto": "Marco es el mejor"
+          }
+        ],
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 8 de 10 con 0 de 10.",
+          "Las semillas con agua germinaron más.",
+          "La conclusión se basa en esos datos."
+        ],
+        "retroalimentacion": "Los datos muestran que las semillas con agua germinaron más. Las otras frases no se derivan de las mediciones."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "«Mi abuela dice que la luna cambia las cosechas» es evidencia científica porque lo dice una persona mayor.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "¿Hay datos medidos?",
+          "Es lo que dice una persona.",
+          "Se necesita comprobarlo con datos."
+        ],
+        "retroalimentacion": "Es falso: sin mediciones, es una creencia. Se debe comprobar con datos."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Tres alumnos midieron el mismo resultado: 25 °C. ¿Cómo se llama repetir una prueba para confirmar? Escribe una palabra.",
+        "respuesta": "repetición",
+        "alternativasAceptadas": [
+          "repeticion",
+          "repetir",
+          "la repetición"
+        ],
+        "pistas": [
+          "Se hace más de una vez.",
+          "Empieza con «re».",
+          "Termina en «-ción»."
+        ],
+        "retroalimentacion": "Se llama repetición: dar la misma prueba varias veces confirma el resultado."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una estudiante dice: «El agua del río X está contaminada» y presenta un análisis con las medidas. ¿Qué tipo de afirmación es?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Opinión"
+          },
+          {
+            "id": "b",
+            "texto": "Conclusión basada en evidencia"
+          },
+          {
+            "id": "c",
+            "texto": "Chisme"
+          },
+          {
+            "id": "d",
+            "texto": "Adivinanza"
+          }
+        ],
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Presenta datos de un análisis.",
+          "Hay mediciones.",
+          "Es conclusión con evidencia."
+        ],
+        "retroalimentacion": "Es una conclusión basada en evidencia porque presenta datos de un análisis."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una compañera concluye «los abonos orgánicos son mejores» después de probar en una sola maceta. ¿Qué crítica es válida?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Con una sola prueba no hay suficiente evidencia"
+          },
+          {
+            "id": "b",
+            "texto": "Los abonos no sirven"
+          },
+          {
+            "id": "c",
+            "texto": "Nunca se prueba"
+          },
+          {
+            "id": "d",
+            "texto": "No hay maceta"
+          }
+        ],
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "¿Cuántas pruebas hizo?",
+          "Una sola.",
+          "Falta repetir."
+        ],
+        "retroalimentacion": "Con una sola maceta no hay suficiente evidencia: debería repetir y comparar más veces."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos experimentos distintos dan el mismo resultado, la conclusión tiene más respaldo que si solo hubo uno.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en la repetición.",
+          "Si se confirma, hay más confianza.",
+          "Más pruebas, mayor respaldo."
+        ],
+        "retroalimentacion": "Es verdadero: resultados repetidos dan mayor confianza."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En un colegio de Cusco, 20 de 20 estudiantes dicen que las lámparas LED duran más, pero nadie midió nada. ¿Eso es evidencia o opinión? Escribe una palabra.",
+        "respuesta": "opinión",
+        "alternativasAceptadas": [
+          "opinion",
+          "es una opinión",
+          "una opinión"
+        ],
+        "pistas": [
+          "Hay muchos que lo dicen, pero ¿hay datos?",
+          "No hay mediciones.",
+          "Sin medidas es opinión."
+        ],
+        "retroalimentacion": "Aunque lo digan muchos, sin mediciones es una opinión."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para decidir si el jugo A o el jugo B tiene más vitamina C, ¿qué conviene hacer?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Elegir el que más guste"
+          },
+          {
+            "id": "b",
+            "texto": "Medir la vitamina C de cada uno y comparar"
+          },
+          {
+            "id": "c",
+            "texto": "Preguntar al vecino"
+          },
+          {
+            "id": "d",
+            "texto": "Tirar una moneda"
+          }
+        ],
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la manera que da datos.",
+          "Se mide y compara.",
+          "Eso es evidencia."
+        ],
+        "retroalimentacion": "Medir y comparar da evidencia. El gusto, el vecino o la moneda no sirven para decidir."
+      }
+    ],
+    "version": 1,
+    "revisado": null,
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ]
+  }
+]

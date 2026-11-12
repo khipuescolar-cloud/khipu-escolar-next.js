@@ -1,0 +1,950 @@
+[
+  {
+    "clave": "cyt.p6.repetir-mediciones-moda",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 20,
+    "capacidad": "Genera y registra datos e información",
+    "desempenosOrigen": [
+      "CYT-C20-P6-03"
+    ],
+    "bloque": "Datos y cálculos",
+    "nombre": "Repetición de mediciones y moda",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Repite una medición varias veces y usa la moda para elegir el valor representativo.",
+    "palabrasClave": [
+      "medición",
+      "repetir",
+      "moda",
+      "dato",
+      "valor representativo"
+    ],
+    "prerrequisitos": [
+      "cyt.p6.instrumentos-de-medicion"
+    ],
+    "ordenSugerido": 54,
+    "ideaCentral": "Cuando mides lo mismo varias veces, los resultados pueden variar un poco. Anótalos todos y elige la moda, el valor que más se repite, como valor representativo.",
+    "pasos": [
+      "Mide el mismo objeto 5 veces o más, con el mismo instrumento.",
+      "Anota cada resultado en una lista o tabla.",
+      "Cuenta cuántas veces aparece cada valor.",
+      "La moda es el valor que aparece más veces: úsalo como valor representativo.",
+      "Si dos valores empatan, repite la medición para desempatar."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Rosa mide con una regla el largo de su cuaderno cinco veces: 21, 21, 22, 21, 21 cm.",
+        "desarrollo": "El 21 aparece 4 veces y el 22 solo una.",
+        "respuesta": "La moda es 21 cm."
+      },
+      {
+        "situacion": "Juan cronometra la caída de una pelota desde una ventana: 2, 3, 2, 2, 3, 2 segundos.",
+        "desarrollo": "El 2 aparece 4 veces y el 3 aparece 2 veces.",
+        "respuesta": "La moda es 2 segundos."
+      },
+      {
+        "situacion": "Una alumna de Huaraz mide la temperatura del agua de un riachuelo: 12, 13, 12, 12 °C.",
+        "desarrollo": "El 12 se repite 3 veces; el 13, una vez.",
+        "respuesta": "La moda es 12 °C."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Elegir siempre el valor más grande de la lista.",
+        "correccion": "La moda es el valor que más se repite, no el mayor."
+      },
+      {
+        "error": "Quedarse con la primera medición y no repetir.",
+        "correccion": "Repetir permite ver qué valor sale más veces."
+      },
+      {
+        "error": "Confundir moda con promedio.",
+        "correccion": "La moda se cuenta (más repetido); el promedio se calcula con una suma y una división."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Moda",
+        "significado": "Valor que más se repite en un conjunto de datos."
+      },
+      {
+        "termino": "Medición",
+        "significado": "Comparar una magnitud con un instrumento y anotar el resultado."
+      },
+      {
+        "termino": "Valor representativo",
+        "significado": "Dato que elegimos para representar a todas las mediciones."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Mediste el largo de una hoja cuatro veces: 15, 15, 16 y 15 cm. ¿Cuál es la moda?",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Anota cuántas veces sale cada número.",
+          "El 15 sale varias veces; el 16 solo una.",
+          "El 15 aparece 3 veces."
+        ],
+        "retroalimentacion": "Quien elige 16 toma el mayor y no el que más se repite. El 15 aparece 3 veces, así que la moda es 15."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La moda es el valor que más se repite en una lista de mediciones.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda la definición que acabas de leer.",
+          "La moda no es la suma ni el mayor.",
+          "Se identifica contando cuántas veces aparece cada valor."
+        ],
+        "retroalimentacion": "Es verdadero: la moda es el valor con más repeticiones."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Por qué conviene repetir una medición varias veces?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Para gastar más tiempo"
+          },
+          {
+            "id": "b",
+            "texto": "Porque cada medida puede variar un poco"
+          },
+          {
+            "id": "c",
+            "texto": "Para cambiar el objeto medido"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en lo difícil de medir igual dos veces exacto.",
+          "Una sola medición puede tener una pequeña falla.",
+          "Al repetir ves qué valor sale más veces."
+        ],
+        "retroalimentacion": "Se repite porque cada medida puede variar un poco. No es para gastar tiempo ni para cambiar el objeto."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Pesaste una papa cinco veces y obtuviste 90, 92, 90, 90 y 91 gramos. ¿Cuál es la moda en gramos?",
+        "respuesta": 90,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántas veces sale cada peso.",
+          "El 90 aparece más de una vez; el 92 y el 91 salen una vez.",
+          "El 90 aparece 3 veces."
+        ],
+        "retroalimentacion": "Un error típico es elegir 92 por ser el mayor. El 90 se repite 3 veces, así que la moda es 90 g."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Cronometraste un juego y obtuviste 3, 4, 4, 5, 4 y 3 segundos. ¿Qué valor eliges como representativo?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 segundos"
+          },
+          {
+            "id": "b",
+            "texto": "5 segundos"
+          },
+          {
+            "id": "c",
+            "texto": "6 segundos"
+          },
+          {
+            "id": "d",
+            "texto": "4 segundos"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántas veces aparece cada tiempo.",
+          "El 3 sale dos veces; el 5 una vez.",
+          "El que más se repite aparece tres veces."
+        ],
+        "retroalimentacion": "El valor representativo es 4 segundos, que aparece 3 veces. El 3 aparece solo dos veces y el 5 una."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En las mediciones 8, 9, 9, 10, 10, 9, la moda es 10.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta las veces que sale el 9 y las que sale el 10.",
+          "El 9 aparece más veces que el 10.",
+          "El 9 sale 3 veces y el 10 solo 2."
+        ],
+        "retroalimentacion": "Es falso: el 10 aparece 2 veces y el 9 aparece 3 veces, entonces la moda es 9."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un alumno midió una cinta y anotó 2 cm, 2 cm, 3 cm, 2 cm y 3 cm. ¿Cuántas veces aparece la moda?",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero encuentra cuál valor es la moda.",
+          "El 2 aparece más veces que el 3.",
+          "Cuenta los 2 que anotó el alumno."
+        ],
+        "retroalimentacion": "La moda es 2 cm y aparece 3 veces; el 3 cm aparece solo 2 veces."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Midieron la hoja de una planta de maíz en cm: 28, 30, 28, 29, 28 y 30. ¿Qué medida usarías como la más representativa?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "28 cm"
+          },
+          {
+            "id": "b",
+            "texto": "29 cm"
+          },
+          {
+            "id": "c",
+            "texto": "30 cm"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ordena mentalmente las medidas y cuenta repeticiones.",
+          "El 30 sale 2 veces y el 29 una vez.",
+          "Hay un valor que sale 3 veces."
+        ],
+        "retroalimentacion": "Usarías 28 cm, que sale 3 veces. El 30 sale 2 veces y el 29 solo una."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Tres compañeros midieron el mismo tronco. Ana: 40, 41, 40, 40. Beto: 40, 39, 41, 40. Carla: 41, 41, 40, 41. Con los 12 datos juntos, ¿cuál es la moda en cm?",
+        "respuesta": 40,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Junta los 12 datos y cuenta por valor.",
+          "El 40 aparece 3 veces en Ana, 2 en Beto y 1 en Carla.",
+          "El 40 suma 6 veces y el 41 suma 5."
+        ],
+        "retroalimentacion": "Mirar solo a Carla llevaría a 41. Con todos los datos el 40 aparece 6 veces y el 41, 5: la moda es 40 cm."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Con las mediciones 12, 13, 13, 14 y 12, el 12 y el 13 se repiten 2 veces cada uno. ¿Qué haces?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Eliges el menor sin pensar"
+          },
+          {
+            "id": "b",
+            "texto": "Repites la medición para desempatar"
+          },
+          {
+            "id": "c",
+            "texto": "Sumas los dos valores"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay empate entre dos valores.",
+          "No tienes datos suficientes para decidir.",
+          "Más mediciones ayudarán a ver cuál se repite más."
+        ],
+        "retroalimentacion": "Hay que repetir la medición para desempatar. Elegir el menor sin pensar o sumar los valores no representa el dato."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si en las mediciones 10, 10, 11, 10 y 10 aparece un dato raro de 25, la moda pasa a ser 25.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántas veces aparece el 25.",
+          "El 25 aparece una sola vez.",
+          "El 10 sigue siendo el que más se repite."
+        ],
+        "retroalimentacion": "Es falso: el 25 aparece una vez y el 10 aparece 4 veces. La moda sigue siendo 10."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Mediciones: 6, 7, 7, 8, 7, 6, 7. Si quieres que el 6 empate con la moda, ¿cuántas mediciones más de 6 necesitas?",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Encuentra la moda y cuántas veces aparece.",
+          "El 7 aparece 4 veces; el 6 aparece 2 veces.",
+          "Para igualar 4, al 6 le faltan algunas."
+        ],
+        "retroalimentacion": "El 7 aparece 4 veces y el 6 solo 2. Faltan 2 mediciones de 6 para empatar; pensar en 1 daría un 3 contra 4."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "cyt.p6.tabla-doble-entrada",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 20,
+    "capacidad": "Genera y registra datos e información",
+    "desempenosOrigen": [
+      "CYT-C20-P6-03"
+    ],
+    "bloque": "Datos y cálculos",
+    "nombre": "Tabla de doble entrada para dos variables",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Organiza los valores de la variable que cambia y de la que mide en una tabla.",
+    "palabrasClave": [
+      "tabla",
+      "variable independiente",
+      "variable dependiente",
+      "datos",
+      "unidad"
+    ],
+    "prerrequisitos": [
+      "cyt.p6.repetir-mediciones-moda"
+    ],
+    "ordenSugerido": 55,
+    "ideaCentral": "Una tabla de dos columnas ordena lo que cambias (variable independiente) y lo que mides (variable dependiente). Cada fila es una prueba, y así comparas los resultados.",
+    "pasos": [
+      "Identifica qué variable cambias y cuál mides.",
+      "Dibuja la tabla con un título y una columna para cada variable, con su unidad.",
+      "Anota en cada fila el valor que cambiaste y lo que mediste.",
+      "Revisa que cada fila sea una prueba y que no mezcles unidades."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Sofía riega frijoles con 1, 2 y 3 vasos de agua y mide la altura: 4, 7 y 10 cm.",
+        "desarrollo": "Lo que cambia es el agua, que va en la primera columna. Lo que mide es la altura, en la segunda.",
+        "respuesta": "Tabla: Agua (vasos) | Altura (cm): 1 | 4, 2 | 7, 3 | 10."
+      },
+      {
+        "situacion": "Marco deja caer una pelota desde 50, 100 y 150 cm y mide el rebote: 30, 60 y 90 cm.",
+        "desarrollo": "La altura de caída es lo que cambia; el rebote es lo que mide.",
+        "respuesta": "Columnas: Altura de caída (cm) y Rebote (cm), con 3 filas."
+      },
+      {
+        "situacion": "Una alumna enfría agua caliente en Cusco y anota: 0 min, 80 °C; 5 min, 60 °C.",
+        "desarrollo": "El tiempo cambia en cada fila; la temperatura se mide.",
+        "respuesta": "Encabezados: Tiempo (min) y Temperatura (°C)."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Poner los números sin decir qué miden ni sus unidades.",
+        "correccion": "Escribe en cada encabezado la variable y su unidad, como Altura (cm)."
+      },
+      {
+        "error": "Mezclar en una columna datos de dos variables distintas.",
+        "correccion": "Cada columna guarda una sola variable."
+      },
+      {
+        "error": "Dejar filas incompletas o con datos que no son de la misma prueba.",
+        "correccion": "Cada fila debe tener el valor de las dos variables de la misma prueba."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Variable independiente",
+        "significado": "La que cambias a propósito en el experimento."
+      },
+      {
+        "termino": "Variable dependiente",
+        "significado": "La que mides para ver cómo responde."
+      },
+      {
+        "termino": "Fila",
+        "significado": "Línea horizontal de la tabla; aquí, una prueba."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una tabla de datos, cada fila registra una prueba del experimento.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa qué se anota en una línea horizontal.",
+          "Una fila junta lo que cambiaste y lo que mediste en una prueba.",
+          "Por eso hay una fila por cada prueba."
+        ],
+        "retroalimentacion": "Es verdadero: cada fila es una prueba con el valor de las dos variables."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cómo se llama la variable que el investigador cambia a propósito?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Dependiente"
+          },
+          {
+            "id": "b",
+            "texto": "Independiente"
+          },
+          {
+            "id": "c",
+            "texto": "Resultado"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Es la que tú decides cuánto vale.",
+          "La otra variable es la que mides.",
+          "El nombre empieza con «inde», porque no depende de la otra."
+        ],
+        "retroalimentacion": "Se llama independiente. La dependiente es la que mides y «resultado» no es el nombre de una variable."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Riegas frijoles con distintas cantidades de agua y mides cuánto crecen. ¿Qué variable mides? Responde con una o dos palabras.",
+        "respuesta": "altura",
+        "alternativasAceptadas": [
+          "la altura",
+          "altura de la planta",
+          "crecimiento"
+        ],
+        "pistas": [
+          "Piensa en lo que cambia por efecto del agua.",
+          "El agua es la que cambias; la otra es lo que observas.",
+          "Se mide con una regla, en centímetros."
+        ],
+        "retroalimentacion": "Lo que mides es la altura, pues la cantidad de agua es la que cambias. Confundirlas es un error común."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una tabla dice: Agua (vasos) 1, 2, 3; Altura (cm) 4, 7, 10. ¿Qué altura alcanzó la planta con 2 vasos?",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la fila donde Agua vale 2.",
+          "En esa fila mira la columna Altura.",
+          "En la fila de 2 vasos hay un número entre 4 y 10."
+        ],
+        "retroalimentacion": "En la fila de 2 vasos la altura es 7 cm; usar el 4 sería leer la fila del 1."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una columna anotarás las temperaturas del agua. ¿Cuál es el mejor encabezado?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Caliente"
+          },
+          {
+            "id": "b",
+            "texto": "Temperatura"
+          },
+          {
+            "id": "c",
+            "texto": "Temperatura (°C)"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un buen encabezado dice qué mides y en qué unidad.",
+          "Debe incluir los grados que usaste.",
+          "Uno solo de los tres tiene unidad entre paréntesis."
+        ],
+        "retroalimentacion": "El mejor encabezado es «Temperatura (°C)». «Temperatura» sin unidad es incompleto y «Caliente» no dice qué se midió."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una misma columna puedes mezclar datos en centímetros y en metros sin avisar.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina leer 5 sin saber si son cm o m.",
+          "Los números no se pueden comparar si tienen distinta unidad.",
+          "Cada columna debe usar una sola unidad."
+        ],
+        "retroalimentacion": "Es falso: mezclar unidades confunde la lectura. Usa una unidad por columna."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Colgaste masas en un resorte. Tabla: Masa (g) 50, 100, 150; Estiramiento (cm) 2, 4, 6. ¿Cuánto se estiró con 100 g?",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca 100 en la columna de la masa.",
+          "Lee el valor de la misma fila en la otra columna.",
+          "La fila de 100 g está entre las de 50 g y 150 g."
+        ],
+        "retroalimentacion": "Con 100 g se estiró 4 cm; el 6 corresponde a 150 g, no a 100 g."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Marcos cambia la inclinación de una rampa (10°, 20°, 30°) y mide cuánto avanza un carrito. ¿Qué encabezado va en la columna de la variable que mide?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Inclinación (°)"
+          },
+          {
+            "id": "b",
+            "texto": "Carrito"
+          },
+          {
+            "id": "c",
+            "texto": "Distancia recorrida (cm)"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lo que mide es la respuesta del carrito.",
+          "La inclinación es lo que cambia.",
+          "Mide cuánto avanza, en centímetros."
+        ],
+        "retroalimentacion": "La columna debe llamarse «Distancia recorrida (cm)». «Inclinación (°)» es la variable que cambia y «Carrito» no es una variable."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tabla: Abono (g) 0, 5, 10 y Altura (cm) 12, 15, 19. ¿Qué conclusión respalda esta tabla?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El abono no influye en la altura"
+          },
+          {
+            "id": "b",
+            "texto": "La altura se midió en gramos"
+          },
+          {
+            "id": "c",
+            "texto": "A más abono, mayor altura en estas pruebas"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara cómo cambia la altura al subir el abono.",
+          "La altura va de 12 a 15 y a 19.",
+          "Observa si crece o se mantiene."
+        ],
+        "retroalimentacion": "La tabla respalda que a más abono hay mayor altura en estas pruebas. No dice que no influya y la altura se mide en cm."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una tabla con 4 valores de tiempo y solo 3 de temperatura está completa.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los datos de cada columna.",
+          "Cada fila necesita un valor de cada variable.",
+          "Sobra una celda vacía."
+        ],
+        "retroalimentacion": "Es falso: falta un dato de temperatura. Cada tiempo necesita su temperatura."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Registras cuánto tarda una pastilla en disolverse en agua a 10 °C, 30 °C y 50 °C. ¿Qué va en la primera columna: temperatura o tiempo?",
+        "respuesta": "temperatura",
+        "alternativasAceptadas": [
+          "la temperatura"
+        ],
+        "pistas": [
+          "Primero identifica qué decides cambiar.",
+          "Cambias el agua de fría a caliente.",
+          "El tiempo es lo que mides."
+        ],
+        "retroalimentacion": "En la primera columna va la temperatura, que es lo que cambias. El tiempo de disolución es lo que mides."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Tabla: Abono (g) 0, 10, 20, 30; Altura (cm) 8, 11, 14, ?. Cada 10 g de abono suma el mismo aumento. ¿Qué altura va en el signo de pregunta?",
+        "respuesta": 17,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuánto sube la altura de una fila a otra.",
+          "De 8 a 11 y de 11 a 14 sube 3 cm.",
+          "Suma 3 al último valor."
+        ],
+        "retroalimentacion": "Quien repite 14 no nota el patrón. Cada fila suma 3 cm, entonces 14 + 3 = 17 cm."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "cyt.p6.proporcionalidad-en-datos",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 6,
+    "competenciaCneb": 20,
+    "capacidad": "Genera y registra datos e información",
+    "desempenosOrigen": [
+      "CYT-C20-P6-03"
+    ],
+    "bloque": "Datos y cálculos",
+    "nombre": "Proporcionalidad directa en datos experimentales",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Reconoce cuándo una variable aumenta en la misma proporción que otra.",
+    "palabrasClave": [
+      "proporcionalidad",
+      "razón",
+      "tabla",
+      "variable",
+      "cociente"
+    ],
+    "prerrequisitos": [
+      "cyt.p6.tabla-doble-entrada"
+    ],
+    "ordenSugerido": 56,
+    "ideaCentral": "Dos variables son directamente proporcionales cuando, si una se duplica, la otra también, y su cociente sale igual en todas las filas. Comprobarlo en la tabla te permite predecir.",
+    "pasos": [
+      "Mira la tabla y ubica las dos variables.",
+      "Divide cada valor de la segunda columna entre el de la primera.",
+      "Si el cociente es igual en todas las filas, hay proporcionalidad directa.",
+      "Comprueba con otra idea: si una variable se duplica, la otra también.",
+      "Usa el cociente para predecir un dato nuevo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un resorte se estira 3 cm por cada 100 g: con 100 g, 3 cm; con 200 g, 6 cm; con 300 g, 9 cm.",
+        "desarrollo": "3 ÷ 1 = 3, 6 ÷ 2 = 3 y 9 ÷ 3 = 3 (en cientos de gramos).",
+        "respuesta": "El cociente es 3 en todas las filas: es proporcional."
+      },
+      {
+        "situacion": "Un frijol con 1 vaso de agua crece 2 cm; con 2 vasos, 5 cm; con 3 vasos, 6 cm.",
+        "desarrollo": "2 ÷ 1 = 2, 5 ÷ 2 = 2,5 y 6 ÷ 3 = 2.",
+        "respuesta": "El cociente cambia: no es proporcional."
+      },
+      {
+        "situacion": "En el mercado de Surquillo, 1 kg de papas cuesta S/ 3, 2 kg cuestan S/ 6 y 5 kg cuestan S/ 15.",
+        "desarrollo": "El precio ÷ kilos da 3 en todas las filas.",
+        "respuesta": "Es proporcional: cada kilo cuesta S/ 3."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que si algo aumenta, ya es proporcional.",
+        "correccion": "Debe aumentar en la misma razón: el cociente tiene que ser igual en todas las filas."
+      },
+      {
+        "error": "Sumar el mismo número en vez de multiplicar.",
+        "correccion": "En proporcionalidad directa se multiplica por el mismo factor."
+      },
+      {
+        "error": "Revisar solo una fila.",
+        "correccion": "Comprueba todas las filas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Proporcionalidad directa",
+        "significado": "Relación en que si una variable se multiplica por un número, la otra se multiplica por el mismo."
+      },
+      {
+        "termino": "Cociente",
+        "significado": "Resultado de dividir un valor entre otro."
+      },
+      {
+        "termino": "Constante",
+        "significado": "Valor que no cambia; aquí, el cociente igual en todas las filas."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una variable se duplica y la otra también, puede haber proporcionalidad directa.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en lo que pasa con 1 kg y 2 kg de papas.",
+          "Si el precio de 1 kg es S/ 3, ¿cuánto cuestan 2 kg?",
+          "Ambas variables se multiplican por el mismo número."
+        ],
+        "retroalimentacion": "Es verdadero: duplicar las dos es señal de proporcionalidad directa."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En el mercado, 1 kg de papas cuesta S/ 3. ¿Cuántos soles cuestan 4 kg si el precio es proporcional?",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada kilo cuesta lo mismo.",
+          "Multiplica el precio de 1 kg por la cantidad de kilos.",
+          "Haz 4 × 3."
+        ],
+        "retroalimentacion": "Si sumas 3 + 4 te equivocas: debes multiplicar. 4 × 3 = 12, son S/ 12."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si 1 equivale a 2, ¿qué par es proporcional con esa relación?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 y 4"
+          },
+          {
+            "id": "b",
+            "texto": "2 y 3"
+          },
+          {
+            "id": "c",
+            "texto": "2 y 4"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La relación es que el segundo valor es el doble del primero.",
+          "Busca el par cuyo segundo número sea el doble.",
+          "El doble de 2 es 4."
+        ],
+        "retroalimentacion": "El par 2 y 4 conserva el doble. 3 y 4 o 2 y 3 no mantienen la razón."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un tren recorre 2 km en 1 minuto y 4 km en 2 minutos, siempre a la misma velocidad. ¿Cuántos kilómetros recorre en 3 minutos?",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cuánto recorre por cada minuto.",
+          "Cada minuto avanza 2 km.",
+          "Multiplica 3 por 2."
+        ],
+        "retroalimentacion": "Cada minuto son 2 km, entonces en 3 minutos recorre 3 × 2 = 6 km. Responder 5 sería sumar 1 por minuto."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tabla: Tiempo (s) 1, 2, 3; Distancia (cm) 5, 10, 15. ¿Cuál es el cociente constante?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5"
+          },
+          {
+            "id": "b",
+            "texto": "10"
+          },
+          {
+            "id": "c",
+            "texto": "15"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide la distancia entre el tiempo en la primera fila.",
+          "En 1 s recorre 5 cm.",
+          "En 3 s recorre 15 cm; 15 ÷ 3 es el mismo número."
+        ],
+        "retroalimentacion": "El cociente es 5 cm por segundo (5 ÷ 1, 10 ÷ 2, 15 ÷ 3). Los valores 10 y 15 son distancias, no el cociente."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los datos (1, 3), (2, 5) y (3, 7) son directamente proporcionales.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el cociente de cada par.",
+          "3 ÷ 1 = 3, pero 5 ÷ 2 no da lo mismo.",
+          "Los cocientes son distintos: 3; 2,5; y 2,33."
+        ],
+        "retroalimentacion": "Es falso: aunque los números aumentan, los cocientes 3; 2,5 y 2,33 no son iguales."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un resorte se estira 3 cm por cada 100 g. ¿Cuántos centímetros se estira con 500 g?",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántos grupos de 100 g hay en 500 g.",
+          "Son 5 grupos de 100 g.",
+          "Cada grupo estira 3 cm; multiplica 5 × 3."
+        ],
+        "retroalimentacion": "Quien responde 8 suma 3 + 5. Se multiplica: 5 × 3 = 15 cm."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un pasto crece: 2 días, 4 cm; 4 días, 8 cm; 6 días, 15 cm. ¿En qué fila se rompe la proporcionalidad?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 días"
+          },
+          {
+            "id": "b",
+            "texto": "4 días"
+          },
+          {
+            "id": "c",
+            "texto": "6 días"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cm por día en cada fila.",
+          "2 días: 2 cm por día; 4 días: también 2.",
+          "En 6 días, 15 ÷ 6 no da 2."
+        ],
+        "retroalimentacion": "Se rompe en 6 días: con 2 cm por día debería medir 12 cm y mide 15 cm. Las filas de 2 y 4 días sí cumplen."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una tabla proporcional tiene los pares (3, 12) y (x, 20). ¿Cuánto vale x?",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Encuentra el cociente con el primer par.",
+          "12 ÷ 3 = 4: la segunda variable es 4 veces la primera.",
+          "Busca el número que multiplicado por 4 da 20."
+        ],
+        "retroalimentacion": "Quien responde 11 suma la diferencia 20 - 12 = 8 a 3, pero en proporcionalidad se usa el cociente: 12 ÷ 3 = 4 y 20 ÷ 4 = 5."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un alumno midió: 10 g, 5 cm; 20 g, 10 cm; 30 g, 14 cm. ¿Qué puede concluir?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Es totalmente proporcional"
+          },
+          {
+            "id": "b",
+            "texto": "No es del todo proporcional: la tercera prueba se aparta (14 en vez de 15)"
+          },
+          {
+            "id": "c",
+            "texto": "Debe borrar las dos primeras pruebas"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cm por cada 10 g en cada fila.",
+          "Las dos primeras filas dan 5 cm por 10 g.",
+          "La tercera daría 15 cm con la misma razón."
+        ],
+        "retroalimentacion": "Las dos primeras filas son proporcionales, pero la tercera marca 14 cm y debería ser 15 cm. Por eso no es del todo proporcional."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si el cociente entre las dos variables sale distinto en cada fila, la relación no es de proporcionalidad directa.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda qué debe cumplir el cociente.",
+          "En proporcionalidad directa es el mismo siempre.",
+          "Si cambia de fila a fila, no se cumple."
+        ],
+        "retroalimentacion": "Es verdadero: sin cociente constante no hay proporcionalidad directa."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una planta de maíz crece 3 cm cada semana, siempre igual, desde 0 cm. ¿En cuántas semanas llegará a 18 cm?",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada semana suma la misma altura.",
+          "Cuenta cuántos grupos de 3 caben en 18.",
+          "Divide 18 entre 3."
+        ],
+        "retroalimentacion": "Quien responde 15 resta 18 - 3. Se divide: 18 ÷ 3 = 6 semanas."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]
