@@ -48,3 +48,8 @@
 > bueno entonces de esa manera vamos a usarlo, agregalo como regla al proyecto para que no lo perdamos luego, tambien agrega para que se usaria los otros modelos de claude y los otros modelos de codex, y tambien para que usaria los modelos locales; de esa manera antes de realizar una tarea que les asigno primero evaluan que modelos usar y de que manera se podria resolver sin usar tantos creditos
 
 Resultado: norma 5 en `AGENTS.md` y `docs/orquestacion-de-modelos.md` (Fable solo revisión y temas difíciles; Opus/Sonnet/Haiku, Codex Sol/Luna, Antigravity y modelos locales con sus usos; lista de comprobación previa).
+
+## Pruebas de carga con k6
+> […] para poder hacer las pruebas de 100 o mil usuarios a la par me recomiendan K6 , quiero que lo instales y lo dejes configurado para poder usarlo
+
+Resultado: k6 v2.3.0 instalado (binario oficial, checksum verificado) en `~/.local/bin`; `tests/carga/` (humo y escalonada, solo local por defecto), scripts `pnpm k6:humo|k6:100|k6:1000`, `specs/55-pruebas-de-carga.md`. Prueba de humo local: 12 pedidos, 0 % fallas, p95 175 ms.

@@ -30,7 +30,10 @@
     "postinstall": "prisma generate",
     "nudito:validar-banco": "tsx scripts/nudito-validar-banco.ts",
     "curriculum:plan-desde-cursos": "tsx scripts/curriculum/plan-desde-cursos.ts",
-    "curriculum:aprobar-todo": "tsx scripts/curriculum/aprobar-todo.ts"
+    "curriculum:aprobar-todo": "tsx scripts/curriculum/aprobar-todo.ts",
+    "k6:humo": "k6 run tests/carga/humo.js",
+    "k6:100": "k6 run -e USUARIOS=100 tests/carga/escalonada.js",
+    "k6:1000": "k6 run -e USUARIOS=1000 -e DURACION=5m tests/carga/escalonada.js"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1157.0",
