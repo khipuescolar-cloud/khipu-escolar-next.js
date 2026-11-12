@@ -1,0 +1,701 @@
+[
+  {
+    "clave": "cyt.p4.unidades-convencionales-no-convencionales",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 20,
+    "capacidad": "Genera y registra datos e información",
+    "desempenosOrigen": [
+      "CYT-C20-P4-03"
+    ],
+    "bloque": "Medición y registro",
+    "nombre": "Medición con unidades convencionales y no convencionales",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Mide longitudes, tiempos, temperaturas y capacidades con unidades no convencionales y con cm, s, °C y mL.",
+    "palabrasClave": [
+      "unidades de medida",
+      "cm",
+      "segundos",
+      "°C",
+      "mL"
+    ],
+    "prerrequisitos": [
+      "cyt.p4.plan-de-indagacion"
+    ],
+    "ordenSugerido": 56,
+    "ideaCentral": "Medir es comparar con una unidad. Las unidades no convencionales son partes del cuerpo u objetos (palmos, pasos, vasos). Las convencionales son las que usan todos: cm, s, °C y mL.",
+    "pasos": [
+      "Decide qué vas a medir: longitud, tiempo, temperatura o capacidad.",
+      "Elige la unidad y el instrumento: regla (cm), cronómetro (s), termómetro (°C) o jeringa o vaso medidor (mL).",
+      "Mide y anota el número con su unidad.",
+      "Usa unidades convencionales para que todos entiendan la medida."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Rosa mide su cuaderno con palmos: son 3 palmos. Otro niño obtiene 2 palmos. ¿Por qué distinto?",
+        "desarrollo": "Los palmos de cada persona tienen distinto tamaño; es una unidad no convencional.",
+        "respuesta": "Porque el palmo no es una unidad convencional."
+      },
+      {
+        "situacion": "Luis mide la altura de su planta con una regla y obtiene 12 cm. ¿Qué unidad usó?",
+        "desarrollo": "El cm es una unidad convencional de longitud.",
+        "respuesta": "Centímetros (cm)."
+      },
+      {
+        "situacion": "Ana mide 250 mL de agua con un vaso medidor. ¿Qué mide?",
+        "desarrollo": "Los mL miden capacidad, es decir, cuánto líquido cabe.",
+        "respuesta": "La capacidad del agua."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Pensar que el palmo y el paso son iguales para todos.",
+        "correccion": "El tamaño cambia según la persona; por eso se usan cm, m, s, °C y mL."
+      },
+      {
+        "error": "Escribir la medida solo con el número, sin unidad.",
+        "correccion": "Siempre se escribe la unidad: 12 cm, 30 s, 25 °C, 250 mL."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Unidad convencional",
+        "significado": "Unidad que todos usan, como cm, s, °C y mL."
+      },
+      {
+        "termino": "Unidad no convencional",
+        "significado": "Unidad que depende del objeto o de la persona, como el palmo."
+      },
+      {
+        "termino": "Capacidad",
+        "significado": "Cantidad de líquido que cabe en un recipiente."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas es una unidad convencional de longitud?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Centímetro"
+          },
+          {
+            "id": "b",
+            "texto": "Palmo"
+          },
+          {
+            "id": "c",
+            "texto": "Paso"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una unidad convencional es la misma para todos.",
+          "El palmo cambia de persona a persona.",
+          "El centímetro está en las reglas."
+        ],
+        "retroalimentacion": "El centímetro es una unidad convencional. El palmo y el paso cambian de una persona a otra."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El palmo es una unidad convencional.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa si todos tienen la mano del mismo tamaño.",
+          "Las manos varían.",
+          "Convencional es la que usan todos igual."
+        ],
+        "retroalimentacion": "Falso: el palmo es no convencional, porque cambia según la mano de cada persona."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Con qué instrumento se mide la temperatura del agua? Escribe una palabra.",
+        "respuesta": "termómetro",
+        "alternativasAceptadas": [
+          "el termómetro",
+          "termometro",
+          "el termometro",
+          "un termómetro"
+        ],
+        "pistas": [
+          "Se mide en grados Celsius.",
+          "Tiene una escala numérica.",
+          "Su nombre empieza con «termo…»."
+        ],
+        "retroalimentacion": "Se usa el termómetro, que mide temperatura en °C."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué unidad usas para medir cuánta agua cabe en una jarra?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "cm"
+          },
+          {
+            "id": "b",
+            "texto": "s"
+          },
+          {
+            "id": "c",
+            "texto": "mL"
+          },
+          {
+            "id": "d",
+            "texto": "°C"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se mide capacidad.",
+          "No es longitud ni tiempo.",
+          "Se usan mililitros."
+        ],
+        "retroalimentacion": "Se usan mililitros (mL) para medir capacidad. Los cm miden longitud y los s, tiempo."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Rosa mide el largo de su mesa con sus pasos y su hermano con los suyos. Obtienen medidas distintas. ¿Por qué?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Porque el paso no mide lo mismo en cada persona"
+          },
+          {
+            "id": "b",
+            "texto": "Porque la mesa cambió de tamaño"
+          },
+          {
+            "id": "c",
+            "texto": "Porque no sabe contar"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los pasos de cada niño no miden igual.",
+          "El paso es una unidad no convencional.",
+          "Por eso se prefieren los cm o los m."
+        ],
+        "retroalimentacion": "Porque el paso es una unidad no convencional y su tamaño cambia de una persona a otra. Medir con cm o m daría el mismo resultado."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "30 s indica una medida de tiempo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La letra s representa una unidad.",
+          "Se usa en el cronómetro.",
+          "Son segundos."
+        ],
+        "retroalimentacion": "Verdadero: s significa segundos y mide tiempo."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un termómetro marca 25 °C. ¿Qué mide ese instrumento? Escribe una palabra.",
+        "respuesta": "temperatura",
+        "alternativasAceptadas": [
+          "la temperatura"
+        ],
+        "pistas": [
+          "No mide tiempo ni longitud.",
+          "Su unidad es el grado Celsius.",
+          "Indica qué tan caliente o frío está algo."
+        ],
+        "retroalimentacion": "Mide temperatura, en grados Celsius (°C)."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para medir cuánto tarda en hervir el agua en la olla de Luis, ¿qué instrumento conviene?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cronómetro"
+          },
+          {
+            "id": "b",
+            "texto": "Regla"
+          },
+          {
+            "id": "c",
+            "texto": "Balanza"
+          },
+          {
+            "id": "d",
+            "texto": "Vaso medidor"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Debes medir tiempo.",
+          "Se mide en segundos o minutos.",
+          "El reloj o cronómetro lo hace."
+        ],
+        "retroalimentacion": "Conviene el cronómetro, porque se mide tiempo. La regla mide longitud y la balanza, masa."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ana llena tres vasos de 250 mL con agua para su indagación. ¿Cuántos mililitros usó en total?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "500 mL"
+          },
+          {
+            "id": "b",
+            "texto": "750 mL"
+          },
+          {
+            "id": "c",
+            "texto": "1000 mL"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 250 + 250 + 250.",
+          "Dos vasos serían 500 mL.",
+          "Tres vasos son 500 más 250."
+        ],
+        "retroalimentacion": "3 × 250 mL = 750 mL. Usó 750 mL de agua en total."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una planta mide 5 cm al inicio y 9 cm una semana después. ¿Cuántos centímetros creció?",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara el tamaño final con el inicial.",
+          "Resta: 9 − 5.",
+          "Crecer es la diferencia entre las dos medidas."
+        ],
+        "retroalimentacion": "Creció 9 − 5 = 4 cm. Sumar daría 14, pero eso no es lo que creció."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Rosa dice que su cuaderno mide 3 palmos y Luis dice que mide 20 cm. Ninguna de las dos medidas sirve para comunicar el tamaño a otros.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa cuál de las dos medidas es convencional.",
+          "Los cm son iguales para todos.",
+          "Una mano grande y una pequeña darían medidas distintas."
+        ],
+        "retroalimentacion": "Falso: los 20 cm sí sirven, porque son una unidad convencional. Los 3 palmos varían según quien mida."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En su indagación, Pedro registra: «El agua del vaso estaba a 20 °C, tardó 30 s en enfriarse y su capacidad era de 200 mL». ¿Qué magnitudes midió, en ese orden?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Longitud, tiempo y masa"
+          },
+          {
+            "id": "b",
+            "texto": "Tiempo, longitud y capacidad"
+          },
+          {
+            "id": "c",
+            "texto": "Temperatura, tiempo y capacidad"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira cada unidad: °C, s y mL.",
+          "°C es de temperatura.",
+          "s es de tiempo y mL es de capacidad."
+        ],
+        "retroalimentacion": "Midió temperatura (°C), tiempo (s) y capacidad (mL). Las otras listas confunden alguna unidad."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "cyt.p4.graficos-de-barras-datos",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 20,
+    "capacidad": "Genera y registra datos e información",
+    "desempenosOrigen": [
+      "CYT-C20-P4-03"
+    ],
+    "bloque": "Medición y registro",
+    "nombre": "Organizadores de datos: cuadros comparativos y esquemas",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Organiza los datos de su indagación en cuadros comparativos, esquemas o gráficos.",
+    "palabrasClave": [
+      "datos",
+      "cuadro comparativo",
+      "gráfico de barras",
+      "esquema",
+      "registro"
+    ],
+    "prerrequisitos": [
+      "cyt.p4.unidades-convencionales-no-convencionales"
+    ],
+    "ordenSugerido": 86,
+    "ideaCentral": "Después de medir, ordenas los datos en un cuadro, un esquema o un gráfico de barras para compararlos fácilmente. Así encuentras qué es mayor, qué es menor y qué cambió.",
+    "pasos": [
+      "Reúne tus datos con sus unidades.",
+      "Elige cómo ordenarlos: cuadro comparativo, esquema o gráfico de barras.",
+      "Escribe títulos claros para filas, columnas o barras.",
+      "Compara los datos y anota lo que observas."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Rosa midió la altura de dos plantas: A, 6 cm; B, 10 cm. ¿Cómo organiza los datos?",
+        "desarrollo": "Hace un cuadro con una columna para cada planta y otra para la altura.",
+        "respuesta": "Un cuadro comparativo: A, 6 cm; B, 10 cm."
+      },
+      {
+        "situacion": "Luis dibuja barras: la barra de la planta B es más alta que la de A. ¿Qué observa?",
+        "desarrollo": "Una barra más alta indica un valor mayor.",
+        "respuesta": "La planta B creció más."
+      },
+      {
+        "situacion": "Ana quiere mostrar los pasos de su indagación en orden. ¿Qué usa?",
+        "desarrollo": "Un esquema con flechas muestra el orden.",
+        "respuesta": "Un esquema."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Escribir los datos sin título ni unidades.",
+        "correccion": "Cada cuadro o gráfico debe tener título y unidades, como cm o s."
+      },
+      {
+        "error": "Dibujar barras con distinto ancho.",
+        "correccion": "Las barras deben tener el mismo ancho; solo cambia su altura."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Cuadro comparativo",
+        "significado": "Tabla que compara datos de dos o más cosas."
+      },
+      {
+        "termino": "Gráfico de barras",
+        "significado": "Dibujo con barras cuya altura muestra el valor de cada dato."
+      },
+      {
+        "termino": "Esquema",
+        "significado": "Dibujo con palabras y flechas que muestra pasos o relaciones."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué organizador usa barras para comparar datos?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Esquema"
+          },
+          {
+            "id": "b",
+            "texto": "Gráfico de barras"
+          },
+          {
+            "id": "c",
+            "texto": "Cuadro comparativo"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las barras son rectángulos.",
+          "La altura de cada barra muestra el valor.",
+          "Se llama gráfico de …"
+        ],
+        "retroalimentacion": "El gráfico de barras compara datos con rectángulos. El esquema usa flechas y el cuadro comparativo, filas y columnas."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un cuadro comparativo sirve para comparar datos de dos o más cosas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tiene filas y columnas.",
+          "Permite ver las diferencias.",
+          "Se llama «comparativo»."
+        ],
+        "retroalimentacion": "Verdadero: el cuadro comparativo ordena y compara datos de varias cosas."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En un gráfico de barras, la barra más alta muestra el valor... Escribe una palabra.",
+        "respuesta": "mayor",
+        "alternativasAceptadas": [
+          "el mayor",
+          "más grande",
+          "el más grande"
+        ],
+        "pistas": [
+          "Compara las alturas de las barras.",
+          "Más alto significa más.",
+          "Es lo contrario de menor."
+        ],
+        "retroalimentacion": "La barra más alta indica el valor mayor."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para mostrar los pasos de una indagación en orden, ¿qué conviene usar?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un gráfico de barras"
+          },
+          {
+            "id": "b",
+            "texto": "Un cuadro de números"
+          },
+          {
+            "id": "c",
+            "texto": "Un dibujo sin título"
+          },
+          {
+            "id": "d",
+            "texto": "Un esquema con flechas"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los pasos tienen un orden.",
+          "Las flechas unen los pasos.",
+          "Es un esquema."
+        ],
+        "retroalimentacion": "Un esquema con flechas muestra el orden. Un gráfico de barras compara cantidades."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un cuadro muestra: planta A, 4 cm; planta B, 7 cm; planta C, 5 cm. ¿Cuál planta creció más?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Planta A"
+          },
+          {
+            "id": "b",
+            "texto": "Planta C"
+          },
+          {
+            "id": "c",
+            "texto": "Planta B"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los tres números.",
+          "El mayor es el que creció más.",
+          "7 es mayor que 4 y que 5."
+        ],
+        "retroalimentacion": "La planta B creció más, con 7 cm. Las plantas A y C tienen menos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un gráfico de barras, las barras pueden tener distinto ancho según el valor.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira qué cambia en cada barra.",
+          "Lo que cambia es la altura.",
+          "El ancho se mantiene igual."
+        ],
+        "retroalimentacion": "Falso: el ancho de las barras es igual; solo cambia la altura."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un cuadro, la planta A midió 6 cm y la planta B midió 10 cm. ¿Cuántos centímetros más midió la B?",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las dos medidas.",
+          "Resta la menor de la mayor.",
+          "10 − 6."
+        ],
+        "retroalimentacion": "La B midió 10 − 6 = 4 cm más que la A."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué debe llevar siempre un cuadro de datos para que se entienda?",
+        "respuesta": "d",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un dibujo de adorno"
+          },
+          {
+            "id": "b",
+            "texto": "Solo números"
+          },
+          {
+            "id": "c",
+            "texto": "Colores brillantes"
+          },
+          {
+            "id": "d",
+            "texto": "Título y unidades"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en lo que necesita el lector.",
+          "Debe saber qué se midió.",
+          "Título y unidades."
+        ],
+        "retroalimentacion": "Debe llevar título y unidades (cm, s, °C, mL). Un adorno no ayuda a entender los datos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Luis midió cuánto tardó en derretirse un hielo: al sol, 12 min; a la sombra, 30 min. ¿Qué cuadro comparativo ordena mejor estos datos?",
+        "respuesta": "c",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una lista de números sin nombres"
+          },
+          {
+            "id": "b",
+            "texto": "Un dibujo de hielo"
+          },
+          {
+            "id": "c",
+            "texto": "Un cuadro con «Lugar» y «Tiempo (min)»: sol, 12; sombra, 30"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada lugar tiene un tiempo.",
+          "Debe tener título y unidades.",
+          "Un cuadro con «Lugar» y «Tiempo (min)»."
+        ],
+        "retroalimentacion": "El cuadro con «Lugar» y «Tiempo (min)» ordena bien los datos con su unidad. Los otros no muestran los tiempos con unidades."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Con los datos sol, 12 min, y sombra, 30 min, la barra de la sombra debe ser más alta que la del sol.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 12 con 30.",
+          "La barra más alta corresponde al valor mayor.",
+          "30 es mayor que 12."
+        ],
+        "retroalimentacion": "Verdadero: 30 min es mayor que 12 min, así que la barra de la sombra es más alta."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un gráfico de barras, la planta con luz midió 12 cm, la que estaba a media sombra, 9 cm y la que estaba a oscuras, 5 cm. ¿Cuántos centímetros más midió la planta con luz que la de oscuridad?",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara solo las plantas con luz y a oscuras.",
+          "Quita a la mayor medida la menor.",
+          "12 − 5."
+        ],
+        "retroalimentacion": "La planta con luz midió 12 − 5 = 7 cm más que la planta a oscuras. El dato de 9 cm no se usa."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Carmen midió la temperatura del agua en tres ollas: 20 °C, 40 °C y 60 °C. Quiere un gráfico de barras. ¿Qué barra será más baja?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La de 60 °C"
+          },
+          {
+            "id": "b",
+            "texto": "La de 20 °C"
+          },
+          {
+            "id": "c",
+            "texto": "La de 40 °C"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los tres valores.",
+          "La barra más baja corresponde al valor menor.",
+          "El menor es 20 °C."
+        ],
+        "retroalimentacion": "La barra de 20 °C será la más baja, porque es el valor menor. La de 60 °C será la más alta."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

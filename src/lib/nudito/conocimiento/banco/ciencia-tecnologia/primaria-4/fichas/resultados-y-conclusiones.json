@@ -1,0 +1,666 @@
+[
+  {
+    "clave": "cyt.p4.comparar-con-explicacion",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 20,
+    "capacidad": "Analiza datos e información",
+    "desempenosOrigen": [
+      "CYT-C20-P4-04"
+    ],
+    "bloque": "Resultados y conclusiones",
+    "nombre": "Comparar los datos con la explicación inicial",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Decide si sus datos apoyan o no su respuesta provisional y la contrasta con información científica.",
+    "palabrasClave": [
+      "datos",
+      "hipótesis",
+      "respuesta provisional",
+      "comparar",
+      "información científica"
+    ],
+    "prerrequisitos": [
+      "cyt.p4.graficos-de-barras-datos"
+    ],
+    "ordenSugerido": 87,
+    "ideaCentral": "Antes de experimentar propones una respuesta provisional (hipótesis). Después comparas tus datos con ella: si los datos la apoyan, la mantienes; si no, la cambias, y luego la contrastas con información científica.",
+    "pasos": [
+      "Recuerda tu respuesta provisional (la hipótesis).",
+      "Lee tus datos con atención.",
+      "Compara: ¿los datos dicen lo que esperabas?",
+      "Decide si la apoyan o no, y contrasta con información confiable."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Luis cree que el frijol crece más en luz que en oscuridad. Midió 12 cm en luz y 4 cm en oscuridad. ¿Sus datos apoyan?",
+        "desarrollo": "Los datos muestran más crecimiento en luz.",
+        "respuesta": "Sí, apoyan su hipótesis."
+      },
+      {
+        "situacion": "Ana cree que el hielo se derrite más rápido en la sombra. En el sol tardó 10 minutos y en la sombra 25. ¿Apoya?",
+        "desarrollo": "En la sombra tardó más, no menos.",
+        "respuesta": "No, no apoyan su hipótesis."
+      },
+      {
+        "situacion": "Una niña de Puno compara su resultado con un libro de ciencias y coincide. ¿Qué gana su conclusión?",
+        "desarrollo": "La información científica refuerza lo hallado.",
+        "respuesta": "Más confianza."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Cambiar los datos para que coincidan con la hipótesis.",
+        "correccion": "Si los datos no apoyan, se cambia la hipótesis, no los datos."
+      },
+      {
+        "error": "Creer que una hipótesis rechazada es un fracaso.",
+        "correccion": "Rechazarla también enseña algo y ayuda a mejorar la explicación."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Hipótesis",
+        "significado": "Respuesta provisional que se pone a prueba."
+      },
+      {
+        "termino": "Datos",
+        "significado": "Mediciones y observaciones registradas."
+      },
+      {
+        "termino": "Contrastar",
+        "significado": "Comparar tus resultados con otra información."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una hipótesis es una respuesta provisional que se pone a prueba.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en lo que respondes antes de experimentar.",
+          "Puede confirmarse o no.",
+          "Se prueba con datos."
+        ],
+        "retroalimentacion": "Es verdadero: la hipótesis es una respuesta que se prueba con datos."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Luis cree que el frijol crece más en luz. Midió 12 cm en luz y 4 cm en oscuridad. ¿Sus datos apoyan su idea?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sí"
+          },
+          {
+            "id": "b",
+            "texto": "No"
+          },
+          {
+            "id": "c",
+            "texto": "No se puede saber"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los 12 cm con los 4 cm.",
+          "Más crecimiento en luz era lo esperado.",
+          "Los datos coinciden."
+        ],
+        "retroalimentacion": "Sí, apoyan su idea: el frijol en luz creció más."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "A lo que registras al medir u observar durante un experimento lo llamas…",
+        "respuesta": "datos",
+        "alternativasAceptadas": [
+          "los datos",
+          "dato"
+        ],
+        "pistas": [
+          "Son números o anotaciones.",
+          "Los pones en una tabla.",
+          "Empieza con «d»."
+        ],
+        "retroalimentacion": "Esos registros son los datos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si tus datos no apoyan tu hipótesis, debes cambiar los datos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los datos son lo que mediste.",
+          "No se manipulan.",
+          "Lo que cambias es la hipótesis."
+        ],
+        "retroalimentacion": "Es falso: se cambia la hipótesis, no los datos."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Ana piensa que el hielo se derrite más rápido a la sombra. Sol: 10 min; sombra: 25 min. ¿Qué concluye?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sus datos apoyan su hipótesis"
+          },
+          {
+            "id": "b",
+            "texto": "Sus datos no apoyan su hipótesis"
+          },
+          {
+            "id": "c",
+            "texto": "El experimento no sirve"
+          },
+          {
+            "id": "d",
+            "texto": "Debe repetirlo con otro dato"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los tiempos.",
+          "En el sol tardó menos.",
+          "Esperaba lo contrario."
+        ],
+        "retroalimentacion": "Sus datos no apoyan su hipótesis: el hielo se derritió más rápido en el sol, no en la sombra."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un libro de ciencias coincide con tus resultados. Esa información extra se llama información…",
+        "respuesta": "científica",
+        "alternativasAceptadas": [
+          "cientifica",
+          "científica confiable"
+        ],
+        "pistas": [
+          "Viene de científicos y libros especializados.",
+          "Sirve para contrastar tus resultados.",
+          "Empieza con «c»."
+        ],
+        "retroalimentacion": "Es información científica: ayuda a contrastar tus resultados."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una hipótesis rechazada por los datos igualmente aporta algo útil.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa qué aprendes cuando no sale lo esperado.",
+          "Descartas una idea.",
+          "Puedes proponer otra."
+        ],
+        "retroalimentacion": "Es verdadero: descartar una idea también ayuda a aprender."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tres plantas con luz crecieron 6 cm, 8 cm y 10 cm. Las plantas en oscuridad crecieron, en promedio, 2 cm. ¿Cuántos cm más creció, en promedio, una planta con luz?",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero halla el promedio con luz: suma los tres y divide entre 3.",
+          "Ese promedio da 8 cm.",
+          "Réstale los 2 cm de la oscuridad."
+        ],
+        "retroalimentacion": "Creció 6 cm más en promedio. Comparar un solo dato daría un resultado menos confiable."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Sofía obtuvo datos que no apoyan su hipótesis. ¿Qué debe hacer?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cambiar los datos"
+          },
+          {
+            "id": "b",
+            "texto": "Revisar su hipótesis y proponer otra explicación"
+          },
+          {
+            "id": "c",
+            "texto": "Esconder el resultado"
+          },
+          {
+            "id": "d",
+            "texto": "Terminar el trabajo sin conclusión"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los datos no se cambian.",
+          "Piensa en mejorar la explicación.",
+          "Se ajusta la hipótesis."
+        ],
+        "retroalimentacion": "Debe revisar su hipótesis y proponer otra. Cambiar o esconder datos no es honesto."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un grupo midió el crecimiento de lentejas en tres lugares: en luz 9 cm, en sombra 5 cm y en oscuridad 2 cm. Su hipótesis: «Con más luz crecen más». ¿Qué pueden decir?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Los datos apoyan su hipótesis"
+          },
+          {
+            "id": "b",
+            "texto": "Los datos no tienen relación"
+          },
+          {
+            "id": "c",
+            "texto": "Su hipótesis es falsa"
+          },
+          {
+            "id": "d",
+            "texto": "Solo la oscuridad importa"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ordena los datos de más a menos luz.",
+          "A más luz, más crecimiento.",
+          "Coincide con lo esperado."
+        ],
+        "retroalimentacion": "Los datos apoyan la hipótesis: al aumentar la luz aumentó el crecimiento."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para decidir si una hipótesis es correcta basta una sola medición.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una medición puede tener errores.",
+          "Se repite para confirmar.",
+          "Varias mediciones dan más confianza."
+        ],
+        "retroalimentacion": "Es falso: se necesitan varias mediciones para confiar en el resultado."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Tras medir que el jabón limpia más que el agua sola, Daniel busca en un libro por qué. ¿Qué acción hace al buscar información externa? Escribe una palabra.",
+        "respuesta": "contrastar",
+        "alternativasAceptadas": [
+          "contrastar los datos",
+          "contrasta",
+          "comparar"
+        ],
+        "pistas": [
+          "Compara su resultado con otras fuentes.",
+          "Busca confirmar o corregir.",
+          "Empieza con «con»."
+        ],
+        "retroalimentacion": "Esa acción es contrastar: comparar sus datos con información científica."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "cyt.p4.redactar-conclusiones",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 20,
+    "capacidad": "Analiza datos e información",
+    "desempenosOrigen": [
+      "CYT-C20-P4-04"
+    ],
+    "bloque": "Resultados y conclusiones",
+    "nombre": "Redacción de conclusiones",
+    "disciplina": "indagacion",
+    "descripcionCorta": "Escribe una conclusión breve que responde la pregunta con base en los datos.",
+    "palabrasClave": [
+      "conclusión",
+      "pregunta",
+      "datos",
+      "respuesta",
+      "evidencia"
+    ],
+    "prerrequisitos": [
+      "cyt.p4.comparar-con-explicacion"
+    ],
+    "ordenSugerido": 88,
+    "ideaCentral": "Una conclusión responde la pregunta de la indagación con base en los datos. Es breve, usa números o hechos que lo prueban y dice si apoya la hipótesis.",
+    "pasos": [
+      "Lee la pregunta de la indagación.",
+      "Revisa tus datos y elige los más importantes.",
+      "Escribe la respuesta usando esos datos como evidencia.",
+      "Indica si tu hipótesis se apoya o no."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Pregunta: ¿el frijol crece más con luz? Datos: luz 12 cm y oscuridad 4 cm. ¿Cómo concluyes?",
+        "desarrollo": "Responde y cita los datos.",
+        "respuesta": "Con luz el frijol creció 12 cm, más que en oscuridad (4 cm); se apoya la hipótesis."
+      },
+      {
+        "situacion": "Datos: el hielo al sol tardó 10 min y en sombra 25 min. Pregunta: ¿dónde se derrite más rápido?",
+        "desarrollo": "Compara los tiempos.",
+        "respuesta": "Se derrite más rápido al sol (10 min) que en la sombra (25 min)."
+      },
+      {
+        "situacion": "Un estudiante escribe «me gustó el experimento». ¿Es una conclusión?",
+        "desarrollo": "No responde la pregunta ni usa datos.",
+        "respuesta": "No, no es una conclusión."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Escribir una opinión en lugar de una respuesta con datos.",
+        "correccion": "La conclusión responde la pregunta con datos, no con gustos."
+      },
+      {
+        "error": "Inventar datos que no se midieron.",
+        "correccion": "Solo se usan datos medidos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Conclusión",
+        "significado": "Respuesta a la pregunta con base en los datos."
+      },
+      {
+        "termino": "Evidencia",
+        "significado": "Datos u observaciones que sustentan la respuesta."
+      },
+      {
+        "termino": "Hipótesis",
+        "significado": "Respuesta provisional que se compara con los datos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una conclusión debe responder la pregunta de la indagación.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa para qué sirve la conclusión.",
+          "Debe contestar lo que preguntaste.",
+          "Responde la pregunta."
+        ],
+        "retroalimentacion": "Es verdadero: la conclusión responde la pregunta inicial."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué debe incluir una buena conclusión?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo una opinión"
+          },
+          {
+            "id": "b",
+            "texto": "Datos que respaldan la respuesta"
+          },
+          {
+            "id": "c",
+            "texto": "Un chiste"
+          },
+          {
+            "id": "d",
+            "texto": "Nada de números"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La conclusión se basa en evidencia.",
+          "La evidencia son los datos.",
+          "Debe citar datos."
+        ],
+        "retroalimentacion": "Debe incluir datos que respaldan la respuesta; una opinión o un chiste no son evidencia."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "A los datos u observaciones que sustentan una respuesta se les llama…",
+        "respuesta": "evidencia",
+        "alternativasAceptadas": [
+          "la evidencia",
+          "evidencias"
+        ],
+        "pistas": [
+          "Son la prueba de lo que dices.",
+          "Empieza con «e».",
+          "Respaldan tu respuesta."
+        ],
+        "retroalimentacion": "Se llaman evidencia."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una conclusión puede usar datos inventados si suena bien.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los datos deben ser reales.",
+          "Inventar no es honesto.",
+          "Se usan solo datos medidos."
+        ],
+        "retroalimentacion": "Es falso: una conclusión usa solo datos medidos."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Pregunta: ¿qué planta crece más? Datos: A 10 cm, B 14 cm. ¿Cuál es la mejor conclusión?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La planta B creció más (14 cm) que la A (10 cm)"
+          },
+          {
+            "id": "b",
+            "texto": "Me gusta la planta A"
+          },
+          {
+            "id": "c",
+            "texto": "No sé"
+          },
+          {
+            "id": "d",
+            "texto": "Las dos son iguales"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 10 y 14.",
+          "Cita los datos.",
+          "B tuvo mayor crecimiento."
+        ],
+        "retroalimentacion": "La mejor conclusión cita los datos: B creció más. Una opinión no responde la pregunta."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Si los datos coinciden con lo que esperabas, tu hipótesis se… Escribe una palabra.",
+        "respuesta": "apoya",
+        "alternativasAceptadas": [
+          "se apoya",
+          "confirma",
+          "cumple"
+        ],
+        "pistas": [
+          "Piensa en lo que ocurre cuando coinciden.",
+          "Los datos van a favor.",
+          "Empieza con «a»."
+        ],
+        "retroalimentacion": "La hipótesis se apoya cuando los datos coinciden con ella."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una conclusión puede ser breve, de una o dos oraciones.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No necesita ser larga.",
+          "Debe ser clara.",
+          "Una o dos oraciones bastan."
+        ],
+        "retroalimentacion": "Es verdadero: lo importante es que responda con datos."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un grupo midió 5 cm, 7 cm y 9 cm de crecimiento con luz. ¿Cuál es el promedio que citarán en su conclusión?",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los tres datos: 21.",
+          "Divide entre 3.",
+          "21 ÷ 3."
+        ],
+        "retroalimentacion": "El promedio es 7 cm. Citar solo un dato no resume todo."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas frases es una conclusión?",
+        "respuesta": "b",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Mañana haré otro experimento"
+          },
+          {
+            "id": "b",
+            "texto": "Con luz las plantas crecieron más (12 cm) que sin luz (4 cm)"
+          },
+          {
+            "id": "c",
+            "texto": "El experimento fue divertido"
+          },
+          {
+            "id": "d",
+            "texto": "Las plantas son verdes"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la que responde con datos.",
+          "Compara luz y sin luz.",
+          "Tiene números."
+        ],
+        "retroalimentacion": "La frase con luz y sin luz cita datos y responde. Las otras no responden una pregunta."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Pregunta: ¿el azúcar se disuelve más rápido en agua caliente? Datos: caliente 30 s, fría 90 s. ¿Qué conclusión es correcta?",
+        "respuesta": "a",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El azúcar se disolvió más rápido en agua caliente (30 s) que en fría (90 s)"
+          },
+          {
+            "id": "b",
+            "texto": "El agua fría disuelve más rápido"
+          },
+          {
+            "id": "c",
+            "texto": "No hay diferencia"
+          },
+          {
+            "id": "d",
+            "texto": "El azúcar no se disuelve"
+          }
+        ],
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 30 y 90 segundos.",
+          "Menos tiempo significa más rápido.",
+          "El agua caliente tardó menos."
+        ],
+        "retroalimentacion": "Se disolvió más rápido en agua caliente. Decir que no hay diferencia ignora los datos."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si los datos no apoyan la hipótesis, la conclusión debe decirlo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La conclusión es honesta.",
+          "Se reporta lo observado.",
+          "Se dice que no se apoya."
+        ],
+        "retroalimentacion": "Es verdadero: una conclusión honesta dice si la hipótesis se apoya o no."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un niño midió 6 cm de crecimiento en luz y 2 cm en oscuridad. ¿Cuántos cm más creció con luz? Escribe el número.",
+        "respuesta": "4",
+        "alternativasAceptadas": [
+          "4 cm",
+          "cuatro"
+        ],
+        "pistas": [
+          "Resta los dos datos.",
+          "6 menos 2.",
+          "Es la diferencia."
+        ],
+        "retroalimentacion": "Creció 4 cm más con luz; incluir esa diferencia fortalece su conclusión."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

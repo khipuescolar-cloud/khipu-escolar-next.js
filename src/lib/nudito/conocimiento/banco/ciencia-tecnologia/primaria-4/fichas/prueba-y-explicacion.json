@@ -1,0 +1,658 @@
+[
+  {
+    "clave": "cyt.p4.prueba-de-funcionamiento",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 22,
+    "capacidad": "Evalúa y comunica el funcionamiento y los impactos de su alternativa de solución tecnológica",
+    "desempenosOrigen": [
+      "CYT-C22-P4-04"
+    ],
+    "bloque": "Prueba y explicación",
+    "nombre": "Prueba de funcionamiento del prototipo",
+    "disciplina": "tecnologia",
+    "descripcionCorta": "Comprueba si la solución cumple los requerimientos y anota lo que falla.",
+    "palabrasClave": [
+      "prueba",
+      "prototipo",
+      "requerimientos",
+      "falla",
+      "mejora"
+    ],
+    "prerrequisitos": [
+      "cyt.p4.filtro-de-agua-casero"
+    ],
+    "ordenSugerido": 112,
+    "ideaCentral": "Probar tu prototipo es usarlo y comparar lo que pasa con los requerimientos. Anotas lo que cumple y lo que falla para poder mejorarlo.",
+    "pasos": [
+      "Repasa los requerimientos que escribiste.",
+      "Usa el prototipo y mide lo que ocurre.",
+      "Compara el resultado con cada requerimiento.",
+      "Anota lo que falla y piensa una mejora."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Ana hizo un filtro que debía limpiar 1 litro en menos de 10 minutos. Tardó 8. ¿Cumple?",
+        "desarrollo": "8 es menor que 10.",
+        "respuesta": "Sí, cumple."
+      },
+      {
+        "situacion": "Pedro probó un portalápices que debía medir 10 cm y mide 12. ¿Qué anota?",
+        "desarrollo": "Mide 2 cm más de lo permitido.",
+        "respuesta": "No cumple la altura; debe recortarlo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir que funciona sin medir.",
+        "correccion": "Compara con los números de los requerimientos."
+      },
+      {
+        "error": "No anotar lo que falló.",
+        "correccion": "Sin anotar no puedes mejorar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Prototipo",
+        "significado": "Primer modelo de la solución para probar."
+      },
+      {
+        "termino": "Prueba",
+        "significado": "Usar el prototipo para ver si funciona."
+      },
+      {
+        "termino": "Falla",
+        "significado": "Lo que no sale como se esperaba."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Probar el prototipo sirve para ver si cumple los requerimientos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa para qué se prueba.",
+          "Para comprobar.",
+          "Compara con lo pedido."
+        ],
+        "retroalimentacion": "Es verdadero.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "El requerimiento es 10 minutos o menos y el filtro tardó 7. ¿Cumple?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sí"
+          },
+          {
+            "id": "b",
+            "texto": "No"
+          }
+        ],
+        "pistas": [
+          "Compara 7 con 10.",
+          "7 es menor.",
+          "Entonces cumple."
+        ],
+        "retroalimentacion": "Sí: 7 es menor que 10.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "El primer modelo de la solución que se prueba se llama... Una palabra.",
+        "respuesta": "prototipo",
+        "alternativasAceptadas": [
+          "el prototipo"
+        ],
+        "pistas": [
+          "Es el primer modelo.",
+          "Se usa para probar.",
+          "Empieza con «pro»."
+        ],
+        "retroalimentacion": "Se llama prototipo.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué haces con lo que falló en la prueba?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Lo escondes"
+          },
+          {
+            "id": "b",
+            "texto": "Lo anotas"
+          },
+          {
+            "id": "c",
+            "texto": "Lo olvidas"
+          }
+        ],
+        "pistas": [
+          "Sirve para mejorar.",
+          "Mejor registrarlo.",
+          "Escribirlo."
+        ],
+        "retroalimentacion": "Lo anotas para mejorar; esconderlo u olvidarlo no ayuda.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El requerimiento es que pese menos de 500 g y el prototipo pesa 450 g. ¿Qué concluyes?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "No cumple"
+          },
+          {
+            "id": "b",
+            "texto": "No se puede saber"
+          },
+          {
+            "id": "c",
+            "texto": "Cumple"
+          }
+        ],
+        "pistas": [
+          "Compara 450 con 500.",
+          "Es menor.",
+          "Cumple."
+        ],
+        "retroalimentacion": "Cumple: 450 g es menor que 500 g.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El prototipo debía costar menos de 5 soles y costó 6. ¿Cumple? Escribe «sí» o «no».",
+        "respuesta": "no",
+        "alternativasAceptadas": [
+          "no cumple"
+        ],
+        "pistas": [
+          "6 es mayor que 5.",
+          "Compara los números.",
+          "No alcanza."
+        ],
+        "retroalimentacion": "No cumple: 6 soles es más que 5.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si el prototipo falla en una prueba, la idea no sirve y debes abandonarla.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en mejorar.",
+          "Las fallas enseñan.",
+          "Se corrige."
+        ],
+        "retroalimentacion": "Es falso: se corrige y se prueba otra vez.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Después de mejorar, conviene volver a probar.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se verifica el cambio.",
+          "Para ver si mejoró.",
+          "Sí."
+        ],
+        "retroalimentacion": "Es verdadero.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un filtro debía dejar el agua sin barro. En la prueba salió algo turbia. ¿Qué haces?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Decir que está perfecto"
+          },
+          {
+            "id": "b",
+            "texto": "Beber el agua"
+          },
+          {
+            "id": "c",
+            "texto": "Romper el filtro"
+          },
+          {
+            "id": "d",
+            "texto": "Anotar que no cumple y cambiar el material filtrante"
+          }
+        ],
+        "pistas": [
+          "Compara con lo esperado.",
+          "No cumple.",
+          "Mejora."
+        ],
+        "retroalimentacion": "Debes anotar la falla y cambiar el material; decir perfecto o beberla es incorrecto.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un puente de papel debía soportar 5 libros y soportó 3. ¿Cuántos libros le faltaron? Escribe el número.",
+        "respuesta": "2",
+        "alternativasAceptadas": [
+          "dos"
+        ],
+        "pistas": [
+          "Resta 5 menos 3.",
+          "Es una resta simple.",
+          "Quedan 2."
+        ],
+        "retroalimentacion": "Faltaron 2 libros: 5 - 3 = 2.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un prototipo cumple 3 de 4 requerimientos, ya cumple todo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los que cumple.",
+          "Falta uno.",
+          "No cumple todo."
+        ],
+        "retroalimentacion": "Es falso: falta cumplir uno.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tabla muestra: tamaño sí cumple, costo sí cumple, tiempo no cumple. ¿Qué debes mejorar?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El tiempo"
+          },
+          {
+            "id": "b",
+            "texto": "El tamaño"
+          },
+          {
+            "id": "c",
+            "texto": "El costo"
+          },
+          {
+            "id": "d",
+            "texto": "Nada"
+          }
+        ],
+        "pistas": [
+          "Busca el «no cumple».",
+          "Es el tiempo.",
+          "Mejora ese."
+        ],
+        "retroalimentacion": "Debes mejorar el tiempo; tamaño y costo ya cumplen.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "cyt.p4.explicar-la-solucion",
+    "area": "ciencia-tecnologia",
+    "nivel": "primaria",
+    "grado": 4,
+    "competenciaCneb": 22,
+    "capacidad": "Evalúa y comunica el funcionamiento y los impactos de su alternativa de solución tecnológica",
+    "desempenosOrigen": [
+      "CYT-C22-P4-04"
+    ],
+    "bloque": "Prueba y explicación",
+    "nombre": "Explicar cómo funciona la solución",
+    "disciplina": "tecnologia",
+    "descripcionCorta": "Explica cómo la construyó, qué conocimiento aplicó y sus beneficios e inconvenientes.",
+    "palabrasClave": [
+      "explicar",
+      "beneficios",
+      "inconvenientes",
+      "conocimiento",
+      "construcción"
+    ],
+    "prerrequisitos": [
+      "cyt.p4.prueba-de-funcionamiento"
+    ],
+    "ordenSugerido": 113,
+    "ideaCentral": "Explicar tu solución es contar cómo la construiste, qué conocimiento usaste, qué beneficios tiene y qué inconvenientes encontraste.",
+    "pasos": [
+      "Cuenta los pasos con que la construiste.",
+      "Di qué conocimiento aplicaste, como que la arena filtra.",
+      "Menciona los beneficios.",
+      "Cuenta los inconvenientes y cómo los resolverías."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Ana construyó un filtro con arena y carbón. ¿Qué conocimiento aplicó?",
+        "desarrollo": "Sabe que la arena y el carbón detienen la suciedad.",
+        "respuesta": "Que la arena y el carbón filtran."
+      },
+      {
+        "situacion": "Pedro dice que su portalápices es barato pero se moja. ¿Cuál es un beneficio y cuál un inconveniente?",
+        "desarrollo": "Barato es bueno; mojarse es un problema.",
+        "respuesta": "Beneficio: barato; inconveniente: se moja."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar solo lo bueno de la solución.",
+        "correccion": "Cuenta también los inconvenientes."
+      },
+      {
+        "error": "No explicar los pasos.",
+        "correccion": "Di cómo la construiste."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Beneficio",
+        "significado": "Ventaja que da una solución."
+      },
+      {
+        "termino": "Inconveniente",
+        "significado": "Dificultad o desventaja."
+      },
+      {
+        "termino": "Conocimiento",
+        "significado": "Idea que usas para construir."
+      }
+    ],
+    "ejercicios": [
+      {
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al explicar tu solución puedes contar cómo la construiste.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en tus pasos.",
+          "Es parte de la explicación.",
+          "Sí."
+        ],
+        "retroalimentacion": "Es verdadero.",
+        "id": "e01"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un beneficio es:",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una ventaja"
+          },
+          {
+            "id": "b",
+            "texto": "Un error"
+          },
+          {
+            "id": "c",
+            "texto": "Un material roto"
+          }
+        ],
+        "pistas": [
+          "Piensa en algo bueno.",
+          "Es una ventaja.",
+          "Ayuda."
+        ],
+        "retroalimentacion": "Un beneficio es una ventaja; error y material roto no lo son.",
+        "id": "e02"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una desventaja de la solución se llama... Escribe una palabra.",
+        "respuesta": "inconveniente",
+        "alternativasAceptadas": [
+          "inconvenientes",
+          "el inconveniente"
+        ],
+        "pistas": [
+          "Es lo contrario de beneficio.",
+          "Es un problema.",
+          "Empieza con «inc»."
+        ],
+        "retroalimentacion": "Se llama inconveniente.",
+        "id": "e03"
+      },
+      {
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "El filtro de Ana limpia el agua. ¿Es un beneficio o un inconveniente?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Inconveniente"
+          },
+          {
+            "id": "b",
+            "texto": "Beneficio"
+          }
+        ],
+        "pistas": [
+          "Piensa si ayuda.",
+          "Limpia el agua.",
+          "Es bueno."
+        ],
+        "retroalimentacion": "Es un beneficio.",
+        "id": "e04"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Pedro usó cartón porque no se rompe fácil. ¿Qué explica?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un inconveniente"
+          },
+          {
+            "id": "b",
+            "texto": "Un error de medida"
+          },
+          {
+            "id": "c",
+            "texto": "El conocimiento aplicado"
+          }
+        ],
+        "pistas": [
+          "Dio una razón.",
+          "Sabe del material.",
+          "Conocimiento."
+        ],
+        "retroalimentacion": "Explica el conocimiento sobre el material.",
+        "id": "e05"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "La botella del filtro es de plástico transparente y se ensucia rápido. ¿Es beneficio o inconveniente? Una palabra.",
+        "respuesta": "inconveniente",
+        "alternativasAceptadas": [
+          "es un inconveniente"
+        ],
+        "pistas": [
+          "Se ensucia rápido.",
+          "Eso molesta.",
+          "Es una desventaja."
+        ],
+        "retroalimentacion": "Es un inconveniente.",
+        "id": "e06"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al explicar tu solución debes mencionar solo los beneficios.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la idea.",
+          "Se cuentan ambos.",
+          "Incluye inconvenientes."
+        ],
+        "retroalimentacion": "Es falso: cuenta también los inconvenientes.",
+        "id": "e07"
+      },
+      {
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Decir qué conocimiento aplicaste forma parte de la explicación.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Es una razón.",
+          "Explica por qué funciona.",
+          "Cuenta tus decisiones de armado."
+        ],
+        "retroalimentacion": "Es verdadero.",
+        "id": "e08"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Rosa explica: «Puse arena porque detiene las partículas, pero el agua tarda 15 minutos». ¿Qué parte es un inconveniente?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Puse arena"
+          },
+          {
+            "id": "b",
+            "texto": "Detiene partículas"
+          },
+          {
+            "id": "c",
+            "texto": "El agua"
+          },
+          {
+            "id": "d",
+            "texto": "Tarda 15 minutos"
+          }
+        ],
+        "pistas": [
+          "Busca lo que molesta.",
+          "Es tiempo largo.",
+          "Tarda."
+        ],
+        "retroalimentacion": "El inconveniente es que tarda 15 minutos; la arena y lo que detiene son conocimiento.",
+        "id": "e09"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un filtro tiene como beneficio que limpia el agua y como inconveniente que es lento. Si lo mejoras, ¿qué debe aumentar? Escribe «rapidez».",
+        "respuesta": "rapidez",
+        "alternativasAceptadas": [
+          "velocidad",
+          "la rapidez"
+        ],
+        "pistas": [
+          "Mira el inconveniente.",
+          "Es lento.",
+          "Debe ser más rápido."
+        ],
+        "retroalimentacion": "Debe aumentar la rapidez.",
+        "id": "e10"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si explicas una solución, ya no necesitas contar los pasos de construcción.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La explicación incluye cómo la hiciste.",
+          "Sin pasos no se entiende.",
+          "Los pasos son importantes."
+        ],
+        "retroalimentacion": "Es falso: los pasos forman parte de la explicación.",
+        "id": "e11"
+      },
+      {
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Valeria presenta su regadera hecha con botella: beneficios, inconvenientes y pasos. ¿Qué elemento falta para explicar completa?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El conocimiento aplicado"
+          },
+          {
+            "id": "b",
+            "texto": "Un dibujo cualquiera"
+          },
+          {
+            "id": "c",
+            "texto": "El nombre del vecino"
+          },
+          {
+            "id": "d",
+            "texto": "Nada"
+          }
+        ],
+        "pistas": [
+          "Falta una parte de la explicación.",
+          "Por qué funciona.",
+          "Responde «¿por qué funciona?»."
+        ],
+        "retroalimentacion": "Falta el conocimiento aplicado, es decir, por qué funciona.",
+        "id": "e12"
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Primaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]
