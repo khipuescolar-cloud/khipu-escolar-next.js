@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any -- script utilitario de validación de lotes */
 // Uso (desde el worktree del grado): ./node_modules/.bin/tsx ../_briefs/validar-lote.ts <lote.json> <claves.txt>
 import { readFileSync } from "node:fs";
 const [lote, clavesTxt] = process.argv.slice(2);
