@@ -1,0 +1,3506 @@
+[
+  {
+    "clave": "mat.s1.plantear-ecuaciones",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-S1-01"
+    ],
+    "bloque": "Ecuaciones lineales",
+    "nombre": "Planteamiento de ecuaciones lineales",
+    "disciplina": "algebra",
+    "descripcionCorta": "Traduce una situación a una ecuación identificando incógnita y relación.",
+    "palabrasClave": [
+      "ecuación",
+      "incógnita",
+      "traducción",
+      "igualdad"
+    ],
+    "prerrequisitos": [
+      "mat.s1.lenguaje-algebraico"
+    ],
+    "ordenSugerido": 50,
+    "ideaCentral": "Una ecuación expresa con una igualdad la relación entre una cantidad desconocida y los datos conocidos. Para plantearla, identifica qué representa x y conserva las acciones del relato.",
+    "pasos": [
+      "Define la incógnita con una frase y una unidad si corresponde.",
+      "Traduce cada acción al orden correcto de operaciones.",
+      "Relaciona la expresión obtenida con el total mediante =.",
+      "Comprueba verbalmente que la ecuación recoge todos los datos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Tres cuadernos del mismo precio cuestan S/ 18.",
+        "desarrollo": "Sea x el precio de uno. Tres veces x suman 18.",
+        "respuesta": "3x = 18."
+      },
+      {
+        "situacion": "A una cantidad de canicas se le agregan 7 y hay 19.",
+        "desarrollo": "Sea x la cantidad inicial. Agregar 7 da 19.",
+        "respuesta": "x + 7 = 19."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Escribir el total como incógnita cuando se pregunta por el inicio.",
+        "correccion": "Define x con lo que se desconoce antes de operar."
+      },
+      {
+        "error": "Confundir «el doble más 3» con «el doble de la suma».",
+        "correccion": "2x + 3 y 2(x + 3) representan acciones distintas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Incógnita",
+        "significado": "Cantidad cuyo valor se desconoce."
+      },
+      {
+        "termino": "Ecuación",
+        "significado": "Igualdad con una incógnita."
+      },
+      {
+        "termino": "Miembro",
+        "significado": "Cada lado de una igualdad."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un número aumentado en 5 da 12. Si x es el número, ¿qué ecuación corresponde?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se parte de x.",
+          "Aumentar 5 significa sumar 5.",
+          "El resultado debe igualar 12."
+        ],
+        "retroalimentacion": "x + 5 = 12; x − 5 describiría una disminución.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x − 5 = 12"
+          },
+          {
+            "id": "b",
+            "texto": "x + 5 = 12"
+          },
+          {
+            "id": "c",
+            "texto": "5x = 12"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si x es el precio de un lápiz, cuatro lápices iguales por S/ 8 se modelan con 4x = 8.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay cuatro precios iguales.",
+          "Cuatro veces x es 4x.",
+          "El total pagado es 8."
+        ],
+        "retroalimentacion": "Es verdadero: 4x = 8 expresa cuatro lápices de igual precio."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una edad x menos 3 años equivale a 10 años. ¿Qué igualdad expresa el dato?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Parte de la edad x.",
+          "«Menos 3» exige restar.",
+          "El resultado es 10."
+        ],
+        "retroalimentacion": "x − 3 = 10 representa la edad reducida; x + 3 cambiaría la acción.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 − x = 10"
+          },
+          {
+            "id": "b",
+            "texto": "x + 3 = 10"
+          },
+          {
+            "id": "c",
+            "texto": "x − 3 = 10"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En «dos veces un número da 14», ¿qué letra representa la cantidad desconocida si escribes 2x = 14? Responde con la letra.",
+        "respuesta": "x",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa la expresión 2x.",
+          "El 2 indica cuántas veces se toma la cantidad.",
+          "La letra junto al 2 es la incógnita."
+        ],
+        "retroalimentacion": "La incógnita es x; 14 es el total conocido."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una mochila cuesta S/ 15 más que una cartuchera de precio x; ambas juntas cuestan S/ 45. ¿Qué ecuación expresa el total?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La cartuchera cuesta x.",
+          "La mochila cuesta x + 15.",
+          "Suma ambos precios e iguala 45."
+        ],
+        "retroalimentacion": "x + (x + 15) = 45; omitir un x dejaría fuera la cartuchera.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x + 15 = 45"
+          },
+          {
+            "id": "b",
+            "texto": "15x = 45"
+          },
+          {
+            "id": "c",
+            "texto": "x + x − 15 = 45"
+          },
+          {
+            "id": "d",
+            "texto": "x + (x + 15) = 45"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si x es la cantidad inicial de alumnos y llegan 6, la ecuación x − 6 = 24 describe que ahora hay 24.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Llegar alumnos aumenta el grupo.",
+          "Debe aparecer + 6.",
+          "La igualdad correcta sería x + 6 = 24."
+        ],
+        "retroalimentacion": "Es falso: x − 6 modela alumnos que se van, no que llegan."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El triple de una cantidad x disminuido en 4 es 20. ¿Qué ecuación corresponde?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El triple de x es 3x.",
+          "Después se restan 4.",
+          "El resultado queda igual a 20."
+        ],
+        "retroalimentacion": "3x − 4 = 20; 3(x − 4) triplicaría también el descuento.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3x − 4 = 20"
+          },
+          {
+            "id": "b",
+            "texto": "3(x − 4) = 20"
+          },
+          {
+            "id": "c",
+            "texto": "x − 3 − 4 = 20"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En la ecuación x + 9 = 25 de una alcancía, x representa las monedas que había antes de agregar 9. ¿Escribe «inicial» o «final» para describir x.",
+        "respuesta": "inicial",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 9 se agrega después.",
+          "El resultado final es 25.",
+          "La x está antes de la suma."
+        ],
+        "retroalimentacion": "x es la cantidad inicial; 25 es la final."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "«La mitad de un número x más 5 es 11» puede plantearse como x/2 + 5 = 11 cuando primero se toma la mitad y luego se añade 5.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero calcula la mitad: x/2.",
+          "Después agrega 5.",
+          "Iguala la expresión a 11."
+        ],
+        "retroalimentacion": "Es verdadero: x/2 + 5 = 11 respeta el orden descrito."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una feria, dos pulseras de precio x y una entrada de S/ 7 suman S/ 31. ¿Qué ecuación usa todos los datos?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las dos pulseras cuestan 2x.",
+          "Añade la entrada de 7.",
+          "El total es 31."
+        ],
+        "retroalimentacion": "2x + 7 = 31; x + 7 olvida una pulsera.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2x − 7 = 31"
+          },
+          {
+            "id": "b",
+            "texto": "x + 7 = 31"
+          },
+          {
+            "id": "c",
+            "texto": "2x + 7 = 31"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una familia tenía x soles, gastó S/ 8 y luego recibió S/ 5, la ecuación x − 8 + 5 = 22 representa que termina con S/ 22.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El gasto resta 8.",
+          "El ingreso posterior suma 5.",
+          "El saldo final se iguala a 22."
+        ],
+        "retroalimentacion": "Es verdadero: x − 8 + 5 = 22 recoge ambas acciones en orden."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un rectángulo tiene ancho x y largo x + 3; su perímetro es 30. ¿Cuál ecuación lo representa?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El perímetro suma dos anchos y dos largos.",
+          "Hay dos lados x y dos lados x + 3.",
+          "Iguala esa suma a 30."
+        ],
+        "retroalimentacion": "2x + 2(x + 3) = 30 cuenta los cuatro lados; x + (x + 3) solo dos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x + (x + 3) = 30"
+          },
+          {
+            "id": "b",
+            "texto": "2x + 2(x + 3) = 30"
+          },
+          {
+            "id": "c",
+            "texto": "2x + (x + 3) = 30"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.propiedades-igualdad",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+    "desempenosOrigen": [
+      "MAT-C24-S1-08"
+    ],
+    "bloque": "Ecuaciones lineales",
+    "nombre": "Propiedades de la igualdad al resolver ecuaciones",
+    "disciplina": "algebra",
+    "descripcionCorta": "Justifica cada paso de la resolución con la propiedad de la igualdad que lo sustenta.",
+    "palabrasClave": [
+      "igualdad",
+      "equivalencia",
+      "sumar ambos lados",
+      "dividir ambos lados"
+    ],
+    "prerrequisitos": [
+      "mat.s1.terminos-semejantes"
+    ],
+    "ordenSugerido": 51,
+    "ideaCentral": "Una igualdad sigue siendo verdadera si haces la misma operación válida en ambos lados. Cada paso al despejar debe conservar el conjunto de soluciones.",
+    "pasos": [
+      "Identifica los dos miembros de la igualdad.",
+      "Elige una operación que elimine un término cercano a x.",
+      "Aplícala a ambos lados.",
+      "Simplifica y comprueba sustituyendo en la igualdad original."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En x + 4 = 9, resta 4 a ambos lados.",
+        "desarrollo": "x + 4 − 4 = 9 − 4; queda x = 5.",
+        "respuesta": "Restar 4 en ambos miembros conserva la igualdad."
+      },
+      {
+        "situacion": "En 3x = 18, divide ambos miembros entre 3.",
+        "desarrollo": "3x/3 = 18/3; queda x = 6.",
+        "respuesta": "Dividir ambos lados entre 3 conserva la igualdad."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Cambiar solo un lado.",
+        "correccion": "Si restas 5 a la izquierda, también réstalo a la derecha."
+      },
+      {
+        "error": "Dividir entre cero.",
+        "correccion": "La división por cero no está definida y no conserva una equivalencia válida."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Miembros",
+        "significado": "Los dos lados de una igualdad."
+      },
+      {
+        "termino": "Equivalente",
+        "significado": "Que conserva las mismas soluciones."
+      },
+      {
+        "termino": "Propiedad aditiva",
+        "significado": "Sumar o restar lo mismo a ambos miembros."
+      },
+      {
+        "termino": "Propiedad multiplicativa",
+        "significado": "Multiplicar o dividir ambos miembros por un mismo número no nulo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En x + 5 = 12, ¿qué debes hacer en ambos lados para aislar x?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El + 5 acompaña a x.",
+          "Para quitar + 5, usa − 5.",
+          "La misma resta va en ambos miembros."
+        ],
+        "retroalimentacion": "Restar 5 a ambos lados deja x = 7; restar solo a uno rompe la igualdad.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sumar 5"
+          },
+          {
+            "id": "b",
+            "texto": "Restar 5"
+          },
+          {
+            "id": "c",
+            "texto": "Multiplicar por 5"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "De 7 = 7 puedes obtener 7 + 3 = 7 + 3 sin romper la igualdad.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se añade el mismo 3 a ambos miembros.",
+          "Ambos lados pasan a 10.",
+          "10 = 10 sigue siendo verdadero."
+        ],
+        "retroalimentacion": "Es verdadero: sumar 3 a ambos lados conserva la igualdad."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Si 2x = 14 y divides ambos lados entre 2, ¿cuánto vale x? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El factor de x es 2.",
+          "Dividir entre 2 deshace ese factor.",
+          "14 ÷ 2 = 7."
+        ],
+        "retroalimentacion": "x = 7; dividir solo el lado izquierdo no conservaría 2x = 14."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para pasar de x − 8 = 3 a x = 11, ¿qué operación se aplicó a ambos miembros?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se debe eliminar −8.",
+          "Sumar 8 lo cancela.",
+          "3 + 8 = 11."
+        ],
+        "retroalimentacion": "Se sumó 8 a ambos miembros; así x − 8 + 8 = 3 + 8.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Restar 8"
+          },
+          {
+            "id": "b",
+            "texto": "Multiplicar por 8"
+          },
+          {
+            "id": "c",
+            "texto": "Sumar 8"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El paso 4x = 20 → x = 20 conserva la igualdad.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 4 aún multiplica a x.",
+          "Divide ambos lados entre 4.",
+          "20 ÷ 4 = 5."
+        ],
+        "retroalimentacion": "Es falso: debe quedar x = 5, no x = 20."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "De x + 6 = 10, una alumna escribe x + 6 − 6 = 10 − 6. ¿Qué propiedad usa?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la operación repetida en ambos lados.",
+          "Se resta 6 de cada miembro.",
+          "Es la propiedad aditiva de la igualdad."
+        ],
+        "retroalimentacion": "Usa la propiedad aditiva: restar 6 a ambos miembros mantiene la igualdad.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Conmutativa del producto"
+          },
+          {
+            "id": "b",
+            "texto": "Distributiva"
+          },
+          {
+            "id": "c",
+            "texto": "Multiplicativa"
+          },
+          {
+            "id": "d",
+            "texto": "Aditiva"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Si x/3 = 5, multiplica ambos miembros por 3. ¿Cuánto vale x? Escribe solo el número.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La división entre 3 se deshace multiplicando por 3.",
+          "5 × 3 = 15.",
+          "Comprueba 15 ÷ 3 = 5."
+        ],
+        "retroalimentacion": "x = 15; multiplicar ambos lados por 3 conserva la igualdad."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si x + 2 = 6, sumar 4 solo al lado derecho produce una ecuación equivalente.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La operación debe hacerse en ambos lados.",
+          "El lado derecho subiría a 10 y el izquierdo quedaría igual.",
+          "Eso cambia la solución de 4 a 8."
+        ],
+        "retroalimentacion": "Es falso: sumar 4 solo a un lado cambia la igualdad y su solución."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Partiendo de 5x − 3 = 17, ¿qué primer paso válido elimina −3?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para cancelar −3, añade 3.",
+          "Hazlo en ambos miembros.",
+          "Quedará 5x = 20."
+        ],
+        "retroalimentacion": "Sumar 3 en ambos lados produce 5x = 20; hacerlo en uno solo no.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sumar 3 a ambos lados"
+          },
+          {
+            "id": "b",
+            "texto": "Restar 3 a ambos lados"
+          },
+          {
+            "id": "c",
+            "texto": "Sumar 3 solo a la derecha"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 2x + 4 = 12, restar 4 a ambos lados y luego dividir ambos entre 2 conserva la solución.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer paso da 2x = 8.",
+          "El segundo da x = 4.",
+          "Comprueba 2 × 4 + 4 = 12."
+        ],
+        "retroalimentacion": "Es verdadero: ambos pasos se aplican simétricamente y x = 4 verifica la original."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un estudiante pasa de −3x = 15 a x = −5. ¿Qué justifica ese paso?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "x está multiplicada por −3.",
+          "Divide ambos miembros por −3, que no es cero.",
+          "15 ÷ (−3) = −5."
+        ],
+        "retroalimentacion": "Dividir ambos miembros entre −3 justifica x = −5.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Restar −3 a ambos miembros"
+          },
+          {
+            "id": "b",
+            "texto": "Dividir ambos miembros entre −3"
+          },
+          {
+            "id": "c",
+            "texto": "Cambiar el signo solo a 15"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En 3x + 7 = 25, resta 7 a ambos lados y divide ambos entre 3. ¿Cuánto vale x? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero queda 3x = 18.",
+          "Luego divide entre 3.",
+          "Comprueba 3 × 6 + 7 = 25."
+        ],
+        "retroalimentacion": "x = 6; los dos pasos conservan la igualdad y verifican la ecuación original."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.ecuaciones-lineales",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-S1-04",
+      "MAT-C24-S1-07"
+    ],
+    "bloque": "Ecuaciones lineales",
+    "nombre": "Ecuaciones de primer grado con una incógnita",
+    "disciplina": "algebra",
+    "descripcionCorta": "Resuelve ecuaciones de la forma ax + b = c con coeficientes enteros.",
+    "palabrasClave": [
+      "ecuación lineal",
+      "incógnita",
+      "despejar",
+      "comprobar"
+    ],
+    "prerrequisitos": [
+      "mat.s1.propiedades-igualdad"
+    ],
+    "ordenSugerido": 52,
+    "ideaCentral": "En una ecuación de la forma ax + b = c, deshaces primero la suma o resta y después la multiplicación. El valor hallado debe hacer verdadera la ecuación original.",
+    "pasos": [
+      "Reduce términos en cada miembro si aparecen.",
+      "Resta b a ambos lados para obtener ax = c − b.",
+      "Divide entre a, que debe ser distinto de cero.",
+      "Sustituye el resultado en la ecuación inicial."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Resuelve 3x + 4 = 19.",
+        "desarrollo": "3x = 15 al restar 4; x = 5 al dividir entre 3.",
+        "respuesta": "x = 5."
+      },
+      {
+        "situacion": "Resuelve −2x + 6 = 14.",
+        "desarrollo": "−2x = 8; x = −4. Verifico −2(−4) + 6 = 14.",
+        "respuesta": "x = −4."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dividir antes de quitar b y dividir solo ax.",
+        "correccion": "En 3x + 4 = 19, quita 4 y luego divide el miembro entero entre 3."
+      },
+      {
+        "error": "Perder el signo de un coeficiente negativo.",
+        "correccion": "Si −2x = 8, entonces x = −4."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Ecuación lineal",
+        "significado": "Igualdad donde la incógnita aparece a la primera potencia."
+      },
+      {
+        "termino": "Coeficiente",
+        "significado": "Número que multiplica a la incógnita."
+      },
+      {
+        "termino": "Solución",
+        "significado": "Valor que hace verdadera la igualdad."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Resuelve x + 7 = 15. Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Quita el 7 sumado.",
+          "Resta 7 a 15.",
+          "Comprueba 8 + 7 = 15."
+        ],
+        "retroalimentacion": "x = 8; sumar 7 al 15 daría un valor excesivo."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si 2x = 18, ¿cuánto vale x?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "x se multiplica por 2.",
+          "Divide 18 entre 2.",
+          "Verifica el doble del resultado."
+        ],
+        "retroalimentacion": "x = 9 porque 2 × 9 = 18.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8"
+          },
+          {
+            "id": "b",
+            "texto": "9"
+          },
+          {
+            "id": "c",
+            "texto": "16"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El valor x = 4 satisface 3x + 2 = 14.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sustituye 4 por x.",
+          "3 × 4 = 12.",
+          "12 + 2 = 14."
+        ],
+        "retroalimentacion": "Es verdadero: 3 × 4 + 2 = 14."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Resuelve 4x − 5 = 11. Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 5 a ambos lados.",
+          "4x = 16.",
+          "Divide 16 entre 4."
+        ],
+        "retroalimentacion": "x = 4; 4 × 4 − 5 = 11."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Resuelve 5x + 3 = 28.",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta 3: 5x = 25.",
+          "Divide entre 5.",
+          "Comprueba 5 × 5 + 3."
+        ],
+        "retroalimentacion": "x = 5; x = 6 daría 33.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "5"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En −3x + 2 = 11, la solución es x = 3.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta 2: −3x = 9.",
+          "Divide entre −3.",
+          "El resultado debe ser negativo."
+        ],
+        "retroalimentacion": "Es falso: x = −3, pues −3(−3) + 2 = 11."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una ecuación es 6x − 8 = 16. Halla x. Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 8 a ambos lados.",
+          "6x = 24.",
+          "Divide 24 entre 6."
+        ],
+        "retroalimentacion": "x = 4; 6 × 4 − 8 = 16."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué valor verifica −2x + 5 = −3?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Quita 5: −2x = −8.",
+          "Divide entre −2.",
+          "Negativo entre negativo es positivo."
+        ],
+        "retroalimentacion": "x = 4; −2 × 4 + 5 = −3.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−4"
+          },
+          {
+            "id": "b",
+            "texto": "−1"
+          },
+          {
+            "id": "c",
+            "texto": "1"
+          },
+          {
+            "id": "d",
+            "texto": "4"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Resuelve 7x + 1 = −13. Escribe solo el número.",
+        "respuesta": -2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta 1: 7x = −14.",
+          "Divide entre 7.",
+          "Comprueba 7 × (−2) + 1."
+        ],
+        "retroalimentacion": "x = −2; el signo negativo es necesario para llegar a −13."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La ecuación 4x − 6 = 2 tiene x = 2 como solución y se comprueba sustituyendo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sustituye x por 2.",
+          "4 × 2 − 6 = 8 − 6.",
+          "8 − 6 = 2."
+        ],
+        "retroalimentacion": "Es verdadero: x = 2 produce el miembro derecho 2."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una feria cobra S/ 3 de ingreso y S/ 4 por juego. Si el total fue S/ 23, resuelve 4x + 3 = 23 para hallar los juegos.",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta los S/ 3 de ingreso.",
+          "Quedan S/ 20 para juegos.",
+          "Divide 20 entre 4."
+        ],
+        "retroalimentacion": "x = 5 juegos; 4 × 5 + 3 = 23.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "7"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Resuelve −5x − 7 = 18. Escribe solo el número.",
+        "respuesta": -5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 7: −5x = 25.",
+          "Divide entre −5.",
+          "Comprueba −5 × (−5) − 7."
+        ],
+        "retroalimentacion": "x = −5; 25 − 7 = 18, como exige la ecuación."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.incognita-ambos-miembros",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-S1-07"
+    ],
+    "bloque": "Ecuaciones lineales",
+    "nombre": "Ecuaciones con incógnita en ambos miembros",
+    "disciplina": "algebra",
+    "descripcionCorta": "Resuelve ecuaciones ax + b = cx + d transponiendo términos.",
+    "palabrasClave": [
+      "ecuación",
+      "incógnita",
+      "ambos miembros",
+      "transposición"
+    ],
+    "prerrequisitos": [
+      "mat.s1.ecuaciones-lineales"
+    ],
+    "ordenSugerido": 53,
+    "ideaCentral": "Si la x aparece a ambos lados, reúne sus términos en un miembro y los números en el otro. Haz la misma operación en ambos lados para conservar la igualdad.",
+    "pasos": [
+      "Resta en ambos miembros uno de los términos con x.",
+      "Suma o resta el número que acompaña a la x.",
+      "Divide por el coeficiente de x y comprueba sustituyendo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Dos balanzas cumplen 3x + 2 = x + 10. ¿Cuánto vale x?",
+        "desarrollo": "Resta x: 2x + 2 = 10. Resta 2: 2x = 8. Divide entre 2.",
+        "respuesta": "x = 4."
+      },
+      {
+        "situacion": "En un juego, 5x - 3 = 2x + 9.",
+        "desarrollo": "Resta 2x: 3x - 3 = 9; suma 3: 3x = 12.",
+        "respuesta": "x = 4."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Mover 2x cambiándole el signo sin mantener la igualdad.",
+        "correccion": "Resta 2x en ambos miembros."
+      },
+      {
+        "error": "Dividir solo un término del miembro.",
+        "correccion": "Divide todos los términos de ambos miembros por el coeficiente."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Miembro",
+        "significado": "Cada lado del signo igual."
+      },
+      {
+        "termino": "Incógnita",
+        "significado": "Número desconocido representado por x."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Resuelve 3x + 2 = x + 8. Escribe solo el número.",
+        "respuesta": 3,
+        "pistas": [
+          "Resta x a ambos lados de 3x + 2 = x + 8.",
+          "Queda 2x + 2 = 8; resta 2.",
+          "2x = 6; divide entre 2."
+        ],
+        "retroalimentacion": "Si restas solo x en un lado, cambias la igualdad. La solución es x = 3.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué valor satisface 4x + 1 = 2x + 9?",
+        "respuesta": "c",
+        "pistas": [
+          "Quita 2x de ambos miembros.",
+          "Obtienes 2x + 1 = 9.",
+          "Resta 1 y divide 8 entre 2."
+        ],
+        "retroalimentacion": "Confundir 2x con x lleva a otro valor; la opción «4» sí cumple la igualdad.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "3"
+          },
+          {
+            "id": "c",
+            "texto": "4"
+          },
+          {
+            "id": "d",
+            "texto": "5"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al restar 3x en ambos miembros de 5x + 7 = 3x + 11 queda 2x + 7 = 11.",
+        "respuesta": true,
+        "pistas": [
+          "Observa 5x - 3x en el lado izquierdo.",
+          "En el derecho, 3x - 3x se anula.",
+          "El 7 y el 11 siguen en sus lados."
+        ],
+        "retroalimentacion": "Es verdadero: 5x - 3x = 2x y 3x - 3x = 0.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Halla x en 7x - 4 = 5x + 6. Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "Resta 5x a cada lado.",
+          "Se obtiene 2x - 4 = 6.",
+          "Suma 4 y divide 10 entre 2."
+        ],
+        "retroalimentacion": "Olvidar sumar 4 da 3; el valor correcto es x = 5.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una igualdad de puntajes dice 6x + 5 = 2x + 21. Calcula x. Escribe solo el número.",
+        "respuesta": 4,
+        "pistas": [
+          "Separa los 2x del lado derecho.",
+          "Tras restar 2x: 4x + 5 = 21.",
+          "Resta 5; 4x = 16."
+        ],
+        "retroalimentacion": "No dividas 21 directamente entre 4: antes resta 5. x = 4.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para 2x - 9 = 5x - 24, ¿cuál es la solución?",
+        "respuesta": "d",
+        "pistas": [
+          "Conviene restar 2x de ambos lados.",
+          "Queda -9 = 3x - 24.",
+          "Suma 24: 15 = 3x."
+        ],
+        "retroalimentacion": "El signo del -24 suele confundirse; la opción «5» satisface la ecuación.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "4"
+          },
+          {
+            "id": "c",
+            "texto": "6"
+          },
+          {
+            "id": "d",
+            "texto": "5"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Resuelve -2x + 13 = x + 4. Escribe solo el número.",
+        "respuesta": 3,
+        "pistas": [
+          "Resta x de ambos miembros.",
+          "Así, -3x + 13 = 4.",
+          "Resta 13 y divide -9 entre -3."
+        ],
+        "retroalimentacion": "Un cociente de dos negativos es positivo; x = 3.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La igualdad 8x - 1 = 3x + 19 tiene como solución x = 4.",
+        "respuesta": true,
+        "pistas": [
+          "Sustituye x por 4 en el lado izquierdo.",
+          "8 × 4 - 1 = 31.",
+          "En el derecho, 3 × 4 + 19 también es 31."
+        ],
+        "retroalimentacion": "Es verdadero: ambos miembros valen 31 con x = 4.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En 4x + 18 = 9x - 7, halla x y verifica la igualdad. Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "Resta 4x de ambos lados.",
+          "18 = 5x - 7; suma 7.",
+          "25 = 5x; revisa que ambos lados originales valen 38."
+        ],
+        "retroalimentacion": "Sumar -7 como si fuera +7 falla; x = 5 y ambos lados son 38.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un estudiante obtiene 3x - 8 = 7x + 12. ¿Qué valor iguala ambos miembros?",
+        "respuesta": "a",
+        "pistas": [
+          "Resta 3x de ambos lados.",
+          "-8 = 4x + 12; resta 12.",
+          "-20 = 4x; divide entre 4."
+        ],
+        "retroalimentacion": "Perder el signo negativo cambia el resultado; la opción «-5» da -23 en ambos lados.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "-5"
+          },
+          {
+            "id": "b",
+            "texto": "5"
+          },
+          {
+            "id": "c",
+            "texto": "-4"
+          },
+          {
+            "id": "d",
+            "texto": "4"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Resuelve 11 - 2x = 4x - 7. Escribe solo el número.",
+        "respuesta": 3,
+        "pistas": [
+          "Suma 2x a ambos miembros.",
+          "11 = 6x - 7; suma 7.",
+          "18 = 6x; comprueba 11 - 6 = 12 - 7."
+        ],
+        "retroalimentacion": "Mover -2x sin atender el signo confunde; x = 3.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si 2(3x + 1) = 4x + 14, ¿cuál valor cumple la igualdad?",
+        "respuesta": "c",
+        "pistas": [
+          "Distribuye el 2 del lado izquierdo.",
+          "6x + 2 = 4x + 14; resta 4x.",
+          "2x = 12; divide entre 2."
+        ],
+        "retroalimentacion": "Omitir el 2 del término constante da otro valor; la opción «6» da 38 en ambos lados.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4"
+          },
+          {
+            "id": "b",
+            "texto": "5"
+          },
+          {
+            "id": "c",
+            "texto": "6"
+          },
+          {
+            "id": "d",
+            "texto": "7"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.ecuaciones-con-parentesis",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-S1-07"
+    ],
+    "bloque": "Ecuaciones lineales",
+    "nombre": "Ecuaciones con signos de agrupación",
+    "disciplina": "algebra",
+    "descripcionCorta": "Resuelve ecuaciones que requieren eliminar paréntesis antes de despejar.",
+    "palabrasClave": [
+      "paréntesis",
+      "distributiva",
+      "ecuación",
+      "despeje"
+    ],
+    "prerrequisitos": [
+      "mat.s1.incognita-ambos-miembros",
+      "mat.s1.signos-agrupacion-algebraicos"
+    ],
+    "ordenSugerido": 54,
+    "ideaCentral": "Elimina los paréntesis con la propiedad distributiva antes de reunir los términos con x. Cuida especialmente el signo menos delante de un paréntesis.",
+    "pasos": [
+      "Multiplica cada término dentro del paréntesis por el número exterior.",
+      "Reduce los términos de cada miembro.",
+      "Reúne las x, despeja y sustituye para comprobar."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un cartel indica 2(x + 3) = 14.",
+        "desarrollo": "Distribuye: 2x + 6 = 14; entonces 2x = 8.",
+        "respuesta": "x = 4."
+      },
+      {
+        "situacion": "En una compra se cumple 3(x - 2) = x + 8.",
+        "desarrollo": "Distribuye: 3x - 6 = x + 8; así 2x = 14.",
+        "respuesta": "x = 7."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Escribir 3(x + 2) como 3x + 2.",
+        "correccion": "Multiplica 3 por x y también por 2."
+      },
+      {
+        "error": "Olvidar cambiar ambos signos en -(x - 4).",
+        "correccion": "Distribuye -1: -x + 4."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Distributiva",
+        "significado": "Multiplicar el factor exterior por cada término interior."
+      },
+      {
+        "termino": "Signo de agrupación",
+        "significado": "Paréntesis que indica qué términos se tratan juntos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Resuelve 2(x + 4) = 16. Escribe solo el número.",
+        "respuesta": 4,
+        "pistas": [
+          "Multiplica el 2 por x y por 4.",
+          "2x + 8 = 16; resta 8.",
+          "2x = 8; divide entre 2."
+        ],
+        "retroalimentacion": "Si no duplicas el 4, falla la cuenta; x = 4.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué valor satisface 3(x - 1) = 12?",
+        "respuesta": "d",
+        "pistas": [
+          "Distribuye el 3 en x - 1.",
+          "3x - 3 = 12; suma 3.",
+          "3x = 15."
+        ],
+        "retroalimentacion": "Olvidar distribuir el -1 produce un error; la opción «5» satisface la igualdad.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "4"
+          },
+          {
+            "id": "c",
+            "texto": "6"
+          },
+          {
+            "id": "d",
+            "texto": "5"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La expansión de 4(x + 2) = 20 es 4x + 8 = 20.",
+        "respuesta": true,
+        "pistas": [
+          "El factor exterior es 4.",
+          "Multiplica 4 por x.",
+          "Multiplica también 4 por 2."
+        ],
+        "retroalimentacion": "Es verdadero: distribuir 4 da 4x + 8 = 20.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Halla x si 5(x - 2) = 15. Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "Multiplica 5 por los dos términos interiores.",
+          "5x - 10 = 15.",
+          "Suma 10 y divide 25 entre 5."
+        ],
+        "retroalimentacion": "Restar 10 otra vez confunde el signo; x = 5.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En 2(x + 5) = x + 17, encuentra x. Escribe solo el número.",
+        "respuesta": 7,
+        "pistas": [
+          "Abre el paréntesis: 2x + 10.",
+          "Resta x: x + 10 = 17.",
+          "Resta 10."
+        ],
+        "retroalimentacion": "El 5 debe duplicarse; la solución es x = 7.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al resolver 3(x - 4) = 2x + 1, ¿qué x obtienes?",
+        "respuesta": "a",
+        "pistas": [
+          "Distribuye: 3x - 12 = 2x + 1.",
+          "Resta 2x de ambos lados.",
+          "x - 12 = 1; suma 12."
+        ],
+        "retroalimentacion": "Cambiar -12 por +12 es el error habitual; la opción «13» es correcta.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "13"
+          },
+          {
+            "id": "b",
+            "texto": "9"
+          },
+          {
+            "id": "c",
+            "texto": "5"
+          },
+          {
+            "id": "d",
+            "texto": "1"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Resuelve 4(2x - 1) = 3x + 21. Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "Distribuye el 4: 8x - 4.",
+          "Resta 3x y suma 4.",
+          "5x = 25; divide entre 5."
+        ],
+        "retroalimentacion": "Multiplicar solo 2x y no -1 distorsiona la igualdad; x = 5.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La ecuación -(x - 6) = 2 se transforma en -x + 6 = 2.",
+        "respuesta": true,
+        "pistas": [
+          "El signo menos equivale a multiplicar por -1.",
+          "-1 × x es -x.",
+          "-1 × -6 es +6."
+        ],
+        "retroalimentacion": "Es verdadero: los dos términos cambian de signo.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Resuelve 2(x + 3) + 3(x - 1) = 28. Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "Distribuye en ambos paréntesis.",
+          "2x + 6 + 3x - 3 = 28.",
+          "5x + 3 = 28; resta 3 y divide entre 5."
+        ],
+        "retroalimentacion": "No sumes 6 y -3 como 9; la solución es x = 5.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En 5(x - 2) - (x + 1) = 13, ¿cuál es x?",
+        "respuesta": "c",
+        "pistas": [
+          "Distribuye 5 y luego -1.",
+          "5x - 10 - x - 1 = 13.",
+          "4x - 11 = 13; suma 11."
+        ],
+        "retroalimentacion": "El signo menos afecta también al 1; la opción «6» cumple la ecuación.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4"
+          },
+          {
+            "id": "b",
+            "texto": "5"
+          },
+          {
+            "id": "c",
+            "texto": "6"
+          },
+          {
+            "id": "d",
+            "texto": "7"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una igualdad es 3(2x + 1) = 2(x + 9) + 1. Halla x. Escribe solo el número.",
+        "respuesta": 4,
+        "pistas": [
+          "Abre los dos paréntesis.",
+          "6x + 3 = 2x + 18 + 1.",
+          "4x = 16 después de reunir términos."
+        ],
+        "retroalimentacion": "El +1 exterior no se distribuye; x = 4.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué solución tiene 4(x + 2) - 2(x - 3) = 24?",
+        "respuesta": "c",
+        "pistas": [
+          "El segundo paréntesis lleva factor -2.",
+          "4x + 8 - 2x + 6 = 24.",
+          "2x + 14 = 24; resta 14."
+        ],
+        "retroalimentacion": "Convertir -2 × -3 en -6 falla; la opción «5» da 24.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "4"
+          },
+          {
+            "id": "c",
+            "texto": "5"
+          },
+          {
+            "id": "d",
+            "texto": "6"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.ecuaciones-coeficientes-fraccionarios",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-S1-07"
+    ],
+    "bloque": "Ecuaciones lineales",
+    "nombre": "Ecuaciones con coeficientes fraccionarios",
+    "disciplina": "algebra",
+    "descripcionCorta": "Elimina denominadores multiplicando por el MCM y resuelve la ecuación.",
+    "palabrasClave": [
+      "fracción",
+      "denominador",
+      "MCM",
+      "ecuación"
+    ],
+    "prerrequisitos": [
+      "mat.s1.ecuaciones-con-parentesis"
+    ],
+    "ordenSugerido": 55,
+    "ideaCentral": "Para quitar los denominadores, multiplica todos los términos de ambos miembros por el mínimo común múltiplo. Luego resuelve la ecuación entera y comprueba.",
+    "pasos": [
+      "Identifica los denominadores y calcula su MCM.",
+      "Multiplica cada término de los dos miembros por ese MCM.",
+      "Simplifica, despeja x y comprueba en la ecuación original."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Se cumple x/2 + 1 = 4.",
+        "desarrollo": "Multiplica todo por 2: x + 2 = 8.",
+        "respuesta": "x = 6."
+      },
+      {
+        "situacion": "Resuelve x/3 + x/2 = 5.",
+        "desarrollo": "El MCM de 3 y 2 es 6: 2x + 3x = 30.",
+        "respuesta": "x = 6."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Multiplicar solo la fracción por el MCM.",
+        "correccion": "Multiplica también los números enteros de ambos lados."
+      },
+      {
+        "error": "Sumar denominadores para buscar el MCM.",
+        "correccion": "Busca el menor múltiplo común de todos ellos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Denominador",
+        "significado": "Número bajo la raya de una fracción."
+      },
+      {
+        "termino": "MCM",
+        "significado": "Menor múltiplo común de los denominadores."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Resuelve x/2 = 5. Escribe solo el número.",
+        "respuesta": 10,
+        "pistas": [
+          "El denominador es 2.",
+          "Multiplica ambos miembros por 2.",
+          "Queda x = 2 × 5."
+        ],
+        "retroalimentacion": "Dividir 5 entre 2 invierte la operación; x = 10.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué x cumple x/3 + 2 = 6?",
+        "respuesta": "b",
+        "pistas": [
+          "Multiplica la ecuación por 3.",
+          "x + 6 = 18.",
+          "Resta 6 a ambos lados."
+        ],
+        "retroalimentacion": "Olvidar multiplicar el 2 por 3 falla; la opción «12» cumple.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9"
+          },
+          {
+            "id": "b",
+            "texto": "12"
+          },
+          {
+            "id": "c",
+            "texto": "15"
+          },
+          {
+            "id": "d",
+            "texto": "18"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Multiplicar cada término de x/4 + 1 = 3 por 4 produce x + 4 = 12.",
+        "respuesta": true,
+        "pistas": [
+          "El denominador 4 desaparece al multiplicar x/4.",
+          "El 1 también se multiplica por 4.",
+          "El 3 del otro miembro pasa a 12."
+        ],
+        "retroalimentacion": "Es verdadero: todos los términos reciben el factor 4.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Si x/5 - 1 = 2, halla x. Escribe solo el número.",
+        "respuesta": 15,
+        "pistas": [
+          "Multiplica por 5 toda la igualdad.",
+          "x - 5 = 10.",
+          "Suma 5."
+        ],
+        "retroalimentacion": "No dejes el -1 sin multiplicar; x = 15.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula x en x/2 + x/3 = 10. Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "El MCM de 2 y 3 es 6.",
+          "Multiplica todo por 6: 3x + 2x = 60.",
+          "5x = 60."
+        ],
+        "retroalimentacion": "Sumar 2 y 3 como denominadores no sirve; x = 12.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Resuelve x/4 + 3 = x/2 + 1.",
+        "respuesta": "c",
+        "pistas": [
+          "Multiplica todos los términos por 4.",
+          "x + 12 = 2x + 4.",
+          "Resta x y luego 4."
+        ],
+        "retroalimentacion": "El 3 debe transformarse en 12; la opción «8» cumple.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "8"
+          },
+          {
+            "id": "d",
+            "texto": "10"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Qué x satisface (x + 2)/3 = 4? Escribe solo el número.",
+        "respuesta": 10,
+        "pistas": [
+          "Multiplica ambos miembros por 3.",
+          "x + 2 = 12.",
+          "Resta 2."
+        ],
+        "retroalimentacion": "No dividas solo x entre 3: el numerador completo está agrupado. x = 10.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para x/2 - x/6 = 4, multiplicar toda la igualdad por 6 da 3x - x = 24.",
+        "respuesta": true,
+        "pistas": [
+          "El MCM de 2 y 6 es 6.",
+          "6 × x/2 = 3x.",
+          "6 × x/6 = x y 6 × 4 = 24."
+        ],
+        "retroalimentacion": "Es verdadero: se conserva el signo menos y se multiplica cada término.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Resuelve x/2 + (x - 3)/3 = 8. Escribe solo el número.",
+        "respuesta": 10.8,
+        "pistas": [
+          "Usa MCM 6 para los denominadores 2 y 3.",
+          "3x + 2(x - 3) = 48.",
+          "5x - 6 = 48; suma 6 y divide 54 entre 5."
+        ],
+        "retroalimentacion": "Omitir el -6 altera el resultado; x = 10,8.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué valor resuelve x/2 + x/4 - 1 = 8?",
+        "respuesta": "c",
+        "pistas": [
+          "El MCM de 2 y 4 es 4.",
+          "2x + x - 4 = 32.",
+          "3x = 36."
+        ],
+        "retroalimentacion": "Olvidar multiplicar -1 por 4 altera la solución; la opción «12» cumple.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8"
+          },
+          {
+            "id": "b",
+            "texto": "10"
+          },
+          {
+            "id": "c",
+            "texto": "12"
+          },
+          {
+            "id": "d",
+            "texto": "14"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Halla x si (x + 1)/2 - (x - 2)/4 = 4. Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "Multiplica todo por 4.",
+          "2(x + 1) - (x - 2) = 16.",
+          "2x + 2 - x + 2 = 16."
+        ],
+        "retroalimentacion": "El menos delante del segundo numerador cambia ambos signos; x = 12.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En x/3 + (x + 2)/6 = 5, ¿cuál es la solución?",
+        "respuesta": "a",
+        "pistas": [
+          "Multiplica toda la igualdad por 6.",
+          "2x + x + 2 = 30.",
+          "3x = 28; busca el cociente exacto."
+        ],
+        "retroalimentacion": "Sumar numeradores sin común denominador falla; la opción «28/3» satisface la ecuación.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "28/3"
+          },
+          {
+            "id": "b",
+            "texto": "8"
+          },
+          {
+            "id": "c",
+            "texto": "10"
+          },
+          {
+            "id": "d",
+            "texto": "12"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.comprobar-solucion-contexto",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-S1-02",
+      "MAT-C24-S1-04"
+    ],
+    "bloque": "Ecuaciones lineales",
+    "nombre": "Comprobación de la solución en el contexto",
+    "disciplina": "algebra",
+    "descripcionCorta": "Verifica que la solución cumple la ecuación y tiene sentido en la situación.",
+    "palabrasClave": [
+      "comprobación",
+      "sustitución",
+      "contexto",
+      "restricción"
+    ],
+    "prerrequisitos": [
+      "mat.s1.ecuaciones-lineales"
+    ],
+    "ordenSugerido": 56,
+    "ideaCentral": "Una solución debe cumplir la ecuación al sustituirla y también tener sentido en la historia. Una edad, cantidad de personas o precio no puede ser negativo.",
+    "pasos": [
+      "Sustituye el valor propuesto en ambos lados de la ecuación.",
+      "Compara los resultados numéricos.",
+      "Revisa unidades, restricciones y sentido de la respuesta."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un grupo compra 3 entradas de x soles y paga S/ 30. Proponen x = 10.",
+        "desarrollo": "3 × 10 = 30 y diez soles es un precio posible.",
+        "respuesta": "Sí, x = 10 es válida."
+      },
+      {
+        "situacion": "Una edad cumple x + 5 = 3. Proponen x = -2.",
+        "desarrollo": "-2 + 5 = 3, pero una edad actual no puede ser negativa.",
+        "respuesta": "La cuenta cumple; el contexto la descarta."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Aceptar una respuesta porque cumple la igualdad aunque sea una edad negativa.",
+        "correccion": "Además de sustituir, revisa lo que representa x."
+      },
+      {
+        "error": "Comprobar solo un miembro.",
+        "correccion": "Calcula ambos lados y compáralos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Comprobar",
+        "significado": "Sustituir una propuesta para verificarla."
+      },
+      {
+        "termino": "Restricción",
+        "significado": "Condición de la situación que limita los valores válidos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para 2x + 1 = 9, el valor x = 4 cumple la igualdad.",
+        "respuesta": true,
+        "pistas": [
+          "Sustituye 4 por x.",
+          "2 × 4 + 1 = 9.",
+          "El lado derecho también es 9."
+        ],
+        "retroalimentacion": "Es verdadero: ambos miembros dan 9.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una entrada cuesta x soles y 3x = 18. ¿Qué precio propuesto es válido?",
+        "respuesta": "a",
+        "pistas": [
+          "Prueba cada precio en 3x.",
+          "Con 6, tres entradas cuestan 18.",
+          "El precio debe ser positivo."
+        ],
+        "retroalimentacion": "Confundir el total con el precio unitario falla; la opción «S/ 6» es válida.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "S/ 6"
+          },
+          {
+            "id": "b",
+            "texto": "S/ 5"
+          },
+          {
+            "id": "c",
+            "texto": "S/ 7"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Se propone x = 5 para x + 7 = 12. ¿Cuánto vale el miembro izquierdo? Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "Reemplaza x por 5.",
+          "El miembro izquierdo queda 5 + 7.",
+          "Suma y compara con el 12 derecho."
+        ],
+        "retroalimentacion": "Olvidar el +7 da 5; el miembro izquierdo vale 12.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si x representa la edad actual de un estudiante, x = -3 es una respuesta posible.",
+        "respuesta": false,
+        "pistas": [
+          "Piensa qué mide una edad actual.",
+          "-3 es menor que cero.",
+          "Una edad actual no puede ser negativa."
+        ],
+        "retroalimentacion": "Es falso: aunque aparezca al despejar, -3 no es una edad actual válida.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para 4x - 2 = 10 se propone x = 2. ¿Qué ocurre?",
+        "respuesta": "c",
+        "pistas": [
+          "Sustituye el 2 en 4x - 2.",
+          "4 × 2 - 2 = 6.",
+          "Compara 6 con 10."
+        ],
+        "retroalimentacion": "Omitir el -2 lleva a 8; «El izquierdo vale 6 y el derecho 10» describe la comprobación.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ambos lados valen 10"
+          },
+          {
+            "id": "b",
+            "texto": "El izquierdo vale 8 y el derecho 10"
+          },
+          {
+            "id": "c",
+            "texto": "El izquierdo vale 6 y el derecho 10"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La ecuación de 2 bolsas iguales es 2x = 0; si x representa kilos en cada bolsa, x = 0 cumple y tiene sentido.",
+        "respuesta": true,
+        "pistas": [
+          "Sustituye cero en 2x.",
+          "2 × 0 = 0.",
+          "Una bolsa vacía puede pesar cero kilos de contenido."
+        ],
+        "retroalimentacion": "Es verdadero: x = 0 cumple y representa bolsas vacías.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una tarifa de x soles cumple x + 5 = 13. Si proponen x = 8, ¿cuánto da el lado izquierdo? Escribe solo el número.",
+        "respuesta": 13,
+        "pistas": [
+          "Reemplaza x por 8.",
+          "Calcula 8 + 5.",
+          "Contrasta el total con 13."
+        ],
+        "retroalimentacion": "Sumar 5 dos veces altera la prueba; el lado izquierdo es 13.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un salón hay x alumnos y x + 2 = 1. La cuenta da x = -1. ¿Cómo se evalúa?",
+        "respuesta": "b",
+        "pistas": [
+          "La igualdad puede cumplirse algebraicamente.",
+          "Pero x cuenta personas.",
+          "Ningún salón tiene cantidad negativa de estudiantes."
+        ],
+        "retroalimentacion": "Aceptar solo la igualdad ignora el contexto; «Es imposible: no puede haber -1 alumnos» es correcto.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Es válida porque satisface la ecuación"
+          },
+          {
+            "id": "b",
+            "texto": "Es imposible: no puede haber -1 alumnos"
+          },
+          {
+            "id": "c",
+            "texto": "Se redondea a 0 alumnos"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para una compra de 2 cuadernos a x soles, 2x = 15; x = 7,5 cumple y representa un precio posible.",
+        "respuesta": true,
+        "pistas": [
+          "Duplica el precio propuesto.",
+          "2 × 7,5 = 15.",
+          "S/ 7,50 es un precio permitido."
+        ],
+        "retroalimentacion": "Es verdadero: la igualdad y el precio tienen sentido.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja contiene x lápices, con 3x = 10. ¿Por qué x = 10/3 no sirve en esta historia?",
+        "respuesta": "a",
+        "pistas": [
+          "Calcula: la igualdad sí se cumple.",
+          "La caja cuenta lápices completos.",
+          "10/3 no es un número entero."
+        ],
+        "retroalimentacion": "La cuenta es correcta, pero «Porque no puede haber un tercio de lápiz entero» explica la restricción.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Porque no puede haber un tercio de lápiz entero"
+          },
+          {
+            "id": "b",
+            "texto": "Porque 3 × 10/3 no da 10"
+          },
+          {
+            "id": "c",
+            "texto": "Porque x debe ser negativo"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Se propone x = 6 para 2(x + 3) = 18. ¿Qué valor obtiene el lado izquierdo? Escribe solo el número.",
+        "respuesta": 18,
+        "pistas": [
+          "Primero evalúa el paréntesis con x = 6.",
+          "6 + 3 = 9.",
+          "Multiplica 2 × 9."
+        ],
+        "retroalimentacion": "Hacer 2 × 6 + 3 da 15; el lado izquierdo vale 18.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una familia compra x pasajes a S/ 4 y paga S/ 14: 4x = 14. ¿Qué conclusión une cuenta y contexto?",
+        "respuesta": "c",
+        "pistas": [
+          "Despeja x dividiendo 14 entre 4.",
+          "Obtienes 3,5.",
+          "Un pasaje completo no se cuenta por mitades aquí."
+        ],
+        "retroalimentacion": "La igualdad da 3,5; «x = 3,5 pero no son pasajes enteros» respeta la historia.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x = 3,5 y es válido"
+          },
+          {
+            "id": "b",
+            "texto": "x = 4 y sobran S/ 2"
+          },
+          {
+            "id": "c",
+            "texto": "x = 3,5 pero no son pasajes enteros"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.problemas-edades",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-S1-01",
+      "MAT-C24-S1-02"
+    ],
+    "bloque": "Ecuaciones lineales",
+    "nombre": "Problemas de edades",
+    "disciplina": "algebra",
+    "descripcionCorta": "Plantea ecuaciones con edades pasadas, presentes y futuras.",
+    "palabrasClave": [
+      "edades",
+      "pasado",
+      "futuro",
+      "ecuación"
+    ],
+    "prerrequisitos": [
+      "mat.s1.incognita-ambos-miembros",
+      "mat.s1.plantear-ecuaciones"
+    ],
+    "ordenSugerido": 57,
+    "ideaCentral": "El tiempo afecta por igual a todas las personas: dentro de n años, suma n a cada edad; hace n años, resta n. Representa la edad actual con x antes de plantear la ecuación.",
+    "pasos": [
+      "Define x como una edad actual e indica la otra edad en función de x.",
+      "Suma o resta los mismos años para trasladarte al futuro o al pasado.",
+      "Forma la ecuación, resuélvela y comprueba las edades."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Rosa tiene el doble de años que Ana; juntas suman 36.",
+        "desarrollo": "Si Ana tiene x, Rosa tiene 2x: 3x = 36.",
+        "respuesta": "Ana tiene 12 y Rosa 24 años."
+      },
+      {
+        "situacion": "Luis tiene 4 años más que Eva. Dentro de 3 años sumarán 30.",
+        "desarrollo": "Hoy: x y x + 4. En 3 años: x + 3 y x + 7; 2x + 10 = 30.",
+        "respuesta": "Eva tiene 10 y Luis 14 años hoy."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar años futuros solo a una persona.",
+        "correccion": "Ambas personas envejecen la misma cantidad."
+      },
+      {
+        "error": "Confundir edad futura con edad actual al responder.",
+        "correccion": "Vuelve a lo que pregunta el problema."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Edad actual",
+        "significado": "Años que tiene una persona hoy."
+      },
+      {
+        "termino": "Edad futura",
+        "significado": "Edad actual más los años que pasarán."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Ana tiene 3 años más que Beto. Si Beto tiene 12, ¿cuántos años tiene Ana hoy? Escribe solo el número.",
+        "respuesta": 15,
+        "pistas": [
+          "La diferencia es de 3 años.",
+          "Suma 3 a la edad de Beto.",
+          "12 + 3 = 15."
+        ],
+        "retroalimentacion": "Restar 3 invierte quién es mayor; Ana tiene 15 años.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si Carla tiene x años hoy, ¿qué expresión representa su edad dentro de 5 años?",
+        "respuesta": "c",
+        "pistas": [
+          "El tiempo futuro se suma.",
+          "Partes de x años actuales.",
+          "Añade 5 a x."
+        ],
+        "retroalimentacion": "Multiplicar por 5 confunde años con veces; «x + 5» es la expresión.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x - 5"
+          },
+          {
+            "id": "b",
+            "texto": "5x"
+          },
+          {
+            "id": "c",
+            "texto": "x + 5"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si Diego tiene x años ahora, hace 4 años tenía x - 4 años.",
+        "respuesta": true,
+        "pistas": [
+          "Retrocede cuatro años desde hoy.",
+          "Al retroceder, la edad disminuye.",
+          "Resta 4 a x."
+        ],
+        "retroalimentacion": "Es verdadero: hace 4 años tenía x - 4.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "María tiene 14 años y su hermano 2 menos. ¿Cuántos años tiene su hermano? Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "Su hermano es menor.",
+          "A 14 réstale 2.",
+          "14 - 2 = 12."
+        ],
+        "retroalimentacion": "Sumar 2 lo haría mayor; tiene 12 años.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La edad de Inés es x y la de su madre 3x. Hoy suman 48 años. ¿Cuántos años tiene Inés? Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "Plantea x + 3x = 48.",
+          "Agrupa: 4x = 48.",
+          "Divide 48 entre 4."
+        ],
+        "retroalimentacion": "Tomar 48 como edad de la madre confunde el total; Inés tiene 12 años.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Hace 2 años, Pablo tenía 8. ¿Cuántos años tendrá dentro de 3 años?",
+        "respuesta": "b",
+        "pistas": [
+          "Primero recupera la edad actual.",
+          "Hoy tiene 8 + 2 = 10.",
+          "En tres años tendrá 10 + 3."
+        ],
+        "retroalimentacion": "Sumar solo 3 a la edad pasada da 11; «13» es su edad futura.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "11"
+          },
+          {
+            "id": "b",
+            "texto": "13"
+          },
+          {
+            "id": "c",
+            "texto": "15"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Luz tiene 5 años más que Marco. Juntos tienen 29 años hoy. ¿Qué edad tiene Marco? Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "Sea x la edad de Marco.",
+          "La edad de Luz es x + 5; suma x + x + 5.",
+          "2x + 5 = 29; resta 5 y divide entre 2."
+        ],
+        "retroalimentacion": "Repartir 29 exactamente a la mitad ignora los 5 años; Marco tiene 12.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos hermanos tienen hoy x y x + 6 años, dentro de 4 años sus edades sumarán 2x + 14.",
+        "respuesta": true,
+        "pistas": [
+          "En cuatro años tendrán x + 4 y x + 10.",
+          "Suma ambas expresiones.",
+          "x + 4 + x + 10 = 2x + 14."
+        ],
+        "retroalimentacion": "Es verdadero: a la suma actual se agregan 8 años en total.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una tía tiene hoy el triple de años que su sobrina. Dentro de 6 años sumarán 60. ¿Cuántos años tiene la sobrina hoy? Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "Hoy son x y 3x.",
+          "Dentro de 6 años suman x + 6 + 3x + 6.",
+          "4x + 12 = 60; resta 12."
+        ],
+        "retroalimentacion": "Olvidar sumar 6 a ambas edades da un valor mayor; la sobrina tiene 12.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Hace 5 años, una madre tenía el cuádruple de la edad de su hija. Hoy la hija tiene 15. ¿Qué edad tiene hoy la madre?",
+        "respuesta": "b",
+        "pistas": [
+          "Hace cinco años la hija tenía 10.",
+          "La madre tenía entonces 4 × 10 = 40.",
+          "Suma cinco años para volver a hoy."
+        ],
+        "retroalimentacion": "Responder 40 confunde pasado con presente; la opción «45» es la edad actual.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "40"
+          },
+          {
+            "id": "b",
+            "texto": "45"
+          },
+          {
+            "id": "c",
+            "texto": "50"
+          },
+          {
+            "id": "d",
+            "texto": "55"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Hoy la edad de un padre supera en 24 años a la de su hijo. En 4 años, juntos sumarán 60. ¿Cuántos años tiene hoy el hijo? Escribe solo el número.",
+        "respuesta": 14,
+        "pistas": [
+          "Hoy hijo x y padre x + 24.",
+          "En cuatro años: x + 4 y x + 28.",
+          "2x + 32 = 60; despeja x."
+        ],
+        "retroalimentacion": "Olvidar los 8 años que se agregan al total da 18; el hijo tiene 14.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Hoy dos hermanas suman 26 años y una tiene 4 más que la otra. ¿Qué edad tendrá la mayor dentro de 3 años?",
+        "respuesta": "d",
+        "pistas": [
+          "Sea x la menor: la mayor es x + 4.",
+          "2x + 4 = 26; la menor tiene 11.",
+          "La mayor hoy tiene 15; añade 3."
+        ],
+        "retroalimentacion": "La opción «18» es correcta; 15 sería la edad actual de la mayor.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "14"
+          },
+          {
+            "id": "b",
+            "texto": "15"
+          },
+          {
+            "id": "c",
+            "texto": "16"
+          },
+          {
+            "id": "d",
+            "texto": "18"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.problemas-consecutivos",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-S1-01"
+    ],
+    "bloque": "Ecuaciones lineales",
+    "nombre": "Problemas de números consecutivos",
+    "disciplina": "algebra",
+    "descripcionCorta": "Representa números consecutivos, pares o impares con una variable y plantea la ecuación.",
+    "palabrasClave": [
+      "consecutivos",
+      "par",
+      "impar",
+      "ecuación"
+    ],
+    "prerrequisitos": [
+      "mat.s1.plantear-ecuaciones",
+      "mat.s1.ecuaciones-lineales"
+    ],
+    "ordenSugerido": 58,
+    "ideaCentral": "Los números consecutivos se representan x, x + 1, x + 2. Los pares o impares consecutivos avanzan de dos en dos.",
+    "pasos": [
+      "Decide si la secuencia avanza de 1 en 1 o de 2 en 2.",
+      "Representa el primero por x y escribe los siguientes.",
+      "Plantea la suma u otra relación, resuelve y verifica la secuencia."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Tres números seguidos suman 36.",
+        "desarrollo": "x + (x + 1) + (x + 2) = 36; 3x + 3 = 36.",
+        "respuesta": "Son 11, 12 y 13."
+      },
+      {
+        "situacion": "Dos pares seguidos suman 26.",
+        "desarrollo": "x + (x + 2) = 26; 2x = 24.",
+        "respuesta": "Son 12 y 14."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Escribir pares seguidos como x y x + 1.",
+        "correccion": "Los pares consecutivos difieren en 2."
+      },
+      {
+        "error": "Olvidar sumar el 1 y el 2 de las expresiones.",
+        "correccion": "Agrupa números y términos con x por separado."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Consecutivos",
+        "significado": "Números enteros que se siguen sin saltos."
+      },
+      {
+        "termino": "Pares consecutivos",
+        "significado": "Números pares separados por 2."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Si el primer entero es x, escribe el siguiente entero.",
+        "respuesta": "x + 1",
+        "pistas": [
+          "Aumenta un entero.",
+          "El número que sigue a x está una unidad después.",
+          "Añade 1 a x."
+        ],
+        "retroalimentacion": "No multipliques x: el siguiente entero es x + 1.",
+        "alternativasAceptadas": [
+          "x+1"
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué par es de impares consecutivos?",
+        "respuesta": "b",
+        "pistas": [
+          "Ambos números deben ser impares.",
+          "Los impares van de dos en dos.",
+          "Después de 7 viene 9."
+        ],
+        "retroalimentacion": "7 y 11 salta un impar; «7 y 9» son impares consecutivos.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7 y 8"
+          },
+          {
+            "id": "b",
+            "texto": "7 y 9"
+          },
+          {
+            "id": "c",
+            "texto": "7 y 11"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los números 18 y 20 son pares consecutivos.",
+        "respuesta": true,
+        "pistas": [
+          "Comprueba si ambos son pares.",
+          "Su diferencia es 2.",
+          "Entre ellos está 19, que es impar."
+        ],
+        "retroalimentacion": "Es verdadero: 18 y 20 son pares seguidos.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Tres enteros consecutivos empiezan en 6. ¿Cuál es el tercero? Escribe solo el número.",
+        "respuesta": 8,
+        "pistas": [
+          "El segundo es 6 + 1.",
+          "El tercero es 6 + 2.",
+          "6, 7 y 8 forman la terna."
+        ],
+        "retroalimentacion": "Saltar de dos en dos confunde con pares; el tercero es 8.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Dos enteros consecutivos suman 21. ¿Cuál es el menor? Escribe solo el número.",
+        "respuesta": 10,
+        "pistas": [
+          "Representa x y x + 1.",
+          "x + x + 1 = 21.",
+          "2x = 20."
+        ],
+        "retroalimentacion": "Tomar ambos como 10,5 ignora que son enteros distintos; el menor es 10.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tres pares seguidos suman 30. ¿Cuál es el par central?",
+        "respuesta": "b",
+        "pistas": [
+          "Escribe x, x + 2 y x + 4.",
+          "3x + 6 = 30; x = 8.",
+          "El central es x + 2."
+        ],
+        "retroalimentacion": "La opción «10» es central; 8 es el primero.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8"
+          },
+          {
+            "id": "b",
+            "texto": "10"
+          },
+          {
+            "id": "c",
+            "texto": "12"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Dos impares consecutivos suman 32. ¿Cuál es el mayor? Escribe solo el número.",
+        "respuesta": 17,
+        "pistas": [
+          "Representa x y x + 2.",
+          "2x + 2 = 32.",
+          "x = 15; suma 2."
+        ],
+        "retroalimentacion": "Dividir 32 por 2 da el promedio 16, no un impar; el mayor es 17.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si x es el primero de tres enteros consecutivos, su suma es 3x + 3.",
+        "respuesta": true,
+        "pistas": [
+          "Los otros son x + 1 y x + 2.",
+          "Suma x + x + 1 + x + 2.",
+          "Agrupa 3x y 1 + 2."
+        ],
+        "retroalimentacion": "Es verdadero: la suma es 3x + 3.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "La suma de tres enteros consecutivos es 54. ¿Cuál es el mayor? Escribe solo el número.",
+        "respuesta": 19,
+        "pistas": [
+          "Escribe x, x + 1, x + 2.",
+          "3x + 3 = 54; x = 17.",
+          "El mayor es x + 2."
+        ],
+        "retroalimentacion": "Responder 18 da el central; el mayor es 19.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tres impares seguidos suman 45. ¿Cuál es el menor?",
+        "respuesta": "b",
+        "pistas": [
+          "Usa x, x + 2, x + 4.",
+          "3x + 6 = 45.",
+          "3x = 39."
+        ],
+        "retroalimentacion": "Confundir el promedio 15 con el menor falla; «13» inicia la terna.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "11"
+          },
+          {
+            "id": "b",
+            "texto": "13"
+          },
+          {
+            "id": "c",
+            "texto": "15"
+          },
+          {
+            "id": "d",
+            "texto": "17"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Dos números pares consecutivos suman 74. ¿Cuánto es el doble del menor? Escribe solo el número.",
+        "respuesta": 72,
+        "pistas": [
+          "Representa los pares x y x + 2.",
+          "2x + 2 = 74; x = 36.",
+          "Piden 2x, no x."
+        ],
+        "retroalimentacion": "Responder 36 omite el doble; el resultado es 72.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "El menor de tres enteros seguidos es x. Si el mayor es el doble del menor menos 6, ¿cuál es el menor?",
+        "respuesta": "c",
+        "pistas": [
+          "Toma x como el menor de los tres enteros seguidos.",
+          "En este problema, el tercero de x, x + 1, x + 2 es x + 2.",
+          "Suma 6 y resta x."
+        ],
+        "retroalimentacion": "El menor es 8; la opción «8» cumple 8, 9, 10 y 10 = 2 × 8 - 6.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6"
+          },
+          {
+            "id": "b",
+            "texto": "7"
+          },
+          {
+            "id": "c",
+            "texto": "8"
+          },
+          {
+            "id": "d",
+            "texto": "9"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.ecuaciones-equivalentes",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+    "desempenosOrigen": [
+      "MAT-C24-S1-09"
+    ],
+    "bloque": "Ecuaciones lineales",
+    "nombre": "Ecuaciones equivalentes",
+    "disciplina": "algebra",
+    "descripcionCorta": "Justifica cuándo dos ecuaciones tienen la misma solución.",
+    "palabrasClave": [
+      "equivalencia",
+      "solución",
+      "propiedad de igualdad",
+      "transformación"
+    ],
+    "prerrequisitos": [
+      "mat.s1.propiedades-igualdad"
+    ],
+    "ordenSugerido": 59,
+    "ideaCentral": "Dos ecuaciones son equivalentes si tienen exactamente las mismas soluciones. Sumar el mismo número, multiplicar por un número distinto de cero o simplificar correctamente conserva la solución.",
+    "pasos": [
+      "Resuelve ambas ecuaciones o transforma una con operaciones válidas.",
+      "Comprueba que la misma x satisface las dos.",
+      "Evita multiplicar o dividir por cero; puede cambiar las soluciones."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Compara x + 3 = 7 con 2x + 6 = 14.",
+        "desarrollo": "La segunda surge al multiplicar toda la primera por 2; ambas dan x = 4.",
+        "respuesta": "Son equivalentes."
+      },
+      {
+        "situacion": "Compara x = 5 con x + 1 = 5.",
+        "desarrollo": "La primera tiene x = 5 y la segunda x = 4.",
+        "respuesta": "No son equivalentes."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar solo a un lado y afirmar equivalencia.",
+        "correccion": "La operación debe aplicarse a ambos miembros."
+      },
+      {
+        "error": "Multiplicar por cero para simplificar.",
+        "correccion": "Multiplicar por cero pierde información y crea 0 = 0."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Ecuaciones equivalentes",
+        "significado": "Igualdades con el mismo conjunto de soluciones."
+      },
+      {
+        "termino": "Transformación válida",
+        "significado": "Operación que conserva la igualdad y sus soluciones."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Las ecuaciones x + 2 = 5 y x = 3 son equivalentes.",
+        "respuesta": true,
+        "pistas": [
+          "Resuelve x + 2 = 5.",
+          "Resta 2 a ambos lados.",
+          "Obtienes x = 3."
+        ],
+        "retroalimentacion": "Es verdadero: las dos tienen solución x = 3.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál ecuación equivale a x = 4?",
+        "respuesta": "b",
+        "pistas": [
+          "Sustituye x = 4 en cada opción.",
+          "4 + 1 da 5.",
+          "Una ecuación equivalente debe conservar esa única solución."
+        ],
+        "retroalimentacion": "La opción «x + 1 = 5» tiene la misma solución.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x + 1 = 4"
+          },
+          {
+            "id": "b",
+            "texto": "x + 1 = 5"
+          },
+          {
+            "id": "c",
+            "texto": "2x = 4"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Multiplicar ambos lados de x = 7 por 2 produce 2x = 14, una ecuación equivalente.",
+        "respuesta": true,
+        "pistas": [
+          "El factor 2 no es cero.",
+          "La igualdad nueva se obtiene en ambos lados.",
+          "2x = 14 también da x = 7."
+        ],
+        "retroalimentacion": "Es verdadero: multiplicar por 2 conserva la solución.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué operación conserva la solución de x + 3 = 8?",
+        "respuesta": "b",
+        "pistas": [
+          "La misma operación debe aplicarse a ambos miembros.",
+          "Multiplicar por cero borra la información sobre x.",
+          "Restar 3 deja x = 5."
+        ],
+        "retroalimentacion": "«Restar 3 de ambos lados» mantiene la misma solución.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sumar 2 solo a la izquierda"
+          },
+          {
+            "id": "b",
+            "texto": "Restar 3 de ambos lados"
+          },
+          {
+            "id": "c",
+            "texto": "Multiplicar ambos lados por 0"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La ecuación 3x = 18 equivale a x = __. Escribe solo el número.",
+        "respuesta": 6,
+        "pistas": [
+          "Divide ambos miembros entre 3.",
+          "18 ÷ 3 = 6.",
+          "Sustituye 6: 3 × 6 = 18."
+        ],
+        "retroalimentacion": "Restar 3 en lugar de dividir confunde operaciones; x = 6.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es equivalente a 2x + 4 = 12?",
+        "respuesta": "b",
+        "pistas": [
+          "Divide todos los términos de la primera por 2.",
+          "2x/2 = x y 4/2 = 2.",
+          "12/2 = 6."
+        ],
+        "retroalimentacion": "Dividir solo 2x no basta; «x + 2 = 6» es equivalente.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2x = 12"
+          },
+          {
+            "id": "b",
+            "texto": "x + 2 = 6"
+          },
+          {
+            "id": "c",
+            "texto": "x + 4 = 12"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Las ecuaciones 4x - 8 = 0 y x - 2 = 0 son equivalentes.",
+        "respuesta": true,
+        "pistas": [
+          "Divide la primera ecuación completa entre 4.",
+          "4x/4 = x.",
+          "-8/4 = -2 y 0/4 = 0."
+        ],
+        "retroalimentacion": "Es verdadero: ambas se resuelven con x = 2.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "A partir de x - 5 = 9, ¿qué ecuación equivalente obtienes al sumar 5 a ambos lados?",
+        "respuesta": "b",
+        "pistas": [
+          "El -5 se cancela a la izquierda.",
+          "A la derecha queda 9 + 5.",
+          "La nueva igualdad tiene x aislada."
+        ],
+        "retroalimentacion": "Olvidar sumar 5 al 9 da 9; «x = 14» es equivalente.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x = 4"
+          },
+          {
+            "id": "b",
+            "texto": "x = 14"
+          },
+          {
+            "id": "c",
+            "texto": "x = 9"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Las ecuaciones 2(x + 1) = 10 y x + 1 = 5 son equivalentes.",
+        "respuesta": true,
+        "pistas": [
+          "Divide ambos lados de la primera por 2.",
+          "El 2 exterior se cancela.",
+          "10/2 = 5."
+        ],
+        "retroalimentacion": "Es verdadero: ambas tienen x = 4.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué par NO es equivalente?",
+        "respuesta": "c",
+        "pistas": [
+          "Calcula la solución de la primera ecuación de cada par.",
+          "x - 2 = 5 pide sumar 2.",
+          "Su solución es 7, distinta de 5."
+        ],
+        "retroalimentacion": "La opción «x - 2 = 5 y x = 5» no es equivalente: las soluciones difieren.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x + 4 = 7 y x = 3"
+          },
+          {
+            "id": "b",
+            "texto": "3x = 12 y x = 4"
+          },
+          {
+            "id": "c",
+            "texto": "x - 2 = 5 y x = 5"
+          },
+          {
+            "id": "d",
+            "texto": "2x + 2 = 8 y x = 3"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un compañero pasa de 5x = 20 a 0x = 0 multiplicando por cero. ¿Por qué no son equivalentes?",
+        "respuesta": "a",
+        "pistas": [
+          "Resuelve 5x = 20.",
+          "Multiplicar por cero borra x.",
+          "0 = 0 es cierto para todos los valores."
+        ],
+        "retroalimentacion": "«Porque 5x = 20 tiene x = 4 y 0x = 0 admite cualquier x» explica la pérdida de soluciones.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Porque 5x = 20 tiene x = 4 y 0x = 0 admite cualquier x"
+          },
+          {
+            "id": "b",
+            "texto": "Porque 5x = 20 no tiene solución"
+          },
+          {
+            "id": "c",
+            "texto": "Porque 0x = 0 solo tiene x = 0"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Si 6x - 12 = 24 se divide entre 6, ¿qué número aparece a la derecha en la ecuación equivalente? Escribe solo el número.",
+        "respuesta": 4,
+        "pistas": [
+          "Divide todos los términos por 6.",
+          "El lado derecho original es 24.",
+          "24 ÷ 6 = 4."
+        ],
+        "retroalimentacion": "Dividir solo los términos con x falla; a la derecha queda 4.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.tipos-solucion-ecuacion",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+    "desempenosOrigen": [
+      "MAT-C24-S1-09"
+    ],
+    "bloque": "Ecuaciones lineales",
+    "nombre": "Ecuaciones con solución única, sin solución o con infinitas",
+    "disciplina": "algebra",
+    "descripcionCorta": "Reconoce y explica los casos en que una ecuación lineal no tiene solución o tiene infinitas.",
+    "palabrasClave": [
+      "solución única",
+      "sin solución",
+      "infinitas soluciones",
+      "identidad"
+    ],
+    "prerrequisitos": [
+      "mat.s1.incognita-ambos-miembros"
+    ],
+    "ordenSugerido": 60,
+    "ideaCentral": "Al reducir una ecuación lineal, puede quedar x igual a un número, una contradicción como 0 = 5 o una identidad como 0 = 0. Eso distingue una solución, ninguna o infinitas soluciones.",
+    "pasos": [
+      "Abre paréntesis y reúne términos semejantes.",
+      "Lleva las x a un lado y los números al otro.",
+      "Interpreta el resultado: x = n, igualdad falsa o igualdad siempre verdadera."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Compara 2x + 3 = 2x + 8.",
+        "desarrollo": "Resta 2x: 3 = 8, lo cual es falso.",
+        "respuesta": "No tiene solución."
+      },
+      {
+        "situacion": "Compara 4(x + 1) = 4x + 4.",
+        "desarrollo": "Distribuye: 4x + 4 = 4x + 4.",
+        "respuesta": "Tiene infinitas soluciones."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que 0 = 5 indica x = 0.",
+        "correccion": "Una igualdad falsa indica ninguna solución."
+      },
+      {
+        "error": "Decir que 0 = 0 da solo x = 0.",
+        "correccion": "Esa identidad vale para cualquier x."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Contradicción",
+        "significado": "Igualdad falsa, como 2 = 7."
+      },
+      {
+        "termino": "Identidad",
+        "significado": "Igualdad verdadera para todo valor de x."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuántas soluciones tiene x + 2 = 5?",
+        "respuesta": "b",
+        "pistas": [
+          "Resta 2 a ambos lados.",
+          "Obtienes x = 3.",
+          "Solo un número cumple."
+        ],
+        "retroalimentacion": "La opción «Una» es correcta: x = 3.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ninguna"
+          },
+          {
+            "id": "b",
+            "texto": "Una"
+          },
+          {
+            "id": "c",
+            "texto": "Infinitas"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La ecuación x + 1 = x + 3 no tiene solución.",
+        "respuesta": true,
+        "pistas": [
+          "Resta x a ambos lados.",
+          "Queda 1 = 3.",
+          "Esa igualdad es falsa."
+        ],
+        "retroalimentacion": "Es verdadero: 1 = 3 es una contradicción.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué indica llegar a 0 = 0 al simplificar una ecuación?",
+        "respuesta": "c",
+        "pistas": [
+          "0 = 0 es verdadero.",
+          "La variable desapareció sin imponer condición.",
+          "Cualquier valor inicial cumple."
+        ],
+        "retroalimentacion": "La opción «Infinitas soluciones» corresponde a la identidad 0 = 0.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una solución"
+          },
+          {
+            "id": "b",
+            "texto": "Ninguna solución"
+          },
+          {
+            "id": "c",
+            "texto": "Infinitas soluciones"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La igualdad 2x = 8 tiene una sola solución.",
+        "respuesta": true,
+        "pistas": [
+          "Divide entre 2.",
+          "Queda x = 4.",
+          "Solo 4 satisface 2x = 8."
+        ],
+        "retroalimentacion": "Es verdadero: la solución única es 4.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Simplifica 3x + 4 = 3x - 2. ¿Qué caso resulta?",
+        "respuesta": "b",
+        "pistas": [
+          "Resta 3x a ambos lados.",
+          "Queda 4 = -2.",
+          "Una igualdad falsa no admite x."
+        ],
+        "retroalimentacion": "«Sin solución» es correcto; 4 nunca es -2.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solución única"
+          },
+          {
+            "id": "b",
+            "texto": "Sin solución"
+          },
+          {
+            "id": "c",
+            "texto": "Infinitas soluciones"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La ecuación 5(x + 2) = 5x + 10 admite cualquier valor de x.",
+        "respuesta": true,
+        "pistas": [
+          "Distribuye el 5.",
+          "Ambos lados quedan 5x + 10.",
+          "La igualdad se cumple siempre."
+        ],
+        "retroalimentacion": "Es verdadero: es una identidad con infinitas soluciones.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si 4x - 8 = 2x + 2, ¿qué tipo de solución hay?",
+        "respuesta": "a",
+        "pistas": [
+          "Resta 2x a ambos lados.",
+          "2x - 8 = 2; suma 8.",
+          "2x = 10 determina x = 5."
+        ],
+        "retroalimentacion": "La opción «Una solución» es correcta: x = 5.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una solución"
+          },
+          {
+            "id": "b",
+            "texto": "Sin solución"
+          },
+          {
+            "id": "c",
+            "texto": "Infinitas soluciones"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al obtener 7 = 7 después de eliminar x, la ecuación original no tiene solución.",
+        "respuesta": false,
+        "pistas": [
+          "7 = 7 sí es verdadero.",
+          "No queda condición sobre x.",
+          "Todos los valores posibles cumplen."
+        ],
+        "retroalimentacion": "Es falso: una identidad indica infinitas soluciones.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Resuelve mentalmente 2(x + 4) = 2x + 9. ¿Qué conclusión corresponde?",
+        "respuesta": "b",
+        "pistas": [
+          "Distribuye: 2x + 8 = 2x + 9.",
+          "Cancela 2x.",
+          "Queda 8 = 9, imposible."
+        ],
+        "retroalimentacion": "La opción «No tiene solución» corresponde a la contradicción.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x = 1"
+          },
+          {
+            "id": "b",
+            "texto": "No tiene solución"
+          },
+          {
+            "id": "c",
+            "texto": "Todos los números sirven"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La ecuación 3(x - 2) + 1 = 3x - 5 tiene infinitas soluciones.",
+        "respuesta": true,
+        "pistas": [
+          "Abre el paréntesis.",
+          "3x - 6 + 1 = 3x - 5.",
+          "Ambos lados son 3x - 5."
+        ],
+        "retroalimentacion": "Es verdadero: la igualdad se cumple con cualquier x.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál ecuación tiene infinitas soluciones?",
+        "respuesta": "b",
+        "pistas": [
+          "Busca una igualdad que sea idéntica tras simplificar.",
+          "3(x - 2) se convierte en 3x - 6.",
+          "En ese caso ambos miembros coinciden."
+        ],
+        "retroalimentacion": "«3x - 6 = 3(x - 2)» es una identidad.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2x + 1 = 2x + 2"
+          },
+          {
+            "id": "b",
+            "texto": "3x - 6 = 3(x - 2)"
+          },
+          {
+            "id": "c",
+            "texto": "x + 1 = 4"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una ecuación queda 0x = -4 después de reducir. ¿Qué significa?",
+        "respuesta": "c",
+        "pistas": [
+          "Cero por cualquier x es cero.",
+          "No puede valer -4.",
+          "La igualdad 0 = -4 es falsa."
+        ],
+        "retroalimentacion": "La opción «No hay solución» expresa la contradicción.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x = 0"
+          },
+          {
+            "id": "b",
+            "texto": "x = -4"
+          },
+          {
+            "id": "c",
+            "texto": "No hay solución"
+          },
+          {
+            "id": "d",
+            "texto": "Hay infinitas soluciones"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

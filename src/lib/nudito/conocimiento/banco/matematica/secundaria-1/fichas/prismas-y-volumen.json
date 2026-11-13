@@ -1,0 +1,1944 @@
+[
+  {
+    "clave": "mat.s1.prismas-elementos",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-S1-01",
+      "MAT-C26-S1-03"
+    ],
+    "bloque": "Prismas y volumen",
+    "nombre": "Prismas: elementos y clasificación",
+    "disciplina": "geometria",
+    "descripcionCorta": "Clasifica prismas por su base e identifica caras, aristas y vértices.",
+    "palabrasClave": [
+      "prisma",
+      "caras",
+      "aristas",
+      "vértices",
+      "base",
+      "clasificación"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 91,
+    "ideaCentral": "Un prisma es un sólido con dos bases iguales y paralelas, unidas por caras laterales que en el prisma recto son rectángulos. El polígono de la base le da el nombre: triangular, cuadrangular, pentagonal, hexagonal…",
+    "pasos": [
+      "Ubica las dos bases: son las dos caras iguales y paralelas.",
+      "Cuenta los lados de la base: ese número (n) le da el nombre al prisma.",
+      "Cuenta las caras: n laterales más 2 bases.",
+      "Cuenta los vértices (2 × n) y las aristas (3 × n)."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una caja de zapatos es un prisma. ¿Cómo se clasifica y cuántas caras, vértices y aristas tiene?",
+        "desarrollo": "Su base es un rectángulo (4 lados): es un prisma rectangular o cuadrangular. Caras: 4 + 2 = 6. Vértices: 2 × 4 = 8. Aristas: 3 × 4 = 12.",
+        "respuesta": "Prisma rectangular: 6 caras, 8 vértices y 12 aristas."
+      },
+      {
+        "situacion": "Una carpa de campaña en Marcahuasi tiene dos triángulos iguales al frente y atrás. ¿Qué prisma es y cuántas aristas tiene?",
+        "desarrollo": "Las bases son los triángulos (3 lados): prisma triangular. Aristas: 3 en cada base y 3 que las unen, 3 × 3 = 9.",
+        "respuesta": "Es un prisma triangular con 9 aristas."
+      },
+      {
+        "situacion": "Un lápiz sin punta tiene bases en forma de hexágono. ¿Cuántos vértices tiene?",
+        "desarrollo": "La base tiene 6 lados y por tanto 6 vértices. Hay dos bases: 2 × 6 = 12.",
+        "respuesta": "El prisma hexagonal tiene 12 vértices."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar solo las caras laterales y olvidar las dos bases.",
+        "correccion": "Las bases también son caras. Un prisma triangular tiene 3 caras laterales + 2 bases = 5 caras."
+      },
+      {
+        "error": "Nombrar el prisma por la forma de sus caras laterales (decir «prisma rectangular» a todos).",
+        "correccion": "El nombre lo da la base. Si las bases son pentágonos, es un prisma pentagonal aunque sus caras laterales sean rectángulos."
+      },
+      {
+        "error": "Confundir aristas con vértices.",
+        "correccion": "La arista es una línea donde se unen dos caras; el vértice es una esquina, el punto donde se juntan las aristas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Base",
+        "significado": "Cada una de las dos caras iguales y paralelas del prisma."
+      },
+      {
+        "termino": "Cara lateral",
+        "significado": "Cada cara que une las dos bases; en el prisma recto es un rectángulo."
+      },
+      {
+        "termino": "Arista",
+        "significado": "Segmento donde se encuentran dos caras."
+      },
+      {
+        "termino": "Vértice",
+        "significado": "Punto donde se encuentran tres aristas del prisma."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántas bases tiene cualquier prisma? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las bases son las caras iguales y paralelas, una frente a la otra.",
+          "Piensa en una caja: la tapa y el fondo.",
+          "No importa la forma de la base: siempre hay la misma cantidad."
+        ],
+        "retroalimentacion": "Todo prisma tiene 2 bases. Las demás caras se llaman caras laterales."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cómo se llama el prisma cuyas bases son triángulos?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Prisma cuadrangular"
+          },
+          {
+            "id": "b",
+            "texto": "Prisma triangular"
+          },
+          {
+            "id": "c",
+            "texto": "Pirámide triangular"
+          }
+        ],
+        "pistas": [
+          "El nombre del prisma sale del polígono de su base.",
+          "Una pirámide tiene una sola base y termina en punta.",
+          "Base de tres lados: usa el adjetivo que viene de «triángulo»."
+        ],
+        "retroalimentacion": "Se llama prisma triangular. La pirámide triangular tiene una sola base, y el prisma cuadrangular tiene bases de cuatro lados."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Las caras laterales de un prisma recto son rectángulos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina una caja de leche o un ladrillo parado.",
+          "Cada cara lateral une un lado de una base con el lado igual de la otra.",
+          "En el prisma recto esas caras forman ángulos rectos con las bases."
+        ],
+        "retroalimentacion": "Es verdadero: en un prisma recto todas las caras laterales son rectángulos, sin importar la forma de la base."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una caja de fósforos tiene forma de prisma rectangular. ¿Cuántos vértices tiene? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los vértices son las esquinas de la caja.",
+          "La base de arriba es un rectángulo con 4 esquinas.",
+          "La base de abajo tiene otras 4 esquinas."
+        ],
+        "retroalimentacion": "No confundas vértices con caras (6) ni con aristas (12). Hay 4 esquinas arriba y 4 abajo: 8 vértices."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántas aristas tiene un prisma triangular? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta por partes: aristas de una base, de la otra base y las que las unen.",
+          "Cada base triangular tiene 3 aristas.",
+          "Hay 3 aristas laterales más: 3 + 3 + 3."
+        ],
+        "retroalimentacion": "Un olvido común es contar solo las 6 aristas de las bases. Con las 3 laterales suman 9."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántas caras tiene en total un prisma pentagonal? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El pentágono tiene 5 lados.",
+          "Por cada lado de la base hay una cara lateral: 5 caras laterales.",
+          "Agrega las dos bases a las 5 laterales."
+        ],
+        "retroalimentacion": "Si respondiste 5, te faltaron las bases. Son 5 caras laterales + 2 bases = 7 caras."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estos objetos tiene forma de prisma?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una pelota de fútbol"
+          },
+          {
+            "id": "b",
+            "texto": "Un cono de helado"
+          },
+          {
+            "id": "c",
+            "texto": "Una lata de leche"
+          },
+          {
+            "id": "d",
+            "texto": "Un ladrillo"
+          }
+        ],
+        "pistas": [
+          "Un prisma tiene solo caras planas y dos bases que son polígonos iguales.",
+          "La pelota y la lata tienen superficies curvas.",
+          "Busca el objeto cuyas seis caras son rectángulos."
+        ],
+        "retroalimentacion": "El ladrillo es un prisma rectangular. La pelota es una esfera, el cono termina en punta y la lata es un cilindro porque sus bases son círculos."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un prisma hexagonal tiene 6 vértices.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El hexágono tiene 6 vértices, pero el prisma tiene dos hexágonos.",
+          "Cuenta las esquinas de la base de arriba y las de la base de abajo.",
+          "2 × 6 = ?"
+        ],
+        "retroalimentacion": "Es falso: 6 son los vértices de una sola base. El prisma hexagonal tiene 2 × 6 = 12 vértices."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Las bases de un prisma son polígonos de 8 lados. ¿Cómo se llama ese prisma? Escribe «prisma» y el adjetivo.",
+        "respuesta": "prisma octogonal",
+        "alternativasAceptadas": [
+          "octogonal",
+          "prisma octagonal",
+          "octagonal",
+          "prisma octogonal recto"
+        ],
+        "pistas": [
+          "El polígono de 8 lados se llama octógono.",
+          "Así como de hexágono sale «hexagonal», de octógono sale un adjetivo parecido.",
+          "Completa: prisma octo…"
+        ],
+        "retroalimentacion": "Se llama prisma octogonal, porque sus bases son octógonos (8 lados)."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un prisma tiene 18 aristas. ¿Cuántos lados tiene el polígono de su base? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las aristas se reparten en tres grupos iguales: base de arriba, base de abajo y laterales.",
+          "Si la base tiene n lados, el prisma tiene 3 × n aristas.",
+          "Resuelve 3 × n = 18."
+        ],
+        "retroalimentacion": "No dividas entre 2 pensando solo en las bases. Aristas = 3 × n, así que n = 18 ÷ 3 = 6: es un prisma hexagonal."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un prisma tiene 10 vértices. ¿Cuántas caras tiene en total?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7"
+          },
+          {
+            "id": "b",
+            "texto": "10"
+          },
+          {
+            "id": "c",
+            "texto": "5"
+          },
+          {
+            "id": "d",
+            "texto": "12"
+          }
+        ],
+        "pistas": [
+          "Los vértices se reparten por igual entre las dos bases.",
+          "10 ÷ 2 = 5 vértices por base: la base es un pentágono.",
+          "Un pentágono da 5 caras laterales; súmale las bases."
+        ],
+        "retroalimentacion": "Tiene 7 caras: la base es un pentágono (10 ÷ 2 = 5 lados), con 5 caras laterales y 2 bases. Responder 5 olvida las bases."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Existe un prisma que tiene exactamente 10 aristas.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe cuántas aristas tienen los prismas de base 3, 4 y 5 lados.",
+          "Salen 9, 12 y 15: ¿qué tienen en común esos números?",
+          "El número de aristas siempre es 3 × n, un múltiplo de 3."
+        ],
+        "retroalimentacion": "Es falso: las aristas de un prisma son siempre un múltiplo de 3 (9, 12, 15…), y 10 no lo es."
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un prisma heptagonal (base de 7 lados), calcula: caras + vértices − aristas. Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla cada cantidad con n = 7.",
+          "Caras: 7 + 2 = 9. Vértices: 2 × 7 = 14. Aristas: 3 × 7 = 21.",
+          "Opera 9 + 14 − 21."
+        ],
+        "retroalimentacion": "Hay que contar bien las tres cantidades: 9 caras, 14 vértices y 21 aristas. 9 + 14 − 21 = 2, y ese 2 sale en cualquier prisma."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.desarrollo-prisma",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para medir y orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-S1-03",
+      "MAT-C26-S1-06"
+    ],
+    "bloque": "Prismas y volumen",
+    "nombre": "Desarrollo plano de un prisma",
+    "disciplina": "geometria",
+    "descripcionCorta": "Construye el desarrollo de un prisma y lo relaciona con su superficie.",
+    "palabrasClave": [
+      "desarrollo plano",
+      "prisma",
+      "caras",
+      "superficie",
+      "molde"
+    ],
+    "prerrequisitos": [
+      "mat.s1.prismas-elementos"
+    ],
+    "ordenSugerido": 92,
+    "ideaCentral": "El desarrollo plano de un prisma es la figura que obtienes al abrirlo y extender todas sus caras sobre una mesa: dos bases iguales y tantos rectángulos como lados tiene la base. Su área es la superficie del prisma.",
+    "pasos": [
+      "Cuenta los lados de la base: esa cantidad es el número de rectángulos laterales.",
+      "Dibuja los rectángulos laterales uno al lado del otro; juntos forman un rectángulo grande.",
+      "El largo de ese rectángulo grande es el perímetro de la base y su alto es la altura del prisma.",
+      "Pega una base arriba y otra abajo, unidas por un lado al rectángulo grande.",
+      "Comprueba que al doblar no se encimen caras y que no falte ninguna."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Abres con cuidado una caja de pasta dental. ¿Qué figuras ves en su desarrollo?",
+        "desarrollo": "Es un prisma rectangular: 4 rectángulos laterales en fila y 2 rectángulos pequeños (las bases), uno a cada extremo.",
+        "respuesta": "6 rectángulos, iguales de dos en dos."
+      },
+      {
+        "situacion": "Un prisma triangular tiene bases de lados 3 cm, 4 cm y 5 cm, y 8 cm de altura. ¿Cómo es su desarrollo?",
+        "desarrollo": "Tres rectángulos de 8 cm de alto y anchos 3, 4 y 5 cm, puestos en fila: forman un rectángulo de 12 cm × 8 cm. A él se pegan los dos triángulos.",
+        "respuesta": "Un rectángulo de 12 cm × 8 cm con dos triángulos de lados 3, 4 y 5 cm."
+      },
+      {
+        "situacion": "¿Cuánto cartón se necesita para un cubo de 2 cm de arista?",
+        "desarrollo": "Su desarrollo tiene 6 cuadrados de 2 cm × 2 cm. Cada uno mide 4 cm². 6 × 4 = 24.",
+        "respuesta": "Se necesitan 24 cm² de cartón."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dibujar una sola base en el desarrollo.",
+        "correccion": "Todo prisma tiene dos bases; si falta una, la caja queda sin tapa."
+      },
+      {
+        "error": "Poner una cantidad de rectángulos distinta al número de lados de la base.",
+        "correccion": "Cada lado de la base necesita su cara lateral: base pentagonal, 5 rectángulos; base hexagonal, 6."
+      },
+      {
+        "error": "Creer que cualquier acomodo de las caras sirve como desarrollo.",
+        "correccion": "Las caras deben poder doblarse sin encimarse. Seis cuadrados en una sola fila, por ejemplo, no cierran un cubo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Desarrollo plano",
+        "significado": "Figura plana que se obtiene al abrir un sólido y extender sus caras."
+      },
+      {
+        "termino": "Superficie",
+        "significado": "Todo el material que cubre al sólido; se mide con el área del desarrollo."
+      },
+      {
+        "termino": "Perímetro de la base",
+        "significado": "Suma de los lados de la base; es el largo del rectángulo lateral del desarrollo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos rectángulos forman el desarrollo plano de una caja de cereal (prisma rectangular)? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada cara de la caja aparece una vez en el desarrollo.",
+          "Cuenta: frente, atrás, dos costados…",
+          "…y además la tapa y el fondo."
+        ],
+        "retroalimentacion": "Son 6 rectángulos: 4 caras laterales y 2 bases. Si contaste 4, te faltaron la tapa y el fondo."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El desarrollo plano de un prisma muestra todas sus caras extendidas sobre un plano.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en lo que pasa cuando desarmas una caja de cartón.",
+          "Al abrirla no se pierde ni se agrega ninguna cara.",
+          "Lo que queda sobre la mesa es una figura plana con todas las caras."
+        ],
+        "retroalimentacion": "Es verdadero: el desarrollo contiene todas las caras del prisma, bases y laterales, sin encimarse."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un desarrollo plano tiene 2 triángulos iguales y 3 rectángulos. ¿De qué sólido es?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cubo"
+          },
+          {
+            "id": "b",
+            "texto": "Pirámide triangular"
+          },
+          {
+            "id": "c",
+            "texto": "Prisma triangular"
+          }
+        ],
+        "pistas": [
+          "Las dos figuras iguales son las bases.",
+          "Una pirámide tendría una sola base y caras triangulares.",
+          "Bases en forma de triángulo y caras laterales rectangulares: nombra el prisma por su base."
+        ],
+        "retroalimentacion": "Es un prisma triangular: 2 bases triangulares y 3 caras laterales rectangulares. El cubo solo tiene cuadrados y la pirámide triangular tiene 4 triángulos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos cuadrados tiene el desarrollo plano de un dado (cubo)? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En un dado, cada cara lleva una cantidad de puntos distinta.",
+          "Los puntos van del 1 al 6.",
+          "Hay una cara cuadrada por cada número."
+        ],
+        "retroalimentacion": "El cubo tiene 6 caras cuadradas iguales, así que su desarrollo tiene 6 cuadrados."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En el desarrollo plano de un prisma hexagonal, ¿cuántos rectángulos (caras laterales) hay? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las caras laterales nacen de los lados de la base.",
+          "El hexágono tiene 6 lados.",
+          "Un rectángulo por cada lado del hexágono."
+        ],
+        "retroalimentacion": "Hay 6 rectángulos, uno por cada lado del hexágono. Los 2 hexágonos son las bases y no cuentan como rectángulos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántas figuras en total (bases y caras laterales) tiene el desarrollo plano de un prisma pentagonal? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa la cuenta: primero las bases, después las laterales.",
+          "Hay 2 pentágonos.",
+          "Hay 5 rectángulos, uno por lado del pentágono. Suma ambos grupos."
+        ],
+        "retroalimentacion": "Son 7 figuras: 2 pentágonos y 5 rectángulos. Responder 5 deja fuera las bases."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En el desarrollo plano de un prisma, las dos bases pueden tener tamaños distintos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda cómo se definen las bases de un prisma.",
+          "Las bases son polígonos iguales y paralelos.",
+          "Si una base fuera más grande, las caras laterales ya no serían rectángulos."
+        ],
+        "retroalimentacion": "Es falso: las dos bases de un prisma son siempre iguales, y así aparecen en su desarrollo."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un prisma triangular tiene una base de lados 3 cm, 4 cm y 5 cm, y 10 cm de altura. En su desarrollo, las tres caras laterales forman un rectángulo grande de 10 cm de alto. ¿Cuántos cm mide el largo de ese rectángulo? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada cara lateral tiene como ancho un lado del triángulo.",
+          "Los anchos son 3 cm, 4 cm y 5 cm, puestos uno a continuación del otro.",
+          "El largo total es el perímetro de la base: 3 + 4 + 5."
+        ],
+        "retroalimentacion": "El largo no es 10 (esa es la altura) sino el perímetro de la base: 3 + 4 + 5 = 12 cm."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja mide 5 cm de largo, 3 cm de ancho y 2 cm de alto. ¿Qué rectángulos aparecen en su desarrollo plano?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Dos de 5 × 3, dos de 5 × 2 y dos de 3 × 2"
+          },
+          {
+            "id": "b",
+            "texto": "Seis de 5 × 3"
+          },
+          {
+            "id": "c",
+            "texto": "Cuatro de 5 × 3 y dos de 3 × 2"
+          }
+        ],
+        "pistas": [
+          "Las caras opuestas de una caja son iguales.",
+          "Tapa y fondo usan largo y ancho; frente y atrás usan largo y alto.",
+          "Los dos costados usan ancho y alto: 3 × 2."
+        ],
+        "retroalimentacion": "Aparecen tres pares de rectángulos: dos de 5 × 3 (tapa y fondo), dos de 5 × 2 (frente y atrás) y dos de 3 × 2 (costados). No todas las caras son iguales."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un prisma tiene base cuadrada de 4 cm de lado y 9 cm de altura. En su desarrollo, las cuatro caras laterales forman un rectángulo grande. ¿Cuántos cm² mide ese rectángulo? Escribe solo el número.",
+        "respuesta": 144,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero halla las dos medidas del rectángulo grande.",
+          "Largo = perímetro de la base = 4 × 4 = 16 cm; alto = 9 cm.",
+          "Área = 16 × 9: calcula 16 × 10 y quita 16."
+        ],
+        "retroalimentacion": "Un error es multiplicar solo 4 × 9 = 36, que es una sola cara. Las cuatro juntas miden 16 × 9 = 144 cm²."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mateo dibuja un desarrollo con 2 hexágonos y 5 rectángulos, lo recorta y no logra cerrar el prisma. ¿Qué falló?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sobra un hexágono"
+          },
+          {
+            "id": "b",
+            "texto": "Sobran dos rectángulos"
+          },
+          {
+            "id": "c",
+            "texto": "Los rectángulos debían ser triángulos"
+          },
+          {
+            "id": "d",
+            "texto": "Falta un rectángulo, porque el hexágono tiene 6 lados"
+          }
+        ],
+        "pistas": [
+          "Compara el número de rectángulos con los lados de la base.",
+          "Cada lado del hexágono necesita su propia cara lateral.",
+          "6 lados piden 6 rectángulos, y Mateo dibujó 5."
+        ],
+        "retroalimentacion": "Falta un rectángulo: un prisma hexagonal necesita 6 caras laterales, una por cada lado del hexágono. Los 2 hexágonos sí están bien."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Seis cuadrados iguales colocados en una sola fila forman un desarrollo plano válido de un cubo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina que doblas la tira de cuadrados como un cinturón.",
+          "Con cuatro cuadrados ya das la vuelta completa.",
+          "El quinto y el sexto caerían sobre caras ya puestas, y quedarían dos huecos."
+        ],
+        "retroalimentacion": "Es falso: al doblar la fila, los cuadrados 5 y 6 se enciman sobre otros y el cubo queda sin tapa ni fondo. Tener 6 cuadrados no basta; importa cómo están unidos."
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un prisma tiene bases que son triángulos equiláteros de 6 cm de lado y mide 10 cm de altura. En su desarrollo, las tres caras laterales forman un rectángulo grande. ¿Cuántos cm mide el perímetro de ese rectángulo? Escribe solo el número.",
+        "respuesta": 56,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Necesitas el largo y el alto del rectángulo grande.",
+          "Largo = 6 + 6 + 6 = 18 cm; alto = 10 cm.",
+          "Perímetro = 18 + 10 + 18 + 10."
+        ],
+        "retroalimentacion": "No confundas perímetro con área (180 cm²). El rectángulo mide 18 cm × 10 cm y su perímetro es 2 × (18 + 10) = 56 cm."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.area-lateral-total-prisma",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para medir y orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-S1-06"
+    ],
+    "bloque": "Prismas y volumen",
+    "nombre": "Área lateral y total de un prisma",
+    "disciplina": "geometria",
+    "descripcionCorta": "Calcula la superficie de un prisma sumando las áreas de su desarrollo.",
+    "palabrasClave": [
+      "área lateral",
+      "área total",
+      "prisma",
+      "superficie",
+      "perímetro de la base"
+    ],
+    "prerrequisitos": [
+      "mat.s1.desarrollo-prisma",
+      "mat.s1.perimetro-area-poligonos"
+    ],
+    "ordenSugerido": 93,
+    "ideaCentral": "El área lateral de un prisma recto es la suma de sus caras laterales: perímetro de la base × altura. El área total agrega las dos bases: área lateral + 2 × área de la base.",
+    "pasos": [
+      "Identifica la base del prisma y la altura (la distancia entre las dos bases).",
+      "Calcula el perímetro de la base y multiplícalo por la altura: esa es el área lateral.",
+      "Calcula el área de una base y duplícala.",
+      "Suma el área lateral y las dos bases para obtener el área total.",
+      "Lee qué te piden cubrir: solo los costados (lateral) o todo (total)."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una caja de regalo mide 4 cm de largo, 3 cm de ancho y 5 cm de alto. ¿Cuál es su área lateral y su área total?",
+        "desarrollo": "Perímetro de la base: 4 + 3 + 4 + 3 = 14 cm. Área lateral: 14 × 5 = 70 cm². Área de la base: 4 × 3 = 12 cm²; dos bases: 24 cm². Total: 70 + 24.",
+        "respuesta": "Área lateral 70 cm² y área total 94 cm²."
+      },
+      {
+        "situacion": "Se pintarán las cuatro paredes de una columna de base cuadrada de 1 m de lado y 3 m de alto. ¿Cuántos m² se pintan?",
+        "desarrollo": "Solo se pintan los costados: área lateral. Perímetro de la base: 4 × 1 = 4 m. Área lateral: 4 × 3.",
+        "respuesta": "Se pintan 12 m²."
+      },
+      {
+        "situacion": "¿Cuánto papel cubre por completo un cubo de 3 cm de arista?",
+        "desarrollo": "El cubo tiene 6 caras cuadradas de 3 × 3 = 9 cm². 6 × 9 = 54.",
+        "respuesta": "54 cm² de papel."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar una sola base al área lateral.",
+        "correccion": "El prisma tiene dos bases: área total = área lateral + 2 × área de la base."
+      },
+      {
+        "error": "Multiplicar el área de la base por la altura cuando piden superficie.",
+        "correccion": "Eso da el volumen. Para el área lateral se multiplica el perímetro de la base por la altura."
+      },
+      {
+        "error": "En un prisma triangular, olvidar dividir entre 2 al hallar el área de la base.",
+        "correccion": "El área de un triángulo es base × altura ÷ 2."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Área lateral",
+        "significado": "Suma de las áreas de las caras laterales del prisma."
+      },
+      {
+        "termino": "Área total",
+        "significado": "Área lateral más el área de las dos bases."
+      },
+      {
+        "termino": "Altura del prisma",
+        "significado": "Distancia entre las dos bases."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La base de un prisma recto tiene 12 cm de perímetro y el prisma mide 5 cm de altura. ¿Cuántos cm² tiene su área lateral? Escribe solo el número.",
+        "respuesta": 60,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Área lateral = perímetro de la base × altura.",
+          "Los datos ya están listos: 12 cm y 5 cm.",
+          "Multiplica 12 × 5."
+        ],
+        "retroalimentacion": "No sumes 12 + 5. El área lateral es 12 × 5 = 60 cm²."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El área total de un prisma es su área lateral más el área de sus dos bases.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en todo el cartón de una caja cerrada.",
+          "Los costados forman el área lateral.",
+          "Además hay tapa y fondo, que son las dos bases."
+        ],
+        "retroalimentacion": "Es verdadero: área total = área lateral + 2 × área de la base."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un prisma tiene 80 cm² de área lateral y cada base mide 10 cm². ¿Cuál es su área total?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "90 cm²"
+          },
+          {
+            "id": "b",
+            "texto": "100 cm²"
+          },
+          {
+            "id": "c",
+            "texto": "800 cm²"
+          },
+          {
+            "id": "d",
+            "texto": "70 cm²"
+          }
+        ],
+        "pistas": [
+          "El área total junta los costados con las bases.",
+          "Hay dos bases de 10 cm² cada una: 20 cm² entre las dos.",
+          "Suma 80 + 20."
+        ],
+        "retroalimentacion": "El área total es 100 cm². Quien responde 90 cm² sumó una sola base; hay que sumar las dos: 80 + 10 + 10."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos cm² mide el área total de un cubo de 2 cm de arista? Escribe solo el número.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El cubo tiene 6 caras cuadradas iguales.",
+          "Cada cara mide 2 × 2 = 4 cm².",
+          "Multiplica 6 × 4."
+        ],
+        "retroalimentacion": "Si respondiste 8, calculaste el volumen (2 × 2 × 2). La superficie es 6 caras × 4 cm² = 24 cm²."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un prisma rectangular tiene una base de 4 cm por 3 cm y una altura de 6 cm. ¿Cuántos cm² tiene su área lateral? Escribe solo el número.",
+        "respuesta": 84,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empieza por el perímetro de la base rectangular.",
+          "Perímetro: 4 + 3 + 4 + 3 = 14 cm.",
+          "Multiplica 14 × 6."
+        ],
+        "retroalimentacion": "No uses el área de la base (12 cm²); para los costados se usa el perímetro: 14 × 6 = 84 cm²."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una caja de té mide 6 cm de largo, 2 cm de ancho y 3 cm de alto. ¿Cuántos cm² de cartón forman toda su superficie? Escribe solo el número.",
+        "respuesta": 72,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piden toda la superficie: área lateral más dos bases.",
+          "Perímetro de la base: 6 + 2 + 6 + 2 = 16 cm; área lateral: 16 × 3 = 48 cm².",
+          "Cada base mide 6 × 2 = 12 cm²; suma 48 + 12 + 12."
+        ],
+        "retroalimentacion": "Es fácil quedarse en 48 cm² y olvidar tapa y fondo. Con las dos bases de 12 cm²: 48 + 24 = 72 cm²."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La base de un prisma triangular tiene lados de 3 cm, 4 cm y 5 cm, y el prisma mide 10 cm de altura. ¿Cuál es su área lateral?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "60 cm²"
+          },
+          {
+            "id": "b",
+            "texto": "600 cm²"
+          },
+          {
+            "id": "c",
+            "texto": "132 cm²"
+          },
+          {
+            "id": "d",
+            "texto": "120 cm²"
+          }
+        ],
+        "pistas": [
+          "Suma los tres lados del triángulo para tener el perímetro.",
+          "3 + 4 + 5 = 12 cm.",
+          "Área lateral = 12 × 10."
+        ],
+        "retroalimentacion": "El área lateral es 120 cm² (12 × 10). El valor 132 cm² ya incluye las bases, y 600 cm² sale de multiplicar todos los números."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para saber cuánto papel forra solo los costados de una columna, se calcula el área total.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fíjate en la palabra «solo» del enunciado.",
+          "Los costados son las caras laterales.",
+          "Las bases de la columna (arriba y abajo) no se forran."
+        ],
+        "retroalimentacion": "Es falso: si solo se cubren los costados se calcula el área lateral. El área total incluiría las dos bases."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos cm² mide el área lateral de un cubo de 5 cm de arista? Escribe solo el número.",
+        "respuesta": 100,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El área lateral no incluye las dos bases.",
+          "Quedan 4 caras cuadradas de 5 × 5 = 25 cm².",
+          "Multiplica 4 × 25."
+        ],
+        "retroalimentacion": "150 cm² es el área total (6 caras). El área lateral cuenta solo 4 caras: 4 × 25 = 100 cm²."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un prisma tiene como base un triángulo rectángulo de catetos 3 cm y 4 cm e hipotenusa 5 cm; su altura es 10 cm. ¿Cuántos cm² mide su área total? Escribe solo el número.",
+        "respuesta": 132,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula por separado el área lateral y el área de una base.",
+          "Área lateral: (3 + 4 + 5) × 10 = 120 cm².",
+          "Área de una base: 3 × 4 ÷ 2 = 6 cm². Suma 120 + 6 + 6."
+        ],
+        "retroalimentacion": "El tropiezo usual es tomar la base como 3 × 4 = 12 sin dividir entre 2. Cada triángulo mide 6 cm²: 120 + 12 = 132 cm²."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una piscina con forma de prisma rectangular mide 5 m de largo, 3 m de ancho y 2 m de profundidad. Se enchapan con mayólica las cuatro paredes y el piso. ¿Cuántos m² se enchapan? Escribe solo el número.",
+        "respuesta": 47,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La piscina no tiene tapa: son las paredes y una sola base.",
+          "Paredes: perímetro (5 + 3 + 5 + 3 = 16 m) × profundidad 2 m = 32 m².",
+          "Piso: 5 × 3 = 15 m². Suma 32 + 15."
+        ],
+        "retroalimentacion": "Si usas la fórmula del área total obtienes 62 m², pero arriba no hay nada que enchapar. Paredes 32 m² + piso 15 m² = 47 m²."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "El área total de un cubo es 150 cm². ¿Cuánto mide su arista?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 cm"
+          },
+          {
+            "id": "b",
+            "texto": "25 cm"
+          },
+          {
+            "id": "c",
+            "texto": "15 cm"
+          },
+          {
+            "id": "d",
+            "texto": "6 cm"
+          }
+        ],
+        "pistas": [
+          "Las 6 caras del cubo son iguales: reparte el área entre ellas.",
+          "150 ÷ 6 = 25 cm² mide cada cara.",
+          "El lado de un cuadrado de 25 cm² es √25."
+        ],
+        "retroalimentacion": "La arista mide 5 cm. El 25 es el área de una cara, no la arista: falta sacar la raíz cuadrada."
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un prisma de base cuadrada de 2 cm de lado y 10 cm de altura tiene 80 cm² de área lateral y 88 cm² de área total.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Verifica primero el área lateral con el perímetro de la base.",
+          "Perímetro: 4 × 2 = 8 cm; área lateral: 8 × 10 = 80 cm².",
+          "Cada base mide 2 × 2 = 4 cm²; agrega las dos a 80."
+        ],
+        "retroalimentacion": "Es verdadero: área lateral 8 × 10 = 80 cm² y área total 80 + 4 + 4 = 88 cm²."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.volumen-prisma",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para medir y orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-S1-06"
+    ],
+    "bloque": "Prismas y volumen",
+    "nombre": "Volumen de prismas",
+    "disciplina": "geometria",
+    "descripcionCorta": "Calcula el volumen como área de la base por altura.",
+    "palabrasClave": [
+      "volumen",
+      "prisma",
+      "área de la base",
+      "altura",
+      "unidades cúbicas"
+    ],
+    "prerrequisitos": [
+      "mat.s1.area-lateral-total-prisma"
+    ],
+    "ordenSugerido": 94,
+    "ideaCentral": "El volumen de un prisma dice cuánto espacio ocupa. Se calcula multiplicando el área de la base por la altura: V = área de la base × altura, y se mide en unidades cúbicas (cm³, m³).",
+    "pasos": [
+      "Identifica la base del prisma y calcula su área (rectángulo: largo × ancho; triángulo: base × altura ÷ 2).",
+      "Ubica la altura del prisma: la distancia entre las dos bases.",
+      "Multiplica el área de la base por la altura.",
+      "Escribe la respuesta en unidades cúbicas y revisa que todas las medidas estén en la misma unidad."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una caja de chocotejas mide 10 cm de largo, 6 cm de ancho y 4 cm de alto. ¿Cuál es su volumen?",
+        "desarrollo": "Área de la base: 10 × 6 = 60 cm². Volumen: 60 × 4.",
+        "respuesta": "240 cm³."
+      },
+      {
+        "situacion": "Un prisma triangular tiene como base un triángulo de 6 cm de base y 4 cm de altura; el prisma mide 10 cm de alto. ¿Cuál es su volumen?",
+        "desarrollo": "Área de la base: 6 × 4 ÷ 2 = 12 cm². Volumen: 12 × 10.",
+        "respuesta": "120 cm³."
+      },
+      {
+        "situacion": "Un tanque con forma de prisma tiene 6 m³ de volumen y su base mide 3 m². ¿Qué altura tiene?",
+        "desarrollo": "Volumen = área de la base × altura, así que altura = 6 ÷ 3.",
+        "respuesta": "2 m de altura."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar las medidas en lugar de multiplicarlas.",
+        "correccion": "El volumen es un producto: área de la base × altura. En una caja, largo × ancho × alto."
+      },
+      {
+        "error": "Escribir el volumen en cm² o en cm.",
+        "correccion": "El volumen se mide en unidades cúbicas: cm³, m³."
+      },
+      {
+        "error": "En un prisma triangular, usar base × altura del triángulo sin dividir entre 2.",
+        "correccion": "El área del triángulo es la mitad de ese producto; si no divides, el volumen sale el doble."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Volumen",
+        "significado": "Cantidad de espacio que ocupa un sólido."
+      },
+      {
+        "termino": "Unidad cúbica",
+        "significado": "Cubo de arista 1 (1 cm³, 1 m³) que sirve para medir el volumen."
+      },
+      {
+        "termino": "Capacidad",
+        "significado": "Lo que cabe dentro de un recipiente; 1 litro equivale a 1000 cm³."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La base de un prisma mide 12 cm² y su altura es 5 cm. ¿Cuántos cm³ tiene de volumen? Escribe solo el número.",
+        "respuesta": 60,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Volumen = área de la base × altura.",
+          "El área de la base ya está calculada: 12 cm².",
+          "Multiplica 12 × 5."
+        ],
+        "retroalimentacion": "No hay que sumar 12 + 5. El volumen es 12 × 5 = 60 cm³."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un táper mide 4 cm de largo, 3 cm de ancho y 2 cm de alto. ¿Cuántos cm³ tiene de volumen? Escribe solo el número.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En una caja, el área de la base es largo × ancho.",
+          "4 × 3 = 12 cm².",
+          "Multiplica esos 12 cm² por los 2 cm de alto."
+        ],
+        "retroalimentacion": "Si te salió 9, sumaste las medidas. Hay que multiplicarlas: 4 × 3 × 2 = 24 cm³."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El volumen de un prisma se mide en cm².",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los cm² miden superficies planas, como una hoja.",
+          "El volumen mide espacio: tiene largo, ancho y alto.",
+          "Tres dimensiones multiplicadas dan una unidad con exponente 3."
+        ],
+        "retroalimentacion": "Es falso: el volumen se mide en unidades cúbicas, como cm³. Los cm² son para áreas."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el volumen de un cubo de 3 cm de arista?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9 cm³"
+          },
+          {
+            "id": "b",
+            "texto": "18 cm³"
+          },
+          {
+            "id": "c",
+            "texto": "27 cm³"
+          },
+          {
+            "id": "d",
+            "texto": "12 cm³"
+          }
+        ],
+        "pistas": [
+          "En el cubo, largo, ancho y alto miden lo mismo.",
+          "La base mide 3 × 3 = 9 cm².",
+          "Multiplica 9 por la altura, que también es 3."
+        ],
+        "retroalimentacion": "El volumen es 27 cm³ (3 × 3 × 3). El 9 es solo el área de una cara, y 12 o 18 salen de sumar o duplicar."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La base de un prisma es un triángulo de 6 cm de base y 4 cm de altura. El prisma mide 10 cm de alto. ¿Cuántos cm³ tiene de volumen? Escribe solo el número.",
+        "respuesta": 120,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero el área del triángulo de la base.",
+          "6 × 4 ÷ 2 = 12 cm².",
+          "Volumen = 12 × 10."
+        ],
+        "retroalimentacion": "Quien no divide entre 2 obtiene 240. El triángulo mide 12 cm², y 12 × 10 = 120 cm³."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un tanque de agua en Ica tiene forma de prisma rectangular: 2 m de largo, 1,5 m de ancho y 1 m de alto. ¿Cuántos m³ de agua le caben? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el área del fondo del tanque.",
+          "2 × 1,5 = 3 m².",
+          "La altura es 1 m: multiplica 3 × 1."
+        ],
+        "retroalimentacion": "Cuidado con el decimal: 2 × 1,5 = 3, no 30. El volumen es 3 × 1 = 3 m³."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un prisma tiene 120 cm³ de volumen y su base mide 20 cm². ¿Cuál es su altura?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6 cm"
+          },
+          {
+            "id": "b",
+            "texto": "100 cm"
+          },
+          {
+            "id": "c",
+            "texto": "2400 cm"
+          },
+          {
+            "id": "d",
+            "texto": "60 cm"
+          }
+        ],
+        "pistas": [
+          "Conoces el volumen y la base; falta el otro factor.",
+          "20 × altura = 120.",
+          "Divide 120 ÷ 20."
+        ],
+        "retroalimentacion": "La altura es 6 cm, porque 20 × 6 = 120. Restar da 100 y multiplicar da 2400: aquí toca dividir."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos prismas con la misma área de base y la misma altura tienen el mismo volumen, aunque una base sea triangular y la otra cuadrada.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa qué datos usa la fórmula del volumen.",
+          "V = área de la base × altura: no aparece la forma de la base.",
+          "Si los dos factores coinciden, el producto también."
+        ],
+        "retroalimentacion": "Es verdadero: el volumen depende del área de la base y de la altura, no de la forma de la base."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos cubitos de 1 cm³ caben exactamente en una caja de 5 cm de largo, 4 cm de ancho y 3 cm de alto? Escribe solo el número.",
+        "respuesta": 60,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántos cubitos cubren el fondo de la caja.",
+          "En el fondo entran 5 × 4 = 20 cubitos.",
+          "Se pueden apilar 3 capas de 20 cubitos."
+        ],
+        "retroalimentacion": "Los cubitos que caben son el volumen en cm³: 5 × 4 × 3 = 60. Contar solo el fondo da 20."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una pecera mide 50 cm de largo, 30 cm de ancho y 40 cm de alto. Se llena con agua solo hasta los 30 cm de altura. ¿Cuántos litros de agua contiene? (1 litro = 1000 cm³). Escribe solo el número.",
+        "respuesta": 45,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La altura que cuenta es la del agua, no la de la pecera.",
+          "Volumen de agua: 50 × 30 × 30 = 45 000 cm³.",
+          "Convierte a litros dividiendo entre 1000."
+        ],
+        "retroalimentacion": "Usar los 40 cm de la pecera da 60 litros, pero el agua llega solo a 30 cm: 45 000 cm³ = 45 litros."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un prisma de base cuadrada tiene 200 cm³ de volumen y 8 cm de altura. ¿Cuántos cm mide el lado de la base? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla primero el área de la base dividiendo el volumen entre la altura.",
+          "200 ÷ 8 = 25 cm².",
+          "La base es un cuadrado de 25 cm²: su lado es √25."
+        ],
+        "retroalimentacion": "25 es el área de la base, no el lado. Como la base es cuadrada, el lado es √25 = 5 cm."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un adobe mide 40 cm de largo, 20 cm de ancho y 10 cm de alto. ¿Cuántos adobes juntos ocupan 1 m³? (1 m³ = 1 000 000 cm³)",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "80"
+          },
+          {
+            "id": "b",
+            "texto": "1250"
+          },
+          {
+            "id": "c",
+            "texto": "8"
+          },
+          {
+            "id": "d",
+            "texto": "125"
+          }
+        ],
+        "pistas": [
+          "Calcula el volumen de un adobe en cm³.",
+          "40 × 20 × 10 = 8000 cm³.",
+          "Divide 1 000 000 ÷ 8000; puedes simplificar a 1000 ÷ 8."
+        ],
+        "retroalimentacion": "Se necesitan 125 adobes: cada uno ocupa 8000 cm³ y 1 000 000 ÷ 8000 = 125. Ojo con los ceros al dividir."
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un prisma cuya base es un triángulo rectángulo de catetos 6 cm y 8 cm, con 5 cm de altura, tiene 240 cm³ de volumen.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula con calma el área del triángulo de la base.",
+          "Los catetos hacen de base y altura del triángulo: 6 × 8 ÷ 2 = 24 cm².",
+          "Volumen = 24 × 5. Compáralo con 240."
+        ],
+        "retroalimentacion": "Es falso: 240 sale de multiplicar 6 × 8 × 5 sin dividir entre 2. La base mide 24 cm² y el volumen es 24 × 5 = 120 cm³."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.cambio-dimensiones",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Argumenta afirmaciones sobre relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-S1-01",
+      "MAT-C26-S1-08"
+    ],
+    "bloque": "Prismas y volumen",
+    "nombre": "Efecto de cambiar las dimensiones en perímetro, área y volumen",
+    "disciplina": "geometria",
+    "descripcionCorta": "Justifica qué ocurre con el perímetro, el área y el volumen al duplicar las medidas.",
+    "palabrasClave": [
+      "duplicar",
+      "perímetro",
+      "área",
+      "volumen",
+      "ampliación"
+    ],
+    "prerrequisitos": [
+      "mat.s1.area-figuras-compuestas",
+      "mat.s1.volumen-prisma"
+    ],
+    "ordenSugerido": 95,
+    "ideaCentral": "Cuando duplicas todas las medidas de una figura, no todo se duplica: el perímetro se multiplica por 2, el área por 4 (2 × 2) y el volumen por 8 (2 × 2 × 2).",
+    "pasos": [
+      "Identifica qué magnitud te piden: perímetro (una dimensión), área (dos) o volumen (tres).",
+      "Cuenta cuántas medidas duplicadas se multiplican en esa magnitud.",
+      "Multiplica por 2 una vez por cada medida: ×2 para perímetro, ×4 para área, ×8 para volumen.",
+      "Comprueba con números: calcula el valor original y el nuevo, y divídelos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un cuadrado mide 3 cm de lado. ¿Qué pasa con su perímetro y su área si duplicas el lado?",
+        "desarrollo": "Original: perímetro 12 cm, área 9 cm². Nuevo lado 6 cm: perímetro 24 cm, área 36 cm². 24 ÷ 12 = 2 y 36 ÷ 9 = 4.",
+        "respuesta": "El perímetro se duplica y el área se cuadruplica."
+      },
+      {
+        "situacion": "Una caja mide 1 cm × 2 cm × 3 cm. ¿Qué pasa con su volumen si duplicas las tres medidas?",
+        "desarrollo": "Original: 1 × 2 × 3 = 6 cm³. Nueva: 2 × 4 × 6 = 48 cm³. 48 ÷ 6 = 8.",
+        "respuesta": "El volumen se multiplica por 8."
+      },
+      {
+        "situacion": "Para sembrar una chacra rectangular en Cajamarca se usaron 5 kg de semilla. ¿Cuánta semilla se necesita para otra con el doble de largo y el doble de ancho?",
+        "desarrollo": "La semilla depende del área, y el área se multiplica por 4. 5 × 4 = 20.",
+        "respuesta": "Se necesitan 20 kg."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que al duplicar los lados el área también se duplica.",
+        "correccion": "El área usa dos medidas y ambas se duplican: 2 × 2 = 4 veces el área original."
+      },
+      {
+        "error": "Creer que al duplicar las aristas el volumen se duplica o se cuadruplica.",
+        "correccion": "El volumen usa tres medidas: 2 × 2 × 2 = 8 veces el volumen original."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Duplicar",
+        "significado": "Multiplicar por 2."
+      },
+      {
+        "termino": "Cuadruplicar",
+        "significado": "Multiplicar por 4."
+      },
+      {
+        "termino": "Dimensiones",
+        "significado": "Las medidas de una figura: largo, ancho y alto."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un cuadrado tiene 3 cm de lado. Si duplicas su lado, ¿cuántos cm mide el perímetro del nuevo cuadrado? Escribe solo el número.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla primero el nuevo lado.",
+          "El lado pasa de 3 cm a 6 cm.",
+          "Perímetro del cuadrado: 4 × 6."
+        ],
+        "retroalimentacion": "El perímetro original era 12 cm y ahora es 24 cm: se duplicó, igual que el lado."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si duplicas el lado de un cuadrado, su perímetro también se duplica.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Prueba con un cuadrado de lado 5 cm.",
+          "Perímetro con lado 5: 20 cm. Con lado 10: 40 cm.",
+          "Compara 40 con 20."
+        ],
+        "retroalimentacion": "Es verdadero: el perímetro es una suma de longitudes, y si cada una se duplica, el total también."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si duplicas el lado de un cuadrado, ¿por cuánto se multiplica su área?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Por 2"
+          },
+          {
+            "id": "b",
+            "texto": "Por 4"
+          },
+          {
+            "id": "c",
+            "texto": "Por 8"
+          }
+        ],
+        "pistas": [
+          "Usa un ejemplo: lado 1 cm y lado 2 cm.",
+          "Áreas: 1 × 1 = 1 cm² y 2 × 2 = 4 cm².",
+          "El área usa dos medidas, y cada una quedó multiplicada por 2."
+        ],
+        "retroalimentacion": "El área se multiplica por 4, porque se duplican el largo y el ancho: 2 × 2. «Por 2» vale para el perímetro y «por 8» para el volumen."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un cubo tiene 1 cm de arista y 1 cm³ de volumen. Si duplicas su arista, ¿cuántos cm³ tiene el nuevo cubo? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La nueva arista mide 2 cm.",
+          "Volumen del cubo: arista × arista × arista.",
+          "Calcula 2 × 2 × 2."
+        ],
+        "retroalimentacion": "No es 2 cm³. El cubo nuevo mide 2 × 2 × 2 = 8 cm³: el volumen se multiplicó por 8."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un rectángulo mide 5 cm por 3 cm. Si duplicas el largo y el ancho, ¿cuántos cm² tiene el nuevo rectángulo? Escribe solo el número.",
+        "respuesta": 60,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe las nuevas medidas del rectángulo.",
+          "Ahora mide 10 cm por 6 cm.",
+          "Multiplica 10 × 6, o cuadruplica el área original de 15 cm²."
+        ],
+        "retroalimentacion": "Duplicar el área (30 cm²) es el error típico. El rectángulo nuevo mide 10 × 6 = 60 cm², cuatro veces 15."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si duplicas el largo, el ancho y el alto de una caja, su volumen se duplica.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Prueba con una caja de 1 cm × 1 cm × 1 cm.",
+          "La caja nueva mide 2 cm × 2 cm × 2 cm.",
+          "Compara 1 cm³ con 2 × 2 × 2 cm³."
+        ],
+        "retroalimentacion": "Es falso: el volumen se multiplica por 8, porque las tres medidas se duplican (2 × 2 × 2)."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un jardín cuadrado de Tacna tiene 20 m de perímetro. Se amplía duplicando la medida de sus lados. ¿Cuántos metros de cerco necesita ahora su contorno? Escribe solo el número.",
+        "respuesta": 40,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El cerco rodea el jardín: es el perímetro.",
+          "No necesitas hallar el lado: el perímetro cambia igual que los lados.",
+          "Duplica 20."
+        ],
+        "retroalimentacion": "El contorno se duplica junto con los lados: 2 × 20 = 40 m. Multiplicar por 4 sería para el área."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja tiene 30 cm³ de volumen. Se fabrica otra con el doble de largo, de ancho y de alto. ¿Cuál es el volumen de la nueva caja?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "240 cm³"
+          },
+          {
+            "id": "b",
+            "texto": "60 cm³"
+          },
+          {
+            "id": "c",
+            "texto": "120 cm³"
+          },
+          {
+            "id": "d",
+            "texto": "90 cm³"
+          }
+        ],
+        "pistas": [
+          "El volumen depende de tres medidas.",
+          "Cada medida se multiplica por 2: 2 × 2 × 2 = 8.",
+          "Calcula 30 × 8."
+        ],
+        "retroalimentacion": "El volumen nuevo es 240 cm³ (30 × 8). 60 cm³ solo duplica y 120 cm³ cuadruplica, como si fuera un área."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un mantel rectangular tiene 2 m² de área. Tejen otro con el doble de largo y el doble de ancho. ¿Cuántos m² tiene el nuevo mantel? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El área usa el largo y el ancho.",
+          "Los dos se duplican, así que el área se multiplica por 2 × 2.",
+          "Calcula 2 × 4."
+        ],
+        "retroalimentacion": "No son 4 m². Al duplicar largo y ancho el área se cuadruplica: 2 × 4 = 8 m²."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Las aristas de un cubo de 2 cm se triplican. ¿Cuántas veces el volumen original es el volumen del nuevo cubo? Escribe solo el número.",
+        "respuesta": 27,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La idea de duplicar se extiende: ahora cada medida se multiplica por 3.",
+          "Volumen original: 2 × 2 × 2 = 8 cm³. Nueva arista: 6 cm.",
+          "Volumen nuevo: 6 × 6 × 6 = 216 cm³. Divide 216 ÷ 8."
+        ],
+        "retroalimentacion": "No es 3 ni 9: las tres medidas se triplican, 3 × 3 × 3 = 27. En efecto, 216 ÷ 8 = 27."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para pintar una pared cuadrada se gastó 1 litro de pintura. ¿Cuánta pintura se necesita para otra pared cuadrada con el doble de lado?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 litros"
+          },
+          {
+            "id": "b",
+            "texto": "8 litros"
+          },
+          {
+            "id": "c",
+            "texto": "4 litros"
+          }
+        ],
+        "pistas": [
+          "La pintura cubre superficie: piensa en el área de la pared.",
+          "Con el doble de lado, la pared grande equivale a varias paredes pequeñas juntas.",
+          "Caben 2 filas de 2 paredes pequeñas."
+        ],
+        "retroalimentacion": "Se necesitan 4 litros: el área se cuadruplica al duplicar el lado. 2 litros alcanzaría solo para media pared y 8 litros corresponde a un volumen."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un tanque cúbico de 1 m de arista se llena con 1000 litros. Entonces un tanque cúbico de 2 m de arista se llena con 2000 litros.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el volumen de cada tanque en m³.",
+          "1 × 1 × 1 = 1 m³ y 2 × 2 × 2 = 8 m³.",
+          "Si 1 m³ son 1000 litros, ¿cuántos litros son 8 m³?"
+        ],
+        "retroalimentacion": "Es falso: el tanque grande tiene 8 veces el volumen, así que le caben 8000 litros, no 2000."
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una caja mide 2 cm, 3 cm y 5 cm. Se duplican sus tres medidas. ¿Cuántos cm³ más que la caja original tiene la caja nueva? Escribe solo el número.",
+        "respuesta": 210,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Necesitas los dos volúmenes para compararlos.",
+          "Original: 2 × 3 × 5 = 30 cm³. Nueva: 8 veces eso, 240 cm³.",
+          "La pregunta pide la diferencia: 240 − 30."
+        ],
+        "retroalimentacion": "Atención a la pregunta: no pide el volumen nuevo (240 cm³) sino cuánto más tiene. 240 − 30 = 210 cm³."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.vistas-solidos",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para medir y orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-S1-03",
+      "MAT-C26-S1-07"
+    ],
+    "bloque": "Prismas y volumen",
+    "nombre": "Vistas de un sólido: frontal, lateral y superior",
+    "disciplina": "geometria",
+    "descripcionCorta": "Dibuja e interpreta las vistas de un sólido y reconstruye el sólido a partir de ellas.",
+    "palabrasClave": [
+      "vistas",
+      "vista frontal",
+      "vista lateral",
+      "vista superior",
+      "sólido"
+    ],
+    "prerrequisitos": [
+      "mat.s1.prismas-elementos"
+    ],
+    "ordenSugerido": 96,
+    "ideaCentral": "Un mismo sólido se ve distinto según desde dónde lo mires. La vista frontal es lo que ves de frente, la lateral lo que ves de costado y la superior lo que ves desde arriba. Con las tres juntas puedes reconstruir el sólido.",
+    "pasos": [
+      "Decide desde dónde miras: de frente, de costado o desde arriba.",
+      "Imagina que el sólido se aplasta contra una pared (o contra el piso): dibuja solo la silueta de caras que ves.",
+      "En sólidos de cubitos, en cada columna se ve la altura de la pila más alta de esa línea.",
+      "Para reconstruir, empieza por la vista superior (dónde hay cubitos) y usa las otras para saber las alturas."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una caja de leche está parada sobre la mesa. ¿Cómo son sus vistas?",
+        "desarrollo": "De frente ves un rectángulo alto. De costado, otro rectángulo alto (más angosto). Desde arriba, un rectángulo pequeño: la tapa.",
+        "respuesta": "Frontal y lateral: rectángulos altos; superior: rectángulo pequeño."
+      },
+      {
+        "situacion": "Hay 3 cubitos en fila y un cubito más encima del de la izquierda. ¿Cómo es la vista frontal?",
+        "desarrollo": "De frente ves la fila de 3 cuadrados abajo y 1 cuadrado arriba a la izquierda:\n■\n■ ■ ■",
+        "respuesta": "Una L de 4 cuadrados."
+      },
+      {
+        "situacion": "La vista superior de un sólido, con la cantidad de cubitos de cada pila, es: 2 1 (una fila). ¿Cómo es su vista frontal y cuántos cubitos tiene?",
+        "desarrollo": "A la izquierda hay una pila de 2 y a la derecha una de 1. De frente ves una columna de 2 y otra de 1. Cubitos: 2 + 1.",
+        "respuesta": "Columnas de 2 y 1 cuadrados; el sólido tiene 3 cubitos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dibujar en la vista superior todos los cubitos apilados.",
+        "correccion": "Desde arriba solo ves la cara de arriba de cada pila: una torre de 4 cubitos se ve como 1 cuadrado."
+      },
+      {
+        "error": "Creer que una sola vista basta para saber cómo es el sólido.",
+        "correccion": "Sólidos distintos pueden compartir una vista. Necesitas combinar la frontal, la lateral y la superior."
+      },
+      {
+        "error": "Olvidar que las pilas de atrás quedan tapadas o se asoman según su altura.",
+        "correccion": "En cada columna de la vista se dibuja la altura de la pila más alta de esa línea, esté adelante o atrás."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Vista frontal",
+        "significado": "Lo que se ve al mirar el sólido de frente."
+      },
+      {
+        "termino": "Vista lateral",
+        "significado": "Lo que se ve al mirar el sólido de costado."
+      },
+      {
+        "termino": "Vista superior",
+        "significado": "Lo que se ve al mirar el sólido desde arriba."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Desde dónde miras un sólido para obtener su vista superior?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "De frente"
+          },
+          {
+            "id": "b",
+            "texto": "Desde arriba"
+          },
+          {
+            "id": "c",
+            "texto": "De costado"
+          }
+        ],
+        "pistas": [
+          "«Superior» es lo contrario de «inferior».",
+          "Piensa en cómo ve un dron el techo de tu colegio.",
+          "Es la vista que muestra la parte más alta del sólido."
+        ],
+        "retroalimentacion": "La vista superior se obtiene mirando desde arriba. De frente es la vista frontal y de costado, la lateral."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La vista frontal y la vista superior de un mismo sólido siempre son iguales.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Prueba con un objeto conocido, como una botella parada.",
+          "De frente la botella se ve alargada.",
+          "Desde arriba se ve como un círculo pequeño."
+        ],
+        "retroalimentacion": "Es falso: en muchos sólidos las vistas son distintas. En un cubo coinciden, pero en una botella o una caja de leche no."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Apilas 4 cubitos uno encima de otro formando una torre. En la vista superior, ¿cuántos cuadrados se ven? Escribe solo el número.",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la torre desde arriba, como si fueras un pájaro.",
+          "Los cubitos de abajo quedan tapados por el de más arriba.",
+          "Solo se ve la cara de arriba del último cubito."
+        ],
+        "retroalimentacion": "Desde arriba se ve 1 solo cuadrado. Los 4 cuadrados aparecen en la vista frontal, no en la superior."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un ladrillo está apoyado sobre la mesa. ¿Qué figura es su vista superior?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un rectángulo"
+          },
+          {
+            "id": "b",
+            "texto": "Un triángulo"
+          },
+          {
+            "id": "c",
+            "texto": "Un círculo"
+          }
+        ],
+        "pistas": [
+          "El ladrillo es un prisma rectangular.",
+          "Desde arriba ves su cara más alta, la que queda mirando al techo.",
+          "Todas las caras de un ladrillo tienen la misma forma de cuatro lados."
+        ],
+        "retroalimentacion": "La vista superior es un rectángulo, porque todas las caras del ladrillo son rectángulos. No tiene caras triangulares ni circulares."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Colocas 3 cubitos en una fila sobre la mesa, de izquierda a derecha. Los miras de costado, desde el extremo derecho de la fila. ¿Cuántos cuadrados ves? Escribe solo el número.",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina que te agachas en el extremo de la fila, como mirando un tren desde atrás.",
+          "El cubito más cercano tapa a los otros dos.",
+          "Todos tienen la misma altura: ninguno se asoma por encima."
+        ],
+        "retroalimentacion": "De costado ves 1 cuadrado, porque los cubitos están alineados uno detrás de otro. Los 3 se ven en la vista frontal y en la superior."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un prisma triangular está parado sobre una de sus bases. ¿Qué figura es su vista superior?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un rectángulo"
+          },
+          {
+            "id": "b",
+            "texto": "Un hexágono"
+          },
+          {
+            "id": "c",
+            "texto": "Un triángulo"
+          }
+        ],
+        "pistas": [
+          "Parado sobre una base, la otra base queda arriba.",
+          "Desde arriba ves justamente esa base.",
+          "Las bases de este prisma tienen tres lados."
+        ],
+        "retroalimentacion": "La vista superior es un triángulo: es la base que queda arriba. El rectángulo aparece en las vistas frontal y lateral."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un sólido tiene 3 cubitos en fila y un cubito más encima del cubito de la izquierda. Su vista frontal muestra 4 cuadrados.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Dibuja la fila de abajo tal como se ve de frente.",
+          "Abajo hay 3 cuadrados, uno por cada cubito.",
+          "El cubito de arriba no está tapado por nadie: agrega su cuadrado."
+        ],
+        "retroalimentacion": "Es verdadero: de frente se ven los 3 cuadrados de la fila y 1 más arriba a la izquierda, 4 en total."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una escalera de cubitos tiene tres pilas en fila: la primera de 1 cubito, la segunda de 2 y la tercera de 3. En su vista frontal, ¿cuántos cuadrados se ven? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "De frente, cada pila se ve como una columna de cuadrados.",
+          "Las columnas tienen 1, 2 y 3 cuadrados.",
+          "Suma 1 + 2 + 3."
+        ],
+        "retroalimentacion": "Se ven 6 cuadrados: columnas de 1, 2 y 3. Si respondiste 3, contaste lo que se ve desde arriba."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La vista superior de un sólido, con el número de cubitos apilados en cada casilla, es:\n2 1\n1 1\n¿Cuántos cubitos tiene el sólido? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada número indica cuántos cubitos hay en esa pila.",
+          "Hay cuatro pilas: una de 2 y tres de 1.",
+          "Suma 2 + 1 + 1 + 1."
+        ],
+        "retroalimentacion": "No son 4 (eso son las casillas). Sumando los cubitos de cada pila: 2 + 1 + 1 + 1 = 5."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Vista superior de un sólido con el número de cubitos de cada pila (la fila de abajo es la de adelante):\n3 1\n2 1\n¿Cuántos cuadrados se ven en su vista frontal? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "De frente ves dos columnas: la izquierda y la derecha.",
+          "En la columna izquierda hay pilas de 3 y de 2: se ve la más alta, 3.",
+          "En la columna derecha las dos pilas son de 1. Suma 3 + 1."
+        ],
+        "retroalimentacion": "No se suman todos los cubitos (7). En cada columna se ve solo la pila más alta: 3 a la izquierda y 1 a la derecha, 4 cuadrados."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Vista superior con el número de cubitos de cada pila (la fila de abajo es la de adelante):\n1 1\n3 2\nMiras el sólido desde la derecha (vista lateral). ¿Qué columnas ves?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una columna de 3 y otra de 2"
+          },
+          {
+            "id": "b",
+            "texto": "Dos columnas de 3"
+          },
+          {
+            "id": "c",
+            "texto": "Una columna de 2 y otra de 1"
+          },
+          {
+            "id": "d",
+            "texto": "Una columna de 3 y otra de 1"
+          }
+        ],
+        "pistas": [
+          "Desde la derecha, cada fila de la vista superior se convierte en una columna.",
+          "Fila de adelante: pilas de 3 y 2; la más alta mide 3.",
+          "Fila de atrás: pilas de 1 y 1; la más alta mide 1."
+        ],
+        "retroalimentacion": "Se ve una columna de 3 y otra de 1: la fila de adelante muestra su pila más alta (3) y la de atrás la suya (1). «Una columna de 3 y otra de 2» es la vista frontal."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos sólidos distintos pueden tener exactamente la misma vista frontal.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en una torre de 2 cubitos sola.",
+          "Ahora agrégale un cubito justo detrás de la base.",
+          "De frente, el cubito de atrás queda tapado: ¿cambió la vista?"
+        ],
+        "retroalimentacion": "Es verdadero: una torre de 2 cubitos y esa misma torre con un cubito escondido detrás se ven igual de frente. Por eso se necesitan varias vistas."
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un sólido de cubitos tiene esta información. Vista superior: 2 casillas en una sola fila. Vista frontal: una columna de 3 cuadrados a la izquierda y una de 1 cuadrado a la derecha. ¿Cuántos cubitos tiene el sólido? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La vista superior dice que solo hay dos pilas, una al lado de la otra.",
+          "La vista frontal da la altura de cada pila: 3 y 1.",
+          "Como no hay pilas escondidas detrás, suma las dos alturas."
+        ],
+        "retroalimentacion": "Con una sola fila no hay nada oculto: la pila izquierda tiene 3 cubitos y la derecha 1. En total, 4 cubitos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

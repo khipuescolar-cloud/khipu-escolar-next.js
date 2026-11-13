@@ -1,0 +1,1192 @@
+[
+  {
+    "clave": "mat.s1.magnitudes-directamente-proporcionales-s1",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-S1-01"
+    ],
+    "bloque": "Proporcionalidad",
+    "nombre": "Magnitudes directamente proporcionales y su constante (y = kx)",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Reconoce y modela relaciones en que el cociente entre magnitudes es constante.",
+    "palabrasClave": [
+      "proporcionalidad directa",
+      "cociente",
+      "constante",
+      "tabla"
+    ],
+    "prerrequisitos": [
+      "mat.s1.razon-aritmetica-geometrica"
+    ],
+    "ordenSugerido": 84,
+    "ideaCentral": "Dos magnitudes son directamente proporcionales si al multiplicar una por un factor, la otra se multiplica por el mismo factor. Su cociente y/x permanece constante: y = kx.",
+    "pasos": [
+      "Empareja cada valor x con su valor y.",
+      "Calcula y ÷ x en al menos dos pares, con x distinto de cero.",
+      "Si todos los cocientes coinciden, halla k.",
+      "Usa y = kx para comprobar o completar la relación."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Cada cuaderno cuesta S/ 4. ¿Costo de 3 cuadernos?",
+        "desarrollo": "Costo/cantidad = 4 en cada compra; y = 4x.",
+        "respuesta": "S/ 12."
+      },
+      {
+        "situacion": "Una bicicleta recorre 6 km por hora a velocidad constante.",
+        "desarrollo": "Para 2 y 3 horas recorre 12 y 18 km; ambos cocientes son 6.",
+        "respuesta": "La distancia es directamente proporcional al tiempo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Comparar diferencias en vez de cocientes.",
+        "correccion": "En proporción directa verifica y/x constante."
+      },
+      {
+        "error": "Olvidar que la relación debe pasar por cero.",
+        "correccion": "Si x = 0, y = 0 en y = kx."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Constante de proporcionalidad",
+        "significado": "Número k que multiplica a x para obtener y."
+      },
+      {
+        "termino": "Cociente",
+        "significado": "Resultado de dividir y entre x."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Cada kilo de mandarina cuesta S/ 3. ¿Cuál es la constante costo/kilos? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Considera un kilo y su costo.",
+          "Divide 3 soles entre 1 kilo.",
+          "El cociente es tres."
+        ],
+        "retroalimentacion": "La constante es 3 soles por kilo, no el costo de varias bolsas."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "La tabla dice x: 1, 2, 3; y: 5, 10, 15. ¿Qué regla la describe?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "y = x + 5"
+          },
+          {
+            "id": "b",
+            "texto": "y = 10x"
+          },
+          {
+            "id": "c",
+            "texto": "y = 5x"
+          },
+          {
+            "id": "d",
+            "texto": "y = x/5"
+          }
+        ],
+        "pistas": [
+          "Divide cada y entre su x.",
+          "5/1 y 10/2 dan cinco.",
+          "La regla multiplica x por cinco."
+        ],
+        "retroalimentacion": "Sumar cinco a x falla en x = 2; la regla es y = 5x."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si al duplicar la cantidad de arroz comprado se duplica el costo, con precio fijo por kilo, hay proporcionalidad directa.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica las magnitudes: kilos y costo.",
+          "El precio por kilo se mantiene.",
+          "Duplicar kilos duplica costo."
+        ],
+        "retroalimentacion": "Es verdadero: con precio fijo, costo/kilos permanece constante."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Para y = 7x, ¿cuál es la constante de proporcionalidad? Escribe solo el número.",
+        "respuesta": "7",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la forma y = kx.",
+          "El número que multiplica x es k.",
+          "En y = 7x ese número es siete."
+        ],
+        "retroalimentacion": "La constante es 7, no x."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una impresora hace 8 páginas por minuto. ¿Cuántas páginas hace en 4 minutos al mismo ritmo? Escribe solo el número.",
+        "respuesta": 32,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La tasa es ocho páginas por minuto.",
+          "Multiplica ocho por cuatro.",
+          "8 × 4 = 32."
+        ],
+        "retroalimentacion": "No sumes 8 + 4: la relación da 32 páginas."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La tabla x: 2, 4, 6; y: 3, 6, 9 muestra una proporción directa. ¿Cuál es k = y/x?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "1,5"
+          },
+          {
+            "id": "c",
+            "texto": "3"
+          },
+          {
+            "id": "d",
+            "texto": "0,5"
+          }
+        ],
+        "pistas": [
+          "Toma el par (2, 3).",
+          "Divide 3 entre 2.",
+          "Comprueba con 6/4."
+        ],
+        "retroalimentacion": "El cociente es 1,5 en todos los pares."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La relación x: 1, 2, 3; y: 4, 5, 6 es directamente proporcional.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula y/x para x = 1 y x = 2.",
+          "Los cocientes son 4 y 2,5.",
+          "Como no coinciden, no hay constante k."
+        ],
+        "retroalimentacion": "Es falso: 4/1 ≠ 5/2. Una diferencia constante no basta."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En una tabla proporcional, x = 3 produce y = 12. Escribe la regla en forma y=kx sin espacios.",
+        "respuesta": "y=4x",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "y = 4x"
+          }
+        ],
+        "pistas": [
+          "Calcula k = 12/3.",
+          "La constante vale cuatro.",
+          "Sustituye k por 4 en y = kx."
+        ],
+        "retroalimentacion": "12/3 da k = 4; la regla es y=4x."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tarifa cobra S/ 5 fijos más S/ 2 por kilómetro. ¿Es el total directamente proporcional a los kilómetros?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sí, porque aumenta"
+          },
+          {
+            "id": "b",
+            "texto": "Sí, porque hay una suma"
+          },
+          {
+            "id": "c",
+            "texto": "Sí, porque 2 es fijo"
+          },
+          {
+            "id": "d",
+            "texto": "No, porque hay un cobro inicial"
+          }
+        ],
+        "pistas": [
+          "Escribe costo para cero kilómetros.",
+          "Con cero kilómetros todavía se pagan S/ 5.",
+          "En proporción directa, cero debe dar cero."
+        ],
+        "retroalimentacion": "El cobro fijo impide y = kx: con 0 km se paga S/ 5."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una relación directa cumple y = kx. Si x = 4 da y = 18, ¿cuánto vale y cuando x = 10? Escribe solo el número.",
+        "respuesta": 45,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero k = 18/4.",
+          "La constante es 4,5.",
+          "Multiplica 4,5 por diez."
+        ],
+        "retroalimentacion": "Usar diferencia 14 conduce mal; con k = 4,5, y = 45."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una tabla, x = 2 da y = 6 y x = 5 da y = 15. Los dos pares son compatibles con y = 3x.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 6/2.",
+          "Calcula 15/5.",
+          "Ambos cocientes son tres."
+        ],
+        "retroalimentacion": "Es verdadero: los dos pares cumplen y = 3x."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una receta usa 250 g de harina por torta. Si la tabla incluye 1, 2 y 4 tortas, ¿qué cociente gramos/tortas permanece igual? Escribe solo el número.",
+        "respuesta": "250",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para una torta son 250 gramos.",
+          "Para dos son 500 gramos: 500/2.",
+          "Para cuatro son 1000 gramos: 1000/4."
+        ],
+        "retroalimentacion": "Los cocientes valen 250 g por torta; no 500."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.magnitudes-inversamente-proporcionales",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-S1-07"
+    ],
+    "bloque": "Proporcionalidad",
+    "nombre": "Magnitudes inversamente proporcionales",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Reconoce relaciones en que el producto de las magnitudes es constante.",
+    "palabrasClave": [
+      "proporcionalidad inversa",
+      "producto constante",
+      "trabajo",
+      "velocidad"
+    ],
+    "prerrequisitos": [
+      "mat.s1.magnitudes-directamente-proporcionales-s1"
+    ],
+    "ordenSugerido": 85,
+    "ideaCentral": "Dos magnitudes son inversamente proporcionales cuando su producto es constante: si una se duplica, la otra se reduce a la mitad, bajo las mismas condiciones.",
+    "pasos": [
+      "Comprueba que el trabajo o la distancia total no cambie.",
+      "Multiplica los dos valores de cada par.",
+      "Si los productos coinciden, hay proporción inversa.",
+      "Usa x × y = k para encontrar un valor faltante."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Dos personas tardan 6 horas en un trabajo; cuatro al mismo ritmo, ¿cuánto?",
+        "desarrollo": "2 × 6 = 12 persona-horas; 12 ÷ 4 = 3.",
+        "respuesta": "3 horas."
+      },
+      {
+        "situacion": "Para recorrer 60 km, a 30 km/h tardas 2 h.",
+        "desarrollo": "30 × 2 = 60; a 60 km/h, 60 ÷ 60 = 1.",
+        "respuesta": "1 hora."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Buscar un cociente constante.",
+        "correccion": "En relación inversa comprueba el producto x × y."
+      },
+      {
+        "error": "Duplicar ambas magnitudes.",
+        "correccion": "Si una se duplica y el total es fijo, la otra se divide entre dos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Producto constante",
+        "significado": "Resultado igual de multiplicar cada par de valores."
+      },
+      {
+        "termino": "Proporción inversa",
+        "significado": "Relación donde una magnitud sube mientras la otra baja en el factor recíproco."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Tres obreros terminan una tarea en 8 días. ¿Cuál es el producto obreros × días? Escribe solo el número.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica las dos magnitudes.",
+          "Usa tres obreros y ocho días.",
+          "3 × 8 = 24."
+        ],
+        "retroalimentacion": "No sumes 3 + 8: el producto constante es 24."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para un mismo viaje, duplicar la velocidad hace que el tiempo sea…",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "el doble"
+          },
+          {
+            "id": "b",
+            "texto": "la mitad"
+          },
+          {
+            "id": "c",
+            "texto": "cuatro veces"
+          },
+          {
+            "id": "d",
+            "texto": "igual"
+          }
+        ],
+        "pistas": [
+          "La distancia queda fija.",
+          "Velocidad × tiempo es constante.",
+          "Si la velocidad vale el doble, el tiempo vale la mitad."
+        ],
+        "retroalimentacion": "El tiempo se reduce a la mitad, no se duplica."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 2 grifos iguales llenan un tanque en 6 horas y 4 grifos lo llenan en 3, el producto grifos × horas es constante.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 2 por 6.",
+          "Multiplica 4 por 3.",
+          "Ambos productos dan doce."
+        ],
+        "retroalimentacion": "Es verdadero: 2 × 6 = 4 × 3 = 12."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La tabla x: 2, 3, 6; y: 12, 8, 4. ¿Cuál es el producto constante? Escribe solo el número.",
+        "respuesta": "24",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa el primer par: 2 y 12.",
+          "Multiplica 2 × 12.",
+          "Comprueba 3 × 8 y 6 × 4."
+        ],
+        "retroalimentacion": "El producto constante es 24, no el cociente."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Seis estudiantes limpian un patio en 4 horas. Si trabajan 8 al mismo ritmo, ¿cuántas horas tardan? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El trabajo total es el mismo.",
+          "6 × 4 = 24 estudiante-horas.",
+          "Divide 24 entre ocho."
+        ],
+        "retroalimentacion": "Más estudiantes tardan menos: 24/8 = 3 horas."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué tabla muestra proporcionalidad inversa?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(2,6) y (4,6)"
+          },
+          {
+            "id": "b",
+            "texto": "(2,6) y (4,12)"
+          },
+          {
+            "id": "c",
+            "texto": "(2,6) y (4,3)"
+          },
+          {
+            "id": "d",
+            "texto": "(2,6) y (4,5)"
+          }
+        ],
+        "pistas": [
+          "Multiplica x por y en cada par.",
+          "Busca productos iguales.",
+          "En x 2,4 e y 6,3 ambos productos son 12."
+        ],
+        "retroalimentacion": "La tabla con (2,6) y (4,3) conserva producto 12."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para una misma distancia, si la velocidad pasa de 20 a 40 km/h, el tiempo de viaje se duplica.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La distancia no cambia.",
+          "La velocidad se multiplica por dos.",
+          "El tiempo debe dividirse entre dos."
+        ],
+        "retroalimentacion": "Es falso: el tiempo se reduce a la mitad."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una tarea exige 18 persona-horas. Si participan 3 personas iguales, ¿cuántas horas trabajan? Escribe solo el número.",
+        "respuesta": "6",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Plantea personas × horas = 18.",
+          "Sustituye tres personas.",
+          "Divide 18 entre 3."
+        ],
+        "retroalimentacion": "Son 6 horas, porque 3 × 6 = 18."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un depósito de agua dura 12 días para 5 personas. Si lo usan 10 al mismo ritmo, ¿cuántos días dura?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "24 días"
+          },
+          {
+            "id": "b",
+            "texto": "12 días"
+          },
+          {
+            "id": "c",
+            "texto": "10 días"
+          },
+          {
+            "id": "d",
+            "texto": "6 días"
+          }
+        ],
+        "pistas": [
+          "El consumo total del depósito es fijo.",
+          "5 × 12 = 60 persona-días.",
+          "Divide 60 entre diez."
+        ],
+        "retroalimentacion": "Diez personas consumen el depósito en 6 días."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Para una distancia fija, un bus tarda 5 horas a 60 km/h. ¿Cuántas horas tarda a 75 km/h? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la distancia: 60 × 5.",
+          "Son 300 km.",
+          "Divide 300 entre 75."
+        ],
+        "retroalimentacion": "A mayor velocidad tarda menos: 300/75 = 4 horas."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una tabla con pares (2,18), (3,12) y (6,6) representa magnitudes inversamente proporcionales.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica cada par.",
+          "2 × 18 y 3 × 12 dan 36.",
+          "6 × 6 también da 36."
+        ],
+        "retroalimentacion": "Es verdadero: todos los productos son 36."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una obra requiere 48 obrero-días. Con 6 obreros iguales, ¿cuántos días toma? Escribe solo el número.",
+        "respuesta": "8",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Conserva el total de 48 obrero-días.",
+          "Divide 48 entre seis obreros.",
+          "Comprueba que 6 × 8 = 48."
+        ],
+        "retroalimentacion": "Toma 8 días; 48 no es el número de días."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.regla-tres-directa",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-S1-07"
+    ],
+    "bloque": "Proporcionalidad",
+    "nombre": "Regla de tres simple directa",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Halla valores desconocidos en relaciones de proporcionalidad directa.",
+    "palabrasClave": [
+      "regla de tres",
+      "proporción directa",
+      "valor desconocido",
+      "factor"
+    ],
+    "prerrequisitos": [
+      "mat.s1.magnitudes-directamente-proporcionales-s1"
+    ],
+    "ordenSugerido": 86,
+    "ideaCentral": "La regla de tres directa halla un valor faltante cuando dos magnitudes crecen o disminuyen en el mismo factor.",
+    "pasos": [
+      "Comprueba que la relación sea directa y que la tasa se mantenga.",
+      "Ordena los datos en pares con las mismas unidades.",
+      "Calcula el valor por una unidad o plantea una proporción.",
+      "Multiplica por la nueva cantidad y verifica que el resultado tenga sentido."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Dos panes cuestan S/ 3. ¿Cuánto cuestan 6?",
+        "desarrollo": "Se triplica la cantidad, así que 3 × 3 = 9.",
+        "respuesta": "S/ 9."
+      },
+      {
+        "situacion": "Cinco metros de tela cuestan S/ 40. ¿Y 3 metros?",
+        "desarrollo": "Un metro cuesta 40/5 = 8; tres cuestan 3 × 8.",
+        "respuesta": "S/ 24."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Invertir la dirección y dar menos costo por más unidades.",
+        "correccion": "En una relación directa, el costo crece con la cantidad."
+      },
+      {
+        "error": "Mezclar unidades en la proporción.",
+        "correccion": "Pon cantidad frente a cantidad y costo frente a costo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Valor unitario",
+        "significado": "Valor correspondiente a una unidad."
+      },
+      {
+        "termino": "Regla de tres directa",
+        "significado": "Cálculo de un valor faltante en dos pares proporcionales."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Tres lapiceros iguales cuestan S/ 6. ¿Cuánto cuestan 6 lapiceros? Escribe solo el número de soles.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se duplicó la cantidad de lapiceros.",
+          "Duplica también el costo de seis soles.",
+          "6 × 2 = 12."
+        ],
+        "retroalimentacion": "Seis lapiceros cuestan S/ 12, no S/ 9."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Cuatro botellas iguales contienen 8 litros en total. ¿Cuántos litros contienen 10 botellas?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12 litros"
+          },
+          {
+            "id": "b",
+            "texto": "18 litros"
+          },
+          {
+            "id": "c",
+            "texto": "20 litros"
+          },
+          {
+            "id": "d",
+            "texto": "80 litros"
+          }
+        ],
+        "pistas": [
+          "Calcula litros por botella.",
+          "8/4 = 2 litros cada una.",
+          "Multiplica dos por diez."
+        ],
+        "retroalimentacion": "Cada botella tiene 2 litros; diez tienen 20 litros."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 2 kg de papas cuestan S/ 8 al mismo precio por kilo, 4 kg cuestan S/ 16.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La masa se duplica.",
+          "El precio por kilo permanece fijo.",
+          "El costo también debe duplicarse."
+        ],
+        "retroalimentacion": "Es verdadero: 4 kg cuestan S/ 16."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Cinco entradas al museo cuestan S/ 25. ¿Cuánto cuesta una entrada? Escribe solo el número de soles.",
+        "respuesta": "5",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el valor unitario.",
+          "Divide 25 entre cinco entradas.",
+          "25/5 = 5."
+        ],
+        "retroalimentacion": "Cada entrada cuesta S/ 5; 25 es el costo de cinco."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una mototaxi recorre 18 km con 3 litros de combustible a consumo constante. ¿Cuántos km recorre con 5 litros? Escribe solo el número.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula kilómetros por litro.",
+          "18/3 = 6 km por litro.",
+          "Multiplica seis por cinco."
+        ],
+        "retroalimentacion": "Con cinco litros recorre 30 km, no 20."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una receta usa 300 g de arroz para 4 personas. ¿Cuánto arroz para 6 personas al mismo tamaño de porción?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "400 g"
+          },
+          {
+            "id": "b",
+            "texto": "450 g"
+          },
+          {
+            "id": "c",
+            "texto": "500 g"
+          },
+          {
+            "id": "d",
+            "texto": "600 g"
+          }
+        ],
+        "pistas": [
+          "Calcula gramos por persona.",
+          "300/4 = 75.",
+          "Multiplica 75 por seis."
+        ],
+        "retroalimentacion": "Se necesitan 450 g; seis personas son más que cuatro."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una foto de 10 cm representa 2 m reales, una longitud de 25 cm en la misma escala representa 5 m.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 25 con 10.",
+          "El factor es 2,5.",
+          "Multiplica dos metros por 2,5."
+        ],
+        "retroalimentacion": "Es verdadero: 25 cm representan 5 m."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Por 7 cuadernos se pagan S/ 28. ¿Cuánto se paga por 9 cuadernos al mismo precio? Escribe solo el número de soles.",
+        "respuesta": "36",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el precio de uno: 28/7.",
+          "Cada cuaderno vale S/ 4.",
+          "Nueve cuestan 9 × 4."
+        ],
+        "retroalimentacion": "Nueve cuadernos cuestan S/ 36, no S/ 32."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un mapa usa 3 cm para 12 km. ¿Qué distancia real representan 8 cm?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "17 km"
+          },
+          {
+            "id": "b",
+            "texto": "24 km"
+          },
+          {
+            "id": "c",
+            "texto": "28 km"
+          },
+          {
+            "id": "d",
+            "texto": "32 km"
+          }
+        ],
+        "pistas": [
+          "Calcula kilómetros por centímetro.",
+          "12/3 = 4 km por cm.",
+          "Ocho centímetros representan ocho veces cuatro."
+        ],
+        "retroalimentacion": "8 cm representan 32 km; 12 km corresponden solo a 3 cm."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una cuadrilla pinta 45 m² en 3 horas a ritmo constante. ¿Cuántos m² pinta en 7 horas? Escribe solo el número.",
+        "respuesta": 105,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla el área por hora.",
+          "45/3 = 15 m² por hora.",
+          "Multiplica quince por siete."
+        ],
+        "retroalimentacion": "En siete horas pinta 105 m², no 49."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una tienda, 6 huevos cuestan S/ 9 y 10 huevos cuestan S/ 15. Los precios respetan la misma razón directa.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula costo por huevo en ambos casos.",
+          "9/6 = 1,5.",
+          "15/10 también da 1,5."
+        ],
+        "retroalimentacion": "Es verdadero: ambos cuestan S/ 1,50 por huevo."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una imprenta cobra S/ 48 por 12 afiches idénticos. ¿Cuánto cobra por 17 al mismo precio? Escribe solo el número de soles.",
+        "respuesta": "68",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Obtén costo por afiche: 48/12.",
+          "Cada uno cuesta S/ 4.",
+          "Multiplica cuatro por diecisiete."
+        ],
+        "retroalimentacion": "17 afiches cuestan S/ 68; multiplicar 48 por 17 exagera el costo."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.regla-tres-inversa",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-S1-07"
+    ],
+    "bloque": "Proporcionalidad",
+    "nombre": "Regla de tres simple inversa",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Halla valores desconocidos en relaciones de proporcionalidad inversa, como obreros y días.",
+    "palabrasClave": [
+      "regla de tres inversa",
+      "producto constante",
+      "tiempo",
+      "trabajo"
+    ],
+    "prerrequisitos": [
+      "mat.s1.magnitudes-inversamente-proporcionales"
+    ],
+    "ordenSugerido": 87,
+    "ideaCentral": "La regla de tres inversa halla el valor faltante cuando el producto de dos magnitudes se conserva: más recursos para el mismo trabajo implican menos tiempo.",
+    "pasos": [
+      "Comprueba que la tarea o distancia total sea la misma.",
+      "Multiplica los dos valores conocidos para hallar el producto constante.",
+      "Divide ese producto entre el nuevo valor conocido.",
+      "Comprueba que al aumentar una magnitud la otra disminuya."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Tres trabajadores terminan en 12 días. ¿Y seis?",
+        "desarrollo": "3 × 12 = 36 trabajador-días; 36/6 = 6.",
+        "respuesta": "6 días."
+      },
+      {
+        "situacion": "Un bus recorre una ruta en 4 h a 50 km/h. ¿A 80 km/h?",
+        "desarrollo": "La ruta mide 200 km; 200/80 = 2,5.",
+        "respuesta": "2,5 horas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Aplicar regla directa y aumentar el tiempo con más trabajadores.",
+        "correccion": "Para la misma obra, más trabajadores reducen el tiempo."
+      },
+      {
+        "error": "Usar el producto si cambió la tarea.",
+        "correccion": "La regla inversa requiere el mismo trabajo o la misma distancia."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Producto constante",
+        "significado": "Valor que se conserva al multiplicar las magnitudes."
+      },
+      {
+        "termino": "Regla de tres inversa",
+        "significado": "Cálculo de un valor faltante cuando una magnitud crece y la otra disminuye proporcionalmente."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Dos máquinas iguales terminan un lote en 9 horas. ¿En cuántas horas lo hacen 3 máquinas? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 2 × 9.",
+          "El lote exige 18 máquina-horas.",
+          "Divide 18 entre tres."
+        ],
+        "retroalimentacion": "Tres máquinas tardan 6 horas, no 13,5."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Cuatro personas reparten folletos en 6 horas. ¿Cuánto tardan 8 al mismo ritmo con los mismos folletos?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12 horas"
+          },
+          {
+            "id": "b",
+            "texto": "3 horas"
+          },
+          {
+            "id": "c",
+            "texto": "6 horas"
+          },
+          {
+            "id": "d",
+            "texto": "2 horas"
+          }
+        ],
+        "pistas": [
+          "Ocho es el doble de cuatro.",
+          "El tiempo debe ser la mitad de seis.",
+          "La mitad de seis son tres."
+        ],
+        "retroalimentacion": "Ocho personas tardan 3 horas, pues 4 × 6 = 8 × 3."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para el mismo trayecto, si un ciclista duplica su velocidad constante, tarda la mitad de tiempo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La distancia no cambia.",
+          "Velocidad por tiempo da distancia.",
+          "Al duplicarse una, la otra se divide entre dos."
+        ],
+        "retroalimentacion": "Es verdadero: el producto velocidad × tiempo sigue igual."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Cinco grifos iguales llenan un tanque en 4 horas. ¿Cuántas horas necesitarán 10 grifos? Escribe solo el número.",
+        "respuesta": "2",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El producto es 5 × 4.",
+          "Son 20 grifo-horas.",
+          "Divide 20 entre diez."
+        ],
+        "retroalimentacion": "Diez grifos tardan 2 horas; más grifos reducen el tiempo."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Seis albañiles completan una pared en 10 días. ¿Cuántos días necesitan 15 albañiles al mismo ritmo? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El trabajo es 6 × 10.",
+          "Son 60 albañil-días.",
+          "Divide 60 entre quince."
+        ],
+        "retroalimentacion": "Quince albañiles tardan 4 días, no 25."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un auto tarda 3 horas a 80 km/h en una ruta fija. ¿Cuánto tarda a 60 km/h?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 horas"
+          },
+          {
+            "id": "b",
+            "texto": "3 horas"
+          },
+          {
+            "id": "c",
+            "texto": "4 horas"
+          },
+          {
+            "id": "d",
+            "texto": "5 horas"
+          }
+        ],
+        "pistas": [
+          "Calcula la longitud de la ruta.",
+          "80 × 3 = 240 km.",
+          "240/60 = 4 horas."
+        ],
+        "retroalimentacion": "A menor velocidad tarda 4 horas; la ruta mide 240 km."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 12 estudiantes ordenan libros en 2 horas, 6 estudiantes idénticos lo harán en 1 hora.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se redujo el grupo a la mitad.",
+          "El trabajo total es 12 × 2 = 24 estudiante-horas.",
+          "24/6 da cuatro horas."
+        ],
+        "retroalimentacion": "Es falso: seis estudiantes tardan 4 horas, no una."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Ocho cocineros preparan un pedido en 6 horas. Con 12 cocineros iguales, ¿cuántas horas se necesitan? Escribe solo el número.",
+        "respuesta": "4",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 8 × 6.",
+          "Hay 48 cocinero-horas.",
+          "Divide 48 entre doce."
+        ],
+        "retroalimentacion": "La respuesta es 4 horas: 12 × 4 = 48."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tres impresoras iguales hacen un encargo en 8 horas. Una se avería antes de empezar y trabajan solo dos. ¿Cuánto tardan?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6 horas"
+          },
+          {
+            "id": "b",
+            "texto": "8 horas"
+          },
+          {
+            "id": "c",
+            "texto": "10 horas"
+          },
+          {
+            "id": "d",
+            "texto": "12 horas"
+          }
+        ],
+        "pistas": [
+          "La tarea no cambia.",
+          "3 × 8 = 24 impresora-horas.",
+          "Divide 24 entre dos impresoras."
+        ],
+        "retroalimentacion": "Con dos impresoras tardan 12 horas; menos máquinas aumentan el tiempo."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un tren cubre una ruta en 5 horas a 72 km/h. ¿Cuántas horas necesita a 90 km/h en esa misma ruta? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Halla la distancia: 72 × 5.",
+          "La ruta mide 360 km.",
+          "Divide 360 entre 90."
+        ],
+        "retroalimentacion": "A 90 km/h tarda 4 horas, no más que antes."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para una obra fija, 9 trabajadores durante 8 días y 12 trabajadores durante 6 días representan la misma cantidad de trabajo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 9 × 8.",
+          "Calcula 12 × 6.",
+          "Ambos productos son 72."
+        ],
+        "retroalimentacion": "Es verdadero: ambos casos suman 72 trabajador-días."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una cisterna abastece 20 familias durante 15 días con consumo igual. Si atiende 25 familias, ¿cuántos días dura? Escribe solo el número.",
+        "respuesta": "12",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El agua total equivale a 20 × 15 familia-días.",
+          "Son 300 familia-días.",
+          "Divide 300 entre veinticinco."
+        ],
+        "retroalimentacion": "Dura 12 días; más familias agotan antes el agua."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

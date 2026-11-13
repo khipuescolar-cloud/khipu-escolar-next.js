@@ -1,0 +1,1909 @@
+[
+  {
+    "clave": "mat.s1.plano-cartesiano-cuadrantes",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-S1-02"
+    ],
+    "bloque": "Ubicación y transformaciones",
+    "nombre": "Coordenadas cartesianas en los cuatro cuadrantes",
+    "disciplina": "geometria",
+    "descripcionCorta": "Ubica puntos con coordenadas enteras en los cuatro cuadrantes.",
+    "palabrasClave": [
+      "coordenadas",
+      "eje x",
+      "eje y",
+      "origen",
+      "cuadrante"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 131,
+    "ideaCentral": "Un punto (x, y) se ubica avanzando primero en horizontal según x y luego en vertical según y. Los signos determinan el cuadrante: I (+,+), II (−,+), III (−,−) y IV (+,−).",
+    "pasos": [
+      "Parte del origen (0, 0).",
+      "Lee la primera coordenada: derecha si es positiva, izquierda si es negativa.",
+      "Lee la segunda: arriba si es positiva, abajo si es negativa.",
+      "Identifica el cuadrante por el par de signos; si alguna coordenada es cero, el punto está en un eje."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En un plano de Lima, ubica A(3, −2).",
+        "desarrollo": "Del origen voy 3 a la derecha y 2 abajo. Los signos son (+,−).",
+        "respuesta": "A está en el cuadrante IV."
+      },
+      {
+        "situacion": "¿Dónde queda B(−4, 0)?",
+        "desarrollo": "Avanzo 4 a la izquierda; no subo ni bajo porque y = 0.",
+        "respuesta": "B está en el eje x."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Invertir el orden (x, y).",
+        "correccion": "Primero lee x en horizontal y luego y en vertical."
+      },
+      {
+        "error": "Asignar cuadrante a un punto de un eje.",
+        "correccion": "Cuando x o y es cero, el punto queda sobre un eje y no en un cuadrante."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Origen",
+        "significado": "Intersección de los ejes: (0, 0)."
+      },
+      {
+        "termino": "Abscisa",
+        "significado": "Primera coordenada, x, que indica posición horizontal."
+      },
+      {
+        "termino": "Ordenada",
+        "significado": "Segunda coordenada, y, que indica posición vertical."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué coordenada se lee primero en (x, y)?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa el orden escrito en el par.",
+          "La primera letra es x.",
+          "x se representa en el eje horizontal."
+        ],
+        "retroalimentacion": "Se lee x horizontal primero; invertir x e y cambia el punto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "y vertical"
+          },
+          {
+            "id": "b",
+            "texto": "x horizontal"
+          },
+          {
+            "id": "c",
+            "texto": "el cuadrante"
+          },
+          {
+            "id": "d",
+            "texto": "la distancia"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "El punto (0, 0) donde se cruzan los ejes recibe un nombre. ¿Cuál?",
+        "respuesta": "origen",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambas coordenadas son cero.",
+          "Está en la intersección de los ejes.",
+          "Su nombre indica el inicio del plano."
+        ],
+        "retroalimentacion": "Es el origen; no pertenece a un cuadrante."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El punto (2, 3) está en el cuadrante I.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa los signos de 2 y 3.",
+          "Ambas coordenadas son positivas.",
+          "El cuadrante I corresponde a (+,+)."
+        ],
+        "retroalimentacion": "Verdadero: (2, 3) está en I."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un punto está 4 pasos a la izquierda y 1 arriba del origen. ¿Cuál es?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Izquierda significa x negativa.",
+          "Arriba significa y positiva.",
+          "Escribe primero −4 y luego 1."
+        ],
+        "retroalimentacion": "(−4, 1); (4, 1) quedaría a la derecha.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(4, 1)"
+          },
+          {
+            "id": "b",
+            "texto": "(−4, 1)"
+          },
+          {
+            "id": "c",
+            "texto": "(1, −4)"
+          },
+          {
+            "id": "d",
+            "texto": "(−1, 4)"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "¿En qué cuadrante queda P(−3, 5)? Responde con número romano.",
+        "respuesta": "II",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "x es negativa: ve a la izquierda.",
+          "y es positiva: sube.",
+          "El sector izquierdo superior es el segundo cuadrante."
+        ],
+        "retroalimentacion": "P está en II; la coordenada negativa no significa cuadrante III."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El punto (0, −6) pertenece al cuadrante IV.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Su primera coordenada es cero.",
+          "Con x = 0 queda sobre el eje vertical.",
+          "Los puntos de un eje no pertenecen a ningún cuadrante."
+        ],
+        "retroalimentacion": "Falso: (0, −6) está en el eje y."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estos puntos está en el cuadrante III?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El cuadrante III es izquierdo e inferior.",
+          "Necesita x e y negativas.",
+          "Descarta el punto cuyo x es cero: está en un eje."
+        ],
+        "retroalimentacion": "(−2, −7) tiene ambos signos negativos y está en III.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(2, −7)"
+          },
+          {
+            "id": "b",
+            "texto": "(−2, 7)"
+          },
+          {
+            "id": "c",
+            "texto": "(−2, −7)"
+          },
+          {
+            "id": "d",
+            "texto": "(0, −7)"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Desde el origen avanzas 5 unidades a la derecha y 4 hacia abajo. ¿Cuál es la coordenada y? Escribe solo el número.",
+        "respuesta": -4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La segunda coordenada describe el movimiento vertical.",
+          "Abajo corresponde a signo negativo.",
+          "Cuatro unidades abajo dan y = −4."
+        ],
+        "retroalimentacion": "y = −4; +4 indicaría subir."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "A(−2, 3) y B(−2, −1) están alineados. ¿Sobre qué tipo de línea?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las primeras coordenadas.",
+          "Ambas tienen x = −2.",
+          "Igual x significa que solo cambia la altura."
+        ],
+        "retroalimentacion": "La línea es vertical; la y cambia de 3 a −1.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "horizontal"
+          },
+          {
+            "id": "b",
+            "texto": "diagonal"
+          },
+          {
+            "id": "c",
+            "texto": "vertical"
+          },
+          {
+            "id": "d",
+            "texto": "eje x"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un dron va de (−1, −2) tres unidades a la derecha y cuatro arriba. ¿Cuál es su punto final? Escribe (x, y).",
+        "respuesta": "(2, 2)",
+        "alternativasAceptadas": [
+          "(2,2)"
+        ],
+        "pistas": [
+          "La x inicial es −1; súmale 3.",
+          "La y inicial es −2; súmale 4.",
+          "Ambas coordenadas finales son 2."
+        ],
+        "retroalimentacion": "Llega a (2, 2); hay que actualizar x e y por separado."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al caminar del punto (3, −2) al punto (3, 4), cruzas el eje x.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La x permanece en 3.",
+          "La y pasa de negativa a positiva.",
+          "Entre −2 y 4 está y = 0, el eje x."
+        ],
+        "retroalimentacion": "Verdadero: el trayecto vertical cruza y = 0."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un punto tiene x negativa y está debajo del eje x. ¿Cuál podría ser?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Debajo del eje x significa y negativa.",
+          "x negativa significa izquierda.",
+          "Busca dos coordenadas negativas y ninguna igual a cero."
+        ],
+        "retroalimentacion": "(−5, −1) cumple ambas condiciones; (0, −1) está en un eje.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(−5, 1)"
+          },
+          {
+            "id": "b",
+            "texto": "(5, −1)"
+          },
+          {
+            "id": "c",
+            "texto": "(0, −1)"
+          },
+          {
+            "id": "d",
+            "texto": "(−5, −1)"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.traslacion",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-S1-02"
+    ],
+    "bloque": "Ubicación y transformaciones",
+    "nombre": "Traslación de figuras en el plano",
+    "disciplina": "geometria",
+    "descripcionCorta": "Traslada figuras según un vector y describe el cambio de coordenadas.",
+    "palabrasClave": [
+      "traslación",
+      "vector",
+      "coordenadas",
+      "desplazamiento",
+      "figura"
+    ],
+    "prerrequisitos": [
+      "mat.s1.plano-cartesiano-cuadrantes"
+    ],
+    "ordenSugerido": 132,
+    "ideaCentral": "Una traslación mueve todos los puntos de una figura la misma distancia y en la misma dirección, sin girarla ni cambiar su tamaño. Si el desplazamiento es (a, b), cada (x, y) pasa a (x + a, y + b).",
+    "pasos": [
+      "Lee cuántas unidades se mueve la figura horizontal y verticalmente.",
+      "Asigna signo positivo a derecha o arriba y negativo a izquierda o abajo.",
+      "Suma ese desplazamiento a cada vértice.",
+      "Comprueba que lados y orientación permanecen iguales."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un dibujo tiene vértice A(1, 2) y se mueve 3 a la derecha y 1 abajo.",
+        "desarrollo": "A′ = (1 + 3, 2 − 1) = (4, 1).",
+        "respuesta": "A′(4, 1)."
+      },
+      {
+        "situacion": "Un triángulo con B(−2, 0) se traslada por (−1, 4).",
+        "desarrollo": "B′ = (−2 − 1, 0 + 4).",
+        "respuesta": "B′(−3, 4)."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Mover solo un vértice de la figura.",
+        "correccion": "Aplica el mismo vector a todos los vértices."
+      },
+      {
+        "error": "Cambiar signos al trasladar a la izquierda o abajo.",
+        "correccion": "Usa un desplazamiento negativo en la coordenada correspondiente."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Traslación",
+        "significado": "Movimiento que desplaza una figura sin girarla."
+      },
+      {
+        "termino": "Vector de desplazamiento",
+        "significado": "Par (a, b) que indica el cambio horizontal y vertical."
+      },
+      {
+        "termino": "Imagen",
+        "significado": "Figura obtenida tras la transformación."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un punto A(2, 1) avanza 3 a la derecha. ¿Dónde queda? Escribe (x, y).",
+        "respuesta": "(5, 1)",
+        "alternativasAceptadas": [
+          "(5,1)"
+        ],
+        "pistas": [
+          "Solo cambia la primera coordenada.",
+          "Suma 3 a x = 2.",
+          "La y sigue en 1."
+        ],
+        "retroalimentacion": "A llega a (5, 1); subir la y sería otro movimiento."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué movimiento traslada una figura sin girarla?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La figura mantiene su orientación.",
+          "Todos los puntos avanzan igual.",
+          "Piensa en deslizar una hoja sobre la mesa."
+        ],
+        "retroalimentacion": "Traslación es deslizar la figura; rotación la giraría.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "rotación"
+          },
+          {
+            "id": "b",
+            "texto": "reflexión"
+          },
+          {
+            "id": "c",
+            "texto": "traslación"
+          },
+          {
+            "id": "d",
+            "texto": "ampliación"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al trasladar una figura, todos sus vértices reciben el mismo desplazamiento.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina mover una calcomanía entera.",
+          "Si un vértice avanzara distinto, cambiaría la forma.",
+          "El vector de traslación es común a todos."
+        ],
+        "retroalimentacion": "Verdadero: todos los vértices se mueven con el mismo vector."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "P(4, 3) se traslada 2 unidades hacia la izquierda. ¿Cuál es su nueva coordenada x? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Izquierda resta a x.",
+          "La x inicial es 4.",
+          "Calcula 4 − 2."
+        ],
+        "retroalimentacion": "La nueva x es 2; la y permanece 3."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Desde Q(−1, 5) traslada 4 unidades hacia abajo. Escribe el punto final (x, y).",
+        "respuesta": "(−1, 1)",
+        "alternativasAceptadas": [
+          "(-1,1)"
+        ],
+        "pistas": [
+          "La x no cambia.",
+          "Hacia abajo resta 4 a y = 5.",
+          "5 − 4 = 1."
+        ],
+        "retroalimentacion": "Q′ es (−1, 1); no hay cambio horizontal."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El vector (−3, 2) aplicado a R(4, −1) produce…",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma −3 a la primera coordenada.",
+          "4 − 3 = 1.",
+          "Para y: −1 + 2 = 1."
+        ],
+        "retroalimentacion": "R′ = (1, 1); resta 3 a x y suma 2 a y.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(7, 1)"
+          },
+          {
+            "id": "b",
+            "texto": "(1, −3)"
+          },
+          {
+            "id": "c",
+            "texto": "(1, 1)"
+          },
+          {
+            "id": "d",
+            "texto": "(−7, 2)"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un cuadrado de lado 2 cm conserva ese lado después de una traslación.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La traslación no estira la figura.",
+          "Todos los puntos se desplazan por igual.",
+          "La distancia entre vértices vecinos sigue siendo 2 cm."
+        ],
+        "retroalimentacion": "Verdadero: una traslación conserva las longitudes."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El vértice A(−2, 3) llega a A′(5, 3) por traslación. ¿Cuántas unidades se movió horizontalmente a la derecha? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La y no cambió.",
+          "Compara las x: de −2 a 5.",
+          "Calcula 5 − (−2)."
+        ],
+        "retroalimentacion": "Se movió 7 unidades; desde −2 hasta 0 hay 2 y hasta 5 hay 5."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "El triángulo A(0, 0), B(2, 0), C(0, 3) se traslada con vector (−2, 1). ¿Dónde queda C? Escribe (x, y).",
+        "respuesta": "(−2, 4)",
+        "alternativasAceptadas": [
+          "(-2,4)"
+        ],
+        "pistas": [
+          "Trabaja solo el vértice C(0, 3).",
+          "Suma −2 a x y 1 a y.",
+          "0 − 2 = −2; 3 + 1 = 4."
+        ],
+        "retroalimentacion": "C′ = (−2, 4); aplicar el vector a B daría otra imagen."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una figura se mueve desde A(3, −2) hasta A′(0, 2). ¿Qué vector se aplicó a toda la figura?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta coordenada inicial a final.",
+          "Para x: 0 − 3 = −3.",
+          "Para y: 2 − (−2) = 4."
+        ],
+        "retroalimentacion": "El vector es (−3, 4); sumar −2 y 2 sin respetar signos daría error.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(3, 4)"
+          },
+          {
+            "id": "b",
+            "texto": "(−3, 4)"
+          },
+          {
+            "id": "c",
+            "texto": "(−3, −4)"
+          },
+          {
+            "id": "d",
+            "texto": "(0, 2)"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si A(1, 1) llega a (4, 3) y B(2, 1) llega a (5, 2), ambas imágenes pueden ser una sola traslación.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el cambio de A: (3, 2).",
+          "Calcula el cambio de B: (3, 1).",
+          "Los vectores verticales no coinciden."
+        ],
+        "retroalimentacion": "Falso: A cambia (3, 2) y B cambia (3, 1); una traslación exige el mismo vector."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una señal con vértices A(−1, −1) y B(1, −1) debe quedar con A′(2, 0). ¿Dónde estará B′ si aplicas la misma traslación? Escribe (x, y).",
+        "respuesta": "(4, 0)",
+        "alternativasAceptadas": [
+          "(4,0)"
+        ],
+        "pistas": [
+          "De A a A′ el cambio es (3, 1).",
+          "Suma (3, 1) a B(1, −1).",
+          "1 + 3 = 4 y −1 + 1 = 0."
+        ],
+        "retroalimentacion": "B′ = (4, 0); mover B con otro vector deformaría la señal."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.rotacion",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-S1-02"
+    ],
+    "bloque": "Ubicación y transformaciones",
+    "nombre": "Rotación de figuras en el plano",
+    "disciplina": "geometria",
+    "descripcionCorta": "Rota figuras 90°, 180° o 270° alrededor de un punto.",
+    "palabrasClave": [
+      "rotación",
+      "centro de giro",
+      "ángulo",
+      "sentido horario",
+      "coordenadas"
+    ],
+    "prerrequisitos": [
+      "mat.s1.plano-cartesiano-cuadrantes"
+    ],
+    "ordenSugerido": 133,
+    "ideaCentral": "Una rotación gira una figura alrededor de un centro fijo, sin cambiar sus lados. Alrededor del origen, 90° antihorario lleva (x, y) a (−y, x); 180° lleva a (−x, −y).",
+    "pasos": [
+      "Identifica el centro, el ángulo y el sentido del giro.",
+      "Si el centro es el origen, usa la regla del ángulo indicado.",
+      "Transforma cada vértice de la figura.",
+      "Verifica que la distancia al centro y la forma se conservan."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una flecha tiene punta A(2, 1). Gírala 90° antihorario alrededor del origen.",
+        "desarrollo": "Aplico (x, y) → (−y, x): A′ = (−1, 2).",
+        "respuesta": "La punta queda en (−1, 2)."
+      },
+      {
+        "situacion": "Una marca B(−3, 2) gira 180° alrededor del origen.",
+        "desarrollo": "Cambio ambos signos: B′ = (3, −2).",
+        "respuesta": "B′(3, −2)."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Cambiar solo una coordenada en un giro de 180°.",
+        "correccion": "A 180° del origen cambian de signo x e y."
+      },
+      {
+        "error": "Confundir 90° horario y antihorario.",
+        "correccion": "Antihorario va contra las agujas; comprueba el cuadrante de llegada."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Centro de giro",
+        "significado": "Punto fijo alrededor del cual rota la figura."
+      },
+      {
+        "termino": "Sentido antihorario",
+        "significado": "Giro contrario al movimiento de las agujas del reloj."
+      },
+      {
+        "termino": "Ángulo de giro",
+        "significado": "Medida en grados de cuánto se gira."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una figura gira alrededor de un punto fijo sin cambiar tamaño. ¿Qué transformación es?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El movimiento tiene un punto fijo.",
+          "La figura cambia de orientación.",
+          "Un deslizamiento no giraría la figura."
+        ],
+        "retroalimentacion": "Es rotación; conserva tamaño y gira alrededor de un centro.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "traslación"
+          },
+          {
+            "id": "b",
+            "texto": "rotación"
+          },
+          {
+            "id": "c",
+            "texto": "reflexión"
+          },
+          {
+            "id": "d",
+            "texto": "ampliación"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Cómo se llama el punto fijo alrededor del cual gira una figura?",
+        "respuesta": "centro de giro",
+        "alternativasAceptadas": [
+          "centro"
+        ],
+        "pistas": [
+          "Permanece inmóvil durante el movimiento.",
+          "Todos los vértices giran a su alrededor.",
+          "Su nombre incluye la palabra «centro»."
+        ],
+        "retroalimentacion": "Es el centro de giro, no un vértice cualquiera."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una rotación de 180° alrededor del origen lleva (2, 1) a (−2, −1).",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Con 180° cambia el signo de ambas coordenadas.",
+          "2 pasa a −2.",
+          "1 pasa a −1."
+        ],
+        "retroalimentacion": "Verdadero: (2, 1) → (−2, −1)."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "El punto (1, 0) gira 90° en sentido antihorario alrededor del origen. Escribe el punto final (x, y).",
+        "respuesta": "(0, 1)",
+        "alternativasAceptadas": [
+          "(0,1)"
+        ],
+        "pistas": [
+          "Parte del eje x positivo.",
+          "Girar antihorario un cuarto de vuelta apunta arriba.",
+          "Arriba del origen una unidad es (0, 1)."
+        ],
+        "retroalimentacion": "Llega a (0, 1); (0, −1) sería giro horario."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿A dónde llega (0, 3) tras girar 90° antihorario alrededor del origen?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Parte del eje y positivo.",
+          "El cuarto de vuelta antihorario apunta a la izquierda.",
+          "Tres unidades a la izquierda dan x = −3 e y = 0."
+        ],
+        "retroalimentacion": "Llega a (−3, 0); (3, 0) correspondería al giro horario.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(3, 0)"
+          },
+          {
+            "id": "b",
+            "texto": "(0, −3)"
+          },
+          {
+            "id": "c",
+            "texto": "(−3, 0)"
+          },
+          {
+            "id": "d",
+            "texto": "(−3, 3)"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Gira P(−2, 4) 180° alrededor del origen. Escribe P′(x, y).",
+        "respuesta": "(2, −4)",
+        "alternativasAceptadas": [
+          "(2,-4)"
+        ],
+        "pistas": [
+          "La media vuelta invierte ambos signos.",
+          "−2 cambia a 2.",
+          "4 cambia a −4."
+        ],
+        "retroalimentacion": "P′ = (2, −4); invertir solo una coordenada sería reflexión."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un giro de 90° antihorario lleva (3, 2) a (2, −3).",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Aplica (x, y) → (−y, x).",
+          "Con y = 2, la nueva x es −2.",
+          "Con x = 3, la nueva y es 3."
+        ],
+        "retroalimentacion": "Falso: 90° antihorario lleva (3, 2) a (−2, 3); (2, −3) es horario."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un punto está a 5 cm del centro de giro. Tras rotarlo 270°, ¿a cuántos centímetros queda del centro? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Rotar no estira segmentos.",
+          "El radio del giro es constante.",
+          "La distancia inicial al centro era 5 cm."
+        ],
+        "retroalimentacion": "Queda a 5 cm; el ángulo no cambia la distancia."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un triángulo con A(1, 2) y B(2, 2) gira 180° alrededor del origen. ¿Cuál es la imagen de B?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Toma B, no A.",
+          "Para 180° invierte los dos signos.",
+          "B(2, 2) tiene ambas coordenadas positivas."
+        ],
+        "retroalimentacion": "B′ = (−2, −2); (−1, −2) sería la imagen de A.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(−1, −2)"
+          },
+          {
+            "id": "b",
+            "texto": "(2, −2)"
+          },
+          {
+            "id": "c",
+            "texto": "(−2, 2)"
+          },
+          {
+            "id": "d",
+            "texto": "(−2, −2)"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una marca en (−3, 1) gira 90° antihorario alrededor del origen. ¿Dónde queda? Escribe (x, y).",
+        "respuesta": "(−1, −3)",
+        "alternativasAceptadas": [
+          "(-1,-3)"
+        ],
+        "pistas": [
+          "Usa (x, y) → (−y, x).",
+          "La nueva x es −1.",
+          "La nueva y conserva el valor x inicial: −3."
+        ],
+        "retroalimentacion": "Queda en (−1, −3); intercambiar sin negar y produce otro giro."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Girar 90° antihorario dos veces alrededor del mismo centro equivale a girar 180°.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los dos ángulos de giro.",
+          "90° + 90° = 180°.",
+          "El centro y el sentido permanecen iguales."
+        ],
+        "retroalimentacion": "Verdadero: dos cuartos de vuelta en el mismo sentido hacen media vuelta."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una flecha apunta a la derecha. Primero gira 90° antihorario y luego 180° alrededor del mismo centro. ¿Hacia dónde apunta?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Después de 90° antihorario apunta arriba.",
+          "Desde arriba, una media vuelta apunta abajo.",
+          "El giro total es 270° antihorario."
+        ],
+        "retroalimentacion": "Apunta abajo; detenerse después del primer giro daría arriba.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "arriba"
+          },
+          {
+            "id": "b",
+            "texto": "derecha"
+          },
+          {
+            "id": "c",
+            "texto": "abajo"
+          },
+          {
+            "id": "d",
+            "texto": "izquierda"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.reflexion",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-S1-02"
+    ],
+    "bloque": "Ubicación y transformaciones",
+    "nombre": "Reflexión de figuras respecto a un eje",
+    "disciplina": "geometria",
+    "descripcionCorta": "Refleja figuras respecto a los ejes coordenados y describe sus coordenadas.",
+    "palabrasClave": [
+      "reflexión",
+      "eje x",
+      "eje y",
+      "simetría",
+      "coordenadas"
+    ],
+    "prerrequisitos": [
+      "mat.s1.plano-cartesiano-cuadrantes"
+    ],
+    "ordenSugerido": 134,
+    "ideaCentral": "Reflejar una figura es producir su imagen de espejo respecto de un eje. Respecto del eje x, (x, y) pasa a (x, −y); respecto del eje y, pasa a (−x, y).",
+    "pasos": [
+      "Identifica si el espejo es el eje x o el eje y.",
+      "Cuenta la distancia perpendicular de cada vértice al eje.",
+      "Ubica cada imagen al otro lado, a la misma distancia.",
+      "Verifica los signos: eje x cambia y; eje y cambia x."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un dibujo tiene A(2, 3) y se refleja en el eje x.",
+        "desarrollo": "Conservo x = 2 y cambio y = 3 por −3.",
+        "respuesta": "A′(2, −3)."
+      },
+      {
+        "situacion": "B(−4, 1) se refleja en el eje y.",
+        "desarrollo": "Cambio −4 por 4; la altura 1 no varía.",
+        "respuesta": "B′(4, 1)."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Cambiar ambas coordenadas al reflejar en un solo eje.",
+        "correccion": "En eje x solo cambia y; en eje y solo cambia x."
+      },
+      {
+        "error": "Colocar la imagen a otra distancia del eje.",
+        "correccion": "Cada punto y su reflejo quedan a igual distancia perpendicular del eje."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Reflexión",
+        "significado": "Transformación que produce una imagen de espejo."
+      },
+      {
+        "termino": "Eje de simetría",
+        "significado": "Línea que separa puntos correspondientes a igual distancia."
+      },
+      {
+        "termino": "Imagen reflejada",
+        "significado": "Posición de una figura al otro lado del eje."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al reflejar (3, 2) en el eje x, ¿cuál coordenada cambia de signo?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El eje x es horizontal.",
+          "La distancia vertical al eje cambia de lado.",
+          "La coordenada vertical es y."
+        ],
+        "retroalimentacion": "Cambia y; x = 3 permanece igual.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x"
+          },
+          {
+            "id": "b",
+            "texto": "y"
+          },
+          {
+            "id": "c",
+            "texto": "ambas"
+          },
+          {
+            "id": "d",
+            "texto": "ninguna"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Refleja P(1, 4) en el eje x. Escribe P′(x, y).",
+        "respuesta": "(1, −4)",
+        "alternativasAceptadas": [
+          "(1,-4)"
+        ],
+        "pistas": [
+          "Conserva x = 1.",
+          "La altura 4 pasa al lado inferior.",
+          "Cambia y = 4 por −4."
+        ],
+        "retroalimentacion": "P′ = (1, −4); cambiar x sería reflexión en el eje y."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El reflejo de (0, 5) respecto del eje y es el mismo punto.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El punto tiene x = 0.",
+          "Por eso ya está sobre el eje y.",
+          "Al cambiar el signo de cero, sigue siendo cero."
+        ],
+        "retroalimentacion": "Verdadero: (0, 5) permanece fijo sobre el eje y."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué transformación produce una imagen como en un espejo?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina doblar el papel por una línea.",
+          "Los puntos quedan a lados opuestos de la línea.",
+          "La línea se llama eje de simetría."
+        ],
+        "retroalimentacion": "Reflexión produce imagen de espejo; traslación solo desliza.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "traslación"
+          },
+          {
+            "id": "b",
+            "texto": "ampliación"
+          },
+          {
+            "id": "c",
+            "texto": "reflexión"
+          },
+          {
+            "id": "d",
+            "texto": "rotación"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Q(−2, 3) se refleja en el eje y. ¿Cuál es Q′? Escribe (x, y).",
+        "respuesta": "(2, 3)",
+        "alternativasAceptadas": [
+          "(2,3)"
+        ],
+        "pistas": [
+          "El eje y es vertical.",
+          "Cambia la posición horizontal de −2 a 2.",
+          "La altura y = 3 se conserva."
+        ],
+        "retroalimentacion": "Q′ = (2, 3); (−2, −3) no es reflejo en el eje y."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Reflejar (−4, −1) en el eje x da (4, −1).",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En el eje x se conserva la primera coordenada.",
+          "La x debe seguir siendo −4.",
+          "Cambia solo y: −1 pasa a 1."
+        ],
+        "retroalimentacion": "Falso: el reflejo en el eje x es (−4, 1)."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "A(7, −3) se refleja en el eje y. ¿Cuál es la nueva coordenada x? Escribe solo el número.",
+        "respuesta": -7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El eje y invierte derecha e izquierda.",
+          "La x original es 7.",
+          "La x reflejada es su opuesta."
+        ],
+        "retroalimentacion": "La nueva x es −7; la y sigue en −3."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un punto está 6 unidades debajo del eje x. Tras reflejarlo en ese eje, ¿dónde queda?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La reflexión cambia el lado del eje.",
+          "Conserva la distancia perpendicular de 6 unidades.",
+          "Debajo pasa a arriba."
+        ],
+        "retroalimentacion": "Queda 6 unidades arriba; la distancia al eje sigue siendo 6.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6 unidades arriba"
+          },
+          {
+            "id": "b",
+            "texto": "6 unidades a la derecha"
+          },
+          {
+            "id": "c",
+            "texto": "sobre el eje x"
+          },
+          {
+            "id": "d",
+            "texto": "12 unidades abajo"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "El triángulo A(−1, 2), B(2, 2), C(0, 4) se refleja en el eje y. ¿Dónde queda B? Escribe (x, y).",
+        "respuesta": "(−2, 2)",
+        "alternativasAceptadas": [
+          "(-2,2)"
+        ],
+        "pistas": [
+          "Elige B(2, 2), no A.",
+          "En el eje y cambia x y permanece y.",
+          "2 pasa a −2; la altura queda 2."
+        ],
+        "retroalimentacion": "B′ = (−2, 2); cambiar la y reflejaría en otro eje."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si reflejas un punto primero en el eje x y luego en el eje y, obtienes el mismo resultado que cambiar el signo de ambas coordenadas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La primera reflexión cambia y.",
+          "La segunda cambia x.",
+          "Al final tanto x como y tienen el signo opuesto."
+        ],
+        "retroalimentacion": "Verdadero: (x, y) termina en (−x, −y)."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "A(−3, 4) pasa a A′(3, 4). ¿Cuál fue el eje de reflexión?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara qué coordenada cambió.",
+          "Solo x pasó de −3 a 3.",
+          "El espejo vertical cambia la coordenada horizontal."
+        ],
+        "retroalimentacion": "Fue el eje y; reflejar en eje x habría cambiado 4 a −4.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "eje x"
+          },
+          {
+            "id": "b",
+            "texto": "eje y"
+          },
+          {
+            "id": "c",
+            "texto": "recta y = x"
+          },
+          {
+            "id": "d",
+            "texto": "ningún eje"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un punto P se refleja en el eje x y llega a P′(5, −2). ¿Cuál era P? Escribe (x, y).",
+        "respuesta": "(5, 2)",
+        "alternativasAceptadas": [
+          "(5,2)"
+        ],
+        "pistas": [
+          "Reflejar dos veces en el mismo eje devuelve el original.",
+          "La x original era 5.",
+          "La y original tenía signo opuesto a −2."
+        ],
+        "retroalimentacion": "P era (5, 2); el eje x no cambia la primera coordenada."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.planos-mapas-escala",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-S1-05"
+    ],
+    "bloque": "Ubicación y transformaciones",
+    "nombre": "Lectura de planos y mapas a escala",
+    "disciplina": "geometria",
+    "descripcionCorta": "Interpreta la escala de un plano y calcula medidas reales.",
+    "palabrasClave": [
+      "escala",
+      "plano",
+      "mapa",
+      "distancia real",
+      "conversión"
+    ],
+    "prerrequisitos": [
+      "mat.s1.razon-semejanza"
+    ],
+    "ordenSugerido": 135,
+    "ideaCentral": "La escala relaciona una longitud del dibujo con la real en las mismas unidades. En 1:100, cada 1 cm del plano representa 100 cm reales; convierte unidades al final.",
+    "pasos": [
+      "Lee la escala y anota qué representa una unidad del plano.",
+      "Mide o usa la longitud dada en el dibujo.",
+      "Multiplica por el segundo número de la escala para obtener la longitud real en la misma unidad.",
+      "Convierte centímetros a metros o kilómetros si se pide."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una cancha aparece de 4 cm en un plano 1:500. ¿Cuánto mide en realidad?",
+        "desarrollo": "4 × 500 = 2000 cm; 2000 cm = 20 m.",
+        "respuesta": "Mide 20 m."
+      },
+      {
+        "situacion": "En un mapa 1:100 000, dos pueblos están separados 3 cm.",
+        "desarrollo": "3 × 100 000 = 300 000 cm = 3 km.",
+        "respuesta": "Están a 3 km."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Multiplicar por la escala y olvidar convertir unidades.",
+        "correccion": "El producto sale en la unidad del dibujo; convierte 100 cm a 1 m."
+      },
+      {
+        "error": "Interpretar 1:100 como 100 cm del mapa por 1 cm real.",
+        "correccion": "El primer término representa el dibujo y el segundo la realidad."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Escala",
+        "significado": "Relación entre medida dibujada y medida real."
+      },
+      {
+        "termino": "Plano",
+        "significado": "Representación reducida de un espacio."
+      },
+      {
+        "termino": "Distancia real",
+        "significado": "Longitud en el espacio representado."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un plano usa escala 1:100. Un muro mide 2 cm en el dibujo. ¿Cuántos centímetros mide realmente? Escribe solo el número.",
+        "respuesta": 200,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada 1 cm dibujado representa 100 cm reales.",
+          "El muro ocupa 2 veces ese centímetro.",
+          "Calcula 2 × 100."
+        ],
+        "retroalimentacion": "Mide 200 cm reales; 2 cm es solo la medida del plano."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué expresa una escala 1:50?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee primero la medida del dibujo.",
+          "Los dos números deben compararse en la misma unidad.",
+          "El segundo número indica la medida real."
+        ],
+        "retroalimentacion": "1 cm del plano equivale a 50 cm reales; invertir la relación cambia el sentido.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "50 cm del plano equivalen a 1 cm real"
+          },
+          {
+            "id": "b",
+            "texto": "1 cm del plano equivale a 50 cm reales"
+          },
+          {
+            "id": "c",
+            "texto": "1 m del plano equivale a 50 cm reales"
+          },
+          {
+            "id": "d",
+            "texto": "el plano y la realidad miden igual"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una escala 1:1000, una longitud de 1 cm en el mapa representa 1000 cm reales.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 1 corresponde al mapa.",
+          "El 1000 corresponde a la realidad.",
+          "Ambas medidas se leen primero en centímetros."
+        ],
+        "retroalimentacion": "Verdadero: 1 cm dibujado representa 1000 cm reales."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un croquis 1:200, un pasillo ocupa 3 cm. ¿Cuántos centímetros ocupa en realidad? Escribe solo el número.",
+        "respuesta": 600,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Toma 200 cm reales por cada cm dibujado.",
+          "Hay 3 cm en el croquis.",
+          "Multiplica 3 × 200."
+        ],
+        "retroalimentacion": "Ocupa 600 cm; sumar 3 + 200 no aplica la escala."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un plano 1:500 muestra un aula de 2 cm de largo. ¿Cuántos metros mide realmente? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero centímetros reales.",
+          "2 × 500 = 1000 cm.",
+          "Divide 1000 entre 100 para pasar a metros."
+        ],
+        "retroalimentacion": "Mide 10 m; 1000 es la medida en centímetros, no en metros."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un mapa 1:100 000, ¿qué distancia real representan 4 cm?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "4 × 100 000 = 400 000 cm.",
+          "100 000 cm equivalen a 1 km.",
+          "Por tanto, cada cm del mapa es 1 km."
+        ],
+        "retroalimentacion": "Son 4 km; confundir centímetros con metros aumenta o reduce el resultado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "400 m"
+          },
+          {
+            "id": "b",
+            "texto": "40 km"
+          },
+          {
+            "id": "c",
+            "texto": "4 km"
+          },
+          {
+            "id": "d",
+            "texto": "400 km"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En escala 1:250, 4 cm del plano equivalen a 10 m reales.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 4 × 250 en centímetros.",
+          "Obtienes 1000 cm.",
+          "1000 cm son 10 m."
+        ],
+        "retroalimentacion": "Verdadero: 4 × 250 = 1000 cm = 10 m."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un mapa dice que 1 cm representa 2 km. ¿Cómo se escribe esa escala numérica si ambos lados están en centímetros?",
+        "respuesta": "1:200000",
+        "alternativasAceptadas": [
+          "1:200 000"
+        ],
+        "pistas": [
+          "Convierte 2 km a centímetros.",
+          "1 km = 100 000 cm.",
+          "2 km = 200 000 cm; escribe 1 frente a esa cantidad."
+        ],
+        "retroalimentacion": "La escala es 1:200000; escribir 1:2 mezclaría centímetros y kilómetros."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una ruta recta mide 18 m en realidad y 3 cm en el plano. ¿Cuál es el segundo número de la escala 1:n? Escribe solo el número.",
+        "respuesta": 600,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 18 m a centímetros.",
+          "18 m = 1800 cm.",
+          "Divide 1800 cm reales entre 3 cm dibujados."
+        ],
+        "retroalimentacion": "n = 600, por tanto escala 1:600; no uses 18 ÷ 3 sin convertir."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un terreno de 25 m de ancho se dibuja a escala 1:500. ¿Cuántos centímetros debe medir en el plano?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 25 m en 2500 cm.",
+          "Divide la distancia real entre 500.",
+          "2500 ÷ 500 = 5."
+        ],
+        "retroalimentacion": "Debe medir 5 cm; multiplicar por 500 sirve del plano a la realidad.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "50 cm"
+          },
+          {
+            "id": "b",
+            "texto": "0,5 cm"
+          },
+          {
+            "id": "c",
+            "texto": "5 cm"
+          },
+          {
+            "id": "d",
+            "texto": "125 cm"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un mapa 1:100 000, dos marcas separadas 2 cm representan 20 km reales.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada cm representa 100 000 cm.",
+          "100 000 cm es 1 km.",
+          "Dos cm representan 2 km."
+        ],
+        "retroalimentacion": "Falso: representan 2 km; 20 km sería diez veces más."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un patio mide 12 cm en un plano 1:250. ¿Cuántos metros mide realmente? Escribe solo el número.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 12 × 250 para obtener centímetros.",
+          "12 × 250 = 3000 cm.",
+          "Convierte 3000 cm a metros."
+        ],
+        "retroalimentacion": "Mide 30 m; 3000 es la cifra en centímetros."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.rutas-escala",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para medir y orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-S1-05",
+      "MAT-C26-S1-07"
+    ],
+    "bloque": "Ubicación y transformaciones",
+    "nombre": "Rutas y distancias reales con escalas",
+    "disciplina": "geometria",
+    "descripcionCorta": "Determina rutas y distancias reales a partir de un plano o mapa.",
+    "palabrasClave": [
+      "ruta",
+      "tramo",
+      "escala",
+      "distancia real",
+      "recorrido"
+    ],
+    "prerrequisitos": [
+      "mat.s1.planos-mapas-escala"
+    ],
+    "ordenSugerido": 136,
+    "ideaCentral": "Para hallar la longitud real de una ruta, suma sus tramos medidos en el plano y aplica la escala; una ruta con desvíos puede ser más larga que la línea recta entre inicio y destino.",
+    "pasos": [
+      "Traza el recorrido real por los tramos indicados, sin saltar calles.",
+      "Suma las longitudes de esos tramos en el plano.",
+      "Aplica la escala a la suma, manteniendo primero la misma unidad.",
+      "Convierte a metros o kilómetros y compara rutas si hay alternativas."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En un plano 1:1000, ir de la plaza al colegio requiere 2 cm y luego 3 cm.",
+        "desarrollo": "Recorrido dibujado: 2 + 3 = 5 cm. Real: 5 × 1000 = 5000 cm = 50 m.",
+        "respuesta": "La ruta mide 50 m."
+      },
+      {
+        "situacion": "En un mapa donde 1 cm representa 1 km, la ruta A tiene tramos de 2 y 4 cm, y la B de 3 y 2 cm.",
+        "desarrollo": "A mide 6 km y B mide 5 km.",
+        "respuesta": "La ruta B es 1 km más corta."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Medir solo la línea recta cuando el camino dobla.",
+        "correccion": "Suma cada tramo del recorrido señalado."
+      },
+      {
+        "error": "Aplicar la escala a un tramo y olvidar los demás.",
+        "correccion": "Suma todos los tramos o convierte cada uno y luego suma."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Tramo",
+        "significado": "Parte de una ruta entre dos puntos consecutivos."
+      },
+      {
+        "termino": "Recorrido",
+        "significado": "Camino completo desde el inicio al destino."
+      },
+      {
+        "termino": "Distancia a escala",
+        "significado": "Longitud del dibujo que representa una longitud real."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una ruta en un plano tiene dos tramos de 2 cm y 3 cm. ¿Cuántos centímetros mide el recorrido en el plano? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El recorrido incluye ambos tramos.",
+          "Suma 2 y 3.",
+          "La escala aún no es necesaria: pregunta por el plano."
+        ],
+        "retroalimentacion": "Mide 5 cm en el plano; usar solo un tramo deja fuera parte de la ruta."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un camino dobla en una esquina. Para medir su ruta en un mapa, ¿qué haces?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La ruta sigue el camino dibujado.",
+          "Una línea recta podría atravesar edificios.",
+          "Cuenta cada segmento desde inicio hasta destino."
+        ],
+        "retroalimentacion": "Debes sumar todos los tramos; medir recto no representa el camino seguido.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "medir solo la línea recta"
+          },
+          {
+            "id": "b",
+            "texto": "sumar todos los tramos"
+          },
+          {
+            "id": "c",
+            "texto": "medir solo el último tramo"
+          },
+          {
+            "id": "d",
+            "texto": "restar el tramo más corto"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos tramos de una ruta miden 1 cm cada uno en el plano, la ruta completa mide 2 cm en ese plano.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La ruta contiene dos partes.",
+          "Cada parte aporta 1 cm.",
+          "Suma 1 + 1."
+        ],
+        "retroalimentacion": "Verdadero: el recorrido dibujado mide 2 cm."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un mapa, 1 cm equivale a 1 km. Una ruta recta de 4 cm, ¿cuántos kilómetros representa? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada centímetro vale un kilómetro.",
+          "La ruta tiene cuatro centímetros.",
+          "Cuenta cuatro veces 1 km."
+        ],
+        "retroalimentacion": "Representa 4 km; no confundas cm del mapa con km reales."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "A escala 1:10 000, una ruta tiene tramos de 2 cm y 4 cm. ¿Cuántos metros mide en realidad? Escribe solo el número.",
+        "respuesta": 600,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El mapa suma 6 cm.",
+          "6 × 10 000 = 60 000 cm reales.",
+          "Divide 60 000 entre 100."
+        ],
+        "retroalimentacion": "La ruta mide 600 m; 60 000 es el valor en centímetros."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un mapa indica 1 cm = 2 km. Dos rutas tienen tramos A: 2 + 3 cm y B: 1 + 3 cm. ¿Cuál es más corta y cuánto mide?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma cada ruta en el mapa.",
+          "A = 5 cm y B = 4 cm.",
+          "Para B multiplica 4 por 2 km."
+        ],
+        "retroalimentacion": "B mide 8 km y es más corta; 4 es su longitud en el mapa, en cm.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "A, 5 km"
+          },
+          {
+            "id": "b",
+            "texto": "B, 8 km"
+          },
+          {
+            "id": "c",
+            "texto": "A, 10 km"
+          },
+          {
+            "id": "d",
+            "texto": "B, 4 km"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un mapa 1:100 000, un desvío de 3 cm añade 3 km a la ruta real.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada centímetro representa 100 000 cm.",
+          "100 000 cm equivalen a 1 km.",
+          "Tres centímetros son tres veces esa distancia."
+        ],
+        "retroalimentacion": "Verdadero: el desvío añade 3 km."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un recorrido dibujado tiene tramos de 1 cm, 2 cm y 3 cm. El mapa dice 1 cm = 500 m. ¿Cuánto mide en metros? Escribe el número.",
+        "respuesta": "3000",
+        "alternativasAceptadas": [
+          "3 000"
+        ],
+        "pistas": [
+          "Suma primero los tres tramos.",
+          "1 + 2 + 3 = 6 cm.",
+          "Cada uno de los 6 cm representa 500 m."
+        ],
+        "retroalimentacion": "Mide 3000 m; multiplicar 500 por solo el último tramo omite dos tramos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una ruta escolar en un plano 1:5000 mide 2 cm al norte, 3 cm al este y 1 cm al sur. ¿Cuántos metros se recorren siguiendo las calles? Escribe solo el número.",
+        "respuesta": 300,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La ruta recorre los tres tramos, incluso el tramo sur.",
+          "2 + 3 + 1 = 6 cm en el plano.",
+          "6 × 5000 = 30 000 cm = 300 m."
+        ],
+        "retroalimentacion": "Se recorren 300 m; restar el tramo sur daría desplazamiento, no longitud recorrida."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un plano donde 1 cm = 100 m, la ruta por el puente mide 3 + 2 cm y la ruta por el parque 1 + 5 cm. ¿Cuántos metros ahorras por el puente?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma cada ruta: puente 5 cm, parque 6 cm.",
+          "La diferencia es 1 cm en el plano.",
+          "Ese centímetro representa 100 m."
+        ],
+        "retroalimentacion": "Ahorras 100 m; 500 m es la longitud total del puente, no el ahorro.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "500 m"
+          },
+          {
+            "id": "b",
+            "texto": "600 m"
+          },
+          {
+            "id": "c",
+            "texto": "100 m"
+          },
+          {
+            "id": "d",
+            "texto": "200 m"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un mapa 1:50 000, una ruta de 4 cm y otra de 2 cm difieren en 1 km real.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La diferencia dibujada es 2 cm.",
+          "Cada cm representa 50 000 cm = 0,5 km.",
+          "2 × 0,5 km = 1 km."
+        ],
+        "retroalimentacion": "Verdadero: las rutas difieren en 1 km."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un sendero real de 900 m se representa por tres tramos iguales en un mapa 1:10 000. ¿Cuántos centímetros mide cada tramo en el mapa? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Reparte 900 m entre tres tramos: 300 m cada uno.",
+          "300 m = 30 000 cm.",
+          "En escala 1:10 000 divide 30 000 entre 10 000."
+        ],
+        "retroalimentacion": "Cada tramo mide 3 cm en el mapa; 9 cm sería la ruta completa."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

@@ -1,0 +1,1609 @@
+[
+  {
+    "clave": "mat.s1.lenguaje-algebraico",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-S1-01"
+    ],
+    "bloque": "Expresiones algebraicas",
+    "nombre": "Traducción del lenguaje verbal al algebraico",
+    "disciplina": "algebra",
+    "descripcionCorta": "Escribe expresiones como «el doble de un número aumentado en 5».",
+    "palabrasClave": [
+      "variable",
+      "traducción",
+      "expresión",
+      "doble"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 45,
+    "ideaCentral": "Para traducir una frase, elige una letra para el número desconocido y respeta el orden de las operaciones. Los paréntesis aclaran qué cantidad se duplica o se divide.",
+    "pasos": [
+      "Elige x para representar el número desconocido.",
+      "Identifica palabras de suma, resta, producto o división.",
+      "Escribe la expresión y verifica con un valor de prueba."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "El triple de un número más 4.",
+        "desarrollo": "Si el número es x, su triple es 3x; luego suma 4.",
+        "respuesta": "3x + 4."
+      },
+      {
+        "situacion": "El doble de la suma de un número y 5.",
+        "desarrollo": "Primero agrupa x + 5 y después multiplícalo por 2.",
+        "respuesta": "2(x + 5)."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Traducir el doble de una suma como 2x + 5.",
+        "correccion": "El doble afecta a toda la suma: 2(x + 5)."
+      },
+      {
+        "error": "Confundir cinco menos un número con x - 5.",
+        "correccion": "Respeta el orden: 5 - x."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Variable",
+        "significado": "Letra que representa un valor que puede cambiar."
+      },
+      {
+        "termino": "Expresión algebraica",
+        "significado": "Combinación de números, letras y operaciones."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe el doble de un número x.",
+        "respuesta": "2x",
+        "pistas": [
+          "El doble significa multiplicar por 2.",
+          "El número se representa con x.",
+          "Escribe 2 multiplicado por x."
+        ],
+        "retroalimentacion": "Sumar 2 no da el doble; la expresión es 2x.",
+        "alternativasAceptadas": [
+          "2*x"
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cómo escribes un número x aumentado en 7?",
+        "respuesta": "a",
+        "pistas": [
+          "Aumentar indica suma.",
+          "Parte del número x.",
+          "Agrega 7."
+        ],
+        "retroalimentacion": "Multiplicar por 7 confunde la relación; «x + 7» es correcto.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x + 7"
+          },
+          {
+            "id": "b",
+            "texto": "7x"
+          },
+          {
+            "id": "c",
+            "texto": "x - 7"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La mitad de un número x se escribe x/2.",
+        "respuesta": true,
+        "pistas": [
+          "Mitad significa dividir entre 2.",
+          "El número es x.",
+          "Coloca x como numerador y 2 como denominador."
+        ],
+        "retroalimentacion": "Es verdadero: x/2 representa su mitad.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Representa con x el número anterior a x.",
+        "respuesta": "x - 1",
+        "pistas": [
+          "Anterior significa una unidad menos.",
+          "Partes de x.",
+          "Resta 1 a x."
+        ],
+        "retroalimentacion": "Sumar 1 daría el siguiente; el anterior es x - 1.",
+        "alternativasAceptadas": [
+          "x-1"
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál expresión dice «cinco menos el triple de x»?",
+        "respuesta": "c",
+        "pistas": [
+          "El triple es 3x.",
+          "La frase comienza con cinco menos.",
+          "Resta 3x de 5."
+        ],
+        "retroalimentacion": "Cambiar el orden altera la resta; «5 - 3x» respeta la frase.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3x - 5"
+          },
+          {
+            "id": "b",
+            "texto": "5x - 3"
+          },
+          {
+            "id": "c",
+            "texto": "5 - 3x"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe la suma de un número x y su cuadrado.",
+        "respuesta": "x + x²",
+        "pistas": [
+          "El cuadrado de x es x².",
+          "Suma el número original.",
+          "No juntes términos de distinto grado."
+        ],
+        "retroalimentacion": "x + x no es su cuadrado; la expresión es x + x².",
+        "alternativasAceptadas": [
+          "x+x^2",
+          "x²+x",
+          "x^2+x"
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "«El doble de la suma de x y 3» se representa por 2x + 3.",
+        "respuesta": false,
+        "pistas": [
+          "La suma completa es x + 3.",
+          "El doble afecta también al 3.",
+          "Se escribe 2(x + 3)."
+        ],
+        "retroalimentacion": "Es falso: 2x + 3 solo duplica x; corresponde 2(x + 3).",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una mototaxi cobra S/ 4 fijos y S/ 2 por kilómetro x. ¿Qué expresión da el total en soles?",
+        "respuesta": "c",
+        "pistas": [
+          "El costo variable es 2 por cada kilómetro.",
+          "Para x kilómetros pagas 2x.",
+          "Suma los 4 fijos."
+        ],
+        "retroalimentacion": "Multiplicar el fijo por x es un error; «2x + 4» da el total.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4x + 2"
+          },
+          {
+            "id": "b",
+            "texto": "6x"
+          },
+          {
+            "id": "c",
+            "texto": "2x + 4"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe «la tercera parte de la diferencia entre x y 6».",
+        "respuesta": "(x - 6)/3",
+        "pistas": [
+          "Primero representa la diferencia x - 6.",
+          "La tercera parte divide toda la diferencia.",
+          "Usa paréntesis alrededor de x - 6."
+        ],
+        "retroalimentacion": "x - 6/3 divide solo el 6; corresponde (x - 6)/3.",
+        "alternativasAceptadas": [
+          "(x-6)/3"
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una feria, cada pulsera cuesta x soles. Con un descuento total de S/ 5 por comprar 3, ¿qué expresión es el pago?",
+        "respuesta": "a",
+        "pistas": [
+          "Tres pulseras sin descuento cuestan 3x.",
+          "El descuento es total, no por pulsera.",
+          "Resta 5 al total."
+        ],
+        "retroalimentacion": "Descontar 5 a cada pulsera da otra cuenta; «3x - 5» es el pago.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3x - 5"
+          },
+          {
+            "id": "b",
+            "texto": "3(x - 5)"
+          },
+          {
+            "id": "c",
+            "texto": "x - 15"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si x es el precio de un cuaderno, «dos cuadernos y un lapicero que cuesta 3 soles menos que uno» se traduce 2x + (x - 3).",
+        "respuesta": true,
+        "pistas": [
+          "Dos cuadernos cuestan 2x.",
+          "El lapicero cuesta x - 3.",
+          "Suma ambos costos."
+        ],
+        "retroalimentacion": "Es verdadero: 2x + (x - 3) representa la compra.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué expresa «el cuadrado de la suma de x y 2»?",
+        "respuesta": "d",
+        "pistas": [
+          "Primero forma la suma x + 2.",
+          "El cuadrado se aplica a toda la suma.",
+          "Encierra la suma entre paréntesis."
+        ],
+        "retroalimentacion": "Elevar solo x al cuadrado falla; «(x + 2)²» expresa la frase.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x² + 2"
+          },
+          {
+            "id": "b",
+            "texto": "x² + 4"
+          },
+          {
+            "id": "c",
+            "texto": "2(x + 2)"
+          },
+          {
+            "id": "d",
+            "texto": "(x + 2)²"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.terminos-algebraicos",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-S1-07"
+    ],
+    "bloque": "Expresiones algebraicas",
+    "nombre": "Términos algebraicos: coeficiente, variable y exponente",
+    "disciplina": "algebra",
+    "descripcionCorta": "Identifica los elementos de un término algebraico.",
+    "palabrasClave": [
+      "coeficiente",
+      "variable",
+      "exponente",
+      "término"
+    ],
+    "prerrequisitos": [
+      "mat.s1.lenguaje-algebraico"
+    ],
+    "ordenSugerido": 46,
+    "ideaCentral": "Un término algebraico combina un número con letras elevadas a exponentes. El coeficiente multiplica a la parte literal; si no se ve, es 1 o -1 según el signo.",
+    "pasos": [
+      "Separa el signo y el número que multiplica: ese es el coeficiente.",
+      "Identifica las letras o variables.",
+      "Lee los exponentes; si no aparecen, valen 1."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Examina -4x².",
+        "desarrollo": "El número con signo es -4; la letra x aparece elevada a 2.",
+        "respuesta": "Coeficiente -4, variable x, exponente 2."
+      },
+      {
+        "situacion": "Examina y.",
+        "desarrollo": "No se escribe el 1 ni el exponente 1.",
+        "respuesta": "Coeficiente 1, variable y, exponente 1."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir que el coeficiente de -x es cero.",
+        "correccion": "El número oculto es -1."
+      },
+      {
+        "error": "Tomar el exponente como coeficiente.",
+        "correccion": "El coeficiente multiplica; el exponente indica potencia."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Coeficiente",
+        "significado": "Número que multiplica a las variables."
+      },
+      {
+        "termino": "Parte literal",
+        "significado": "Variables junto con sus exponentes."
+      },
+      {
+        "termino": "Exponente",
+        "significado": "Cantidad de veces que se usa la base como factor."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuál es el coeficiente de 5x? Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "Busca el número delante de x.",
+          "En 5x, el 5 multiplica la variable.",
+          "El exponente invisible de x es otro dato."
+        ],
+        "retroalimentacion": "Confundir coeficiente y exponente falla; el coeficiente es 5.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En 3y², ¿cuál es la variable?",
+        "respuesta": "b",
+        "pistas": [
+          "La variable se representa con letra.",
+          "En 3y² solo hay una letra.",
+          "Esa letra es y."
+        ],
+        "retroalimentacion": "El 2 es exponente; la opción «y» es la variable.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "y"
+          },
+          {
+            "id": "c",
+            "texto": "2"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 7a, el exponente de a es 1 aunque no se escriba.",
+        "respuesta": true,
+        "pistas": [
+          "Observa que a aparece sin potencia visible.",
+          "Toda letra sola equivale a su primera potencia.",
+          "a = a¹."
+        ],
+        "retroalimentacion": "Es verdadero: el exponente implícito es 1.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En el término 8m³, ¿qué exponente tiene m? Escribe solo el número.",
+        "respuesta": 3,
+        "pistas": [
+          "Mira el número pequeño sobre m.",
+          "En m³ aparece 3.",
+          "El 8 es coeficiente, no exponente."
+        ],
+        "retroalimentacion": "Confundir el 8 con la potencia falla; el exponente es 3.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el coeficiente de -6p²?",
+        "respuesta": "b",
+        "pistas": [
+          "Incluye el signo del término.",
+          "-6 multiplica p².",
+          "El 2 pertenece a la potencia."
+        ],
+        "retroalimentacion": "La opción «-6» es el coeficiente con signo.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6"
+          },
+          {
+            "id": "b",
+            "texto": "-6"
+          },
+          {
+            "id": "c",
+            "texto": "2"
+          },
+          {
+            "id": "d",
+            "texto": "-2"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En -x⁴, ¿cuál es el coeficiente? Escribe solo el número.",
+        "respuesta": -1,
+        "pistas": [
+          "Hay un signo menos delante de x.",
+          "El 1 que multiplica no se escribe.",
+          "-x⁴ equivale a -1x⁴."
+        ],
+        "retroalimentacion": "Poner 0 por no ver un número es incorrecto; el coeficiente es -1.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 2ab³, la variable a tiene exponente 1 y b tiene exponente 3.",
+        "respuesta": true,
+        "pistas": [
+          "a no tiene exponente visible.",
+          "b sí tiene el 3 escrito.",
+          "Una letra sin potencia visible tiene exponente 1."
+        ],
+        "retroalimentacion": "Es verdadero: a¹b³ es la parte literal.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En el término 9x²y, ¿cuál es la parte literal?",
+        "respuesta": "b",
+        "pistas": [
+          "Quita el coeficiente numérico.",
+          "Conserva todas las variables y exponentes.",
+          "La y tiene exponente 1 invisible."
+        ],
+        "retroalimentacion": "La opción «x²y» conserva la parte literal completa.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9"
+          },
+          {
+            "id": "b",
+            "texto": "x²y"
+          },
+          {
+            "id": "c",
+            "texto": "9x²"
+          },
+          {
+            "id": "d",
+            "texto": "xy"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué término tiene coeficiente -3, variable z y exponente 2?",
+        "respuesta": "a",
+        "pistas": [
+          "El signo del coeficiente es negativo.",
+          "La variable solicitada es z.",
+          "El 2 debe aparecer como potencia de z."
+        ],
+        "retroalimentacion": "La opción «-3z²» reúne los tres datos.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "-3z²"
+          },
+          {
+            "id": "b",
+            "texto": "3z²"
+          },
+          {
+            "id": "c",
+            "texto": "-2z³"
+          },
+          {
+            "id": "d",
+            "texto": "-3z"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En -4x²y³, el exponente 3 afecta tanto a x como a y.",
+        "respuesta": false,
+        "pistas": [
+          "Cada potencia acompaña solo a su letra.",
+          "x lleva 2.",
+          "y lleva 3."
+        ],
+        "retroalimentacion": "Es falso: 3 corresponde a y; x tiene exponente 2.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En ½a²b, identifica el coeficiente.",
+        "respuesta": "c",
+        "pistas": [
+          "El coeficiente es el factor numérico.",
+          "a²b forma la parte literal.",
+          "La fracción ½ multiplica a todas las letras."
+        ],
+        "retroalimentacion": "La opción «½» es el coeficiente.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "a²"
+          },
+          {
+            "id": "c",
+            "texto": "½"
+          },
+          {
+            "id": "d",
+            "texto": "b"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe la parte literal completa de -7m²n⁴.",
+        "respuesta": "m²n⁴",
+        "pistas": [
+          "Separa el -7 numérico.",
+          "Conserva m con exponente 2.",
+          "Conserva n con exponente 4 a continuación."
+        ],
+        "retroalimentacion": "Incluir -7 mezcla coeficiente y letras; la parte literal es m²n⁴.",
+        "alternativasAceptadas": [
+          "m^2n^4"
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.valor-numerico",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-S1-07"
+    ],
+    "bloque": "Expresiones algebraicas",
+    "nombre": "Valor numérico de una expresión algebraica",
+    "disciplina": "algebra",
+    "descripcionCorta": "Reemplaza las variables por números enteros y calcula el resultado.",
+    "palabrasClave": [
+      "sustitución",
+      "valor numérico",
+      "potencia",
+      "variable"
+    ],
+    "prerrequisitos": [
+      "mat.s1.terminos-algebraicos"
+    ],
+    "ordenSugerido": 47,
+    "ideaCentral": "Para hallar el valor numérico, sustituye cada variable por el entero indicado y sigue el orden de operaciones. Si sustituyes un número negativo, usa paréntesis para elevarlo correctamente.",
+    "pasos": [
+      "Reemplaza todas las apariciones de cada variable.",
+      "Calcula primero potencias, luego multiplicaciones y finalmente sumas o restas.",
+      "Revisa signos y comprueba que usaste el valor dado en cada lugar."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Evalúa 3x + 2 si x = 4.",
+        "desarrollo": "Sustituye: 3 × 4 + 2 = 12 + 2.",
+        "respuesta": "14."
+      },
+      {
+        "situacion": "Evalúa x² - 1 si x = -3.",
+        "desarrollo": "(-3)² - 1 = 9 - 1.",
+        "respuesta": "8."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Leer 3x como 3 + x.",
+        "correccion": "La escritura 3x significa multiplicación."
+      },
+      {
+        "error": "Calcular (-2)² como -4.",
+        "correccion": "El signo negativo también está dentro del cuadrado: vale 4."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Sustituir",
+        "significado": "Reemplazar una letra por un número dado."
+      },
+      {
+        "termino": "Valor numérico",
+        "significado": "Resultado de calcular una expresión con valores asignados."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Si x = 3, calcula 2x + 1. Escribe solo el número.",
+        "respuesta": 7,
+        "pistas": [
+          "Sustituye x por 3.",
+          "2x significa 2 × 3.",
+          "Suma 1 a 6."
+        ],
+        "retroalimentacion": "Sumar 2 + 3 en vez de multiplicar falla; el valor es 7.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Evalúa y + 5 cuando y = -2.",
+        "respuesta": "a",
+        "pistas": [
+          "Reemplaza y por -2.",
+          "Calcula -2 + 5.",
+          "Avanza cinco desde -2."
+        ],
+        "retroalimentacion": "Confundir el signo de y da 7; la opción «3» es correcta.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "-3"
+          },
+          {
+            "id": "c",
+            "texto": "7"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si a = 4, entonces 3a vale 12.",
+        "respuesta": true,
+        "pistas": [
+          "3a es producto.",
+          "Multiplica 3 por 4.",
+          "3 × 4 = 12."
+        ],
+        "retroalimentacion": "Es verdadero: 3a vale 12 al tomar a = 4.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Para m = 5, halla m². Escribe solo el número.",
+        "respuesta": 25,
+        "pistas": [
+          "El exponente es 2.",
+          "Multiplica 5 por sí mismo.",
+          "5 × 5 = 25."
+        ],
+        "retroalimentacion": "Duplicar 5 da 10, pero el cuadrado es 25.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 4x - 3 si x = -2. Escribe solo el número.",
+        "respuesta": -11,
+        "pistas": [
+          "Sustituye x por -2.",
+          "4 × (-2) = -8.",
+          "Resta 3 a -8."
+        ],
+        "retroalimentacion": "Ignorar el signo negativo produce 5; el valor es -11.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si p = -3, ¿cuánto vale p² + 2?",
+        "respuesta": "c",
+        "pistas": [
+          "Pon el -3 entre paréntesis antes de elevar.",
+          "(-3)² = 9.",
+          "Suma 2."
+        ],
+        "retroalimentacion": "Tomar el cuadrado como -9 falla; la opción «11» es correcta.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "-7"
+          },
+          {
+            "id": "b",
+            "texto": "7"
+          },
+          {
+            "id": "c",
+            "texto": "11"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Con x = 2 e y = 5, la expresión xy - x vale 8.",
+        "respuesta": true,
+        "pistas": [
+          "xy significa x por y.",
+          "2 × 5 = 10.",
+          "Resta x, que vale 2."
+        ],
+        "retroalimentacion": "Es verdadero: xy - x = 10 - 2 = 8.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Evalúa 2a + 3b si a = -1 y b = 4. Escribe solo el número.",
+        "respuesta": 10,
+        "pistas": [
+          "Sustituye ambos valores.",
+          "2 × (-1) = -2; 3 × 4 = 12.",
+          "Suma -2 + 12."
+        ],
+        "retroalimentacion": "Intercambiar a y b da otro resultado; el valor es 10.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para x = -2, ¿cuál es el valor de 3x² - 2x?",
+        "respuesta": "c",
+        "pistas": [
+          "Calcula primero x² = 4.",
+          "3x² = 12 y -2x = 4.",
+          "Suma 12 + 4."
+        ],
+        "retroalimentacion": "Elevar -2 sin paréntesis o perder el doble negativo falla; «16» es correcto.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8"
+          },
+          {
+            "id": "b",
+            "texto": "12"
+          },
+          {
+            "id": "c",
+            "texto": "16"
+          },
+          {
+            "id": "d",
+            "texto": "20"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Si a = 3 y b = -2, calcula (a - b)² - ab. Escribe solo el número.",
+        "respuesta": 31,
+        "pistas": [
+          "a - b = 3 - (-2) = 5.",
+          "El cuadrado de 5 es 25.",
+          "ab = -6; resta -6 a 25."
+        ],
+        "retroalimentacion": "Restar 6 en lugar de -6 da 19; el valor es 31.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para t = -3, 2(t + 4)² = 2.",
+        "respuesta": true,
+        "pistas": [
+          "Primero calcula t + 4.",
+          "-3 + 4 = 1.",
+          "Eleva 1 al cuadrado y multiplica por 2."
+        ],
+        "retroalimentacion": "Es verdadero: 2 × 1² = 2.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una fórmula de costo es C = 5n + 8. Si n = 3, ¿qué valor tiene C en soles?",
+        "respuesta": "b",
+        "pistas": [
+          "Reemplaza n por 3.",
+          "Calcula 5 × 3 = 15.",
+          "Añade el costo fijo 8."
+        ],
+        "retroalimentacion": "Olvidar el 8 fijo da 15; la opción «23» soles es correcta.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "15"
+          },
+          {
+            "id": "b",
+            "texto": "23"
+          },
+          {
+            "id": "c",
+            "texto": "28"
+          },
+          {
+            "id": "d",
+            "texto": "39"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.terminos-semejantes",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-S1-07"
+    ],
+    "bloque": "Expresiones algebraicas",
+    "nombre": "Reducción de términos semejantes",
+    "disciplina": "algebra",
+    "descripcionCorta": "Agrupa términos con la misma parte literal y suma sus coeficientes.",
+    "palabrasClave": [
+      "términos semejantes",
+      "coeficientes",
+      "parte literal",
+      "reducción"
+    ],
+    "prerrequisitos": [
+      "mat.s1.terminos-algebraicos"
+    ],
+    "ordenSugerido": 48,
+    "ideaCentral": "Solo puedes reunir términos con las mismas letras elevadas a los mismos exponentes. Suma sus coeficientes y conserva la parte literal sin cambiarla.",
+    "pasos": [
+      "Identifica la parte literal de cada término.",
+      "Agrupa solo los términos con parte literal idéntica.",
+      "Suma los coeficientes de cada grupo y deja los demás términos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Simplifica 3x + 5x.",
+        "desarrollo": "Ambos tienen parte literal x; suma 3 + 5.",
+        "respuesta": "8x."
+      },
+      {
+        "situacion": "Simplifica 4a + 2b - a.",
+        "desarrollo": "Agrupa 4a - a = 3a; 2b queda aparte.",
+        "respuesta": "3a + 2b."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar 2x y 3y como 5xy.",
+        "correccion": "Las partes literales son diferentes: déjalas separadas."
+      },
+      {
+        "error": "Cambiar x² a x al reducir.",
+        "correccion": "Conserva el exponente de cada grupo de semejantes."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Términos semejantes",
+        "significado": "Términos con igual parte literal."
+      },
+      {
+        "termino": "Reducir",
+        "significado": "Sumar o restar coeficientes de términos semejantes."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Reduce 2x + 3x.",
+        "respuesta": "5x",
+        "pistas": [
+          "Ambos términos tienen x.",
+          "Suma los coeficientes 2 y 3.",
+          "Mantén la letra x."
+        ],
+        "retroalimentacion": "Escribir 5x² cambia la potencia; el resultado es 5x.",
+        "alternativasAceptadas": [
+          "5*x"
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué término es semejante a 4a?",
+        "respuesta": "b",
+        "pistas": [
+          "Busca la misma letra.",
+          "El exponente también debe coincidir.",
+          "-2a tiene la parte literal a."
+        ],
+        "retroalimentacion": "La opción «-2a» es semejante aunque tenga otro coeficiente.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4b"
+          },
+          {
+            "id": "b",
+            "texto": "-2a"
+          },
+          {
+            "id": "c",
+            "texto": "a²"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los términos 3m y 7m son semejantes.",
+        "respuesta": true,
+        "pistas": [
+          "Ambos tienen la variable m.",
+          "Ninguno muestra otra potencia.",
+          "Sus partes literales son m."
+        ],
+        "retroalimentacion": "Es verdadero: ambos comparten la parte literal m.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Simplifica 9y - 4y.",
+        "respuesta": "5y",
+        "pistas": [
+          "Los dos términos tienen y.",
+          "Resta coeficientes: 9 - 4.",
+          "Conserva y."
+        ],
+        "retroalimentacion": "Quitar la y deja solo un número; la expresión reducida es 5y.",
+        "alternativasAceptadas": [
+          "5*y"
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Reduce 6x + 2y - 3x.",
+        "respuesta": "a",
+        "pistas": [
+          "Agrupa solo los términos con x.",
+          "6x - 3x = 3x.",
+          "El 2y queda igual."
+        ],
+        "retroalimentacion": "Sumar x con y es incorrecto; «3x + 2y» es la reducción.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3x + 2y"
+          },
+          {
+            "id": "b",
+            "texto": "5xy"
+          },
+          {
+            "id": "c",
+            "texto": "3x - 2y"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Simplifica 5a² + 2a² - a².",
+        "respuesta": "6a²",
+        "pistas": [
+          "Los tres tienen a².",
+          "Suma los coeficientes 5 + 2 - 1.",
+          "Conserva el exponente 2."
+        ],
+        "retroalimentacion": "Cambiar a² por a altera la parte literal; queda 6a².",
+        "alternativasAceptadas": [
+          "6a^2"
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "2x² y 5x son términos semejantes porque usan la misma letra.",
+        "respuesta": false,
+        "pistas": [
+          "Compara también exponentes.",
+          "El primero lleva x².",
+          "El segundo lleva x¹."
+        ],
+        "retroalimentacion": "Es falso: las potencias de x son distintas.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es la reducción de -3p + 8p - 2p?",
+        "respuesta": "b",
+        "pistas": [
+          "Suma los coeficientes con sus signos.",
+          "-3 + 8 = 5.",
+          "5 - 2 = 3."
+        ],
+        "retroalimentacion": "Olvidar el signo del -3 da 13p; «3p» es correcto.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7p"
+          },
+          {
+            "id": "b",
+            "texto": "3p"
+          },
+          {
+            "id": "c",
+            "texto": "-3p"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Reduce 4x² + 3x - 2x² + x.",
+        "respuesta": "2x² + 4x",
+        "pistas": [
+          "Separa el grupo x² del grupo x.",
+          "4x² - 2x² = 2x².",
+          "3x + x = 4x."
+        ],
+        "retroalimentacion": "Combinar x² con x no es válido; queda 2x² + 4x.",
+        "alternativasAceptadas": [
+          "2x^2+4x"
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Simplifica 2a - 3b + 5a + b.",
+        "respuesta": "b",
+        "pistas": [
+          "Agrupa 2a + 5a.",
+          "Agrupa -3b + b.",
+          "Obtienes 7a y -2b."
+        ],
+        "retroalimentacion": "Tratar -3b + b como -4b falla; «7a - 2b» es correcto.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7a - 4b"
+          },
+          {
+            "id": "b",
+            "texto": "7a - 2b"
+          },
+          {
+            "id": "c",
+            "texto": "7a + 2b"
+          },
+          {
+            "id": "d",
+            "texto": "7ab - 2"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La expresión 3x² + 2x - x² - 5x se reduce a 2x² - 3x.",
+        "respuesta": true,
+        "pistas": [
+          "Agrupa 3x² - x².",
+          "Agrupa 2x - 5x.",
+          "Quedan 2x² y -3x."
+        ],
+        "retroalimentacion": "Es verdadero: cada grupo conserva su propia potencia.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una colecta, tres grupos aportan 2x, 5x y -x soles respecto de una meta. ¿Qué expresión reducida representa el total?",
+        "respuesta": "a",
+        "pistas": [
+          "Los tres términos tienen parte literal x.",
+          "Suma 2 + 5 - 1.",
+          "El coeficiente resultante es 6."
+        ],
+        "retroalimentacion": "Olvidar el aporte negativo da 7x; «6x» es el total reducido.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6x"
+          },
+          {
+            "id": "b",
+            "texto": "8x"
+          },
+          {
+            "id": "c",
+            "texto": "7x"
+          },
+          {
+            "id": "d",
+            "texto": "6x²"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.signos-agrupacion-algebraicos",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-S1-07",
+      "MAT-C24-S1-08"
+    ],
+    "bloque": "Expresiones algebraicas",
+    "nombre": "Signos de agrupación y distributiva en expresiones",
+    "disciplina": "algebra",
+    "descripcionCorta": "Elimina paréntesis aplicando la propiedad distributiva y reduce la expresión.",
+    "palabrasClave": [
+      "distributiva",
+      "paréntesis",
+      "términos semejantes",
+      "expresión"
+    ],
+    "prerrequisitos": [
+      "mat.s1.terminos-semejantes"
+    ],
+    "ordenSugerido": 49,
+    "ideaCentral": "Para quitar paréntesis, multiplicas cada término interior por el número o signo exterior. Luego reúnes los términos que tienen la misma letra y potencia.",
+    "pasos": [
+      "Identifica el factor que está delante del paréntesis, incluido su signo.",
+      "Multiplica ese factor por cada término de dentro.",
+      "Quita el paréntesis y reúne términos semejantes.",
+      "Comprueba sustituyendo la letra por un número sencillo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "El quiosco escolar representa dos paquetes con 3x + 2 lápices cada uno. ¿Cómo queda 2(3x + 2)?",
+        "desarrollo": "Multiplico 2 por 3x y por 2: 6x + 4.",
+        "respuesta": "6x + 4."
+      },
+      {
+        "situacion": "Simplifica 5x − (2x + 3).",
+        "desarrollo": "El signo menos cambia los dos signos: 5x − 2x − 3. Reúno 5x − 2x.",
+        "respuesta": "3x − 3."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Cambiar el signo solo al primer término de −(x + 4).",
+        "correccion": "El menos afecta a todos: −x − 4."
+      },
+      {
+        "error": "Sumar 2x y 3 como si fueran semejantes.",
+        "correccion": "La letra distingue términos; 2x + 3 no se reduce."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Distributiva",
+        "significado": "Multiplicar el factor exterior por cada sumando interior."
+      },
+      {
+        "termino": "Términos semejantes",
+        "significado": "Términos con la misma parte literal que se pueden sumar."
+      },
+      {
+        "termino": "Factor",
+        "significado": "Número o expresión que multiplica al paréntesis."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Quita el paréntesis en 2(x + 3). Escribe la expresión simplificada.",
+        "respuesta": "2x + 6",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 2 multiplica dos términos.",
+          "Calcula 2 por x y 2 por 3.",
+          "Une 2x y 6 con un signo más."
+        ],
+        "retroalimentacion": "Si escribiste 2x + 3, faltó multiplicar el 3: resulta 2x + 6."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué expresión equivale a −(y + 5)?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−y + 5"
+          },
+          {
+            "id": "b",
+            "texto": "y − 5"
+          },
+          {
+            "id": "c",
+            "texto": "−y − 5"
+          },
+          {
+            "id": "d",
+            "texto": "y + 5"
+          }
+        ],
+        "pistas": [
+          "El signo exterior es −1.",
+          "Multiplica tanto y como 5 por −1.",
+          "Los dos términos cambian de signo."
+        ],
+        "retroalimentacion": "Dejar +5 olvida distribuir el menos: −y − 5."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "3(a − 2) es equivalente a 3a − 6.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 3 por cada término.",
+          "3 por a es 3a.",
+          "3 por −2 es −6."
+        ],
+        "retroalimentacion": "Es verdadero: 3(a − 2) = 3a − 6; 3a − 2 omite un producto."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Reduce 4m − (m + 1).",
+        "respuesta": "3m − 1",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El menos previo afecta a m y a 1.",
+          "Obtienes 4m − m − 1.",
+          "Resta los coeficientes 4 y 1."
+        ],
+        "retroalimentacion": "Si quedó 3m + 1, no cambiaste el signo del 1: es 3m − 1."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La cartelera muestra 2(3p − 4) + p. ¿Qué forma reducida corresponde?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6p − 8"
+          },
+          {
+            "id": "b",
+            "texto": "7p − 4"
+          },
+          {
+            "id": "c",
+            "texto": "7p − 8"
+          },
+          {
+            "id": "d",
+            "texto": "6p + p − 4"
+          }
+        ],
+        "pistas": [
+          "Distribuye el 2 antes de juntar letras.",
+          "2(3p − 4) se vuelve 6p − 8.",
+          "A 6p suma el p exterior."
+        ],
+        "retroalimentacion": "Sumar p con −8 mezcla términos distintos: la forma es 7p − 8."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Simplifica −2(x − 3) + 5x.",
+        "respuesta": "3x + 6",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El factor es −2.",
+          "Distribuir da −2x + 6.",
+          "Reúne −2x con 5x."
+        ],
+        "retroalimentacion": "Es común perder el signo de −2x; el resultado es 3x + 6."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La expresión 7 − (2z − 4) se reduce a 11 − 2z.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El menos cambia ambos términos del paréntesis.",
+          "Queda 7 − 2z + 4.",
+          "Junta las constantes 7 y 4."
+        ],
+        "retroalimentacion": "Es verdadero: 7 − (2z − 4) = 11 − 2z; el −4 se vuelve +4."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si x = 2, ¿qué expresión mantiene el valor de 3(x + 1) − x?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3x + 1"
+          },
+          {
+            "id": "b",
+            "texto": "2x + 1"
+          },
+          {
+            "id": "c",
+            "texto": "3x + 3"
+          },
+          {
+            "id": "d",
+            "texto": "2x + 3"
+          }
+        ],
+        "pistas": [
+          "La forma reducida debe valer lo mismo para cualquier x.",
+          "Distribuye: 3x + 3 − x.",
+          "Agrupa 3x − x."
+        ],
+        "retroalimentacion": "Confundir 3x − x con 3x deja un término extra; queda 2x + 3."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Simplifica 2(3t − 1) − 3(t + 4).",
+        "respuesta": "3t − 14",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Distribuye cada factor por separado.",
+          "El primer grupo es 6t − 2; el segundo se resta completo.",
+          "Combina 6t − 3t y −2 − 12."
+        ],
+        "retroalimentacion": "Un error es escribir +12 al restar el segundo grupo; resulta 3t − 14."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el error al afirmar que −(2a − 3) = −2a − 3?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El 2a debe quedar +2a"
+          },
+          {
+            "id": "b",
+            "texto": "El −3 debe convertirse en +3"
+          },
+          {
+            "id": "c",
+            "texto": "No se puede quitar el paréntesis"
+          },
+          {
+            "id": "d",
+            "texto": "Debe aparecer a²"
+          }
+        ],
+        "pistas": [
+          "El signo exterior multiplica los dos términos.",
+          "El producto de −1 por −3 es positivo.",
+          "La forma correcta es −2a + 3."
+        ],
+        "retroalimentacion": "El −3 del interior cambia a +3; la forma correcta es −2a + 3."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al sustituir n = 1, 4(n − 2) + 2n y 6n − 8 dan el mismo valor.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero distribuye 4(n − 2).",
+          "La primera forma queda 4n − 8 + 2n.",
+          "Con n = 1, ambas dan −2."
+        ],
+        "retroalimentacion": "Es verdadero: ambas se reducen a 6n − 8 y con n = 1 valen −2."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En la igualdad 5(2q − 1) − (q − 4) = __q − 1, ¿qué número completa el espacio? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Distribuye 5 y el signo menos.",
+          "Obtienes 10q − 5 − q + 4.",
+          "Agrupa 10q − q y −5 + 4."
+        ],
+        "retroalimentacion": "Si pusiste 11, sumaste q en vez de restarlo: corresponde 9."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

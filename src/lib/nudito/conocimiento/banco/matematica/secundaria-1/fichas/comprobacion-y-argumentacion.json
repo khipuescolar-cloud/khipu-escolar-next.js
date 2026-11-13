@@ -1,0 +1,1547 @@
+[
+  {
+    "clave": "mat.s1.comprobar-modelo-numerico",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-S1-02"
+    ],
+    "bloque": "Comprobación y argumentación",
+    "nombre": "Comprobación de que una expresión representa el problema",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Verifica que la expresión planteada recoge todos los datos, acciones y condiciones.",
+    "palabrasClave": [
+      "modelo numérico",
+      "expresión",
+      "datos",
+      "comprobación"
+    ],
+    "prerrequisitos": [
+      "mat.s1.ganar-perder-enteros"
+    ],
+    "ordenSugerido": 108,
+    "ideaCentral": "Una expresión representa un problema si conserva las cantidades, las acciones y la pregunta. Puedes probarla con los datos y revisar si el resultado tiene sentido.",
+    "pasos": [
+      "Señala qué cantidad hay al inicio y cuáles cambian.",
+      "Asocia cada acción con una operación y respeta su orden.",
+      "Calcula la expresión y compara su resultado con la situación.",
+      "Comprueba que no sobra ni falta ningún dato necesario."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una biblioteca tenía 18 libros; recibió 7 y prestó 4. ¿Sirve 18 + 7 − 4?",
+        "desarrollo": "Sumar 7 representa la llegada y restar 4 representa el préstamo. Da 21.",
+        "respuesta": "Sí; quedan 21 libros."
+      },
+      {
+        "situacion": "Una tarjeta tenía S/ 30; se gastaron S/ 8 dos veces. ¿Sirve 30 − 8?",
+        "desarrollo": "Solo descuenta un gasto. Debe descontarse 8 + 8.",
+        "respuesta": "No; sirve 30 − 2 × 8 = 14."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Olvidar una acción del relato.",
+        "correccion": "Marca cada ingreso o salida y verifica que aparezca en la expresión."
+      },
+      {
+        "error": "Cambiar el orden cuando importa.",
+        "correccion": "Reconstruye la secuencia y comprueba el resultado final."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Modelo numérico",
+        "significado": "Expresión que representa las operaciones de una situación."
+      },
+      {
+        "termino": "Comprobar",
+        "significado": "Contrastar el cálculo con los datos y la pregunta."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un kiosco tenía 20 panes y vendió 6. ¿Qué expresión da los panes restantes?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Parte de los 20 panes iniciales.",
+          "Vender reduce la cantidad en 6.",
+          "Busca una resta que empiece en 20."
+        ],
+        "retroalimentacion": "20 − 6 representa la venta; 20 + 6 aumentaría los panes.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "20 + 6"
+          },
+          {
+            "id": "b",
+            "texto": "20 − 6"
+          },
+          {
+            "id": "c",
+            "texto": "20 × 6"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para representar que a 12 puntos se suman 5, sirve 12 + 5.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica los 12 puntos iniciales.",
+          "La palabra suman indica aumento.",
+          "Añadir 5 se escribe + 5."
+        ],
+        "retroalimentacion": "Es verdadero: 12 + 5 recoge el aumento de 5 puntos."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Tenías 15 figuritas y regalaste 3. El modelo es 15 − 3. ¿Cuántas figuritas quedan? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empieza con 15 figuritas.",
+          "Regalar 3 exige restarlas.",
+          "Calcula 15 − 3."
+        ],
+        "retroalimentacion": "Si sumaste las regaladas, revisa: 15 − 3 = 12 figuritas."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja contiene 4 bolsas de 6 canicas. ¿Qué modelo cuenta todas las canicas?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada bolsa tiene 6 canicas.",
+          "Hay cuatro grupos iguales de 6.",
+          "Expresa 6 + 6 + 6 + 6 como producto."
+        ],
+        "retroalimentacion": "4 × 6 cuenta las cuatro bolsas; 4 + 6 solo cuenta dos números.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4 + 6"
+          },
+          {
+            "id": "b",
+            "texto": "6 − 4"
+          },
+          {
+            "id": "c",
+            "texto": "4 × 6"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si recibes S/ 10 y luego gastas S/ 4, la expresión 10 + 4 modela el dinero que queda.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero llegan S/ 10.",
+          "Gastar S/ 4 disminuye el saldo.",
+          "La segunda operación debe ser una resta."
+        ],
+        "retroalimentacion": "Es falso: 10 − 4 = 6; sumar el gasto aumenta incorrectamente el saldo."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una movilidad lleva 18 estudiantes; bajan 5 y suben 2. ¿Qué expresión respeta ambos cambios?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El grupo empieza con 18.",
+          "Bajar 5 resta; subir 2 suma.",
+          "Conserva el orden: primero − 5, luego + 2."
+        ],
+        "retroalimentacion": "18 − 5 + 2 representa ambos cambios; omitir uno altera el resultado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "18 + 5 + 2"
+          },
+          {
+            "id": "b",
+            "texto": "18 − 5 − 2"
+          },
+          {
+            "id": "c",
+            "texto": "18 + 5 − 2"
+          },
+          {
+            "id": "d",
+            "texto": "18 − 5 + 2"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una alcancía tiene S/ 40. Entra un billete de S/ 10 y salen S/ 15. ¿Qué saldo da 40 + 10 − 15? Escribe solo el número de soles.",
+        "respuesta": 35,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma primero el billete a los S/ 40.",
+          "40 + 10 da 50.",
+          "Resta luego los S/ 15 que salen."
+        ],
+        "retroalimentacion": "Si olvidaste la salida, 50 no es el saldo: 50 − 15 = 35."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se compran 3 cuadernos a S/ 4 cada uno y un lapicero de S/ 2. ¿Cuál es el costo total?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los tres cuadernos cuestan lo mismo.",
+          "Calcula 3 × 4 antes de añadir el lapicero.",
+          "El lapicero agrega S/ 2 a S/ 12."
+        ],
+        "retroalimentacion": "3 × 4 + 2 = 14 soles; 3 × (4 + 2) cobraría tres lapiceros.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 × 4 + 2"
+          },
+          {
+            "id": "b",
+            "texto": "3 × (4 + 2)"
+          },
+          {
+            "id": "c",
+            "texto": "3 + 4 + 2"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La expresión 25 − (6 + 4) representa quitar de 25 objetos dos grupos de 6 y 4.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Reúne los dos grupos retirados.",
+          "Se retiran 6 + 4 objetos.",
+          "Ese total se resta de 25."
+        ],
+        "retroalimentacion": "Es verdadero: 25 − (6 + 4) descuenta ambos grupos y deja 15."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un club reúne S/ 50, paga dos entradas de S/ 12 y recibe S/ 8 de aporte. ¿Qué modelo da su saldo?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La compra de dos entradas equivale a 2 × 12.",
+          "Ese costo sale de los S/ 50.",
+          "Después se añade el aporte de S/ 8."
+        ],
+        "retroalimentacion": "50 − 2 × 12 + 8 = 34; 50 − 12 + 8 omite una entrada.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "50 + 2 × 12 + 8"
+          },
+          {
+            "id": "b",
+            "texto": "50 − 12 + 8"
+          },
+          {
+            "id": "c",
+            "texto": "50 − 2 × 12 + 8"
+          },
+          {
+            "id": "d",
+            "texto": "50 − (12 + 8)"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "A una deuda de S/ 9 se suma un pago de S/ 5: −9 + 5 = −4 representa la deuda pendiente.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La deuda se expresa como −9.",
+          "Pagar 5 acerca el saldo a cero.",
+          "Avanza cinco unidades desde −9."
+        ],
+        "retroalimentacion": "Es verdadero: −9 + 5 = −4; aún faltan S/ 4 por pagar."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una feria tenía 24 vasos; vendió 7 por la mañana y 9 por la tarde. Comprueba el modelo 24 − (7 + 9). ¿Cuántos vasos quedan? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las dos ventas deben contarse.",
+          "7 + 9 son 16 vasos vendidos.",
+          "Resta 16 de los 24 iniciales."
+        ],
+        "retroalimentacion": "Restar solo una venta deja un saldo falso: 24 − 16 = 8 vasos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.estimacion-redondeo",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Comprobación y argumentación",
+    "nombre": "Estimación y redondeo en cálculos",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Estima resultados con redondeo para anticipar y controlar cálculos.",
+    "palabrasClave": [
+      "estimación",
+      "redondeo",
+      "decenas",
+      "cálculo aproximado"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 109,
+    "ideaCentral": "Redondear ayuda a anticipar un resultado y detectar cálculos improbables. El resultado estimado es cercano, pero no sustituye al exacto.",
+    "pasos": [
+      "Elige la posición a la que redondearás.",
+      "Mira la cifra siguiente: de 0 a 4 conservas; de 5 a 9 aumentas una unidad.",
+      "Opera con los números redondeados.",
+      "Compara la estimación con el cálculo exacto."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una campaña se juntan 48 y 31 botellas. Estima a decenas.",
+        "desarrollo": "48 ≈ 50 y 31 ≈ 30; 50 + 30 = 80.",
+        "respuesta": "Aproximadamente 80 botellas."
+      },
+      {
+        "situacion": "Un pasaje cuesta S/ 19 para 4 personas. Estima el gasto.",
+        "desarrollo": "19 ≈ 20; 4 × 20 = 80.",
+        "respuesta": "Aproximadamente S/ 80."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir que la estimación es exacta.",
+        "correccion": "Usa «aproximadamente» y calcula exactamente si hace falta."
+      },
+      {
+        "error": "Redondear 47 a 40.",
+        "correccion": "La unidad 7 obliga a subir a 50."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Redondear",
+        "significado": "Aproximar un número a una posición elegida."
+      },
+      {
+        "termino": "Estimar",
+        "significado": "Obtener un resultado cercano mediante un cálculo sencillo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Redondea 43 a la decena más cercana. Escribe solo el número.",
+        "respuesta": 40,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa la unidad de 43.",
+          "La unidad es 3, menor que 5.",
+          "Conserva el 4 de las decenas."
+        ],
+        "retroalimentacion": "43 se redondea a 40; 3 unidades no hacen subir la decena."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿A qué decena se aproxima 68?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 68 con 60 y 70.",
+          "La unidad 8 supera 5.",
+          "La decena 6 sube a 7."
+        ],
+        "retroalimentacion": "68 ≈ 70; redondearlo a 60 ignora la unidad 8.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "60"
+          },
+          {
+            "id": "b",
+            "texto": "68"
+          },
+          {
+            "id": "c",
+            "texto": "70"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al redondear 25 a la decena más cercana, se obtiene 30.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La unidad de 25 es 5.",
+          "Con 5 se sube a la siguiente decena.",
+          "Después de 20 viene 30."
+        ],
+        "retroalimentacion": "Es verdadero: 25 se redondea a 30 con la regla usual."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Estima 29 + 41 redondeando cada sumando a decenas. Escribe solo el número.",
+        "respuesta": 70,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "29 se acerca a 30.",
+          "41 se acerca a 40.",
+          "Suma las decenas aproximadas."
+        ],
+        "retroalimentacion": "La estimación es 30 + 40 = 70; no se usan 29 y 41 sin redondear."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para estimar 198 + 304 a centenas, ¿qué operación conviene?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "198 está cerca de 200.",
+          "304 está cerca de 300.",
+          "Suma esas dos centenas."
+        ],
+        "retroalimentacion": "200 + 300 = 500 es la estimación a centenas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "200 + 300"
+          },
+          {
+            "id": "b",
+            "texto": "100 + 400"
+          },
+          {
+            "id": "c",
+            "texto": "198 + 300"
+          },
+          {
+            "id": "d",
+            "texto": "200 + 304"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un equipo recorre 47 km y luego 62 km. Estima el total a decenas. Escribe solo el número de kilómetros.",
+        "respuesta": 110,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Redondea cada tramo por separado.",
+          "47 ≈ 50 y 62 ≈ 60.",
+          "Suma 50 + 60."
+        ],
+        "retroalimentacion": "La estimación es 110 km; 109 km sería el total exacto."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si estimas 4 × 19 usando 19 ≈ 20, obtienes aproximadamente 80.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Conserva el factor 4.",
+          "Sustituye 19 por 20.",
+          "Calcula cuatro veces 20."
+        ],
+        "retroalimentacion": "Es verdadero: 4 × 20 = 80, cercano al resultado exacto 76."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una cuenta exacta de 49 + 52 dio 201. ¿Qué estimación permite detectar el error?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Aproxima 49 a 50.",
+          "También 52 está cerca de 50.",
+          "Dos números cercanos a 50 suman cerca de 100."
+        ],
+        "retroalimentacion": "50 + 50 ≈ 100; por eso 201 es improbable.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "40 + 50 ≈ 90"
+          },
+          {
+            "id": "b",
+            "texto": "49 + 52 ≈ 201"
+          },
+          {
+            "id": "c",
+            "texto": "50 + 60 ≈ 110"
+          },
+          {
+            "id": "d",
+            "texto": "50 + 50 ≈ 100"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Redondea 746 a la centena más cercana. Escribe solo el número.",
+        "respuesta": 700,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la cifra de las decenas en 746.",
+          "La decena es 4, menor que 5.",
+          "Conserva las 7 centenas."
+        ],
+        "retroalimentacion": "746 ≈ 700 a centenas; 4 decenas no alcanzan para subir."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tres entradas cuestan S/ 48 cada una. ¿Qué estimación y conclusión son razonables para pagar con S/ 150?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Redondea S/ 48 a S/ 50.",
+          "Tres veces S/ 50 son S/ 150.",
+          "Como S/ 48 es menor que S/ 50, el costo real será menor."
+        ],
+        "retroalimentacion": "3 × 50 ≈ 150; S/ 150 sí alcanzan porque 3 × 48 = 144.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Aproximadamente S/ 100; no alcanza"
+          },
+          {
+            "id": "b",
+            "texto": "Aproximadamente S/ 150; sí alcanza"
+          },
+          {
+            "id": "c",
+            "texto": "Aproximadamente S/ 200; no alcanza"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una suma exacta de 388 + 211 igual a 599 es razonable porque 400 + 200 ≈ 600.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Redondea 388 y 211 a centenas.",
+          "Obtienes 400 y 200.",
+          "Compara 599 con 600."
+        ],
+        "retroalimentacion": "Es verdadero: 599 está a una unidad de la estimación 600."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una tienda vende 21 cajas de 39 lápices. Redondea ambos factores a decenas y estima el total. Escribe solo el número de lápices.",
+        "respuesta": 800,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Aproxima 21 a 20.",
+          "Aproxima 39 a 40.",
+          "Multiplica 20 × 40."
+        ],
+        "retroalimentacion": "La estimación es 800 lápices; 819 es el producto exacto."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.simplificar-con-propiedades",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Comprobación y argumentación",
+    "nombre": "Simplificación de cálculos con propiedades",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Usa propiedades distributiva, asociativa y conmutativa para calcular de forma eficiente.",
+    "palabrasClave": [
+      "conmutativa",
+      "asociativa",
+      "distributiva",
+      "cálculo mental"
+    ],
+    "prerrequisitos": [
+      "mat.s1.propiedades-operaciones-enteros"
+    ],
+    "ordenSugerido": 110,
+    "ideaCentral": "Puedes cambiar el orden o agrupar sumandos y factores para calcular con facilidad. La distributiva permite multiplicar una suma por partes sin cambiar el resultado.",
+    "pasos": [
+      "Busca números que formen decenas o centenas.",
+      "Cambia el orden con la conmutativa si es suma o producto.",
+      "Agrupa con paréntesis usando la asociativa.",
+      "Para a × (b + c), calcula a × b + a × c.",
+      "Verifica que el resultado coincida con el cálculo directo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula 27 + 18 + 3.",
+        "desarrollo": "Agrupo 27 + 3 = 30; luego 30 + 18 = 48.",
+        "respuesta": "48."
+      },
+      {
+        "situacion": "Calcula 6 × 19.",
+        "desarrollo": "Escribo 19 = 20 − 1; 6 × 20 − 6 × 1 = 114.",
+        "respuesta": "114."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Distribuir solo al primer sumando.",
+        "correccion": "En 4 × (10 + 2), multiplica por 10 y por 2."
+      },
+      {
+        "error": "Cambiar el orden de una resta como si fuera suma.",
+        "correccion": "La conmutativa vale para suma y multiplicación, no para restar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Conmutativa",
+        "significado": "Permite cambiar el orden al sumar o multiplicar."
+      },
+      {
+        "termino": "Asociativa",
+        "significado": "Permite agrupar sumandos o factores de otra manera."
+      },
+      {
+        "termino": "Distributiva",
+        "significado": "Permite repartir una multiplicación sobre una suma o resta."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Reagrupa 8 + 17 + 2 para sumar fácilmente. ¿Cuál es el resultado? Escribe solo el número.",
+        "respuesta": 27,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca los dos números que forman 10.",
+          "8 + 2 = 10.",
+          "Luego suma 10 + 17."
+        ],
+        "retroalimentacion": "Agrupar 8 + 2 da 10; 10 + 17 = 27."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué expresión es igual a 14 + 9 por conmutativa?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La suma permite cambiar el orden.",
+          "Intercambia 14 y 9.",
+          "Mantén el signo +."
+        ],
+        "retroalimentacion": "9 + 14 es igual a 14 + 9; cambiar + por − altera el valor.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "14 − 9"
+          },
+          {
+            "id": "b",
+            "texto": "9 − 14"
+          },
+          {
+            "id": "c",
+            "texto": "9 + 14"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 5 × 3, cambiar el orden a 3 × 5 conserva el producto.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Son los mismos dos factores.",
+          "La conmutativa funciona en multiplicación.",
+          "Ambos productos valen 15."
+        ],
+        "retroalimentacion": "Es verdadero: 5 × 3 y 3 × 5 valen 15."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Usa 4 × (10 + 2). ¿Qué resultado obtienes? Escribe solo el número.",
+        "respuesta": 48,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 4 por cada sumando.",
+          "4 × 10 = 40 y 4 × 2 = 8.",
+          "Suma 40 + 8."
+        ],
+        "retroalimentacion": "La distributiva da 40 + 8 = 48; omitir el 2 daría 40."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para hallar 25 × 4 mentalmente, ¿qué agrupación produce 100?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un cuarto de 100 es 25.",
+          "Cuatro grupos de 25 completan 100.",
+          "Busca el producto 25 × 4."
+        ],
+        "retroalimentacion": "25 × 4 = 100; sumar 25 + 4 no reúne cuatro grupos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "25 + 4"
+          },
+          {
+            "id": "b",
+            "texto": "25 × 4"
+          },
+          {
+            "id": "c",
+            "texto": "25 − 4"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 7 × 18 como 7 × (20 − 2). Escribe solo el número.",
+        "respuesta": 126,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa el producto en dos.",
+          "7 × 20 = 140 y 7 × 2 = 14.",
+          "Resta 140 − 14."
+        ],
+        "retroalimentacion": "7 × 18 = 140 − 14 = 126; sumar 14 daría un exceso."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La igualdad 3 × (8 + 2) = 3 × 8 + 2 aplica bien la distributiva.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 3 está fuera del paréntesis.",
+          "Debe multiplicar tanto a 8 como a 2.",
+          "Falta un 3 delante del último 2."
+        ],
+        "retroalimentacion": "Es falso: 3 × (8 + 2) = 3 × 8 + 3 × 2 = 30."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué reagrupación facilita 37 + 46 + 13?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca una pareja que complete 50.",
+          "37 + 13 = 50.",
+          "Deja 46 para sumar después."
+        ],
+        "retroalimentacion": "(37 + 13) + 46 forma 50 + 46 = 96.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(37 + 46) − 13"
+          },
+          {
+            "id": "b",
+            "texto": "37 − (46 + 13)"
+          },
+          {
+            "id": "c",
+            "texto": "37 + (46 − 13)"
+          },
+          {
+            "id": "d",
+            "texto": "(37 + 13) + 46"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 5 × 99 usando 5 × (100 − 1). Escribe solo el número.",
+        "respuesta": 495,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "5 × 100 = 500.",
+          "Al usar 100 contaste una unidad de más por factor.",
+          "Resta 5 × 1 a 500."
+        ],
+        "retroalimentacion": "5 × 99 = 500 − 5 = 495."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una feria vende 12 paquetes a S/ 19 cada uno. ¿Qué descomposición permite hallar el total sin multiplicar por 19 directamente?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "19 es uno menos que 20.",
+          "Calcula 12 × 20 y quita 12 × 1.",
+          "Busca una expresión que distribuya la resta."
+        ],
+        "retroalimentacion": "12 × 20 − 12 × 1 = 228 soles; sumar ambos productos sería incorrecto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12 × 20 − 12 × 1"
+          },
+          {
+            "id": "b",
+            "texto": "12 × 20 + 12 × 1"
+          },
+          {
+            "id": "c",
+            "texto": "12 × 20 − 1"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para calcular 48 × 5, puedes hacer (50 − 2) × 5 = 250 − 10.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "48 equivale a 50 − 2.",
+          "Distribuye el factor 5.",
+          "50 × 5 = 250; 2 × 5 = 10."
+        ],
+        "retroalimentacion": "Es verdadero: 250 − 10 = 240, igual que 48 × 5."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una cooperativa empaca 15 bolsas de 18 mandarinas. Usa 15 × (20 − 2). ¿Cuántas mandarinas hay? Escribe solo el número.",
+        "respuesta": 270,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "15 × 20 = 300.",
+          "El exceso es 15 × 2 = 30.",
+          "Quita 30 de 300."
+        ],
+        "retroalimentacion": "La cuenta eficiente es 300 − 30 = 270 mandarinas."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.relacion-inversa-operaciones-s1",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-S1-05",
+      "MAT-C23-S1-09"
+    ],
+    "bloque": "Comprobación y argumentación",
+    "nombre": "Relación inversa entre operaciones con números enteros",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Usa la operación inversa para hallar términos desconocidos y comprobar resultados.",
+    "palabrasClave": [
+      "operación inversa",
+      "enteros",
+      "comprobación",
+      "término desconocido"
+    ],
+    "prerrequisitos": [
+      "mat.s1.operaciones-combinadas-enteros"
+    ],
+    "ordenSugerido": 111,
+    "ideaCentral": "La suma deshace la resta y la multiplicación deshace la división, incluso con enteros negativos. Usa la operación inversa para recuperar un valor y compruébalo en la operación original.",
+    "pasos": [
+      "Identifica la operación que produjo el resultado.",
+      "Aplica la operación inversa a ambos datos pertinentes.",
+      "Cuida los signos de los enteros.",
+      "Sustituye el valor hallado para comprobarlo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un saldo x baja 7 y queda en −2.",
+        "desarrollo": "x − 7 = −2; deshago la resta sumando 7: x = 5.",
+        "respuesta": "El saldo inicial era 5."
+      },
+      {
+        "situacion": "Un número dividido entre −3 da 4.",
+        "desarrollo": "Multiplico 4 × (−3) = −12; compruebo −12 ÷ (−3) = 4.",
+        "respuesta": "El número es −12."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar cuando se debe deshacer una suma.",
+        "correccion": "Si x + 5 = 2, resta 5: x = −3."
+      },
+      {
+        "error": "Olvidar comprobar el signo.",
+        "correccion": "Sustituye el entero hallado en la operación original."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Inversa",
+        "significado": "Operación que deshace otra operación."
+      },
+      {
+        "termino": "Sustituir",
+        "significado": "Colocar un valor en lugar de la incógnita para verificar."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Qué número sumado a 8 da 13? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el sumando desconocido.",
+          "Resta 8 a 13.",
+          "Comprueba si 5 + 8 = 13."
+        ],
+        "retroalimentacion": "La inversa de sumar 8 es restar 8: 13 − 8 = 5."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si x − 6 = 9, ¿qué operación recupera x?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La resta quitó 6.",
+          "Para deshacerla, suma 6.",
+          "Aplica esa suma a 9."
+        ],
+        "retroalimentacion": "9 + 6 = 15 recupera x; restar 6 otra vez aleja el resultado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9 − 6"
+          },
+          {
+            "id": "b",
+            "texto": "9 + 6"
+          },
+          {
+            "id": "c",
+            "texto": "9 × 6"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Multiplicar por 4 y luego dividir entre 4 devuelve el número inicial.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La división puede deshacer el producto.",
+          "Prueba con 3 × 4 = 12.",
+          "Luego 12 ÷ 4 = 3."
+        ],
+        "retroalimentacion": "Es verdadero para cualquier número: dividir entre 4 deshace multiplicar por 4."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un entero dividido entre 5 da −3. ¿Cuál era el entero? Escribe solo el número.",
+        "respuesta": -15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La inversa de dividir entre 5 es multiplicar por 5.",
+          "Multiplica −3 por 5.",
+          "Comprueba el cociente del resultado entre 5."
+        ],
+        "retroalimentacion": "−3 × 5 = −15; −15 ÷ 5 = −3."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "A una temperatura x se le suman 7 °C y llega a 2 °C. ¿Cuál era x?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe x + 7 = 2.",
+          "Resta 7 a 2.",
+          "Una temperatura negativa más 7 puede llegar a 2."
+        ],
+        "retroalimentacion": "x = −5 °C porque −5 + 7 = 2; x = 5 daría 12.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9 °C"
+          },
+          {
+            "id": "b",
+            "texto": "5 °C"
+          },
+          {
+            "id": "c",
+            "texto": "−5 °C"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Después de restar −4 a un número se obtiene 10. ¿Cuál es ese número? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Restar −4 equivale a sumar 4.",
+          "El número inicial más 4 da 10.",
+          "Resta 4 a 10."
+        ],
+        "retroalimentacion": "El número es 6: 6 − (−4) = 10; no es 14."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si −3 × x = 18, entonces x = 6.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un producto positivo de −3 necesita otro factor negativo.",
+          "Divide 18 entre −3.",
+          "Comprueba −3 × (−6)."
+        ],
+        "retroalimentacion": "Es falso: x = −6, pues −3 × (−6) = 18."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una cuenta dice x + (−9) = −2. ¿Qué igualdad encuentra x?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sumar −9 baja el valor en 9.",
+          "Deshazlo sumando 9 al resultado.",
+          "−2 + 9 produce el inicio."
+        ],
+        "retroalimentacion": "x = −2 + 9 = 7; −2 − 9 aplicaría la misma baja otra vez.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x = −2 − 9"
+          },
+          {
+            "id": "b",
+            "texto": "x = −2 × 9"
+          },
+          {
+            "id": "c",
+            "texto": "x = 9 − (−2)"
+          },
+          {
+            "id": "d",
+            "texto": "x = −2 + 9"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El doble de un entero es −22. ¿Cuál es el entero? Escribe solo el número.",
+        "respuesta": -11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El doble significa multiplicar por 2.",
+          "Divide −22 entre 2.",
+          "Verifica el resultado multiplicándolo por 2."
+        ],
+        "retroalimentacion": "El entero es −11 porque 2 × (−11) = −22."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un juego comienza con x puntos, pierde 12 y gana 5; termina con −4. ¿Cuál era x?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El cambio total es −12 + 5 = −7.",
+          "Así x − 7 = −4.",
+          "Suma 7 a −4 y comprueba."
+        ],
+        "retroalimentacion": "x = 3; 3 − 12 + 5 = −4.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "−11"
+          },
+          {
+            "id": "c",
+            "texto": "−7"
+          },
+          {
+            "id": "d",
+            "texto": "13"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un número se multiplica por −2 y resulta −16, dividir −16 entre −2 permite recuperarlo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La operación original fue multiplicar por −2.",
+          "La inversa es dividir entre −2.",
+          "−16 ÷ (−2) = 8."
+        ],
+        "retroalimentacion": "Es verdadero: el número es 8 y 8 × (−2) = −16."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una deuda inicial x recibe un pago de S/ 18 y queda en −7 soles. ¿Qué valor entero tenía x? Escribe solo el número de soles.",
+        "respuesta": -25,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Pagar 18 suma 18 al saldo negativo.",
+          "Plantea x + 18 = −7.",
+          "Resta 18 a −7."
+        ],
+        "retroalimentacion": "La deuda inicial era −25 soles; −25 + 18 = −7."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.corregir-errores-procedimientos",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-S1-09"
+    ],
+    "bloque": "Comprobación y argumentación",
+    "nombre": "Detección y corrección de errores en procedimientos",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Identifica errores en resoluciones propias o ajenas y los corrige con argumentos.",
+    "palabrasClave": [
+      "error",
+      "procedimiento",
+      "signos",
+      "jerarquía",
+      "corrección"
+    ],
+    "prerrequisitos": [
+      "mat.s1.operaciones-combinadas-fracciones"
+    ],
+    "ordenSugerido": 112,
+    "ideaCentral": "Revisar una solución exige localizar el primer paso que cambia el valor y explicar por qué. Corregir ese paso permite continuar sin repetir el error.",
+    "pasos": [
+      "Lee la operación inicial y cada paso en orden.",
+      "Comprueba signos, paréntesis y prioridad de operaciones.",
+      "Señala el primer paso incorrecto y la regla incumplida.",
+      "Recalcula desde ese paso y verifica el resultado."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Luis escribe 3 + 4 × 2 = 7 × 2 = 14.",
+        "desarrollo": "Primero va la multiplicación: 4 × 2 = 8; luego 3 + 8.",
+        "respuesta": "El resultado correcto es 11."
+      },
+      {
+        "situacion": "Ana escribe 1/2 + 1/4 = 2/6.",
+        "desarrollo": "Para sumar fracciones, uso cuartos: 1/2 = 2/4; 2/4 + 1/4 = 3/4.",
+        "respuesta": "La suma correcta es 3/4."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Corregir solo el número final.",
+        "correccion": "Explica la regla vulnerada en el primer paso incorrecto."
+      },
+      {
+        "error": "Ignorar paréntesis al revisar.",
+        "correccion": "Resuelve primero lo agrupado entre paréntesis."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Procedimiento",
+        "significado": "Secuencia de pasos para resolver una operación."
+      },
+      {
+        "termino": "Jerarquía",
+        "significado": "Orden en que se realizan las operaciones."
+      },
+      {
+        "termino": "Error de signo",
+        "significado": "Cambio incorrecto entre positivo y negativo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Sofía resolvió 6 + 2 × 3 como 8 × 3 = 24. ¿Cuál debe ser el resultado?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La multiplicación tiene prioridad.",
+          "Calcula primero 2 × 3 = 6.",
+          "Luego añade 6."
+        ],
+        "retroalimentacion": "El resultado correcto es 12; 24 surge de sumar antes de multiplicar.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "24"
+          },
+          {
+            "id": "b",
+            "texto": "12"
+          },
+          {
+            "id": "c",
+            "texto": "18"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En −5 + 2 = −3, el signo del resultado está bien calculado.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Parte de −5.",
+          "Avanza dos unidades hacia cero.",
+          "Llegas a −3."
+        ],
+        "retroalimentacion": "Es verdadero: −5 + 2 = −3."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un compañero escribió 18 − 7 = 12. Corrige el resultado. Escribe solo el número.",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta siete hacia atrás desde 18.",
+          "18 − 8 sería 10.",
+          "Un paso menos de resta da 11."
+        ],
+        "retroalimentacion": "18 − 7 = 11; 12 solo resta 6."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Marta afirma 4 × (3 + 2) = 12 + 2. ¿Qué término olvidó al distribuir?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 4 debe multiplicar ambos sumandos.",
+          "4 × 3 ya aparece como 12.",
+          "Falta 4 × 2."
+        ],
+        "retroalimentacion": "Falta 4 × 2; la distribución correcta es 12 + 8 = 20.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 × 2"
+          },
+          {
+            "id": "b",
+            "texto": "4 + 2"
+          },
+          {
+            "id": "c",
+            "texto": "4 × 2"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El paso 2/3 + 1/3 = 3/6 es correcto porque se suman numeradores y denominadores.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las fracciones ya tienen el mismo denominador.",
+          "Conserva el denominador 3.",
+          "Suma solo 2 + 1 en el numerador."
+        ],
+        "retroalimentacion": "Es falso: 2/3 + 1/3 = 3/3 = 1, no 3/6."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Diego hizo 24 ÷ (2 + 4) = 24 ÷ 2 + 4. Calcula respetando el paréntesis. Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resuelve primero 2 + 4.",
+          "El paréntesis vale 6.",
+          "Divide 24 entre 6."
+        ],
+        "retroalimentacion": "24 ÷ (2 + 4) = 24 ÷ 6 = 4; separar la división altera el valor."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la cadena 15 − (−3) = 15 − 3 = 12, ¿cuál es la corrección?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Restar un negativo aumenta.",
+          "15 − (−3) equivale a 15 + 3.",
+          "Calcula esa suma."
+        ],
+        "retroalimentacion": "El resultado es 18; 12 sale de ignorar el signo negativo dentro del paréntesis.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12"
+          },
+          {
+            "id": "b",
+            "texto": "−18"
+          },
+          {
+            "id": "c",
+            "texto": "−12"
+          },
+          {
+            "id": "d",
+            "texto": "18"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La igualdad 3/4 − 1/4 = 2/4 = 1/2 presenta pasos correctos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambas fracciones tienen denominador 4.",
+          "Resta 3 − 1 en el numerador.",
+          "Simplifica 2/4."
+        ],
+        "retroalimentacion": "Es verdadero: 2/4 se simplifica a 1/2."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un alumno calculó −6 × 3 = 18. Escribe el resultado correcto, solo el número.",
+        "respuesta": -18,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un factor es negativo.",
+          "Negativo por positivo produce negativo.",
+          "6 × 3 tiene magnitud 18."
+        ],
+        "retroalimentacion": "−6 × 3 = −18; el alumno perdió el signo negativo."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Revisa: 2 + 3 × (5 − 1) = 5 × 4 = 20. ¿En qué paso aparece el primer error?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El paréntesis 5 − 1 = 4 está bien.",
+          "Fuera del paréntesis aún queda 2 + 3 × 4.",
+          "Se sumó 2 + 3 antes de multiplicar."
+        ],
+        "retroalimentacion": "El primer error es pasar de 2 + 3 × 4 a 5 × 4; lo correcto da 14.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Al sumar 2 + 3 antes de multiplicar"
+          },
+          {
+            "id": "b",
+            "texto": "Al resolver 5 − 1 como 4"
+          },
+          {
+            "id": "c",
+            "texto": "Al calcular 5 × 4 como 20"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para revisar 1/2 − 1/3 = 0, basta notar que 1/2 y 1/3 tienen numeradores iguales.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Igual numerador no significa igual valor.",
+          "Convierte a sextos: 1/2 = 3/6.",
+          "1/3 = 2/6; resta las fracciones."
+        ],
+        "retroalimentacion": "Es falso: 1/2 − 1/3 = 1/6; los denominadores distintos importan."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una cuenta se lee 40 − 3 × (4 + 2) = 37 × 6. Corrige la jerarquía. ¿Cuál es el resultado? Escribe solo el número.",
+        "respuesta": 22,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero calcula 4 + 2 = 6.",
+          "Luego multiplica 3 × 6 = 18.",
+          "Finalmente resta 18 a 40."
+        ],
+        "retroalimentacion": "El valor correcto es 40 − 18 = 22; no se resta 3 antes de multiplicar."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

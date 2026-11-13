@@ -149,7 +149,12 @@ export function validarBanco(): { fichas: FichaConocimiento[]; errores: string[]
       if (conMira >= 3) errores.push(f.clave + ": " + conMira + " primeras pistas «Mira los X en el Y» (plantilla)");
       const grupoPistas = mayorGrupoParecido(f.ejercicios.map(e => e.pistas[0]));
       if (grupoPistas >= 6) errores.push(f.clave + ": " + grupoPistas + " primeras pistas casi iguales");
-      const texto = JSON.stringify(f);
+      // Las respuestas numéricas de Matemática pueden tener ocho cifras; no son
+      // datos personales. Solo inspeccionamos los textos redactados de la ficha,
+      // no las respuestas ni sus variantes de escritura.
+      const texto = JSON.stringify(f, (clave, valor) =>
+        clave === "respuesta" || clave === "alternativasAceptadas" || typeof valor === "number" ? "" : valor,
+      );
       if (/[\w.+-]+@[\w.-]+\.[a-z]{2,}/i.test(texto) || /\b\d{8}\b/.test(texto)) errores.push(f.clave + ": posible dato personal");
     }
     for (const f of fichasLocal) for (const pre of f.prerrequisitos) if (clavesFichas.has(pre) && !clavesTemario.has(pre)) errores.push(f.clave + ": prerrequisito fuera del temario " + pre);

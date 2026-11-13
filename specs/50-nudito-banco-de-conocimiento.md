@@ -1,6 +1,6 @@
 # 50 — Banco de conocimiento de Nudito
 
-> Estado: 33 temarios propuestos (3839 temas); fichas completas en toda la primaria (1 989) · secundaria pendiente · Plan: Khipu Pro · Última actualización: 2026-11-09 (Claude + Codex)
+> Estado: 33 temarios propuestos (3839 temas); fichas completas en las 18 combinaciones de primaria y Matemática/Comunicación de 1.° de secundaria · Plan: Khipu Pro · Última actualización: 2026-11-13 (Claude + Codex)
 
 ## Objetivo
 Ofrecer al profesor todos los temas del grado y curso para elegir el temario, y dar a Nudito contenido y ejercicios verificables para enseñar sin LLM. La infraestructura cubre Matemática, Comunicación y Ciencia y Tecnología de 1.° a 6.° de primaria y 1.° a 5.° de secundaria (33 combinaciones). Cada temario y sus fichas requieren elaboración y revisión por separado.
@@ -53,11 +53,8 @@ Los 33 temarios existen como `banco/<area>/<nivel>-<grado>/temario-propuesto.jso
 
 Ejercicios de opción múltiple: el orden de las opciones está mezclado (la correcta no es siempre la primera) y las explicaciones nombran la opción por su texto, no por letra (la pantalla no muestra letras). Texto corto del banco: modo `literal` (specs/43).
 
-## Avance de fichas (2026-11-11)
-Fichas completas, escritas a mano y revisadas por muestreo: Matemática 1.°, 2.°, 3.° y 4.° de primaria (490 fichas, 5 971 ejercicios). Proceso: lotes de 12 fichas por escritor (modelo medio), validación por lote, fusión por script y revisión por muestreo del supervisor. Las primeras versiones de 1.° y 2.° (hechas con plantilla) se descartaron y reescribieron; el validador ahora rechaza esa firma.
-
-## Avance de fichas (2026-11-12)
-**Primaria completa:** 18 combinaciones (Matemática, Comunicación y Ciencia y Tecnología de 1.° a 6.°) con fichas integradas en `dev`: 1 989 fichas (Matemática 739, Comunicación 620, Ciencia y Tecnología 630). Escritas por Codex (GPT-6-Sol) y por agentes Sonnet en lotes de 12; cada lote pasó el validador. **Carlos pidió aceptar todas por ahora y revisarlas después**: la revisión por muestreo está pendiente (ver «Pendientes»). Secundaria: sin fichas integradas (`mat-s1` tiene lotes escritos sin integrar).
+## Avance de fichas (2026-11-13)
+Fichas completas en las 18 combinaciones de primaria: 1 989 fichas (Matemática 739, Comunicación 620, Ciencia y Tecnología 630). También están completas Matemática 1.° de secundaria (142 fichas) y Comunicación 1.° de secundaria (107 fichas). Proceso: lotes de 12 fichas por escritor, validación por lote, fusión por script y revisión por muestreo del supervisor. Las primeras versiones de Matemática 1.° y 2.° de primaria (hechas con plantilla) se descartaron y reescribieron; el validador ahora rechaza esa firma. La detección de datos personales examina el texto didáctico de la ficha, sin confundir respuestas numéricas de ocho cifras ni sus variantes de escritura con documentos de identidad.
 
 ## Regla de orden de trabajo (Carlos, 2026-11-11)
 1. **Primaria completa primero** (6 grados × Matemática, Comunicación y Ciencia y Tecnología). Primera reunión con el cliente: lunes 2026-11-16.
@@ -68,6 +65,6 @@ Proceso, herramientas, estado y límites de cuota: `docs/nudito/PROCESO-FICHAS.m
 ## Pendientes
 - Revisión manual de las fichas de primaria de Comunicación y Ciencia y Tecnología (aceptadas sin muestreo el 2026-11-12). Avisos de los escritores: dificultad 3 floja o pistas telegráficas en `cyt-p2` (materiales según propiedades), `cyt-p3` (huesos/relieve), `cyt-p4` (tecnología), `cyt-p5` (reproducción vegetativa) y `com-p3` (afiche, poema, historieta); datos científicos sin contrastar con fuentes.
 - Revisión docente de los 33 temarios (ver «decisiones dudosas» en cada `.md`).
-- Escribir las fichas de las 32 combinaciones restantes (≈ 3 700 fichas), grado por grado, con el mismo proceso que Mat. 3.°: lotes por bloque, validador y revisión por muestreo. Mientras una combinación no tenga fichas, el profesor ve el catálogo anterior.
+- Completar Ciencia y Tecnología de 1.° de secundaria antes de pasar a 2.°, y luego las 12 combinaciones restantes, grado por grado, con el mismo proceso que Matemática 3.°: lotes por bloque, validador y revisión por muestreo. Mientras una combinación no tenga fichas, el profesor ve el catálogo anterior.
 - Revisar pedagógicamente las 129 fichas nuevas de Matemática 3.° tras su validación técnica y mantener su contenido alineado con el temario aprobado.
 - Validar pedagógicamente explicaciones, ejercicios, lecturas, pistas y progresión antes de publicar cada combinación.

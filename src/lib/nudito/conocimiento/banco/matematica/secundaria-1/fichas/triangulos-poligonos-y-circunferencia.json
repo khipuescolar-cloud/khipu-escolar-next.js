@@ -1,0 +1,1870 @@
+[
+  {
+    "clave": "mat.s1.propiedades-triangulos",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-S1-03",
+      "MAT-C26-S1-08"
+    ],
+    "bloque": "Triángulos, polígonos y circunferencia",
+    "nombre": "Propiedades de los ángulos de un triángulo",
+    "disciplina": "geometria",
+    "descripcionCorta": "Aplica la suma de ángulos interiores y la propiedad del ángulo exterior.",
+    "palabrasClave": [
+      "triángulo",
+      "ángulos interiores",
+      "ángulo exterior",
+      "180°",
+      "vértice"
+    ],
+    "prerrequisitos": [
+      "mat.s1.rectas-paralelas-secante"
+    ],
+    "ordenSugerido": 61,
+    "ideaCentral": "Los tres ángulos interiores de cualquier triángulo suman 180°. Un ángulo exterior es igual a la suma de los dos interiores no adyacentes.",
+    "pasos": [
+      "Identifica los tres ángulos interiores y, si aparece, el exterior.",
+      "Para un interior faltante, suma los otros dos y resta de 180°.",
+      "Para un exterior, suma los dos interiores lejanos o resta el interior vecino de 180°.",
+      "Comprueba que interiores y exterior vecino formen una línea recta."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un triángulo tiene ángulos de 50° y 60°.",
+        "desarrollo": "El tercero vale 180° − 50° − 60° = 70°.",
+        "respuesta": "El ángulo faltante mide 70°."
+      },
+      {
+        "situacion": "En un triángulo, dos interiores lejanos a un exterior miden 35° y 75°.",
+        "desarrollo": "El exterior es 35° + 75° = 110°.",
+        "respuesta": "El ángulo exterior mide 110°."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar los dos interiores para hallar el tercero.",
+        "correccion": "Resta su suma de 180°."
+      },
+      {
+        "error": "Sumar el exterior al interior vecino como si fueran dos interiores del triángulo.",
+        "correccion": "Exterior y vecino suman 180° porque forman una recta."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Ángulo interior",
+        "significado": "Ángulo dentro del triángulo en un vértice."
+      },
+      {
+        "termino": "Ángulo exterior",
+        "significado": "Ángulo formado al prolongar un lado del triángulo."
+      },
+      {
+        "termino": "Interior no adyacente",
+        "significado": "Ángulo interior que no comparte el vértice del exterior."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un triángulo tiene ángulos de 60° y 60°. ¿Cuántos grados mide el tercero? Escribe solo el número.",
+        "respuesta": 60,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los tres interiores suman 180°.",
+          "Los dos conocidos suman 120°.",
+          "Resta 120 de 180."
+        ],
+        "retroalimentacion": "El tercero mide 60°; tres ángulos de 60° completan 180°."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuánto suman los ángulos interiores de cualquier triángulo?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en tres vértices del triángulo.",
+          "Si recortas y juntas los tres ángulos, forman una línea recta.",
+          "Una línea recta mide 180°."
+        ],
+        "retroalimentacion": "Suman 180°; 360° corresponde a una vuelta completa.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "90°"
+          },
+          {
+            "id": "b",
+            "texto": "120°"
+          },
+          {
+            "id": "c",
+            "texto": "180°"
+          },
+          {
+            "id": "d",
+            "texto": "360°"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un triángulo con ángulos interiores de 40°, 50° y 90° cumple la suma de sus ángulos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 40 + 50.",
+          "Obtienes 90; añade el tercer ángulo de 90°.",
+          "El total es 180°."
+        ],
+        "retroalimentacion": "Verdadero: 40° + 50° + 90° = 180°."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Los dos interiores no adyacentes a un exterior miden 30° y 45°. ¿Cuántos grados mide el exterior? Escribe solo el número.",
+        "respuesta": 75,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El exterior equivale a la suma de los interiores lejanos.",
+          "Suma 30 y 45.",
+          "El resultado es menor que 90°."
+        ],
+        "retroalimentacion": "El exterior mide 75°; no se resta de 180° hasta hallar el interior vecino."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un triángulo, un exterior mide 125° y uno de los interiores lejanos 55°. ¿Cuánto mide el otro interior lejano?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El exterior es la suma de los dos lejanos.",
+          "Plantea 55° + x = 125°.",
+          "Resta 55 de 125."
+        ],
+        "retroalimentacion": "El otro lejano mide 70°; 125° no es un ángulo interior del triángulo.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "70°"
+          },
+          {
+            "id": "b",
+            "texto": "55°"
+          },
+          {
+            "id": "c",
+            "texto": "125°"
+          },
+          {
+            "id": "d",
+            "texto": "180°"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un triángulo isósceles tiene ángulo del vértice de 40° y dos ángulos de base iguales. ¿Cuántos grados mide cada ángulo de base? Escribe solo el número.",
+        "respuesta": 70,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta 40° del total interior.",
+          "Quedan 140° para dos ángulos iguales.",
+          "Divide 140 entre 2."
+        ],
+        "retroalimentacion": "Cada base mide 70°; 40° + 70° + 70° = 180°."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos ángulos interiores de un triángulo son 80° y 75°, el tercero es 35°.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 80 + 75.",
+          "Obtienes 155°.",
+          "180 − 155 = 25°, no 35°."
+        ],
+        "retroalimentacion": "Falso: el tercero mide 25°; con 35° sumarían 190°."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un ángulo interior de un triángulo mide 68°. ¿Cuántos grados mide el exterior adyacente a él? Escribe solo el número.",
+        "respuesta": 112,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El interior y el exterior forman una recta.",
+          "Juntos miden 180°.",
+          "Calcula 180 − 68."
+        ],
+        "retroalimentacion": "El exterior mide 112°; no es igual al interior vecino."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un triángulo, dos interiores miden x y 2x; el tercero mide 60°. ¿Cuánto mide el mayor de los tres?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "x + 2x + 60 = 180.",
+          "3x = 120, así que x = 40.",
+          "Compara 40°, 80° y 60°."
+        ],
+        "retroalimentacion": "El mayor mide 80°; es el ángulo de 2x.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "40°"
+          },
+          {
+            "id": "b",
+            "texto": "60°"
+          },
+          {
+            "id": "c",
+            "texto": "120°"
+          },
+          {
+            "id": "d",
+            "texto": "80°"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un exterior mide 140°. Los dos interiores no adyacentes están en razón 3:4. ¿Cuántos grados mide el mayor de esos dos? Escribe solo el número.",
+        "respuesta": 80,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las siete partes suman 140°.",
+          "Una parte vale 20°.",
+          "El mayor tiene cuatro partes."
+        ],
+        "retroalimentacion": "El mayor mide 80° y el menor 60°; juntos dan el exterior 140°."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un triángulo tiene un ángulo interior de 100° y un exterior en otro vértice de 120°. El tercer interior mide 20°.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El interior vecino del exterior de 120° mide 60°.",
+          "Suma los interiores conocidos: 100° + 60°.",
+          "Resta esa suma de 180°."
+        ],
+        "retroalimentacion": "Verdadero: el tercer interior mide 20°; 100° + 60° + 20° = 180°."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un triángulo, un exterior mide 105° y el interior lejano menor mide 35°. ¿Cuántos grados mide el interior adyacente al exterior? Escribe solo el número.",
+        "respuesta": 75,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El interior adyacente y el exterior forman una recta.",
+          "Calcula 180 − 105.",
+          "El otro interior lejano sería 105 − 35 = 70°, como comprobación."
+        ],
+        "retroalimentacion": "El adyacente mide 75°; no se confunde con el interior lejano de 70°."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.desigualdad-triangular",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Argumenta afirmaciones sobre relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-S1-08"
+    ],
+    "bloque": "Triángulos, polígonos y circunferencia",
+    "nombre": "Existencia de un triángulo: desigualdad triangular",
+    "disciplina": "geometria",
+    "descripcionCorta": "Justifica si tres longitudes pueden formar un triángulo.",
+    "palabrasClave": [
+      "triángulo",
+      "longitudes",
+      "desigualdad triangular",
+      "suma",
+      "existencia"
+    ],
+    "prerrequisitos": [
+      "mat.s1.propiedades-triangulos"
+    ],
+    "ordenSugerido": 62,
+    "ideaCentral": "Tres segmentos forman un triángulo solo si la suma de cada pareja es mayor que el tercer lado. Basta comparar la suma de los dos menores con el mayor.",
+    "pasos": [
+      "Ordena las tres longitudes de menor a mayor.",
+      "Suma las dos menores.",
+      "Compara esa suma con la mayor: debe ser estrictamente mayor.",
+      "Si es igual o menor, los segmentos no cierran un triángulo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Tres varillas miden 4, 5 y 8 cm.",
+        "desarrollo": "Las dos menores suman 4 + 5 = 9, que supera 8.",
+        "respuesta": "Sí forman un triángulo."
+      },
+      {
+        "situacion": "Cintas de 2, 3 y 5 cm.",
+        "desarrollo": "2 + 3 = 5: quedan en línea recta, sin área.",
+        "respuesta": "No forman un triángulo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Aceptar la igualdad entre suma y lado mayor.",
+        "correccion": "Debe ser mayor, no igual: con igualdad los lados quedan alineados."
+      },
+      {
+        "error": "Comparar solo el lado mayor con uno menor.",
+        "correccion": "Suma los dos menores antes de comparar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Desigualdad triangular",
+        "significado": "Cada lado es menor que la suma de los otros dos."
+      },
+      {
+        "termino": "Triángulo degenerado",
+        "significado": "Caso en que dos lados suman exactamente el tercero y no hay triángulo."
+      },
+      {
+        "termino": "Longitud",
+        "significado": "Medida de un segmento."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Segmentos de 3, 4 y 5 cm pueden formar un triángulo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos menores son 3 y 4.",
+          "3 + 4 = 7.",
+          "7 es mayor que 5."
+        ],
+        "retroalimentacion": "Verdadero: 3 + 4 > 5, así que pueden cerrar un triángulo."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál terna de lados sí forma un triángulo?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los dos menores en cada terna.",
+          "La suma debe superar al lado mayor.",
+          "En 4, 4 y 7, la suma 8 supera 7."
+        ],
+        "retroalimentacion": "4, 4 y 7 sí forman triángulo; en 2, 3 y 5 hay igualdad.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2, 3 y 5"
+          },
+          {
+            "id": "b",
+            "texto": "4, 4 y 7"
+          },
+          {
+            "id": "c",
+            "texto": "1, 2 y 4"
+          },
+          {
+            "id": "d",
+            "texto": "3, 3 y 6"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Tres segmentos de 2, 3 y 5 cm forman un triángulo porque 2 + 3 = 5.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La condición exige superar el lado mayor.",
+          "2 + 3 solo iguala 5.",
+          "Con igualdad, los segmentos quedan alineados."
+        ],
+        "retroalimentacion": "Falso: 2 + 3 = 5 no es mayor que 5; no hay triángulo."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Dos lados miden 5 y 7 cm. Si el tercero mide un número entero de centímetros, ¿cuál es el menor valor posible? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El tercero debe superar la diferencia de 7 y 5.",
+          "7 − 5 = 2; con 2 habría línea recta.",
+          "El siguiente entero después de 2 es 3."
+        ],
+        "retroalimentacion": "El menor entero es 3 cm: 3 + 5 > 7."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para lados de 6, 8 y x cm, ¿cuál valor de x permite un triángulo?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El tercero debe ser mayor que 8 − 6 = 2.",
+          "También debe ser menor que 6 + 8 = 14.",
+          "Solo 10 queda entre 2 y 14."
+        ],
+        "retroalimentacion": "x = 10 permite triángulo; 2 y 14 producen igualdad, y 15 es demasiado largo.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "14"
+          },
+          {
+            "id": "c",
+            "texto": "15"
+          },
+          {
+            "id": "d",
+            "texto": "10"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una cuerda de 12 cm junto con otras de 4 y 7 cm puede cerrar un triángulo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las dos cuerdas cortas.",
+          "4 + 7 = 11.",
+          "11 no supera 12."
+        ],
+        "retroalimentacion": "Falso: 4 + 7 = 11 < 12, así que no cierran."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Lados de 9 y 13 cm: ¿cuántos valores enteros positivos puede tener el tercer lado para formar un triángulo? Escribe solo el número.",
+        "respuesta": 17,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El tercero debe superar 13 − 9 = 4.",
+          "También debe ser menor que 13 + 9 = 22.",
+          "Los enteros de 5 a 21 son 17 valores."
+        ],
+        "retroalimentacion": "Hay 17 posibilidades, del 5 al 21 inclusive."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Tres lados miden 6, 6 y 12 cm. ¿Existe triángulo? Responde sí o no.",
+        "respuesta": "no",
+        "alternativasAceptadas": [
+          "No"
+        ],
+        "pistas": [
+          "Suma los dos lados cortos.",
+          "6 + 6 = 12.",
+          "La suma debe ser estrictamente mayor que el lado largo."
+        ],
+        "retroalimentacion": "No: 6 + 6 = 12 deja los segmentos alineados."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un artesano tiene varillas de 7 y 11 cm. ¿Cuál lista contiene todos los valores enteros posibles del tercer lado, en cm?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El tercer lado es mayor que 11 − 7 = 4.",
+          "Debe ser menor que 11 + 7 = 18.",
+          "Incluye los enteros desde 5 hasta 17."
+        ],
+        "retroalimentacion": "Los valores de 5 a 17 cumplen ambas desigualdades; 4 y 18 no.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Del 5 al 17"
+          },
+          {
+            "id": "b",
+            "texto": "Del 4 al 18"
+          },
+          {
+            "id": "c",
+            "texto": "Del 5 al 18"
+          },
+          {
+            "id": "d",
+            "texto": "Del 4 al 17"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 5, 8 y x cm forman un triángulo y x es entero, x puede valer 13.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La suma de los dos lados dados es 13.",
+          "El tercer lado debe ser menor que esa suma.",
+          "Con x = 13 habría igualdad."
+        ],
+        "retroalimentacion": "Falso: 5 + 8 = 13 no supera x = 13."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Hay lados de 10 y 16 cm. El tercero mide un entero par y debe ser el más largo. ¿Cuál es el menor valor posible en centímetros? Escribe solo el número.",
+        "respuesta": 18,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para ser el más largo debe superar 16.",
+          "El siguiente entero par es 18.",
+          "Comprueba 18 < 10 + 16."
+        ],
+        "retroalimentacion": "El menor valor par es 18 cm; 18 < 26 y supera 16."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tres segmentos suman 24 cm. Dos de ellos miden 5 y 7 cm. ¿Qué conclusión es correcta sobre el tercero?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la longitud restante: 24 − 5 − 7.",
+          "El tercero mide 12 cm.",
+          "Compara 5 + 7 con 12."
+        ],
+        "retroalimentacion": "No forman triángulo: el tercero mide 12 cm y 5 + 7 = 12.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sí, porque el perímetro es 24"
+          },
+          {
+            "id": "b",
+            "texto": "Sí, porque hay tres segmentos"
+          },
+          {
+            "id": "c",
+            "texto": "No, porque 5 + 7 = 12"
+          },
+          {
+            "id": "d",
+            "texto": "No, porque 5 + 7 > 12"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.propiedades-cuadrilateros",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-S1-03"
+    ],
+    "bloque": "Triángulos, polígonos y circunferencia",
+    "nombre": "Propiedades de los cuadriláteros",
+    "disciplina": "geometria",
+    "descripcionCorta": "Reconoce propiedades de lados, ángulos y diagonales de paralelogramos y trapecios.",
+    "palabrasClave": [
+      "cuadrilátero",
+      "paralelogramo",
+      "trapecio",
+      "diagonal",
+      "ángulos"
+    ],
+    "prerrequisitos": [
+      "mat.s1.propiedades-triangulos"
+    ],
+    "ordenSugerido": 63,
+    "ideaCentral": "Un cuadrilátero tiene cuatro lados y la suma de sus ángulos interiores es 360°. Los paralelogramos tienen dos pares de lados opuestos paralelos; los trapecios, solo uno.",
+    "pasos": [
+      "Cuenta cuatro lados y cuatro vértices.",
+      "Comprueba qué lados opuestos son paralelos.",
+      "Si hay dos pares, busca propiedades de paralelogramo; si hay uno, de trapecio.",
+      "Traza diagonales entre vértices no consecutivos y verifica sus relaciones."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una ventana rectangular tiene lados de 80 cm y 60 cm. ¿Cómo son sus lados opuestos?",
+        "desarrollo": "Cada lado de 80 cm se enfrenta a otro de 80 cm; ocurre igual con los de 60 cm. Los pares opuestos son paralelos.",
+        "respuesta": "Es un paralelogramo: un rectángulo."
+      },
+      {
+        "situacion": "Una señal tiene ángulos de 70°, 110°, 70° y 110°. ¿Suman lo necesario?",
+        "desarrollo": "70 + 110 + 70 + 110 = 360.",
+        "respuesta": "Sí: la suma es 360°."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que cualquier cuadrilátero con un par paralelo es paralelogramo.",
+        "correccion": "Con un solo par de lados paralelos es trapecio; el paralelogramo requiere dos."
+      },
+      {
+        "error": "Pensar que las diagonales unen vértices vecinos.",
+        "correccion": "Una diagonal une vértices no consecutivos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Paralelogramo",
+        "significado": "Cuadrilátero con dos pares de lados opuestos paralelos."
+      },
+      {
+        "termino": "Trapecio",
+        "significado": "Cuadrilátero con un solo par de lados opuestos paralelos."
+      },
+      {
+        "termino": "Diagonal",
+        "significado": "Segmento entre vértices no consecutivos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué figura tiene exactamente cuatro lados?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los lados que indica «cuadri».",
+          "Cuatro lados forman un cuadrilátero.",
+          "El triángulo tiene tres; busca el nombre de cuatro."
+        ],
+        "retroalimentacion": "La respuesta es cuadrilátero; un pentágono tendría cinco lados.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "triángulo"
+          },
+          {
+            "id": "b",
+            "texto": "cuadrilátero"
+          },
+          {
+            "id": "c",
+            "texto": "pentágono"
+          },
+          {
+            "id": "d",
+            "texto": "hexágono"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un rectángulo tiene dos pares de lados opuestos paralelos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina los bordes superior e inferior de un rectángulo.",
+          "Esos bordes son paralelos, igual que los laterales.",
+          "Cuenta los dos pares de bordes opuestos."
+        ],
+        "retroalimentacion": "Verdadero: los dos pares opuestos del rectángulo son paralelos."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una tarjeta cuadrilateral muestra ángulos de 90°, 90°, 90° y uno desconocido. ¿Cuántos grados mide el último? Escribe solo el número.",
+        "respuesta": 90,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La suma interior del cuadrilátero es 360°.",
+          "Los tres ángulos dados suman 270°.",
+          "Resta 270 a 360."
+        ],
+        "retroalimentacion": "El último ángulo mide 90°; sumar solo los tres conocidos deja 90°."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Cómo se llama el segmento que une dos vértices no consecutivos de un cuadrilátero?",
+        "respuesta": "diagonal",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No es uno de los cuatro lados.",
+          "Une vértices que quedan frente a frente.",
+          "En un rectángulo va de una esquina a la opuesta."
+        ],
+        "retroalimentacion": "Es una diagonal; los lados unen vértices consecutivos."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una mesa tiene forma de cuadrilátero con un solo par de lados opuestos paralelos. ¿Qué figura describe?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Señala el único par paralelo.",
+          "Un paralelogramo necesitaría dos pares.",
+          "Busca la figura definida por exactamente un par."
+        ],
+        "retroalimentacion": "Es un trapecio; rombo, cuadrado y rectángulo tienen dos pares paralelos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "rombo"
+          },
+          {
+            "id": "b",
+            "texto": "cuadrado"
+          },
+          {
+            "id": "c",
+            "texto": "trapecio"
+          },
+          {
+            "id": "d",
+            "texto": "rectángulo"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Dos ángulos de un paralelogramo miden 65° cada uno. Los otros dos son iguales. ¿Cuántos grados mide cada uno de esos dos? Escribe solo el número.",
+        "respuesta": 115,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los cuatro interiores suman 360°.",
+          "Quita dos veces 65° y reparte el resto entre dos.",
+          "360 − 130 = 230; divide 230 entre 2."
+        ],
+        "retroalimentacion": "Cada ángulo restante mide 115°; olvidar dividir 230 entre dos daría un ángulo imposible."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un rombo, los cuatro lados tienen la misma longitud.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara un rombo con un cuadrado inclinado.",
+          "El rombo conserva igualdad de lados aunque cambien sus ángulos.",
+          "La afirmación se refiere a longitudes, no a ángulos."
+        ],
+        "retroalimentacion": "Verdadero: los cuatro lados de un rombo son iguales."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué propiedad comparten todos los paralelogramos, incluidos rombos y rectángulos?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en lo que define a un paralelogramo.",
+          "Un rombo puede no tener ángulos rectos.",
+          "Un rectángulo puede tener lados de dos longitudes."
+        ],
+        "retroalimentacion": "Lados opuestos paralelos es la propiedad común; los demás rasgos no siempre se cumplen.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuatro ángulos rectos"
+          },
+          {
+            "id": "b",
+            "texto": "Cuatro lados iguales"
+          },
+          {
+            "id": "c",
+            "texto": "Una sola diagonal"
+          },
+          {
+            "id": "d",
+            "texto": "Lados opuestos paralelos"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un cuadrilátero de una cometa tiene ángulos de 80°, 95° y 105°. ¿Cuántos grados mide el cuarto? Escribe solo el número.",
+        "respuesta": 80,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los tres ángulos conocidos de la cometa.",
+          "80 + 95 + 105 = 280.",
+          "La diferencia entre 360 y 280 da el faltante."
+        ],
+        "retroalimentacion": "El cuarto mide 80°; la suma de los cuatro debe dar 360°."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una figura tiene cuatro lados iguales, pero un ángulo mide 70°. ¿Cuál puede ser?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuatro lados iguales limitan las figuras posibles.",
+          "Un cuadrado requiere ángulos de 90°.",
+          "Con 70° y lados iguales queda un rombo que no es cuadrado."
+        ],
+        "retroalimentacion": "Rombo no cuadrado: los cuatro lados son iguales, pero 70° descarta el cuadrado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "cuadrado"
+          },
+          {
+            "id": "b",
+            "texto": "rectángulo no cuadrado"
+          },
+          {
+            "id": "c",
+            "texto": "rombo no cuadrado"
+          },
+          {
+            "id": "d",
+            "texto": "trapecio con un par paralelo"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un cuadrilátero tiene ángulos de 100°, 80°, 100° y 80°, entonces necesariamente es un rectángulo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Comprueba si sus ángulos son rectos.",
+          "Un rectángulo requiere cuatro ángulos de 90°.",
+          "Aunque sumen 360°, 100° y 80° no son rectos."
+        ],
+        "retroalimentacion": "Falso: sumar 360° no basta; un rectángulo necesita cuatro ángulos de 90°."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un marco tiene dos pares de lados opuestos paralelos y cuatro ángulos rectos, pero no todos sus lados miden igual. ¿Qué cuadrilátero es?",
+        "respuesta": "rectángulo",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Descarta el cuadrado por las longitudes desiguales.",
+          "Los cuatro ángulos rectos definen una familia.",
+          "Busca la figura de lados opuestos iguales y ángulos rectos."
+        ],
+        "retroalimentacion": "Es un rectángulo; no es cuadrado porque sus cuatro lados no son iguales."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.poligonos-elementos",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-S1-03",
+      "MAT-C26-S1-08"
+    ],
+    "bloque": "Triángulos, polígonos y circunferencia",
+    "nombre": "Polígonos: elementos, diagonales y suma de ángulos",
+    "disciplina": "geometria",
+    "descripcionCorta": "Calcula el número de diagonales y la suma de ángulos interiores de un polígono.",
+    "palabrasClave": [
+      "polígono",
+      "vértice",
+      "diagonal",
+      "ángulo interior",
+      "triangulación"
+    ],
+    "prerrequisitos": [
+      "mat.s1.propiedades-cuadrilateros"
+    ],
+    "ordenSugerido": 64,
+    "ideaCentral": "Un polígono de n lados tiene n vértices. Desde un vértice salen n − 3 diagonales; en total tiene n(n − 3)/2 diagonales y sus ángulos interiores suman (n − 2) × 180°.",
+    "pasos": [
+      "Identifica y cuenta los lados del polígono.",
+      "Para diagonales desde un vértice, excluye ese vértice y sus dos vecinos.",
+      "Para todas las diagonales, multiplica n por n − 3 y divide entre 2.",
+      "Para la suma angular, divídelo en n − 2 triángulos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un hexágono de un mosaico tiene seis lados. ¿Cuántas diagonales salen de una esquina?",
+        "desarrollo": "De las otras cinco esquinas, dos son vecinas. Quedan 6 − 3 = 3.",
+        "respuesta": "Salen 3 diagonales."
+      },
+      {
+        "situacion": "¿Cuánto suman los interiores de un pentágono?",
+        "desarrollo": "Desde una esquina se forman 5 − 2 = 3 triángulos; 3 × 180° = 540°.",
+        "respuesta": "Suman 540°."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar dos veces cada diagonal al multiplicar por todos los vértices.",
+        "correccion": "Divide n(n − 3) entre 2 porque cada diagonal tiene dos extremos."
+      },
+      {
+        "error": "Usar n × 180° para la suma angular.",
+        "correccion": "Solo hay n − 2 triángulos dentro del polígono."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Vértice",
+        "significado": "Punto donde se juntan dos lados."
+      },
+      {
+        "termino": "Diagonal",
+        "significado": "Segmento entre dos vértices no vecinos."
+      },
+      {
+        "termino": "Ángulo interior",
+        "significado": "Ángulo formado por dos lados dentro del polígono."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos vértices tiene un pentágono? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "«Penta» indica cinco.",
+          "Cada par de lados consecutivos se une en un vértice.",
+          "Un polígono tiene tantos vértices como lados."
+        ],
+        "retroalimentacion": "Tiene 5 vértices, uno por cada lado."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un hexágono, ¿qué segmento es una diagonal?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Descarta los segmentos que son lados.",
+          "Los vértices vecinos ya están unidos por un lado.",
+          "La diagonal une esquinas separadas por al menos otra esquina."
+        ],
+        "retroalimentacion": "Une dos vértices no vecinos; entre vecinos se forma un lado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Une vértices vecinos"
+          },
+          {
+            "id": "b",
+            "texto": "Une el centro con un vértice"
+          },
+          {
+            "id": "c",
+            "texto": "Une dos vértices no vecinos"
+          },
+          {
+            "id": "d",
+            "texto": "Sale fuera del polígono"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Desde un vértice de un pentágono, ¿cuántas diagonales puedes trazar? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay otras cuatro esquinas.",
+          "Dos de esas cuatro son vecinas y forman lados.",
+          "Quedan 4 − 2 esquinas no vecinas."
+        ],
+        "retroalimentacion": "Salen 2 diagonales; no cuentes los lados hacia esquinas vecinas."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un triángulo tiene diagonales.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una diagonal necesita dos vértices no vecinos.",
+          "En el triángulo, cada pareja de vértices es vecina.",
+          "Todos los segmentos entre sus vértices ya son lados."
+        ],
+        "retroalimentacion": "Falso: un triángulo tiene 0 diagonales."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos grados suman los ángulos interiores de un hexágono? Escribe solo el número.",
+        "respuesta": 720,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un hexágono se divide en triángulos desde un vértice.",
+          "Se forman 6 − 2 = 4 triángulos.",
+          "Multiplica 4 por 180°."
+        ],
+        "retroalimentacion": "Suman 720°; usar seis triángulos contaría superficie de más."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuántas diagonales tiene en total un cuadrilátero?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Desde cada vértice sale una diagonal.",
+          "Al contarlas desde cuatro vértices, cada una aparece dos veces.",
+          "Calcula 4 × 1 ÷ 2."
+        ],
+        "retroalimentacion": "Tiene 2 diagonales; 4 cuenta cada una dos veces.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1"
+          },
+          {
+            "id": "b",
+            "texto": "4"
+          },
+          {
+            "id": "c",
+            "texto": "6"
+          },
+          {
+            "id": "d",
+            "texto": "2"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un heptágono tiene siete lados. ¿Cuántas diagonales salen de un solo vértice? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Excluye el propio vértice.",
+          "También excluye los dos vértices vecinos.",
+          "Calcula 7 − 3."
+        ],
+        "retroalimentacion": "Salen 4 diagonales, no 6: dos uniones son lados."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La suma interior de un pentágono es 540°.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Triangula desde una esquina del pentágono.",
+          "Se forman 5 − 2 = 3 triángulos.",
+          "Cada triángulo aporta 180°."
+        ],
+        "retroalimentacion": "Verdadero: 3 × 180° = 540°."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una estrella decorativa tiene contorno de octágono simple. ¿Cuántas diagonales unen sus vértices en total? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El contorno tiene 8 vértices.",
+          "Desde cada uno salen 8 − 3 = 5 diagonales.",
+          "Calcula 8 × 5 ÷ 2 para evitar duplicados."
+        ],
+        "retroalimentacion": "Son 20 diagonales; 40 las contaría dos veces."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un polígono tiene suma interior de 900°. ¿Cuántos lados tiene?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide 900 entre 180 para hallar triángulos.",
+          "900 ÷ 180 = 5 triángulos.",
+          "El número de lados supera en 2 al de triángulos."
+        ],
+        "retroalimentacion": "Tiene 7 lados: (7 − 2) × 180° = 900°.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "7"
+          },
+          {
+            "id": "d",
+            "texto": "8"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un polígono salen seis diagonales de cada vértice. ¿Cuántos lados tiene? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Relaciona diagonales desde un vértice con lados.",
+          "El número de diagonales es n − 3.",
+          "Si n − 3 = 6, suma 3 a 6."
+        ],
+        "retroalimentacion": "Tiene 9 lados; hay que sumar los dos vecinos y el propio vértice."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un hexágono y dos triángulos juntos tienen la misma suma de ángulos interiores que un octágono.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula por separado las sumas interiores.",
+          "Hexágono: 720°; cada triángulo: 180°.",
+          "720 + 180 + 180 = 1080°, mientras el octágono suma 6 × 180° = 1080°."
+        ],
+        "retroalimentacion": "Verdadero: 720° + 180° + 180° = 1080°, igual que los 1080° del octágono."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.circunferencia-elementos",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-S1-03"
+    ],
+    "bloque": "Triángulos, polígonos y circunferencia",
+    "nombre": "Elementos de la circunferencia y del círculo",
+    "disciplina": "geometria",
+    "descripcionCorta": "Identifica radio, diámetro, cuerda, arco, tangente y sector circular.",
+    "palabrasClave": [
+      "circunferencia",
+      "círculo",
+      "radio",
+      "diámetro",
+      "cuerda",
+      "tangente"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 65,
+    "ideaCentral": "La circunferencia es el borde de un círculo; el círculo incluye el interior. Radio, diámetro, cuerda, arco, tangente y sector describen partes distintas de la figura.",
+    "pasos": [
+      "Ubica el centro de la figura.",
+      "Reconoce el radio del centro al borde y el diámetro que cruza el centro de borde a borde.",
+      "Distingue cuerda, que une dos puntos del borde, y arco, que es una parte curva.",
+      "Identifica la tangente que toca un solo punto y el sector entre dos radios y un arco."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una rueda tiene radio de 12 cm. ¿Qué segmento mide 24 cm y pasa por el centro?",
+        "desarrollo": "El diámetro mide dos radios: 2 × 12 = 24 cm.",
+        "respuesta": "Es el diámetro."
+      },
+      {
+        "situacion": "Una porción de pizza va del centro al borde entre dos cortes. ¿Qué región es?",
+        "desarrollo": "Los cortes son dos radios y el borde curvo es un arco.",
+        "respuesta": "Es un sector circular."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Llamar círculo solo al borde.",
+        "correccion": "El borde es circunferencia; el círculo abarca también la superficie interior."
+      },
+      {
+        "error": "Pensar que toda cuerda pasa por el centro.",
+        "correccion": "Solo la cuerda que pasa por el centro es diámetro."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Radio",
+        "significado": "Segmento del centro a un punto de la circunferencia."
+      },
+      {
+        "termino": "Diámetro",
+        "significado": "Cuerda que pasa por el centro y mide dos radios."
+      },
+      {
+        "termino": "Tangente",
+        "significado": "Recta que toca la circunferencia en un solo punto."
+      },
+      {
+        "termino": "Sector circular",
+        "significado": "Región entre dos radios y un arco."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Cómo se llama el segmento del centro al borde de una moneda redonda?",
+        "respuesta": "radio",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Parte del centro.",
+          "Termina en la circunferencia.",
+          "Es la mitad de un diámetro."
+        ],
+        "retroalimentacion": "Es un radio; el diámetro cruza de borde a borde pasando por el centro."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué palabra nombra solo el borde de una rueda vista de frente?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La pregunta excluye la superficie interior.",
+          "El círculo incluye borde e interior.",
+          "El nombre del trazo curvo exterior empieza con «circun»."
+        ],
+        "retroalimentacion": "Es la circunferencia; círculo incluye también el interior.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "círculo"
+          },
+          {
+            "id": "b",
+            "texto": "sector"
+          },
+          {
+            "id": "c",
+            "texto": "circunferencia"
+          },
+          {
+            "id": "d",
+            "texto": "centro"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un diámetro pasa por el centro del círculo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Imagina un segmento de borde a borde.",
+          "Para ser diámetro, debe cruzar exactamente el centro.",
+          "Si no pasa por el centro, solo es cuerda."
+        ],
+        "retroalimentacion": "Verdadero: el diámetro es la cuerda que pasa por el centro."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "El radio de un círculo mide 5 cm. ¿Cuántos centímetros mide su diámetro? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un diámetro reúne dos radios.",
+          "Cada radio mide 5 cm.",
+          "Suma 5 + 5."
+        ],
+        "retroalimentacion": "El diámetro mide 10 cm; 5 cm es solo un radio."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una recta toca el borde de una tapa circular en un único punto. ¿Cómo se llama?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No atraviesa el interior de la tapa.",
+          "Una cuerda termina en dos puntos del borde.",
+          "La recta con un solo contacto es tangente."
+        ],
+        "retroalimentacion": "Es tangente; una secante cortaría el borde en dos puntos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "cuerda"
+          },
+          {
+            "id": "b",
+            "texto": "secante"
+          },
+          {
+            "id": "c",
+            "texto": "arco"
+          },
+          {
+            "id": "d",
+            "texto": "tangente"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una cuerda une dos puntos de una circunferencia y pasa por el centro. ¿Qué nombre especial recibe?",
+        "respuesta": "diámetro",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Comprueba por dónde pasa la cuerda.",
+          "Cruzar el centro la hace la cuerda más larga.",
+          "Su longitud equivale a dos radios."
+        ],
+        "retroalimentacion": "Recibe el nombre de diámetro; no toda cuerda pasa por el centro."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un arco es una parte recta que une dos puntos de la circunferencia.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en el borde curvo de una moneda.",
+          "Una parte del borde es curva.",
+          "El segmento recto entre dos puntos del borde sería una cuerda."
+        ],
+        "retroalimentacion": "Falso: el arco es curvo; la cuerda es recta."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tajada de torta circular delimitada por dos radios y un arco representa un…",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La tajada es una región, no un segmento.",
+          "Sus límites son dos radios y un arco.",
+          "Busca el nombre de esa porción interior."
+        ],
+        "retroalimentacion": "Es un sector circular; un radio o diámetro es solo un segmento.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "sector circular"
+          },
+          {
+            "id": "b",
+            "texto": "diámetro"
+          },
+          {
+            "id": "c",
+            "texto": "radio"
+          },
+          {
+            "id": "d",
+            "texto": "punto tangente"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "La cuerda más larga de una laguna circular mide 18 m. ¿Cuántos metros mide el radio? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La cuerda más larga atraviesa el centro.",
+          "Por eso mide lo mismo que el diámetro.",
+          "Divide 18 entre 2."
+        ],
+        "retroalimentacion": "El radio mide 9 m; 18 m corresponde al diámetro."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos cuerdas de una misma circunferencia pasan por el centro. Ambas son diámetros y miden lo mismo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada cuerda cruza el mismo centro.",
+          "Toda cuerda que cruza el centro es diámetro.",
+          "Cada diámetro equivale a dos radios del mismo círculo."
+        ],
+        "retroalimentacion": "Verdadero: ambas son diámetros de longitud 2r."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un segmento une dos puntos del borde sin pasar por el centro. ¿Qué afirmación es correcta?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tiene dos extremos sobre el borde.",
+          "Es recto: no puede ser arco.",
+          "Al no cruzar el centro, no es diámetro."
+        ],
+        "retroalimentacion": "Es cuerda, pero no diámetro; todo diámetro sí pasa por el centro.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Es un radio"
+          },
+          {
+            "id": "b",
+            "texto": "Es cuerda, pero no diámetro"
+          },
+          {
+            "id": "c",
+            "texto": "Es un arco"
+          },
+          {
+            "id": "d",
+            "texto": "Es una tangente"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En un dibujo, una línea toca una circunferencia una sola vez y un segmento une ese punto con el centro. Escribe el nombre de la línea, no del segmento.",
+        "respuesta": "tangente",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La línea no va del centro al borde.",
+          "El segmento interior es un radio.",
+          "Un único punto de contacto caracteriza la línea exterior."
+        ],
+        "retroalimentacion": "La línea es tangente; el segmento del centro al contacto es radio."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.longitud-circunferencia-area-circulo",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para medir y orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-S1-03",
+      "MAT-C26-S1-06"
+    ],
+    "bloque": "Triángulos, polígonos y circunferencia",
+    "nombre": "Longitud de la circunferencia y área del círculo",
+    "disciplina": "geometria",
+    "descripcionCorta": "Usa π para calcular la longitud de una circunferencia y el área de un círculo.",
+    "palabrasClave": [
+      "radio",
+      "diámetro",
+      "pi",
+      "longitud",
+      "área"
+    ],
+    "prerrequisitos": [
+      "mat.s1.circunferencia-elementos"
+    ],
+    "ordenSugerido": 66,
+    "ideaCentral": "La longitud de la circunferencia mide su borde: L = πd = 2πr. El área del círculo mide su superficie: A = πr²; usa π = 3,14 cuando se pida una aproximación.",
+    "pasos": [
+      "Identifica si el dato es radio o diámetro y halla el que falta.",
+      "Para longitud multiplica π por el diámetro, o 2π por el radio.",
+      "Para área eleva el radio al cuadrado y multiplícalo por π.",
+      "Comprueba que la longitud queda en unidades lineales y el área en unidades cuadradas."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una tapa de radio 4 cm: ¿cuánto mide el borde? Usa π = 3,14.",
+        "desarrollo": "L = 2 × 3,14 × 4 = 25,12 cm.",
+        "respuesta": "El borde mide 25,12 cm."
+      },
+      {
+        "situacion": "Un jardín circular de radio 3 m: ¿cuál es su área?",
+        "desarrollo": "A = 3,14 × 3² = 3,14 × 9 = 28,26 m².",
+        "respuesta": "Su área es 28,26 m²."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Usar πr² para el borde.",
+        "correccion": "πr² corresponde al área; para borde usa 2πr."
+      },
+      {
+        "error": "Elevar 2r en lugar de r al cuadrado al hallar área.",
+        "correccion": "Primero identifica el radio; solo ese valor se eleva al cuadrado."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Pi (π)",
+        "significado": "Número aproximado por 3,14 que relaciona borde y diámetro."
+      },
+      {
+        "termino": "Longitud de circunferencia",
+        "significado": "Medida del borde circular."
+      },
+      {
+        "termino": "Área del círculo",
+        "significado": "Medida de toda la superficie interior."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una circunferencia tiene diámetro 10 cm. Con π = 3,14, ¿cuántos centímetros mide su longitud? Escribe solo el número.",
+        "respuesta": 31.4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El dato ya es el diámetro.",
+          "Usa L = πd.",
+          "Multiplica 3,14 × 10."
+        ],
+        "retroalimentacion": "La longitud es 31,4 cm; 10 cm es el diámetro, no el borde."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para hallar el área de un círculo de radio r, ¿qué expresión corresponde?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El área mide la superficie.",
+          "La fórmula de área eleva el radio al cuadrado.",
+          "2πr y πd miden el borde."
+        ],
+        "retroalimentacion": "πr² da el área; 2πr y πd dan la longitud.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2πr"
+          },
+          {
+            "id": "b",
+            "texto": "πr²"
+          },
+          {
+            "id": "c",
+            "texto": "πd"
+          },
+          {
+            "id": "d",
+            "texto": "r + r"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "El radio de una rueda mide 2 m. ¿Cuántos metros mide su diámetro? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El diámetro contiene dos radios.",
+          "Cada radio mide 2 m.",
+          "Calcula 2 × 2."
+        ],
+        "retroalimentacion": "El diámetro mide 4 m; no hace falta usar π todavía."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La longitud de una circunferencia se expresa en centímetros cuadrados si el radio está en centímetros.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La longitud mide solo una línea.",
+          "Una línea se expresa en cm, no en cm².",
+          "cm² corresponde al área interior."
+        ],
+        "retroalimentacion": "Falso: la longitud se expresa en centímetros; los centímetros cuadrados son para el área."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El círculo de una mesa tiene radio 5 cm. Usa π = 3,14. ¿Cuántos centímetros cuadrados tiene de área? Escribe solo el número.",
+        "respuesta": 78.5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa A = πr².",
+          "El cuadrado de 5 es 25.",
+          "Multiplica 3,14 por 25."
+        ],
+        "retroalimentacion": "El área es 78,5 cm²; multiplicar solo π × 5 omite el cuadrado."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una pista circular tiene diámetro 20 m. Con π = 3,14, ¿qué longitud tiene una vuelta?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La vuelta corresponde al borde.",
+          "Aplica L = πd con d = 20.",
+          "3,14 × 20 = 62,8."
+        ],
+        "retroalimentacion": "62,8 m es la longitud; 31,4 m saldría de confundir diámetro con radio.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "31,4 m"
+          },
+          {
+            "id": "b",
+            "texto": "400 m²"
+          },
+          {
+            "id": "c",
+            "texto": "62,8 m"
+          },
+          {
+            "id": "d",
+            "texto": "1256 m²"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos círculos de igual radio tienen la misma área aunque estén en lugares distintos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El lugar no aparece en la fórmula.",
+          "Ambos usan el mismo r en A = πr².",
+          "Igual r produce igual r² y la misma área."
+        ],
+        "retroalimentacion": "Verdadero: con el mismo radio, πr² es igual."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una tapa de radio 7 cm tiene un borde circular. Usa π = 3,14. ¿Cuántos centímetros mide ese borde? Escribe solo el número.",
+        "respuesta": 43.96,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El borde es longitud, no área.",
+          "Aplica 2πr con r = 7.",
+          "2 × 3,14 × 7 = 43,96."
+        ],
+        "retroalimentacion": "El borde mide 43,96 cm; 153,86 sería el área en cm²."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una plaza circular de diámetro 12 m requiere césped en todo su interior. Usa π = 3,14. ¿Cuántos metros cuadrados de césped necesita?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para césped necesitas área.",
+          "Radio = 12 ÷ 2 = 6 m.",
+          "A = 3,14 × 6² = 3,14 × 36."
+        ],
+        "retroalimentacion": "113,04 m²; usar 12 como radio cuadruplicaría el área.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "37,68 m²"
+          },
+          {
+            "id": "b",
+            "texto": "452,16 m²"
+          },
+          {
+            "id": "c",
+            "texto": "113,04 m²"
+          },
+          {
+            "id": "d",
+            "texto": "18,84 m²"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El borde de una fuente circular mide 31,4 m. Usa π = 3,14. ¿Cuántos metros mide su radio? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La longitud cumple L = 2πr.",
+          "Despeja r = L ÷ (2π).",
+          "31,4 ÷ 6,28 = 5."
+        ],
+        "retroalimentacion": "El radio mide 5 m; 10 m es el diámetro."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si duplicas el radio de un círculo, su área se duplica.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El radio se eleva al cuadrado.",
+          "Compara πr² con π(2r)².",
+          "(2r)² = 4r²."
+        ],
+        "retroalimentacion": "Falso: el área se cuadruplica al duplicar el radio."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un cartel circular de radio 4 cm usa π = 3,14. Si se quiere cubrir su superficie y no solo el borde, ¿qué medida se calcula? Responde con una palabra.",
+        "respuesta": "área",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cubrir significa ocupar el interior.",
+          "El borde se mediría con longitud.",
+          "La fórmula apropiada es π × 4²."
+        ],
+        "retroalimentacion": "Se calcula el área; longitud solo mediría el borde."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

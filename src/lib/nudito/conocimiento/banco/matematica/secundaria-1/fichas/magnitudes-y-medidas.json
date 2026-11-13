@@ -1,0 +1,1573 @@
+[
+  {
+    "clave": "mat.s1.equivalencias-masa",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-07",
+      "MAT-C23-S1-01"
+    ],
+    "bloque": "Magnitudes y medidas",
+    "nombre": "Unidades de masa y sus equivalencias",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Convierte entre tonelada, kilogramo, gramo y miligramo en situaciones reales.",
+    "palabrasClave": [
+      "tonelada",
+      "kilogramo",
+      "gramo",
+      "miligramo",
+      "conversión"
+    ],
+    "prerrequisitos": [
+      "mat.s1.operaciones-decimales-s1"
+    ],
+    "ordenSugerido": 103,
+    "ideaCentral": "La masa se expresa en distintas unidades según el objeto. Entre unidades vecinas de esta ficha, 1 t = 1000 kg, 1 kg = 1000 g y 1 g = 1000 mg.",
+    "pasos": [
+      "Identifica la unidad de partida y la unidad pedida.",
+      "Anota la equivalencia necesaria: cada salto entre t, kg, g y mg multiplica o divide por 1000.",
+      "Multiplica al pasar a una unidad menor; divide al pasar a una mayor.",
+      "Comprueba si el tamaño del resultado tiene sentido."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una bolsa de quinua pesa 2,5 kg. ¿Cuántos gramos son?",
+        "desarrollo": "De kg a g multiplico por 1000: 2,5 × 1000 = 2500.",
+        "respuesta": "2500 g."
+      },
+      {
+        "situacion": "Un camión lleva 3000 kg de papas. ¿Cuántas toneladas?",
+        "desarrollo": "De kg a t divido por 1000: 3000 ÷ 1000 = 3.",
+        "respuesta": "3 t."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Multiplicar al convertir de gramos a kilogramos.",
+        "correccion": "La unidad nueva es mayor; divide entre 1000."
+      },
+      {
+        "error": "Confundir gramo y miligramo como si fueran iguales.",
+        "correccion": "Un gramo contiene 1000 miligramos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Tonelada",
+        "significado": "Unidad de masa equivalente a 1000 kg."
+      },
+      {
+        "termino": "Kilogramo",
+        "significado": "Unidad de masa equivalente a 1000 g."
+      },
+      {
+        "termino": "Miligramo",
+        "significado": "Milésima parte de un gramo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una bolsa de arroz tiene 3 kg. ¿Cuántos gramos contiene? Escribe solo el número.",
+        "respuesta": 3000,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Pasa de kg a g.",
+          "Cada kilogramo aporta 1000 gramos.",
+          "Suma 1000 tres veces."
+        ],
+        "retroalimentacion": "3 kg = 3 × 1000 = 3000 g; dividir daría una masa demasiado pequeña."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una etiqueta dice 2000 mg de vitamina. ¿Cuántos gramos son?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La unidad pedida es mayor que el mg.",
+          "1000 mg forman 1 g.",
+          "Divide 2000 entre 1000."
+        ],
+        "retroalimentacion": "2 g corresponde a 2000 mg; no se multiplica al pasar a gramos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2000 g"
+          },
+          {
+            "id": "b",
+            "texto": "2 g"
+          },
+          {
+            "id": "c",
+            "texto": "20 g"
+          },
+          {
+            "id": "d",
+            "texto": "0,2 g"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una tonelada de arena equivale a 1000 kilogramos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda el salto de t a kg.",
+          "Una t agrupa mil kg.",
+          "Compara 1000 kg con 1 t."
+        ],
+        "retroalimentacion": "Verdadero: 1 t = 1000 kg."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En un paquete aparece 1 kg de lentejas. Escribe su masa en gramos con unidad.",
+        "respuesta": "1000 g",
+        "alternativasAceptadas": [
+          "1000 gramos"
+        ],
+        "pistas": [
+          "Un kilogramo contiene mil unidades menores.",
+          "La unidad solicitada es el gramo.",
+          "Escribe 1000 seguido de g."
+        ],
+        "retroalimentacion": "1 kg equivale a 1000 g; 1 g sería mil veces menos."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La balanza de una panadería marca 750 g de harina. ¿Cuántos kilogramos son? Escribe solo el número.",
+        "respuesta": 0.75,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Pasas de g a kg.",
+          "Divide 750 entre 1000.",
+          "750 ÷ 1000 = 0,75."
+        ],
+        "retroalimentacion": "750 g = 0,75 kg; 750 kg sería una cantidad enorme."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para una receta se juntan 1,2 kg y 300 g de azúcar. ¿Cuál es la masa total en gramos?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte primero 1,2 kg a gramos.",
+          "1,2 kg son 1200 g.",
+          "Ahora suma 1200 + 300."
+        ],
+        "retroalimentacion": "1500 g es la suma correcta: 1200 g + 300 g.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "420 g"
+          },
+          {
+            "id": "b",
+            "texto": "1203 g"
+          },
+          {
+            "id": "c",
+            "texto": "12 300 g"
+          },
+          {
+            "id": "d",
+            "texto": "1500 g"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una carga de 2,4 t pesa 240 kg.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "De toneladas a kilogramos multiplicas.",
+          "2,4 × 1000 = 2400.",
+          "Compara 2400 kg con 240 kg."
+        ],
+        "retroalimentacion": "Falso: 2,4 t son 2400 kg, diez veces lo afirmado."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un frasco contiene 0,5 g de un compuesto. Escribe esa masa en miligramos con unidad.",
+        "respuesta": "500 mg",
+        "alternativasAceptadas": [
+          "500 miligramos"
+        ],
+        "pistas": [
+          "Cada gramo tiene 1000 mg.",
+          "Medio gramo es la mitad de 1000 mg.",
+          "La mitad de 1000 es 500."
+        ],
+        "retroalimentacion": "0,5 g = 500 mg, no 0,5 mg."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un mercado recibió 4500 kg de camote. ¿Cuántas toneladas recibió? Escribe solo el número.",
+        "respuesta": 4.5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una tonelada contiene 1000 kg.",
+          "Divide 4500 entre 1000.",
+          "4500 ÷ 1000 = 4,5."
+        ],
+        "retroalimentacion": "4500 kg equivalen a 4,5 t."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos sacos tienen 800 g y 0,7 kg. ¿Cuánta masa reúnen en kilogramos?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 800 g a kg.",
+          "800 g son 0,8 kg.",
+          "Suma 0,8 + 0,7."
+        ],
+        "retroalimentacion": "1,5 kg es correcto: 0,8 kg + 0,7 kg.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1,5 kg"
+          },
+          {
+            "id": "b",
+            "texto": "8,7 kg"
+          },
+          {
+            "id": "c",
+            "texto": "0,87 kg"
+          },
+          {
+            "id": "d",
+            "texto": "150 kg"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una medicina contiene 250 mg por tableta. ¿Cuántos gramos hay en 8 tabletas? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero los mg de ocho tabletas.",
+          "250 × 8 = 2000 mg.",
+          "Divide 2000 mg entre 1000."
+        ],
+        "retroalimentacion": "Ocho tabletas tienen 2000 mg, equivalentes a 2 g."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un depósito guarda 1 t y 250 kg; en total tiene 1,25 t.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte los 250 kg a toneladas.",
+          "250 ÷ 1000 = 0,25 t.",
+          "Suma 1 t + 0,25 t."
+        ],
+        "retroalimentacion": "Verdadero: 1 t + 250 kg = 1,25 t."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.equivalencias-tiempo",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-07"
+    ],
+    "bloque": "Magnitudes y medidas",
+    "nombre": "Equivalencias entre unidades de tiempo",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Convierte entre siglos, años, días, horas, minutos y segundos.",
+    "palabrasClave": [
+      "siglo",
+      "año",
+      "día",
+      "hora",
+      "minuto",
+      "segundo"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 104,
+    "ideaCentral": "Las unidades de tiempo permiten expresar una misma duración de distintas maneras. Usa 1 siglo = 100 años, 1 día = 24 horas, 1 hora = 60 minutos y 1 minuto = 60 segundos; para años y días aclara si el año tiene 365 o 366 días.",
+    "pasos": [
+      "Reconoce la duración y la unidad solicitada.",
+      "Busca la equivalencia adecuada y anótala.",
+      "Multiplica si vas a una unidad menor y divide si vas a una mayor.",
+      "Si cruzas más de una unidad, convierte por etapas y revisa el resultado."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "El viaje de Lima a Ica dura 3 horas.",
+        "desarrollo": "Cada hora tiene 60 minutos; 3 × 60 = 180.",
+        "respuesta": "Dura 180 minutos."
+      },
+      {
+        "situacion": "Un documental dura 150 segundos.",
+        "desarrollo": "60 segundos son un minuto; 150 = 120 + 30.",
+        "respuesta": "Dura 2 minutos y 30 segundos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Usar 100 minutos para una hora por analogía con el sistema decimal.",
+        "correccion": "El tiempo usa 60 minutos por hora."
+      },
+      {
+        "error": "Suponer que todos los años tienen 365 días.",
+        "correccion": "Un año bisiesto tiene 366; usa el dato del problema."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Siglo",
+        "significado": "Periodo de 100 años."
+      },
+      {
+        "termino": "Año bisiesto",
+        "significado": "Año de 366 días."
+      },
+      {
+        "termino": "Minuto",
+        "significado": "Duración de 60 segundos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un partido dura 2 horas. ¿Cuántos minutos son? Escribe solo el número.",
+        "respuesta": 120,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada hora equivale a 60 minutos.",
+          "Hay dos grupos de 60.",
+          "2 × 60 = 120."
+        ],
+        "retroalimentacion": "2 horas son 120 minutos, no 200."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Medio minuto equivale a 30 segundos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un minuto son 60 segundos.",
+          "Toma la mitad de 60.",
+          "60 ÷ 2 = 30."
+        ],
+        "retroalimentacion": "Verdadero: medio minuto son 30 segundos."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "La lectura tomó 48 horas. ¿Cuántos días completos son?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un día tiene 24 horas.",
+          "Divide 48 entre 24.",
+          "Dos grupos de 24 completan 48."
+        ],
+        "retroalimentacion": "2 días contienen 48 horas; no son 48 días.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1 día"
+          },
+          {
+            "id": "b",
+            "texto": "3 días"
+          },
+          {
+            "id": "c",
+            "texto": "2 días"
+          },
+          {
+            "id": "d",
+            "texto": "48 días"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La abuela habla de un siglo. Escribe su duración en años con unidad.",
+        "respuesta": "100 años",
+        "alternativasAceptadas": [
+          "cien años"
+        ],
+        "pistas": [
+          "Un siglo agrupa muchos años.",
+          "La equivalencia exacta es cien años.",
+          "Escribe el número 100 junto a «años»."
+        ],
+        "retroalimentacion": "Un siglo son 100 años."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una carrera dura 180 segundos. ¿Cuántos minutos dura? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada minuto son 60 segundos.",
+          "Divide 180 entre 60.",
+          "Tres grupos de 60 dan 180."
+        ],
+        "retroalimentacion": "180 segundos equivalen a 3 minutos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La excursión dura 1 hora y 25 minutos. ¿Cuál es su duración total en minutos?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte la hora antes de sumar.",
+          "1 hora = 60 minutos.",
+          "60 + 25 = 85."
+        ],
+        "retroalimentacion": "85 minutos es la suma de 60 y 25; 125 confunde horas con centenas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "85 minutos"
+          },
+          {
+            "id": "b",
+            "texto": "125 minutos"
+          },
+          {
+            "id": "c",
+            "texto": "65 minutos"
+          },
+          {
+            "id": "d",
+            "texto": "60 minutos"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos siglos y medio abarcan 250 años.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Dos siglos son 200 años.",
+          "Medio siglo añade 50 años.",
+          "200 + 50 = 250."
+        ],
+        "retroalimentacion": "Verdadero: 2,5 siglos × 100 = 250 años."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un cronómetro marca 90 segundos. Expresa la duración en minutos y segundos.",
+        "respuesta": "1 minuto y 30 segundos",
+        "alternativasAceptadas": [
+          "1 min 30 s",
+          "1 minuto 30 segundos"
+        ],
+        "pistas": [
+          "Separa un grupo de 60 segundos.",
+          "90 − 60 = 30.",
+          "Queda 1 minuto y 30 segundos."
+        ],
+        "retroalimentacion": "90 segundos son 1 minuto y 30 segundos, no 1 minuto y 90 segundos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un año común tiene 365 días. ¿Cuántas horas tiene? Escribe solo el número.",
+        "respuesta": 8760,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada día contiene 24 horas.",
+          "Multiplica 365 × 24.",
+          "365 × (20 + 4) = 7300 + 1460."
+        ],
+        "retroalimentacion": "Un año de 365 días tiene 8760 horas."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una película dura 2 horas, 3 minutos y 20 segundos. ¿Cuántos segundos dura?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte las 2 horas en segundos.",
+          "2 × 3600 = 7200 y 3 × 60 = 180.",
+          "Suma 7200 + 180 + 20 = 7400."
+        ],
+        "retroalimentacion": "7400 segundos es el total; revisa que esa cifra aparezca una sola vez.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7300 segundos"
+          },
+          {
+            "id": "b",
+            "texto": "7320 segundos"
+          },
+          {
+            "id": "c",
+            "texto": "12320 segundos"
+          },
+          {
+            "id": "d",
+            "texto": "7400 segundos"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un taller ocupa 1 día, 2 horas y 30 minutos. ¿Cuántos minutos son en total? Escribe solo el número.",
+        "respuesta": 1590,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte el día a horas.",
+          "24 + 2 = 26 horas.",
+          "26 × 60 + 30 = 1590."
+        ],
+        "retroalimentacion": "1 día, 2 horas y 30 minutos suman 1590 minutos."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una feria comienza a las 9:40 y termina a las 11:10, transcurrieron 90 minutos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "De 9:40 a 10:40 hay una hora.",
+          "De 10:40 a 11:10 hay 30 minutos.",
+          "60 + 30 = 90."
+        ],
+        "retroalimentacion": "Verdadero: la feria dura 1 hora y 30 minutos, o 90 minutos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.escalas-temperatura",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-07"
+    ],
+    "bloque": "Magnitudes y medidas",
+    "nombre": "Escalas de temperatura Celsius y Kelvin",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Convierte temperaturas entre escalas y las relaciona con los enteros.",
+    "palabrasClave": [
+      "Celsius",
+      "Kelvin",
+      "temperatura",
+      "entero",
+      "cero absoluto"
+    ],
+    "prerrequisitos": [
+      "mat.s1.variaciones-temperatura-altitud"
+    ],
+    "ordenSugerido": 105,
+    "ideaCentral": "Para estos ejercicios escolares usamos K = °C + 273. Una temperatura Celsius negativa puede corresponder a una temperatura Kelvin positiva; los kelvin no se expresan con símbolo de grado.",
+    "pasos": [
+      "Identifica si el dato está en °C o en K.",
+      "Para pasar de °C a K, suma 273.",
+      "Para pasar de K a °C, resta 273.",
+      "Comprueba el signo y escribe la unidad correcta."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En Puno, un termómetro marca −5 °C.",
+        "desarrollo": "Sumo 273: −5 + 273 = 268.",
+        "respuesta": "La lectura es 268 K."
+      },
+      {
+        "situacion": "Un laboratorio informa 300 K.",
+        "desarrollo": "Resto 273: 300 − 273 = 27.",
+        "respuesta": "Son 27 °C."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Escribir 273 °K.",
+        "correccion": "El kelvin se escribe K, sin signo de grado."
+      },
+      {
+        "error": "Sumar 273 al convertir de Kelvin a Celsius.",
+        "correccion": "En ese sentido se resta 273."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Celsius",
+        "significado": "Escala de temperatura expresada en grados °C."
+      },
+      {
+        "termino": "Kelvin",
+        "significado": "Escala de temperatura cuyo símbolo es K."
+      },
+      {
+        "termino": "Cero absoluto",
+        "significado": "0 K, equivalente a −273 °C en la aproximación escolar."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "El agua está a 0 °C. ¿Cuántos kelvin son según K = °C + 273? Escribe solo el número.",
+        "respuesta": 273,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Parte de 0 °C.",
+          "Suma 273 al valor Celsius.",
+          "0 + 273 = 273."
+        ],
+        "retroalimentacion": "0 °C corresponde a 273 K; K no lleva grado."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un sensor marca 280 K. ¿Qué temperatura indica en °C?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "De K a °C se resta.",
+          "Calcula 280 − 273.",
+          "La diferencia es positiva y pequeña."
+        ],
+        "retroalimentacion": "7 °C resulta de 280 − 273; sumar daría 553 por error.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "280 °C"
+          },
+          {
+            "id": "b",
+            "texto": "7 °C"
+          },
+          {
+            "id": "c",
+            "texto": "553 °C"
+          },
+          {
+            "id": "d",
+            "texto": "−7 °C"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una temperatura de −3 °C equivale a 270 K usando la regla escolar.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Aplica K = °C + 273.",
+          "Suma −3 + 273.",
+          "273 − 3 = 270."
+        ],
+        "retroalimentacion": "Verdadero: −3 °C son 270 K."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un cartel escribe «25 °K». ¿Cuál es el símbolo correcto de la unidad Kelvin?",
+        "respuesta": "K",
+        "alternativasAceptadas": [
+          "kelvin"
+        ],
+        "pistas": [
+          "La escala Celsius sí usa el signo °.",
+          "Kelvin es el nombre de la unidad.",
+          "Su símbolo es una sola letra mayúscula sin grado."
+        ],
+        "retroalimentacion": "El símbolo correcto es K; «°K» es incorrecto."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una madrugada andina se registran 265 K. ¿Qué valor en °C es? Escribe solo el número.",
+        "respuesta": -8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta 273 a 265.",
+          "Como 265 es menor que 273, el resultado es negativo.",
+          "265 − 273 = −8."
+        ],
+        "retroalimentacion": "265 K equivalen a −8 °C, no a 8 °C."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una muestra pasa de −10 °C a 5 °C. ¿Qué par de lecturas Kelvin corresponde al inicio y al final?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte cada extremo por separado.",
+          "−10 + 273 = 263.",
+          "5 + 273 = 278; conserva el orden."
+        ],
+        "retroalimentacion": "263 K y 278 K corresponden a −10 °C y 5 °C.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "283 K y 278 K"
+          },
+          {
+            "id": "b",
+            "texto": "−283 K y 278 K"
+          },
+          {
+            "id": "c",
+            "texto": "263 K y 268 K"
+          },
+          {
+            "id": "d",
+            "texto": "263 K y 278 K"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una subida de 4 °C produce una subida de 4 K.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La conversión suma siempre el mismo 273.",
+          "Compara, por ejemplo, 10 °C y 14 °C.",
+          "Sus lecturas son 283 K y 287 K: diferencia 4."
+        ],
+        "retroalimentacion": "Verdadero: los intervalos tienen el mismo tamaño en °C y K."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "La ficha de un congelador indica 253 K. Escríbelo en grados Celsius con unidad.",
+        "respuesta": "−20 °C",
+        "alternativasAceptadas": [
+          "−20 grados Celsius",
+          "-20 °C"
+        ],
+        "pistas": [
+          "De kelvin a Celsius restas 273.",
+          "253 − 273 es menor que cero.",
+          "La diferencia es −20 y la unidad es °C."
+        ],
+        "retroalimentacion": "253 K equivalen a −20 °C; no pierdas el signo negativo."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un termómetro registra 18 °C. ¿Qué número mostrará en K? Escribe solo el número.",
+        "respuesta": 291,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa la regla K = °C + 273.",
+          "Suma 18 a 273.",
+          "273 + 18 = 291."
+        ],
+        "retroalimentacion": "18 °C son 291 K."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos ciudades registran 290 K y −2 °C. ¿Cuál está más fría y por cuánto en °C?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 290 K a Celsius.",
+          "290 − 273 = 17 °C.",
+          "Compara 17 °C con −2 °C: hay 19 °C de diferencia."
+        ],
+        "retroalimentacion": "La de −2 °C está 19 °C más fría que la de 290 K (17 °C).",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La de −2 °C, por 19 °C"
+          },
+          {
+            "id": "b",
+            "texto": "La de 290 K, por 19 °C"
+          },
+          {
+            "id": "c",
+            "texto": "La de −2 °C, por 2 °C"
+          },
+          {
+            "id": "d",
+            "texto": "Tienen igual temperatura"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un depósito empieza a 260 K y se calienta 12 °C. ¿Cuál es su temperatura final en K? Escribe solo el número.",
+        "respuesta": 272,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un aumento de 1 °C equivale a uno de 1 K.",
+          "Suma 12 a los 260 K iniciales.",
+          "260 + 12 = 272."
+        ],
+        "retroalimentacion": "La temperatura final es 272 K; el aumento tiene el mismo valor numérico en ambas escalas."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una cámara pasa de 268 K a 275 K, pasó de −5 °C a 2 °C y subió 7 °C.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte cada lectura restando 273.",
+          "268 − 273 = −5 y 275 − 273 = 2.",
+          "De −5 a 2 hay siete unidades."
+        ],
+        "retroalimentacion": "Verdadero: las conversiones son −5 °C y 2 °C, con aumento de 7 °C."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.unidades-monetarias",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-07",
+      "MAT-C23-S1-01"
+    ],
+    "bloque": "Magnitudes y medidas",
+    "nombre": "Unidades monetarias y tipo de cambio",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Convierte soles a dólares y viceversa usando el tipo de cambio.",
+    "palabrasClave": [
+      "sol",
+      "dólar",
+      "tipo de cambio",
+      "conversión",
+      "cotización"
+    ],
+    "prerrequisitos": [
+      "mat.s1.operaciones-decimales-s1"
+    ],
+    "ordenSugerido": 106,
+    "ideaCentral": "El tipo de cambio indica cuántos soles corresponden a un dólar. Si el ejercicio dice 1 USD = S/ 3,80, multiplicas dólares por 3,80 para obtener soles y divides soles entre 3,80 para obtener dólares.",
+    "pasos": [
+      "Lee la cotización indicada en el problema; puede cambiar.",
+      "Identifica la moneda de origen y la solicitada.",
+      "De dólares a soles multiplica; de soles a dólares divide por la cotización.",
+      "Comprueba con la operación inversa y escribe la moneda."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Con 1 USD = S/ 4,00, Ana cambia 6 dólares.",
+        "desarrollo": "6 × 4 = 24.",
+        "respuesta": "Recibe S/ 24."
+      },
+      {
+        "situacion": "Una entrada cuesta S/ 20 y 1 USD = S/ 4,00.",
+        "desarrollo": "20 ÷ 4 = 5.",
+        "respuesta": "Cuesta 5 USD."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Tratar una cotización como precio fijo para siempre.",
+        "correccion": "Usa solo el tipo de cambio que da cada problema."
+      },
+      {
+        "error": "Multiplicar soles por la cotización para obtener dólares.",
+        "correccion": "Divide soles entre soles por dólar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Tipo de cambio",
+        "significado": "Cantidad de soles que equivale a un dólar en un momento dado."
+      },
+      {
+        "termino": "Sol",
+        "significado": "Moneda peruana, escrita S/."
+      },
+      {
+        "termino": "Dólar estadounidense",
+        "significado": "Moneda escrita USD."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Si 1 USD = S/ 4,00, ¿cuántos soles valen 5 USD? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada dólar equivale a cuatro soles.",
+          "Hay cinco grupos de cuatro.",
+          "5 × 4 = 20."
+        ],
+        "retroalimentacion": "5 USD equivalen a S/ 20 con la cotización dada."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Con 1 USD = S/ 3,50, ¿cuántos dólares son S/ 7?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para pasar de soles a dólares divide.",
+          "Divide 7 entre 3,50.",
+          "Dos grupos de 3,50 completan 7."
+        ],
+        "retroalimentacion": "2 USD valen S/ 7; multiplicar sería usar la dirección opuesta.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7 USD"
+          },
+          {
+            "id": "b",
+            "texto": "3,5 USD"
+          },
+          {
+            "id": "c",
+            "texto": "2 USD"
+          },
+          {
+            "id": "d",
+            "texto": "24,5 USD"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si el cambio es 1 USD = S/ 4, entonces 3 USD equivalen a S/ 12.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en tres grupos de cuatro soles.",
+          "Calcula 3 × 4.",
+          "El producto es 12."
+        ],
+        "retroalimentacion": "Verdadero: 3 × S/ 4 = S/ 12."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Si 1 USD = S/ 4, escribe cuánto valen 2 USD con símbolo de moneda peruana.",
+        "respuesta": "S/ 8",
+        "alternativasAceptadas": [
+          "8 soles",
+          "S/8"
+        ],
+        "pistas": [
+          "Convierte primero los dos dólares.",
+          "2 × 4 = 8.",
+          "Anteponle S/ al resultado."
+        ],
+        "retroalimentacion": "2 USD son S/ 8, no 8 USD."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una familia cambia 12 USD con 1 USD = S/ 3,75. ¿Cuántos soles recibe? Escribe solo el número.",
+        "respuesta": 45,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica dólares por soles por dólar.",
+          "Calcula 12 × 3,75.",
+          "10 × 3,75 + 2 × 3,75 = 37,50 + 7,50."
+        ],
+        "retroalimentacion": "12 USD equivalen a S/ 45."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una compra cuesta S/ 38. Con 1 USD = S/ 3,80, ¿cuántos dólares se necesitan?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte de soles a dólares.",
+          "Divide 38 entre 3,80.",
+          "3,80 × 10 = 38."
+        ],
+        "retroalimentacion": "10 USD cubren S/ 38 con ese cambio.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10 USD"
+          },
+          {
+            "id": "b",
+            "texto": "14,44 USD"
+          },
+          {
+            "id": "c",
+            "texto": "38 USD"
+          },
+          {
+            "id": "d",
+            "texto": "100 USD"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Con 1 USD = S/ 4,20, S/ 42 equivalen a 10 USD.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada dólar cuesta S/ 4,20.",
+          "Divide 42 entre 4,20.",
+          "Diez grupos de 4,20 forman 42."
+        ],
+        "retroalimentacion": "Verdadero: S/ 42 ÷ 4,20 = 10 USD."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un cartel dice 1 USD = S/ 3,60. ¿Qué operación convierte S/ 18 a USD? Escribe la división.",
+        "respuesta": "18 ÷ 3,60",
+        "alternativasAceptadas": [
+          "18/3,60",
+          "18 dividido entre 3,60",
+          "18 ÷ 3.60"
+        ],
+        "pistas": [
+          "El dato está en soles y buscas dólares.",
+          "Para este sentido se divide por la cotización.",
+          "Pon 18 como dividendo y 3,60 como divisor."
+        ],
+        "retroalimentacion": "La operación es 18 ÷ 3,60 = 5 USD; multiplicar invertiría el sentido."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un cuaderno cuesta 8 USD. Si 1 USD = S/ 3,25, ¿cuánto cuesta en soles? Escribe solo el número.",
+        "respuesta": 26,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica el precio en USD por 3,25.",
+          "8 × 3 = 24 y 8 × 0,25 = 2.",
+          "Suma 24 + 2."
+        ],
+        "retroalimentacion": "8 USD son S/ 26 con la cotización indicada."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Lucía tiene S/ 40 y compra un libro de 6 USD. Si 1 USD = S/ 4, ¿cuántos soles le sobran?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte primero el libro a soles.",
+          "6 × 4 = S/ 24.",
+          "Resta 40 − 24."
+        ],
+        "retroalimentacion": "Sobran S/ 16; los S/ 24 son el costo del libro.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "S/ 34"
+          },
+          {
+            "id": "b",
+            "texto": "S/ 10"
+          },
+          {
+            "id": "c",
+            "texto": "S/ 24"
+          },
+          {
+            "id": "d",
+            "texto": "S/ 16"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una agencia recibe 15 USD y S/ 10. Si 1 USD = S/ 3,80, ¿cuál es el total en soles? Escribe solo el número.",
+        "respuesta": 67,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte los 15 USD a soles.",
+          "15 × 3,80 = 57.",
+          "Añade los S/ 10 que ya tenía."
+        ],
+        "retroalimentacion": "El total es S/ 67: S/ 57 + S/ 10."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una mochila vale 20 USD. Con 1 USD = S/ 3,50, pagar S/ 60 alcanza para comprarla.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero el precio en soles.",
+          "20 × 3,50 = 70.",
+          "Compara S/ 60 con S/ 70."
+        ],
+        "retroalimentacion": "Falso: cuesta S/ 70; faltan S/ 10."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.instrumentos-medicion",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-07"
+    ],
+    "bloque": "Magnitudes y medidas",
+    "nombre": "Instrumentos y estimación de medidas",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Elige el instrumento y la unidad pertinentes para medir o estimar masa, tiempo o temperatura.",
+    "palabrasClave": [
+      "balanza",
+      "cronómetro",
+      "termómetro",
+      "estimación",
+      "unidad"
+    ],
+    "prerrequisitos": [
+      "mat.s1.equivalencias-masa"
+    ],
+    "ordenSugerido": 107,
+    "ideaCentral": "Elegir bien qué medir exige reconocer la magnitud: una balanza mide masa, un cronómetro duración y un termómetro temperatura. La unidad debe corresponder al tamaño de lo medido.",
+    "pasos": [
+      "Identifica si se trata de masa, tiempo o temperatura.",
+      "Elige el instrumento que observa esa magnitud.",
+      "Selecciona una unidad práctica según el tamaño de la medida.",
+      "Estima un valor razonable y comprueba si el resultado tiene sentido."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Para medir la masa de una bolsa de papas en el mercado, uso una balanza.",
+        "desarrollo": "Una bolsa puede expresarse cómodamente en kg; un cronómetro no mide masa.",
+        "respuesta": "Balanza y kilogramos."
+      },
+      {
+        "situacion": "Para comparar cuánto tarda cada corredor en 100 m, activo un cronómetro.",
+        "desarrollo": "La duración breve se puede expresar en segundos.",
+        "respuesta": "Cronómetro y segundos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Usar una regla para medir temperatura.",
+        "correccion": "La regla mide longitud; usa un termómetro."
+      },
+      {
+        "error": "Expresar la masa de un camión cargado en miligramos.",
+        "correccion": "La magnitud es masa, pero las toneladas dan una cifra práctica."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Magnitud",
+        "significado": "Propiedad medible, como masa, tiempo o temperatura."
+      },
+      {
+        "termino": "Estimación",
+        "significado": "Valor aproximado razonado antes de medir."
+      },
+      {
+        "termino": "Cronómetro",
+        "significado": "Instrumento que mide duraciones."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué instrumento sirve para medir la masa de una sandía?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La masa indica cuánto pesa la sandía.",
+          "Busca un instrumento que pueda sostenerla y marcar kg.",
+          "El termómetro y el reloj miden otras magnitudes."
+        ],
+        "retroalimentacion": "La balanza mide la masa de la sandía.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Termómetro"
+          },
+          {
+            "id": "b",
+            "texto": "Balanza"
+          },
+          {
+            "id": "c",
+            "texto": "Cronómetro"
+          },
+          {
+            "id": "d",
+            "texto": "Reloj de pared"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un termómetro permite medir la temperatura del agua de una piscina.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La pregunta se refiere al calor o frío del agua.",
+          "La temperatura se expresa en °C.",
+          "El aparato que da lecturas en °C es el termómetro."
+        ],
+        "retroalimentacion": "Verdadero: un termómetro mide temperatura."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una carrera de 60 metros dura unos segundos. ¿Qué instrumento mide esa duración?",
+        "respuesta": "cronómetro",
+        "alternativasAceptadas": [
+          "cronometro"
+        ],
+        "pistas": [
+          "Quieres medir tiempo transcurrido.",
+          "Necesitas iniciar y detener la medición.",
+          "Ese aparato se llama cronómetro."
+        ],
+        "retroalimentacion": "El cronómetro mide los segundos que dura la carrera."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué unidad es práctica para expresar la masa de un saco de arroz?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La propiedad es masa.",
+          "Descarta unidades de tiempo y temperatura.",
+          "Un saco suele tener varios miles de gramos."
+        ],
+        "retroalimentacion": "Kilogramos es una unidad práctica para un saco de arroz.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Segundos"
+          },
+          {
+            "id": "b",
+            "texto": "Grados Celsius"
+          },
+          {
+            "id": "c",
+            "texto": "Miligramos"
+          },
+          {
+            "id": "d",
+            "texto": "Kilogramos"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una balanza marca 1,5 kg y la etiqueta decía 2 kg. ¿Cuántos gramos faltan para llegar a lo indicado? Escribe solo el número.",
+        "respuesta": 500,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La diferencia es medio kilogramo.",
+          "2 − 1,5 = 0,5 kg.",
+          "0,5 × 1000 = 500 g."
+        ],
+        "retroalimentacion": "Faltan 500 g; la comparación debe usar la misma unidad."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para registrar cuánto dura una exposición de 7 minutos, ¿qué combinación conviene?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La palabra «dura» señala tiempo.",
+          "Un cronómetro mide duración.",
+          "Siete se expresa de forma práctica en minutos."
+        ],
+        "retroalimentacion": "Cronómetro y minutos corresponde a una duración de 7 minutos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cronómetro y minutos"
+          },
+          {
+            "id": "b",
+            "texto": "Balanza y gramos"
+          },
+          {
+            "id": "c",
+            "texto": "Termómetro y kelvin"
+          },
+          {
+            "id": "d",
+            "texto": "Regla y centímetros"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para estimar la temperatura de una mañana fría, 8 °C es más razonable que 8 kg.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las dos cifras tienen unidades distintas.",
+          "Los kg miden masa.",
+          "Los °C miden temperatura del aire."
+        ],
+        "retroalimentacion": "Verdadero: 8 °C es una temperatura; 8 kg sería masa."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "La enfermera quiere medir la temperatura de un estudiante. Escribe una pareja instrumento–unidad apropiada.",
+        "respuesta": "termómetro y °C",
+        "alternativasAceptadas": [
+          "termometro y °C",
+          "termómetro y grados Celsius",
+          "termometro y grados celsius"
+        ],
+        "pistas": [
+          "Piensa en el instrumento que registra frío o calor.",
+          "La escala habitual se escribe °C.",
+          "Une termómetro con grados Celsius."
+        ],
+        "retroalimentacion": "La pareja apropiada es termómetro y °C; la balanza mediría masa."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un laboratorio necesita medir la masa de una tableta pequeña. ¿Qué unidad permite expresarla sin usar un decimal muy pequeño?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se trata de masa pequeña.",
+          "Descarta tiempo y temperatura.",
+          "Los miligramos sirven para cantidades menores que un gramo."
+        ],
+        "retroalimentacion": "Miligramos es una unidad útil para una tableta pequeña.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Toneladas"
+          },
+          {
+            "id": "b",
+            "texto": "Horas"
+          },
+          {
+            "id": "c",
+            "texto": "Miligramos"
+          },
+          {
+            "id": "d",
+            "texto": "Grados Celsius"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una estudiante propone medir una carrera de 100 m con balanza y reportar 15 kg. ¿Cuál corrección cambia tanto instrumento como unidad?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La carrera se quiere medir por su duración.",
+          "La balanza y kg corresponden a masa.",
+          "Una carrera breve dura segundos; mídela con cronómetro."
+        ],
+        "retroalimentacion": "Cronómetro y segundos corrige ambas elecciones.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Termómetro y °C"
+          },
+          {
+            "id": "b",
+            "texto": "Cronómetro y segundos"
+          },
+          {
+            "id": "c",
+            "texto": "Balanza y gramos"
+          },
+          {
+            "id": "d",
+            "texto": "Reloj y kilogramos"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para estimar y luego comprobar la masa de una mochila de 4 kg, conviene usar una balanza que marque kg.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Reconoce la magnitud: masa.",
+          "Cuatro kg es una escala razonable para una mochila.",
+          "La balanza puede verificar esa estimación."
+        ],
+        "retroalimentacion": "Verdadero: la balanza en kg verifica una masa de mochila razonable."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Tres registros aparecen en una ficha: 12 s, 12 °C y 12 kg. ¿Cuál corresponde a una medición de masa? Escribe valor y unidad.",
+        "respuesta": "12 kg",
+        "alternativasAceptadas": [
+          "12 kilogramos"
+        ],
+        "pistas": [
+          "Distingue las tres unidades.",
+          "s mide tiempo y °C temperatura.",
+          "kg es la abreviatura de kilogramos."
+        ],
+        "retroalimentacion": "12 kg es la medición de masa; 12 s y 12 °C describen otras magnitudes."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

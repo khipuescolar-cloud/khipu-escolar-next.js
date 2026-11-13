@@ -1,0 +1,1287 @@
+[
+  {
+    "clave": "mat.s1.grafico-barras",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+    "desempenosOrigen": [
+      "MAT-C25-S1-01"
+    ],
+    "bloque": "Gráficos estadísticos",
+    "nombre": "Gráfico de barras",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Construye gráficos de barras para variables cualitativas y cuantitativas discretas.",
+    "palabrasClave": [
+      "gráfico de barras",
+      "frecuencia",
+      "categoría",
+      "escala",
+      "ejes"
+    ],
+    "prerrequisitos": [
+      "mat.s1.tabla-frecuencias-s1"
+    ],
+    "ordenSugerido": 67,
+    "ideaCentral": "Un gráfico de barras muestra cuántas veces aparece cada categoría o valor discreto. Las barras tienen igual ancho, están separadas y su altura corresponde a la frecuencia según la escala.",
+    "pasos": [
+      "Organiza las categorías y sus frecuencias en una tabla.",
+      "Escribe categorías en el eje horizontal y frecuencia en el vertical.",
+      "Elige una escala que permita mostrar la mayor frecuencia.",
+      "Dibuja barras separadas de igual ancho y alturas correctas; añade título."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En una encuesta, 4 eligen mango y 7 eligen lúcuma.",
+        "desarrollo": "Traza dos barras: mango de altura 4 y lúcuma de altura 7.",
+        "respuesta": "La barra de lúcuma es más alta."
+      },
+      {
+        "situacion": "Los puntajes 1,2,3 tienen frecuencias 2,5,3.",
+        "desarrollo": "Ubica 1,2,3 en horizontal y marca alturas 2,5,3.",
+        "respuesta": "El gráfico representa 10 datos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir categoría con frecuencia.",
+        "correccion": "Los nombres van en horizontal; los conteos determinan la altura."
+      },
+      {
+        "error": "Cambiar la escala entre barras.",
+        "correccion": "Usa la misma escala vertical para todas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Categoría",
+        "significado": "Grupo o valor discreto que se cuenta."
+      },
+      {
+        "termino": "Frecuencia",
+        "significado": "Número de veces que aparece una categoría."
+      },
+      {
+        "termino": "Escala",
+        "significado": "Valor que representa cada división del eje."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una encuesta cuenta deportes favoritos: vóley 6, fútbol 8, básquet 4. ¿Qué altura debe tener la barra de vóley?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "8"
+          },
+          {
+            "id": "d",
+            "texto": "18"
+          }
+        ],
+        "pistas": [
+          "Busca la frecuencia de vóley.",
+          "La altura representa cuántas respuestas hubo.",
+          "Vóley tiene 6 votos."
+        ],
+        "retroalimentacion": "«6» es la altura de la barra de vóley."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un gráfico de barras, todas las barras deben tener el mismo ancho para comparar sus alturas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa qué dimensión representa la frecuencia.",
+          "La altura cambia según el dato.",
+          "El ancho uniforme evita confundir la comparación."
+        ],
+        "retroalimentacion": "Es verdadero: las alturas cambian y los anchos se mantienen iguales."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Los datos son rojo 3, azul 5 y verde 2. ¿Qué categoría tendrá la barra más alta?",
+        "respuesta": "azul",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 3, 5 y 2.",
+          "La frecuencia mayor es 5.",
+          "El 5 corresponde a azul."
+        ],
+        "retroalimentacion": "Azul tiene la barra más alta porque aparece 5 veces."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un conteo de libros leídos: 0 libros→4 alumnos, 1 libro→7 alumnos, 2 libros→3 alumnos. ¿Cuánto debe medir la barra de 1 libro en alumnos? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la categoría «1 libro».",
+          "Su frecuencia es 7 alumnos.",
+          "La altura de la barra iguala la frecuencia."
+        ],
+        "retroalimentacion": "La barra mide 7 unidades de alumnos; 1 es la categoría."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tabla de frutas preferidas tiene mango 10, plátano 5 y mandarina 7. ¿Qué va en el eje horizontal de un gráfico de barras?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo el total 22"
+          },
+          {
+            "id": "b",
+            "texto": "Números 10, 5 y 7"
+          },
+          {
+            "id": "c",
+            "texto": "Porcentajes únicamente"
+          },
+          {
+            "id": "d",
+            "texto": "Nombres de frutas"
+          }
+        ],
+        "pistas": [
+          "El eje horizontal muestra categorías.",
+          "Las frecuencias se colocan como alturas.",
+          "Mango, plátano y mandarina son categorías."
+        ],
+        "retroalimentacion": "«Nombres de frutas» va en el eje horizontal."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una barra representa 12 estudiantes y la escala vertical marca 2 estudiantes por división. ¿Cuántas divisiones de alto necesita? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada división vale 2 estudiantes.",
+          "Divide la frecuencia 12 entre 2.",
+          "12÷2=6."
+        ],
+        "retroalimentacion": "La barra necesita 6 divisiones para representar 12 estudiantes."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si la escala es 0, 5, 10, 15, una barra que termina a mitad entre 10 y 15 representa exactamente 12 estudiantes.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La mitad de 10 y 15 es 12,5.",
+          "No da 12 exactos.",
+          "Una escala de 5 en 5 requiere ubicar el 12 antes de la mitad."
+        ],
+        "retroalimentacion": "Es falso: la mitad representa 12,5, no 12."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Categorías de mascotas: perro 6, gato 4, pez 2. Escribe un título claro para el gráfico según la regla «Mascotas preferidas».",
+        "respuesta": "Mascotas preferidas",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El título debe nombrar la variable.",
+          "La variable pregunta qué mascota se prefiere.",
+          "Usa exactamente el título indicado entre comillas."
+        ],
+        "retroalimentacion": "El título «Mascotas preferidas» dice qué muestran las barras."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una clase registra calificaciones 11, 12, 11, 13, 12, 11. ¿Qué barra debe tener altura 3?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Calificación 11"
+          },
+          {
+            "id": "b",
+            "texto": "Calificación 12"
+          },
+          {
+            "id": "c",
+            "texto": "Calificación 13"
+          },
+          {
+            "id": "d",
+            "texto": "Todas las calificaciones"
+          }
+        ],
+        "pistas": [
+          "Cuenta cuántas veces aparece cada calificación.",
+          "11 aparece tres veces.",
+          "12 aparece dos y 13 una."
+        ],
+        "retroalimentacion": "«Calificación 11» tiene frecuencia 3."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un gráfico para los datos A=4, B=7, C=5, ¿cuántas unidades de altura suman las tres barras? Escribe solo el número.",
+        "respuesta": 16,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee las tres alturas.",
+          "Suma 4 y 7 primero.",
+          "11+5=16."
+        ],
+        "retroalimentacion": "Las alturas suman 16, igual al total de observaciones."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para comparar edades 11, 12 y 13 años con frecuencias 3, 6 y 2, se pueden usar tres barras de alturas 3, 6 y 2.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las edades enteras son categorías discretas.",
+          "Cada edad tiene su frecuencia.",
+          "Las alturas deben seguir 3, 6 y 2."
+        ],
+        "retroalimentacion": "Es verdadero: las barras muestran las frecuencias de cada edad."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "La tabla dice A=8, B=4, C=6. Un gráfico dibuja barras A=8, B=6, C=4. ¿Qué corrección lo ajusta a la tabla?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Reducir A a 6"
+          },
+          {
+            "id": "b",
+            "texto": "Sumar 2 a todas las barras"
+          },
+          {
+            "id": "c",
+            "texto": "Intercambiar las alturas de B y C"
+          },
+          {
+            "id": "d",
+            "texto": "Eliminar la barra B"
+          }
+        ],
+        "pistas": [
+          "Compara categoría por categoría.",
+          "A ya coincide.",
+          "Las alturas de B y C están intercambiadas."
+        ],
+        "retroalimentacion": "«Intercambiar las alturas de B y C» deja B=4 y C=6."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.construir-grafico-circular",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+    "desempenosOrigen": [
+      "MAT-C25-S1-01"
+    ],
+    "bloque": "Gráficos estadísticos",
+    "nombre": "Construcción del gráfico circular",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Calcula los ángulos de cada sector y traza el gráfico con transportador.",
+    "palabrasClave": [
+      "gráfico circular",
+      "sector",
+      "ángulo",
+      "frecuencia",
+      "transportador"
+    ],
+    "prerrequisitos": [
+      "mat.s1.frecuencia-porcentual"
+    ],
+    "ordenSugerido": 68,
+    "ideaCentral": "Cada sector de un gráfico circular ocupa una parte de 360° proporcional a su frecuencia. Calcula ángulo = frecuencia/total × 360° y comprueba que todos los sectores sumen 360°.",
+    "pasos": [
+      "Suma las frecuencias para obtener el total.",
+      "Calcula la fracción o porcentaje de cada categoría.",
+      "Multiplica cada fracción por 360° y comprueba la suma.",
+      "Traza los ángulos consecutivos con transportador y escribe las etiquetas."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "De 20 votos, 5 son por vóley.",
+        "desarrollo": "5/20=1/4; 360°÷4=90°.",
+        "respuesta": "Dibuja un sector de 90°."
+      },
+      {
+        "situacion": "Tres opciones reciben 10, 6 y 4 votos.",
+        "desarrollo": "El total es 20; los ángulos son 180°, 108° y 72°.",
+        "respuesta": "Los sectores completan 360°."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Usar el porcentaje como si fueran grados.",
+        "correccion": "25 % corresponde a 90°, no a 25°."
+      },
+      {
+        "error": "Olvidar comprobar el total.",
+        "correccion": "Los ángulos deben sumar exactamente 360°."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Sector",
+        "significado": "Porción del círculo asignada a una categoría."
+      },
+      {
+        "termino": "Ángulo central",
+        "significado": "Abertura del sector medida desde el centro."
+      },
+      {
+        "termino": "Transportador",
+        "significado": "Instrumento para medir y trazar ángulos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En un grupo de 20 estudiantes, 10 eligen fútbol. ¿Cuántos grados mide su sector circular? Escribe solo el número.",
+        "respuesta": 180,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "10 de 20 es la mitad.",
+          "Un círculo completo mide 360°.",
+          "La mitad de 360 es 180."
+        ],
+        "retroalimentacion": "El sector mide 180°, medio círculo."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una categoría representa 25 % de las respuestas. ¿Qué ángulo le corresponde?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "25°"
+          },
+          {
+            "id": "b",
+            "texto": "45°"
+          },
+          {
+            "id": "c",
+            "texto": "90°"
+          },
+          {
+            "id": "d",
+            "texto": "180°"
+          }
+        ],
+        "pistas": [
+          "25 % es un cuarto.",
+          "Un círculo tiene 360°.",
+          "360÷4=90."
+        ],
+        "retroalimentacion": "«90°» corresponde al 25 % del círculo."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los ángulos de todos los sectores de un gráfico circular deben sumar 360°.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los sectores llenan el círculo completo.",
+          "Una vuelta completa mide 360°.",
+          "No debe quedar espacio ni superposición."
+        ],
+        "retroalimentacion": "Es verdadero: la suma debe ser 360°."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Si un sector ocupa la mitad del círculo, ¿qué porcentaje representa? Escribe solo el porcentaje con símbolo %.",
+        "respuesta": "50%",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La mitad equivale a una de dos partes iguales.",
+          "Multiplica 1/2 por 100.",
+          "El resultado es cincuenta por ciento."
+        ],
+        "retroalimentacion": "La mitad representa 50 %, no 25 %."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "De 30 respuestas, 5 son «bicicleta». ¿Qué ángulo en grados corresponde? Escribe solo el número.",
+        "respuesta": 60,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La fracción es 5/30=1/6.",
+          "Divide 360° entre 6.",
+          "360÷6=60."
+        ],
+        "retroalimentacion": "El sector de bicicleta mide 60°."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una encuesta tiene categorías 50 %, 30 % y 20 %. ¿Qué tres ángulos se deben marcar?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "180°, 120° y 60°"
+          },
+          {
+            "id": "b",
+            "texto": "50°, 30° y 20°"
+          },
+          {
+            "id": "c",
+            "texto": "200°, 100° y 60°"
+          },
+          {
+            "id": "d",
+            "texto": "180°, 108° y 72°"
+          }
+        ],
+        "pistas": [
+          "Multiplica cada porcentaje por 360°.",
+          "50 % da 180° y 30 % da 108°.",
+          "20 % da 72°; comprueba la suma."
+        ],
+        "retroalimentacion": "«180°, 108° y 72°» suma 360°."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 8 de 40 estudiantes eligen ajedrez, su sector debe medir 72°.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "8/40=1/5.",
+          "Un quinto de 360° es 72°.",
+          "Comprueba 72×5=360."
+        ],
+        "retroalimentacion": "Es verdadero: el sector ocupa 20 % del círculo, 72°."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Tienes sectores de 90°, 120° y 150°. ¿Qué instrumento usarías para trazarlos con precisión?",
+        "respuesta": "transportador",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los datos están expresados en grados.",
+          "Necesitas un instrumento que mida ángulos.",
+          "Ese instrumento se llama transportador."
+        ],
+        "retroalimentacion": "Usa un transportador para medir 90°, 120° y 150°."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una clase de 24 estudiantes, 6 prefieren danza, 10 música y el resto teatro. ¿Cuántos grados ocupa teatro? Escribe solo el número.",
+        "respuesta": 120,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el resto: 24−6−10=8.",
+          "Teatro representa 8/24=1/3.",
+          "Un tercio de 360° es 120°."
+        ],
+        "retroalimentacion": "Teatro ocupa 120°, pues lo eligen 8 de 24."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un gráfico debe representar A=12, B=9 y C=3 de 24 respuestas. ¿Qué secuencia de ángulos es correcta?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "180°, 135°, 45°"
+          },
+          {
+            "id": "b",
+            "texto": "120°, 90°, 30°"
+          },
+          {
+            "id": "c",
+            "texto": "180°, 90°, 90°"
+          },
+          {
+            "id": "d",
+            "texto": "12°, 9°, 3°"
+          }
+        ],
+        "pistas": [
+          "Cada respuesta vale 360÷24=15°.",
+          "Multiplica 12, 9 y 3 por 15.",
+          "Obtienes 180°, 135° y 45°."
+        ],
+        "retroalimentacion": "«180°, 135°, 45°» suma 360° y respeta las frecuencias."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos categorías tienen frecuencias 4 y 8 en un total de 16, sus ángulos pueden ser 90° y 180°.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "4/16 es un cuarto.",
+          "8/16 es la mitad.",
+          "Un cuarto son 90° y la mitad 180°."
+        ],
+        "retroalimentacion": "Es verdadero: ambos ángulos corresponden a sus fracciones del total."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al construir un gráfico, Ana obtuvo ángulos 100°, 140° y 110°. ¿Qué debe corregir antes de trazarlos?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Dibujar los sectores tal como están"
+          },
+          {
+            "id": "b",
+            "texto": "Revisar los cálculos: faltan 10°"
+          },
+          {
+            "id": "c",
+            "texto": "Quitar 10° al primer sector"
+          },
+          {
+            "id": "d",
+            "texto": "Añadir una barra de 10°"
+          }
+        ],
+        "pistas": [
+          "Suma los tres ángulos.",
+          "100+140+110=350.",
+          "Faltan 10° para completar 360°."
+        ],
+        "retroalimentacion": "«Revisar los cálculos: faltan 10°» evita dejar un espacio vacío."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.interpretar-tablas-graficos",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-S1-04"
+    ],
+    "bloque": "Gráficos estadísticos",
+    "nombre": "Interpretación de tablas y gráficos de barras y circulares",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Lee y compara información de tablas y gráficos y produce nueva información.",
+    "palabrasClave": [
+      "tabla",
+      "gráfico de barras",
+      "gráfico circular",
+      "comparación",
+      "total"
+    ],
+    "prerrequisitos": [
+      "mat.s1.grafico-barras",
+      "mat.s1.construir-grafico-circular"
+    ],
+    "ordenSugerido": 69,
+    "ideaCentral": "Las tablas y los gráficos presentan los mismos datos de formas distintas. Para obtener información nueva, lee las categorías y sus valores, compara, suma o calcula una parte del total según la pregunta.",
+    "pasos": [
+      "Lee el título, las categorías y las unidades.",
+      "Ubica el dato solicitado en la tabla o gráfico.",
+      "Si comparas, resta; si buscas total, suma; si hay porcentajes, usa el total.",
+      "Comprueba que la conclusión coincida con los datos originales."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una tabla dice A=5, B=8 y C=7.",
+        "desarrollo": "El total es 5+8+7=20; B supera a A por 3.",
+        "respuesta": "Hay 20 respuestas y B tiene 3 más que A."
+      },
+      {
+        "situacion": "Un circular muestra 25 % para vóley entre 40 estudiantes.",
+        "desarrollo": "Una cuarta parte de 40 es 10.",
+        "respuesta": "10 estudiantes eligieron vóley."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Leer la altura sin revisar la escala.",
+        "correccion": "Confirma cuánto vale cada división vertical."
+      },
+      {
+        "error": "Tomar un porcentaje como cantidad.",
+        "correccion": "Convierte el porcentaje usando el total de respuestas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Dato",
+        "significado": "Valor registrado para una categoría."
+      },
+      {
+        "termino": "Total",
+        "significado": "Suma de todas las frecuencias."
+      },
+      {
+        "termino": "Porcentaje",
+        "significado": "Parte de cada cien datos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una tabla muestra libros prestados: lunes 4, martes 7, miércoles 5. ¿Cuántos se prestaron el martes? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ubica la fila de martes.",
+          "La cantidad junto a martes es 7.",
+          "No sumes los tres días."
+        ],
+        "retroalimentacion": "El martes se prestaron 7 libros."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un gráfico de barras muestra mango 8, plátano 5 y piña 3. ¿Cuál fruta fue la más elegida?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Piña"
+          },
+          {
+            "id": "b",
+            "texto": "Plátano"
+          },
+          {
+            "id": "c",
+            "texto": "Todas igual"
+          },
+          {
+            "id": "d",
+            "texto": "Mango"
+          }
+        ],
+        "pistas": [
+          "Compara las alturas 8, 5 y 3.",
+          "La mayor frecuencia es 8.",
+          "El 8 pertenece a mango."
+        ],
+        "retroalimentacion": "«Mango» fue la más elegida, con 8 votos."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un sector circular ocupa 50 % de un gráfico, representa la mitad de los datos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "50 de cada 100 es la mitad.",
+          "El sector equivale a 180°.",
+          "La mitad del círculo muestra la mitad de respuestas."
+        ],
+        "retroalimentacion": "Es verdadero: 50 % representa la mitad del total."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Tabla de transportes: a pie 6, bus 9, bicicleta 3. ¿Qué transporte corresponde a frecuencia 3?",
+        "respuesta": "bicicleta",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el número 3 en la tabla.",
+          "Está junto a la tercera categoría.",
+          "La tercera categoría es bicicleta."
+        ],
+        "retroalimentacion": "Bicicleta tiene frecuencia 3."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un gráfico de barras registra 6 estudiantes en Arte, 8 en Música y 4 en Danza. ¿Cuántos estudiantes hay en total? Escribe solo el número.",
+        "respuesta": 18,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las tres alturas.",
+          "6+8=14.",
+          "14+4=18."
+        ],
+        "retroalimentacion": "El total es 18 estudiantes; ninguna barra sola representa el total."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tabla tiene A=5, B=10, C=5. ¿Qué porcentaje debe ocupar B en un gráfico circular?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "50 %"
+          },
+          {
+            "id": "b",
+            "texto": "25 %"
+          },
+          {
+            "id": "c",
+            "texto": "10 %"
+          },
+          {
+            "id": "d",
+            "texto": "75 %"
+          }
+        ],
+        "pistas": [
+          "Suma 5+10+5=20.",
+          "B tiene 10 de 20.",
+          "10/20 equivale a la mitad."
+        ],
+        "retroalimentacion": "«50 %» representa la mitad de los 20 datos."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una barra de lunes tiene altura 12 y otra de martes altura 8, el lunes hubo 4 más.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las dos alturas.",
+          "Resta 12−8.",
+          "La diferencia es 4."
+        ],
+        "retroalimentacion": "Es verdadero: 12−8=4."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un gráfico circular de 40 estudiantes da 25 % a Ciencia. ¿Cuántos estudiantes eligieron Ciencia? Escribe solo el número como texto.",
+        "respuesta": "10",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "25 % es la cuarta parte.",
+          "Divide 40 entre 4.",
+          "40÷4=10."
+        ],
+        "retroalimentacion": "Eligieron Ciencia 10 estudiantes; 25 es un porcentaje."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una tabla da A=12, B=8 y C=10. ¿Cuántas respuestas más tienen A y C juntas que B? Escribe solo el número.",
+        "respuesta": 14,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma A y C: 12+10.",
+          "Obtienes 22.",
+          "Resta las 8 respuestas de B."
+        ],
+        "retroalimentacion": "A y C juntas superan a B por 14 respuestas."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un circular, lectura ocupa 90° y deporte 180° de 360°. Si respondieron 24 personas, ¿cuántas eligieron otras actividades?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 personas"
+          },
+          {
+            "id": "b",
+            "texto": "12 personas"
+          },
+          {
+            "id": "c",
+            "texto": "6 personas"
+          },
+          {
+            "id": "d",
+            "texto": "18 personas"
+          }
+        ],
+        "pistas": [
+          "Suma 90°+180°=270°.",
+          "Quedan 90°, un cuarto del círculo.",
+          "Un cuarto de 24 es 6."
+        ],
+        "retroalimentacion": "«6 personas» eligieron otras actividades; representan 90°."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una tabla indica rojo 4 y azul 8; un circular correcto debe mostrar el sector azul con el doble de área que el rojo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las frecuencias 8 y 4.",
+          "8 es el doble de 4.",
+          "Los sectores son proporcionales a las frecuencias."
+        ],
+        "retroalimentacion": "Es verdadero: azul representa el doble de respuestas y ocupa el doble de sector."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "La tabla indica lunes 5, martes 7 y miércoles 4. Un gráfico dibuja lunes 5, martes 4 y miércoles 7. ¿Qué conclusión está respaldada por la tabla?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El miércoles tuvo más registros"
+          },
+          {
+            "id": "b",
+            "texto": "El martes fue el día con más registros"
+          },
+          {
+            "id": "c",
+            "texto": "Lunes y martes empataron"
+          },
+          {
+            "id": "d",
+            "texto": "El gráfico coincide con la tabla"
+          }
+        ],
+        "pistas": [
+          "Usa los números de la tabla para decidir.",
+          "7 es mayor que 5 y 4.",
+          "La barra del gráfico intercambió martes y miércoles."
+        ],
+        "retroalimentacion": "«El martes fue el día con más registros» es la conclusión válida."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.graficos-enganosos",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Sustenta conclusiones o decisiones con base en la información obtenida",
+    "desempenosOrigen": [
+      "MAT-C25-S1-07"
+    ],
+    "bloque": "Gráficos estadísticos",
+    "nombre": "Gráficos engañosos y errores de interpretación",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Detecta escalas o proporciones que distorsionan la información de un gráfico.",
+    "palabrasClave": [
+      "gráfico",
+      "escala",
+      "eje vertical",
+      "proporción",
+      "comparación"
+    ],
+    "prerrequisitos": [
+      "mat.s1.interpretar-tablas-graficos"
+    ],
+    "ordenSugerido": 70,
+    "ideaCentral": "Un gráfico puede exagerar diferencias si recorta el eje o usa dibujos de tamaños desiguales. Comprueba siempre los números y la escala antes de sacar una conclusión.",
+    "pasos": [
+      "Lee el título y las unidades de ambos ejes.",
+      "Busca dónde empieza el eje vertical y cuánto vale cada división.",
+      "Compara las cantidades reales, no solo la altura visible de las barras.",
+      "Revisa si las figuras conservan una proporción justa."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un afiche muestra 48 y 50 visitantes con un eje que comienza en 47. ¿El segundo lugar recibió el doble?",
+        "desarrollo": "La diferencia real es 2 y 50 no es el doble de 48. El eje recortado agranda visualmente la diferencia.",
+        "respuesta": "No; recibió solo 2 visitantes más."
+      },
+      {
+        "situacion": "En una encuesta, 20 estudiantes eligen fútbol y 10 vóley. Un dibujo de fútbol mide el doble de alto y de ancho.",
+        "desarrollo": "Al duplicar ambas dimensiones, su área se vuelve cuatro veces mayor, aunque la cantidad solo es doble.",
+        "respuesta": "El dibujo exagera la ventaja del fútbol."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir que una barra de 50 es el doble de una de 48 porque parece dos veces más alta.",
+        "correccion": "Lee las cifras: 50 ÷ 48 no es 2; revisa el inicio del eje."
+      },
+      {
+        "error": "Usar el área de un pictograma como si representara solo su altura.",
+        "correccion": "Comprueba si el tamaño total de los símbolos guarda la misma proporción que los datos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Escala",
+        "significado": "Valores que corresponden a las divisiones de un eje."
+      },
+      {
+        "termino": "Eje truncado",
+        "significado": "Eje que comienza por encima de cero y puede agrandar diferencias visuales."
+      },
+      {
+        "termino": "Proporción",
+        "significado": "Relación entre dos cantidades o tamaños."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un gráfico de barras que empieza su eje vertical en 90 puede hacer que 99 parezca mucho mayor que 95.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fíjate en el inicio: 90.",
+          "Solo hay cuatro unidades entre 95 y 99.",
+          "Desde 90, las alturas visibles son 5 y 9; eso agranda la impresión."
+        ],
+        "retroalimentacion": "Verdadero: la diferencia real es 4, pero el eje recortado la hace parecer grande."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos barras indican 40 y 42 libros. ¿Qué dato permite juzgar si la diferencia visual está exagerada?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La comparación depende de cómo se dibujaron las alturas.",
+          "Busca los números que acompañan al eje vertical.",
+          "Si el eje arranca cerca de 40, una diferencia de 2 puede parecer enorme."
+        ],
+        "retroalimentacion": "El inicio y las divisiones del eje vertical revelan si se exageraron los 2 libros de diferencia.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El color de las barras"
+          },
+          {
+            "id": "b",
+            "texto": "El nombre de la biblioteca"
+          },
+          {
+            "id": "c",
+            "texto": "El inicio y las divisiones del eje vertical"
+          },
+          {
+            "id": "d",
+            "texto": "El ancho de la hoja"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un cartel compara 12 y 24 entradas vendidas. ¿Cuántas veces representa 24 a 12? Escribe «el doble» o una expresión equivalente.",
+        "respuesta": "el doble",
+        "alternativasAceptadas": [
+          "dos veces",
+          "2 veces"
+        ],
+        "pistas": [
+          "Compara las cifras, no el dibujo.",
+          "Divide 24 entre 12.",
+          "24 ÷ 12 = 2."
+        ],
+        "retroalimentacion": "24 es el doble de 12; una figura que sugiera cuatro veces más sería engañosa."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una barra muestra 18 niñas y otra 21 niños. ¿Cuál es la diferencia real de estudiantes? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta las cantidades indicadas.",
+          "Compara 21 con 18.",
+          "21 − 18 te da la distancia real entre las barras."
+        ],
+        "retroalimentacion": "La diferencia es 21 − 18 = 3 estudiantes, aunque el dibujo pueda hacerla parecer mayor."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La escala de un gráfico dice 1 cuadro = 5 votos. Una barra de 4 cuadros aparece rotulada «15 votos». ¿Qué falla?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa el valor de cada cuadro.",
+          "Son 4 cuadros de 5 votos.",
+          "4 × 5 = 20; compara con el rótulo."
+        ],
+        "retroalimentacion": "La rotulación debería decir 20 votos: cuatro cuadros de cinco no representan 15.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La barra debería medir 3 cuadros"
+          },
+          {
+            "id": "b",
+            "texto": "La rotulación debería decir 20 votos"
+          },
+          {
+            "id": "c",
+            "texto": "La escala debería estar en segundos"
+          },
+          {
+            "id": "d",
+            "texto": "No hay error"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un informe dibuja 30 bicicletas con una barra de 6 cm y 15 bicicletas con otra de 3 cm; si el eje empieza en cero, las alturas conservan la proporción.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara primero 30 con 15.",
+          "30 es dos veces 15.",
+          "También 6 cm es dos veces 3 cm."
+        ],
+        "retroalimentacion": "Verdadero: las cantidades y las alturas tienen la misma razón de 2 a 1."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En un gráfico de ahorro, el eje vertical comienza en 800 soles y no en cero. ¿Cómo se llama ese recurso?",
+        "respuesta": "eje truncado",
+        "alternativasAceptadas": [
+          "eje recortado",
+          "escala truncada"
+        ],
+        "pistas": [
+          "Observa que faltan los valores de 0 a 799.",
+          "El eje se cortó para empezar en 800.",
+          "El nombre usa una palabra que significa «cortado»."
+        ],
+        "retroalimentacion": "Es un eje truncado; puede exagerar diferencias pequeñas entre montos próximos a 800."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un pictograma usa una ★ pequeña para 10 personas y una ★ con doble ancho y doble alto para 20. ¿Qué impresión falsa puede dar?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No mires solo la altura de la estrella.",
+          "El área crece con ancho por alto.",
+          "Doble ancho y doble alto producen cuatro veces el área."
+        ],
+        "retroalimentacion": "La estrella de 20 parece cuatro veces la de 10 por su área, aunque el dato solo se duplicó.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Que 20 es igual a 10"
+          },
+          {
+            "id": "b",
+            "texto": "Que 10 supera a 20"
+          },
+          {
+            "id": "c",
+            "texto": "Que ambos valores son cero"
+          },
+          {
+            "id": "d",
+            "texto": "Que 20 parece cuatro veces 10"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un gráfico compara 78 y 83 kilogramos y sus barras parecen muy distintas. ¿Cuántos kilogramos separan realmente los datos? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee 78 y 83, no sus alturas.",
+          "Calcula la distancia entre ambos valores.",
+          "83 − 78 = 5."
+        ],
+        "retroalimentacion": "Solo hay 5 kilogramos de diferencia; un eje recortado puede agrandarla visualmente."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos distritos registran 101 y 104 casos. Un gráfico comienza en 100 y muestra alturas visibles de 1 y 4 cuadros. ¿Cuál conclusión respeta los datos?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Distingue altura visible de valor total.",
+          "Resta 104 − 101.",
+          "La razón 4 a 1 solo describe los cuadros sobre 100."
+        ],
+        "retroalimentacion": "El segundo tiene 3 casos más; no tiene cuatro veces 101 casos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El segundo tiene 3 casos más"
+          },
+          {
+            "id": "b",
+            "texto": "El segundo tiene cuatro veces los casos"
+          },
+          {
+            "id": "c",
+            "texto": "El primero tiene 100 casos menos"
+          },
+          {
+            "id": "d",
+            "texto": "Ambos tienen igual cantidad"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una revista presenta 60% y 40% como sectores de un círculo, pero dibuja ambos sectores del mismo tamaño. El gráfico representa fielmente los porcentajes.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los porcentajes: 60 y 40 no son iguales.",
+          "En un círculo, mayor porcentaje requiere mayor sector.",
+          "Dos sectores iguales representarían 50% y 50%."
+        ],
+        "retroalimentacion": "Falso: sectores iguales contradicen los valores 60% y 40%."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una encuesta da 25 respuestas «sí» y 20 «no». El título afirma «casi todos dijeron sí». ¿Qué cifra concreta desmonta esa exageración? Escribe la diferencia en respuestas.",
+        "respuesta": "5",
+        "alternativasAceptadas": [
+          "5 respuestas"
+        ],
+        "pistas": [
+          "Conserva las dos cantidades del sondeo.",
+          "Calcula 25 − 20.",
+          "Solo cinco respuestas separan ambas opciones."
+        ],
+        "retroalimentacion": "La diferencia es 5 respuestas; «casi todos» exagera una ventaja pequeña."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

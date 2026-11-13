@@ -1,0 +1,1210 @@
+[
+  {
+    "clave": "mat.s1.angulos-complementarios-suplementarios",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-S1-03"
+    ],
+    "bloque": "Rectas y ángulos",
+    "nombre": "Ángulos complementarios y suplementarios",
+    "disciplina": "geometria",
+    "descripcionCorta": "Halla el complemento y el suplemento de un ángulo y los usa en problemas.",
+    "palabrasClave": [
+      "ángulo",
+      "complemento",
+      "suplemento",
+      "90°",
+      "180°"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 20,
+    "ideaCentral": "Dos ángulos son complementarios si suman 90° y suplementarios si suman 180°. Para hallar el ángulo que falta, resta el conocido del total correspondiente.",
+    "pasos": [
+      "Reconoce si el par debe formar 90° o 180°.",
+      "Escribe la suma de ambos ángulos.",
+      "Resta el ángulo conocido de 90° o 180°.",
+      "Comprueba sumando el resultado al dato inicial."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un giro de 35° completa un ángulo recto.",
+        "desarrollo": "El complemento es 90° − 35° = 55°; 35° + 55° = 90°.",
+        "respuesta": "Faltan 55°."
+      },
+      {
+        "situacion": "Dos ángulos forman una línea recta y uno mide 120°.",
+        "desarrollo": "El otro mide 180° − 120° = 60°.",
+        "respuesta": "Su suplemento es 60°."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Restar de 180° cuando se pide complemento.",
+        "correccion": "Complemento significa suma 90°; suplemento significa suma 180°."
+      },
+      {
+        "error": "Pensar que el suplemento siempre es mayor que el ángulo dado.",
+        "correccion": "Si el ángulo es obtuso, su suplemento es agudo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Complementarios",
+        "significado": "Dos ángulos cuya suma es 90°."
+      },
+      {
+        "termino": "Suplementarios",
+        "significado": "Dos ángulos cuya suma es 180°."
+      },
+      {
+        "termino": "Ángulo recto",
+        "significado": "Ángulo de 90°."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuánto mide en grados el complemento de 30°? Escribe solo el número.",
+        "respuesta": 60,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El complemento completa un ángulo recto.",
+          "Un ángulo recto mide 90°.",
+          "Calcula 90 − 30."
+        ],
+        "retroalimentacion": "El complemento es 60°; 30° + 60° = 90°."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué pareja de medidas es suplementaria?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los suplementarios suman 180°.",
+          "Prueba la suma de cada pareja.",
+          "110° + 70° alcanza 180°."
+        ],
+        "retroalimentacion": "110° y 70° son suplementarios; 40° y 50° son complementarios.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "40° y 50°"
+          },
+          {
+            "id": "b",
+            "texto": "110° y 70°"
+          },
+          {
+            "id": "c",
+            "texto": "20° y 60°"
+          },
+          {
+            "id": "d",
+            "texto": "90° y 30°"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los ángulos de 25° y 65° son complementarios.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las dos medidas.",
+          "25 + 65 = 90.",
+          "Un total de 90° define complementarios."
+        ],
+        "retroalimentacion": "Verdadero: 25° + 65° = 90°."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un ángulo mide 150°. ¿Cuántos grados mide su suplemento? Escribe solo el número.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un suplemento completa 180°.",
+          "Resta 150 de 180.",
+          "Comprueba que ambas medidas formen línea recta."
+        ],
+        "retroalimentacion": "El suplemento es 30°; 150° + 30° = 180°."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El complemento de un ángulo es 18°. ¿Cuánto mide el ángulo original?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambos suman 90°.",
+          "Al ángulo original le faltan 18° para 90°.",
+          "Calcula 90 − 18."
+        ],
+        "retroalimentacion": "El ángulo original mide 72°; 72° + 18° = 90°.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "18°"
+          },
+          {
+            "id": "b",
+            "texto": "162°"
+          },
+          {
+            "id": "c",
+            "texto": "82°"
+          },
+          {
+            "id": "d",
+            "texto": "72°"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una línea recta, un ángulo mide 73°. ¿Cuántos grados mide el otro ángulo adyacente? Escribe solo el número.",
+        "respuesta": 107,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos ángulos de la línea suman 180°.",
+          "Plantea 73 + x = 180.",
+          "Resta 73 a 180."
+        ],
+        "retroalimentacion": "El otro mide 107°; 73° + 107° = 180°."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un ángulo de 95° tiene complemento positivo de 5°.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un complemento debe sumar 90°.",
+          "95° ya supera 90°.",
+          "95° + 5° = 100°, no 90°."
+        ],
+        "retroalimentacion": "Falso: 95° no tiene complemento positivo; 5° tampoco completa 90°."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Dos ángulos complementarios: uno mide el doble del otro. ¿Cuántos grados mide el menor? Escribe solo el número.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Representa el menor por una parte.",
+          "El mayor ocupa dos partes; juntos son tres partes.",
+          "90 ÷ 3 = 30."
+        ],
+        "retroalimentacion": "El menor mide 30° y el mayor 60°; suman 90°."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un ángulo A mide 48°. B es su complemento y C es suplemento de B. ¿Cuánto mide C?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero halla B con 90 − 48.",
+          "B mide 42°.",
+          "Ahora calcula 180 − 42."
+        ],
+        "retroalimentacion": "C mide 138°; confundir complemento y suplemento daría otra medida.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "42°"
+          },
+          {
+            "id": "b",
+            "texto": "132°"
+          },
+          {
+            "id": "c",
+            "texto": "138°"
+          },
+          {
+            "id": "d",
+            "texto": "48°"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Dos ángulos suplementarios difieren en 40°. ¿Cuántos grados mide el mayor? Escribe solo el número.",
+        "respuesta": 110,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Si fueran iguales medirían 90° cada uno.",
+          "Para diferir 40°, mueve 20° de uno al otro.",
+          "El mayor es 90 + 20."
+        ],
+        "retroalimentacion": "El mayor mide 110° y el menor 70°; suman 180° y difieren 40°."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si duplicas los dos ángulos complementarios de 20° y 70°, los nuevos ángulos son suplementarios.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Duplica ambas medidas.",
+          "Obtienes 40° y 140°.",
+          "Suma los dos ángulos nuevos."
+        ],
+        "retroalimentacion": "Verdadero: 40° + 140° = 180°."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El suplemento de un ángulo es triple de su complemento. ¿Cuántos grados mide ese ángulo? Escribe solo el número.",
+        "respuesta": 45,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Llama x al ángulo: suplemento 180 − x y complemento 90 − x.",
+          "Plantea 180 − x = 3(90 − x).",
+          "Al ordenar: 2x = 90."
+        ],
+        "retroalimentacion": "Mide 45°: complemento 45° y suplemento 135°, que es el triple."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.angulos-opuestos-adyacentes",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-S1-03"
+    ],
+    "bloque": "Rectas y ángulos",
+    "nombre": "Ángulos opuestos por el vértice y adyacentes",
+    "disciplina": "geometria",
+    "descripcionCorta": "Reconoce pares de ángulos y aplica sus propiedades para hallar medidas.",
+    "palabrasClave": [
+      "vértice",
+      "opuestos",
+      "adyacentes",
+      "recta",
+      "ángulos"
+    ],
+    "prerrequisitos": [
+      "mat.s1.angulos-complementarios-suplementarios"
+    ],
+    "ordenSugerido": 21,
+    "ideaCentral": "Al cruzarse dos rectas, los ángulos opuestos por el vértice son iguales. Dos ángulos adyacentes que forman una recta suman 180°.",
+    "pasos": [
+      "Ubica el vértice común y observa si los ángulos están frente a frente o uno junto al otro.",
+      "Si son opuestos por el vértice, iguala sus medidas.",
+      "Si son adyacentes sobre una recta, suma sus medidas hasta 180°.",
+      "Comprueba la medida obtenida en el dibujo descrito."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Dos rectas se cruzan y un ángulo mide 65°.",
+        "desarrollo": "El ángulo frente a él es opuesto por el vértice.",
+        "respuesta": "También mide 65°."
+      },
+      {
+        "situacion": "En una recta, un rayo divide un ángulo llano en 115° y otro.",
+        "desarrollo": "Los ángulos adyacentes suman 180°; 180° − 115° = 65°.",
+        "respuesta": "El otro mide 65°."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir el ángulo vecino con el opuesto.",
+        "correccion": "El opuesto queda al otro lado del vértice; el vecino comparte un lado."
+      },
+      {
+        "error": "Igualar todos los ángulos de un cruce.",
+        "correccion": "Solo los opuestos son iguales; los vecinos suman 180°."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Vértice",
+        "significado": "Punto donde se encuentran los lados de un ángulo."
+      },
+      {
+        "termino": "Opuestos por el vértice",
+        "significado": "Ángulos frente a frente al cruzarse dos rectas."
+      },
+      {
+        "termino": "Adyacentes",
+        "significado": "Ángulos vecinos que comparten un lado."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Dos rectas se cruzan. Un ángulo mide 40°. ¿Cuántos grados mide el opuesto por el vértice? Escribe solo el número.",
+        "respuesta": 40,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el ángulo que está enfrente.",
+          "Los opuestos por el vértice son iguales.",
+          "Copia la medida de 40°."
+        ],
+        "retroalimentacion": "El opuesto mide 40°; restar de 180° daría un vecino."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un cruce de dos rectas, ¿qué relación tienen los ángulos opuestos por el vértice?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en dos ángulos frente a frente.",
+          "Al girar media vuelta, uno coincide con el otro.",
+          "Por ello tienen la misma medida."
+        ],
+        "retroalimentacion": "Los opuestos por el vértice son iguales; la suma 180° se aplica a vecinos sobre una recta.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Siempre suman 90°"
+          },
+          {
+            "id": "b",
+            "texto": "Nunca comparten vértice"
+          },
+          {
+            "id": "c",
+            "texto": "Tienen igual medida"
+          },
+          {
+            "id": "d",
+            "texto": "Siempre miden 60°"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos ángulos adyacentes que forman una recta suman 180°.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La recta forma un ángulo llano.",
+          "Un ángulo llano mide 180°.",
+          "Los dos ángulos vecinos llenan ese ángulo llano."
+        ],
+        "retroalimentacion": "Verdadero: los adyacentes sobre una recta completan 180°."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un rayo divide una línea recta en 100° y otro ángulo. ¿Cuántos grados mide el segundo? Escribe solo el número.",
+        "respuesta": 80,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Son vecinos sobre una recta.",
+          "Deben sumar 180°.",
+          "Calcula 180 − 100."
+        ],
+        "retroalimentacion": "El segundo mide 80°; 100° + 80° = 180°."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un cruce, el ángulo superior mide 125°. ¿Cuál mide el ángulo inferior, situado justo enfrente?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Superior e inferior están frente a frente.",
+          "Son opuestos por el vértice.",
+          "Sus medidas coinciden."
+        ],
+        "retroalimentacion": "El inferior mide 125°; 55° sería cualquiera de los vecinos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "125°"
+          },
+          {
+            "id": "b",
+            "texto": "55°"
+          },
+          {
+            "id": "c",
+            "texto": "65°"
+          },
+          {
+            "id": "d",
+            "texto": "180°"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Dos rectas se cortan: el ángulo izquierdo mide 72°. ¿Cuántos grados mide el ángulo superior vecino? Escribe solo el número.",
+        "respuesta": 108,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Izquierdo y superior comparten un lado.",
+          "Juntos forman una recta.",
+          "Calcula 180 − 72."
+        ],
+        "retroalimentacion": "El superior mide 108°; igualar 72° correspondería al opuesto derecho."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un cruce, si un ángulo mide 90°, los otros tres también miden 90°.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El ángulo opuesto al recto es igual.",
+          "Cada vecino suma 180° con 90°.",
+          "180 − 90 = 90."
+        ],
+        "retroalimentacion": "Verdadero: el opuesto y los dos vecinos miden 90°."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un ángulo de 35° es adyacente a otro sobre una recta. ¿Cuántos grados mide el opuesto por el vértice de ese otro? Escribe solo el número.",
+        "respuesta": 145,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero encuentra el vecino del de 35°.",
+          "Su medida es 180 − 35 = 145°.",
+          "El opuesto de ese vecino conserva la medida."
+        ],
+        "retroalimentacion": "Mide 145°; el opuesto por el vértice del vecino tiene igual medida."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un cruce, A y C son opuestos; B es vecino de A. Si A = 3x y B = 2x, ¿cuánto mide C?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "A y B suman 180°.",
+          "3x + 2x = 180°, así que x = 36°.",
+          "C es igual a A = 3x."
+        ],
+        "retroalimentacion": "C mide 108°; B mide 72°, no se iguala con C.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "36°"
+          },
+          {
+            "id": "b",
+            "texto": "72°"
+          },
+          {
+            "id": "c",
+            "texto": "180°"
+          },
+          {
+            "id": "d",
+            "texto": "108°"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Dos ángulos vecinos de un cruce están en razón 2:3. ¿Cuántos grados mide el menor? Escribe solo el número.",
+        "respuesta": 72,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las cinco partes juntas forman 180°.",
+          "Cada parte vale 180 ÷ 5 = 36°.",
+          "El menor tiene dos partes."
+        ],
+        "retroalimentacion": "El menor mide 72° y el mayor 108°; suman 180°."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un cruce, si dos ángulos vecinos miden 62° y 118°, entonces sus opuestos por el vértice miden también 62° y 118°, respectivamente.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa que 62 + 118 = 180.",
+          "Cada ángulo tiene otro enfrente.",
+          "Cada opuesto repite la medida de su pareja."
+        ],
+        "retroalimentacion": "Verdadero: los vecinos completan 180° y cada opuesto conserva su medida."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Al cruzarse dos rectas, tres ángulos miden 50°, 130° y 50°. ¿Cuántos grados mide el cuarto? Escribe solo el número.",
+        "respuesta": 130,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los cuatro ángulos completan una vuelta de 360°.",
+          "Los tres dados suman 230°.",
+          "Resta 230 de 360."
+        ],
+        "retroalimentacion": "El cuarto mide 130°; también es opuesto al de 130°."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.rectas-paralelas-secante",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-S1-03"
+    ],
+    "bloque": "Rectas y ángulos",
+    "nombre": "Rectas paralelas cortadas por una secante",
+    "disciplina": "geometria",
+    "descripcionCorta": "Identifica ángulos alternos, correspondientes y conjugados y sus relaciones.",
+    "palabrasClave": [
+      "paralelas",
+      "secante",
+      "correspondientes",
+      "alternos",
+      "conjugados"
+    ],
+    "prerrequisitos": [
+      "mat.s1.angulos-opuestos-adyacentes"
+    ],
+    "ordenSugerido": 22,
+    "ideaCentral": "Cuando una secante corta dos paralelas, los ángulos correspondientes y alternos son iguales; los conjugados del mismo lado suman 180°. La posición respecto de las dos rectas permite reconocer cada pareja.",
+    "pasos": [
+      "Dibuja mentalmente las dos paralelas y la secante, y ubica los dos cruces.",
+      "Clasifica la pareja: misma posición (correspondientes), lados opuestos de la secante (alternos) o mismo lado interior (conjugados).",
+      "Usa igualdad para correspondientes y alternos; suma 180° para conjugados.",
+      "Comprueba si el resultado es agudo u obtuso según la posición."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una secante cruza dos paralelas; un ángulo superior derecho en el primer cruce mide 65°.",
+        "desarrollo": "El superior derecho del segundo cruce es correspondiente; ambos ocupan la misma posición.",
+        "respuesta": "También mide 65°."
+      },
+      {
+        "situacion": "Dos ángulos interiores del mismo lado de una secante son 110° y x.",
+        "desarrollo": "Son conjugados internos: 110° + x = 180°.",
+        "respuesta": "x = 70°."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Igualar los conjugados internos.",
+        "correccion": "Los conjugados internos son suplementarios: suman 180°."
+      },
+      {
+        "error": "Reconocer como correspondiente cualquier ángulo de otro cruce.",
+        "correccion": "Busca la misma posición relativa en ambos cruces."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Secante",
+        "significado": "Recta que corta a otras dos."
+      },
+      {
+        "termino": "Correspondientes",
+        "significado": "Ángulos en la misma posición relativa en ambos cruces."
+      },
+      {
+        "termino": "Alternos internos",
+        "significado": "Ángulos entre las paralelas y en lados opuestos de la secante."
+      },
+      {
+        "termino": "Conjugados internos",
+        "significado": "Ángulos entre las paralelas y del mismo lado de la secante."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una secante corta dos paralelas. Los ángulos en la misma posición de cada cruce se llaman...",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la ubicación en los dos cruces.",
+          "Arriba a la derecha en ambos es la misma posición.",
+          "Ese tipo de pareja tiene un nombre específico."
+        ],
+        "retroalimentacion": "Se llaman correspondientes; «alternos» quedan a lados opuestos de la secante.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Conjugados"
+          },
+          {
+            "id": "b",
+            "texto": "Correspondientes"
+          },
+          {
+            "id": "c",
+            "texto": "Adyacentes"
+          },
+          {
+            "id": "d",
+            "texto": "Complementarios"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Dos ángulos correspondientes entre paralelas: uno mide 55°. ¿Cuántos grados mide el otro? Escribe solo el número.",
+        "respuesta": 55,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica la relación dada: correspondientes.",
+          "Con paralelas, los correspondientes son iguales.",
+          "La segunda medida repite 55°."
+        ],
+        "retroalimentacion": "El otro mide 55°; restar de 180° corresponde a conjugados."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los ángulos alternos internos entre dos paralelas son iguales.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambos están dentro de las paralelas.",
+          "Quedan en lados opuestos de la secante.",
+          "Esa pareja conserva la misma abertura."
+        ],
+        "retroalimentacion": "Verdadero: los alternos internos son iguales cuando las rectas son paralelas."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Dos ángulos conjugados internos miden 120° y otro valor. ¿Cuántos grados mide el segundo? Escribe solo el número.",
+        "respuesta": 60,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los conjugados internos son del mismo lado.",
+          "Suman 180°.",
+          "Resta 120 de 180."
+        ],
+        "retroalimentacion": "El segundo mide 60°; los conjugados no son iguales."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En dos paralelas, un ángulo interior a la izquierda de la secante en el cruce superior y otro interior a la derecha en el inferior forman una pareja...",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambos están entre las paralelas.",
+          "Están en lados contrarios de la secante.",
+          "Interior + lados contrarios indica alternos internos."
+        ],
+        "retroalimentacion": "Son alternos internos; los conjugados internos quedan del mismo lado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Correspondientes"
+          },
+          {
+            "id": "b",
+            "texto": "Conjugados internos"
+          },
+          {
+            "id": "c",
+            "texto": "Alternos internos"
+          },
+          {
+            "id": "d",
+            "texto": "Adyacentes"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un ángulo alterno interno mide 73°. ¿Cuántos grados mide su pareja entre las paralelas? Escribe solo el número.",
+        "respuesta": 73,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La pareja está al otro lado de la secante.",
+          "Los alternos internos de paralelas son iguales.",
+          "Conserva la medida 73°."
+        ],
+        "retroalimentacion": "La pareja mide 73°; 107° sería un conjugado."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos ángulos interiores del mismo lado de la secante miden 80° y 100°, cumplen la relación de conjugados internos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Son del mismo lado y están entre las rectas.",
+          "Suma sus medidas: 80 + 100.",
+          "El total es un ángulo llano."
+        ],
+        "retroalimentacion": "Verdadero: 80° + 100° = 180°."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un ángulo correspondiente mide 135°. ¿Cuántos grados mide el conjugado interno del ángulo correspondiente? Escribe solo el número.",
+        "respuesta": 45,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El correspondiente también mide 135°.",
+          "Su conjugado interno suma 180° con él.",
+          "Calcula 180 − 135."
+        ],
+        "retroalimentacion": "El conjugado mide 45°; no se iguala al correspondiente."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Entre paralelas, A y B son alternos internos. B y C son conjugados internos. Si A = 64°, ¿cuánto mide C?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "A y B son iguales.",
+          "B mide 64°.",
+          "C completa 180° con B."
+        ],
+        "retroalimentacion": "C mide 116°; primero igualas alternos y luego restas para conjugados.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "64°"
+          },
+          {
+            "id": "b",
+            "texto": "26°"
+          },
+          {
+            "id": "c",
+            "texto": "244°"
+          },
+          {
+            "id": "d",
+            "texto": "116°"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Dos ángulos conjugados internos miden 3x y 2x. ¿Cuántos grados mide el mayor? Escribe solo el número.",
+        "respuesta": 108,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Conjugados internos suman 180°.",
+          "5x = 180°, por tanto x = 36°.",
+          "El mayor es 3 × 36."
+        ],
+        "retroalimentacion": "El mayor mide 108° y el menor 72°."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una pareja de alternos internos mide 68° y 112°. Es posible que las rectas cortadas sean paralelas.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Si las rectas son paralelas, los alternos internos son iguales.",
+          "68° y 112° son distintos.",
+          "La suma 180° describe otra pareja, no alternos."
+        ],
+        "retroalimentacion": "Falso: los alternos internos deberían medir ambos 68° o ambos 112°."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "A es correspondiente a B y B es conjugado interno de C. Si C mide 47°, ¿cuántos grados mide A? Escribe solo el número.",
+        "respuesta": 133,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empieza con B y C: suman 180°.",
+          "B = 180 − 47 = 133°.",
+          "A es correspondiente a B y conserva esa medida."
+        ],
+        "retroalimentacion": "A mide 133°; no se iguala a C porque entre ambos hay un paso de suplemento."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.construcciones-regla-compas",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Usa estrategias y procedimientos para medir y orientarse en el espacio",
+    "desempenosOrigen": [
+      "MAT-C26-S1-03"
+    ],
+    "bloque": "Rectas y ángulos",
+    "nombre": "Construcciones con regla y compás: mediatriz y bisectriz",
+    "disciplina": "geometria",
+    "descripcionCorta": "Traza mediatrices, bisectrices, paralelas y perpendiculares con regla y compás.",
+    "palabrasClave": [
+      "regla",
+      "compás",
+      "mediatriz",
+      "bisectriz",
+      "perpendicular"
+    ],
+    "prerrequisitos": [
+      "mat.s1.angulos-opuestos-adyacentes"
+    ],
+    "ordenSugerido": 23,
+    "ideaCentral": "La mediatriz cruza un segmento por su punto medio en ángulo recto; la bisectriz divide un ángulo en dos partes iguales. Con regla y compás puedes localizar estas rectas mediante arcos de igual radio.",
+    "pasos": [
+      "Para la mediatriz, abre el compás más de la mitad del segmento.",
+      "Desde cada extremo traza arcos de igual radio arriba y abajo; une sus intersecciones.",
+      "Para la bisectriz, marca con un arco dos puntos equidistantes del vértice.",
+      "Desde esos puntos traza arcos de igual radio y une su cruce con el vértice; verifica la igualdad."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un segmento AB mide 8 cm y se traza su mediatriz.",
+        "desarrollo": "La mediatriz corta AB en 4 cm de cada extremo y forma 90°.",
+        "respuesta": "El punto de corte es el punto medio."
+      },
+      {
+        "situacion": "Se biseca un ángulo de 70°.",
+        "desarrollo": "La bisectriz reparte 70° en dos medidas iguales: 70° ÷ 2.",
+        "respuesta": "Quedan dos ángulos de 35°."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Trazar un arco desde un extremo con distinta abertura.",
+        "correccion": "Mantén el mismo radio del compás en ambos extremos del segmento."
+      },
+      {
+        "error": "Llamar mediatriz a una línea que solo pasa por el medio.",
+        "correccion": "Debe pasar por el punto medio y ser perpendicular al segmento."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Mediatriz",
+        "significado": "Recta perpendicular a un segmento por su punto medio."
+      },
+      {
+        "termino": "Bisectriz",
+        "significado": "Rayo que divide un ángulo en dos iguales."
+      },
+      {
+        "termino": "Compás",
+        "significado": "Instrumento para trazar arcos con un radio fijo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué trazo divide un ángulo en dos ángulos iguales?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La pregunta trata de un ángulo, no de un segmento.",
+          "Busca el rayo que sale del vértice.",
+          "Ese rayo se llama bisectriz."
+        ],
+        "retroalimentacion": "La bisectriz divide el ángulo; la mediatriz trabaja sobre un segmento.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Bisectriz"
+          },
+          {
+            "id": "b",
+            "texto": "Mediatriz"
+          },
+          {
+            "id": "c",
+            "texto": "Secante"
+          },
+          {
+            "id": "d",
+            "texto": "Paralela"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una bisectriz divide un ángulo de 80°. ¿Cuántos grados mide cada parte? Escribe solo el número.",
+        "respuesta": 40,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las dos partes deben ser iguales.",
+          "Divide 80 entre 2.",
+          "Comprueba 40 + 40."
+        ],
+        "retroalimentacion": "Cada parte mide 40°; 80° es el ángulo completo."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La mediatriz de un segmento pasa por su punto medio y es perpendicular a él.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda las dos condiciones del trazo.",
+          "«Medi» indica mitad.",
+          "También debe formar 90° con el segmento."
+        ],
+        "retroalimentacion": "Verdadero: pasar por la mitad y formar 90° define la mediatriz."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un segmento mide 12 cm. La mediatriz lo corta en dos partes iguales. ¿Cuánto mide en centímetros cada parte? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El corte está en el punto medio.",
+          "Divide la longitud total entre dos.",
+          "12 ÷ 2 = 6."
+        ],
+        "retroalimentacion": "Cada mitad mide 6 cm; ambas suman 12 cm."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para trazar la mediatriz de AB con compás, ¿desde dónde se dibujan arcos con la misma abertura?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El segmento tiene dos extremos.",
+          "Los arcos deben cruzarse arriba y abajo.",
+          "Usa A y B como centros sin cambiar la abertura."
+        ],
+        "retroalimentacion": "Se trazan desde A y B con igual radio; cambiarlo desplaza la recta del punto medio.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo desde A"
+          },
+          {
+            "id": "b",
+            "texto": "Desde cualquier punto de AB"
+          },
+          {
+            "id": "c",
+            "texto": "Desde A y B"
+          },
+          {
+            "id": "d",
+            "texto": "Solo desde el punto medio"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una bisectriz deja una parte de 27°. ¿Cuántos grados medía el ángulo original? Escribe solo el número.",
+        "respuesta": 54,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las dos partes son iguales.",
+          "La otra parte también mide 27°.",
+          "Suma 27 + 27."
+        ],
+        "retroalimentacion": "El ángulo original medía 54°; 27° es solo la mitad."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una recta corta un segmento de 10 cm a 5 cm de cada extremo pero forma 60° con él, es su mediatriz.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cumple una condición: pasa por el medio.",
+          "La mediatriz también debe ser perpendicular.",
+          "60° no es un ángulo recto."
+        ],
+        "retroalimentacion": "Falso: la recta pasa por el medio, pero debe formar 90°, no 60°."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una construcción usa arcos desde ambos extremos de un segmento y une sus dos intersecciones. ¿Qué recta obtiene?",
+        "respuesta": "mediatriz",
+        "alternativasAceptadas": [
+          "la mediatriz"
+        ],
+        "pistas": [
+          "Los centros de los arcos son los extremos.",
+          "La recta resultante pasa por la mitad a 90°.",
+          "Nombra la recta perpendicular por el punto medio."
+        ],
+        "retroalimentacion": "Se obtiene la mediatriz; la bisectriz se construye desde un ángulo."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para construir por un punto P una perpendicular a una recta, marcas dos puntos A y B de la recta a igual distancia de P y trazas arcos iguales desde A y B. ¿Qué une P con el cruce de arcos?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "A y B son equidistantes de P.",
+          "El cruce de arcos también equidista de A y B.",
+          "La línea por P y ese cruce es mediatriz de AB."
+        ],
+        "retroalimentacion": "La perpendicular por P es la mediatriz de AB; una paralela no forma 90°.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una paralela"
+          },
+          {
+            "id": "b",
+            "texto": "Una perpendicular"
+          },
+          {
+            "id": "c",
+            "texto": "Una secante cualquiera"
+          },
+          {
+            "id": "d",
+            "texto": "Una bisectriz de 180° sin punto P"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un ángulo de 120° se biseca y luego se biseca una de sus mitades. ¿Cuántos grados mide la parte más pequeña? Escribe solo el número.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primera bisectriz: 120 ÷ 2.",
+          "Una mitad mide 60°.",
+          "Biseca 60° otra vez."
+        ],
+        "retroalimentacion": "La parte pequeña mide 30°; la segunda bisectriz divide solo una mitad."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al construir una paralela a una recta, copiar en una secante el mismo ángulo correspondiente ayuda a garantizar el paralelismo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La secante cruza la recta original y la nueva.",
+          "Si los correspondientes son iguales, mantienen la misma dirección.",
+          "Esa es una condición de paralelismo."
+        ],
+        "retroalimentacion": "Verdadero: copiar ángulos correspondientes iguales permite trazar una paralela."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "AB mide 14 cm. P está a 7 cm de A y 7 cm de B. Si trazas por P una perpendicular a AB, ¿cuántos grados forma con AB? Escribe solo el número.",
+        "respuesta": 90,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "P es el punto medio de AB.",
+          "La línea solicitada es perpendicular.",
+          "Una perpendicular forma un ángulo recto."
+        ],
+        "retroalimentacion": "Forma 90°; la distancia 7 cm ubica P, pero no es la medida angular."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

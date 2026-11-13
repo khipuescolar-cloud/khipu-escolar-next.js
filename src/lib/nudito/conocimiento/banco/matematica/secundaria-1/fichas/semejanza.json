@@ -1,0 +1,987 @@
+[
+  {
+    "clave": "mat.s1.triangulos-semejantes",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Modela objetos con formas geométricas y sus transformaciones",
+    "desempenosOrigen": [
+      "MAT-C26-S1-01",
+      "MAT-C26-S1-04"
+    ],
+    "bloque": "Semejanza",
+    "nombre": "Triángulos semejantes",
+    "disciplina": "geometria",
+    "descripcionCorta": "Reconoce triángulos semejantes por sus ángulos iguales y lados proporcionales.",
+    "palabrasClave": [
+      "semejanza",
+      "triángulo",
+      "ángulos correspondientes",
+      "lados proporcionales",
+      "escala"
+    ],
+    "prerrequisitos": [
+      "mat.s1.propiedades-triangulos"
+    ],
+    "ordenSugerido": 128,
+    "ideaCentral": "Dos triángulos semejantes tienen sus ángulos correspondientes iguales y sus lados correspondientes en una misma proporción. Pueden tener distinto tamaño y conservar la forma.",
+    "pasos": [
+      "Empareja los vértices según ángulos iguales.",
+      "Compara lados que quedan frente a ángulos correspondientes.",
+      "Calcula las razones de dos pares de lados.",
+      "Confirma que las razones coincidan; con dos ángulos iguales también se garantiza semejanza."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un triángulo tiene lados 3, 4 y 5 cm; otro 6, 8 y 10 cm.",
+        "desarrollo": "6/3 = 8/4 = 10/5 = 2. Todos los lados se duplican.",
+        "respuesta": "Son semejantes."
+      },
+      {
+        "situacion": "Dos triángulos tienen ángulos 40° y 60° en posiciones correspondientes.",
+        "desarrollo": "El tercer ángulo en ambos vale 80°; coinciden los tres ángulos.",
+        "respuesta": "Son semejantes aunque cambie su tamaño."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Comparar lados sin emparejar vértices.",
+        "correccion": "Identifica los ángulos iguales antes de relacionar lados."
+      },
+      {
+        "error": "Pensar que semejantes significa mismo tamaño.",
+        "correccion": "La forma se conserva; el tamaño puede ampliarse o reducirse."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Triángulos semejantes",
+        "significado": "Triángulos con ángulos correspondientes iguales y lados proporcionales."
+      },
+      {
+        "termino": "Correspondientes",
+        "significado": "Elementos que ocupan la misma posición en dos figuras."
+      },
+      {
+        "termino": "Proporción",
+        "significado": "Igualdad entre razones de lados."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Triángulo A: lados 2, 3 y 4 cm. Triángulo B: 4, 6 y 8 cm. ¿Qué relación tienen?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empareja lados de menor a mayor.",
+          "Cada lado de B es el doble del de A.",
+          "La proporción es constante."
+        ],
+        "retroalimentacion": "Son semejantes: 4/2 = 6/3 = 8/4 = 2.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Son iguales en tamaño"
+          },
+          {
+            "id": "b",
+            "texto": "Son semejantes"
+          },
+          {
+            "id": "c",
+            "texto": "No tienen relación"
+          },
+          {
+            "id": "d",
+            "texto": "Solo comparten perímetro"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos triángulos con los mismos ángulos correspondientes pueden tener tamaños distintos y ser semejantes.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Semejanza conserva la forma.",
+          "Los ángulos iguales fijan esa forma.",
+          "Una ampliación cambia lados, pero no ángulos."
+        ],
+        "retroalimentacion": "Verdadero: pueden variar en tamaño y mantener ángulos correspondientes iguales."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En dos triángulos semejantes, un lado de 3 cm corresponde a otro de 9 cm. ¿Por cuántas veces se multiplicó ese lado? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide el lado nuevo entre el original.",
+          "9 ÷ 3 = 3.",
+          "El mismo factor debe aplicarse a los demás lados."
+        ],
+        "retroalimentacion": "El factor es 3; 9 cm es triple de 3 cm."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si dos triángulos tienen ángulos 50°, 60° y 70° en el mismo orden, ¿qué puedes afirmar?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara cada ángulo con su correspondiente.",
+          "Coinciden los tres.",
+          "La igualdad de dos ángulos ya basta para semejanza."
+        ],
+        "retroalimentacion": "Son semejantes; no se puede afirmar que tengan igual tamaño.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tienen igual área"
+          },
+          {
+            "id": "b",
+            "texto": "No son semejantes"
+          },
+          {
+            "id": "c",
+            "texto": "Tienen todos los lados iguales"
+          },
+          {
+            "id": "d",
+            "texto": "Son semejantes"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Triángulos semejantes: 4 cm corresponde a 12 cm. Si otro lado del primero mide 5 cm, ¿cuántos centímetros mide su correspondiente? Escribe solo el número.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El factor de ampliación es 12 ÷ 4.",
+          "Ese factor vale 3.",
+          "Multiplica 5 por 3."
+        ],
+        "retroalimentacion": "El lado correspondiente mide 15 cm; sumar 8 en vez de multiplicar no conserva proporciones."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los lados 3, 4, 5 y 6, 8, 11 cm, emparejados de menor a mayor, pertenecen a triángulos semejantes.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las dos primeras razones.",
+          "6/3 = 2 y 8/4 = 2.",
+          "El último par da 11/5 = 2,2."
+        ],
+        "retroalimentacion": "Falso: 11/5 no coincide con 2; el tercer lado debería ser 10 cm."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un triángulo tiene ángulos 35°, 65° y 80°. ¿Cuál puede ser semejante a él?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca dos ángulos correspondientes iguales.",
+          "35° y 65° determinan un tercero de 80°.",
+          "Solo una opción repite esa terna."
+        ],
+        "retroalimentacion": "35°, 65° y 80° conserva los ángulos; 35°, 65° y 90° ni siquiera suma 180°.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "35°, 65°, 80°"
+          },
+          {
+            "id": "b",
+            "texto": "35°, 55°, 90°"
+          },
+          {
+            "id": "c",
+            "texto": "30°, 70°, 80°"
+          },
+          {
+            "id": "d",
+            "texto": "35°, 65°, 90°"
+          }
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Los triángulos con lados 5, 7, 9 y 10, 14, 18 cm mantienen la misma forma. ¿Son semejantes? Responde sí o no.",
+        "respuesta": "sí",
+        "alternativasAceptadas": [
+          "si"
+        ],
+        "pistas": [
+          "Compara pares: 10/5, 14/7 y 18/9.",
+          "Cada razón vale 2.",
+          "Una razón común indica lados proporcionales."
+        ],
+        "retroalimentacion": "Sí: todos los lados correspondientes se duplican."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Triángulo P: lados 4, 6 y 8 cm. Q: 6, 9 y 12 cm. R: 8, 12 y 15 cm. ¿Cuál es semejante a P?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara cada terna con 4, 6 y 8.",
+          "Para Q, los cocientes son 1,5; 1,5; 1,5.",
+          "Para R, el tercer cociente 15/8 no coincide con 2."
+        ],
+        "retroalimentacion": "Solo Q es semejante a P: sus tres lados tienen factor 1,5; R falla en el último.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo R"
+          },
+          {
+            "id": "b",
+            "texto": "Q y R"
+          },
+          {
+            "id": "c",
+            "texto": "Solo Q"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguno"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Dos triángulos semejantes tienen lados correspondientes 8 y 12 cm, y 10 y x cm. ¿Cuántos centímetros mide x? Escribe solo el número.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El factor es 12 ÷ 8.",
+          "Ese factor es 1,5.",
+          "Multiplica 10 × 1,5."
+        ],
+        "retroalimentacion": "x mide 15 cm; 12/8 = 15/10."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un triángulo tiene ángulos 40°, 70°, 70° y otro 70°, 40°, 70°, pueden emparejarse para ser semejantes.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El orden escrito puede cambiar.",
+          "Ambos tienen un ángulo de 40° y dos de 70°.",
+          "Empareja ángulos iguales, no posiciones en la lista."
+        ],
+        "retroalimentacion": "Verdadero: se corresponden los ángulos iguales aunque se enumeren en distinto orden."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un triángulo de lados 6, 8 y 10 cm se amplía de modo semejante y su lado de 10 cm pasa a 25 cm. ¿Cuántos centímetros medirá el lado que correspondía a 8 cm? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El factor es 25 ÷ 10.",
+          "El factor vale 2,5.",
+          "Multiplica 8 por 2,5."
+        ],
+        "retroalimentacion": "Medirá 20 cm; 8 × 2,5 = 20."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.razon-semejanza",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Comunica su comprensión sobre las formas y relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-S1-04"
+    ],
+    "bloque": "Semejanza",
+    "nombre": "Razón de semejanza en ampliaciones y reducciones",
+    "disciplina": "geometria",
+    "descripcionCorta": "Calcula medidas de figuras ampliadas o reducidas usando la razón de semejanza.",
+    "palabrasClave": [
+      "razón de semejanza",
+      "ampliación",
+      "reducción",
+      "escala",
+      "lado correspondiente"
+    ],
+    "prerrequisitos": [
+      "mat.s1.triangulos-semejantes"
+    ],
+    "ordenSugerido": 129,
+    "ideaCentral": "La razón de semejanza k compara una longitud nueva con su correspondiente original. Multiplica cada lado por k; si k > 1 amplías y si 0 < k < 1 reduces.",
+    "pasos": [
+      "Empareja el lado original con el nuevo.",
+      "Calcula k = nuevo ÷ original.",
+      "Multiplica otros lados originales por k, o divide un lado nuevo entre k para volver.",
+      "Verifica que todas las razones de lados correspondientes sean iguales."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un dibujo tiene lado de 4 cm y se amplía con k = 3.",
+        "desarrollo": "4 × 3 = 12; todos los lados se triplican.",
+        "respuesta": "El lado nuevo mide 12 cm."
+      },
+      {
+        "situacion": "Una figura de 18 cm se reduce con k = 1/3.",
+        "desarrollo": "18 × 1/3 = 6.",
+        "respuesta": "El lado reducido mide 6 cm."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar la razón a cada lado.",
+        "correccion": "La razón es un factor multiplicativo: nuevo = original × k."
+      },
+      {
+        "error": "Usar original ÷ nuevo para una razón nueva respecto de original.",
+        "correccion": "Mantén el orden k = nuevo ÷ original."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Razón de semejanza",
+        "significado": "Cociente entre lado nuevo y lado original correspondientes."
+      },
+      {
+        "termino": "Ampliación",
+        "significado": "Transformación con razón mayor que 1."
+      },
+      {
+        "termino": "Reducción",
+        "significado": "Transformación con razón entre 0 y 1."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un lado de 5 cm se amplía con razón 2. ¿Cuántos centímetros mide ahora? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una razón 2 duplica.",
+          "Multiplica 5 × 2.",
+          "La medida nueva es mayor que 5."
+        ],
+        "retroalimentacion": "Ahora mide 10 cm; sumar 2 daría 7 y no es una ampliación con factor 2."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una figura se reduce con razón 1/2. ¿Qué ocurre con un lado de 8 cm?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "1/2 significa tomar la mitad.",
+          "Calcula 8 × 1/2.",
+          "El lado reducido mide menos de 8."
+        ],
+        "retroalimentacion": "Mide 4 cm; 16 cm sería ampliación con factor 2.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "16 cm"
+          },
+          {
+            "id": "b",
+            "texto": "8 cm"
+          },
+          {
+            "id": "c",
+            "texto": "4 cm"
+          },
+          {
+            "id": "d",
+            "texto": "6 cm"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una figura pasa de un lado de 3 cm a otro de 9 cm, la razón nuevo/original es 3.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe nuevo ÷ original.",
+          "9 ÷ 3 = 3.",
+          "El nuevo es triple."
+        ],
+        "retroalimentacion": "Verdadero: la razón es 9/3 = 3."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un segmento de 12 cm se reduce con razón 1/3. ¿Cuántos centímetros mide el nuevo? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La razón 1/3 pide una tercera parte.",
+          "Divide 12 entre 3.",
+          "El nuevo debe ser menor que 12."
+        ],
+        "retroalimentacion": "Mide 4 cm; 12 × 1/3 = 4."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un dibujo pasa de 6 cm a 15 cm en lados correspondientes. ¿Cuál es su razón de semejanza?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide nueva medida entre original.",
+          "15 ÷ 6 = 2,5.",
+          "El factor mayor que 1 indica ampliación."
+        ],
+        "retroalimentacion": "La razón es 2,5; 0,4 sería la razón inversa.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2,5"
+          },
+          {
+            "id": "b",
+            "texto": "0,4"
+          },
+          {
+            "id": "c",
+            "texto": "9"
+          },
+          {
+            "id": "d",
+            "texto": "21"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una maqueta con razón 3/4 transforma un lado de 20 cm. ¿Cuántos centímetros tendrá el lado nuevo? Escribe solo el número.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 20 × 3/4.",
+          "Una cuarta parte de 20 es 5.",
+          "Tres cuartas partes son 3 × 5."
+        ],
+        "retroalimentacion": "El lado nuevo mide 15 cm; la razón menor que 1 reduce la figura."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una ampliación con razón 1,5 convierte un lado de 10 cm en uno de 11,5 cm.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La razón multiplica, no se suma.",
+          "10 × 1,5 = 15.",
+          "11,5 sale de sumar 1,5 a 10."
+        ],
+        "retroalimentacion": "Falso: el lado nuevo mide 15 cm, no 11,5 cm."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una figura reducida tiene lado de 9 cm con razón 1/2. ¿Cuántos centímetros medía ese lado antes? Escribe solo el número.",
+        "respuesta": 18,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La nueva medida es mitad de la original.",
+          "Para volver, divide 9 entre 1/2.",
+          "Equivale a duplicar 9."
+        ],
+        "retroalimentacion": "Antes medía 18 cm; 18 × 1/2 = 9."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una figura se amplía con k = 2 y luego se reduce la nueva figura con k = 1/4. ¿Qué factor total respecto de la original resulta?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica los dos factores.",
+          "2 × 1/4 = 1/2.",
+          "El resultado final es una reducción a la mitad."
+        ],
+        "retroalimentacion": "El factor total es 1/2; los factores se multiplican, no se suman.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 1/4"
+          },
+          {
+            "id": "b",
+            "texto": "4"
+          },
+          {
+            "id": "c",
+            "texto": "1/4"
+          },
+          {
+            "id": "d",
+            "texto": "1/2"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un lado de 8 cm pasa a 12 cm. Con la misma razón, ¿cuántos centímetros medirá un lado original de 14 cm? Escribe solo el número.",
+        "respuesta": 21,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la razón 12 ÷ 8.",
+          "La razón es 1,5.",
+          "Multiplica 14 × 1,5."
+        ],
+        "retroalimentacion": "Medirá 21 cm; ambos pares tienen razón 1,5."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos lados originales miden 4 y 6 cm y los nuevos 10 y 15 cm, respectivamente, una sola razón de semejanza sirve para ambos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 10/4.",
+          "Luego calcula 15/6.",
+          "Ambos cocientes valen 2,5."
+        ],
+        "retroalimentacion": "Verdadero: ambos lados se multiplican por 2,5."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un lado de 24 cm se reduce a 18 cm y luego la nueva figura se amplía con razón 2. ¿Cuántos centímetros mide el lado final? Escribe solo el número.",
+        "respuesta": 36,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La primera transformación deja 18 cm.",
+          "La segunda duplica esa medida.",
+          "18 × 2 = 36."
+        ],
+        "retroalimentacion": "El lado final mide 36 cm; volver a usar 24 para el segundo paso omite la reducción."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.conjeturas-geometricas",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 26,
+    "capacidad": "Argumenta afirmaciones sobre relaciones geométricas",
+    "desempenosOrigen": [
+      "MAT-C26-S1-08"
+    ],
+    "bloque": "Semejanza",
+    "nombre": "Conjeturas geométricas a partir de casos",
+    "disciplina": "geometria",
+    "descripcionCorta": "Formula y prueba conjeturas sobre figuras con ejemplos y contraejemplos.",
+    "palabrasClave": [
+      "conjetura",
+      "ejemplo",
+      "contraejemplo",
+      "prueba",
+      "figura"
+    ],
+    "prerrequisitos": [
+      "mat.s1.razon-semejanza"
+    ],
+    "ordenSugerido": 130,
+    "ideaCentral": "Una conjetura es una afirmación que parece cierta tras observar casos. Varios ejemplos la apoyan, pero un solo contraejemplo basta para refutarla; para aceptarla en general necesitas una razón que cubra todos los casos.",
+    "pasos": [
+      "Observa figuras y formula una afirmación precisa.",
+      "Prueba la afirmación con casos distintos, incluidos límites y tamaños variados.",
+      "Busca un contraejemplo que cumpla las condiciones pero contradiga la conclusión.",
+      "Si no aparece, explica una propiedad general que justifique la conjetura."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Alguien afirma: «Todos los triángulos isósceles tienen tres lados iguales».",
+        "desarrollo": "Un triángulo de lados 5, 5 y 6 cm tiene dos lados iguales, pero no tres.",
+        "respuesta": "La conjetura es falsa; 5, 5 y 6 es un contraejemplo."
+      },
+      {
+        "situacion": "Se observa que en triángulos de lados 3, 4, 5 y 5, 5, 8, cada lado es menor que la suma de los otros.",
+        "desarrollo": "Los casos sugieren la desigualdad triangular; se justifica porque dos lados deben alcanzar para cerrar hasta el tercer vértice.",
+        "respuesta": "La propiedad vale para todo triángulo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Declarar una regla verdadera tras revisar solo dos dibujos.",
+        "correccion": "Los ejemplos sugieren; una justificación general demuestra."
+      },
+      {
+        "error": "Dar un caso que no cumple las condiciones como contraejemplo.",
+        "correccion": "El contraejemplo debe cumplir la condición inicial y fallar en la conclusión."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Conjetura",
+        "significado": "Afirmación propuesta a partir de observaciones."
+      },
+      {
+        "termino": "Contraejemplo",
+        "significado": "Caso que cumple las condiciones pero hace falsa la afirmación."
+      },
+      {
+        "termino": "Justificación",
+        "significado": "Razón que explica por qué una afirmación vale en todos los casos previstos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "La conjetura dice: «Todo rectángulo tiene cuatro lados iguales». ¿Qué figura la refuta?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca un rectángulo que no sea cuadrado.",
+          "Un rectángulo de 2 cm por 5 cm tiene lados opuestos iguales.",
+          "Sus cuatro lados no son iguales."
+        ],
+        "retroalimentacion": "Un rectángulo de 2 cm por 5 cm es contraejemplo; un cuadrado sí cumple la afirmación.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un cuadrado de 3 cm de lado"
+          },
+          {
+            "id": "b",
+            "texto": "Un rectángulo de 2 cm por 5 cm"
+          },
+          {
+            "id": "c",
+            "texto": "Un triángulo de lados 2, 3 y 4 cm"
+          },
+          {
+            "id": "d",
+            "texto": "Un círculo de radio 2 cm"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un solo contraejemplo válido puede mostrar que una conjetura general es falsa.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una conjetura general habla de todos los casos.",
+          "Un caso que cumple la condición y falla en la conclusión rompe «todos».",
+          "No hace falta encontrar dos fallos."
+        ],
+        "retroalimentacion": "Verdadero: un contraejemplo válido refuta una afirmación universal."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Afirmación: «Todos los triángulos tienen un ángulo recto». Un triángulo con ángulos 60°, 60° y 60° es un ejemplo o un contraejemplo?",
+        "respuesta": "contraejemplo",
+        "alternativasAceptadas": [
+          "un contraejemplo"
+        ],
+        "pistas": [
+          "Sus ángulos suman 180°, así que es un triángulo válido.",
+          "Ninguno de sus ángulos mide 90°.",
+          "Contradice la palabra «todos»."
+        ],
+        "retroalimentacion": "Es un contraejemplo: tiene tres ángulos de 60° y ninguno recto."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Después de medir dos triángulos y hallar 180° en ambos, ¿qué puedes afirmar con seguridad sobre la conjetura «todos suman 180°»?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Dos casos muestran evidencia, no todos los casos.",
+          "Una afirmación universal requiere una justificación general.",
+          "Los dos ejemplos solo apoyan la conjetura."
+        ],
+        "retroalimentacion": "Los casos la apoyan, pero no la demuestran por sí solos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ya está demostrada para todos"
+          },
+          {
+            "id": "b",
+            "texto": "Es falsa"
+          },
+          {
+            "id": "c",
+            "texto": "Los casos la apoyan; falta una justificación general"
+          },
+          {
+            "id": "d",
+            "texto": "No puede formularse"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para refutar «todo cuadrilátero tiene lados iguales», un trapecio de lados desiguales sí puede servir como contraejemplo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El trapecio tiene cuatro lados.",
+          "Por eso cumple ser cuadrilátero.",
+          "Sus lados desiguales contradicen la conclusión."
+        ],
+        "retroalimentacion": "Verdadero: el trapecio es un cuadrilátero sin todos los lados iguales."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Conjetura: «Si dos triángulos tienen igual perímetro, son semejantes». ¿Cuál pareja la refuta?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Necesitas dos triángulos válidos de igual perímetro.",
+          "3+4+5 = 12 y 4+4+4 = 12.",
+          "Sus lados no tienen una razón común."
+        ],
+        "retroalimentacion": "3–4–5 y 4–4–4 tienen perímetro 12, pero no son semejantes.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3–4–5 y 6–8–10"
+          },
+          {
+            "id": "b",
+            "texto": "4–4–4 y 8–8–8"
+          },
+          {
+            "id": "c",
+            "texto": "3–3–3 y 3–3–3"
+          },
+          {
+            "id": "d",
+            "texto": "3–4–5 y 4–4–4"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "«Todos los triángulos con dos lados iguales son equiláteros». Lados 5, 5 y 8 cm cumplen la condición y no la conclusión. ¿Cómo se llama ese caso?",
+        "respuesta": "contraejemplo",
+        "alternativasAceptadas": [
+          "un contraejemplo"
+        ],
+        "pistas": [
+          "5 + 5 > 8, así que la figura existe.",
+          "Tiene dos lados iguales, pero el tercero es distinto.",
+          "Un caso así refuta una afirmación general."
+        ],
+        "retroalimentacion": "Es un contraejemplo: el triángulo es isósceles, pero no equilátero."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una estudiante observa que tres cuadrados tienen diagonales iguales entre sí. ¿Qué explicación sostiene la afirmación para cualquier cuadrado?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una justificación debe cubrir más que tres dibujos.",
+          "Las dos diagonales conectan vértices opuestos de la misma figura.",
+          "Cada una es hipotenusa de un triángulo rectángulo con catetos del mismo largo."
+        ],
+        "retroalimentacion": "Ambas diagonales son hipotenusas con catetos iguales al lado del cuadrado; por eso miden igual.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cada diagonal es hipotenusa de catetos iguales al lado"
+          },
+          {
+            "id": "b",
+            "texto": "Tres dibujos bastan para todos"
+          },
+          {
+            "id": "c",
+            "texto": "Porque el papel es cuadriculado"
+          },
+          {
+            "id": "d",
+            "texto": "Porque los cuadrados observados eran grandes"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La figura con lados 2, 3 y 6 cm refuta «todos los triángulos tienen perímetro menor de 12 cm».",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Antes de usarla, verifica que exista el triángulo.",
+          "2 + 3 = 5, que no supera 6.",
+          "La figura no cumple la condición inicial de ser triángulo."
+        ],
+        "retroalimentacion": "Falso: 2, 3 y 6 no forman triángulo, así que no es contraejemplo válido."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Conjetura: «Si dos triángulos tienen un ángulo de 60°, entonces son semejantes». ¿Qué pareja demuestra que falla?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Necesitas que ambos tengan 60°.",
+          "Elige terceros ángulos distintos para cambiar la forma.",
+          "60°–60°–60° y 60°–50°–70° cumplen la condición, pero no comparten los otros ángulos."
+        ],
+        "retroalimentacion": "Esas dos ternas comparten 60° y no son semejantes; un solo ángulo igual no basta.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "60°–60°–60° y 60°–60°–60°"
+          },
+          {
+            "id": "b",
+            "texto": "60°–60°–60° y 60°–50°–70°"
+          },
+          {
+            "id": "c",
+            "texto": "50°–60°–70° y 70°–60°–50°"
+          },
+          {
+            "id": "d",
+            "texto": "40°–60°–80° y 40°–60°–80°"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un compañero propone «todo rectángulo es cuadrado». Para refutarlo, dibuja un rectángulo de 3 cm por 7 cm. ¿Qué propiedad del cuadrado falla? Responde con una frase corta.",
+        "respuesta": "cuatro lados iguales",
+        "alternativasAceptadas": [
+          "lados iguales",
+          "todos los lados iguales"
+        ],
+        "pistas": [
+          "El dibujo sí tiene cuatro ángulos rectos.",
+          "Compara los lados de 3 y 7 cm.",
+          "Un cuadrado exige que los cuatro lados tengan igual longitud."
+        ],
+        "retroalimentacion": "Falla tener cuatro lados iguales: dos miden 3 cm y dos miden 7 cm."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se afirma: «Todo triángulo con lados enteros y perímetro 12 cm es equilátero». ¿Cuál caso válido refuta la afirmación?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca una terna que sume 12 y cierre triángulo.",
+          "3+4+5 = 12 y 3+4 > 5.",
+          "Sus tres lados no son iguales."
+        ],
+        "retroalimentacion": "3, 4 y 5 cm es un triángulo de perímetro 12 que no es equilátero.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2, 4 y 6 cm"
+          },
+          {
+            "id": "b",
+            "texto": "1, 5 y 6 cm"
+          },
+          {
+            "id": "c",
+            "texto": "3, 4 y 5 cm"
+          },
+          {
+            "id": "d",
+            "texto": "4, 4 y 4 cm"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

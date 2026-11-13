@@ -1,0 +1,4361 @@
+[
+  {
+    "clave": "mat.s1.numeros-enteros",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-S1-04"
+    ],
+    "bloque": "Números enteros",
+    "nombre": "Números enteros y su significado en contexto",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Usa el signo positivo o negativo para expresar ganancias, deudas, temperaturas y altitudes.",
+    "palabrasClave": [
+      "entero",
+      "signo positivo",
+      "signo negativo",
+      "cero",
+      "contexto"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 6,
+    "ideaCentral": "Los enteros permiten expresar cantidades por encima y por debajo de una referencia, como la temperatura de 0 °C o el nivel del mar. El signo cuenta la dirección y el número cuenta cuánto.",
+    "pasos": [
+      "Identifica qué representa el cero en la situación.",
+      "Decide si el cambio o posición está arriba, aumenta o gana: usa positivo.",
+      "Si está abajo, disminuye, pierde o debe: usa negativo.",
+      "Escribe la distancia al cero con el signo que corresponde."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En Puno amaneció a 3 °C bajo cero.",
+        "desarrollo": "Bajo cero indica signo negativo; la distancia al cero es 3.",
+        "respuesta": "−3 °C."
+      },
+      {
+        "situacion": "Una tarjeta registra una recarga de S/ 8.",
+        "desarrollo": "La recarga aumenta el saldo, así que el cambio es positivo.",
+        "respuesta": "+8 soles."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Escribir +6 para una deuda de S/ 6.",
+        "correccion": "Una deuda se representa con −6 porque disminuye el saldo."
+      },
+      {
+        "error": "Olvidar definir la referencia del cero.",
+        "correccion": "Indica qué significa 0 antes de elegir el signo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Entero",
+        "significado": "Número sin parte decimal que puede ser positivo, negativo o cero."
+      },
+      {
+        "termino": "Referencia",
+        "significado": "Valor cero desde el que se describe una posición o un cambio."
+      },
+      {
+        "termino": "Signo",
+        "significado": "Símbolo + o − que indica el sentido de un entero."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un termómetro registra 4 °C por encima de cero. ¿Qué entero expresa esa temperatura en °C? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Por encima de cero indica un valor positivo.",
+          "La distancia al cero es 4 °C.",
+          "Escribe 4 con signo positivo implícito."
+        ],
+        "retroalimentacion": "4 °C sobre cero se representa con +4, es decir, 4; no con −4."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una deuda de S/ 7 se representa con ¿qué entero?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7"
+          },
+          {
+            "id": "b",
+            "texto": "0"
+          },
+          {
+            "id": "c",
+            "texto": "−7"
+          },
+          {
+            "id": "d",
+            "texto": "−1"
+          }
+        ],
+        "pistas": [
+          "Una deuda indica dinero que falta.",
+          "El signo de una deuda es negativo.",
+          "La cantidad debida es 7, por eso conserva el 7 tras el signo."
+        ],
+        "retroalimentacion": "La deuda de S/ 7 es −7; 7 representaría dinero disponible."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El nivel del mar se puede representar con el entero 0.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en el punto de referencia para las altitudes.",
+          "Por encima del mar se usan valores positivos y por debajo negativos.",
+          "El propio nivel del mar no está ni encima ni debajo."
+        ],
+        "retroalimentacion": "Verdadero: el nivel del mar es la referencia 0."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Qué signo lleva el entero que representa perder 3 puntos: positivo o negativo?",
+        "respuesta": "negativo",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Perder disminuye el puntaje.",
+          "Los cambios que reducen una cantidad usan signo menos.",
+          "Para perder 3 puntos escribirías −3."
+        ],
+        "retroalimentacion": "El signo es negativo: perder 3 puntos se expresa como −3."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una buza está a 12 m bajo el nivel del mar. ¿Qué entero indica su posición en metros? Escribe solo el número.",
+        "respuesta": -12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El nivel del mar vale 0 m.",
+          "Debajo del nivel del mar corresponde a valores negativos.",
+          "Conserva la distancia 12 y antepón el signo menos."
+        ],
+        "retroalimentacion": "La posición es −12 m; +12 m sería sobre el mar."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un juego, el marcador cambia +5. ¿Qué ocurrió?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Perdiste 5 puntos"
+          },
+          {
+            "id": "b",
+            "texto": "Ganaste 5 puntos"
+          },
+          {
+            "id": "c",
+            "texto": "Quedaste en 0 puntos"
+          },
+          {
+            "id": "d",
+            "texto": "Debes 5 puntos"
+          }
+        ],
+        "pistas": [
+          "Observa el signo de +5.",
+          "El signo más indica aumento.",
+          "El aumento del marcador es de cinco puntos."
+        ],
+        "retroalimentacion": "Ganaste 5 puntos: +5 indica incremento, no pérdida."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una temperatura de −2 °C está dos grados por encima de cero.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ubica el 0 °C como referencia.",
+          "El signo menos indica un valor debajo de la referencia.",
+          "−2 °C se lee dos grados bajo cero."
+        ],
+        "retroalimentacion": "Falso: −2 °C está dos grados por debajo de cero."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El estacionamiento B2 está dos pisos bajo la planta baja 0. Escribe el entero de ese nivel.",
+        "respuesta": "−2",
+        "alternativasAceptadas": [
+          "-2"
+        ],
+        "pistas": [
+          "La planta baja es el nivel 0.",
+          "Cada piso subterráneo resta una unidad.",
+          "Dos pisos bajo cero se escriben con signo menos y 2."
+        ],
+        "retroalimentacion": "El nivel B2 es −2; +2 sería dos pisos arriba."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tu cuenta muestra S/ 0 y luego recibes un depósito de S/ 9. ¿Qué entero representa el cambio en soles? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La pregunta pide el cambio, no el saldo previo.",
+          "Un depósito aumenta el dinero.",
+          "Un aumento de 9 soles se representa con +9."
+        ],
+        "retroalimentacion": "El cambio es +9 soles, representado por 9."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un cartel dice «altitud −15 m». ¿Cuál interpretación respeta el signo y la referencia?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "15 m sobre el nivel del mar"
+          },
+          {
+            "id": "b",
+            "texto": "15 m sobre el suelo del colegio"
+          },
+          {
+            "id": "c",
+            "texto": "15 m de distancia horizontal"
+          },
+          {
+            "id": "d",
+            "texto": "15 m bajo el nivel del mar"
+          }
+        ],
+        "pistas": [
+          "La palabra altitud usa el nivel del mar como cero.",
+          "El signo negativo sitúa el lugar por debajo de ese cero.",
+          "La magnitud 15 indica cuántos metros bajo el mar."
+        ],
+        "retroalimentacion": "La altitud −15 m significa 15 m bajo el nivel del mar."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un equipo perdió 4 puntos y luego ganó 4, ambos cambios se representan con el mismo entero porque tienen igual magnitud.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la acción de perder con la de ganar.",
+          "Igual magnitud no obliga a igual signo.",
+          "Perder 4 es −4 y ganar 4 es +4."
+        ],
+        "retroalimentacion": "Falso: los cambios son −4 y +4; el signo distingue pérdida de ganancia."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un ascensor marca −1, 0 y +1. Si el ingreso del edificio es 0, ¿qué piso está inmediatamente debajo del ingreso?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−1"
+          },
+          {
+            "id": "b",
+            "texto": "+1"
+          },
+          {
+            "id": "c",
+            "texto": "0"
+          },
+          {
+            "id": "d",
+            "texto": "−2"
+          }
+        ],
+        "pistas": [
+          "Identifica el piso de ingreso como referencia.",
+          "Un piso debajo requiere una unidad negativa.",
+          "−2 quedaría dos niveles debajo, no uno."
+        ],
+        "retroalimentacion": "El piso inmediatamente inferior es −1; +1 está arriba."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.conjuntos-n-z",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-S1-03",
+      "MAT-C23-S1-04"
+    ],
+    "bloque": "Números enteros",
+    "nombre": "Conjuntos numéricos N y Z",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Reconoce que los naturales forman parte de los enteros y ubica números en cada conjunto.",
+    "palabrasClave": [
+      "naturales",
+      "enteros",
+      "N",
+      "Z",
+      "inclusión"
+    ],
+    "prerrequisitos": [
+      "mat.s1.numeros-enteros"
+    ],
+    "ordenSugerido": 7,
+    "ideaCentral": "Los naturales N sirven para contar y forman parte de los enteros Z. Los enteros incluyen además los negativos; para el cero usa la convención que indique el ejercicio.",
+    "pasos": [
+      "Identifica si el número es negativo, cero o positivo.",
+      "Si es un número de contar positivo, clasifícalo en N y Z.",
+      "Si es negativo, clasifícalo solo en Z.",
+      "Para el cero, comprueba cómo se definió N en la actividad."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Clasifica 7 y −7.",
+        "desarrollo": "7 es natural y entero; −7 no es natural porque es negativo, pero sí entero.",
+        "respuesta": "7 ∈ N y Z; −7 ∈ Z."
+      },
+      {
+        "situacion": "Se define N = {0, 1, 2, …}. ¿Dónde está 0?",
+        "desarrollo": "La definición incluye 0 y N está contenido en Z.",
+        "respuesta": "0 ∈ N y Z."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir que −3 es natural porque no tiene decimales.",
+        "correccion": "Ser entero no basta: los negativos están en Z, fuera de N."
+      },
+      {
+        "error": "Suponer una convención única para el cero en N.",
+        "correccion": "Lee la definición de N que usa cada actividad."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "N",
+        "significado": "Conjunto de los números naturales; aquí se aclara si incluye el cero."
+      },
+      {
+        "termino": "Z",
+        "significado": "Conjunto de todos los enteros negativos, el cero y los positivos."
+      },
+      {
+        "termino": "Inclusión",
+        "significado": "Relación por la que cada elemento de N también está en Z."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál número pertenece a Z pero no a N?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5"
+          },
+          {
+            "id": "b",
+            "texto": "−5"
+          },
+          {
+            "id": "c",
+            "texto": "0"
+          },
+          {
+            "id": "d",
+            "texto": "12"
+          }
+        ],
+        "pistas": [
+          "Z incluye negativos.",
+          "N contiene los naturales como 5 y 12.",
+          "Busca el único número negativo de la lista."
+        ],
+        "retroalimentacion": "−5 está en Z y fuera de N, porque N no incluye negativos."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Todo número natural también es entero.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "N está incluido en Z.",
+          "Los enteros contienen los números de contar.",
+          "Un natural como 6 es también un entero."
+        ],
+        "retroalimentacion": "Verdadero: N es parte de Z."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿En qué conjunto está −9: N o Z?",
+        "respuesta": "Z",
+        "alternativasAceptadas": [
+          "z"
+        ],
+        "pistas": [
+          "Un negativo no sirve para contar objetos.",
+          "Z reúne positivos, cero y negativos.",
+          "−9 tiene signo menos."
+        ],
+        "retroalimentacion": "−9 pertenece a Z y no a N."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Entre 2, −2 y 7, ¿cuántos son naturales?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0"
+          },
+          {
+            "id": "b",
+            "texto": "1"
+          },
+          {
+            "id": "c",
+            "texto": "2"
+          },
+          {
+            "id": "d",
+            "texto": "3"
+          }
+        ],
+        "pistas": [
+          "Revisa cuál tiene signo negativo.",
+          "2 y 7 son números de contar.",
+          "−2 es entero, pero no natural."
+        ],
+        "retroalimentacion": "Hay 2 naturales: 2 y 7."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El conjunto Z contiene a −4, 0 y 4.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Z incluye valores a ambos lados del cero.",
+          "−4 es negativo y 4 es positivo.",
+          "El cero también es entero."
+        ],
+        "retroalimentacion": "Verdadero: −4, 0 y 4 son enteros."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si A = {−3, 1, 8}, ¿qué elementos de A pertenecen a N?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−3 y 1"
+          },
+          {
+            "id": "b",
+            "texto": "−3 y 8"
+          },
+          {
+            "id": "c",
+            "texto": "Todos"
+          },
+          {
+            "id": "d",
+            "texto": "1 y 8"
+          }
+        ],
+        "pistas": [
+          "Identifica el único negativo de A.",
+          "−3 no pertenece a N.",
+          "Los otros dos son números de contar."
+        ],
+        "retroalimentacion": "1 y 8 están en N; −3 solo está en Z."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe un número de {−6, −1, 3} que pertenezca tanto a N como a Z.",
+        "respuesta": "3",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el positivo de la lista.",
+          "Los naturales también son enteros.",
+          "−6 y −1 quedan fuera de N."
+        ],
+        "retroalimentacion": "3 pertenece a ambos conjuntos."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Como −8 pertenece a Z, también debe pertenecer a N.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La inclusión funciona de N hacia Z.",
+          "Z tiene elementos negativos que N no tiene.",
+          "−8 es uno de esos negativos."
+        ],
+        "retroalimentacion": "Falso: −8 es entero, pero no natural."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál afirmación describe bien N y Z?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "N es parte de Z"
+          },
+          {
+            "id": "b",
+            "texto": "Z es parte de N"
+          },
+          {
+            "id": "c",
+            "texto": "N y Z no comparten números"
+          },
+          {
+            "id": "d",
+            "texto": "Z contiene solo negativos"
+          }
+        ],
+        "pistas": [
+          "Compara un natural como 4 con un entero negativo.",
+          "4 aparece en ambos conjuntos.",
+          "−4 aparece en Z, pero no en N."
+        ],
+        "retroalimentacion": "N es parte de Z; Z agrega negativos."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una lista contiene −2 y 5, todos sus números pueden etiquetarse como enteros, pero no todos como naturales.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Clasifica cada elemento de la lista.",
+          "−2 y 5 están en Z.",
+          "−2 impide llamar natural a toda la lista."
+        ],
+        "retroalimentacion": "Verdadero: ambos son enteros y −2 no es natural."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para que {−7, 4, 11} contenga solo números naturales, ¿cuál elemento debes retirar?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4"
+          },
+          {
+            "id": "b",
+            "texto": "−7"
+          },
+          {
+            "id": "c",
+            "texto": "11"
+          },
+          {
+            "id": "d",
+            "texto": "4 y 11"
+          }
+        ],
+        "pistas": [
+          "Un conjunto solo de N no admite negativos.",
+          "4 y 11 son naturales.",
+          "El elemento con menos es el que sobra."
+        ],
+        "retroalimentacion": "Debes retirar −7; 4 y 11 sí son naturales."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una tabla clasifica 6 como N y Z, y −6 como Z. ¿Qué letra falta junto a 0 si aquí se define N = {0, 1, 2, …}?",
+        "respuesta": "N",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Lee la definición de N dada en la pregunta.",
+          "Esa definición incluye explícitamente 0.",
+          "Todo elemento de N también está en Z."
+        ],
+        "retroalimentacion": "Falta N: con la convención indicada, 0 está en N y Z."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.recta-numerica-enteros",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-S1-03",
+      "MAT-C23-S1-04"
+    ],
+    "bloque": "Números enteros",
+    "nombre": "Enteros en la recta numérica",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Representa enteros en la recta y relaciona posición con orden.",
+    "palabrasClave": [
+      "recta numérica",
+      "izquierda",
+      "derecha",
+      "origen",
+      "distancia"
+    ],
+    "prerrequisitos": [
+      "mat.s1.numeros-enteros"
+    ],
+    "ordenSugerido": 8,
+    "ideaCentral": "En una recta numérica, el cero es la referencia: los positivos quedan a su derecha y los negativos a su izquierda. Cada paso hacia la derecha aumenta el valor.",
+    "pasos": [
+      "Marca el cero y observa el tamaño de cada intervalo.",
+      "Para un positivo, cuenta intervalos a la derecha; para un negativo, a la izquierda.",
+      "Comprueba la posición contando los saltos desde otra marca conocida."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Ubica −3 en una recta de unidad en unidad.",
+        "desarrollo": "Desde 0 camino tres marcas hacia la izquierda.",
+        "respuesta": "−3 está a tres unidades a la izquierda de 0."
+      },
+      {
+        "situacion": "Desde −2 avanzo cuatro marcas a la derecha.",
+        "desarrollo": "Paso por −1, 0, 1 y 2.",
+        "respuesta": "Llego a +2."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que −6 está a la derecha de −2 porque 6 es mayor que 2.",
+        "correccion": "En la recta, −6 queda más a la izquierda que −2."
+      },
+      {
+        "error": "Contar marcas en lugar de intervalos para medir distancia.",
+        "correccion": "Cuenta los espacios recorridos entre los puntos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Origen",
+        "significado": "Punto de la recta que representa el 0."
+      },
+      {
+        "termino": "Unidad",
+        "significado": "Distancia entre dos enteros consecutivos."
+      },
+      {
+        "termino": "Posición",
+        "significado": "Lugar que ocupa un número en la recta."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En una recta con marcas consecutivas −2, −1, 0, 1, ¿qué número sigue a la derecha? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada marca avanza una unidad.",
+          "A la derecha de 0 está 1.",
+          "Después de 1 viene 2."
+        ],
+        "retroalimentacion": "Sigue 2; moverte a la derecha aumenta el número."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Dónde se ubica −4 respecto de 0 en la recta numérica?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuatro unidades a la izquierda"
+          },
+          {
+            "id": "b",
+            "texto": "Cuatro unidades a la derecha"
+          },
+          {
+            "id": "c",
+            "texto": "En el mismo punto"
+          },
+          {
+            "id": "d",
+            "texto": "Una unidad a la izquierda"
+          }
+        ],
+        "pistas": [
+          "El signo menos indica lado negativo.",
+          "Los negativos están a la izquierda de 0.",
+          "La distancia indicada es cuatro unidades."
+        ],
+        "retroalimentacion": "−4 está cuatro unidades a la izquierda de 0."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la recta numérica, +3 se ubica a la derecha de 0.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ubica el cero como origen.",
+          "Los positivos crecen hacia la derecha.",
+          "+3 avanza tres marcas desde 0."
+        ],
+        "retroalimentacion": "Verdadero: +3 está tres unidades a la derecha."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La recta muestra −3 | −2 | −1 | 0. ¿Qué entero está justo antes de 0?",
+        "respuesta": "−1",
+        "alternativasAceptadas": [
+          "-1"
+        ],
+        "pistas": [
+          "Lee las marcas de izquierda a derecha.",
+          "La marca que toca a 0 por la izquierda es negativa.",
+          "Entre −2 y 0 está −1."
+        ],
+        "retroalimentacion": "Justo antes de 0 está −1."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Partes de 0 y avanzas cinco marcas a la izquierda. ¿En qué entero terminas? Escribe solo el número.",
+        "respuesta": -5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada marca izquierda reduce una unidad.",
+          "Tras una marca estás en −1.",
+          "Tras cinco marcas llegas a −5."
+        ],
+        "retroalimentacion": "Terminas en −5; +5 estaría a la derecha."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la recta −6 | −5 | −4 | −3, ¿qué número ocupa la segunda marca desde la izquierda?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−6"
+          },
+          {
+            "id": "b",
+            "texto": "−4"
+          },
+          {
+            "id": "c",
+            "texto": "−5"
+          },
+          {
+            "id": "d",
+            "texto": "−3"
+          }
+        ],
+        "pistas": [
+          "Cuenta marcas empezando en −6.",
+          "La primera marca es −6.",
+          "La siguiente aumenta una unidad."
+        ],
+        "retroalimentacion": "La segunda marca es −5, entre −6 y −4."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Entre −2 y +2 hay cuatro saltos de una unidad.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los espacios, no solo los números escritos.",
+          "Recorre −2→−1→0→1→2.",
+          "Ese recorrido tiene cuatro flechas."
+        ],
+        "retroalimentacion": "Verdadero: hay cuatro saltos de −2 a +2."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una marca está dos unidades a la derecha de −3. ¿Qué entero indica? Escribe solo el número.",
+        "respuesta": -1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Desde −3, ir a la derecha aumenta.",
+          "El primer salto te lleva a −2.",
+          "El segundo salto te deja en −1."
+        ],
+        "retroalimentacion": "La marca es −1; no es −5 porque no avanzaste a la izquierda."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué entero está entre −5 y −3 en marcas igualmente espaciadas?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−6"
+          },
+          {
+            "id": "b",
+            "texto": "−2"
+          },
+          {
+            "id": "c",
+            "texto": "0"
+          },
+          {
+            "id": "d",
+            "texto": "−4"
+          }
+        ],
+        "pistas": [
+          "La recta avanza de uno en uno.",
+          "A la derecha de −5 viene −4.",
+          "A la izquierda de −3 también está −4."
+        ],
+        "retroalimentacion": "−4 queda entre −5 y −3."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En la recta, A está en −4. B está tres marcas a la derecha de A y C dos marcas a la izquierda de B. ¿Dónde está C? Escribe solo el número.",
+        "respuesta": -3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Parte de A = −4.",
+          "Tres a la derecha llevan a B = −1.",
+          "Dos a la izquierda de −1 llevan a −3."
+        ],
+        "retroalimentacion": "C está en −3; detenerse en B = −1 omite el último movimiento."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si P está en −6 y Q en −1, Q queda cinco unidades a la derecha de P.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las marcas extremas.",
+          "De −6 a −1 avanzas hacia valores mayores.",
+          "Cuenta −6→−5→−4→−3→−2→−1."
+        ],
+        "retroalimentacion": "Verdadero: Q está cinco saltos a la derecha de P."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tres marcas equidistantes aparecen así: −8 | ? | −4. ¿Qué entero completa la marca central?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−7"
+          },
+          {
+            "id": "b",
+            "texto": "−6"
+          },
+          {
+            "id": "c",
+            "texto": "−5"
+          },
+          {
+            "id": "d",
+            "texto": "−2"
+          }
+        ],
+        "pistas": [
+          "La diferencia total entre −8 y −4 es cuatro unidades.",
+          "Dos espacios iguales reparten cuatro en partes de dos.",
+          "Dos unidades a la derecha de −8 es −6."
+        ],
+        "retroalimentacion": "La marca central es −6; cada separación vale dos unidades."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.valor-absoluto-opuesto",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-S1-04"
+    ],
+    "bloque": "Números enteros",
+    "nombre": "Valor absoluto y opuesto de un entero",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Interpreta el valor absoluto como distancia al cero y el opuesto como simétrico.",
+    "palabrasClave": [
+      "valor absoluto",
+      "opuesto",
+      "distancia",
+      "simetría",
+      "cero"
+    ],
+    "prerrequisitos": [
+      "mat.s1.recta-numerica-enteros"
+    ],
+    "ordenSugerido": 9,
+    "ideaCentral": "El valor absoluto de un entero es su distancia al cero y nunca es negativo. Su opuesto está a la misma distancia, pero al otro lado del cero.",
+    "pasos": [
+      "Ubica el entero respecto del cero.",
+      "Para el valor absoluto, cuenta unidades sin considerar el sentido.",
+      "Para el opuesto, conserva la magnitud y cambia el signo.",
+      "Comprueba que ambos opuestos suman cero."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Halla |−6|.",
+        "desarrollo": "−6 está seis unidades a la izquierda de cero; la distancia es 6.",
+        "respuesta": "|−6| = 6."
+      },
+      {
+        "situacion": "Halla el opuesto de +8.",
+        "desarrollo": "Mantengo la distancia 8 y paso al lado negativo.",
+        "respuesta": "El opuesto es −8."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir que |−9| = −9.",
+        "correccion": "Una distancia no lleva signo negativo: |−9| = 9."
+      },
+      {
+        "error": "Confundir opuesto con valor absoluto.",
+        "correccion": "El opuesto de +5 es −5, mientras su valor absoluto es 5."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Valor absoluto",
+        "significado": "Distancia de un entero al cero."
+      },
+      {
+        "termino": "Opuesto",
+        "significado": "Entero a igual distancia del cero en el lado contrario."
+      },
+      {
+        "termino": "Simétricos",
+        "significado": "Puntos que quedan a igual distancia de un centro, aquí el cero."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuál es el valor absoluto de −7? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El valor absoluto mide distancia al cero.",
+          "La distancia no es negativa.",
+          "−7 está a siete unidades de 0."
+        ],
+        "retroalimentacion": "|−7| = 7; el signo no aparece en la distancia."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el opuesto de +4?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "+4"
+          },
+          {
+            "id": "b",
+            "texto": "−4"
+          },
+          {
+            "id": "c",
+            "texto": "0"
+          },
+          {
+            "id": "d",
+            "texto": "8"
+          }
+        ],
+        "pistas": [
+          "El opuesto está al otro lado del cero.",
+          "Mantiene la misma distancia 4.",
+          "Cambia + por −."
+        ],
+        "retroalimentacion": "El opuesto de +4 es −4."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El valor absoluto de 0 es 0.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en la distancia de 0 a sí mismo.",
+          "No se recorren marcas.",
+          "Esa distancia es cero."
+        ],
+        "retroalimentacion": "Verdadero: |0| = 0."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿A cuántas unidades del cero está +9? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La pregunta pide una distancia.",
+          "+9 queda a la derecha de 0.",
+          "Cuenta nueve unidades desde 0."
+        ],
+        "retroalimentacion": "La distancia es 9 unidades; no se escribe +9 como distancia dirigida."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué par contiene números opuestos?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−3 y −4"
+          },
+          {
+            "id": "b",
+            "texto": "2 y 3"
+          },
+          {
+            "id": "c",
+            "texto": "−5 y +5"
+          },
+          {
+            "id": "d",
+            "texto": "0 y 1"
+          }
+        ],
+        "pistas": [
+          "Los opuestos tienen igual distancia al cero.",
+          "Sus signos son contrarios, salvo el caso de 0.",
+          "Busca dos cincos, uno negativo y otro positivo."
+        ],
+        "retroalimentacion": "−5 y +5 son opuestos; ambos están a cinco unidades de 0."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un punto está en −12. ¿Cuál es el valor absoluto de su posición? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa signo y distancia.",
+          "−12 se halla doce marcas a la izquierda.",
+          "La distancia al origen es 12."
+        ],
+        "retroalimentacion": "|−12| = 12, no −12."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El opuesto de −6 tiene valor absoluto 6.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero cambia el signo de −6.",
+          "El opuesto es +6.",
+          "La distancia de +6 a cero es 6."
+        ],
+        "retroalimentacion": "Verdadero: el opuesto es +6 y |+6| = 6."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Completa: el opuesto de −15 es ___. Escribe el entero con signo.",
+        "respuesta": "+15",
+        "alternativasAceptadas": [
+          "15"
+        ],
+        "pistas": [
+          "Conserva la magnitud 15.",
+          "Para hallar el opuesto, cambia el signo.",
+          "De −15 pasas a +15."
+        ],
+        "retroalimentacion": "El opuesto de −15 es +15; no es −15."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Dos puntos están en −8 y +8. ¿Qué valor absoluto comparten? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mide la distancia de ambos al origen.",
+          "−8 está ocho unidades a la izquierda.",
+          "+8 está ocho a la derecha."
+        ],
+        "retroalimentacion": "Ambos tienen valor absoluto 8."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si |x| = 3 y x es negativo, ¿cuánto vale x?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0"
+          },
+          {
+            "id": "b",
+            "texto": "+3"
+          },
+          {
+            "id": "c",
+            "texto": "−6"
+          },
+          {
+            "id": "d",
+            "texto": "−3"
+          }
+        ],
+        "pistas": [
+          "|x| = 3 fija la distancia al cero.",
+          "Hay dos posiciones a distancia 3: +3 y −3.",
+          "La condición negativa descarta +3."
+        ],
+        "retroalimentacion": "x = −3; +3 cumple la distancia, pero no el signo."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "El opuesto de un número es −11. ¿Cuál era el número original? Escribe solo el número.",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El opuesto cambia el signo una vez.",
+          "Si el resultado es negativo, el original es positivo.",
+          "El positivo a distancia once es +11."
+        ],
+        "retroalimentacion": "El original es 11, porque su opuesto es −11."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si |a| = |b| y a = −5, entonces b necesariamente es +5.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una misma distancia permite dos posiciones.",
+          "|−5| = 5.",
+          "b también podría ser −5."
+        ],
+        "retroalimentacion": "Falso: b puede ser −5 o +5; no necesariamente +5."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.comparar-ordenar-enteros",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-S1-03"
+    ],
+    "bloque": "Números enteros",
+    "nombre": "Comparación y orden de números enteros",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Compara y ordena enteros, incluso negativos, justificando con la recta numérica.",
+    "palabrasClave": [
+      "comparar",
+      "ordenar",
+      "mayor que",
+      "menor que",
+      "recta numérica"
+    ],
+    "prerrequisitos": [
+      "mat.s1.valor-absoluto-opuesto"
+    ],
+    "ordenSugerido": 10,
+    "ideaCentral": "En la recta numérica, el entero situado más a la derecha es mayor. Entre negativos, el que está más cerca de cero es mayor.",
+    "pasos": [
+      "Ubica el cero y los enteros que vas a comparar.",
+      "Lee la recta de izquierda a derecha para ordenar de menor a mayor.",
+      "Si ambos son negativos, revisa cuál está más cerca de cero.",
+      "Comprueba el orden usando < o >."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Compara −9 y −4.",
+        "desarrollo": "−9 está a la izquierda de −4.",
+        "respuesta": "−9 < −4."
+      },
+      {
+        "situacion": "Ordena +2, −3 y 0.",
+        "desarrollo": "−3 está a la izquierda de 0 y +2 a la derecha.",
+        "respuesta": "−3 < 0 < +2."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir que −12 > −2 porque 12 > 2.",
+        "correccion": "Con signo negativo, −12 queda más a la izquierda y es menor."
+      },
+      {
+        "error": "Colocar cero antes de todos los negativos.",
+        "correccion": "Cero es mayor que cualquier negativo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Ascendente",
+        "significado": "Orden desde el menor hasta el mayor."
+      },
+      {
+        "termino": "Descendente",
+        "significado": "Orden desde el mayor hasta el menor."
+      },
+      {
+        "termino": "Comparar",
+        "significado": "Determinar cuál número es mayor, menor o igual."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es mayor: −2 o +1?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "+1"
+          },
+          {
+            "id": "b",
+            "texto": "−2"
+          },
+          {
+            "id": "c",
+            "texto": "Son iguales"
+          },
+          {
+            "id": "d",
+            "texto": "No se pueden comparar"
+          }
+        ],
+        "pistas": [
+          "Ubica ambos respecto de 0.",
+          "+1 queda a la derecha de 0.",
+          "−2 queda a la izquierda."
+        ],
+        "retroalimentacion": "+1 es mayor porque está a la derecha de −2."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "−7 es menor que −3.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa dónde quedan ambos negativos.",
+          "−7 está más lejos a la izquierda.",
+          "El número de la izquierda es menor."
+        ],
+        "retroalimentacion": "Verdadero: −7 < −3."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Completa con <, > o =: −4 ___ 0.",
+        "respuesta": "<",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara un negativo con cero.",
+          "Los negativos están a la izquierda del origen.",
+          "El símbolo debe abrir hacia el mayor, que es 0."
+        ],
+        "retroalimentacion": "−4 < 0; el cero está a la derecha."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué número es el menor de {−1, 3, 0}?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "0"
+          },
+          {
+            "id": "c",
+            "texto": "1"
+          },
+          {
+            "id": "d",
+            "texto": "−1"
+          }
+        ],
+        "pistas": [
+          "Un negativo es menor que cero.",
+          "3 está a la derecha de 0.",
+          "−1 es el único a la izquierda de 0."
+        ],
+        "retroalimentacion": "El menor es −1."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Ordena −5, 2, −1 de menor a mayor. ¿Cuál queda en segundo lugar? Escribe solo el número.",
+        "respuesta": -1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ubica primero los negativos.",
+          "−5 queda antes que −1.",
+          "El orden es −5, −1, 2."
+        ],
+        "retroalimentacion": "En segundo lugar queda −1, no 2."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "−10 es mayor que −8 porque 10 es mayor que 8.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara posiciones, no solo cifras sin signo.",
+          "−10 está más a la izquierda que −8.",
+          "La posición izquierda indica menor."
+        ],
+        "retroalimentacion": "Falso: −10 < −8."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El marcador de una feria muestra −6, −2, +4 y 0. ¿Cuál es el segundo valor más alto?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−2"
+          },
+          {
+            "id": "b",
+            "texto": "0"
+          },
+          {
+            "id": "c",
+            "texto": "+4"
+          },
+          {
+            "id": "d",
+            "texto": "−6"
+          }
+        ],
+        "pistas": [
+          "Ordena de mayor a menor.",
+          "+4 va primero.",
+          "Cero supera a cualquier negativo."
+        ],
+        "retroalimentacion": "El segundo valor más alto es 0; +4 es el primero."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe el símbolo que hace verdadera la comparación: −3 ___ −9.",
+        "respuesta": ">",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambos están a la izquierda del cero.",
+          "−3 está más cerca de cero que −9.",
+          "El que está a la derecha es mayor."
+        ],
+        "retroalimentacion": "−3 > −9."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En la lista ascendente −8, −3, 0, 5, ¿cuántos enteros son menores que cero? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Menor que cero significa negativo.",
+          "Observa cuáles llevan signo menos.",
+          "−8 y −3 cumplen la condición."
+        ],
+        "retroalimentacion": "Hay 2 enteros menores que cero."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se necesita un entero mayor que −4 y menor que −1. ¿Cuál sirve?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−5"
+          },
+          {
+            "id": "b",
+            "texto": "0"
+          },
+          {
+            "id": "c",
+            "texto": "−2"
+          },
+          {
+            "id": "d",
+            "texto": "−1"
+          }
+        ],
+        "pistas": [
+          "Busca una posición estrictamente entre los extremos.",
+          "−1 no sirve porque el límite es menor que −1.",
+          "−2 queda a la derecha de −4 y a la izquierda de −1."
+        ],
+        "retroalimentacion": "−2 cumple −4 < −2 < −1."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al ordenar −2, −6, 1 y 0 de menor a mayor, el 0 queda en tercer lugar.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa negativos, cero y positivo.",
+          "Entre negativos, −6 va antes que −2.",
+          "Orden: −6, −2, 0, 1."
+        ],
+        "retroalimentacion": "Verdadero: el 0 ocupa el tercer lugar."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Ordena −1, −7 y −4 de mayor a menor. Escribe solo el número del último entero de la lista.",
+        "respuesta": "−7",
+        "alternativasAceptadas": [
+          "-7"
+        ],
+        "pistas": [
+          "En negativos, el más cercano a cero es mayor.",
+          "−1 va primero y −4 después.",
+          "−7 es el más alejado a la izquierda."
+        ],
+        "retroalimentacion": "El último es −7: −1 > −4 > −7."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.adicion-enteros",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Números enteros",
+    "nombre": "Adición de números enteros",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Suma enteros de igual y distinto signo con la recta y con reglas.",
+    "palabrasClave": [
+      "suma",
+      "sumandos",
+      "signos",
+      "recta numérica",
+      "opuestos"
+    ],
+    "prerrequisitos": [
+      "mat.s1.valor-absoluto-opuesto"
+    ],
+    "ordenSugerido": 11,
+    "ideaCentral": "Sumar enteros combina cambios: en la recta, un positivo mueve a la derecha y un negativo a la izquierda. Con signos iguales sumas magnitudes; con signos distintos comparas lo que se cancela.",
+    "pasos": [
+      "Reconoce el signo y la magnitud de cada sumando.",
+      "Si tienen igual signo, suma magnitudes y conserva ese signo.",
+      "Si tienen signos distintos, resta las magnitudes.",
+      "Da al resultado el signo del sumando con mayor magnitud y comprueba en la recta."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula −4 + (−3).",
+        "desarrollo": "Ambos son negativos: 4 + 3 = 7 y conservo el menos.",
+        "respuesta": "−7."
+      },
+      {
+        "situacion": "Calcula −8 + 5.",
+        "desarrollo": "Cinco positivos cancelan cinco de las ocho unidades negativas.",
+        "respuesta": "−3."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar magnitudes de signos distintos sin considerar cancelaciones.",
+        "correccion": "En −8 + 5, resta 8 − 5 y conserva el signo negativo."
+      },
+      {
+        "error": "Dar signo positivo a la suma de dos negativos.",
+        "correccion": "Dos movimientos a la izquierda siguen dejando un número negativo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Sumando",
+        "significado": "Cada entero que participa en una suma."
+      },
+      {
+        "termino": "Cancelación",
+        "significado": "Par de unidades +1 y −1 que juntas valen cero."
+      },
+      {
+        "termino": "Suma",
+        "significado": "Resultado de combinar dos o más cantidades."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula (+3) + (+4). Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambos sumandos son positivos.",
+          "Suma sus magnitudes: 3 + 4.",
+          "El resultado conserva el signo positivo."
+        ],
+        "retroalimentacion": "(+3) + (+4) = 7; no se resta porque tienen igual signo."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuánto vale (−2) + (−5)? Escribe solo el número.",
+        "respuesta": -7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos sumandos son negativos.",
+          "Junta las magnitudes 2 y 5.",
+          "Conserva el signo menos en el total."
+        ],
+        "retroalimentacion": "(−2) + (−5) = −7."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué resultado tiene (−6) + (+6)?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−12"
+          },
+          {
+            "id": "b",
+            "texto": "12"
+          },
+          {
+            "id": "c",
+            "texto": "0"
+          },
+          {
+            "id": "d",
+            "texto": "6"
+          }
+        ],
+        "pistas": [
+          "Son números opuestos.",
+          "Tienen igual magnitud y signos distintos.",
+          "Sus efectos se cancelan."
+        ],
+        "retroalimentacion": "(−6) + (+6) = 0, porque son opuestos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Sumar cero a −8 deja el resultado en −8.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El cero no cambia la cantidad.",
+          "Piensa en −8 + 0.",
+          "No hay avance ni retroceso en la recta."
+        ],
+        "retroalimentacion": "Verdadero: −8 + 0 = −8."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un punto está en −4 y avanzas 7 unidades a la derecha. ¿Qué entero alcanzas? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Representa el avance como +7.",
+          "Desde −4, cuatro pasos llevan a 0.",
+          "Quedan tres pasos hacia la derecha."
+        ],
+        "retroalimentacion": "−4 + 7 = 3; detenerse en 0 omite tres pasos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Resuelve (+5) + (−9).",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "14"
+          },
+          {
+            "id": "b",
+            "texto": "−4"
+          },
+          {
+            "id": "c",
+            "texto": "4"
+          },
+          {
+            "id": "d",
+            "texto": "−14"
+          }
+        ],
+        "pistas": [
+          "Los signos son distintos.",
+          "Compara magnitudes 9 y 5.",
+          "9 supera a 5 por 4 y corresponde al negativo."
+        ],
+        "retroalimentacion": "(+5) + (−9) = −4."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "(−11) + (+3) = −8.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tienes once unidades negativas.",
+          "Tres positivas cancelan tres negativas.",
+          "Quedan ocho negativas."
+        ],
+        "retroalimentacion": "Verdadero: −11 + 3 = −8."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un marcador parte de +2, pierde 5 puntos y gana 1. ¿Cuál es el total? Escribe solo el número.",
+        "respuesta": -2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Representa perder 5 como −5.",
+          "Primero 2 + (−5) = −3.",
+          "Luego suma 1 al resultado."
+        ],
+        "retroalimentacion": "2 + (−5) + 1 = −2; olvidar la ganancia final daría −3."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Completa la igualdad: −7 + ___ = 0. Escribe el entero con signo.",
+        "respuesta": "+7",
+        "alternativasAceptadas": [
+          "7"
+        ],
+        "pistas": [
+          "La suma debe cancelar −7.",
+          "Necesitas el opuesto de −7.",
+          "El opuesto tiene magnitud 7 y signo positivo."
+        ],
+        "retroalimentacion": "−7 + (+7) = 0."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si −3 + x = +4, ¿qué valor debe tener x?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−7"
+          },
+          {
+            "id": "b",
+            "texto": "−1"
+          },
+          {
+            "id": "c",
+            "texto": "+1"
+          },
+          {
+            "id": "d",
+            "texto": "+7"
+          }
+        ],
+        "pistas": [
+          "Desde −3 debes llegar a +4.",
+          "De −3 a 0 hay tres pasos.",
+          "De 0 a +4 hay cuatro más: total siete."
+        ],
+        "retroalimentacion": "x = +7, pues −3 + 7 = 4."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula (−8) + (+3) + (+6) agrupando positivos. Escribe solo el número.",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Junta primero +3 y +6.",
+          "Los positivos suman +9.",
+          "Ahora calcula −8 + 9."
+        ],
+        "retroalimentacion": "El resultado es 1; sumar 3 y 6 como negativos cambiaría el signo."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La suma de tres enteros negativos siempre es negativa, aunque uno tenga valor absoluto muy pequeño.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada sumando negativo mueve hacia la izquierda.",
+          "Agrupar dos negativos ya da negativo.",
+          "Sumar otro negativo no invierte el sentido."
+        ],
+        "retroalimentacion": "Verdadero: sumar solo enteros negativos siempre deja un total negativo."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.sustraccion-enteros",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Números enteros",
+    "nombre": "Sustracción de números enteros",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Resta enteros sumando el opuesto del sustraendo.",
+    "palabrasClave": [
+      "resta",
+      "sustraendo",
+      "opuesto",
+      "diferencia",
+      "signo"
+    ],
+    "prerrequisitos": [
+      "mat.s1.adicion-enteros"
+    ],
+    "ordenSugerido": 12,
+    "ideaCentral": "Restar un entero equivale a sumar su opuesto: a − b = a + (−b). Esto permite usar las reglas de adición incluso cuando restas un negativo.",
+    "pasos": [
+      "Identifica el entero que se resta.",
+      "Cambia la resta por suma y reemplaza el sustraendo por su opuesto.",
+      "Suma los enteros resultantes atendiendo a sus signos.",
+      "Comprueba sustituyendo en la resta original."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula 3 − (−5).",
+        "desarrollo": "El opuesto de −5 es +5; entonces 3 + 5.",
+        "respuesta": "8."
+      },
+      {
+        "situacion": "Calcula −4 − 6.",
+        "desarrollo": "Reescribo −4 + (−6), suma de dos negativos.",
+        "respuesta": "−10."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Tratar 7 − (−2) como 7 − 2.",
+        "correccion": "El opuesto de −2 es +2, así que 7 − (−2) = 9."
+      },
+      {
+        "error": "Cambiar el signo del minuendo en vez del sustraendo.",
+        "correccion": "Conserva el primer número; cambia solo el que se resta."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Minuendo",
+        "significado": "Número del que se resta otro."
+      },
+      {
+        "termino": "Sustraendo",
+        "significado": "Número que se resta."
+      },
+      {
+        "termino": "Diferencia",
+        "significado": "Resultado de una resta."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 8 − 3. Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La resta quita tres de ocho.",
+          "Puedes sumar el opuesto: 8 + (−3).",
+          "Quedan cinco unidades positivas."
+        ],
+        "retroalimentacion": "8 − 3 = 5."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuánto vale 2 − 6? Escribe solo el número.",
+        "respuesta": -4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Reescribe como 2 + (−6).",
+          "Dos positivos cancelan dos negativos.",
+          "Quedan cuatro negativos."
+        ],
+        "retroalimentacion": "2 − 6 = −4, no 4."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cómo se reescribe 5 − (−2) como una suma?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 + (−2)"
+          },
+          {
+            "id": "b",
+            "texto": "5 + 2"
+          },
+          {
+            "id": "c",
+            "texto": "−5 + 2"
+          },
+          {
+            "id": "d",
+            "texto": "−5 + (−2)"
+          }
+        ],
+        "pistas": [
+          "Restar equivale a sumar el opuesto.",
+          "El opuesto de −2 es +2.",
+          "El 5 inicial conserva su signo."
+        ],
+        "retroalimentacion": "La suma equivalente es 5 + 2; se cambia el signo del sustraendo."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Restar cero a −9 mantiene −9.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe −9 − 0.",
+          "El opuesto de 0 sigue siendo 0.",
+          "Sumar 0 no cambia −9."
+        ],
+        "retroalimentacion": "Verdadero: −9 − 0 = −9."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 4 − (−7). Escribe solo el número.",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el opuesto de −7.",
+          "4 − (−7) = 4 + 7.",
+          "Suma los dos positivos."
+        ],
+        "retroalimentacion": "4 − (−7) = 11; restar un negativo aumenta."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el resultado de −3 − (+5)?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "8"
+          },
+          {
+            "id": "c",
+            "texto": "−8"
+          },
+          {
+            "id": "d",
+            "texto": "−2"
+          }
+        ],
+        "pistas": [
+          "Convierte en −3 + (−5).",
+          "Ambos términos son negativos.",
+          "Suma magnitudes 3 y 5 y conserva el menos."
+        ],
+        "retroalimentacion": "−3 − (+5) = −8."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "−6 − (−4) = −2.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El opuesto de −4 es +4.",
+          "Reescribe −6 + 4.",
+          "Cuatro positivos cancelan cuatro negativos."
+        ],
+        "retroalimentacion": "Verdadero: −6 − (−4) = −2."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "A las 7 a. m. había −2 °C y a las 9 a. m. había +3 °C. ¿Cuántos grados aumentó la temperatura? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El aumento es temperatura final menos inicial.",
+          "Calcula 3 − (−2).",
+          "Restar −2 equivale a sumar 2."
+        ],
+        "retroalimentacion": "Aumentó 5 °C; 3 − (−2) = 5."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Completa: −5 − ___ = 0. Escribe el entero con signo.",
+        "respuesta": "−5",
+        "alternativasAceptadas": [
+          "-5"
+        ],
+        "pistas": [
+          "La resta debe convertir −5 en cero.",
+          "Restar un negativo aumenta el valor.",
+          "−5 − (−5) = −5 + 5."
+        ],
+        "retroalimentacion": "El sustraendo es −5, pues −5 − (−5) = 0."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué número x cumple x − (−3) = −1?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "+2"
+          },
+          {
+            "id": "b",
+            "texto": "−1"
+          },
+          {
+            "id": "c",
+            "texto": "−3"
+          },
+          {
+            "id": "d",
+            "texto": "−4"
+          }
+        ],
+        "pistas": [
+          "Sustituye restar −3 por sumar 3.",
+          "Ahora x + 3 = −1.",
+          "Para llegar a −1 tras sumar 3, debes empezar en −4."
+        ],
+        "retroalimentacion": "x = −4: −4 − (−3) = −1."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula −7 − (+2) − (−5). Escribe solo el número.",
+        "respuesta": -4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cambia cada resta por suma del opuesto.",
+          "Obtienes −7 + (−2) + 5.",
+          "Primero −9 + 5."
+        ],
+        "retroalimentacion": "El resultado es −4; el último −(−5) agrega cinco."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si a − b = 0 y b = −8, entonces a = −8.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sustituye b por −8.",
+          "a − (−8) = a + 8.",
+          "Para que la suma sea cero, a debe ser −8."
+        ],
+        "retroalimentacion": "Verdadero: −8 − (−8) = 0."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.signos-agrupacion-enteros",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Números enteros",
+    "nombre": "Supresión de signos de agrupación con enteros",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Elimina paréntesis, corchetes y llaves precedidos de signo más o menos.",
+    "palabrasClave": [
+      "paréntesis",
+      "corchetes",
+      "llaves",
+      "supresión",
+      "signos"
+    ],
+    "prerrequisitos": [
+      "mat.s1.sustraccion-enteros"
+    ],
+    "ordenSugerido": 13,
+    "ideaCentral": "Los agrupadores indican qué términos van juntos. Al quitar uno precedido por + conservas los signos internos; si está precedido por −, cambias el signo de cada término interno.",
+    "pasos": [
+      "Resuelve primero los agrupadores más interiores si vas a calcular.",
+      "Al suprimir un grupo con + delante, conserva cada signo.",
+      "Al suprimir un grupo con − delante, invierte el signo de cada término.",
+      "Comprueba que la expresión original y la transformada dan lo mismo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Suprime el paréntesis de 8 − (3 − 5).",
+        "desarrollo": "El menos exterior cambia +3 a −3 y −5 a +5.",
+        "respuesta": "8 − 3 + 5."
+      },
+      {
+        "situacion": "Calcula 2 + [−4 + (3 − 1)].",
+        "desarrollo": "Primero 3 − 1 = 2; el + conserva lo del corchete: 2 − 4 + 2.",
+        "respuesta": "0."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Cambiar solo el signo del primer término tras un menos.",
+        "correccion": "En −(a − b), cambian ambos: −a + b."
+      },
+      {
+        "error": "Resolver llaves antes de paréntesis internos.",
+        "correccion": "Empieza por el grupo más interior."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Agrupador",
+        "significado": "Paréntesis, corchete o llave que reúne términos."
+      },
+      {
+        "termino": "Suprimir",
+        "significado": "Quitar un agrupador conservando el valor de la expresión."
+      },
+      {
+        "termino": "Término",
+        "significado": "Cada parte de una suma o resta con su signo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué queda al quitar paréntesis en +(3 − 2)?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 − 2"
+          },
+          {
+            "id": "b",
+            "texto": "−3 + 2"
+          },
+          {
+            "id": "c",
+            "texto": "3 + 2"
+          },
+          {
+            "id": "d",
+            "texto": "−3 − 2"
+          }
+        ],
+        "pistas": [
+          "El signo anterior al paréntesis es +.",
+          "Un + exterior conserva los signos interiores.",
+          "Dentro aparece 3 − 2 sin cambios."
+        ],
+        "retroalimentacion": "Queda 3 − 2; el + exterior no cambia los signos."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 6 − (2 + 1). Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero resuelve el paréntesis.",
+          "2 + 1 = 3.",
+          "Luego 6 − 3."
+        ],
+        "retroalimentacion": "6 − (2 + 1) = 3; no se resta solo el 2."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al eliminar −(4 − 3), queda −4 + 3.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El menos exterior afecta a ambos términos.",
+          "+4 se convierte en −4.",
+          "−3 se convierte en +3."
+        ],
+        "retroalimentacion": "Verdadero: −(4 − 3) = −4 + 3."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Al quitar paréntesis en −(−5), ¿qué entero queda? Escribe el número con signo.",
+        "respuesta": "+5",
+        "alternativasAceptadas": [
+          "5"
+        ],
+        "pistas": [
+          "El menos exterior cambia el signo interior.",
+          "Dentro hay −5.",
+          "El opuesto de −5 es +5."
+        ],
+        "retroalimentacion": "−(−5) = +5."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál expresión resulta de 7 − [2 + (−4)] al suprimir el corchete?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7 − 2 − 4"
+          },
+          {
+            "id": "b",
+            "texto": "7 − 2 + 4"
+          },
+          {
+            "id": "c",
+            "texto": "7 + 2 − 4"
+          },
+          {
+            "id": "d",
+            "texto": "7 + 2 + 4"
+          }
+        ],
+        "pistas": [
+          "El menos antes del corchete invierte ambos signos.",
+          "+2 se vuelve −2.",
+          "−4 se vuelve +4."
+        ],
+        "retroalimentacion": "Queda 7 − 2 + 4; cambiar solo el primer signo sería incorrecto."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula −(3 + 5) + 2. Escribe solo el número.",
+        "respuesta": -6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Distribuye el signo menos a 3 y 5.",
+          "Obtienes −3 − 5 + 2.",
+          "−8 + 2 = −6."
+        ],
+        "retroalimentacion": "El resultado es −6; el menos afecta a 3 y a 5."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 10 + [−3 − (−2)], el signo + del corchete permite conservar −3 y −(−2).",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa el signo antes de [.",
+          "Un más exterior no cambia lo interior.",
+          "La resta de −2 se resuelve después."
+        ],
+        "retroalimentacion": "Verdadero: el + exterior conserva la expresión dentro del corchete."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Evalúa 4 − {1 − [2 − 3]}. Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empieza por [2 − 3] = −1.",
+          "La llave vale 1 − (−1) = 2.",
+          "Finalmente calcula 4 − 2."
+        ],
+        "retroalimentacion": "El resultado es 2; resolver de fuera hacia dentro altera los signos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Suprime el paréntesis de 5 − (−2 + 3). Escribe solo el signo que queda delante del 3: + o −.",
+        "respuesta": "−",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El menos exterior cambia cada signo.",
+          "El −2 interior pasa a +2.",
+          "El +3 interior pasa a −3."
+        ],
+        "retroalimentacion": "Delante del 3 queda −: 5 + 2 − 3."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al desarrollar −[−2 + {3 − (−1)}], ¿cuál expresión final sin agrupadores es equivalente?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−2 + 3 − 1"
+          },
+          {
+            "id": "b",
+            "texto": "2 + 3 + 1"
+          },
+          {
+            "id": "c",
+            "texto": "−2 − 3 − 1"
+          },
+          {
+            "id": "d",
+            "texto": "2 − 3 − 1"
+          }
+        ],
+        "pistas": [
+          "Trabaja desde el paréntesis interior.",
+          "3 − (−1) se vuelve 3 + 1.",
+          "El menos exterior invierte −2, +3 y +1."
+        ],
+        "retroalimentacion": "La expresión es 2 − 3 − 1; cada término del corchete cambió de signo."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula 8 − [3 − (−2 + 1)]. Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero −2 + 1 = −1.",
+          "El corchete queda 3 − (−1) = 4.",
+          "Luego 8 − 4."
+        ],
+        "retroalimentacion": "El valor es 4; el signo menos ante −1 se convierte en suma."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La igualdad −{4 − [2 − (−3)]} = +1 es correcta.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero 2 − (−3).",
+          "El corchete vale 5 y la llave 4 − 5 = −1.",
+          "El menos exterior transforma −1 en +1."
+        ],
+        "retroalimentacion": "Verdadero: −{4 − [2 − (−3)]} = −(−1) = 1."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.multiplicacion-enteros",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Números enteros",
+    "nombre": "Multiplicación de enteros y ley de signos",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Multiplica enteros aplicando la ley de signos y la explica con patrones.",
+    "palabrasClave": [
+      "multiplicación",
+      "producto",
+      "factores",
+      "ley de signos",
+      "patrón"
+    ],
+    "prerrequisitos": [
+      "mat.s1.adicion-enteros"
+    ],
+    "ordenSugerido": 14,
+    "ideaCentral": "Para multiplicar enteros, multiplica sus magnitudes y determina el signo: signos iguales dan positivo y distintos dan negativo. Un factor cero hace que todo el producto sea cero.",
+    "pasos": [
+      "Multiplica los valores absolutos de los factores.",
+      "Compara sus signos para decidir el signo del producto.",
+      "Si hay varios factores, calcula en orden o cuenta los factores negativos.",
+      "Comprueba con sumas repetidas o un patrón cuando sea posible."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula −4 × 3.",
+        "desarrollo": "Tres grupos de −4 suman −4 −4 −4.",
+        "respuesta": "−12."
+      },
+      {
+        "situacion": "Calcula −5 × (−2).",
+        "desarrollo": "Las magnitudes dan 10; dos signos negativos producen positivo.",
+        "respuesta": "+10."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Afirmar que negativo por negativo sigue siendo negativo.",
+        "correccion": "Dos factores negativos producen un resultado positivo."
+      },
+      {
+        "error": "Olvidar que multiplicar por cero da cero.",
+        "correccion": "Antes de aplicar signos, verifica si hay un factor cero."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Factor",
+        "significado": "Cada número que se multiplica."
+      },
+      {
+        "termino": "Producto",
+        "significado": "Resultado de una multiplicación."
+      },
+      {
+        "termino": "Ley de signos",
+        "significado": "Regla que determina el signo de un producto."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula (+3) × (+4). Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 3 por 4.",
+          "Dos factores positivos dan positivo.",
+          "3 × 4 = 12."
+        ],
+        "retroalimentacion": "(+3) × (+4) = 12."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué signo tiene (−2) × (+5)?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cero"
+          },
+          {
+            "id": "b",
+            "texto": "Positivo"
+          },
+          {
+            "id": "c",
+            "texto": "Negativo"
+          },
+          {
+            "id": "d",
+            "texto": "No tiene signo"
+          }
+        ],
+        "pistas": [
+          "Los factores tienen signos distintos.",
+          "Signos distintos producen un producto negativo.",
+          "La magnitud sería 2 × 5."
+        ],
+        "retroalimentacion": "El signo es negativo: (−2) × (+5) = −10."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuánto vale (−3) × (−2)? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica magnitudes 3 y 2.",
+          "Dos factores negativos dan positivo.",
+          "El producto tiene magnitud seis."
+        ],
+        "retroalimentacion": "(−3) × (−2) = +6."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Cualquier entero multiplicado por cero da cero.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en grupos de cero.",
+          "No importa el signo del otro factor.",
+          "Cinco grupos de 0 siguen siendo 0."
+        ],
+        "retroalimentacion": "Verdadero: a × 0 = 0 para todo entero a."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una penalización de −4 puntos se aplica 3 veces. ¿Qué cambio total produce? Escribe solo el número de puntos.",
+        "respuesta": -12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Son tres grupos de −4.",
+          "Calcula 3 × 4 = 12.",
+          "Un positivo por un negativo da negativo."
+        ],
+        "retroalimentacion": "El cambio es −12 puntos; se acumulan penalizaciones."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál producto es positivo?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(−4) × (+2)"
+          },
+          {
+            "id": "b",
+            "texto": "(−4) × (−2)"
+          },
+          {
+            "id": "c",
+            "texto": "(+4) × (−2)"
+          },
+          {
+            "id": "d",
+            "texto": "0 × (−2)"
+          }
+        ],
+        "pistas": [
+          "Busca factores con el mismo signo.",
+          "Dos negativos producen un positivo.",
+          "El producto con cero no es positivo."
+        ],
+        "retroalimentacion": "(−4) × (−2) es positivo y vale 8."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "(−6) × (−3) = −18.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La magnitud 6 × 3 sí es 18.",
+          "Revisa el signo de los dos factores.",
+          "Dos negativos dan producto positivo."
+        ],
+        "retroalimentacion": "Falso: (−6) × (−3) = +18."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula (+7) × (−4). Escribe solo el número.",
+        "respuesta": -28,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero 7 × 4 = 28.",
+          "Los signos son distintos.",
+          "Añade signo menos a la magnitud 28."
+        ],
+        "retroalimentacion": "El producto es −28, no +28."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Completa (−5) × ___ = +20. Escribe el entero con signo.",
+        "respuesta": "−4",
+        "alternativasAceptadas": [
+          "-4"
+        ],
+        "pistas": [
+          "Para obtener +20, los signos deben coincidir.",
+          "El factor faltante es negativo.",
+          "20 ÷ 5 = 4."
+        ],
+        "retroalimentacion": "El factor es −4: (−5) × (−4) = +20."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si (−2) × (−3) × (−4) se calcula de izquierda a derecha, ¿cuál es el resultado?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "24"
+          },
+          {
+            "id": "b",
+            "texto": "−9"
+          },
+          {
+            "id": "c",
+            "texto": "6"
+          },
+          {
+            "id": "d",
+            "texto": "−24"
+          }
+        ],
+        "pistas": [
+          "Los dos primeros negativos dan +6.",
+          "Luego multiplica +6 por −4.",
+          "Un positivo por negativo da negativo y 6 × 4 = 24."
+        ],
+        "retroalimentacion": "El producto es −24; tres factores negativos dejan signo negativo."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un patrón muestra −3, +6, −12, +24: cada término se obtiene multiplicando por el mismo entero. ¿Cuál es el siguiente? Escribe solo el número.",
+        "respuesta": -48,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara −3 con +6.",
+          "El factor constante es −2.",
+          "Multiplica +24 por −2."
+        ],
+        "retroalimentacion": "Sigue −48; el factor −2 duplica la magnitud y alterna el signo."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un producto de cuatro factores enteros distintos de cero tiene exactamente dos factores negativos, el resultado es positivo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empareja los dos factores negativos.",
+          "Su producto es positivo.",
+          "Los otros dos factores son positivos y no cambian el signo."
+        ],
+        "retroalimentacion": "Verdadero: dos signos negativos se compensan."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.division-enteros",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Números enteros",
+    "nombre": "División exacta de números enteros",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Divide enteros aplicando la ley de signos y la relación inversa con la multiplicación.",
+    "palabrasClave": [
+      "división exacta",
+      "cociente",
+      "divisor",
+      "ley de signos",
+      "multiplicación inversa"
+    ],
+    "prerrequisitos": [
+      "mat.s1.multiplicacion-enteros"
+    ],
+    "ordenSugerido": 15,
+    "ideaCentral": "Al dividir enteros en una división exacta, divide las magnitudes y aplica la misma ley de signos que en la multiplicación. Comprueba multiplicando el cociente por el divisor; nunca dividas entre cero.",
+    "pasos": [
+      "Verifica que el divisor sea distinto de cero y que la división sea exacta.",
+      "Divide los valores absolutos.",
+      "Asigna signo positivo si los signos coinciden y negativo si difieren.",
+      "Multiplica cociente por divisor para comprobar el dividendo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula −21 ÷ 7.",
+        "desarrollo": "21 ÷ 7 = 3; los signos difieren.",
+        "respuesta": "−3."
+      },
+      {
+        "situacion": "Calcula −32 ÷ −8.",
+        "desarrollo": "32 ÷ 8 = 4; ambos números son negativos.",
+        "respuesta": "+4."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dar signo negativo al dividir dos negativos.",
+        "correccion": "Signos iguales producen cociente positivo."
+      },
+      {
+        "error": "Aceptar una división por cero.",
+        "correccion": "No existe cociente cuando el divisor es 0."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Dividendo",
+        "significado": "Número que se divide."
+      },
+      {
+        "termino": "Divisor",
+        "significado": "Número entre el que se divide; no puede ser cero."
+      },
+      {
+        "termino": "Cociente",
+        "significado": "Resultado de una división."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula +12 ÷ +3. Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide magnitudes 12 entre 3.",
+          "Los signos iguales dan cociente positivo.",
+          "12 ÷ 3 = 4."
+        ],
+        "retroalimentacion": "+12 ÷ +3 = +4."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuánto vale −15 ÷ +5? Escribe solo el número.",
+        "respuesta": -3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "15 ÷ 5 = 3.",
+          "Los signos son distintos.",
+          "El cociente lleva signo negativo."
+        ],
+        "retroalimentacion": "−15 ÷ +5 = −3."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el resultado de −18 ÷ −6?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−3"
+          },
+          {
+            "id": "b",
+            "texto": "+3"
+          },
+          {
+            "id": "c",
+            "texto": "−12"
+          },
+          {
+            "id": "d",
+            "texto": "+12"
+          }
+        ],
+        "pistas": [
+          "La división exacta de magnitudes es 18 ÷ 6.",
+          "Dos signos negativos dan positivo.",
+          "6 × 3 = 18."
+        ],
+        "retroalimentacion": "−18 ÷ −6 = +3."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "0 ÷ (−7) = 0.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El divisor −7 es distinto de cero.",
+          "Cero repartido en grupos sigue dando cero.",
+          "−7 × 0 = 0."
+        ],
+        "retroalimentacion": "Verdadero: 0 ÷ (−7) = 0."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una deuda total de S/ 24 se reparte por igual entre 4 personas. ¿Qué entero expresa la deuda de cada una en soles? Escribe solo el número.",
+        "respuesta": -6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La deuda total se representa −24.",
+          "Divide 24 entre 4.",
+          "Negativo dividido entre positivo da negativo."
+        ],
+        "retroalimentacion": "Cada persona debe S/ 6: −24 ÷ 4 = −6."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué división exacta produce −8?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−32 ÷ −4"
+          },
+          {
+            "id": "b",
+            "texto": "+32 ÷ +4"
+          },
+          {
+            "id": "c",
+            "texto": "+32 ÷ −4"
+          },
+          {
+            "id": "d",
+            "texto": "−16 ÷ −2"
+          }
+        ],
+        "pistas": [
+          "Busca magnitud ocho.",
+          "32 ÷ 4 = 8.",
+          "Para obtener signo negativo se necesitan signos distintos."
+        ],
+        "retroalimentacion": "+32 ÷ −4 = −8; signos iguales darían +8."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "−42 ÷ +7 = −6 porque +7 × (−6) = −42.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa la multiplicación inversa.",
+          "7 × 6 = 42.",
+          "Positivo por negativo da negativo."
+        ],
+        "retroalimentacion": "Verdadero: el cociente −6 se verifica con 7 × (−6) = −42."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula +36 ÷ −9. Escribe solo el número.",
+        "respuesta": -4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "36 ÷ 9 = 4.",
+          "Los signos del dividendo y divisor difieren.",
+          "El resultado es cuatro negativo."
+        ],
+        "retroalimentacion": "36 ÷ (−9) = −4."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Completa −28 ÷ ___ = +7. Escribe el entero con signo.",
+        "respuesta": "−4",
+        "alternativasAceptadas": [
+          "-4"
+        ],
+        "pistas": [
+          "El divisor debe ser negativo para que el cociente sea positivo.",
+          "28 ÷ 7 = 4.",
+          "Comprueba −4 × 7 = −28."
+        ],
+        "retroalimentacion": "El divisor es −4: −28 ÷ (−4) = +7."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula (−48 ÷ +6) ÷ (−2). Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero −48 ÷ 6 = −8.",
+          "Ahora divide −8 entre −2.",
+          "Signos iguales dan +4."
+        ],
+        "retroalimentacion": "El valor es 4; no se divide 48 entre 6 ÷ 2 sin respetar agrupación."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si x ÷ (−5) = +6, ¿qué valor tiene x?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "+30"
+          },
+          {
+            "id": "b",
+            "texto": "−11"
+          },
+          {
+            "id": "c",
+            "texto": "−30/5"
+          },
+          {
+            "id": "d",
+            "texto": "−30"
+          }
+        ],
+        "pistas": [
+          "Usa la relación inversa.",
+          "x = (+6) × (−5).",
+          "Signos distintos dan negativo y 6 × 5 = 30."
+        ],
+        "retroalimentacion": "x = −30, pues −30 ÷ −5 = +6."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La expresión −12 ÷ 0 tiene resultado 0.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para verificar un cociente, multiplica divisor por resultado.",
+          "0 por cualquier entero da 0.",
+          "No puede dar −12."
+        ],
+        "retroalimentacion": "Falso: dividir −12 entre 0 no está definido."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.operaciones-combinadas-enteros",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-05",
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Números enteros",
+    "nombre": "Operaciones combinadas con enteros",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Resuelve expresiones con las cuatro operaciones y signos de agrupación con enteros.",
+    "palabrasClave": [
+      "jerarquía",
+      "paréntesis",
+      "multiplicación",
+      "división",
+      "enteros"
+    ],
+    "prerrequisitos": [
+      "mat.s1.division-enteros",
+      "mat.s1.signos-agrupacion-enteros"
+    ],
+    "ordenSugerido": 16,
+    "ideaCentral": "Una expresión con varias operaciones se resuelve por niveles: agrupadores desde dentro, luego multiplicación y división de izquierda a derecha, y finalmente suma y resta de izquierda a derecha. En cada paso conserva los signos.",
+    "pasos": [
+      "Resuelve primero el agrupador más interior.",
+      "Realiza multiplicaciones y divisiones de izquierda a derecha.",
+      "Realiza sumas y restas de izquierda a derecha.",
+      "Revisa los signos y sustituye para comprobar el valor final."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula 7 − 2 × (−3).",
+        "desarrollo": "Primero 2 × (−3) = −6; luego 7 − (−6).",
+        "respuesta": "13."
+      },
+      {
+        "situacion": "Calcula (−5 + 1) × 6 ÷ (−3).",
+        "desarrollo": "El paréntesis da −4; −4 × 6 = −24; −24 ÷ −3.",
+        "respuesta": "8."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Resolver todas las operaciones solo de izquierda a derecha.",
+        "correccion": "Primero multiplica o divide, salvo que un agrupador indique otra cosa."
+      },
+      {
+        "error": "Cambiar el signo al restar un resultado negativo.",
+        "correccion": "En 7 − (−6), sumar el opuesto da 13."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Jerarquía de operaciones",
+        "significado": "Orden acordado para resolver una expresión."
+      },
+      {
+        "termino": "Agrupador",
+        "significado": "Signo que indica qué parte se resuelve junta."
+      },
+      {
+        "termino": "Expresión",
+        "significado": "Combinación de números y operaciones con un valor."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 3 + 2 × 4. Escribe solo el número.",
+        "respuesta": 11,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La multiplicación va antes de la suma.",
+          "2 × 4 = 8.",
+          "Ahora 3 + 8."
+        ],
+        "retroalimentacion": "El resultado es 11; sumar 3 + 2 primero daría un valor incorrecto."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el valor de (3 + 2) × (−2)?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−8"
+          },
+          {
+            "id": "b",
+            "texto": "−10"
+          },
+          {
+            "id": "c",
+            "texto": "+10"
+          },
+          {
+            "id": "d",
+            "texto": "+8"
+          }
+        ],
+        "pistas": [
+          "Primero resuelve el paréntesis.",
+          "3 + 2 = 5.",
+          "5 por −2 da negativo diez."
+        ],
+        "retroalimentacion": "(3 + 2) × (−2) = −10."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 12 ÷ 3 + 1, primero se hace la división.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara la prioridad de ÷ y +.",
+          "La división precede a la suma.",
+          "Calcula 12 ÷ 3 antes de agregar 1."
+        ],
+        "retroalimentacion": "Verdadero: primero 12 ÷ 3 = 4 y luego 4 + 1 = 5."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuánto vale 8 − 2 × 3? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica antes de restar.",
+          "2 × 3 = 6.",
+          "Ahora 8 − 6."
+        ],
+        "retroalimentacion": "8 − 2 × 3 = 2, no 18."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Resuelve −4 + 18 ÷ (−3). Escribe solo el número.",
+        "respuesta": -10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide 18 entre −3 primero.",
+          "El cociente es −6.",
+          "Suma −4 + (−6)."
+        ],
+        "retroalimentacion": "El valor es −10; cambiar el signo del cociente da otro resultado."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué resultado tiene 5 × (−2 + 6) − 3?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−23"
+          },
+          {
+            "id": "b",
+            "texto": "−3"
+          },
+          {
+            "id": "c",
+            "texto": "17"
+          },
+          {
+            "id": "d",
+            "texto": "23"
+          }
+        ],
+        "pistas": [
+          "El paréntesis vale 4.",
+          "Multiplica 5 × 4 = 20.",
+          "Resta 3 al producto."
+        ],
+        "retroalimentacion": "El resultado es 17; no se multiplica solo el −2."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La expresión 6 + 12 ÷ 3 × 2 vale 14.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "División y multiplicación tienen igual prioridad.",
+          "Resuélvelas de izquierda a derecha: 12 ÷ 3 × 2.",
+          "Obtienes 4 × 2 = 8 y luego sumas 6."
+        ],
+        "retroalimentacion": "Verdadero: 6 + (12 ÷ 3 × 2) = 6 + 8 = 14."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 20 − [4 × (−3) + 6]. Escribe solo el número.",
+        "respuesta": 26,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Dentro del corchete, 4 × (−3) = −12.",
+          "Luego −12 + 6 = −6.",
+          "Fuera queda 20 − (−6)."
+        ],
+        "retroalimentacion": "El resultado es 26; restar −6 equivale a sumar 6."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En 9 − 2 × (−4), ¿qué operación se realiza primero: resta o multiplicación?",
+        "respuesta": "multiplicación",
+        "alternativasAceptadas": [
+          "multiplicacion"
+        ],
+        "pistas": [
+          "Observa el paréntesis: ya contiene un solo número.",
+          "× tiene prioridad sobre −.",
+          "Antes de 9 − algo, calcula 2 × (−4)."
+        ],
+        "retroalimentacion": "Primero va la multiplicación; restar 9 − 2 inicialmente cambia el valor."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el valor de [−6 + 2 × (5 − 8)] ÷ 3?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0"
+          },
+          {
+            "id": "b",
+            "texto": "−2"
+          },
+          {
+            "id": "c",
+            "texto": "+4"
+          },
+          {
+            "id": "d",
+            "texto": "−4"
+          }
+        ],
+        "pistas": [
+          "Primero 5 − 8 = −3.",
+          "Luego 2 × (−3) = −6 y el corchete vale −12.",
+          "Divide −12 entre 3."
+        ],
+        "retroalimentacion": "El resultado es −4; dividir antes de cerrar el corchete incumple el orden."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Evalúa 15 − {−2 × [3 + (−9 ÷ 3)]}. Escribe solo el número.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero −9 ÷ 3 = −3.",
+          "El corchete es 3 + (−3) = 0.",
+          "El producto con −2 vale 0; resta a 15."
+        ],
+        "retroalimentacion": "El valor es 15; el corchete se anula antes de la resta exterior."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En (−8 + 2) × [12 ÷ (−3) − 1], el resultado es +30.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El primer paréntesis vale −6.",
+          "El corchete vale −4 − 1 = −5.",
+          "Multiplica dos negativos: −6 × −5."
+        ],
+        "retroalimentacion": "Verdadero: el producto de −6 y −5 es +30."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.ganar-perder-enteros",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-S1-01",
+      "MAT-C23-S1-02"
+    ],
+    "bloque": "Números enteros",
+    "nombre": "Situaciones de ganar, perder, deber e igualar con enteros",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Modela con enteros situaciones de saldos, deudas y cambios sucesivos.",
+    "palabrasClave": [
+      "ganancia",
+      "pérdida",
+      "deuda",
+      "saldo",
+      "cambio neto"
+    ],
+    "prerrequisitos": [
+      "mat.s1.sustraccion-enteros"
+    ],
+    "ordenSugerido": 17,
+    "ideaCentral": "Un saldo se modela con enteros: ganar o recibir suma, mientras perder, gastar o deber resta. Para varios cambios, escribe cada uno con su signo y combínalos en orden.",
+    "pasos": [
+      "Define qué significa el saldo cero.",
+      "Anota el saldo inicial y representa cada cambio con + o −.",
+      "Suma los cambios en el orden descrito.",
+      "Interpreta el signo final: a favor, en contra o saldado."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Debes S/ 5 y recibes S/ 8.",
+        "desarrollo": "Saldo inicial −5; ingreso +8; −5 + 8 = +3.",
+        "respuesta": "Te quedan S/ 3 a favor."
+      },
+      {
+        "situacion": "Tienes 4 puntos, pierdes 7 y ganas 2.",
+        "desarrollo": "4 + (−7) + 2 = −1.",
+        "respuesta": "Terminas con −1 punto."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Representar una deuda como dinero disponible.",
+        "correccion": "Una deuda de S/ 6 se escribe −6."
+      },
+      {
+        "error": "Olvidar un cambio intermedio al calcular saldo final.",
+        "correccion": "Escribe todos los ingresos y gastos antes de sumar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Saldo",
+        "significado": "Cantidad que queda tras ingresos y gastos; puede ser negativa."
+      },
+      {
+        "termino": "Deuda",
+        "significado": "Cantidad pendiente de pago, representada con signo negativo."
+      },
+      {
+        "termino": "Cambio neto",
+        "significado": "Resultado de combinar todas las ganancias y pérdidas."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Lucía tenía S/ 6 y gastó S/ 2. ¿Cuál es su saldo en soles? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Parte de un saldo +6.",
+          "Gastar 2 es un cambio −2.",
+          "Calcula 6 + (−2)."
+        ],
+        "retroalimentacion": "El saldo es S/ 4; gastar reduce el dinero."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una deuda de S/ 5 y un pago de S/ 5 dejan ¿qué saldo?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−10"
+          },
+          {
+            "id": "b",
+            "texto": "0"
+          },
+          {
+            "id": "c",
+            "texto": "+5"
+          },
+          {
+            "id": "d",
+            "texto": "−5"
+          }
+        ],
+        "pistas": [
+          "La deuda inicia en −5.",
+          "Pagar cinco suma +5.",
+          "Los cambios opuestos se cancelan."
+        ],
+        "retroalimentacion": "El saldo es 0: −5 + 5 = 0."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Ganar 3 puntos y luego perder 1 equivale a un cambio total de +2 puntos.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe ganar como +3.",
+          "Perder uno se expresa −1.",
+          "Combina 3 + (−1)."
+        ],
+        "retroalimentacion": "Verdadero: el cambio neto es +2 puntos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una tienda debe S/ 8. ¿Qué entero representa ese saldo? Escribe el número con signo.",
+        "respuesta": "−8",
+        "alternativasAceptadas": [
+          "-8"
+        ],
+        "pistas": [
+          "La deuda se representa bajo cero.",
+          "Conserva la magnitud ocho.",
+          "Pon signo menos delante del 8."
+        ],
+        "retroalimentacion": "La deuda se representa con −8 soles."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un equipo empieza con −3 puntos, gana 7 y pierde 2. ¿Con cuántos puntos termina? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe los cambios: +7 y −2.",
+          "−3 + 7 = 4.",
+          "Después resta los dos puntos perdidos."
+        ],
+        "retroalimentacion": "Termina con 2 puntos: −3 + 7 − 2 = 2."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Mario tiene S/ 4 y debe S/ 9. Si usa sus S/ 4 para pagar parte de la deuda, ¿qué saldo le queda?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "+13"
+          },
+          {
+            "id": "b",
+            "texto": "+5"
+          },
+          {
+            "id": "c",
+            "texto": "−5"
+          },
+          {
+            "id": "d",
+            "texto": "−13"
+          }
+        ],
+        "pistas": [
+          "Combina dinero disponible y deuda.",
+          "El saldo se expresa 4 + (−9).",
+          "La deuda supera el dinero por cinco soles."
+        ],
+        "retroalimentacion": "Le queda un saldo de −5 soles; aún debe S/ 5."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si empiezas con saldo −6 soles y recibes S/ 4, todavía debes S/ 2.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Representa recibir como +4.",
+          "Suma −6 + 4.",
+          "Quedan dos unidades negativas."
+        ],
+        "retroalimentacion": "Verdadero: el saldo final es −2 soles."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En un torneo, Sara tiene +5 puntos. Dos penalizaciones de −3 puntos cada una cambian su puntaje. ¿Cuál es el puntaje final? Escribe solo el número.",
+        "respuesta": -1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Dos penalizaciones suman −3 + (−3).",
+          "El cambio total es −6.",
+          "Combina +5 y −6."
+        ],
+        "retroalimentacion": "El puntaje final es −1; contar una sola penalización daría +2."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "La cuenta de José pasa de −4 a 0 soles. ¿Qué cambio entero recibió? Escribe el número con signo.",
+        "respuesta": "+4",
+        "alternativasAceptadas": [
+          "4"
+        ],
+        "pistas": [
+          "Busca cuánto falta desde −4 hasta 0.",
+          "Un aumento mueve hacia cero.",
+          "Cuatro soles compensan la deuda."
+        ],
+        "retroalimentacion": "El cambio fue +4 soles: −4 + 4 = 0."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una feria registra saldo inicial −7, venta +12 y gasto −4 soles. ¿Qué expresión y saldo son correctos?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−7 − 12 − 4 = −23"
+          },
+          {
+            "id": "b",
+            "texto": "−7 + 12 + 4 = 9"
+          },
+          {
+            "id": "c",
+            "texto": "7 + 12 − 4 = 15"
+          },
+          {
+            "id": "d",
+            "texto": "−7 + 12 − 4 = 1"
+          }
+        ],
+        "pistas": [
+          "Respeta los signos de deuda, venta y gasto.",
+          "El saldo tras la venta es −7 + 12 = 5.",
+          "Después del gasto quedan 5 − 4."
+        ],
+        "retroalimentacion": "La expresión correcta es −7 + 12 − 4 = 1 sol."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un club debía S/ 10. Recibió S/ 6 y luego pagó S/ 3 de una compra nueva. ¿Cuántos soles debe ahora? Escribe solo el número de soles que debe.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Saldo inicial −10 y entrada +6.",
+          "Tras recibir dinero, queda −4.",
+          "La nueva compra de S/ 3 reduce el saldo a −7."
+        ],
+        "retroalimentacion": "Debe S/ 7: el saldo es −10 + 6 − 3 = −7; la pregunta pide la magnitud de la deuda."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un saldo pasa de −5 a +2 soles, el cambio total fue +7 soles.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula el cambio como saldo final menos inicial.",
+          "2 − (−5) = 2 + 5.",
+          "El aumento cubre cinco de deuda y deja dos a favor."
+        ],
+        "retroalimentacion": "Verdadero: se necesitan +7 soles para pasar de −5 a +2."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.variaciones-temperatura-altitud",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-S1-01",
+      "MAT-C23-S1-07"
+    ],
+    "bloque": "Números enteros",
+    "nombre": "Variaciones de temperatura y altitud con enteros",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Calcula variaciones entre valores positivos y negativos en climas y alturas.",
+    "palabrasClave": [
+      "temperatura",
+      "altitud",
+      "enteros",
+      "variación",
+      "bajo cero"
+    ],
+    "prerrequisitos": [
+      "mat.s1.sustraccion-enteros"
+    ],
+    "ordenSugerido": 18,
+    "ideaCentral": "Una temperatura o altitud puede estar por encima o por debajo de cero. Para hallar cuánto cambió, resta el valor inicial al final; el signo muestra si subió o bajó.",
+    "pasos": [
+      "Representa los valores bajo cero con signo negativo y los demás con signo positivo.",
+      "Identifica el valor inicial y el final.",
+      "Calcula final − inicial, incluso cuando cruzas el cero.",
+      "Interpreta el signo: positivo indica subida y negativo, bajada."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En Puno la temperatura pasó de −3 °C a 4 °C. ¿Cuál fue la variación?",
+        "desarrollo": "Resto final menos inicial: 4 − (−3) = 7.",
+        "respuesta": "Subió 7 °C."
+      },
+      {
+        "situacion": "Un buzo pasó de −2 m a −9 m respecto del nivel del mar.",
+        "desarrollo": "−9 − (−2) = −7; el resultado es negativo.",
+        "respuesta": "Descendió 7 m."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Restar solo los valores absolutos al cruzar el cero.",
+        "correccion": "De −3 a 4 hay 3 unidades hasta cero y 4 más: son 7."
+      },
+      {
+        "error": "Confundir el signo del cambio con la altitud final.",
+        "correccion": "El cambio se calcula final − inicial; una altitud final negativa aún puede representar subida."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Variación",
+        "significado": "Diferencia entre valor final e inicial."
+      },
+      {
+        "termino": "Altitud relativa",
+        "significado": "Posición medida desde un nivel de referencia, que vale cero."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En Juliaca el termómetro marcó −2 °C al amanecer y 3 °C al mediodía. ¿Cuántos grados subió? Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "Desde −2 °C avanza hasta 0 °C.",
+          "Ese primer tramo mide 2 °C; luego llega a 3 °C.",
+          "Suma 2 + 3."
+        ],
+        "retroalimentacion": "Confundir los signos daría 1; de −2 °C a 3 °C subió 5 °C.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una estación registra 6 °C y horas después 2 °C. ¿Qué variación hubo?",
+        "respuesta": "c",
+        "pistas": [
+          "Toma 6 °C como inicio y 2 °C como final.",
+          "Calcula 2 − 6.",
+          "Un resultado negativo indica descenso."
+        ],
+        "retroalimentacion": "No subió 4 °C: la variación fue −4 °C, es decir, bajó 4 °C.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Subió 4 °C"
+          },
+          {
+            "id": "b",
+            "texto": "Bajó 8 °C"
+          },
+          {
+            "id": "c",
+            "texto": "Bajó 4 °C"
+          },
+          {
+            "id": "d",
+            "texto": "No cambió"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Pasar de −5 m a −1 m respecto del nivel del mar significa ascender 4 m.",
+        "respuesta": true,
+        "pistas": [
+          "Ubica −5 m y −1 m alrededor del cero.",
+          "De −5 a −1 avanzas hacia arriba.",
+          "Calcula −1 − (−5)."
+        ],
+        "retroalimentacion": "Es verdadero: −1 − (−5) = 4 m de ascenso.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un dron estaba a 8 m sobre el patio y bajó hasta 0 m. ¿Cuántos metros descendió? Escribe solo el número.",
+        "respuesta": 8,
+        "pistas": [
+          "El patio marca 0 m.",
+          "Compara la altura inicial de 8 m con la final de 0 m.",
+          "La magnitud del descenso es 8 − 0."
+        ],
+        "retroalimentacion": "El descenso fue de 8 m; 0 m es la altura final, no el cambio.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una cámara fría la temperatura cambió de −7 °C a −2 °C. ¿Qué pasó?",
+        "respuesta": "b",
+        "pistas": [
+          "Ambas temperaturas son bajo cero.",
+          "−2 está más cerca de cero que −7.",
+          "Cuenta cinco grados desde −7 hasta −2."
+        ],
+        "retroalimentacion": "Aunque ambas temperaturas son negativas, subió 5 °C.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Bajó 5 °C"
+          },
+          {
+            "id": "b",
+            "texto": "Subió 5 °C"
+          },
+          {
+            "id": "c",
+            "texto": "Subió 9 °C"
+          },
+          {
+            "id": "d",
+            "texto": "Bajó 9 °C"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una excursión parte de una quebrada a −4 m respecto de una referencia y llega a un mirador a 11 m. ¿Cuántos metros asciende? Escribe solo el número.",
+        "respuesta": 15,
+        "pistas": [
+          "Separa el camino en −4 a 0 y 0 a 11.",
+          "El primer tramo tiene 4 m.",
+          "Suma 4 + 11."
+        ],
+        "retroalimentacion": "De −4 m a 11 m el ascenso es 15 m, no 7 m.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si en Cusco el registro pasa de 3 °C a −4 °C, la variación es +7 °C.",
+        "respuesta": false,
+        "pistas": [
+          "La lectura final es −4 °C.",
+          "Resta final menos inicial: −4 − 3.",
+          "Cruzar cero hacia abajo da un cambio negativo."
+        ],
+        "retroalimentacion": "Es falso: −4 − 3 = −7 °C; bajó 7 °C.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un sensor pasa de −1 °C a 2 °C. Escribe la variación con signo y unidad, por ejemplo +3 °C.",
+        "respuesta": "+3 °C",
+        "pistas": [
+          "Calcula temperatura final menos inicial.",
+          "La cuenta es 2 − (−1).",
+          "El aumento se escribe con signo positivo."
+        ],
+        "retroalimentacion": "La variación es +3 °C; escribir −3 °C invertiría el sentido.",
+        "alternativasAceptadas": [
+          "3 °C",
+          "+3°C"
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un montañista estaba a −6 m de la marca de referencia, subió 10 m y después bajó 3 m. ¿A qué altura final queda, en metros respecto de la referencia? Escribe solo el número.",
+        "respuesta": 1,
+        "pistas": [
+          "Parte de −6 m.",
+          "Tras subir 10 m llega a 4 m.",
+          "Desde 4 m baja 3 m."
+        ],
+        "retroalimentacion": "−6 + 10 − 3 = 1 m; quedarse en 4 m omite el descenso final.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "La mañana empezó a −3 °C; al mediodía la temperatura subió 8 °C y en la noche bajó 6 °C. ¿Cuál es la temperatura nocturna?",
+        "respuesta": "d",
+        "pistas": [
+          "Suma el aumento de 8 °C a −3 °C.",
+          "Al mediodía hay 5 °C.",
+          "Resta los 6 °C de la noche."
+        ],
+        "retroalimentacion": "La temperatura nocturna es −1 °C: −3 + 8 − 6 = −1.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "11 °C"
+          },
+          {
+            "id": "b",
+            "texto": "5 °C"
+          },
+          {
+            "id": "c",
+            "texto": "1 °C"
+          },
+          {
+            "id": "d",
+            "texto": "−1 °C"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un buzo asciende desde −12 m hasta −5 m y luego desciende a −8 m. En total, queda 4 m más arriba que al inicio.",
+        "respuesta": true,
+        "pistas": [
+          "Compara solo la posición inicial −12 m con la final −8 m.",
+          "Los movimientos intermedios no cambian la diferencia entre extremos.",
+          "Calcula −8 − (−12)."
+        ],
+        "retroalimentacion": "Es verdadero: termina 4 m por encima de −12 m, aunque el último movimiento fue descenso.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un pronóstico anuncia pasar de 4 °C a −2 °C. Escribe la variación con signo y unidad.",
+        "respuesta": "−6 °C",
+        "pistas": [
+          "El valor final es −2 °C y el inicial 4 °C.",
+          "Calcula −2 − 4.",
+          "El signo negativo expresa que enfrió."
+        ],
+        "retroalimentacion": "La variación es −6 °C; +6 °C indica el sentido contrario.",
+        "alternativasAceptadas": [
+          "−6°C",
+          "-6 °C",
+          "-6°C"
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.propiedades-operaciones-enteros",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-S1-05",
+      "MAT-C23-S1-09"
+    ],
+    "bloque": "Números enteros",
+    "nombre": "Propiedades de las operaciones con enteros",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Verifica con ejemplos qué propiedades se cumplen en Z y cuáles no, como la conmutativa en la resta.",
+    "palabrasClave": [
+      "conmutativa",
+      "asociativa",
+      "distributiva",
+      "enteros",
+      "resta"
+    ],
+    "prerrequisitos": [
+      "mat.s1.operaciones-combinadas-enteros"
+    ],
+    "ordenSugerido": 19,
+    "ideaCentral": "Puedes cambiar el orden o la agrupación en sumas y productos de enteros sin alterar el resultado. La resta y la división no cumplen esas reglas en general; compruébalo con un contraejemplo.",
+    "pasos": [
+      "Elige la propiedad que quieres comprobar.",
+      "Calcula los dos lados usando los mismos enteros.",
+      "Compara resultados; una igualdad confirma ese ejemplo y una diferencia refuta la propiedad general.",
+      "Distingue suma y multiplicación de resta y división."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "¿Es conmutativa la suma de −4 y 7?",
+        "desarrollo": "−4 + 7 = 3 y 7 + (−4) = 3.",
+        "respuesta": "Sí, cambiar el orden conserva la suma."
+      },
+      {
+        "situacion": "¿Se puede conmutar 8 − 3?",
+        "desarrollo": "8 − 3 = 5, pero 3 − 8 = −5.",
+        "respuesta": "No: la resta no es conmutativa."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Aplicar la conmutativa a una resta.",
+        "correccion": "Comprueba ambos órdenes: 5 − 2 y 2 − 5 dan resultados distintos."
+      },
+      {
+        "error": "Confundir asociativa con conmutativa.",
+        "correccion": "Asociativa cambia paréntesis; conmutativa cambia el orden de los números."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Conmutativa",
+        "significado": "Cambiar el orden de los términos sin alterar el resultado."
+      },
+      {
+        "termino": "Asociativa",
+        "significado": "Cambiar la agrupación sin alterar el resultado."
+      },
+      {
+        "termino": "Distributiva",
+        "significado": "Multiplicar una suma término por término."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La suma 5 + (−2) da lo mismo que (−2) + 5.",
+        "respuesta": true,
+        "pistas": [
+          "Calcula 5 + (−2).",
+          "Luego calcula (−2) + 5.",
+          "Compara ambos resultados: son 3."
+        ],
+        "retroalimentacion": "Es verdadero: ambas sumas valen 3 por la propiedad conmutativa.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué propiedad muestra 4 × (−3) = (−3) × 4?",
+        "respuesta": "a",
+        "pistas": [
+          "Los factores 4 y −3 intercambian lugar.",
+          "No cambian paréntesis ni se reparte un producto.",
+          "La regla de cambiar orden se llama conmutativa."
+        ],
+        "retroalimentacion": "Es la conmutativa: los dos productos valen −12.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Conmutativa"
+          },
+          {
+            "id": "b",
+            "texto": "Asociativa"
+          },
+          {
+            "id": "c",
+            "texto": "Distributiva"
+          },
+          {
+            "id": "d",
+            "texto": "Elemento neutro"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Por distributiva, 3 × (−2 + 5) = 3 × (−2) + 3 × 5. ¿Cuánto vale? Escribe solo el número.",
+        "respuesta": 9,
+        "pistas": [
+          "Multiplica 3 por −2.",
+          "Multiplica 3 por 5.",
+          "Suma −6 + 15."
+        ],
+        "retroalimentacion": "El valor es 9; distribuir solo al primer sumando daría un resultado errado.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La resta de enteros es conmutativa: 7 − 2 = 2 − 7.",
+        "respuesta": false,
+        "pistas": [
+          "Calcula el lado izquierdo.",
+          "El lado derecho cambia el orden de 7 y 2.",
+          "5 no es igual a −5."
+        ],
+        "retroalimentacion": "Es falso: 7 − 2 = 5 y 2 − 7 = −5.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál igualdad usa la propiedad asociativa de la suma?",
+        "respuesta": "c",
+        "pistas": [
+          "Asociar significa mover paréntesis.",
+          "Conserva el orden 2, −5, 8.",
+          "Busca las dos formas de agrupar esos tres términos."
+        ],
+        "retroalimentacion": "(2 + (−5)) + 8 = 2 + ((−5) + 8) cambia solo la agrupación.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 + (−5) = (−5) + 2"
+          },
+          {
+            "id": "b",
+            "texto": "2 + 0 = 2"
+          },
+          {
+            "id": "c",
+            "texto": "(2 + (−5)) + 8 = 2 + ((−5) + 8)"
+          },
+          {
+            "id": "d",
+            "texto": "2 − 5 = −3"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "¿Qué propiedad permite escribir −4 × (6 + 2) como (−4 × 6) + (−4 × 2)? Escribe su nombre.",
+        "respuesta": "distributiva",
+        "pistas": [
+          "El −4 multiplica a dos sumandos.",
+          "Se reparte el mismo factor −4.",
+          "La regla de repartir se llama propiedad distributiva."
+        ],
+        "retroalimentacion": "Se usa la distributiva; asociar solo movería paréntesis.",
+        "alternativasAceptadas": [
+          "propiedad distributiva"
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Como (−6) × 1 = −6, el 1 es elemento neutro de la multiplicación.",
+        "respuesta": true,
+        "pistas": [
+          "Un neutro deja el valor igual.",
+          "Compara −6 × 1 con −6.",
+          "Multiplicar por 1 no cambia ningún entero."
+        ],
+        "retroalimentacion": "Es verdadero: 1 es el elemento neutro multiplicativo.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una estudiante afirma que 12 ÷ (−3) = (−3) ÷ 12 por conmutativa. ¿Qué respuesta la refuta?",
+        "respuesta": "d",
+        "pistas": [
+          "Calcula 12 ÷ (−3).",
+          "El primer resultado es −4.",
+          "El orden invertido da −1/4, distinto."
+        ],
+        "retroalimentacion": "12 ÷ (−3) = −4 y (−3) ÷ 12 = −1/4: la división no es conmutativa.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ambas divisiones dan −4"
+          },
+          {
+            "id": "b",
+            "texto": "Ambas dan 4"
+          },
+          {
+            "id": "c",
+            "texto": "La suma es conmutativa"
+          },
+          {
+            "id": "d",
+            "texto": "−4 es distinto de −1/4"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Sin cambiar el orden, usa asociativa para calcular (−18 + 7) + 13 agrupando 7 + 13. ¿Cuál es el resultado? Escribe solo el número.",
+        "respuesta": 2,
+        "pistas": [
+          "Agrupa −18 + (7 + 13).",
+          "7 + 13 = 20.",
+          "Calcula −18 + 20."
+        ],
+        "retroalimentacion": "El resultado es 2; la asociativa permite agrupar 7 y 13.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La igualdad 10 − (4 − 2) = (10 − 4) − 2 demuestra que la resta es asociativa.",
+        "respuesta": false,
+        "pistas": [
+          "Calcula primero 4 − 2.",
+          "El lado izquierdo vale 8 y el derecho 4.",
+          "Una diferencia refuta la supuesta propiedad."
+        ],
+        "retroalimentacion": "Es falso: 8 ≠ 4; la resta no es asociativa.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para calcular −7 × 19 como −7 × (20 − 1), ¿qué desarrollo correcto aplica distributiva?",
+        "respuesta": "b",
+        "pistas": [
+          "Multiplica −7 por 20 y por −1.",
+          "Conserva la resta dentro del paréntesis.",
+          "−140 − (−7) = −133."
+        ],
+        "retroalimentacion": "−7 × 20 − (−7 × 1) = −133; olvidar el segundo signo da −147.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−140 − 7 = −147"
+          },
+          {
+            "id": "b",
+            "texto": "−140 + 7 = −133"
+          },
+          {
+            "id": "c",
+            "texto": "−7 + 20 − 1 = 12"
+          },
+          {
+            "id": "d",
+            "texto": "−140 + 1 = −139"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un compañero dice que si 9 − (−2) = 11, entonces (−2) − 9 también vale 11. ¿Qué propiedad aplica incorrectamente? Escribe su nombre.",
+        "respuesta": "conmutativa",
+        "pistas": [
+          "El compañero intercambió 9 y −2.",
+          "Intercambiar términos es conmutar.",
+          "La resta no permite esa propiedad."
+        ],
+        "retroalimentacion": "Aplica mal la conmutativa: (−2) − 9 = −11.",
+        "alternativasAceptadas": [
+          "propiedad conmutativa"
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

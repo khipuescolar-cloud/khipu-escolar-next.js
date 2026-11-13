@@ -1,0 +1,2115 @@
+[
+  {
+    "clave": "mat.s1.fracciones-decimales-porcentajes",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-S1-08"
+    ],
+    "bloque": "Porcentajes",
+    "nombre": "Equivalencias entre fracciones, decimales y porcentajes",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Convierte entre las tres formas y elige la más útil para cada cálculo.",
+    "palabrasClave": [
+      "fracción",
+      "decimal",
+      "porcentaje",
+      "equivalencia",
+      "centésimos"
+    ],
+    "prerrequisitos": [
+      "mat.s1.fraccion-generatriz"
+    ],
+    "ordenSugerido": 71,
+    "ideaCentral": "Una fracción, un decimal y un porcentaje pueden representar la misma parte de un todo. Para pasar de decimal a porcentaje multiplicas por 100; para volver divides entre 100.",
+    "pasos": [
+      "Identifica la forma inicial y la forma solicitada.",
+      "Convierte la fracción a decimal dividiendo numerador entre denominador.",
+      "Para obtener porcentaje multiplica el decimal por 100.",
+      "Comprueba la equivalencia con una fracción de denominador 100 cuando sea posible."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "¿Qué porcentaje representa 3/4?",
+        "desarrollo": "3 ÷ 4 = 0,75; 0,75 × 100 = 75.",
+        "respuesta": "75 %."
+      },
+      {
+        "situacion": "Convierte 20 % a fracción simplificada.",
+        "desarrollo": "20 % = 20/100 = 1/5.",
+        "respuesta": "1/5."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Tomar 0,5 como 5 %.",
+        "correccion": "0,5 × 100 = 50 %."
+      },
+      {
+        "error": "Escribir 25 % como 25/10.",
+        "correccion": "Porcentaje significa de cada cien: 25/100 = 1/4."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Porcentaje",
+        "significado": "Cantidad por cada cien partes."
+      },
+      {
+        "termino": "Decimal",
+        "significado": "Número escrito con parte entera y decimal."
+      },
+      {
+        "termino": "Fracción equivalente",
+        "significado": "Fracción que representa la misma cantidad que otra."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Convierte 0,4 a porcentaje. Escribe solo el número del porcentaje.",
+        "respuesta": 40,
+        "pistas": [
+          "Un decimal se multiplica por 100.",
+          "0,4 son cuatro décimos.",
+          "Cuatro décimos equivalen a cuarenta centésimos."
+        ],
+        "retroalimentacion": "0,4 equivale a 40 %, no a 4 %.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué fracción representa 50 %?",
+        "respuesta": "b",
+        "pistas": [
+          "Por ciento significa sobre 100.",
+          "50/100 se simplifica.",
+          "Divide numerador y denominador entre 50."
+        ],
+        "retroalimentacion": "50 % es 1/2, no 1/50.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/50"
+          },
+          {
+            "id": "b",
+            "texto": "1/2"
+          },
+          {
+            "id": "c",
+            "texto": "2/5"
+          },
+          {
+            "id": "d",
+            "texto": "5/2"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La fracción 1/4 equivale a 0,25 y a 25 %.",
+        "respuesta": true,
+        "pistas": [
+          "Divide 1 entre 4.",
+          "El cociente es 0,25.",
+          "Multiplica 0,25 por 100."
+        ],
+        "retroalimentacion": "Es verdadero: las tres formas expresan un cuarto.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe 10 % como decimal, usando coma.",
+        "respuesta": "0,1",
+        "pistas": [
+          "Escribe diez de cada cien.",
+          "10/100 es una décima.",
+          "Una décima en decimal es 0,1."
+        ],
+        "retroalimentacion": "El error 10,0 no divide entre cien: 10 % = 0,1.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Qué porcentaje es 3/5? Escribe solo el número del porcentaje.",
+        "respuesta": 60,
+        "pistas": [
+          "Convierte primero la fracción.",
+          "3 ÷ 5 = 0,6.",
+          "0,6 × 100 = 60."
+        ],
+        "retroalimentacion": "3/5 no es 30 %; equivale a 60 %.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una botella está llena en 0,125 de su capacidad. ¿Qué porcentaje es?",
+        "respuesta": "d",
+        "pistas": [
+          "Multiplica el decimal por 100.",
+          "Mueve la coma dos lugares a la derecha.",
+          "0,125 × 100 = 12,5."
+        ],
+        "retroalimentacion": "La equivalencia es 12,5 %, no 125 % al mover tres lugares.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1,25 %"
+          },
+          {
+            "id": "b",
+            "texto": "12 %"
+          },
+          {
+            "id": "c",
+            "texto": "125 %"
+          },
+          {
+            "id": "d",
+            "texto": "12,5 %"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El 80 % se puede escribir como 4/5.",
+        "respuesta": true,
+        "pistas": [
+          "Empieza con 80/100.",
+          "Simplifica dividiendo entre 20.",
+          "80 ÷ 20 = 4 y 100 ÷ 20 = 5."
+        ],
+        "retroalimentacion": "Es verdadero: 80 % = 80/100 = 4/5.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Convierte 0,75 a fracción simplificada. Usa formato numerador/denominador.",
+        "respuesta": "3/4",
+        "pistas": [
+          "0,75 son 75 centésimos.",
+          "Escribe 75/100.",
+          "Divide ambas partes entre 25."
+        ],
+        "retroalimentacion": "La fracción simplificada es 3/4; 75/10 no conserva el valor.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál pareja representa exactamente la misma cantidad?",
+        "respuesta": "a",
+        "pistas": [
+          "Convierte cada porcentaje a decimal.",
+          "2,5 % = 2,5 ÷ 100.",
+          "El resultado es 0,025."
+        ],
+        "retroalimentacion": "2,5 % y 0,025 coinciden; 0,25 sería 25 %.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2,5 % y 0,025"
+          },
+          {
+            "id": "b",
+            "texto": "2,5 % y 0,25"
+          },
+          {
+            "id": "c",
+            "texto": "25 % y 0,025"
+          },
+          {
+            "id": "d",
+            "texto": "0,5 % y 0,5"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una receta usa 7/8 de un vaso. ¿Qué porcentaje del vaso usa? Escribe solo el número del porcentaje.",
+        "respuesta": 87.5,
+        "pistas": [
+          "Divide 7 entre 8.",
+          "Obtienes 0,875.",
+          "Multiplica 0,875 por 100."
+        ],
+        "retroalimentacion": "7/8 = 87,5 %, no 78,5 %.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "0,06, 6/100 y 60 % son tres formas equivalentes.",
+        "respuesta": false,
+        "pistas": [
+          "0,06 son seis centésimos.",
+          "6/100 equivale a 6 %.",
+          "60 % equivale a 0,6."
+        ],
+        "retroalimentacion": "Es falso: 0,06 = 6 %, mientras 60 % = 0,6.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En un juego, la regla dice elegir la fracción simplificada equivalente a 12,5 %. ¿Cuál es? Escribe numerador/denominador.",
+        "respuesta": "1/8",
+        "pistas": [
+          "12,5 % = 0,125.",
+          "0,125 = 125/1000.",
+          "Simplifica dividiendo entre 125."
+        ],
+        "retroalimentacion": "La fracción es 1/8; 1/80 sería 1,25 %.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.porcentaje-de-cantidad",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Porcentajes",
+    "nombre": "Porcentaje de una cantidad",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Calcula cualquier porcentaje de una cantidad con fracción, decimal o regla de tres.",
+    "palabrasClave": [
+      "porcentaje",
+      "cantidad",
+      "parte",
+      "decimal",
+      "regla de tres"
+    ],
+    "prerrequisitos": [
+      "mat.s1.fracciones-decimales-porcentajes"
+    ],
+    "ordenSugerido": 72,
+    "ideaCentral": "Para hallar un porcentaje de una cantidad, convierte el porcentaje en fracción sobre 100 o en decimal y multiplica por el total. El resultado conserva la unidad de la cantidad original.",
+    "pasos": [
+      "Identifica el total y el porcentaje pedido.",
+      "Divide el porcentaje entre 100.",
+      "Multiplica el decimal obtenido por el total.",
+      "Comprueba que un porcentaje menor que 100 % dé una parte menor que el total."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "El 25 % de 80 cuadernos.",
+        "desarrollo": "0,25 × 80 = 20.",
+        "respuesta": "20 cuadernos."
+      },
+      {
+        "situacion": "El 12 % de S/ 150.",
+        "desarrollo": "12/100 × 150 = 18.",
+        "respuesta": "S/ 18."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dividir el total entre el porcentaje sin convertir.",
+        "correccion": "Calcula p/100 × total."
+      },
+      {
+        "error": "Confundir 20 % con 20 unidades.",
+        "correccion": "La parte depende del total: 20 % de 50 es 10."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Total",
+        "significado": "Cantidad completa que representa 100 %."
+      },
+      {
+        "termino": "Parte",
+        "significado": "Cantidad que corresponde al porcentaje indicado."
+      },
+      {
+        "termino": "Tasa porcentual",
+        "significado": "Número de partes por cada cien."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuánto es el 10 % de 70 soles? Escribe solo el número.",
+        "respuesta": 7,
+        "pistas": [
+          "10 % es una décima parte.",
+          "Divide 70 entre 10.",
+          "70 ÷ 10 = 7."
+        ],
+        "retroalimentacion": "El 10 % no son 10 soles fijos: aquí son 7 soles.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un estante tiene 40 libros. ¿Cuántos son el 50 %?",
+        "respuesta": "c",
+        "pistas": [
+          "50 % significa mitad.",
+          "Busca la mitad de 40.",
+          "40 ÷ 2 = 20."
+        ],
+        "retroalimentacion": "Son 20 libros, no 50; el porcentaje se aplica a 40.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10"
+          },
+          {
+            "id": "b",
+            "texto": "15"
+          },
+          {
+            "id": "c",
+            "texto": "20"
+          },
+          {
+            "id": "d",
+            "texto": "40"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El 25 % de 200 m equivale a 50 m.",
+        "respuesta": true,
+        "pistas": [
+          "25 % es un cuarto.",
+          "Divide 200 entre 4.",
+          "200 ÷ 4 = 50."
+        ],
+        "retroalimentacion": "Es verdadero: 25 % de 200 m son 50 m.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En una caja hay 120 lápices. ¿Cuántos representan el 5 %? Escribe solo el número.",
+        "respuesta": 6,
+        "pistas": [
+          "5 % es la mitad de 10 %.",
+          "10 % de 120 es 12.",
+          "La mitad de 12 es 6."
+        ],
+        "retroalimentacion": "Confundir 5 % con cinco lápices da error; son 6.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una entrada cuesta S/ 80. ¿Cuánto es el 15 % de su precio, en soles? Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "Separa 15 % en 10 % y 5 %.",
+          "10 % de 80 es 8; 5 % es 4.",
+          "Suma 8 + 4."
+        ],
+        "retroalimentacion": "El 15 % son S/ 12, no S/ 15.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "De 250 alumnos, el 8 % participa en ajedrez. ¿Cuántos participan?",
+        "respuesta": "a",
+        "pistas": [
+          "Convierte 8 % en 0,08.",
+          "Calcula 250 × 8 ÷ 100.",
+          "2000 ÷ 100 = 20."
+        ],
+        "retroalimentacion": "Participan 20; 200 olvida dividir por 100 correctamente.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "20"
+          },
+          {
+            "id": "b",
+            "texto": "25"
+          },
+          {
+            "id": "c",
+            "texto": "80"
+          },
+          {
+            "id": "d",
+            "texto": "200"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El 2 % de 1500 g es 300 g.",
+        "respuesta": false,
+        "pistas": [
+          "2 % son dos centésimos.",
+          "1 % de 1500 g son 15 g.",
+          "Duplica 15 g."
+        ],
+        "retroalimentacion": "Es falso: 2 % de 1500 g son 30 g, no 300 g.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una tela mide 240 cm. ¿Cuántos cm son el 12,5 % de ella? Escribe solo el número.",
+        "respuesta": 30,
+        "pistas": [
+          "12,5 % equivale a 1/8.",
+          "Divide la tela entre ocho.",
+          "240 ÷ 8 = 30."
+        ],
+        "retroalimentacion": "Tomar 12,5 cm directamente ignora el total; son 30 cm.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un equipo recibió 360 puntos y quiere identificar el 7,5 %. ¿Qué cálculo da esa parte?",
+        "respuesta": "b",
+        "pistas": [
+          "7,5 % equivale a 0,075.",
+          "Multiplica 360 por 0,075.",
+          "El producto es 27."
+        ],
+        "retroalimentacion": "El 7,5 % de 360 son 27 puntos; 270 usa 75 %.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2,7"
+          },
+          {
+            "id": "b",
+            "texto": "27"
+          },
+          {
+            "id": "c",
+            "texto": "75"
+          },
+          {
+            "id": "d",
+            "texto": "270"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "De 480 kg de quinua se reserva el 2,5 %. ¿Cuántos kg se reservan? Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "2,5 % es la cuarta parte de 10 %.",
+          "10 % de 480 es 48.",
+          "Divide 48 entre 4."
+        ],
+        "retroalimentacion": "La reserva es 12 kg; 120 kg sería 25 %.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "El 30 % de 90 y el 15 % de 180 son cantidades iguales.",
+        "respuesta": true,
+        "pistas": [
+          "Calcula ambas partes.",
+          "0,30 × 90 = 27.",
+          "0,15 × 180 también da 27."
+        ],
+        "retroalimentacion": "Es verdadero: ambas cantidades son 27.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En un taller, 20 % de 150 piezas son rojas y la mitad de esas rojas se pintará de azul. ¿Cuántas piezas se pintarán de azul? Escribe solo el número.",
+        "respuesta": 15,
+        "pistas": [
+          "Primero encuentra las rojas.",
+          "20 % de 150 = 30.",
+          "La mitad de 30 es 15."
+        ],
+        "retroalimentacion": "Tomar la mitad de 150 da 75; se pinta la mitad de las rojas: 15.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.que-porcentaje-es",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Porcentajes",
+    "nombre": "Qué porcentaje es una cantidad de otra",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Expresa como porcentaje la relación entre una parte y el total.",
+    "palabrasClave": [
+      "parte",
+      "total",
+      "porcentaje",
+      "relación",
+      "razón"
+    ],
+    "prerrequisitos": [
+      "mat.s1.porcentaje-de-cantidad"
+    ],
+    "ordenSugerido": 73,
+    "ideaCentral": "Para saber qué porcentaje representa una parte del total, divide la parte entre el total y multiplica por 100. La pregunta siempre compara dos cantidades de la misma unidad.",
+    "pasos": [
+      "Reconoce la parte y el total de referencia.",
+      "Divide parte entre total.",
+      "Multiplica el cociente por 100.",
+      "Comprueba si el resultado es razonable comparando la parte con el total."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "De 40 estudiantes, 10 van en bicicleta.",
+        "desarrollo": "10 ÷ 40 × 100 = 25.",
+        "respuesta": "25 %."
+      },
+      {
+        "situacion": "Una bolsa tiene 6 kg de papas de un total de 24 kg.",
+        "desarrollo": "6 ÷ 24 = 0,25; por 100 = 25.",
+        "respuesta": "25 %."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dividir total entre parte.",
+        "correccion": "La fracción es parte/total."
+      },
+      {
+        "error": "Creer que el porcentaje no puede pasar de 100.",
+        "correccion": "Si la cantidad comparada excede la referencia, el porcentaje supera 100."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Parte",
+        "significado": "Cantidad que se compara."
+      },
+      {
+        "termino": "Total",
+        "significado": "Referencia que vale 100 %."
+      },
+      {
+        "termino": "Razón",
+        "significado": "Cociente entre dos cantidades."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "De 20 panes, 5 son integrales. ¿Qué porcentaje son integrales? Escribe solo el número.",
+        "respuesta": 25,
+        "pistas": [
+          "La parte son 5 panes.",
+          "Divide 5 entre 20.",
+          "0,25 × 100 = 25."
+        ],
+        "retroalimentacion": "5 % confunde cantidad con porcentaje; son 25 %.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un salón de 30, faltan 15 estudiantes. ¿Qué porcentaje falta?",
+        "respuesta": "b",
+        "pistas": [
+          "15 es la mitad de 30.",
+          "Una mitad equivale a 50 %.",
+          "Comprueba 15 ÷ 30 = 0,5."
+        ],
+        "retroalimentacion": "Falta el 50 %, no el 15 %.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "15 %"
+          },
+          {
+            "id": "b",
+            "texto": "50 %"
+          },
+          {
+            "id": "c",
+            "texto": "30 %"
+          },
+          {
+            "id": "d",
+            "texto": "75 %"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 8 de 100 semillas germinan, germinó el 8 %.",
+        "respuesta": true,
+        "pistas": [
+          "El total ya es 100.",
+          "La parte es 8.",
+          "Ocho de cada cien se escribe 8 %."
+        ],
+        "retroalimentacion": "Es verdadero: 8/100 × 100 = 8 %.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una jarra contiene 2 L de jugo y su capacidad es 10 L. ¿Qué porcentaje está llena? Escribe solo el número.",
+        "respuesta": 20,
+        "pistas": [
+          "Compara contenido con capacidad.",
+          "2 ÷ 10 = 0,2.",
+          "0,2 × 100 = 20."
+        ],
+        "retroalimentacion": "2 % sería dos centésimos; está llena al 20 %.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Se vendieron 18 de 60 entradas. ¿Qué porcentaje se vendió? Escribe solo el número.",
+        "respuesta": 30,
+        "pistas": [
+          "La parte vendida es 18.",
+          "18 ÷ 60 = 0,3.",
+          "Convierte 0,3 en porcentaje."
+        ],
+        "retroalimentacion": "No dividas 60 entre 18: se vendió el 30 %.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un frasco tiene 9 canicas verdes de 36 canicas. ¿Cuál es el porcentaje verde?",
+        "respuesta": "d",
+        "pistas": [
+          "Simplifica 9/36.",
+          "9/36 = 1/4.",
+          "Un cuarto equivale a 25 %."
+        ],
+        "retroalimentacion": "El 25 % es verde; 9 % confunde conteo con tasa.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9 %"
+          },
+          {
+            "id": "b",
+            "texto": "20 %"
+          },
+          {
+            "id": "c",
+            "texto": "36 %"
+          },
+          {
+            "id": "d",
+            "texto": "25 %"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 45 de 90 minutos ya pasaron, transcurrió el 45 % del tiempo.",
+        "respuesta": false,
+        "pistas": [
+          "45 es la mitad de 90.",
+          "La mitad corresponde a 50 %.",
+          "Calcula 45 ÷ 90 × 100."
+        ],
+        "retroalimentacion": "Es falso: transcurrió 50 %, no 45 %.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una familia recorrió 35 km de una ruta de 140 km. ¿Qué porcentaje completó? Escribe solo el número.",
+        "respuesta": 25,
+        "pistas": [
+          "Divide recorrido entre ruta total.",
+          "35/140 simplifica a 1/4.",
+          "Un cuarto del trayecto es 25 %."
+        ],
+        "retroalimentacion": "35 % usa los kilómetros como porcentaje; completó 25 %.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una biblioteca pasó de 40 a 50 libros. ¿Qué porcentaje es 50 respecto de 40?",
+        "respuesta": "a",
+        "pistas": [
+          "La referencia es 40.",
+          "50 ÷ 40 = 1,25.",
+          "Multiplica 1,25 por 100."
+        ],
+        "retroalimentacion": "50 es 125 % de 40; 25 % describe solo el aumento.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "125 %"
+          },
+          {
+            "id": "b",
+            "texto": "25 %"
+          },
+          {
+            "id": "c",
+            "texto": "80 %"
+          },
+          {
+            "id": "d",
+            "texto": "150 %"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una encuesta, 12 prefieren fútbol, 8 vóley y 20 música. ¿Qué porcentaje del grupo prefiere fútbol? Escribe solo el número.",
+        "respuesta": 30,
+        "pistas": [
+          "Encuentra el total encuestado.",
+          "12 + 8 + 20 = 40.",
+          "12 ÷ 40 × 100 = 30."
+        ],
+        "retroalimentacion": "Tomar 20 como total sería incorrecto; fútbol es 30 % del grupo.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 4 de 16 mesas están libres y luego se libera otra, las mesas libres pasan de 25 % a 31,25 % del mismo total.",
+        "respuesta": true,
+        "pistas": [
+          "Al inicio: 4/16 = 25 %.",
+          "Luego son 5 de 16.",
+          "5 ÷ 16 × 100 = 31,25."
+        ],
+        "retroalimentacion": "Es verdadero: 5 de 16 equivalen a 31,25 %.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un depósito tenía 80 L y ahora guarda 120 L. ¿Qué porcentaje representa el contenido actual respecto del inicial? Escribe solo el número.",
+        "respuesta": 150,
+        "pistas": [
+          "El valor inicial es la referencia.",
+          "120 ÷ 80 = 1,5.",
+          "1,5 × 100 = 150."
+        ],
+        "retroalimentacion": "50 % es solo el aumento; el contenido actual es 150 % del inicial.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.aumento-porcentual",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-S1-01",
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Porcentajes",
+    "nombre": "Aumentos porcentuales",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Calcula el nuevo valor tras un aumento usando el factor 1 + p/100.",
+    "palabrasClave": [
+      "aumento",
+      "porcentaje",
+      "valor inicial",
+      "valor final",
+      "factor"
+    ],
+    "prerrequisitos": [
+      "mat.s1.porcentaje-de-cantidad"
+    ],
+    "ordenSugerido": 74,
+    "ideaCentral": "Un aumento porcentual añade al valor inicial una parte calculada sobre ese mismo valor. Puedes multiplicar directamente por 1 + p/100.",
+    "pasos": [
+      "Ubica el valor inicial y la tasa de aumento.",
+      "Convierte la tasa a decimal y suma 1.",
+      "Multiplica el valor inicial por ese factor.",
+      "Comprueba que el valor final sea mayor que el inicial."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una casaca de S/ 80 sube 25 %.",
+        "desarrollo": "Factor 1,25; 80 × 1,25 = 100.",
+        "respuesta": "Nuevo precio: S/ 100."
+      },
+      {
+        "situacion": "Una población de 200 plantas aumenta 10 %.",
+        "desarrollo": "10 % de 200 = 20; 200 + 20 = 220.",
+        "respuesta": "220 plantas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Tomar el aumento como precio final.",
+        "correccion": "Suma el aumento al valor original."
+      },
+      {
+        "error": "Aplicar p como número entero al factor.",
+        "correccion": "Usa p/100: para 20 %, factor 1,20."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Valor inicial",
+        "significado": "Cantidad antes del cambio."
+      },
+      {
+        "termino": "Aumento",
+        "significado": "Parte que se añade."
+      },
+      {
+        "termino": "Factor de aumento",
+        "significado": "Número 1 + p/100 que multiplica al valor inicial."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un cuaderno cuesta S/ 20 y sube 10 %. ¿Nuevo precio en soles? Escribe solo el número.",
+        "respuesta": 22,
+        "pistas": [
+          "Calcula 10 % de 20.",
+          "El aumento es 2 soles.",
+          "Suma 20 + 2."
+        ],
+        "retroalimentacion": "S/ 2 es solo el aumento; precio final S/ 22.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué factor corresponde a un aumento de 20 %?",
+        "respuesta": "c",
+        "pistas": [
+          "Convierte 20 % a 0,20.",
+          "Suma 1 al decimal.",
+          "1 + 0,20 = 1,20."
+        ],
+        "retroalimentacion": "El factor es 1,20; 0,20 solo calcula el incremento.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0,20"
+          },
+          {
+            "id": "b",
+            "texto": "1,02"
+          },
+          {
+            "id": "c",
+            "texto": "1,20"
+          },
+          {
+            "id": "d",
+            "texto": "20"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al aumentar S/ 50 en 50 %, el nuevo valor es S/ 75.",
+        "respuesta": true,
+        "pistas": [
+          "La mitad de 50 es 25.",
+          "Suma el incremento al original.",
+          "50 + 25 = 75."
+        ],
+        "retroalimentacion": "Es verdadero: S/ 75 incluye el aumento de S/ 25.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una planta de 40 cm crece 25 %. ¿Altura nueva en cm? Escribe solo el número.",
+        "respuesta": 50,
+        "pistas": [
+          "25 % es un cuarto.",
+          "Un cuarto de 40 son 10.",
+          "Añade 10 a 40."
+        ],
+        "retroalimentacion": "Quedarse en 10 cm omite altura inicial: ahora mide 50 cm.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un pasaje de S/ 80 aumenta 15 %. ¿Precio nuevo en soles? Escribe solo el número.",
+        "respuesta": 92,
+        "pistas": [
+          "El incremento es 15 % de 80.",
+          "10 % son 8 y 5 % son 4.",
+          "Suma 80 + 8 + 4."
+        ],
+        "retroalimentacion": "S/ 12 es el aumento; el precio nuevo es S/ 92.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una feria registró 240 visitantes y al día siguiente un 25 % más. ¿Cuántos visitantes hubo?",
+        "respuesta": "b",
+        "pistas": [
+          "Para 240 visitantes, una cuarta parte corresponde al aumento.",
+          "Un cuarto de 240 son 60.",
+          "240 + 60 = 300."
+        ],
+        "retroalimentacion": "Hubo 300; 60 es solo el aumento.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "260"
+          },
+          {
+            "id": "b",
+            "texto": "300"
+          },
+          {
+            "id": "c",
+            "texto": "360"
+          },
+          {
+            "id": "d",
+            "texto": "480"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Aumentar 120 kg en 5 % produce 126 kg.",
+        "respuesta": true,
+        "pistas": [
+          "5 % de 120 son 6.",
+          "Suma 6 al total inicial.",
+          "120 × 1,05 = 126."
+        ],
+        "retroalimentacion": "Es verdadero: el resultado es 126 kg.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un taller fabrica 160 polos y aumenta la producción 12,5 %. ¿Cuántos fabrica ahora? Escribe solo el número.",
+        "respuesta": 180,
+        "pistas": [
+          "12,5 % equivale a un octavo.",
+          "160 ÷ 8 = 20.",
+          "Suma 160 + 20."
+        ],
+        "retroalimentacion": "El aumento es 20 polos; el total nuevo es 180.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tarifa sube de S/ 100 a S/ 118. ¿Qué tasa de aumento explica el precio final?",
+        "respuesta": "d",
+        "pistas": [
+          "Resta final menos inicial.",
+          "El incremento es S/ 18.",
+          "Compara 18 con 100."
+        ],
+        "retroalimentacion": "La tasa es 18 %; 118 % representa el precio final respecto del inicial.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8 %"
+          },
+          {
+            "id": "b",
+            "texto": "12 %"
+          },
+          {
+            "id": "c",
+            "texto": "118 %"
+          },
+          {
+            "id": "d",
+            "texto": "18 %"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un equipo tenía 200 puntos. Tras aumentar 30 %, pierde 10 puntos. ¿Cuántos puntos conserva? Escribe solo el número.",
+        "respuesta": 250,
+        "pistas": [
+          "Primero aplica el aumento a 200.",
+          "30 % de 200 son 60.",
+          "260 − 10 = 250."
+        ],
+        "retroalimentacion": "Restar antes de hallar el 30 % cambia la base; conserva 250 puntos.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una cantidad sube 20 %, multiplicarla por 1,02 produce el valor final.",
+        "respuesta": false,
+        "pistas": [
+          "20 % es 0,20, no 0,02.",
+          "El factor correcto suma 1 y 0,20.",
+          "Eso da 1,20."
+        ],
+        "retroalimentacion": "Es falso: 1,02 representa aumento de 2 %; 20 % usa 1,20.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una mochila costaba S/ 75. Aumentó 20 % y el comprador pagó con S/ 100. ¿Cuánto vuelto recibió en soles? Escribe solo el número.",
+        "respuesta": 10,
+        "pistas": [
+          "Precio nuevo: 75 × 1,20.",
+          "El aumento es 15; precio final 90.",
+          "Vuelto: 100 − 90."
+        ],
+        "retroalimentacion": "Dar S/ 25 ignora el aumento; recibió S/ 10.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.descuento-porcentual",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-S1-01",
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Porcentajes",
+    "nombre": "Descuentos porcentuales",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Calcula el precio final tras un descuento usando el factor 1 − p/100.",
+    "palabrasClave": [
+      "descuento",
+      "precio inicial",
+      "precio final",
+      "porcentaje",
+      "factor"
+    ],
+    "prerrequisitos": [
+      "mat.s1.porcentaje-de-cantidad"
+    ],
+    "ordenSugerido": 75,
+    "ideaCentral": "Un descuento porcentual resta del precio original una parte calculada sobre ese precio. Multiplicar por 1 − p/100 da el precio que se paga.",
+    "pasos": [
+      "Identifica el precio antes del descuento.",
+      "Convierte el porcentaje a decimal y réstalo de 1.",
+      "Multiplica el precio original por ese factor.",
+      "Comprueba que el precio final sea menor que el original."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un libro de S/ 40 tiene 25 % de descuento.",
+        "desarrollo": "40 × 0,75 = 30.",
+        "respuesta": "Pagas S/ 30."
+      },
+      {
+        "situacion": "Una pelota de S/ 60 baja 10 %.",
+        "desarrollo": "10 % de 60 es 6; 60 − 6 = 54.",
+        "respuesta": "Pagas S/ 54."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Responder solo cuánto se rebaja.",
+        "correccion": "Resta la rebaja al precio inicial para hallar el final."
+      },
+      {
+        "error": "Descontar del precio ya rebajado en una sola oferta.",
+        "correccion": "La tasa anunciada se calcula sobre el precio original."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Descuento",
+        "significado": "Reducción aplicada al precio."
+      },
+      {
+        "termino": "Precio original",
+        "significado": "Precio antes de la rebaja."
+      },
+      {
+        "termino": "Factor de descuento",
+        "significado": "Número 1 − p/100."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una entrada vale S/ 50 y tiene descuento de 10 %. ¿Cuánto pagas en soles? Escribe solo el número.",
+        "respuesta": 45,
+        "pistas": [
+          "10 % de 50 son 5.",
+          "Resta 5 del precio original.",
+          "50 − 5 = 45."
+        ],
+        "retroalimentacion": "S/ 5 es la rebaja, no el pago: pagas S/ 45.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué factor usa una rebaja de 30 %?",
+        "respuesta": "a",
+        "pistas": [
+          "Convierte 30 % a 0,30.",
+          "Resta 0,30 de 1.",
+          "1 − 0,30 = 0,70."
+        ],
+        "retroalimentacion": "El factor es 0,70; 0,30 solo da la rebaja.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0,70"
+          },
+          {
+            "id": "b",
+            "texto": "1,30"
+          },
+          {
+            "id": "c",
+            "texto": "0,30"
+          },
+          {
+            "id": "d",
+            "texto": "30"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un descuento del 50 % deja el precio en la mitad del original.",
+        "respuesta": true,
+        "pistas": [
+          "50 % es una mitad.",
+          "Se resta una mitad del total.",
+          "Queda la otra mitad."
+        ],
+        "retroalimentacion": "Es verdadero: se paga el 50 % restante.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un polo cuesta S/ 80 y baja 25 %. ¿Precio final en soles? Escribe solo el número.",
+        "respuesta": 60,
+        "pistas": [
+          "25 % es un cuarto.",
+          "Un cuarto de 80 es 20.",
+          "80 − 20 = 60."
+        ],
+        "retroalimentacion": "S/ 20 es el descuento; pagas S/ 60.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una mochila de S/ 120 tiene rebaja de 15 %. ¿Cuánto cuesta ahora en soles? Escribe solo el número.",
+        "respuesta": 102,
+        "pistas": [
+          "10 % de 120 es 12.",
+          "5 % de 120 es 6; rebaja total 18.",
+          "120 − 18 = 102."
+        ],
+        "retroalimentacion": "Restar 15 soles confunde tasa y monto; cuesta S/ 102.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un juego de S/ 200 ofrece 12,5 % de descuento. ¿Precio final?",
+        "respuesta": "d",
+        "pistas": [
+          "12,5 % es un octavo.",
+          "200 ÷ 8 = 25.",
+          "Resta 25 de 200."
+        ],
+        "retroalimentacion": "El precio es S/ 175; S/ 25 es la rebaja.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "S/ 25"
+          },
+          {
+            "id": "b",
+            "texto": "S/ 150"
+          },
+          {
+            "id": "c",
+            "texto": "S/ 187,50"
+          },
+          {
+            "id": "d",
+            "texto": "S/ 175"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una rebaja del 5 % sobre S/ 400 equivale a pagar S/ 380.",
+        "respuesta": true,
+        "pistas": [
+          "5 % de 400 son 20.",
+          "Resta 20 de 400.",
+          "El factor 0,95 también da 380."
+        ],
+        "retroalimentacion": "Es verdadero: el pago es S/ 380.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una casaca de S/ 90 baja 20 %. ¿Cuánto se ahorra en soles? Escribe solo el número.",
+        "respuesta": 18,
+        "pistas": [
+          "Esta vez se pide la rebaja, no el precio.",
+          "20 % es una quinta parte.",
+          "90 ÷ 5 = 18."
+        ],
+        "retroalimentacion": "El ahorro es S/ 18; S/ 72 sería el precio final.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tras descuento del 20 %, un libro cuesta S/ 64. ¿Cuál era el precio original?",
+        "respuesta": "b",
+        "pistas": [
+          "Se pagó el 80 % del original.",
+          "Plantea 0,80 × original = 64.",
+          "64 ÷ 0,80 = 80."
+        ],
+        "retroalimentacion": "El original era S/ 80; S/ 76 suma 20 como si fueran soles.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "S/ 76"
+          },
+          {
+            "id": "b",
+            "texto": "S/ 80"
+          },
+          {
+            "id": "c",
+            "texto": "S/ 84"
+          },
+          {
+            "id": "d",
+            "texto": "S/ 128"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una bicicleta vale S/ 300 y tiene 10 % de descuento. Se paga con S/ 300. ¿Cuánto vuelto dan en soles? Escribe solo el número.",
+        "respuesta": 30,
+        "pistas": [
+          "La rebaja es 10 % de 300.",
+          "Eso equivale a S/ 30; pagas 270.",
+          "300 − 270 = 30."
+        ],
+        "retroalimentacion": "El vuelto coincide con la rebaja: S/ 30.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un artículo cuesta S/ 100 y se rebaja 20 %, pagar S/ 85 significa que se aplicó esa rebaja.",
+        "respuesta": false,
+        "pistas": [
+          "Calcula 20 % de 100.",
+          "Debes restar S/ 20.",
+          "El precio correcto sería S/ 80."
+        ],
+        "retroalimentacion": "Es falso: S/ 85 corresponde a 15 % de descuento, no 20 %.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un precio de S/ 160 baja 25 % y se cobra S/ 5 de envío. ¿Total a pagar en soles? Escribe solo el número.",
+        "respuesta": 125,
+        "pistas": [
+          "La rebaja se aplica a S/ 160.",
+          "25 % son S/ 40; queda S/ 120.",
+          "Luego suma S/ 5 de envío."
+        ],
+        "retroalimentacion": "Descontar también el envío no corresponde: total S/ 125.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.descuentos-sucesivos",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-S1-01",
+      "MAT-C23-S1-06",
+      "MAT-C23-S1-09"
+    ],
+    "bloque": "Porcentajes",
+    "nombre": "Descuentos y aumentos sucesivos",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Justifica por qué dos descuentos sucesivos no equivalen a la suma de ambos.",
+    "palabrasClave": [
+      "descuento sucesivo",
+      "aumento sucesivo",
+      "base",
+      "factor",
+      "precio final"
+    ],
+    "prerrequisitos": [
+      "mat.s1.aumento-porcentual",
+      "mat.s1.descuento-porcentual"
+    ],
+    "ordenSugerido": 76,
+    "ideaCentral": "Cada cambio porcentual se aplica sobre el valor que queda después del cambio anterior. Por eso dos descuentos sucesivos no suelen equivaler a sumar sus tasas.",
+    "pasos": [
+      "Parte del precio original.",
+      "Aplica el primer factor de descuento o aumento.",
+      "Usa ese nuevo valor como base del segundo cambio.",
+      "Compara el resultado con el original solo al final."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "S/ 100 baja 20 % y luego 10 %.",
+        "desarrollo": "100 × 0,80 = 80; 80 × 0,90 = 72.",
+        "respuesta": "S/ 72, equivalente a rebaja total de 28 %."
+      },
+      {
+        "situacion": "S/ 50 sube 20 % y luego baja 20 %.",
+        "desarrollo": "50 × 1,20 = 60; 60 × 0,80 = 48.",
+        "respuesta": "S/ 48."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar 20 % y 10 % como una rebaja de 30 %.",
+        "correccion": "El segundo 10 % se aplica al precio ya reducido."
+      },
+      {
+        "error": "Suponer que subir y bajar el mismo porcentaje se anulan.",
+        "correccion": "La segunda tasa actúa sobre una base diferente."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Cambio sucesivo",
+        "significado": "Cambio aplicado después de otro."
+      },
+      {
+        "termino": "Base",
+        "significado": "Cantidad sobre la que se calcula una tasa."
+      },
+      {
+        "termino": "Factor",
+        "significado": "Multiplicador que incorpora el cambio."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un producto de S/ 100 baja 10 % y luego otro 10 %. ¿Precio final en soles? Escribe solo el número.",
+        "respuesta": 81,
+        "pistas": [
+          "Primero queda 90.",
+          "El segundo 10 % se calcula sobre 90.",
+          "90 − 9 = 81."
+        ],
+        "retroalimentacion": "Restar 20 soles juntos da 80; el precio correcto es S/ 81.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Después de una rebaja de 20 % sobre S/ 50, ¿sobre qué precio se calcula otra rebaja?",
+        "respuesta": "b",
+        "pistas": [
+          "Encuentra el primer precio reducido.",
+          "20 % de 50 son 10.",
+          "50 − 10 = 40."
+        ],
+        "retroalimentacion": "La segunda rebaja se calcula sobre S/ 40, no sobre S/ 50.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "S/ 10"
+          },
+          {
+            "id": "b",
+            "texto": "S/ 40"
+          },
+          {
+            "id": "c",
+            "texto": "S/ 50"
+          },
+          {
+            "id": "d",
+            "texto": "S/ 60"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos rebajas sucesivas de 10 % sobre S/ 100 dejan un precio de S/ 80.",
+        "respuesta": false,
+        "pistas": [
+          "Tras la primera pagas 90.",
+          "La segunda rebaja es 9.",
+          "Después de la segunda rebaja se pagan S/ 81, uno más de lo afirmado."
+        ],
+        "retroalimentacion": "Es falso: queda S/ 81, no S/ 80.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "S/ 200 aumenta 10 % y luego baja 10 %. ¿Valor final en soles? Escribe solo el número.",
+        "respuesta": 198,
+        "pistas": [
+          "El aumento deja S/ 220.",
+          "La rebaja se calcula sobre 220.",
+          "10 % de 220 son 22; resta."
+        ],
+        "retroalimentacion": "Los cambios no se cancelan: valor final S/ 198.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una zapatilla de S/ 80 baja 25 % y luego 20 %. ¿Precio final en soles? Escribe solo el número.",
+        "respuesta": 48,
+        "pistas": [
+          "25 % de 80 son 20; queda 60.",
+          "Ahora 20 % de 60 son 12.",
+          "60 − 12 = 48."
+        ],
+        "retroalimentacion": "Sumar 45 % y aplicarlo a 80 daría 44; son S/ 48.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un equipo de 100 integrantes crece 20 % y luego 25 %. ¿Cuántos integrantes hay?",
+        "respuesta": "d",
+        "pistas": [
+          "Primero pasa a 120.",
+          "El 25 % de 120 son 30.",
+          "Suma 120 + 30."
+        ],
+        "retroalimentacion": "Hay 150; sumar las tasas como 45 % daría 145.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "125"
+          },
+          {
+            "id": "b",
+            "texto": "140"
+          },
+          {
+            "id": "c",
+            "texto": "145"
+          },
+          {
+            "id": "d",
+            "texto": "150"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Bajar 30 % y después 20 % equivale a multiplicar por 0,70 × 0,80.",
+        "respuesta": true,
+        "pistas": [
+          "Cada rebaja tiene un factor.",
+          "30 % deja 70 %; 20 % deja 80 %.",
+          "Aplica ambos factores en orden."
+        ],
+        "retroalimentacion": "Es verdadero: el factor conjunto es 0,56.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una tarifa de S/ 250 sube 20 % y luego 10 %. ¿Precio final en soles? Escribe solo el número.",
+        "respuesta": 330,
+        "pistas": [
+          "El primer factor lleva 250 a 300.",
+          "El segundo aumento usa 300.",
+          "10 % de 300 son 30."
+        ],
+        "retroalimentacion": "S/ 325 suma las tasas sobre la base inicial; final S/ 330.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué descuento único equivale a dos rebajas sucesivas de 20 % y 25 %?",
+        "respuesta": "a",
+        "pistas": [
+          "Imagina precio inicial S/ 100.",
+          "Después de 20 % queda 80.",
+          "De S/ 80 se rebajan S/ 20 en la segunda oferta."
+        ],
+        "retroalimentacion": "El precio cae de 100 a 60: rebaja total 40 %, no 45 %.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "40 %"
+          },
+          {
+            "id": "b",
+            "texto": "45 %"
+          },
+          {
+            "id": "c",
+            "texto": "50 %"
+          },
+          {
+            "id": "d",
+            "texto": "60 %"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un libro de S/ 120 baja 10 % y luego sube 25 %. ¿Precio final en soles? Escribe solo el número.",
+        "respuesta": 135,
+        "pistas": [
+          "Tras bajar 10 % queda 108.",
+          "El 25 % de 108 es 27.",
+          "108 + 27 = 135."
+        ],
+        "retroalimentacion": "Sumar tasas sobre 120 daría 138; el resultado es S/ 135.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un precio de S/ 100 aumenta 50 % y después disminuye 50 %, así que regresa a S/ 100.",
+        "respuesta": false,
+        "pistas": [
+          "El aumento lo lleva a 150.",
+          "La mitad de 150 es 75.",
+          "150 − 75 = 75."
+        ],
+        "retroalimentacion": "Es falso: termina en S/ 75, porque cambió la base.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una tableta cuesta S/ 400. Tiene descuentos sucesivos de 10 % y 5 %, y luego un envío de S/ 18. ¿Total en soles? Escribe solo el número.",
+        "respuesta": 360,
+        "pistas": [
+          "Primero baja a 360.",
+          "5 % de 360 son 18; precio 342.",
+          "Suma envío de 18."
+        ],
+        "retroalimentacion": "Omitir el segundo descuento daría 378; se pagan S/ 360.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.igv-precio-venta",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-S1-01",
+      "MAT-C23-S1-02"
+    ],
+    "bloque": "Porcentajes",
+    "nombre": "IGV, precio de costo y precio de venta",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Calcula el IGV y la ganancia o pérdida en compras y ventas.",
+    "palabrasClave": [
+      "IGV",
+      "precio sin IGV",
+      "precio final",
+      "costo",
+      "ganancia"
+    ],
+    "prerrequisitos": [
+      "mat.s1.aumento-porcentual"
+    ],
+    "ordenSugerido": 77,
+    "ideaCentral": "En estos ejercicios se usa IGV de 18 %: al precio sin IGV le sumas el 18 % para obtener el precio final. La ganancia o pérdida se calcula comparando precio de venta sin IGV con costo, porque el impuesto no es ganancia del negocio.",
+    "pasos": [
+      "Distingue costo, precio de venta sin IGV y precio final con IGV.",
+      "Calcula IGV como 0,18 veces el precio sin impuesto.",
+      "Suma ese IGV para hallar el cobro total.",
+      "Compara precio de venta sin IGV y costo para hallar ganancia o pérdida."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un cuaderno se vende a S/ 50 sin IGV y costó S/ 35.",
+        "desarrollo": "IGV = 9; total cobrado = 59; ganancia = 50 − 35 = 15.",
+        "respuesta": "S/ 59 de cobro y S/ 15 de ganancia."
+      },
+      {
+        "situacion": "Un producto se vende a S/ 118 con IGV.",
+        "desarrollo": "Precio sin IGV = 118 ÷ 1,18 = 100.",
+        "respuesta": "Precio sin IGV: S/ 100."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Calcular ganancia restando costo del precio con IGV.",
+        "correccion": "Retira el impuesto antes de comparar con el costo."
+      },
+      {
+        "error": "Calcular 18 % del precio que ya incluye IGV.",
+        "correccion": "Para extraer el impuesto divide el total entre 1,18 y luego resta."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "IGV",
+        "significado": "Impuesto General a las Ventas; aquí se usa 18 %."
+      },
+      {
+        "termino": "Costo",
+        "significado": "Monto pagado para obtener o producir el bien."
+      },
+      {
+        "termino": "Precio de venta",
+        "significado": "Monto antes de agregar el impuesto en estos ejercicios."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un objeto vale S/ 100 sin IGV. Si el IGV es 18 %, ¿cuántos soles de IGV se agregan? Escribe solo el número.",
+        "respuesta": 18,
+        "pistas": [
+          "La base sin impuesto es 100.",
+          "18 % de 100 equivale a 18.",
+          "Ese monto es el impuesto."
+        ],
+        "retroalimentacion": "S/ 118 sería el total; IGV son S/ 18.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un polo cuesta S/ 50 sin IGV. Con IGV de 18 %, ¿cuál es el total?",
+        "respuesta": "c",
+        "pistas": [
+          "Calcula primero 18 % de 50.",
+          "El impuesto es S/ 9.",
+          "Suma 50 + 9."
+        ],
+        "retroalimentacion": "El total es S/ 59; S/ 9 es solo IGV.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "S/ 9"
+          },
+          {
+            "id": "b",
+            "texto": "S/ 50"
+          },
+          {
+            "id": "c",
+            "texto": "S/ 59"
+          },
+          {
+            "id": "d",
+            "texto": "S/ 68"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un bien cuesta S/ 100 y se vende a S/ 120, ambos sin IGV, la ganancia es S/ 20.",
+        "respuesta": true,
+        "pistas": [
+          "Compara venta con costo.",
+          "Resta 120 − 100.",
+          "El impuesto no interviene en esa diferencia."
+        ],
+        "retroalimentacion": "Es verdadero: se ganan S/ 20 antes del IGV.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una tienda compra un útil por S/ 30 y lo vende por S/ 45, ambos sin IGV. ¿Ganancia en soles? Escribe solo el número.",
+        "respuesta": 15,
+        "pistas": [
+          "Usa solo costo y precio de venta.",
+          "Resta venta menos costo.",
+          "45 − 30 = 15."
+        ],
+        "retroalimentacion": "La ganancia es S/ 15; no calcules impuesto para esta pregunta.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un equipo se vende a S/ 200 sin IGV. ¿Precio final con IGV de 18 % en soles? Escribe solo el número.",
+        "respuesta": 236,
+        "pistas": [
+          "18 % de 200 son 36.",
+          "El IGV se suma al precio sin impuesto.",
+          "200 + 36 = 236."
+        ],
+        "retroalimentacion": "S/ 36 es el impuesto; se cobra S/ 236.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un artículo se vende a S/ 118 con IGV de 18 %. ¿Precio sin IGV?",
+        "respuesta": "b",
+        "pistas": [
+          "El total es 1,18 veces la base.",
+          "Divide 118 entre 1,18.",
+          "El cociente es 100."
+        ],
+        "retroalimentacion": "La base es S/ 100; restar 18 % de 118 no recupera la base.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "S/ 96,76"
+          },
+          {
+            "id": "b",
+            "texto": "S/ 100"
+          },
+          {
+            "id": "c",
+            "texto": "S/ 118"
+          },
+          {
+            "id": "d",
+            "texto": "S/ 139,24"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una tienda paga S/ 80 de costo y vende a S/ 70 sin IGV: obtiene una pérdida de S/ 10.",
+        "respuesta": true,
+        "pistas": [
+          "Venta es menor que costo.",
+          "Calcula 80 − 70.",
+          "La diferencia indica pérdida."
+        ],
+        "retroalimentacion": "Es verdadero: pierde S/ 10 antes del IGV.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El precio sin IGV de una lámpara es S/ 150. ¿Cuánto IGV de 18 % corresponde en soles? Escribe solo el número.",
+        "respuesta": 27,
+        "pistas": [
+          "10 % de 150 son 15.",
+          "8 % de 150 son 12.",
+          "Junta 15 + 12."
+        ],
+        "retroalimentacion": "El impuesto es S/ 27; S/ 177 sería el cobro total.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un artículo costó S/ 60 y se vendió a S/ 80 sin IGV; al cliente se le cobró además IGV de 18 %. ¿Ganancia del negocio?",
+        "respuesta": "d",
+        "pistas": [
+          "La ganancia se calcula sin impuesto.",
+          "Resta precio de venta menos costo.",
+          "80 − 60 = 20."
+        ],
+        "retroalimentacion": "La ganancia es S/ 20; el IGV cobrado no la aumenta.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "S/ 14,40"
+          },
+          {
+            "id": "b",
+            "texto": "S/ 34,40"
+          },
+          {
+            "id": "c",
+            "texto": "S/ 80"
+          },
+          {
+            "id": "d",
+            "texto": "S/ 20"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una herramienta cuesta S/ 70 y se vende a S/ 100 sin IGV. El cliente paga con S/ 120. Con IGV de 18 %, ¿cuánto vuelto recibe en soles? Escribe solo el número.",
+        "respuesta": 2,
+        "pistas": [
+          "El cobro con IGV es 100 × 1,18.",
+          "Eso da S/ 118.",
+          "Vuelto: 120 − 118."
+        ],
+        "retroalimentacion": "Sin añadir IGV darías S/ 20; el vuelto real es S/ 2.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una venta de S/ 236 con IGV de 18 % tiene base S/ 200 e impuesto S/ 36.",
+        "respuesta": true,
+        "pistas": [
+          "Divide 236 entre 1,18.",
+          "La base es 200.",
+          "18 % de 200 es 36."
+        ],
+        "retroalimentacion": "Es verdadero: S/ 200 + S/ 36 = S/ 236.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un bien cuesta S/ 90 y se vende a S/ 120 sin IGV. ¿Cuántos soles excede la ganancia al IGV de 18 % de la venta? Escribe solo el número.",
+        "respuesta": 8.4,
+        "pistas": [
+          "Ganancia: 120 − 90 = 30.",
+          "IGV: 0,18 × 120 = 21,6.",
+          "Resta 30 − 21,6."
+        ],
+        "retroalimentacion": "Confundir cobro total con ganancia falla; la diferencia es S/ 8,40.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

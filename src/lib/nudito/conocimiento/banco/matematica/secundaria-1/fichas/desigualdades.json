@@ -1,0 +1,1288 @@
+[
+  {
+    "clave": "mat.s1.desigualdades-simples",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-S1-01",
+      "MAT-C24-S1-04"
+    ],
+    "bloque": "Desigualdades",
+    "nombre": "Desigualdades de la forma x > a y x < b",
+    "disciplina": "algebra",
+    "descripcionCorta": "Expresa condiciones de «más de» y «menos de» con desigualdades.",
+    "palabrasClave": [
+      "desigualdad",
+      "mayor que",
+      "menor que",
+      "estricto"
+    ],
+    "prerrequisitos": [
+      "mat.s1.lenguaje-algebraico"
+    ],
+    "ordenSugerido": 80,
+    "ideaCentral": "Las expresiones x > a y x < b describen valores mayores o menores sin incluir el límite. «Más de» se escribe > y «menos de» se escribe <.",
+    "pasos": [
+      "Identifica la cantidad variable y nómbrala x.",
+      "Encuentra el número que actúa como límite.",
+      "Decide si la frase indica más o menos.",
+      "Escribe > o < y prueba un valor que cumpla."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Para entrar a un juego se necesitan más de 12 años.",
+        "desarrollo": "Si x es la edad, «más de» excluye 12.",
+        "respuesta": "x > 12."
+      },
+      {
+        "situacion": "Una mochila debe pesar menos de 8 kg.",
+        "desarrollo": "Si x es su peso, 8 kg no cumple.",
+        "respuesta": "x < 8."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Incluir el límite al leer «más de».",
+        "correccion": "Con x > 12, el valor 12 queda fuera."
+      },
+      {
+        "error": "Invertir el símbolo al escribir x primero.",
+        "correccion": "Lee desde x: x < 8 significa x menor que 8."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Desigualdad",
+        "significado": "Comparación entre cantidades que no son iguales necesariamente."
+      },
+      {
+        "termino": "Límite",
+        "significado": "Número de referencia de la comparación."
+      },
+      {
+        "termino": "Estricto",
+        "significado": "Que no incluye el número límite."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si x es la cantidad de libros, «más de 5 libros» se escribe:",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La cantidad debe superar 5.",
+          "El valor 5 no alcanza.",
+          "El signo que mira a números mayores es >."
+        ],
+        "retroalimentacion": "x > 5 expresa más de 5; x ≥ 5 incluiría 5.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x < 5"
+          },
+          {
+            "id": "b",
+            "texto": "x > 5"
+          },
+          {
+            "id": "c",
+            "texto": "x = 5"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El número 4 cumple x < 7.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 4 con 7.",
+          "4 es menor que 7.",
+          "Sustituye x por 4."
+        ],
+        "retroalimentacion": "Es verdadero: 4 < 7."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "«Menos de 10 minutos» para un tiempo t se representa con:",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Menos indica valores inferiores.",
+          "Diez minutos quedan excluidos.",
+          "Lee t < 10 como t menor que 10."
+        ],
+        "retroalimentacion": "t < 10 expresa menos de 10 minutos; t = 10 no cumple.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "t > 10"
+          },
+          {
+            "id": "b",
+            "texto": "t = 10"
+          },
+          {
+            "id": "c",
+            "texto": "t < 10"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "De los enteros 2, 3 y 4, ¿cuántos cumplen x > 2? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Comprueba cada entero frente al 2.",
+          "El 2 no es mayor que sí mismo.",
+          "3 y 4 sí son mayores."
+        ],
+        "retroalimentacion": "Cumplen 3 y 4: son 2 enteros; el límite 2 se excluye."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si x < −2, entonces x = −3 sí cumple.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En la recta, −3 queda a la izquierda de −2.",
+          "Un número más a la izquierda es menor.",
+          "Compara −3 < −2."
+        ],
+        "retroalimentacion": "Es verdadero: −3 es menor que −2."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estos enteros cumple x > −4?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca un valor a la derecha de −4.",
+          "−4 no cuenta por ser el límite.",
+          "−3 está a la derecha de −4."
+        ],
+        "retroalimentacion": "−3 cumple x > −4; −5 y −6 son menores.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−6"
+          },
+          {
+            "id": "b",
+            "texto": "−5"
+          },
+          {
+            "id": "c",
+            "texto": "−4"
+          },
+          {
+            "id": "d",
+            "texto": "−3"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Entre −3, −2, −1, 0 y 1, ¿cuántos valores cumplen x < 0? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cero es el límite excluido.",
+          "Los valores negativos están debajo de cero.",
+          "Cuenta −3, −2 y −1."
+        ],
+        "retroalimentacion": "Hay 3 valores menores que 0; incluir 0 daría un conteo incorrecto."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La frase «una nota superior a 14» admite una nota igual a 14.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Superior significa mayor.",
+          "El signo sería > 14.",
+          "Un valor no es mayor que sí mismo."
+        ],
+        "retroalimentacion": "Es falso: 14 no es superior a 14; solo valores mayores cumplen."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si n < 3 y n es entero, ¿qué par contiene solo soluciones?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada valor debe ser menor que 3.",
+          "El 3 no pertenece.",
+          "1 y 2 quedan debajo del límite."
+        ],
+        "retroalimentacion": "1 y 2 cumplen n < 3; los pares con 3 o 4 no.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1 y 2"
+          },
+          {
+            "id": "b",
+            "texto": "2 y 3"
+          },
+          {
+            "id": "c",
+            "texto": "3 y 4"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una temperatura de −5 °C cumple t < −7 °C porque 5 es mayor que 7.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara enteros negativos completos.",
+          "−5 queda a la derecha de −7.",
+          "Por eso −5 es mayor, no menor."
+        ],
+        "retroalimentacion": "Es falso: −5 > −7; la temperatura no cumple t < −7."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un torneo acepta puntajes p > 20. Ana logra 20, Beto 21 y Carla 19. ¿Quién cumple?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 20 es un límite excluido.",
+          "Compara cada puntaje con 20.",
+          "Solo 21 lo supera."
+        ],
+        "retroalimentacion": "Beto cumple con 21; Ana iguala 20 y Carla queda debajo.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ana"
+          },
+          {
+            "id": "b",
+            "texto": "Beto"
+          },
+          {
+            "id": "c",
+            "texto": "Carla"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Entre los enteros de −4 a 4, ambos incluidos, ¿cuántos satisfacen x > −2? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empieza justo después de −2.",
+          "Enumera −1, 0, 1, 2, 3, 4.",
+          "Cuenta los valores enumerados."
+        ],
+        "retroalimentacion": "Cumplen 6 enteros: −1, 0, 1, 2, 3 y 4."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.como-maximo-como-minimo",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-S1-01"
+    ],
+    "bloque": "Desigualdades",
+    "nombre": "Condiciones de «como máximo» y «como mínimo»",
+    "disciplina": "algebra",
+    "descripcionCorta": "Traduce restricciones de presupuesto, edad o capacidad a desigualdades con ≤ y ≥.",
+    "palabrasClave": [
+      "como máximo",
+      "como mínimo",
+      "menor o igual",
+      "mayor o igual"
+    ],
+    "prerrequisitos": [
+      "mat.s1.desigualdades-simples"
+    ],
+    "ordenSugerido": 81,
+    "ideaCentral": "«Como máximo» permite llegar al límite, pero no superarlo: ≤. «Como mínimo» permite empezar en el límite y subir: ≥.",
+    "pasos": [
+      "Identifica la cantidad variable y el límite.",
+      "Decide si se trata de un techo o un piso.",
+      "Usa ≤ para un máximo y ≥ para un mínimo.",
+      "Comprueba que la igualdad con el límite esté permitida."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un ascensor admite como máximo 6 personas.",
+        "desarrollo": "Se permite 6 y cualquier cantidad menor.",
+        "respuesta": "p ≤ 6."
+      },
+      {
+        "situacion": "Una beca pide como mínimo 15 puntos.",
+        "desarrollo": "Se permite 15 y puntajes mayores.",
+        "respuesta": "p ≥ 15."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Usar < al leer «como máximo».",
+        "correccion": "El valor límite sí está permitido; usa ≤."
+      },
+      {
+        "error": "Confundir piso y techo.",
+        "correccion": "Máximo limita por arriba; mínimo limita por abajo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Máximo",
+        "significado": "Mayor cantidad permitida."
+      },
+      {
+        "termino": "Mínimo",
+        "significado": "Menor cantidad permitida."
+      },
+      {
+        "termino": "≤",
+        "significado": "Menor o igual que."
+      },
+      {
+        "termino": "≥",
+        "significado": "Mayor o igual que."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un auditorio admite como máximo 80 personas. Si p es la asistencia, ¿qué condición vale?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "80 personas sí caben.",
+          "81 personas exceden el aforo.",
+          "La cantidad es menor o igual a 80."
+        ],
+        "retroalimentacion": "p ≤ 80 incluye el aforo exacto; p < 80 lo excluiría.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "p ≤ 80"
+          },
+          {
+            "id": "b",
+            "texto": "p < 80"
+          },
+          {
+            "id": "c",
+            "texto": "p ≥ 80"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "«Como mínimo 12 años» permite exactamente 12 años.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mínimo señala el piso.",
+          "El piso está incluido.",
+          "Doce satisface edad ≥ 12."
+        ],
+        "retroalimentacion": "Es verdadero: «como mínimo 12» incluye 12."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una compra requiere gastar como mínimo S/ 30. ¿Qué desigualdad expresa el gasto g?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "S/ 30 sí alcanza.",
+          "Más de S/ 30 también cumple.",
+          "El gasto debe ser mayor o igual a 30."
+        ],
+        "retroalimentacion": "g ≥ 30 incluye S/ 30 y cantidades superiores.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "g > 30"
+          },
+          {
+            "id": "b",
+            "texto": "g ≤ 30"
+          },
+          {
+            "id": "c",
+            "texto": "g ≥ 30"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Si una sala permite como máximo 25 personas y ya hay 19, ¿cuántas más pueden entrar como máximo? Escribe solo el número de personas.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total permitido es 25.",
+          "Ya se ocupan 19 lugares.",
+          "Resta 25 − 19."
+        ],
+        "retroalimentacion": "Pueden entrar 6 personas; 19 + 6 = 25, el máximo."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Con un presupuesto de como máximo S/ 50, una compra de S/ 51 cumple la condición.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El presupuesto es un techo.",
+          "S/ 51 supera S/ 50.",
+          "51 ≤ 50 es falso."
+        ],
+        "retroalimentacion": "Es falso: S/ 51 excede el máximo de S/ 50."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para una excursión se exigen al menos 18 inscritos. Con n inscritos, ¿cuál expresión corresponde?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "«Al menos» significa «como mínimo».",
+          "18 inscritos bastan.",
+          "Se admite 18 o cualquier número mayor."
+        ],
+        "retroalimentacion": "n ≥ 18 incluye 18; n > 18 lo excluiría.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "n < 18"
+          },
+          {
+            "id": "b",
+            "texto": "n ≤ 18"
+          },
+          {
+            "id": "c",
+            "texto": "n > 18"
+          },
+          {
+            "id": "d",
+            "texto": "n ≥ 18"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Se necesitan como mínimo 40 cuadernos y hay 27. ¿Cuántos faltan como mínimo? Escribe solo el número.",
+        "respuesta": 13,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La meta incluida es 40.",
+          "Ya cuentas con 27.",
+          "Calcula 40 − 27."
+        ],
+        "retroalimentacion": "Faltan 13 cuadernos para alcanzar el mínimo de 40."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una caja soporta como máximo 10 kg, una carga de 10 kg está permitida.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Máximo incluye el límite.",
+          "El peso coincide con 10.",
+          "10 ≤ 10 es verdadero."
+        ],
+        "retroalimentacion": "Es verdadero: cargar exactamente 10 kg no supera el máximo."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un concurso permite a lo sumo 3 intentos. ¿Cuál lista contiene solo cantidades permitidas?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "«A lo sumo» equivale a «como máximo».",
+          "Tres intentos sí se permiten.",
+          "Cuatro ya supera el límite."
+        ],
+        "retroalimentacion": "0, 1, 2 y 3 cumplen i ≤ 3; 4 queda fuera.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1, 2, 3, 4"
+          },
+          {
+            "id": "b",
+            "texto": "0, 1, 2, 3"
+          },
+          {
+            "id": "c",
+            "texto": "2, 3, 4, 5"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para subir a un juego se pide estatura mínima de 140 cm; medir 139 cm y usar zapatos altos satisface matemáticamente h ≥ 140 si h representa la estatura medida de 139 cm.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La variable h vale 139 cm según el dato.",
+          "Compara 139 con 140.",
+          "139 ≥ 140 es falso."
+        ],
+        "retroalimentacion": "Es falso: con h = 139 cm no se alcanza el mínimo de 140 cm."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un comedor admite como máximo 36 estudiantes y requiere como mínimo 20 para abrir. ¿Qué par de condiciones expresa ambas reglas?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El mínimo incluye 20.",
+          "El máximo incluye 36.",
+          "La cantidad n debe estar entre ambos límites."
+        ],
+        "retroalimentacion": "n ≥ 20 y n ≤ 36 incluye ambos extremos; invertir signos cambia las reglas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "n ≥ 20 y n ≤ 36"
+          },
+          {
+            "id": "b",
+            "texto": "n > 20 y n < 36"
+          },
+          {
+            "id": "c",
+            "texto": "n ≤ 20 y n ≥ 36"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una familia destina como máximo S/ 120 al mercado. Ya gastó S/ 48 y S/ 37. ¿Cuánto más puede gastar como máximo? Escribe solo el número de soles.",
+        "respuesta": 35,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los gastos registrados.",
+          "48 + 37 = 85.",
+          "Resta 85 al techo de 120."
+        ],
+        "retroalimentacion": "Puede gastar S/ 35 más: 85 + 35 = 120, sin exceder el máximo."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.conjunto-solucion-recta",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-S1-04"
+    ],
+    "bloque": "Desigualdades",
+    "nombre": "Conjunto solución de una desigualdad en la recta",
+    "disciplina": "algebra",
+    "descripcionCorta": "Representa el conjunto de valores que cumplen una desigualdad en la recta numérica.",
+    "palabrasClave": [
+      "recta numérica",
+      "conjunto solución",
+      "círculo abierto",
+      "círculo cerrado"
+    ],
+    "prerrequisitos": [
+      "mat.s1.desigualdades-simples"
+    ],
+    "ordenSugerido": 82,
+    "ideaCentral": "En la recta numérica, cada solución se marca del lado que cumple la desigualdad. Un círculo abierto excluye el límite y uno cerrado lo incluye.",
+    "pasos": [
+      "Ubica el número límite en la recta.",
+      "Decide si el límite se incluye: cerrado para ≤ o ≥, abierto para < o >.",
+      "Marca hacia la izquierda los menores y hacia la derecha los mayores.",
+      "Prueba un número del lado marcado."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Representa x > 2.",
+        "desarrollo": "Marco 2 con círculo abierto; sombreo hacia la derecha.",
+        "respuesta": "○ en 2 y flecha hacia valores mayores."
+      },
+      {
+        "situacion": "Representa x ≤ −1.",
+        "desarrollo": "Marco −1 con círculo cerrado y sombreo a la izquierda.",
+        "respuesta": "● en −1 y flecha hacia valores menores."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Cerrar el círculo para x < 4.",
+        "correccion": "El 4 no cumple 4 < 4; usa círculo abierto."
+      },
+      {
+        "error": "Sombrear a la derecha para números menores.",
+        "correccion": "Los menores están a la izquierda en la recta."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Conjunto solución",
+        "significado": "Todos los valores que cumplen una condición."
+      },
+      {
+        "termino": "Círculo abierto",
+        "significado": "Marca un límite excluido."
+      },
+      {
+        "termino": "Círculo cerrado",
+        "significado": "Marca un límite incluido."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para x > 3, ¿hacia qué lado se marcan las soluciones desde 3?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los números mayores que 3 siguen después de 3.",
+          "En la recta crecen hacia la derecha.",
+          "Prueba el 4 a la derecha."
+        ],
+        "retroalimentacion": "Se marca hacia la derecha; 4 sí cumple x > 3.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Izquierda"
+          },
+          {
+            "id": "b",
+            "texto": "Derecha"
+          },
+          {
+            "id": "c",
+            "texto": "Ambos lados"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La representación de x < 5 usa un círculo abierto en 5.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa si 5 cumple 5 < 5.",
+          "No se incluye el límite.",
+          "Límite excluido significa círculo abierto."
+        ],
+        "retroalimentacion": "Es verdadero: x < 5 excluye el 5, por eso el círculo es abierto."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En x ≥ −2, ¿qué marca corresponde al límite −2?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La igualdad aparece en ≥.",
+          "−2 sí es solución.",
+          "Límite incluido se dibuja cerrado."
+        ],
+        "retroalimentacion": "Corresponde un círculo cerrado en −2; el abierto lo excluiría.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Flecha sola"
+          },
+          {
+            "id": "b",
+            "texto": "Círculo abierto"
+          },
+          {
+            "id": "c",
+            "texto": "Círculo cerrado"
+          }
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En la lista −1, 0, 1, 2, ¿cuántos puntos marcarías para x < 2? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 2 queda fuera.",
+          "−1, 0 y 1 son menores que 2.",
+          "Cuenta esos puntos de la lista."
+        ],
+        "retroalimentacion": "Se marcan 3 puntos: −1, 0 y 1."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una recta con círculo cerrado en 4 y marcas a la izquierda representa x ≤ 4.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cerrado incluye 4.",
+          "Izquierda indica menores que 4.",
+          "Une ambas condiciones."
+        ],
+        "retroalimentacion": "Es verdadero: se incluyen 4 y todos los valores menores."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una recta muestra ○ en −3 y flecha hacia la izquierda. ¿Qué desigualdad expresa?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "○ indica que −3 queda fuera.",
+          "La izquierda contiene valores menores.",
+          "Junta menor con exclusión."
+        ],
+        "retroalimentacion": "x < −3 usa círculo abierto en −3 y dirección izquierda.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x ≥ −3"
+          },
+          {
+            "id": "b",
+            "texto": "x ≤ −3"
+          },
+          {
+            "id": "c",
+            "texto": "x > −3"
+          },
+          {
+            "id": "d",
+            "texto": "x < −3"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Si marcas solo enteros de −3 a 3 en una recta para x ≥ 0, ¿cuántos puntos quedan marcados? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El círculo cerrado incluye 0.",
+          "A la derecha están 1, 2 y 3.",
+          "Cuenta 0, 1, 2 y 3."
+        ],
+        "retroalimentacion": "Quedan 4 puntos; excluir 0 confundiría ≥ con >."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una flecha hacia la derecha desde un círculo abierto en 1 incluye el punto 1.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El círculo es abierto.",
+          "Abierto indica límite excluido.",
+          "La flecha marca valores mayores que 1."
+        ],
+        "retroalimentacion": "Es falso: 1 queda fuera; la representación corresponde a x > 1."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para x ≤ 0, ¿cuál descripción de la recta es correcta?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El cero está incluido.",
+          "Los negativos quedan a la izquierda de cero.",
+          "Usa círculo cerrado y flecha izquierda."
+        ],
+        "retroalimentacion": "● en 0 y flecha izquierda representa x ≤ 0.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "● en 0, flecha izquierda"
+          },
+          {
+            "id": "b",
+            "texto": "○ en 0, flecha izquierda"
+          },
+          {
+            "id": "c",
+            "texto": "● en 0, flecha derecha"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si la recta tiene ● en −1 y se marca hacia la derecha, los valores −1 y 2 son soluciones.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El punto cerrado incluye −1.",
+          "El 2 está a la derecha de −1.",
+          "Ambos están en la zona marcada."
+        ],
+        "retroalimentacion": "Es verdadero: la recta representa x ≥ −1 e incluye −1 y 2."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Entre las rectas A: ○ en 2 hacia derecha, B: ● en 2 hacia derecha y C: ○ en 2 hacia izquierda, ¿cuál muestra x ≥ 2?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "≥ incluye el 2.",
+          "Busca un círculo cerrado.",
+          "Luego confirma que la flecha vaya a mayores."
+        ],
+        "retroalimentacion": "La recta B incluye 2 y todos los mayores; A excluye 2.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "A"
+          },
+          {
+            "id": "b",
+            "texto": "B"
+          },
+          {
+            "id": "c",
+            "texto": "C"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una recta entera se marca ● en −2 y flecha hasta 3 hacia la derecha, incluyendo 3. ¿Cuántos enteros marcados hay entre esos extremos? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambos extremos están incluidos.",
+          "Enumera −2, −1, 0, 1, 2, 3.",
+          "Cuenta los enteros enumerados."
+        ],
+        "retroalimentacion": "Hay 6 enteros de −2 a 3, incluidos ambos extremos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.inecuaciones-lineales",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-S1-07"
+    ],
+    "bloque": "Desigualdades",
+    "nombre": "Inecuaciones lineales sencillas",
+    "disciplina": "algebra",
+    "descripcionCorta": "Resuelve inecuaciones de un paso o dos pasos y determina sus soluciones enteras.",
+    "palabrasClave": [
+      "inecuación",
+      "solución entera",
+      "despeje",
+      "sentido del signo"
+    ],
+    "prerrequisitos": [
+      "mat.s1.conjunto-solucion-recta",
+      "mat.s1.ecuaciones-lineales"
+    ],
+    "ordenSugerido": 83,
+    "ideaCentral": "Resuelves una inecuación haciendo la misma operación en ambos lados. Si multiplicas o divides por un número negativo, inviertes el sentido del signo.",
+    "pasos": [
+      "Simplifica cada lado si hace falta.",
+      "Suma o resta lo mismo a ambos lados para aislar el término con x.",
+      "Divide entre el coeficiente; invierte el signo si es negativo.",
+      "Comprueba con un entero que cumpla y otro que no cumpla."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Resuelve x + 4 > 9.",
+        "desarrollo": "Resto 4 a ambos lados: x > 5.",
+        "respuesta": "Los enteros solución empiezan en 6."
+      },
+      {
+        "situacion": "Resuelve −2x ≤ 8.",
+        "desarrollo": "Divido entre −2 e invierto el signo: x ≥ −4.",
+        "respuesta": "−4 y los enteros mayores cumplen."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Olvidar invertir al dividir entre negativo.",
+        "correccion": "De −2x < 6 se obtiene x > −3."
+      },
+      {
+        "error": "Tratar el límite estricto como solución.",
+        "correccion": "Si x > 5, el 5 queda fuera."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Inecuación",
+        "significado": "Desigualdad que contiene una incógnita."
+      },
+      {
+        "termino": "Despejar",
+        "significado": "Aislar la incógnita conservando la condición."
+      },
+      {
+        "termino": "Invertir el signo",
+        "significado": "Cambiar < por > o ≤ por ≥ al operar con factor negativo."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Resuelve x + 3 > 8.",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta 3 a ambos lados.",
+          "8 − 3 = 5.",
+          "Mantén > porque no dividiste entre negativo."
+        ],
+        "retroalimentacion": "x > 5; sumar 3 al límite sería incorrecto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x < 5"
+          },
+          {
+            "id": "b",
+            "texto": "x > 5"
+          },
+          {
+            "id": "c",
+            "texto": "x ≥ 5"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "De x − 2 ≤ 4 se obtiene x ≤ 6.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 2 a ambos lados.",
+          "4 + 2 = 6.",
+          "El signo ≤ se conserva."
+        ],
+        "retroalimentacion": "Es verdadero: x − 2 ≤ 4 equivale a x ≤ 6."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Si 2x < 10 y x es entero no negativo, ¿cuántos valores puede tomar x? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide 10 entre 2.",
+          "La condición es x < 5.",
+          "Enumera 0, 1, 2, 3 y 4."
+        ],
+        "retroalimentacion": "Hay 5 enteros no negativos menores que 5."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué entero satisface x − 5 ≥ 2?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 5 a ambos lados.",
+          "Se obtiene x ≥ 7.",
+          "Busca una opción igual o mayor que 7."
+        ],
+        "retroalimentacion": "7 cumple: 7 − 5 = 2; 6 no llega.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "7"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al dividir −3x > 12 entre −3, queda x > −4.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El divisor es negativo.",
+          "Al dividir por −3 debes invertir >.",
+          "12 ÷ (−3) = −4."
+        ],
+        "retroalimentacion": "Es falso: −3x > 12 equivale a x < −4."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Resuelve 3x + 2 ≤ 11.",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Quita 2 de ambos lados.",
+          "3x ≤ 9.",
+          "Divide entre 3 sin cambiar el signo."
+        ],
+        "retroalimentacion": "x ≤ 3; x = 3 cumple porque 3 × 3 + 2 = 11.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x < 3"
+          },
+          {
+            "id": "b",
+            "texto": "x ≥ 3"
+          },
+          {
+            "id": "c",
+            "texto": "x ≤ 9"
+          },
+          {
+            "id": "d",
+            "texto": "x ≤ 3"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Para x + 6 < 10, ¿cuál es el mayor entero que cumple? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta 6 a ambos lados.",
+          "Resulta x < 4.",
+          "El mayor entero anterior a 4 es 3."
+        ],
+        "retroalimentacion": "El mayor entero es 3; 4 no cumple la desigualdad estricta."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 5x ≥ 15, entonces x = 3 pertenece al conjunto solución.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide entre 5 positivo.",
+          "x ≥ 3.",
+          "La igualdad permite el 3."
+        ],
+        "retroalimentacion": "Es verdadero: 5 × 3 = 15 satisface ≥ 15."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Al resolver −x + 4 < 7, ¿qué queda?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta 4: −x < 3.",
+          "Divide entre −1.",
+          "Al dividir entre negativo invierte <."
+        ],
+        "retroalimentacion": "x > −3; mantener < daría soluciones equivocadas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "x > −3"
+          },
+          {
+            "id": "b",
+            "texto": "x < −3"
+          },
+          {
+            "id": "c",
+            "texto": "x > 3"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La solución entera de 2x − 1 < 5 incluye 2 y excluye 3.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 1: 2x < 6.",
+          "Divide entre 2: x < 3.",
+          "Comprueba 2 y 3 frente al límite."
+        ],
+        "retroalimentacion": "Es verdadero: 2 cumple y 3 da igualdad, que no satisface <."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una entrada cuesta S/ 4 y hay S/ 18 para entradas y una comisión fija de S/ 2. Si n es el número de entradas, ¿cuántas como máximo puede comprar?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Plantea 4n + 2 ≤ 18.",
+          "Quita la comisión: 4n ≤ 16.",
+          "Divide entre 4."
+        ],
+        "retroalimentacion": "Puede comprar como máximo 4 entradas; 4 × 4 + 2 = 18.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "4"
+          },
+          {
+            "id": "c",
+            "texto": "5"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Resuelve −2x + 3 ≥ 9. ¿Cuál es el mayor entero que cumple? Escribe solo el número.",
+        "respuesta": -3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta 3: −2x ≥ 6.",
+          "Divide entre −2 e invierte ≥.",
+          "Obtienes x ≤ −3; identifica el mayor."
+        ],
+        "retroalimentacion": "El mayor entero solución es −3; al dividir por −2 se invierte el signo."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

@@ -1,0 +1,1963 @@
+[
+  {
+    "clave": "mat.s1.experimentos-aleatorios",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+    "desempenosOrigen": [
+      "MAT-C25-S1-02"
+    ],
+    "bloque": "Probabilidad",
+    "nombre": "Experimentos aleatorios y deterministas",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Distingue situaciones cuyo resultado se puede o no predecir con certeza.",
+    "palabrasClave": [
+      "experimento aleatorio",
+      "experimento determinista",
+      "azar",
+      "certeza",
+      "resultado"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 137,
+    "ideaCentral": "Un experimento es aleatorio cuando, aunque lo repitas igual, no puedes saber con certeza qué resultado saldrá (depende del azar). Es determinista cuando el resultado se conoce de antemano y siempre es el mismo.",
+    "pasos": [
+      "Imagina que repites la situación varias veces en las mismas condiciones.",
+      "Pregúntate: ¿puedo decir con seguridad el resultado antes de hacerlo?",
+      "Si hay un único resultado seguro, es determinista.",
+      "Si hay varios resultados posibles y no sabes cuál saldrá, es aleatorio."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Lanzas un dado sobre la carpeta. ¿Es un experimento aleatorio o determinista?",
+        "desarrollo": "Puede salir 1, 2, 3, 4, 5 o 6 y no sabes cuál hasta que el dado se detiene.",
+        "respuesta": "Es aleatorio."
+      },
+      {
+        "situacion": "Pones a hervir agua en una olla en Lima hasta que burbujee. ¿Aleatorio o determinista?",
+        "desarrollo": "Cada vez que calientas agua lo suficiente, hierve. El resultado se sabe antes de hacerlo.",
+        "respuesta": "Es determinista."
+      },
+      {
+        "situacion": "En una bolsa hay 4 fichas, todas verdes. Sacas una sin mirar y observas el color. ¿Aleatorio o determinista?",
+        "desarrollo": "Aunque no mires, la ficha solo puede ser verde. Hay un único resultado posible.",
+        "respuesta": "Es determinista."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que «más probable» significa «seguro»: si hay más bolas rojas, decir que es determinista.",
+        "correccion": "Mientras exista otro resultado posible, aunque sea poco probable, el experimento es aleatorio."
+      },
+      {
+        "error": "Pensar que todo lo que se hace «sin mirar» es aleatorio.",
+        "correccion": "Si todos los objetos son iguales, el resultado es seguro: sacar una ficha de una bolsa donde todas son verdes es determinista."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Experimento aleatorio",
+        "significado": "Experimento cuyo resultado no se puede predecir con certeza."
+      },
+      {
+        "termino": "Experimento determinista",
+        "significado": "Experimento cuyo resultado se conoce antes de realizarlo."
+      },
+      {
+        "termino": "Azar",
+        "significado": "Lo que hace que un resultado no se pueda prever."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas situaciones es un experimento aleatorio?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Lanzar un dado y ver qué número sale"
+          },
+          {
+            "id": "b",
+            "texto": "Calentar agua hasta que hierva"
+          },
+          {
+            "id": "c",
+            "texto": "Soltar una piedra y ver si cae"
+          }
+        ],
+        "pistas": [
+          "Busca la situación en la que no puedes adelantar el resultado.",
+          "El agua bien calentada siempre hierve y la piedra siempre cae.",
+          "En una de las tres hay seis resultados posibles."
+        ],
+        "retroalimentacion": "Lanzar un dado es aleatorio: no sabes qué número saldrá. Que el agua hierva o que la piedra caiga se sabe de antemano."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Lanzar una moneda y observar si sale cara o sello es un experimento aleatorio.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "¿Cuántos resultados posibles tiene la moneda?",
+          "Puede salir cara o puede salir sello.",
+          "Antes de lanzarla, nadie puede asegurar cuál de los dos saldrá."
+        ],
+        "retroalimentacion": "Es verdadero: hay dos resultados posibles y no se puede saber cuál saldrá antes de lanzar."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Sueltas un lapicero desde tu mano y observas si cae al suelo. ¿El experimento es aleatorio o determinista? Escribe una sola palabra.",
+        "respuesta": "determinista",
+        "alternativasAceptadas": [
+          "determinístico",
+          "es determinista",
+          "deterministico"
+        ],
+        "pistas": [
+          "Imagina que sueltas el lapicero diez veces.",
+          "Las diez veces pasará lo mismo, por la gravedad.",
+          "Si el resultado se conoce antes de hacerlo, el experimento es…"
+        ],
+        "retroalimentacion": "Es determinista: el lapicero siempre cae, así que el resultado se sabe de antemano."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué caracteriza a un experimento determinista?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tiene muchos resultados posibles"
+          },
+          {
+            "id": "b",
+            "texto": "Su resultado se conoce antes de realizarlo"
+          },
+          {
+            "id": "c",
+            "texto": "Su resultado depende de la suerte"
+          }
+        ],
+        "pistas": [
+          "«Determinado» significa fijado, decidido.",
+          "Piensa en sumar 2 + 2: ¿hay sorpresa?",
+          "Lo contrario de depender del azar es poder anticipar lo que ocurrirá."
+        ],
+        "retroalimentacion": "Un experimento determinista es aquel cuyo resultado se conoce antes de realizarlo. Tener muchos resultados o depender de la suerte describe a los aleatorios."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En la kermés del colegio sacan, sin mirar, una bolilla numerada de la tómbola del bingo. ¿El experimento es aleatorio o determinista? Escribe una sola palabra.",
+        "respuesta": "aleatorio",
+        "alternativasAceptadas": [
+          "aleatoria",
+          "es aleatorio",
+          "al azar"
+        ],
+        "pistas": [
+          "En la tómbola hay muchas bolillas con números distintos.",
+          "Cualquiera de ellas puede salir.",
+          "Si no se puede asegurar cuál saldrá, el experimento es…"
+        ],
+        "retroalimentacion": "Es aleatorio: hay muchas bolillas distintas y no se sabe cuál saldrá."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Calcular el vuelto al pagar con S/ 10 un pan con chicharrón de S/ 7 es un experimento aleatorio.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Haz la cuenta del vuelto.",
+          "10 − 7 = 3, siempre.",
+          "Si el resultado es el mismo cada vez, no depende del azar."
+        ],
+        "retroalimentacion": "Es falso: el vuelto siempre es S/ 3. Como el resultado se conoce antes, es determinista."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una bolsa tiene 5 canicas y todas son rojas. Sacas una sin mirar y anotas su color. ¿Cómo es este experimento?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Aleatorio, porque sacas sin mirar"
+          },
+          {
+            "id": "b",
+            "texto": "Aleatorio, porque hay 5 canicas"
+          },
+          {
+            "id": "c",
+            "texto": "Determinista, porque el color siempre será rojo"
+          }
+        ],
+        "pistas": [
+          "Lo que se observa es el color, no cuál canica sale.",
+          "Revisa qué colores hay en la bolsa.",
+          "Con un solo color posible, ¿hay duda sobre el resultado?"
+        ],
+        "retroalimentacion": "Es determinista, porque el color siempre será rojo. Sacar sin mirar no lo vuelve aleatorio si solo hay un resultado posible."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántas de estas cuatro situaciones son experimentos aleatorios?\n● Lanzar un dado.\n● Sumar 8 + 5.\n● Sacar una carta de una baraja sin mirar.\n● Contar los lados de un triángulo.\nEscribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa cada situación preguntándote si conoces el resultado antes.",
+          "8 + 5 siempre es 13 y un triángulo siempre tiene 3 lados.",
+          "Quedan el dado y la carta: en ambos interviene el azar."
+        ],
+        "retroalimentacion": "Son 2: lanzar un dado y sacar una carta. La suma y los lados del triángulo tienen resultado seguro."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un experimento aleatorio puedes conocer todos los resultados posibles, pero no cuál de ellos saldrá.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en una ruleta con sectores de colores.",
+          "Sabes qué colores tiene la ruleta.",
+          "Lo que no sabes es en cuál se detendrá."
+        ],
+        "retroalimentacion": "Es verdadero: en lo aleatorio se conocen los resultados posibles (por ejemplo, 1 a 6 en un dado), pero no cuál ocurrirá."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una bolsa hay 3 bolas rojas y 1 azul. Camila dice: «Sacar una bola es determinista, porque seguro sale roja». ¿Tiene razón?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sí, porque hay más rojas que azules"
+          },
+          {
+            "id": "b",
+            "texto": "Sí, porque solo se saca una bola"
+          },
+          {
+            "id": "c",
+            "texto": "No, porque todo experimento con bolsas es aleatorio"
+          },
+          {
+            "id": "d",
+            "texto": "No, porque también puede salir la azul"
+          }
+        ],
+        "pistas": [
+          "«Seguro» significa que no existe ningún otro resultado.",
+          "Hay una bola azul dentro de la bolsa.",
+          "Que la roja sea más probable no elimina a la azul."
+        ],
+        "retroalimentacion": "Camila no tiene razón, porque también puede salir la azul: roja es más probable, pero no segura. El experimento es aleatorio. (Y no todas las bolsas dan experimentos aleatorios: depende de su contenido.)"
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántas de estas seis situaciones son deterministas?\n● El ganador de una rifa.\n● El día que sigue al lunes.\n● La suma que sale al lanzar dos dados.\n● El perímetro de un cuadrado de 4 cm de lado.\n● El color del primer carro que pase por la avenida.\n● La cantidad de minutos que tiene una hora.\nEscribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Marca las situaciones cuyo resultado puedes decir ahora mismo.",
+          "Después del lunes viene martes; el perímetro es 16 cm; una hora tiene 60 minutos.",
+          "La rifa, los dados y el carro dependen del azar: no los cuentes."
+        ],
+        "retroalimentacion": "Son 3 deterministas: el día que sigue al lunes, el perímetro del cuadrado y los minutos de una hora. Las otras tres no se pueden predecir."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Lanzar un dado que tiene el número 6 en todas sus caras y observar el número que sale es un experimento aleatorio.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No te quedes con la palabra «dado»: mira cómo es este dado.",
+          "Sus seis caras muestran el mismo número.",
+          "Si solo puede salir 6, ¿hay incertidumbre?"
+        ],
+        "retroalimentacion": "Es falso: en ese dado solo puede salir 6, así que el resultado es seguro y el experimento es determinista. Lo que importa es si hay más de un resultado posible."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.espacio-muestral-sucesos",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+    "desempenosOrigen": [
+      "MAT-C25-S1-02"
+    ],
+    "bloque": "Probabilidad",
+    "nombre": "Espacio muestral y sucesos",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Determina todos los resultados posibles y define sucesos simples.",
+    "palabrasClave": [
+      "espacio muestral",
+      "suceso",
+      "resultados posibles",
+      "suceso simple",
+      "probabilidad"
+    ],
+    "prerrequisitos": [
+      "mat.s1.experimentos-aleatorios"
+    ],
+    "ordenSugerido": 138,
+    "ideaCentral": "El espacio muestral es el conjunto de todos los resultados posibles de un experimento aleatorio. Un suceso es una parte de ese conjunto: los resultados que cumplen una condición. Si tiene un solo resultado, es un suceso simple.",
+    "pasos": [
+      "Describe el experimento: ¿qué se hace y qué se observa?",
+      "Haz la lista ordenada de todos los resultados posibles, sin repetir ni olvidar ninguno: ese es el espacio muestral.",
+      "Lee la condición del suceso y elige de la lista los resultados que la cumplen.",
+      "Cuenta los resultados del suceso: si es uno solo, es un suceso simple."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Lanzas un dado. ¿Cuál es el espacio muestral y cuál es el suceso «sale un número par»?",
+        "desarrollo": "Resultados posibles: {1, 2, 3, 4, 5, 6}. De ellos son pares 2, 4 y 6.",
+        "respuesta": "Espacio muestral: {1, 2, 3, 4, 5, 6}. Suceso: {2, 4, 6}."
+      },
+      {
+        "situacion": "Lanzas dos monedas, una de S/ 1 y otra de S/ 2. ¿Cuál es el espacio muestral? (C = cara, S = sello)",
+        "desarrollo": "Anotas primero la moneda de S/ 1 y luego la de S/ 2: CC, CS, SC, SS. CS y SC son resultados distintos.",
+        "respuesta": "{CC, CS, SC, SS}: 4 resultados."
+      },
+      {
+        "situacion": "En una ánfora hay papelitos con los nombres Ana, Beto y Carla. Se saca uno. ¿Cuál es el suceso «sale un nombre que empieza con B»?",
+        "desarrollo": "Espacio muestral: {Ana, Beto, Carla}. Solo Beto cumple la condición.",
+        "respuesta": "{Beto}: es un suceso simple."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Olvidar resultados al combinar dos objetos: decir que dos monedas tienen 3 resultados (dos caras, dos sellos, una y una).",
+        "correccion": "«Una y una» ocurre de dos formas: cara-sello y sello-cara. El espacio muestral tiene 4 resultados."
+      },
+      {
+        "error": "Confundir el suceso con todo el espacio muestral.",
+        "correccion": "El suceso es solo la parte que cumple la condición: en un dado, «sale mayor que 4» es {5, 6}, no los seis números."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Espacio muestral",
+        "significado": "Conjunto de todos los resultados posibles de un experimento aleatorio."
+      },
+      {
+        "termino": "Suceso",
+        "significado": "Conjunto de resultados que cumplen una condición."
+      },
+      {
+        "termino": "Suceso simple",
+        "significado": "Suceso formado por un solo resultado."
+      },
+      {
+        "termino": "Suceso imposible",
+        "significado": "Suceso que no tiene ningún resultado, como sacar 7 en un dado."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Lanzas un dado común. ¿Cuántos resultados tiene el espacio muestral? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Haz la lista de los números que pueden salir.",
+          "El dado tiene una cara por cada número del 1 al 6.",
+          "Cuenta los elementos de {1, 2, 3, 4, 5, 6}."
+        ],
+        "retroalimentacion": "El espacio muestral es {1, 2, 3, 4, 5, 6}: tiene 6 resultados, uno por cara."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el espacio muestral de lanzar una moneda?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "{cara}"
+          },
+          {
+            "id": "b",
+            "texto": "{cara, sello}"
+          },
+          {
+            "id": "c",
+            "texto": "{1, 2, 3, 4, 5, 6}"
+          }
+        ],
+        "pistas": [
+          "El espacio muestral incluye todo lo que puede salir.",
+          "La moneda tiene dos lados.",
+          "Uno de los conjuntos corresponde a un dado, no a una moneda."
+        ],
+        "retroalimentacion": "El espacio muestral es {cara, sello}. {cara} deja fuera un resultado y {1, 2, 3, 4, 5, 6} es el de un dado."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El espacio muestral es el conjunto de todos los resultados posibles de un experimento aleatorio.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda qué reúne el espacio muestral.",
+          "No es un solo resultado, ni solo los que te convienen.",
+          "La palabra clave es «todos»."
+        ],
+        "retroalimentacion": "Es verdadero: esa es la definición. Un suceso, en cambio, es solo una parte del espacio muestral."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una ruleta está dividida en 8 sectores iguales numerados del 1 al 8. La giras y anotas el número. ¿Cuántos resultados tiene el espacio muestral? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada sector es un resultado posible.",
+          "Los sectores van numerados 1, 2, 3… hasta 8.",
+          "Cuenta cuántos números hay del 1 al 8."
+        ],
+        "retroalimentacion": "Hay 8 resultados posibles: {1, 2, 3, 4, 5, 6, 7, 8}."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Lanzas un dado. ¿Cuántos resultados tiene el suceso «sale un número par»? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Parte del espacio muestral {1, 2, 3, 4, 5, 6}.",
+          "Elige solo los números pares.",
+          "Los pares son 2, 4 y 6: cuéntalos."
+        ],
+        "retroalimentacion": "El suceso es {2, 4, 6}, con 3 resultados. No se cuentan los 6 números del dado, solo los pares."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Lanzas un dado. ¿Qué conjunto representa el suceso «sale un número mayor que 4»?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "{5, 6}"
+          },
+          {
+            "id": "b",
+            "texto": "{4, 5, 6}"
+          },
+          {
+            "id": "c",
+            "texto": "{6}"
+          },
+          {
+            "id": "d",
+            "texto": "{1, 2, 3, 4}"
+          }
+        ],
+        "pistas": [
+          "«Mayor que 4» no incluye al propio 4.",
+          "Revisa del 1 al 6 cuáles superan a 4.",
+          "Solo dos números del dado son más grandes que 4."
+        ],
+        "retroalimentacion": "El suceso es {5, 6}. Incluir el 4 es un error frecuente: «mayor que 4» empieza en 5."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al lanzar un dado común, el suceso «sale 7» no tiene ningún resultado: es un suceso imposible.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el 7 en el espacio muestral del dado.",
+          "{1, 2, 3, 4, 5, 6} termina en 6.",
+          "Si ningún resultado cumple la condición, el suceso no puede ocurrir."
+        ],
+        "retroalimentacion": "Es verdadero: el 7 no está en el espacio muestral del dado, así que el suceso no tiene resultados y es imposible."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una bolsa hay 10 bolillas numeradas del 1 al 10. Sacas una. ¿Cuántos resultados tiene el suceso «sale un número primo»? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un número primo tiene exactamente dos divisores: 1 y él mismo.",
+          "El 1 no es primo; el 9 tampoco, porque 3 × 3 = 9.",
+          "Los primos hasta 10 son 2, 3, 5 y 7."
+        ],
+        "retroalimentacion": "El suceso es {2, 3, 5, 7}: 4 resultados. Cuidado con contar el 1 o el 9 como primos."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Al lanzar un dado, el suceso «sale 5» tiene un solo resultado. ¿Ese suceso es simple o compuesto? Escribe una sola palabra.",
+        "respuesta": "simple",
+        "alternativasAceptadas": [
+          "suceso simple",
+          "es simple",
+          "elemental"
+        ],
+        "pistas": [
+          "Cuenta cuántos resultados forman el suceso.",
+          "El suceso es {5}.",
+          "Un suceso con un único resultado recibe el nombre de suceso…"
+        ],
+        "retroalimentacion": "Es un suceso simple, porque está formado por un solo resultado: {5}."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Lanzas dos monedas distintas a la vez y anotas qué sale en cada una. ¿Cuántos resultados tiene el espacio muestral? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Anota cada resultado con dos letras: una por moneda (C o S).",
+          "Si la primera sale C, la segunda puede ser C o S: CC y CS.",
+          "Si la primera sale S, hay otros dos: SC y SS."
+        ],
+        "retroalimentacion": "Son 4 resultados: CC, CS, SC y SS. Quien responde 3 junta CS y SC como si fueran lo mismo."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Lanzas una moneda y un dado al mismo tiempo. ¿Cuántos resultados tiene el espacio muestral?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8"
+          },
+          {
+            "id": "b",
+            "texto": "36"
+          },
+          {
+            "id": "c",
+            "texto": "12"
+          },
+          {
+            "id": "d",
+            "texto": "6"
+          }
+        ],
+        "pistas": [
+          "Cada resultado es una pareja: lo que sale en la moneda y lo que sale en el dado.",
+          "Con cara hay 6 parejas: C1, C2, C3, C4, C5, C6.",
+          "Con sello hay otras 6. Suma ambas listas."
+        ],
+        "retroalimentacion": "Hay 12 resultados: 2 de la moneda × 6 del dado. Sumar 2 + 6 = 8 es el error típico; 36 sería con dos dados."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al lanzar dos monedas, el suceso «sale exactamente una cara» es un suceso simple.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe el espacio muestral: CC, CS, SC, SS.",
+          "Marca los resultados que tienen una sola C.",
+          "CS y SC cumplen la condición: son dos resultados."
+        ],
+        "retroalimentacion": "Es falso: el suceso es {CS, SC}, con dos resultados, así que no es simple."
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Lanzas dos dados, uno rojo y uno azul, y sumas sus puntos. ¿Cuántos resultados tiene el suceso «la suma es 6»? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe cada resultado como pareja (rojo, azul).",
+          "Empieza con rojo = 1: el azul debe ser 5. Sigue con rojo = 2, 3, 4…",
+          "Las parejas son (1, 5), (2, 4), (3, 3), (4, 2) y (5, 1)."
+        ],
+        "retroalimentacion": "Son 5 resultados. (2, 4) y (4, 2) cuentan por separado porque los dados son distintos, mientras que (3, 3) aparece una sola vez."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.regla-laplace",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Usa estrategias y procedimientos para recopilar y procesar datos",
+    "desempenosOrigen": [
+      "MAT-C25-S1-02",
+      "MAT-C25-S1-06"
+    ],
+    "bloque": "Probabilidad",
+    "nombre": "Probabilidad con la regla de Laplace",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Calcula la probabilidad de sucesos simples como casos favorables entre posibles.",
+    "palabrasClave": [
+      "probabilidad",
+      "casos favorables",
+      "casos posibles",
+      "azar"
+    ],
+    "prerrequisitos": [
+      "mat.s1.espacio-muestral-sucesos"
+    ],
+    "ordenSugerido": 139,
+    "ideaCentral": "Si todos los resultados son igual de probables, divides los casos favorables entre todos los posibles para hallar la probabilidad.",
+    "pasos": [
+      "Enumera los resultados posibles y comprueba que tengan la misma oportunidad.",
+      "Cuenta los resultados que cumplen el suceso.",
+      "Divide favorables entre posibles y simplifica la fracción."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una bolsa tiene 3 fichas rojas y 2 azules. ¿Probabilidad de roja?",
+        "desarrollo": "Hay 5 fichas equiprobables y 3 rojas: 3/5.",
+        "respuesta": "3/5."
+      },
+      {
+        "situacion": "Al lanzar un dado justo, ¿probabilidad de número par?",
+        "desarrollo": "Los pares son 2, 4 y 6: 3 de 6 caras.",
+        "respuesta": "3/6 = 1/2."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar solo los favorables como denominador.",
+        "correccion": "El denominador cuenta todos los resultados posibles."
+      },
+      {
+        "error": "Usar Laplace cuando las opciones tienen distintas oportunidades.",
+        "correccion": "Primero comprueba la equiprobabilidad de los resultados."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Caso favorable",
+        "significado": "Resultado que cumple el suceso buscado."
+      },
+      {
+        "termino": "Caso posible",
+        "significado": "Cada resultado que puede ocurrir."
+      },
+      {
+        "termino": "Equiprobable",
+        "significado": "Con la misma oportunidad de ocurrir."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una moneda justa tiene cara y sello. ¿Cuál es la probabilidad de cara? Escribe una fracción.",
+        "respuesta": "1/2",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay dos resultados posibles.",
+          "Solo cara cumple lo pedido.",
+          "Divide 1 entre 2."
+        ],
+        "retroalimentacion": "Confundir dos resultados con dos favorables da 2/2; cara tiene probabilidad 1/2."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un dado justo se lanza una vez. ¿Qué probabilidad hay de obtener 5?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5/6"
+          },
+          {
+            "id": "b",
+            "texto": "1/5"
+          },
+          {
+            "id": "c",
+            "texto": "1/6"
+          },
+          {
+            "id": "d",
+            "texto": "6/1"
+          }
+        ],
+        "pistas": [
+          "El dado tiene seis caras.",
+          "Solo una cara muestra 5.",
+          "La fracción usa un favorable sobre seis posibles."
+        ],
+        "retroalimentacion": "No son cinco caras favorables: solo la cara 5 cuenta. La probabilidad es 1/6."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una bolsa con 2 bolas verdes y 2 amarillas, todas iguales salvo el color, la probabilidad de verde es 2/4.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta todas las bolas: son cuatro.",
+          "Dos bolas cumplen «verde».",
+          "Forma favorables/posibles: 2/4."
+        ],
+        "retroalimentacion": "Es verdadero: dos verdes de cuatro bolas dan 2/4."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una ruleta justa tiene 8 sectores iguales; 2 dicen «premio». ¿Qué fracción representa ganar?",
+        "respuesta": "2/8",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/4"
+          }
+        ],
+        "pistas": [
+          "Los sectores son los casos posibles.",
+          "Hay dos sectores con premio entre ocho.",
+          "Escribe primero la fracción sin simplificar."
+        ],
+        "retroalimentacion": "No uses 8/2: la probabilidad de premio es 2/8."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja contiene tarjetas numeradas del 1 al 10. Si sacas una al azar, ¿probabilidad de obtener un múltiplo de 5?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/10"
+          },
+          {
+            "id": "b",
+            "texto": "2/10"
+          },
+          {
+            "id": "c",
+            "texto": "5/10"
+          },
+          {
+            "id": "d",
+            "texto": "10/2"
+          }
+        ],
+        "pistas": [
+          "Enumera los múltiplos de 5 hasta 10.",
+          "Son 5 y 10, dos tarjetas.",
+          "Compara dos favorables con diez posibles."
+        ],
+        "retroalimentacion": "Contar solo el 5 omite el 10: la probabilidad es 2/10."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Se elige al azar una letra de la palabra PERU, escrita en cuatro tarjetas iguales. ¿Probabilidad de sacar una vocal? Da una fracción simplificada.",
+        "respuesta": "1/2",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2/4"
+          }
+        ],
+        "pistas": [
+          "Identifica las cuatro letras distintas.",
+          "Las vocales son E y U.",
+          "Dos de cuatro equivale a una de dos."
+        ],
+        "retroalimentacion": "P y R son consonantes; E y U son dos de cuatro. La probabilidad es 1/2."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al lanzar un dado justo, la probabilidad de obtener un número mayor que 4 es 4/6.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira qué números superan 4.",
+          "Solo 5 y 6 cumplen.",
+          "Compara esos dos con las seis caras."
+        ],
+        "retroalimentacion": "Es falso: son 2/6, pues solo 5 y 6 son mayores que 4."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una tómbola hay 12 boletos iguales; 3 son ganadores. ¿Cuántos casos favorables hay para ganar? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El suceso buscado es ganar.",
+          "Fíjate en los boletos ganadores.",
+          "De los 12, tres cumplen el suceso."
+        ],
+        "retroalimentacion": "No cuentes los 12 como favorables: hay 3 ganadores."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una bolsa tiene 4 fichas negras, 3 blancas y 1 roja. ¿Qué probabilidad hay de NO sacar negra?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/8"
+          },
+          {
+            "id": "b",
+            "texto": "3/8"
+          },
+          {
+            "id": "c",
+            "texto": "4/4"
+          },
+          {
+            "id": "d",
+            "texto": "4/8"
+          }
+        ],
+        "pistas": [
+          "El suceso incluye blancas y rojas.",
+          "Suma 3 blancas y 1 roja.",
+          "Hay cuatro favorables de ocho fichas."
+        ],
+        "retroalimentacion": "No sacar negra incluye 3 blancas y 1 roja: 4/8."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Se extrae una tarjeta de los números 1 a 12. ¿Probabilidad de obtener un divisor de 12? Escribe la fracción simplificada.",
+        "respuesta": "1/2",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6/12"
+          }
+        ],
+        "pistas": [
+          "Los divisores exactos de 12 son pocos.",
+          "Enumera 1, 2, 3, 4, 6 y 12.",
+          "Seis de doce se simplifica dividiendo entre seis."
+        ],
+        "retroalimentacion": "Olvidar 1 o 12 reduce los favorables; son 6/12 = 1/2."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una ruleta de 6 sectores iguales numerados del 1 al 6, sacar un número impar tiene la misma probabilidad que sacar uno par.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa los números en pares e impares.",
+          "Impares: 1, 3, 5; pares: 2, 4, 6.",
+          "Cada suceso reúne tres de seis sectores."
+        ],
+        "retroalimentacion": "Es verdadero: ambos tienen probabilidad 3/6."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Hay 2 tarjetas A, 1 B y 3 C, todas iguales al tacto. ¿Cuál suceso es más probable al sacar una?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sacar C"
+          },
+          {
+            "id": "b",
+            "texto": "Sacar A"
+          },
+          {
+            "id": "c",
+            "texto": "Sacar B"
+          },
+          {
+            "id": "d",
+            "texto": "Todas igual"
+          }
+        ],
+        "pistas": [
+          "Compara cuántas tarjetas hay de cada letra.",
+          "A tiene dos, B una y C tres.",
+          "El mayor número de casos favorables da más probabilidad."
+        ],
+        "retroalimentacion": "B tiene solo 1/6 y A 2/6; sacar C tiene 3/6, la mayor probabilidad."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.probabilidad-decimal-porcentaje",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-S1-02",
+      "MAT-C25-S1-03"
+    ],
+    "bloque": "Probabilidad",
+    "nombre": "Probabilidad expresada como decimal y porcentaje",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Expresa la probabilidad entre 0 y 1 y en porcentaje para comparar sucesos.",
+    "palabrasClave": [
+      "probabilidad",
+      "decimal",
+      "porcentaje",
+      "comparación"
+    ],
+    "prerrequisitos": [
+      "mat.s1.regla-laplace"
+    ],
+    "ordenSugerido": 140,
+    "ideaCentral": "Una probabilidad puede escribirse como fracción, decimal entre 0 y 1 o porcentaje entre 0 % y 100 %. Son tres formas de expresar la misma oportunidad.",
+    "pasos": [
+      "Calcula la fracción favorables/posibles.",
+      "Divide numerador entre denominador para obtener el decimal.",
+      "Multiplica el decimal por 100 para obtener el porcentaje.",
+      "Comprueba que el decimal esté entre 0 y 1."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Dos de diez boletos ganan. ¿Qué probabilidad hay?",
+        "desarrollo": "2/10 = 0,2; 0,2 × 100 = 20 %.",
+        "respuesta": "0,2 o 20 %."
+      },
+      {
+        "situacion": "Una moneda justa cae en cara una de dos veces posibles.",
+        "desarrollo": "1/2 = 0,5; equivale a 50 %.",
+        "respuesta": "0,5 = 50 %."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir 0,4 con 4 %.",
+        "correccion": "Multiplica 0,4 por 100: es 40 %."
+      },
+      {
+        "error": "Escribir 75 % como 75 en escala decimal.",
+        "correccion": "Divide 75 entre 100: es 0,75."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Decimal",
+        "significado": "Número entre 0 y 1 que expresa una probabilidad."
+      },
+      {
+        "termino": "Porcentaje",
+        "significado": "Probabilidad expresada por cada cien casos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La probabilidad de lluvia es 0,3. ¿Qué porcentaje representa? Escribe solo el número, sin %.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en cien partes.",
+          "Multiplica 0,3 por 100.",
+          "Tres décimos son treinta centésimos."
+        ],
+        "retroalimentacion": "0,3 representa 30 %, no 3 %."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un sorteo ofrece probabilidad 1/4 de ganar. ¿Cuál es su expresión decimal?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0,4"
+          },
+          {
+            "id": "b",
+            "texto": "0,25"
+          },
+          {
+            "id": "c",
+            "texto": "0,75"
+          },
+          {
+            "id": "d",
+            "texto": "0,04"
+          }
+        ],
+        "pistas": [
+          "Divide uno entre cuatro.",
+          "Cuatro partes iguales de la unidad miden 0,25 cada una.",
+          "Busca 0,25 entre las opciones."
+        ],
+        "retroalimentacion": "1/4 equivale a 0,25, no a 0,4."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una probabilidad de 0,8 equivale al 80 %.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Recuerda que el porcentaje es sobre cien.",
+          "Multiplica 0,8 por 100.",
+          "El resultado es 80."
+        ],
+        "retroalimentacion": "Es verdadero: 0,8 × 100 = 80 %."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En una bolsa, 5 de cada 10 canicas son azules. Escribe la probabilidad de azul como porcentaje, incluyendo %.",
+        "respuesta": "50%",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "50 %"
+          }
+        ],
+        "pistas": [
+          "Cinco de diez es la mitad.",
+          "La mitad en decimal es 0,5.",
+          "0,5 por 100 da 50."
+        ],
+        "retroalimentacion": "Cinco de diez no es 5 %: es 50 %."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La posibilidad de sacar una ficha roja es 0,06. ¿Qué porcentaje es?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0,6 %"
+          },
+          {
+            "id": "b",
+            "texto": "60 %"
+          },
+          {
+            "id": "c",
+            "texto": "0,06 %"
+          },
+          {
+            "id": "d",
+            "texto": "6 %"
+          }
+        ],
+        "pistas": [
+          "Desplaza la coma dos lugares a la derecha.",
+          "0,06 × 100 = 6.",
+          "Busca el porcentaje de seis de cada cien."
+        ],
+        "retroalimentacion": "0,06 son 6 centésimos: 6 %, no 60 %."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un juego anuncia 45 % de probabilidad de acierto. ¿Cuál es su decimal? Escribe solo el número.",
+        "respuesta": 0.45,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte porcentaje dividiendo entre cien.",
+          "45 ÷ 100 mueve la coma dos lugares.",
+          "Obtendrás un valor menor que uno."
+        ],
+        "retroalimentacion": "45 % equivale a 0,45; escribir 45 omite la escala decimal."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una probabilidad decimal de 1,2 es válida para un suceso.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El valor máximo de una probabilidad es uno.",
+          "Compara 1,2 con 1.",
+          "1,2 supera el máximo permitido."
+        ],
+        "retroalimentacion": "Es falso: 1,2 supera 1 y no puede ser una probabilidad."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "La probabilidad de elegir una vocal entre 20 tarjetas es 5/20. Escríbela como porcentaje.",
+        "respuesta": "25%",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "25 %"
+          }
+        ],
+        "pistas": [
+          "Simplifica 5/20.",
+          "5/20 es 1/4.",
+          "Un cuarto de cien es 25."
+        ],
+        "retroalimentacion": "5/20 equivale a 25 %, no 5 %."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un equipo estima 0,35 de probabilidad de ganar y otro 40 %. ¿Cuál tiene mayor probabilidad?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El equipo de 40 %"
+          },
+          {
+            "id": "b",
+            "texto": "El equipo de 0,35"
+          },
+          {
+            "id": "c",
+            "texto": "Tienen igual probabilidad"
+          },
+          {
+            "id": "d",
+            "texto": "No se pueden comparar"
+          }
+        ],
+        "pistas": [
+          "Pasa ambas a la misma escala.",
+          "0,35 corresponde a 35 %.",
+          "Compara 35 % y 40 %."
+        ],
+        "retroalimentacion": "0,35 son 35 %, por eso 40 % es mayor."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una ruleta tiene 8 sectores iguales, de los que 6 son verdes. ¿Qué porcentaje hay de caer en verde? Escribe solo el número.",
+        "respuesta": 75,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La fracción es 6/8.",
+          "Simplifica a 3/4.",
+          "Tres cuartos de cien son 75."
+        ],
+        "retroalimentacion": "Seis de ocho son 75 %, no 6 %."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un boleto tiene probabilidad 0,09 de ganar y otro 9 %. Ambos tienen la misma probabilidad.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 0,09 a porcentaje.",
+          "Nueve centésimos son 9 de cada 100.",
+          "Compara el resultado con 9 %."
+        ],
+        "retroalimentacion": "Es verdadero: 0,09 = 9 %."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En un experimento, 7 de 20 resultados posibles favorecen a Ana. Da la probabilidad en decimal con coma.",
+        "respuesta": "0,35",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0.35"
+          }
+        ],
+        "pistas": [
+          "Divide 7 entre 20.",
+          "Amplía 7/20 a centésimos: multiplica por 5.",
+          "35/100 se escribe con dos cifras decimales."
+        ],
+        "retroalimentacion": "7/20 es 35/100 = 0,35, no 0,7."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.probabilidad-frecuencial",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Usa estrategias y procedimientos para recopilar y procesar datos",
+    "desempenosOrigen": [
+      "MAT-C25-S1-02",
+      "MAT-C25-S1-06"
+    ],
+    "bloque": "Probabilidad",
+    "nombre": "Probabilidad frecuencial a partir de experimentos",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Estima la probabilidad con la frecuencia relativa de muchas repeticiones.",
+    "palabrasClave": [
+      "experimento",
+      "frecuencia relativa",
+      "ensayos",
+      "estimación"
+    ],
+    "prerrequisitos": [
+      "mat.s1.probabilidad-decimal-porcentaje",
+      "mat.s1.frecuencia-porcentual"
+    ],
+    "ordenSugerido": 141,
+    "ideaCentral": "Cuando repites un experimento, la frecuencia relativa del suceso es las veces que ocurre entre el total de ensayos. Sirve para estimar su probabilidad; puede variar entre series.",
+    "pasos": [
+      "Cuenta cuántas veces se repitió el experimento.",
+      "Cuenta cuántas veces ocurrió el suceso.",
+      "Divide ocurrencias entre ensayos.",
+      "Compara estimaciones de series distintas sin asumir que serán idénticas."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Se lanza una tapa 20 veces y cae hacia arriba 8 veces.",
+        "desarrollo": "Frecuencia relativa: 8/20 = 0,4.",
+        "respuesta": "Estimación: 0,4 o 40 %."
+      },
+      {
+        "situacion": "En 50 extracciones con reposición, sale rojo 15 veces.",
+        "desarrollo": "15/50 = 0,3.",
+        "respuesta": "Probabilidad estimada de rojo: 30 %."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dividir ensayos entre ocurrencias.",
+        "correccion": "La frecuencia relativa es ocurrencias/ensayos."
+      },
+      {
+        "error": "Creer que diez pruebas garantizan la probabilidad exacta.",
+        "correccion": "Una muestra pequeña puede fluctuar; más repeticiones suelen dar mejor estimación."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Ensayo",
+        "significado": "Cada repetición del experimento."
+      },
+      {
+        "termino": "Frecuencia relativa",
+        "significado": "Parte de los ensayos en que ocurrió el suceso."
+      },
+      {
+        "termino": "Con reposición",
+        "significado": "Devolver el objeto antes de repetir para mantener condiciones."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una moneda cayó en cara 6 veces en 10 lanzamientos. ¿Qué porcentaje de lanzamientos fue cara? Escribe solo el número.",
+        "respuesta": 60,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta caras: seis.",
+          "Divide seis entre diez.",
+          "0,6 equivale a 60 %."
+        ],
+        "retroalimentacion": "No uses los cuatro sellos: cara ocurrió en 60 %."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En 20 tiros, Julia encestó 5. ¿Cuál es la frecuencia relativa de encestar?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0,5"
+          },
+          {
+            "id": "b",
+            "texto": "4"
+          },
+          {
+            "id": "c",
+            "texto": "0,25"
+          },
+          {
+            "id": "d",
+            "texto": "0,05"
+          }
+        ],
+        "pistas": [
+          "Usa encestes sobre tiros.",
+          "La fracción es 5/20.",
+          "Cinco dividido entre veinte es 0,25."
+        ],
+        "retroalimentacion": "Dividir 20 entre 5 invierte la razón; la frecuencia es 0,25."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una ficha salió azul 3 veces en 12 extracciones con reposición, su frecuencia relativa es 3/12.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El numerador cuenta salidas azules.",
+          "El denominador cuenta las doce extracciones.",
+          "Coloca tres sobre doce."
+        ],
+        "retroalimentacion": "Es verdadero: 3/12 de las extracciones fueron azules."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una ruleta giró 10 veces y cayó en estrella 2 veces. Escribe su frecuencia relativa como fracción simplificada.",
+        "respuesta": "1/5",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2/10"
+          }
+        ],
+        "pistas": [
+          "Anota 2/10.",
+          "Numerador y denominador son pares.",
+          "Divide ambos entre 2."
+        ],
+        "retroalimentacion": "La frecuencia es 2/10 = 1/5, no 2/8."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos grupos lanzan una moneda: A obtiene 7 caras de 10; B, 12 de 20. ¿Qué grupo registró mayor frecuencia de cara?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Grupo A"
+          },
+          {
+            "id": "b",
+            "texto": "Grupo B"
+          },
+          {
+            "id": "c",
+            "texto": "Los dos igual"
+          },
+          {
+            "id": "d",
+            "texto": "No se puede saber"
+          }
+        ],
+        "pistas": [
+          "Convierte ambas frecuencias a décimos.",
+          "A: 7/10 = 0,7.",
+          "B: 12/20 = 0,6; compáralas."
+        ],
+        "retroalimentacion": "A tuvo 0,7 y B 0,6: A registró la mayor frecuencia."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En 40 lanzamientos de dado, el 6 apareció 8 veces. ¿Qué porcentaje de los ensayos terminó en 6? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa ocho ocurrencias sobre cuarenta ensayos.",
+          "8/40 = 1/5.",
+          "Un quinto corresponde a 20 %."
+        ],
+        "retroalimentacion": "No es 8 %: 8 de 40 equivale a 20 %."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una pelota cayó en la casilla roja 9 veces en 30 intentos; su frecuencia relativa de rojo fue 0,3.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe 9/30.",
+          "Simplifica a 3/10.",
+          "Tres décimos se escribe 0,3."
+        ],
+        "retroalimentacion": "Es verdadero: 9/30 = 0,3."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un sensor registró lluvia 15 días de 50 observados. ¿Cuál fue la frecuencia relativa decimal? Usa coma.",
+        "respuesta": "0,3",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0.3"
+          },
+          {
+            "id": "b",
+            "texto": "0,30"
+          }
+        ],
+        "pistas": [
+          "Calcula 15/50.",
+          "Amplía a centésimos multiplicando por dos.",
+          "30/100 se expresa con coma."
+        ],
+        "retroalimentacion": "15/50 = 0,3; 15 no es una frecuencia relativa."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una moneda cayó cara 18 de 30 veces. Si se hacen 30 lanzamientos nuevos, ¿qué afirmación es correcta?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Saldrán exactamente 18 caras"
+          },
+          {
+            "id": "b",
+            "texto": "Saldrán exactamente 12 caras"
+          },
+          {
+            "id": "c",
+            "texto": "Nunca habrá cara"
+          },
+          {
+            "id": "d",
+            "texto": "La nueva frecuencia puede variar"
+          }
+        ],
+        "pistas": [
+          "La frecuencia observada fue 18/30.",
+          "Esa cifra describe la serie pasada.",
+          "La nueva serie puede tener otro número de caras."
+        ],
+        "retroalimentacion": "No se garantizan 18 caras de nuevo; 18/30 solo estima la probabilidad."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Dos tandas con reposición dieron 4 rojas en 10 pruebas y 14 rojas en 30. Al juntar los datos, ¿qué porcentaje fue rojo? Escribe solo el número.",
+        "respuesta": 45,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Junta las ocurrencias: 4 + 14.",
+          "Junta los ensayos: 10 + 30.",
+          "18/40 equivale a 45 %."
+        ],
+        "retroalimentacion": "Promediar 40 % y 46,7 % sin ponderar falla; juntos son 18/40 = 45 %."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una serie de 100 lanzamientos, cara salió 48 veces. La frecuencia relativa 0,48 demuestra que la probabilidad teórica de cara es exactamente 0,48.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Distingue frecuencia observada de probabilidad teórica.",
+          "La serie dio 48/100.",
+          "Una moneda justa tiene probabilidad teórica 1/2 aunque una serie fluctúe."
+        ],
+        "retroalimentacion": "Es falso: 0,48 es frecuencia observada; la probabilidad teórica de una moneda justa es 0,5."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En 80 sorteos con iguales condiciones, salió azul 20 veces. Si se estima con esos datos, ¿qué porcentaje corresponde a azul?",
+        "respuesta": "25%",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "25 %"
+          }
+        ],
+        "pistas": [
+          "Calcula 20/80.",
+          "Simplifica a 1/4.",
+          "Un cuarto son 25 de cada 100."
+        ],
+        "retroalimentacion": "20 salidas entre 80 sorteos dan 25 %, no 20 %."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.conclusiones-estadisticas",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Sustenta conclusiones o decisiones con base en la información obtenida",
+    "desempenosOrigen": [
+      "MAT-C25-S1-07"
+    ],
+    "bloque": "Probabilidad",
+    "nombre": "Conclusiones sobre una población y sobre el azar",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Formula y justifica conclusiones con la información estadística y probabilística obtenida.",
+    "palabrasClave": [
+      "datos",
+      "conclusión",
+      "muestra",
+      "azar",
+      "justificación"
+    ],
+    "prerrequisitos": [
+      "mat.s1.valores-extremos",
+      "mat.s1.probabilidad-frecuencial"
+    ],
+    "ordenSugerido": 142,
+    "ideaCentral": "Una conclusión estadística debe apoyarse en los datos y respetar a quiénes se estudió. En un experimento aleatorio, los resultados observados orientan una estimación, pero no aseguran el siguiente resultado.",
+    "pasos": [
+      "Identifica la población, la muestra y los resultados disponibles.",
+      "Compara cantidades o frecuencias antes de concluir.",
+      "Redacta una conclusión limitada a los datos.",
+      "Evita afirmar certezas sobre toda la población o el próximo ensayo sin evidencia."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "De 40 estudiantes encuestados, 25 prefieren vóley.",
+        "desarrollo": "25 supera a la mitad de 40, que es 20.",
+        "respuesta": "En esa muestra, la mayoría prefiere vóley."
+      },
+      {
+        "situacion": "Una moneda dio 6 caras de 10 lanzamientos.",
+        "desarrollo": "La frecuencia fue 6/10, pero el próximo lanzamiento sigue siendo incierto.",
+        "respuesta": "En esa serie hubo más caras; no sabemos qué saldrá después."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Generalizar una muestra pequeña a todos sin cuidado.",
+        "correccion": "Nombra la muestra estudiada y evita presentar su resultado como certeza general."
+      },
+      {
+        "error": "Afirmar que el resultado pasado obliga al siguiente.",
+        "correccion": "Cada ensayo aleatorio puede dar otro resultado."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Conclusión",
+        "significado": "Afirmación respaldada por los datos disponibles."
+      },
+      {
+        "termino": "Muestra",
+        "significado": "Grupo observado dentro de una población."
+      },
+      {
+        "termino": "Inferencia",
+        "significado": "Interpretación sobre un grupo mayor basada en una muestra."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se consultó a 20 estudiantes y 12 eligieron biblioteca. ¿Qué conclusión respaldan esos datos?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Todo el colegio elige biblioteca"
+          },
+          {
+            "id": "b",
+            "texto": "La mayoría de los consultados eligió biblioteca"
+          },
+          {
+            "id": "c",
+            "texto": "Nadie elige biblioteca"
+          },
+          {
+            "id": "d",
+            "texto": "Exactamente 12 colegios eligen biblioteca"
+          }
+        ],
+        "pistas": [
+          "La información procede de veinte estudiantes.",
+          "Doce es más de la mitad de veinte.",
+          "Limita la afirmación a los consultados."
+        ],
+        "retroalimentacion": "No sabemos qué prefiere todo el colegio; 12 de 20 consultados eligieron biblioteca."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una encuesta de 30 familias, 18 usan bicicleta. En esa muestra, más de la mitad usa bicicleta.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La mitad de treinta es quince.",
+          "Compara dieciocho con quince.",
+          "Dieciocho supera la mitad."
+        ],
+        "retroalimentacion": "Es verdadero: 18 de 30 es más de la mitad."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Una ruleta giró 20 veces: 15 rojo y 5 azul. ¿Qué color apareció más en esa serie?",
+        "respuesta": "rojo",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las dos frecuencias observadas.",
+          "Quince es mayor que cinco.",
+          "El color con quince apariciones fue el más frecuente."
+        ],
+        "retroalimentacion": "Azul apareció cinco veces; rojo, quince. El más frecuente fue rojo."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "De 50 personas encuestadas, 30 prefieren pan con queso y 20 pan con palta. ¿Cuál frase es precisa?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Nadie prefiere palta"
+          },
+          {
+            "id": "b",
+            "texto": "Todo el Perú prefiere queso"
+          },
+          {
+            "id": "c",
+            "texto": "Ambos tuvieron igual preferencia"
+          },
+          {
+            "id": "d",
+            "texto": "Entre encuestados, predominó pan con queso"
+          }
+        ],
+        "pistas": [
+          "Compara treinta y veinte.",
+          "La conclusión se refiere a las personas encuestadas.",
+          "Elige la frase que menciona muestra y preferencia mayor."
+        ],
+        "retroalimentacion": "Los datos solo aseguran que entre encuestados predominó pan con queso."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una consulta de 40 alumnos, 26 apoyan una feria científica. ¿Cuántos más la apoyan que los 14 restantes? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los dos grupos de la encuesta.",
+          "Resta catorce a veintiséis.",
+          "26 − 14 = 12."
+        ],
+        "retroalimentacion": "No son 26 más: la diferencia entre grupos es 12 alumnos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 100 lanzamientos, una moneda dio 53 caras. Es seguro que el siguiente lanzamiento será sello.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El siguiente resultado es aleatorio.",
+          "La serie anterior tuvo 53 caras y 47 sellos.",
+          "Esa diferencia no obliga al próximo lanzamiento."
+        ],
+        "retroalimentacion": "Es falso: 53 caras observadas no garantizan sello después."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un sondeo preguntó a 10 estudiantes de 1.° A y 8 eligieron ajedrez. ¿Qué afirmación excede los datos?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8 de 10 eligieron ajedrez"
+          },
+          {
+            "id": "b",
+            "texto": "En ese grupo ganó ajedrez"
+          },
+          {
+            "id": "c",
+            "texto": "Todos los estudiantes del Perú prefieren ajedrez"
+          },
+          {
+            "id": "d",
+            "texto": "2 de 10 no eligieron ajedrez"
+          }
+        ],
+        "pistas": [
+          "Observa a quiénes se preguntó.",
+          "Solo fueron diez estudiantes de un salón.",
+          "Una frase sobre todos los estudiantes del Perú va más allá."
+        ],
+        "retroalimentacion": "El sondeo de 1.° A no permite afirmar que todos los estudiantes del Perú prefieren ajedrez."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En un registro de 12 días, hubo lluvia en 9. Completa con una palabra: «En los días registrados, la lluvia fue más ____ que la ausencia de lluvia».",
+        "respuesta": "frecuente",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "común"
+          },
+          {
+            "id": "b",
+            "texto": "comun"
+          }
+        ],
+        "pistas": [
+          "Compara nueve días lluviosos con tres secos.",
+          "Nueve supera tres.",
+          "La lluvia ocurrió más veces."
+        ],
+        "retroalimentacion": "La lluvia fue más frecuente: ocurrió 9 días frente a 3."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una bolsa produjo 4 verdes en 5 extracciones con reposición. ¿Qué conclusión responsable puedes dar?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "En esta serie predominó verde; el próximo color es incierto"
+          },
+          {
+            "id": "b",
+            "texto": "La próxima ficha será verde con certeza"
+          },
+          {
+            "id": "c",
+            "texto": "Nunca saldrá otro color"
+          },
+          {
+            "id": "d",
+            "texto": "La bolsa contiene solo fichas verdes"
+          }
+        ],
+        "pistas": [
+          "La observación incluye solo cinco extracciones.",
+          "Cuatro de cinco fueron verdes.",
+          "El próximo color no está asegurado."
+        ],
+        "retroalimentacion": "La serie mostró 4 verdes de 5, pero el siguiente resultado no es seguro."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una muestra de 25 hogares tuvo 10 con internet. Se puede concluir con certeza que exactamente el 40 % de todos los hogares del distrito tienen internet.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La proporción 10/25 describe la muestra.",
+          "Los demás hogares no fueron observados.",
+          "Una estimación no es una cifra exacta garantizada de toda la población."
+        ],
+        "retroalimentacion": "Es falso: 40 % corresponde a la muestra, no se conoce con certeza el porcentaje distrital."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En dos salones se registraron 16 y 24 votos por una propuesta. ¿Cuántos votos favorables hubo en total para sustentar la conclusión conjunta? Escribe solo el número.",
+        "respuesta": 40,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Junta los votos de ambos salones.",
+          "Suma dieciséis y veinticuatro.",
+          "16 + 24 = 40."
+        ],
+        "retroalimentacion": "Tomar solo un salón omite datos: hubo 40 votos favorables en total."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un gráfico muestra 18 estudiantes que caminan y 12 que usan bus para llegar al colegio. Completa: «En este grupo, el medio más frecuente es ____».",
+        "respuesta": "caminar",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "a pie"
+          },
+          {
+            "id": "b",
+            "texto": "ir a pie"
+          },
+          {
+            "id": "c",
+            "texto": "caminando"
+          }
+        ],
+        "pistas": [
+          "Compara las frecuencias del gráfico.",
+          "Dieciocho supera doce.",
+          "La categoría de dieciocho corresponde a quienes caminan."
+        ],
+        "retroalimentacion": "El bus tiene 12 frente a 18 que caminan; el medio más frecuente es caminar."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

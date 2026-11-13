@@ -1,0 +1,3213 @@
+[
+  {
+    "clave": "mat.s1.pares-ordenados-graficos",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-S1-01"
+    ],
+    "bloque": "Función lineal",
+    "nombre": "Pares ordenados y gráficos cartesianos de una relación",
+    "disciplina": "algebra",
+    "descripcionCorta": "Representa en el plano cartesiano los pares de una tabla de valores.",
+    "palabrasClave": [
+      "par ordenado",
+      "eje horizontal",
+      "eje vertical",
+      "gráfico cartesiano"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 118,
+    "ideaCentral": "Un par ordenado (x, y) ubica un punto: primero avanzas sobre el eje horizontal x y después sobre el eje vertical y. Una tabla de valores te da pares para marcar y reconocer una relación.",
+    "pasos": [
+      "Lee la primera columna como x y la segunda como y.",
+      "Desde el origen desplázate horizontalmente hasta x.",
+      "Desde allí desplázate verticalmente hasta y y marca el punto.",
+      "Repite con cada fila y comprueba el orden de las coordenadas."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La tabla de puestos del mercado da x = 2, y = 3.",
+        "desarrollo": "Desde (0,0) avanzo 2 a la derecha y 3 hacia arriba.",
+        "respuesta": "Marco (2,3)."
+      },
+      {
+        "situacion": "Una tabla tiene filas (0,1), (1,2) y (2,3).",
+        "desarrollo": "Marco los tres pares y observo que al aumentar x en 1, y también aumenta en 1.",
+        "respuesta": "Los puntos siguen la relación y = x + 1."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Intercambiar x e y al ubicar (2,3).",
+        "correccion": "Primero usa el eje horizontal para 2; después el vertical para 3."
+      },
+      {
+        "error": "Unir puntos de una tabla sin atender sus pares.",
+        "correccion": "Marca cada fila como un punto antes de interpretar el gráfico."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Par ordenado",
+        "significado": "Dos coordenadas escritas en orden (x, y)."
+      },
+      {
+        "termino": "Origen",
+        "significado": "Punto (0,0) donde se cruzan los ejes."
+      },
+      {
+        "termino": "Coordenada",
+        "significado": "Número que indica una posición en un eje."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La tabla muestra x = 2, y = 4. Escribe el par ordenado.",
+        "respuesta": "(2,4)",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La primera coordenada es x.",
+          "La segunda coordenada es y.",
+          "Escribe 2 antes de 4 dentro de paréntesis."
+        ],
+        "retroalimentacion": "Invertir el orden da otro punto; el par es (2,4)."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál eje se recorre primero para ubicar (3,1) desde el origen?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El vertical y"
+          },
+          {
+            "id": "b",
+            "texto": "El horizontal x"
+          },
+          {
+            "id": "c",
+            "texto": "Ambos al mismo tiempo"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguno"
+          }
+        ],
+        "pistas": [
+          "El primer número del par es 3.",
+          "Ese número corresponde a x.",
+          "El eje x es horizontal."
+        ],
+        "retroalimentacion": "Recorrer primero y confunde coordenadas: se inicia por el horizontal x."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El punto (0,5) está sobre el eje vertical.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La coordenada horizontal es 0.",
+          "No hay desplazamiento a derecha ni izquierda.",
+          "Solo se avanza 5 sobre y."
+        ],
+        "retroalimentacion": "Es verdadero: x = 0 sitúa (0,5) en el eje vertical."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Desde (0,0) avanza 4 a la derecha y 2 hacia arriba. Escribe el punto alcanzado.",
+        "respuesta": "(4,2)",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El avance horizontal fija x.",
+          "El avance vertical fija y.",
+          "Escribe (x,y) con 4 antes de 2."
+        ],
+        "retroalimentacion": "(2,4) invierte los recorridos; llegas a (4,2)."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tabla da las filas x: 1, 2, 3; y: 2, 4, 6. ¿Qué punto corresponde a la segunda fila?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(1,4)"
+          },
+          {
+            "id": "b",
+            "texto": "(4,2)"
+          },
+          {
+            "id": "c",
+            "texto": "(2,4)"
+          },
+          {
+            "id": "d",
+            "texto": "(3,6)"
+          }
+        ],
+        "pistas": [
+          "Empareja valores de la misma posición.",
+          "En la segunda fila, x = 2.",
+          "En esa misma fila, y = 4."
+        ],
+        "retroalimentacion": "Mezclar columnas produce un punto ajeno a la fila; corresponde (2,4)."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En un plano, un punto está sobre el eje horizontal a 6 unidades a la derecha del origen. Escribe sus coordenadas.",
+        "respuesta": "(6,0)",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sobre el eje horizontal, y vale 0.",
+          "Se avanzan 6 unidades en x.",
+          "Junta x = 6 con y = 0."
+        ],
+        "retroalimentacion": "(0,6) estaría en el eje vertical; el punto es (6,0)."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los puntos (2,3) y (3,2) ocupan la misma posición.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara el desplazamiento horizontal de cada punto.",
+          "Uno tiene x = 2 y el otro x = 3.",
+          "Intercambiar coordenadas cambia la ubicación."
+        ],
+        "retroalimentacion": "Es falso: (2,3) y (3,2) son puntos distintos."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La relación de una tabla es y = x + 2. Si x = 3, ¿qué par se dibuja?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(5,3)"
+          },
+          {
+            "id": "b",
+            "texto": "(3,5)"
+          },
+          {
+            "id": "c",
+            "texto": "(3,2)"
+          },
+          {
+            "id": "d",
+            "texto": "(2,3)"
+          }
+        ],
+        "pistas": [
+          "Sustituye x por 3.",
+          "Calcula y = 3 + 2 = 5.",
+          "Coloca primero x y luego y."
+        ],
+        "retroalimentacion": "(5,3) invierte las coordenadas; se dibuja (3,5)."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "La tabla contiene (1,3), (2,5), (3,7). Sigue el patrón y escribe el par cuando x = 4.",
+        "respuesta": "(4,9)",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Al aumentar x en 1, y aumenta en 2.",
+          "De y = 7 pasa a y = 9.",
+          "La nueva x es 4 y la nueva y es 9."
+        ],
+        "retroalimentacion": "Repetir y = 7 ignora el patrón; sigue (4,9)."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un gráfico están A(1,2), B(3,2) y C(3,4). ¿Qué par forma un punto directamente encima de B?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(1,2)"
+          },
+          {
+            "id": "b",
+            "texto": "(3,4)"
+          },
+          {
+            "id": "c",
+            "texto": "(2,3)"
+          },
+          {
+            "id": "d",
+            "texto": "(4,3)"
+          }
+        ],
+        "pistas": [
+          "Encima significa conservar la coordenada horizontal.",
+          "B tiene x = 3.",
+          "Para estar encima, y debe superar 2."
+        ],
+        "retroalimentacion": "(1,2) está a la izquierda; directamente encima de B está (3,4)."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una tabla con pares (0,1), (1,3), (2,5) sigue la regla y = 2x + 1.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Prueba la regla con x = 0.",
+          "Con x = 1 da y = 3.",
+          "Con x = 2 da y = 5."
+        ],
+        "retroalimentacion": "Es verdadero: las tres filas satisfacen y = 2x + 1."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En una tabla de y = 3x, aparece el punto (2,6). Si x aumenta en 2 unidades, escribe el nuevo par.",
+        "respuesta": "(4,12)",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La nueva x es 2 + 2.",
+          "Sustituye x = 4 en y = 3x.",
+          "3 × 4 = 12."
+        ],
+        "retroalimentacion": "Aumentar y solo en 2 ignora la regla: el nuevo par es (4,12)."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.relacion-funcion",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-S1-05"
+    ],
+    "bloque": "Función lineal",
+    "nombre": "Relación y función: correspondencia entre magnitudes",
+    "disciplina": "algebra",
+    "descripcionCorta": "Distingue cuándo a cada valor le corresponde un único valor de otra magnitud.",
+    "palabrasClave": [
+      "relación",
+      "función",
+      "entrada",
+      "salida",
+      "correspondencia"
+    ],
+    "prerrequisitos": [
+      "mat.s1.pares-ordenados-graficos"
+    ],
+    "ordenSugerido": 119,
+    "ideaCentral": "Una relación es función cuando a cada entrada le corresponde exactamente una salida. Dos entradas pueden compartir salida; una entrada no puede tener dos salidas distintas.",
+    "pasos": [
+      "Identifica qué magnitud es la entrada y cuál es la salida.",
+      "Revisa todas las parejas de valores o flechas.",
+      "Comprueba que cada entrada aparezca con una sola salida.",
+      "Si alguna entrada tiene salidas diferentes, la relación no es función."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Cada entrada de alumnos señala su número de DNI.",
+        "desarrollo": "Cada alumno tiene un DNI único.",
+        "respuesta": "Sí es función."
+      },
+      {
+        "situacion": "La entrada «equipo» apunta a todos sus integrantes.",
+        "desarrollo": "Un mismo equipo señala a varios jugadores.",
+        "respuesta": "No es función."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir una entrada repetida con dos salidas.",
+        "correccion": "Repetir 2→4 no cambia nada; el conflicto sería 2→4 y 2→5."
+      },
+      {
+        "error": "Pensar que las salidas deben ser distintas.",
+        "correccion": "Dos entradas sí pueden tener la misma salida."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Entrada",
+        "significado": "Valor inicial al que se aplica una correspondencia."
+      },
+      {
+        "termino": "Salida",
+        "significado": "Valor asociado a la entrada."
+      },
+      {
+        "termino": "Función",
+        "significado": "Relación con una única salida para cada entrada."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "A cada número de cuadernos comprados le corresponde un solo precio si cada cuaderno cuesta S/ 4.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en un número fijo de cuadernos, como 2.",
+          "Dos cuadernos cuestan siempre S/ 8 con esa regla.",
+          "Una entrada no produce dos precios distintos."
+        ],
+        "retroalimentacion": "Es verdadero: con precio fijo, cada cantidad tiene un único costo."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál correspondencia es una función?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Alumno → todos sus amigos"
+          },
+          {
+            "id": "b",
+            "texto": "Libro → número de páginas de ese libro"
+          },
+          {
+            "id": "c",
+            "texto": "Día → temperaturas de cada hora"
+          },
+          {
+            "id": "d",
+            "texto": "Distrito → todos sus colegios"
+          }
+        ],
+        "pistas": [
+          "Revisa cuántas salidas recibe una misma entrada.",
+          "Una fecha puede tener varios cumpleaños.",
+          "Al número de páginas de un libro concreto le corresponde un único total."
+        ],
+        "retroalimentacion": "«Libro → número de páginas de ese libro» es función: cada libro tiene un solo total de páginas."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En la relación 1→3, 2→6, 3→9, ¿qué salida corresponde a la entrada 2?",
+        "respuesta": "6",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ubica la pareja que empieza con 2.",
+          "La flecha de 2 apunta a 6.",
+          "Lee el número después de 2→."
+        ],
+        "retroalimentacion": "La entrada 2 tiene salida 6; no se toma la salida de otra pareja."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 1→5, 1→7 y 2→9, la correspondencia es una función.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira si la entrada 1 aparece más de una vez.",
+          "La entrada 1 apunta a 5 y a 7.",
+          "Una función exige una sola salida por entrada."
+        ],
+        "retroalimentacion": "Es falso: 1 tiene dos salidas, 5 y 7."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Cada viaje de taxi tiene una distancia y un costo definido por la tarifa. ¿Qué es la entrada?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El costo final"
+          },
+          {
+            "id": "b",
+            "texto": "El conductor"
+          },
+          {
+            "id": "c",
+            "texto": "La distancia recorrida"
+          },
+          {
+            "id": "d",
+            "texto": "El color del taxi"
+          }
+        ],
+        "pistas": [
+          "La entrada es lo que eliges o mides primero.",
+          "El costo depende de lo recorrido.",
+          "Primero se conoce la distancia del viaje."
+        ],
+        "retroalimentacion": "La distancia recorrida es la entrada; el costo se obtiene a partir de ella."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una tabla da horas de estudio 0, 1, 2 y páginas leídas 0, 8, 16. ¿Qué salida corresponde a 2 horas?",
+        "respuesta": "16",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empareja las listas por posición.",
+          "2 es la tercera entrada.",
+          "La tercera salida es 16 páginas."
+        ],
+        "retroalimentacion": "A 2 horas le corresponden 16 páginas; no confundas la posición con el valor."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La relación estudiante → talla de cada una de sus zapatillas actuales puede ser función si cada estudiante usa una sola talla.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fíjate en la condición «una sola talla».",
+          "Aunque tenga dos zapatillas, ambas comparten talla.",
+          "Cada estudiante recibe un único número de talla."
+        ],
+        "retroalimentacion": "Es verdadero bajo la condición dada: cada estudiante tiene una única talla."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una máquina asigna 4→11, 5→13, 4→11. ¿Por qué sí puede ser función?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4 siempre da 11"
+          },
+          {
+            "id": "b",
+            "texto": "4 aparece dos veces"
+          },
+          {
+            "id": "c",
+            "texto": "5 da 13"
+          },
+          {
+            "id": "d",
+            "texto": "11 es mayor que 4"
+          }
+        ],
+        "pistas": [
+          "La repetición de una pareja no crea otra salida.",
+          "Las dos apariciones de 4 apuntan a 11.",
+          "Comprueba si 4 tiene alguna salida distinta de 11."
+        ],
+        "retroalimentacion": "«4 siempre da 11» explica que la repetición no rompe la regla."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En un torneo, la relación equipo → jugadores inscritos no es función cuando un equipo tiene varios jugadores.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Toma un solo equipo como entrada.",
+          "Ese equipo apunta a varios nombres.",
+          "Una función no permite varias salidas para la misma entrada."
+        ],
+        "retroalimentacion": "Es verdadero: un equipo puede tener varios jugadores como salidas."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se muestran pares (1,2), (2,4), (3,6), (2,5). ¿Qué cambio mínimo haría que fuera función?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Quitar (1,2)"
+          },
+          {
+            "id": "b",
+            "texto": "Agregar (4,8)"
+          },
+          {
+            "id": "c",
+            "texto": "Cambiar (3,6) por (3,7)"
+          },
+          {
+            "id": "d",
+            "texto": "Quitar (2,5)"
+          }
+        ],
+        "pistas": [
+          "Busca la entrada repetida.",
+          "El 2 está emparejado con 4 y con 5.",
+          "Basta quitar una de esas dos parejas conflictivas."
+        ],
+        "retroalimentacion": "«Quitar (2,5)» deja una sola salida para la entrada 2."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una tabla registra 0→2, 1→4, 2→6 y 0→8. ¿Qué entrada impide que sea función? Escribe solo el número.",
+        "respuesta": "0",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca una entrada que aparezca dos veces.",
+          "Compara la primera y la última pareja.",
+          "0 aparece con salidas 2 y 8."
+        ],
+        "retroalimentacion": "La entrada 0 impide que sea función porque tiene dos salidas distintas."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una relación asigna a cada salón su delegado titular. Dos salones eligieron a la misma persona. ¿Sigue siendo función si cada salón tiene solo un delegado?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "No, una persona aparece dos veces"
+          },
+          {
+            "id": "b",
+            "texto": "Sí, cada salón tiene una salida"
+          },
+          {
+            "id": "c",
+            "texto": "No, faltan los suplentes"
+          },
+          {
+            "id": "d",
+            "texto": "Solo si hay igual número de salones y delegados"
+          }
+        ],
+        "pistas": [
+          "Que dos entradas compartan salida está permitido.",
+          "Revisa cada salón por separado.",
+          "Cada salón tiene exactamente un delegado, aunque coincidan."
+        ],
+        "retroalimentacion": "«Sí, cada salón tiene una salida» es correcto; la misma persona puede ser salida de dos salones."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.funcion-lineal",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-S1-05",
+      "MAT-C24-S1-06"
+    ],
+    "bloque": "Función lineal",
+    "nombre": "Función lineal f(x) = mx",
+    "disciplina": "algebra",
+    "descripcionCorta": "Representa la función lineal en tabla, gráfica y expresión, y la relaciona con la proporcionalidad.",
+    "palabrasClave": [
+      "función lineal",
+      "proporcionalidad",
+      "origen",
+      "tabla",
+      "gráfica"
+    ],
+    "prerrequisitos": [
+      "mat.s1.relacion-funcion",
+      "mat.s1.regla-tres-directa"
+    ],
+    "ordenSugerido": 120,
+    "ideaCentral": "En f(x)=mx, cada salida es m veces la entrada. Su gráfica es una recta que pasa por (0,0), y la razón salida/entrada es constante cuando la entrada no es cero.",
+    "pasos": [
+      "Identifica la entrada x y la salida f(x).",
+      "Encuentra cuánto corresponde a una unidad para obtener m.",
+      "Multiplica cada entrada por m y arma pares (x,f(x)).",
+      "Ubica los pares; la recta debe pasar por el origen."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un pasaje cuesta S/ 3 por persona.",
+        "desarrollo": "Para x personas, el costo es 3x; con 0 personas se paga 0.",
+        "respuesta": "f(x)=3x."
+      },
+      {
+        "situacion": "Una receta usa 2 vasos de agua por taza de arroz.",
+        "desarrollo": "La tabla (0,0), (1,2), (2,4) conserva la razón 2.",
+        "respuesta": "Agua=2×tazas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar m en vez de multiplicar.",
+        "correccion": "En f(x)=4x, para x=3 se calcula 4×3=12."
+      },
+      {
+        "error": "Olvidar el origen.",
+        "correccion": "Toda función de forma mx cumple f(0)=0."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Coeficiente m",
+        "significado": "Número que multiplica a la entrada x."
+      },
+      {
+        "termino": "Origen",
+        "significado": "Punto (0,0) del plano."
+      },
+      {
+        "termino": "Proporcionalidad directa",
+        "significado": "Relación con razón salida/entrada constante."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Si f(x)=3x, calcula f(2). Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sustituye x por 2.",
+          "La regla queda 3×2.",
+          "Tres grupos de dos suman seis."
+        ],
+        "retroalimentacion": "f(2)=3×2=6; no sumes 3+2."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué expresión representa un ahorro de S/ 5 por semana, sin ahorro inicial?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "f(x)=x+5"
+          },
+          {
+            "id": "b",
+            "texto": "f(x)=5"
+          },
+          {
+            "id": "c",
+            "texto": "f(x)=5x"
+          },
+          {
+            "id": "d",
+            "texto": "f(x)=x/5"
+          }
+        ],
+        "pistas": [
+          "Llama x al número de semanas.",
+          "Cada semana agrega S/ 5.",
+          "Sin ahorro inicial, cuando x=0 el monto es 0."
+        ],
+        "retroalimentacion": "«f(x)=5x» da S/ 5 por semana y pasa por cero."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La tabla x: 0, 1, 2; y: 0, 4, 8 representa f(x)=4x.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Prueba x=1.",
+          "4×1=4.",
+          "Comprueba también 4×2=8 y 4×0=0."
+        ],
+        "retroalimentacion": "Es verdadero: cada salida es cuatro veces su entrada."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Para f(x)=2x, escribe el par ordenado cuando x=3, con formato (x,y).",
+        "respuesta": "(3,6)",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La primera coordenada ya es 3.",
+          "Calcula 2×3 para la segunda.",
+          "Une ambas coordenadas en ese orden."
+        ],
+        "retroalimentacion": "El punto es (3,6); cambiar el orden daría otro punto."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una huerta obtiene 7 kg de abono por saco. Si f(x)=7x, ¿cuántos kg corresponden a 4 sacos? Escribe solo el número.",
+        "respuesta": 28,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "x representa sacos.",
+          "Sustituye x=4 en 7x.",
+          "Calcula 7×4."
+        ],
+        "retroalimentacion": "f(4)=28 kg; 7+4 no representa cuatro sacos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La tabla x: 0, 2, 4; y: 0, 6, 12 corresponde a ¿qué regla?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "f(x)=3x"
+          },
+          {
+            "id": "b",
+            "texto": "f(x)=x+3"
+          },
+          {
+            "id": "c",
+            "texto": "f(x)=6x"
+          },
+          {
+            "id": "d",
+            "texto": "f(x)=x/3"
+          }
+        ],
+        "pistas": [
+          "Divide una salida entre su entrada distinta de cero.",
+          "6÷2=3 y 12÷4=3.",
+          "La constante multiplicadora es 3."
+        ],
+        "retroalimentacion": "«f(x)=3x» produce 0, 6 y 12 para esas entradas."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si f(x)=−2x, al aumentar x de 1 a 2, f(x) pasa de −2 a −4.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Evalúa la regla en 1.",
+          "Luego evalúa en 2.",
+          "−2×1=−2 y −2×2=−4."
+        ],
+        "retroalimentacion": "Es verdadero: la pendiente negativa hace disminuir la salida."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una recta pasa por (0,0) y (1,4); es de la forma f(x)=mx. ¿Qué número es m?",
+        "respuesta": "4",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En x=1, f(1)=m.",
+          "El punto (1,4) indica f(1)=4.",
+          "Iguala m con la salida del punto."
+        ],
+        "retroalimentacion": "m=4; en una función f(x)=mx la salida para x=1 es m."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "La feria cobra S/ 2 por cada entrada y no cobra inscripción. ¿Qué punto NO pertenece a la gráfica del costo f(x)=2x?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(0,0)"
+          },
+          {
+            "id": "b",
+            "texto": "(3,6)"
+          },
+          {
+            "id": "c",
+            "texto": "(5,10)"
+          },
+          {
+            "id": "d",
+            "texto": "(4,9)"
+          }
+        ],
+        "pistas": [
+          "Comprueba cada par multiplicando la primera coordenada por 2.",
+          "(3,6) y (5,10) sí cumplen.",
+          "Para x=4, la salida debería ser 8."
+        ],
+        "retroalimentacion": "«(4,9)» no pertenece porque 2×4=8, no 9."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Para f(x)=−3x, busca la entrada cuya salida es 12. Escribe solo el número.",
+        "respuesta": -4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Plantea −3x=12.",
+          "Divide ambos lados entre −3.",
+          "Un negativo por un negativo da positivo."
+        ],
+        "retroalimentacion": "x=−4 porque −3×(−4)=12."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una recta que pasa por (0,2) y (2,6) puede representarse exactamente como f(x)=mx.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Toda regla mx da 0 cuando x=0.",
+          "El punto dado sobre el eje vertical es (0,2).",
+          "Esa salida inicial 2 contradice f(0)=0."
+        ],
+        "retroalimentacion": "Es falso: la recta no pasa por el origen; requiere un término inicial."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un grupo recorre 12 km en 3 horas a ritmo constante desde el punto de partida. ¿Cuál es su función distancia-tiempo?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "d(t)=12t"
+          },
+          {
+            "id": "b",
+            "texto": "d(t)=4t"
+          },
+          {
+            "id": "c",
+            "texto": "d(t)=3t+12"
+          },
+          {
+            "id": "d",
+            "texto": "d(t)=t+4"
+          }
+        ],
+        "pistas": [
+          "Calcula kilómetros por hora.",
+          "12÷3=4 km por hora.",
+          "Al tiempo cero, la distancia es cero."
+        ],
+        "retroalimentacion": "«d(t)=4t» da 12 km en 3 horas y 0 km al inicio."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.pendiente-funcion",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-S1-05",
+      "MAT-C24-S1-06"
+    ],
+    "bloque": "Función lineal",
+    "nombre": "Pendiente de una función lineal",
+    "disciplina": "algebra",
+    "descripcionCorta": "Interpreta la pendiente como razón de cambio y como constante de proporcionalidad.",
+    "palabrasClave": [
+      "pendiente",
+      "razón de cambio",
+      "variación",
+      "constante",
+      "proporcionalidad"
+    ],
+    "prerrequisitos": [
+      "mat.s1.funcion-lineal"
+    ],
+    "ordenSugerido": 121,
+    "ideaCentral": "La pendiente m dice cuánto cambia la salida cuando la entrada aumenta una unidad. En una función lineal también es la razón constante y/x para x distinto de cero.",
+    "pasos": [
+      "Elige dos puntos de la recta.",
+      "Resta las salidas en el mismo orden que las entradas.",
+      "Divide cambio de salida entre cambio de entrada.",
+      "Interpreta el signo: positivo sube, negativo baja y cero no cambia."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un mototaxi avanza 9 km en 3 horas a ritmo constante.",
+        "desarrollo": "Cambio de distancia/cambio de tiempo = 9/3 = 3.",
+        "respuesta": "Pendiente: 3 km/h."
+      },
+      {
+        "situacion": "Los puntos (1,−2) y (3,−6) están en una recta.",
+        "desarrollo": "(−6−(−2))/(3−1)=−4/2=−2.",
+        "respuesta": "Pendiente: −2."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Usar solo el cambio de salida.",
+        "correccion": "Divide entre el cambio de entrada; de (1,2) a (3,6), m=4/2=2."
+      },
+      {
+        "error": "Perder el signo negativo.",
+        "correccion": "Si la salida baja mientras x sube, m es negativa."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Pendiente",
+        "significado": "Cambio vertical dividido entre cambio horizontal."
+      },
+      {
+        "termino": "Razón de cambio",
+        "significado": "Variación de la salida por unidad de entrada."
+      },
+      {
+        "termino": "Decreciente",
+        "significado": "Que baja cuando aumenta la entrada."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En y=5x, ¿cuánto aumenta y cuando x aumenta 1? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira el número que multiplica a x.",
+          "Ese número indica cambio por cada unidad.",
+          "De x=0 a x=1, y pasa de 0 a 5."
+        ],
+        "retroalimentacion": "La pendiente es 5: y aumenta 5 por cada unidad de x."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una recta de función lineal pasa por (0,0) y (1,−2). ¿Cuál es su pendiente?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−2"
+          },
+          {
+            "id": "b",
+            "texto": "0"
+          },
+          {
+            "id": "c",
+            "texto": "1"
+          },
+          {
+            "id": "d",
+            "texto": "2"
+          }
+        ],
+        "pistas": [
+          "Calcula el cambio de y entre esos puntos.",
+          "y pasa de 0 a −2 cuando x aumenta 1.",
+          "−2÷1 es la razón de cambio."
+        ],
+        "retroalimentacion": "«−2» es la pendiente: la salida baja 2 por unidad."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una función lineal tiene pendiente 3, al aumentar x en 1 la salida aumenta 3.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Pendiente significa cambio de salida por unidad.",
+          "Aquí la razón es 3/1.",
+          "Un paso horizontal suma 3 verticales."
+        ],
+        "retroalimentacion": "Es verdadero: pendiente 3 equivale a subir 3 por cada 1 de x."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La tabla x: 0, 1, 2; y: 0, 6, 12 tiene pendiente constante. ¿Cuál es?",
+        "respuesta": "6",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las dos primeras columnas.",
+          "x sube 1 mientras y sube 6.",
+          "Divide cambio de y entre cambio de x."
+        ],
+        "retroalimentacion": "La pendiente es 6, no 12: cada paso de 1 en x suma 6."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una ciclista recorre 18 km en 3 horas a velocidad constante desde cero. ¿Cuál es la pendiente en km por hora? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La pendiente mide kilómetros por hora.",
+          "Divide distancia entre tiempo.",
+          "18÷3=6."
+        ],
+        "retroalimentacion": "La pendiente es 6 km/h; 18 km son el total de tres horas."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Entre (2,4) y (5,10), ¿cuál es la pendiente de la recta?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "5"
+          },
+          {
+            "id": "d",
+            "texto": "2"
+          }
+        ],
+        "pistas": [
+          "Resta las salidas: 10−4.",
+          "Resta las entradas: 5−2.",
+          "Divide 6 entre 3."
+        ],
+        "retroalimentacion": "«2» es la pendiente, porque (10−4)/(5−2)=6/3."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La pendiente de y=−4x es positiva porque 4 es positivo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Incluye el signo del coeficiente.",
+          "El coeficiente completo es −4.",
+          "Cuando x sube 1, y baja 4."
+        ],
+        "retroalimentacion": "Es falso: la pendiente es −4 y la función decrece."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una gráfica lineal pasa por (0,0) y (4,12). ¿Cuánto vale m en y=mx?",
+        "respuesta": "3",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Usa cambio vertical dividido por horizontal.",
+          "Desde el origen: 12÷4.",
+          "La razón es 3 por cada unidad."
+        ],
+        "retroalimentacion": "m=3; el 12 es la salida para cuatro unidades, no la pendiente."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una recta tiene pendiente 2 y pasa por el origen. Al avanzar de x=3 a x=7, ¿cuánto cambia y?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Aumenta 2"
+          },
+          {
+            "id": "b",
+            "texto": "Aumenta 4"
+          },
+          {
+            "id": "c",
+            "texto": "Aumenta 8"
+          },
+          {
+            "id": "d",
+            "texto": "Aumenta 14"
+          }
+        ],
+        "pistas": [
+          "Calcula cuánto avanzó x.",
+          "7−3=4 unidades.",
+          "Cada unidad agrega 2 a y."
+        ],
+        "retroalimentacion": "«Aumenta 8» porque 4×2=8."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "La salida de una función lineal baja de 15 a 3 mientras x sube de 2 a 6. ¿Cuál es la pendiente? Escribe solo el número.",
+        "respuesta": -3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 3−15 para el cambio de salida.",
+          "Calcula 6−2 para el cambio de entrada.",
+          "Divide −12 entre 4."
+        ],
+        "retroalimentacion": "La pendiente es −3; el signo negativo indica descenso."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dos puntos (1,5) y (3,15) de una función lineal muestran pendiente 5, aunque ninguna coordenada sea cero.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara cambios entre los dos puntos.",
+          "15−5=10 y 3−1=2.",
+          "La razón 10÷2 vale 5."
+        ],
+        "retroalimentacion": "Es verdadero: la pendiente es 5 y ambos puntos cumplen y=5x."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una recta lineal tiene pendiente −2. Si en x=2 la salida es −4, ¿cuál será la salida en x=5?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "−10"
+          },
+          {
+            "id": "c",
+            "texto": "−6"
+          },
+          {
+            "id": "d",
+            "texto": "10"
+          }
+        ],
+        "pistas": [
+          "De 2 a 5 avanzas 3 unidades.",
+          "Cada unidad reduce la salida en 2.",
+          "Desde −4, resta 3×2."
+        ],
+        "retroalimentacion": "«−10» es la salida: −4−6=−10."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.funcion-lineal-afin",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-S1-01",
+      "MAT-C24-S1-05"
+    ],
+    "bloque": "Función lineal",
+    "nombre": "Función lineal afín f(x) = mx + b",
+    "disciplina": "algebra",
+    "descripcionCorta": "Reconoce el valor inicial b y su efecto en la gráfica, incluida la función constante.",
+    "palabrasClave": [
+      "función afín",
+      "valor inicial",
+      "pendiente",
+      "término independiente",
+      "constante"
+    ],
+    "prerrequisitos": [
+      "mat.s1.pendiente-funcion"
+    ],
+    "ordenSugerido": 122,
+    "ideaCentral": "En f(x)=mx+b, m indica cuánto cambia la salida por cada unidad y b es la salida cuando x=0. Si m=0, todas las salidas valen b y la gráfica es horizontal.",
+    "pasos": [
+      "Identifica el cambio por unidad para hallar m.",
+      "Busca la salida cuando la entrada es cero para hallar b.",
+      "Escribe la regla f(x)=mx+b.",
+      "Comprueba la regla con un par de valores y ubica (0,b)."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un servicio cobra S/ 5 de base y S/ 2 por entrega.",
+        "desarrollo": "Con x entregas, sumas 2x al pago fijo 5.",
+        "respuesta": "C(x)=2x+5."
+      },
+      {
+        "situacion": "Una reserva contiene 20 litros y se gastan 4 por minuto.",
+        "desarrollo": "Al inicio hay 20; cada minuto la cantidad baja 4.",
+        "respuesta": "L(t)=−4t+20."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Intercambiar m y b.",
+        "correccion": "En 3x+7, la pendiente es 3 y el valor inicial es 7."
+      },
+      {
+        "error": "Creer que toda recta afín pasa por el origen.",
+        "correccion": "Solo pasa por (0,0) cuando b=0."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Valor inicial",
+        "significado": "Salida cuando la entrada es cero."
+      },
+      {
+        "termino": "Función constante",
+        "significado": "Regla con pendiente cero y la misma salida siempre."
+      },
+      {
+        "termino": "Término independiente",
+        "significado": "Número b que no multiplica a x."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En f(x)=2x+5, ¿cuál es el valor inicial f(0)? Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El valor inicial se calcula con x=0.",
+          "2×0 es cero.",
+          "Queda solo el término +5."
+        ],
+        "retroalimentacion": "f(0)=5; el 2 expresa cambio, no inicio."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tarifa cobra S/ 3 por km y S/ 4 al subir. ¿Cuál es su regla de costo?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "C(x)=4x+3"
+          },
+          {
+            "id": "b",
+            "texto": "C(x)=3x"
+          },
+          {
+            "id": "c",
+            "texto": "C(x)=7x"
+          },
+          {
+            "id": "d",
+            "texto": "C(x)=3x+4"
+          }
+        ],
+        "pistas": [
+          "La distancia x se multiplica por 3.",
+          "El cobro inicial no depende de x.",
+          "Suma 4 a 3x."
+        ],
+        "retroalimentacion": "«C(x)=3x+4» suma S/ 4 iniciales al costo por km."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La gráfica de y=4x+2 corta el eje vertical en y=2.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En el eje vertical x vale 0.",
+          "Sustituye x=0.",
+          "4×0+2=2."
+        ],
+        "retroalimentacion": "Es verdadero: la ordenada inicial es 2."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Si y=−x+7, ¿cuánto vale b en la forma y=mx+b?",
+        "respuesta": "7",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el término sin x.",
+          "−x equivale a −1x.",
+          "El número que se suma al final es 7."
+        ],
+        "retroalimentacion": "b=7; −1 es la pendiente."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una app cobra S/ 6 de inscripción y S/ 2 por uso. ¿Cuánto se paga por 3 usos? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 2 por 3 usos.",
+          "Tres usos cuestan 6.",
+          "Agrega los 6 de inscripción."
+        ],
+        "retroalimentacion": "El total es S/ 12: 2×3+6."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La recta A es y=3x y la B es y=3x+5. ¿Qué cambia al pasar de A a B?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La pendiente aumenta 5"
+          },
+          {
+            "id": "b",
+            "texto": "Sube 5 unidades sin cambiar la pendiente"
+          },
+          {
+            "id": "c",
+            "texto": "Se vuelve horizontal"
+          },
+          {
+            "id": "d",
+            "texto": "Pasa por el origen"
+          }
+        ],
+        "pistas": [
+          "Compara los coeficientes de x.",
+          "Ambas pendientes son 3.",
+          "B empieza 5 unidades más arriba."
+        ],
+        "retroalimentacion": "«Sube 5 unidades sin cambiar la pendiente» describe el efecto de b."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una función constante y=8 puede escribirse como y=0x+8.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica cualquier x por cero.",
+          "0x siempre vale 0.",
+          "La salida permanece en 8."
+        ],
+        "retroalimentacion": "Es verdadero: m=0 y b=8 dan una recta horizontal."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una recta afín tiene pendiente 4 y valor inicial −3. Escribe su regla en forma y=mx+b.",
+        "respuesta": "y=4x-3",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Coloca 4 como coeficiente de x.",
+          "Agrega el valor inicial con su signo.",
+          "Sumar −3 se escribe −3."
+        ],
+        "retroalimentacion": "La regla es y=4x−3, no y=−3x+4."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una cuenta tiene S/ 25 al inicio y pierde S/ 3 cada día. Según S(d)=25−3d, ¿cuánto queda al día 6? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la pérdida de seis días.",
+          "3×6=18.",
+          "Resta 18 al monto inicial 25."
+        ],
+        "retroalimentacion": "Quedan S/ 7, porque 25−18=7."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una recta pasa por (0,−2) y (2,4). ¿Qué regla la representa?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "y=3x−2"
+          },
+          {
+            "id": "b",
+            "texto": "y=2x+3"
+          },
+          {
+            "id": "c",
+            "texto": "y=3x+2"
+          },
+          {
+            "id": "d",
+            "texto": "y=−2x+3"
+          }
+        ],
+        "pistas": [
+          "El punto con x=0 da b=−2.",
+          "La pendiente es (4−(−2))/2=3.",
+          "Combina m=3 y b=−2."
+        ],
+        "retroalimentacion": "«y=3x−2» cumple ambos puntos."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos rectas afines tienen la misma pendiente pero distintos valores iniciales, se cruzan en algún punto.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa cómo cambia cada recta al avanzar x.",
+          "Con igual pendiente conservan la misma separación vertical.",
+          "Nunca igualan sus salidas si sus b son distintos."
+        ],
+        "retroalimentacion": "Es falso: son paralelas y no se cruzan."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "El costo de un plan es C(x)=5x+10. ¿Qué representa el punto (0,10)?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cinco usos por S/ 10"
+          },
+          {
+            "id": "b",
+            "texto": "Diez usos gratis"
+          },
+          {
+            "id": "c",
+            "texto": "Pago inicial de S/ 10"
+          },
+          {
+            "id": "d",
+            "texto": "Aumento de S/ 10 por uso"
+          }
+        ],
+        "pistas": [
+          "La primera coordenada es cantidad de usos.",
+          "C(0)=10 aunque no haya usos.",
+          "Es el pago fijo antes de consumir."
+        ],
+        "retroalimentacion": "«Pago inicial de S/ 10» interpreta correctamente el intercepto vertical."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.interceptos-ejes",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-S1-05"
+    ],
+    "bloque": "Función lineal",
+    "nombre": "Interceptos de una función con los ejes",
+    "disciplina": "algebra",
+    "descripcionCorta": "Halla los puntos donde la recta corta a los ejes y los interpreta en el contexto.",
+    "palabrasClave": [
+      "intercepto",
+      "eje horizontal",
+      "eje vertical",
+      "corte",
+      "cero"
+    ],
+    "prerrequisitos": [
+      "mat.s1.funcion-lineal-afin"
+    ],
+    "ordenSugerido": 123,
+    "ideaCentral": "Un intercepto es el punto donde una recta corta un eje. Para hallar el corte vertical pones x=0; para el horizontal pones y=0 y resuelves.",
+    "pasos": [
+      "Para cortar el eje y, sustituye x=0 en la regla.",
+      "Escribe el resultado como (0,y).",
+      "Para cortar el eje x, iguala y a cero y resuelve x.",
+      "Explica qué significan esos valores en la situación."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "El costo C(x)=3x+6 incluye cargo inicial.",
+        "desarrollo": "C(0)=6, así que la recta corta el eje vertical en (0,6).",
+        "respuesta": "El cargo inicial es S/ 6."
+      },
+      {
+        "situacion": "La reserva R(t)=18−3t disminuye cada hora.",
+        "desarrollo": "Resuelve 0=18−3t: t=6.",
+        "respuesta": "Se agota a las 6 horas; corte (6,0)."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Invertir las coordenadas de los cortes.",
+        "correccion": "En el eje y la primera coordenada es 0; en el eje x la segunda es 0."
+      },
+      {
+        "error": "Suponer que toda recta corta ambos ejes.",
+        "correccion": "Una recta horizontal y=4 nunca corta el eje x."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Intercepto vertical",
+        "significado": "Punto de la recta con x=0."
+      },
+      {
+        "termino": "Intercepto horizontal",
+        "significado": "Punto de la recta con y=0."
+      },
+      {
+        "termino": "Eje",
+        "significado": "Línea de referencia horizontal o vertical del plano."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La recta y=2x+3 corta el eje vertical en ¿qué valor de y? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En el eje vertical x=0.",
+          "Sustituye 0 en 2x+3.",
+          "2×0+3=3."
+        ],
+        "retroalimentacion": "Corta el eje vertical en y=3; el 2 es la pendiente."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué punto es un intercepto con el eje x?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(0,4)"
+          },
+          {
+            "id": "b",
+            "texto": "(4,0)"
+          },
+          {
+            "id": "c",
+            "texto": "(4,4)"
+          },
+          {
+            "id": "d",
+            "texto": "(−4,2)"
+          }
+        ],
+        "pistas": [
+          "En el eje x, la altura y es cero.",
+          "Busca un par cuya segunda coordenada sea 0.",
+          "El punto (4,0) está sobre el eje horizontal."
+        ],
+        "retroalimentacion": "«(4,0)» es un intercepto con el eje x."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El intercepto de y=−x+5 con el eje y es (0,5).",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para el eje y, x=0.",
+          "Calcula −0+5.",
+          "La salida es 5 cuando x vale 0."
+        ],
+        "retroalimentacion": "Es verdadero: la recta pasa por (0,5)."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En y=3x−6, escribe el intercepto con el eje y como par (x,y).",
+        "respuesta": "(0,-6)",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fija x=0.",
+          "3×0−6=−6.",
+          "Coloca primero 0 y después −6."
+        ],
+        "retroalimentacion": "El intercepto vertical es (0,−6), no (−6,0)."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Para y=x−7, ¿en qué valor de x corta la recta al eje horizontal? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En el eje horizontal y=0.",
+          "Resuelve 0=x−7.",
+          "Suma 7 a ambos lados."
+        ],
+        "retroalimentacion": "Corta en x=7, en el punto (7,0)."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una recta de saldo es S(d)=12−3d. ¿Qué significa el intercepto (4,0)?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El saldo inicia en S/ 4"
+          },
+          {
+            "id": "b",
+            "texto": "Se gastan S/ 4 diarios"
+          },
+          {
+            "id": "c",
+            "texto": "A los 4 días el saldo se agota"
+          },
+          {
+            "id": "d",
+            "texto": "Quedan S/ 4 al final"
+          }
+        ],
+        "pistas": [
+          "La salida cero indica saldo agotado.",
+          "S(4)=12−3×4=0.",
+          "La entrada 4 mide días."
+        ],
+        "retroalimentacion": "«A los 4 días el saldo se agota» interpreta (4,0)."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La recta y=2x+4 corta el eje x en (2,0).",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sustituye x=2.",
+          "2×2+4=8.",
+          "Para y=0, x debe ser negativo."
+        ],
+        "retroalimentacion": "Es falso: el corte horizontal es (−2,0)."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "La ecuación y=−2x+8 representa una recta. Escribe su intercepto horizontal como par.",
+        "respuesta": "(4,0)",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En el eje x se cumple y=0.",
+          "Resuelve 0=−2x+8.",
+          "2x=8, entonces x=4."
+        ],
+        "retroalimentacion": "El corte con el eje x es (4,0)."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una deuda se modela como D(t)=30−5t en soles. ¿En cuántas semanas llega a cero? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Iguala la deuda a 0.",
+          "0=30−5t implica 5t=30.",
+          "Divide 30 entre 5."
+        ],
+        "retroalimentacion": "La deuda llega a cero tras 6 semanas; ese es el intercepto horizontal."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "La recta pasa por (0,−6) y (3,0). ¿Qué afirmación interpreta bien sus interceptos?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Empieza en 3 y termina en −6"
+          },
+          {
+            "id": "b",
+            "texto": "La pendiente es −6"
+          },
+          {
+            "id": "c",
+            "texto": "Corta ambos ejes en 0"
+          },
+          {
+            "id": "d",
+            "texto": "Empieza en −6 y llega a 0 cuando x=3"
+          }
+        ],
+        "pistas": [
+          "(0,−6) indica salida inicial.",
+          "(3,0) indica entrada cuando la salida se anula.",
+          "Mantén el orden de las coordenadas."
+        ],
+        "retroalimentacion": "«Empieza en −6 y llega a 0 cuando x=3» usa ambos cortes."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La función constante y=4 tiene intercepto con el eje x.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sobre el eje x, y debe valer 0.",
+          "Esta recta siempre tiene y=4.",
+          "Nunca alcanza altura cero."
+        ],
+        "retroalimentacion": "Es falso: y=4 es paralela al eje x y no lo corta."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un depósito tiene V(t)=20−4t litros. ¿Qué dos puntos sirven para dibujar la recta usando sus interceptos?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(0,20) y (5,0)"
+          },
+          {
+            "id": "b",
+            "texto": "(20,0) y (0,5)"
+          },
+          {
+            "id": "c",
+            "texto": "(0,4) y (20,0)"
+          },
+          {
+            "id": "d",
+            "texto": "(0,20) y (4,0)"
+          }
+        ],
+        "pistas": [
+          "Con t=0 obtienes el corte vertical.",
+          "Con V=0 resuelve 20−4t=0.",
+          "Los puntos son (0,20) y (5,0)."
+        ],
+        "retroalimentacion": "«(0,20) y (5,0)» son los dos interceptos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.dominio-rango",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Comunica su comprensión sobre las relaciones algebraicas",
+    "desempenosOrigen": [
+      "MAT-C24-S1-05"
+    ],
+    "bloque": "Función lineal",
+    "nombre": "Dominio y rango de una función lineal",
+    "disciplina": "algebra",
+    "descripcionCorta": "Determina los valores posibles de entrada y salida según la situación.",
+    "palabrasClave": [
+      "dominio",
+      "rango",
+      "entrada",
+      "salida",
+      "contexto"
+    ],
+    "prerrequisitos": [
+      "mat.s1.funcion-lineal-afin"
+    ],
+    "ordenSugerido": 124,
+    "ideaCentral": "El dominio reúne las entradas posibles y el rango las salidas que realmente producen esas entradas. El contexto puede limitar los valores aunque la fórmula acepte otros.",
+    "pasos": [
+      "Identifica qué representa la entrada y qué valores puede tomar.",
+      "Escribe el dominio según los límites y si admite decimales.",
+      "Evalúa la función con las entradas permitidas.",
+      "Reúne las salidas obtenidas para formar el rango."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Se compran 0, 1 o 2 cuadernos a S/ 4 cada uno.",
+        "desarrollo": "Dominio {0,1,2}; costos 0,4,8.",
+        "respuesta": "Rango {0,4,8} soles."
+      },
+      {
+        "situacion": "Un tanque tiene 10 litros y pierde 2 por hora.",
+        "desarrollo": "V(t)=10−2t; desde t=0 hasta t=5 el volumen va de 10 a 0.",
+        "respuesta": "Dominio [0,5] horas; rango [0,10] litros."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Incluir personas fraccionarias.",
+        "correccion": "Si la entrada cuenta personas, usa enteros no negativos."
+      },
+      {
+        "error": "Confundir dominio y rango.",
+        "correccion": "Dominio son entradas; rango son salidas obtenidas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Dominio",
+        "significado": "Conjunto de entradas permitidas."
+      },
+      {
+        "termino": "Rango",
+        "significado": "Conjunto de salidas obtenidas."
+      },
+      {
+        "termino": "Restricción",
+        "significado": "Límite que impone una situación real."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una máquina recibe x=1, 2 o 3 monedas y entrega 2x fichas. ¿Cuál es el dominio?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2, 4 y 6"
+          },
+          {
+            "id": "b",
+            "texto": "1, 2 y 3"
+          },
+          {
+            "id": "c",
+            "texto": "0, 2 y 4"
+          },
+          {
+            "id": "d",
+            "texto": "Todas las fracciones"
+          }
+        ],
+        "pistas": [
+          "Dominio son las entradas permitidas.",
+          "La máquina solo acepta 1, 2 o 3 monedas.",
+          "No confundas entradas con fichas entregadas."
+        ],
+        "retroalimentacion": "«1, 2 y 3» es el dominio: son cantidades posibles de monedas."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Para entradas 0, 1 y 2, la regla y=3x da salidas 0, 3 y 6. ¿Cuál es el rango? Escribe los valores separados por comas.",
+        "respuesta": "0,3,6",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Rango significa salidas.",
+          "Calcula y para cada entrada dada.",
+          "Las salidas son 0, 3 y 6."
+        ],
+        "retroalimentacion": "El rango es 0,3,6; 0,1,2 es el dominio."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si x cuenta personas en un microbús, x=2,5 puede estar en el dominio.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La entrada cuenta personas completas.",
+          "No puede haber media persona pasajera.",
+          "Las entradas permitidas son enteras no negativas."
+        ],
+        "retroalimentacion": "Es falso: 2,5 personas no es una cantidad posible."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una feria vende de 0 a 4 boletos por persona. Si el costo es C(x)=5x soles, ¿cuál es el valor máximo del rango en soles? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La entrada máxima es 4 boletos.",
+          "Sustituye 4 en 5x.",
+          "5×4=20."
+        ],
+        "retroalimentacion": "El máximo costo posible es S/ 20; no se venden 5 boletos."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un tanque contiene 12 litros y pierde 2 por hora: V(t)=12−2t. ¿Qué dominio tiene sentido hasta vaciarse?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cualquier número real"
+          },
+          {
+            "id": "b",
+            "texto": "Solo de 0 a 12 horas"
+          },
+          {
+            "id": "c",
+            "texto": "De 0 a 6 horas"
+          },
+          {
+            "id": "d",
+            "texto": "De 6 a 12 horas"
+          }
+        ],
+        "pistas": [
+          "El tiempo no puede ser negativo.",
+          "Resuelve 12−2t=0.",
+          "El tanque se vacía a las 6 horas."
+        ],
+        "retroalimentacion": "«De 0 a 6 horas» es el tiempo físico permitido."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Para x∈{1,2,3,4} y y=2x+1, ¿cuál es la mayor salida? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La función aumenta cuando x aumenta.",
+          "Usa la entrada mayor, x=4.",
+          "2×4+1=9."
+        ],
+        "retroalimentacion": "La mayor salida es 9, producida por x=4."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una tarifa C(x)=3x+5 para x kilómetros recorridos, x=−2 pertenece al dominio del contexto.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La distancia recorrida no puede ser negativa.",
+          "La fórmula algebraica acepta −2, pero el viaje no.",
+          "Distingue regla matemática y situación real."
+        ],
+        "retroalimentacion": "Es falso: no se recorren −2 kilómetros."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un ascensor solo se detiene en pisos 1, 2, 3 y 4; la altura sigue h=3p. Escribe el rango separado por comas.",
+        "respuesta": "3,6,9,12",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Aplica h=3p a cada piso disponible.",
+          "Para p=1 y 2 obtienes 3 y 6.",
+          "Para p=3 y 4 obtienes 9 y 12."
+        ],
+        "retroalimentacion": "El rango es 3,6,9,12; no incluye altura cero porque no hay piso 0."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una boletería vende paquetes enteros de 2 entradas, hasta 8 entradas. Si x es número de paquetes, ¿qué dominio corresponde?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "{0,2,4,6,8}"
+          },
+          {
+            "id": "b",
+            "texto": "{1,2,3,4,5,6,7,8}"
+          },
+          {
+            "id": "c",
+            "texto": "Todos los números entre 0 y 8"
+          },
+          {
+            "id": "d",
+            "texto": "{0,1,2,3,4}"
+          }
+        ],
+        "pistas": [
+          "Cada paquete aporta 2 entradas.",
+          "Hasta 8 entradas permiten como máximo 4 paquetes.",
+          "También es posible comprar cero paquetes."
+        ],
+        "retroalimentacion": "«{0,1,2,3,4}» contiene solo cantidades enteras de paquetes permitidas."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una batería inicia en 100 % y baja 10 puntos por hora. Si solo consideras horas enteras de 0 a 5, ¿cuántos valores distintos tiene el rango? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Enumera las horas 0,1,2,3,4,5.",
+          "Son seis entradas.",
+          "Cada hora reduce la salida 10 y no se repiten valores."
+        ],
+        "retroalimentacion": "Hay 6 salidas distintas: 100,90,80,70,60 y 50."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para y=2x con dominio {−2,0,2}, el rango es {−4,0,4}.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Sustituye cada entrada por separado.",
+          "2×(−2)=−4 y 2×0=0.",
+          "2×2=4 completa el conjunto."
+        ],
+        "retroalimentacion": "Es verdadero: las tres salidas son −4, 0 y 4."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un taxi acepta recorridos reales de 0 a 3 km y cobra C(x)=2x+4. ¿Qué rango de precios corresponde?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "De S/ 4 a S/ 10"
+          },
+          {
+            "id": "b",
+            "texto": "Solo S/ 4 y S/ 10"
+          },
+          {
+            "id": "c",
+            "texto": "De S/ 0 a S/ 3"
+          },
+          {
+            "id": "d",
+            "texto": "De S/ 2 a S/ 4"
+          }
+        ],
+        "pistas": [
+          "La función aumenta con x.",
+          "C(0)=4 y C(3)=10.",
+          "Se admiten también distancias intermedias."
+        ],
+        "retroalimentacion": "«De S/ 4 a S/ 10» es el rango continuo."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.graficos-tarifas",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-S1-01",
+      "MAT-C24-S1-02"
+    ],
+    "bloque": "Función lineal",
+    "nombre": "Interpretación de gráficos de tarifas y costos",
+    "disciplina": "algebra",
+    "descripcionCorta": "Lee gráficos de cobro fijo más variable y responde preguntas del contexto.",
+    "palabrasClave": [
+      "tarifa",
+      "cargo fijo",
+      "costo variable",
+      "gráfica",
+      "consumo"
+    ],
+    "prerrequisitos": [
+      "mat.s1.funcion-lineal-afin"
+    ],
+    "ordenSugerido": 125,
+    "ideaCentral": "En un gráfico de tarifa, el punto con consumo cero muestra el cargo fijo. La inclinación indica cuánto aumenta el costo por cada unidad consumida.",
+    "pasos": [
+      "Lee qué magnitud y unidad tiene cada eje.",
+      "Busca el costo cuando el consumo es cero.",
+      "Usa dos puntos para calcular aumento de costo por unidad.",
+      "Combina cargo fijo y aumento para leer o predecir un costo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una tarifa de datos pasa por (0,4) y (2,10).",
+        "desarrollo": "Cargo fijo 4; aumento (10−4)/2=3 por GB.",
+        "respuesta": "C(x)=3x+4 soles."
+      },
+      {
+        "situacion": "El envío marca (0,8) y (3,20) en su gráfica.",
+        "desarrollo": "Por 3 kg adicionales sube S/ 12, es decir S/ 4 por kg.",
+        "respuesta": "Por 5 kg cuesta 8+4×5=S/ 28."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Leer el costo total como tarifa por unidad.",
+        "correccion": "Resta el cargo fijo antes de dividir el incremento."
+      },
+      {
+        "error": "Olvidar las unidades de los ejes.",
+        "correccion": "Un punto (2,10) significa 2 unidades de consumo y S/ 10 de costo si así están rotulados."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Cargo fijo",
+        "significado": "Costo que existe aun con consumo cero."
+      },
+      {
+        "termino": "Costo variable",
+        "significado": "Parte que crece con el consumo."
+      },
+      {
+        "termino": "Pendiente",
+        "significado": "Aumento de costo por cada unidad consumida."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En el gráfico de una tarifa se leen los puntos (0,5) y (1,8), donde x son km y y soles. ¿Cuánto cuesta 1 km? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el punto con primera coordenada 1.",
+          "Su segunda coordenada indica el precio.",
+          "El punto (1,8) marca S/ 8."
+        ],
+        "retroalimentacion": "Un kilómetro cuesta S/ 8 en total, incluido el cargo fijo."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "La gráfica de costo pasa por (0,4), (1,7) y (2,10). ¿Qué representa el 4?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Costo de 4 km"
+          },
+          {
+            "id": "b",
+            "texto": "S/ 4 por km"
+          },
+          {
+            "id": "c",
+            "texto": "Cargo fijo de S/ 4"
+          },
+          {
+            "id": "d",
+            "texto": "Descuento de S/ 4"
+          }
+        ],
+        "pistas": [
+          "Mira el precio cuando la distancia vale cero.",
+          "(0,4) indica S/ 4 sin recorrer km.",
+          "Es el cobro previo al consumo."
+        ],
+        "retroalimentacion": "«Cargo fijo de S/ 4» interpreta el punto (0,4)."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una tarifa con gráfica que pasa por (0,6) cobra S/ 6 aunque el consumo sea cero.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa la primera coordenada cero.",
+          "La segunda coordenada del punto es 6.",
+          "Ese costo corresponde al inicio."
+        ],
+        "retroalimentacion": "Es verdadero: el intercepto vertical muestra el cargo fijo de S/ 6."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En una gráfica de pasajes, el eje horizontal dice «viajes» y el vertical «costo en soles». ¿Cuál magnitud es la entrada?",
+        "respuesta": "viajes",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el eje horizontal.",
+          "Ese eje representa la cantidad que eliges.",
+          "La etiqueta horizontal es «viajes»."
+        ],
+        "retroalimentacion": "La entrada es viajes; el costo es la salida."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una línea de tarifa pasa por (0,7) y (3,19), con km en horizontal y soles en vertical. ¿Cuánto se cobra por km? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta costos: 19−7.",
+          "El recorrido aumenta 3 km.",
+          "Divide 12 entre 3."
+        ],
+        "retroalimentacion": "La tarifa variable es S/ 4 por km; S/ 7 es cargo fijo."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un gráfico de estacionamiento une (0,5), (1,8), (2,11). ¿Cuál es el costo de 2 horas?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "S/ 11"
+          },
+          {
+            "id": "b",
+            "texto": "S/ 8"
+          },
+          {
+            "id": "c",
+            "texto": "S/ 5"
+          },
+          {
+            "id": "d",
+            "texto": "S/ 16"
+          }
+        ],
+        "pistas": [
+          "Ubica la entrada 2 en el eje horizontal.",
+          "Lee la segunda coordenada del punto (2,11).",
+          "Esa coordenada mide soles."
+        ],
+        "retroalimentacion": "«S/ 11» corresponde al punto (2,11)."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si el costo gráfico de 2 GB es S/ 14 y de 4 GB es S/ 20, el precio adicional es S/ 3 por GB.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El costo sube 6 soles.",
+          "El consumo sube 2 GB.",
+          "6÷2=3 soles por GB."
+        ],
+        "retroalimentacion": "Es verdadero: la pendiente del costo es S/ 3 por GB."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una recta de costo marca (0,9) y (2,15). Escribe su regla como C(x)=mx+b.",
+        "respuesta": "C(x)=3x+9",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El cargo fijo es 9.",
+          "La pendiente es (15−9)/(2−0)=3.",
+          "Combina 3x con +9."
+        ],
+        "retroalimentacion": "La regla es C(x)=3x+9; 15 es el total para 2 unidades."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos puntos de un gráfico de envío son (1,12) y (4,21). ¿Cuánto costarán 6 kg bajo la misma tarifa?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "S/ 18"
+          },
+          {
+            "id": "b",
+            "texto": "S/ 24"
+          },
+          {
+            "id": "c",
+            "texto": "S/ 36"
+          },
+          {
+            "id": "d",
+            "texto": "S/ 27"
+          }
+        ],
+        "pistas": [
+          "Calcula el aumento por kg: (21−12)/(4−1).",
+          "Son S/ 3 por kg.",
+          "De 4 a 6 kg añade S/ 6 al costo 21."
+        ],
+        "retroalimentacion": "«S/ 27» resulta de 21+2×3."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una tarifa gráfica muestra (0,8) y (5,23). ¿Cuánto cuestan 7 unidades de consumo? Escribe solo el número.",
+        "respuesta": 29,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "De 0 a 5, el costo sube 15.",
+          "Cada unidad agrega 15÷5=3.",
+          "Con 7 unidades: 8+7×3."
+        ],
+        "retroalimentacion": "Cuestan S/ 29; el 8 fijo se suma una sola vez."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una gráfica de cobro que une (0,10) y (2,14) puede representar C(x)=10+2x.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Comprueba el cargo fijo 10.",
+          "En 2 unidades, la parte variable es 2×2=4.",
+          "10+4=14 coincide con el punto."
+        ],
+        "retroalimentacion": "Es verdadero: la regla coincide con ambos puntos."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una gráfica de tarifa se ven (0,6), (2,12), (4,18). Una persona dice que cada unidad cuesta S/ 6 adicionales. ¿Qué corrección corresponde?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Se pagan S/ 6 por unidad y nada fijo"
+          },
+          {
+            "id": "b",
+            "texto": "Se pagan S/ 3 por unidad y S/ 6 fijos"
+          },
+          {
+            "id": "c",
+            "texto": "Se pagan S/ 12 por unidad"
+          },
+          {
+            "id": "d",
+            "texto": "El precio baja S/ 3 por unidad"
+          }
+        ],
+        "pistas": [
+          "Compara dos puntos consecutivos.",
+          "El costo aumenta S/ 6 cuando el consumo aumenta 2 unidades.",
+          "Por una unidad, el aumento es S/ 3."
+        ],
+        "retroalimentacion": "«Se pagan S/ 3 por unidad y S/ 6 fijos» corrige la confusión."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.comparar-funciones-lineales",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+    "desempenosOrigen": [
+      "MAT-C24-S1-05",
+      "MAT-C24-S1-10"
+    ],
+    "bloque": "Función lineal",
+    "nombre": "Comparación de funciones lineales por su gráfica",
+    "disciplina": "algebra",
+    "descripcionCorta": "Decide qué opción es más conveniente comparando pendientes e interceptos.",
+    "palabrasClave": [
+      "comparar rectas",
+      "pendiente",
+      "intercepto",
+      "cruce",
+      "conveniencia"
+    ],
+    "prerrequisitos": [
+      "mat.s1.interceptos-ejes"
+    ],
+    "ordenSugerido": 126,
+    "ideaCentral": "Para comparar dos costos lineales, mira cuánto cobran al inicio y cuánto suben por unidad. El punto donde se cruzan muestra cuándo cuestan lo mismo; a cada lado puede convenir un plan distinto.",
+    "pasos": [
+      "Lee el costo inicial y la pendiente de cada recta.",
+      "Si interesa una cantidad concreta, calcula ambos costos allí.",
+      "Para hallar el empate, iguala las dos reglas.",
+      "Compara antes y después del cruce según el contexto."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "A cobra 4+3x y B cobra 8+2x.",
+        "desarrollo": "Se igualan en x=4: ambos cuestan 16. Para x=2, A=10 y B=12.",
+        "respuesta": "Con 2 unidades conviene A."
+      },
+      {
+        "situacion": "Dos rectas parten en 5; una sube 2 y otra 4 por unidad.",
+        "desarrollo": "Para toda entrada positiva, la primera añade menos.",
+        "respuesta": "Conviene la de pendiente 2."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Elegir solo por el cargo fijo.",
+        "correccion": "También compara el aumento por unidad y la cantidad usada."
+      },
+      {
+        "error": "Confundir cruce con costo cero.",
+        "correccion": "En (4,16) ambas tarifas cuestan 16 para 4 unidades."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Cruce",
+        "significado": "Punto donde dos rectas tienen la misma salida."
+      },
+      {
+        "termino": "Conveniencia",
+        "significado": "Elección de menor costo para una cantidad concreta."
+      },
+      {
+        "termino": "Pendiente",
+        "significado": "Aumento por cada unidad de entrada."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos planes cuestan A(x)=2x+8 y B(x)=3x+4 soles. ¿Cuál tiene menor pago inicial?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Plan A"
+          },
+          {
+            "id": "b",
+            "texto": "Plan B"
+          },
+          {
+            "id": "c",
+            "texto": "Ambos igual"
+          },
+          {
+            "id": "d",
+            "texto": "No se puede saber"
+          }
+        ],
+        "pistas": [
+          "Pago inicial es costo para x=0.",
+          "A empieza en 8 y B en 4.",
+          "Compara 4 con 8."
+        ],
+        "retroalimentacion": "«Plan B» empieza en S/ 4, menos que A en S/ 8."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La recta A pasa por (0,2) y (1,5). ¿Cuál es su pendiente? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La salida sube de 2 a 5.",
+          "La entrada sube de 0 a 1.",
+          "Divide 3 entre 1."
+        ],
+        "retroalimentacion": "La pendiente de A es 3 por unidad."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Entre dos rectas de costo, la que empieza más abajo siempre será más barata para cualquier consumo.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Considera que las inclinaciones pueden diferir.",
+          "Una tarifa con menor inicio puede subir más rápido.",
+          "Las rectas podrían cruzarse."
+        ],
+        "retroalimentacion": "Es falso: una pendiente mayor puede hacer que esa tarifa sea más cara después."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "A(x)=4x+3 y B(x)=2x+7. ¿Qué plan tiene mayor pendiente? Escribe A o B.",
+        "respuesta": "A",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca los números que multiplican a x.",
+          "A tiene 4 y B tiene 2.",
+          "Compara 4 con 2."
+        ],
+        "retroalimentacion": "A tiene mayor pendiente: su costo crece más rápido."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "A(x)=2x+6 y B(x)=4x+2. ¿Con cuántas unidades cuestan igual? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Iguala 2x+6 y 4x+2.",
+          "Pasa términos: 4=2x.",
+          "Divide entre 2."
+        ],
+        "retroalimentacion": "Cuestan igual con 2 unidades: ambos valen S/ 10."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Las gráficas de dos tarifas se cruzan en (3,15). ¿Qué significa?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cada unidad cuesta S/ 15"
+          },
+          {
+            "id": "b",
+            "texto": "Los cargos fijos son S/ 3"
+          },
+          {
+            "id": "c",
+            "texto": "Por 15 unidades pagan S/ 3"
+          },
+          {
+            "id": "d",
+            "texto": "Por 3 unidades, ambas cuestan S/ 15"
+          }
+        ],
+        "pistas": [
+          "Lee ambas coordenadas del cruce.",
+          "Para x=3, las dos salidas son 15.",
+          "Es la cantidad en que cuestan lo mismo."
+        ],
+        "retroalimentacion": "«Por 3 unidades, ambas cuestan S/ 15» interpreta el cruce."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "A(x)=5x+2 y B(x)=3x+8: para x=1 conviene A porque cuesta S/ 7 frente a S/ 11.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula A(1).",
+          "Calcula B(1).",
+          "7 es menor que 11."
+        ],
+        "retroalimentacion": "Es verdadero: A(1)=7 y B(1)=11."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "El plan rojo parte de S/ 5 y sube S/ 4 por unidad; el azul parte de S/ 9 y sube S/ 2. ¿Cuál conviene para 4 unidades? Escribe rojo o azul.",
+        "respuesta": "azul",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Rojo: 5+4×4.",
+          "Azul: 9+2×4.",
+          "Compara 21 con 17."
+        ],
+        "retroalimentacion": "Conviene azul: S/ 17 frente a S/ 21."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "A(x)=x+12 y B(x)=3x+2. Para x=5 ambos cuestan S/ 17. Si se usan 8 unidades, ¿cuál conviene?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "A, cuesta S/ 20"
+          },
+          {
+            "id": "b",
+            "texto": "B, cuesta S/ 26"
+          },
+          {
+            "id": "c",
+            "texto": "Ambos S/ 20"
+          },
+          {
+            "id": "d",
+            "texto": "Ambos S/ 26"
+          }
+        ],
+        "pistas": [
+          "Después del cruce importa la pendiente.",
+          "A sube 1 por unidad y B sube 3.",
+          "A(8)=20 y B(8)=26."
+        ],
+        "retroalimentacion": "«A, cuesta S/ 20» es más barato que B a 8 unidades."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un plan A cuesta 6+2x y otro B cuesta 2+3x. ¿Cuál es el menor costo entre ambos para x=6? Escribe solo el número.",
+        "respuesta": 18,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula A(6)=6+12.",
+          "Calcula B(6)=2+18.",
+          "Compara 18 con 20."
+        ],
+        "retroalimentacion": "El menor costo es S/ 18 con el plan A."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si dos rectas de costo tienen igual pendiente y B inicia S/ 4 más arriba que A, B será siempre S/ 4 más caro.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La diferencia inicial es 4.",
+          "Ambos costos aumentan lo mismo por unidad.",
+          "La diferencia entre las salidas no cambia."
+        ],
+        "retroalimentacion": "Es verdadero: las rectas paralelas mantienen S/ 4 de diferencia."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "A cobra S/ 10 fijos más S/ 1 por entrada; B cobra S/ 2 fijos más S/ 3 por entrada. ¿Para qué cantidad entera positiva conviene B?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4 entradas"
+          },
+          {
+            "id": "b",
+            "texto": "5 entradas"
+          },
+          {
+            "id": "c",
+            "texto": "3 entradas"
+          },
+          {
+            "id": "d",
+            "texto": "8 entradas"
+          }
+        ],
+        "pistas": [
+          "Iguala 10+x y 2+3x.",
+          "Se cruzan cuando x=4.",
+          "Antes de 4, B empieza más barato; revisa x=3."
+        ],
+        "retroalimentacion": "«3 entradas» conviene con B: A=S/ 13 y B=S/ 11."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.propiedades-funcion-lineal",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+    "desempenosOrigen": [
+      "MAT-C24-S1-10"
+    ],
+    "bloque": "Función lineal",
+    "nombre": "Afirmaciones sobre crecimiento de funciones lineales",
+    "disciplina": "algebra",
+    "descripcionCorta": "Justifica si una función crece o decrece según el signo de su pendiente.",
+    "palabrasClave": [
+      "crecimiento",
+      "decrecimiento",
+      "pendiente",
+      "signo",
+      "constante"
+    ],
+    "prerrequisitos": [
+      "mat.s1.pendiente-funcion"
+    ],
+    "ordenSugerido": 127,
+    "ideaCentral": "El signo de la pendiente determina cómo cambia una función lineal: positiva crece, negativa decrece y cero permanece constante. El valor inicial solo mueve la recta arriba o abajo.",
+    "pasos": [
+      "Identifica el coeficiente de x: esa es la pendiente.",
+      "Revisa si es positivo, negativo o cero.",
+      "Relaciona el signo con subir, bajar o permanecer igual.",
+      "Justifica tu afirmación con el cambio de salida para un aumento de entrada."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La regla y=−2x+9 describe litros restantes.",
+        "desarrollo": "Por cada unidad más de x, y pierde 2.",
+        "respuesta": "La función decrece."
+      },
+      {
+        "situacion": "La recta y=3x−10 empieza bajo cero.",
+        "desarrollo": "La pendiente 3 es positiva aunque b=−10.",
+        "respuesta": "La función crece."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Usar el signo del valor inicial.",
+        "correccion": "El crecimiento depende de m, no de b."
+      },
+      {
+        "error": "Creer que x creciente implica y creciente.",
+        "correccion": "Con pendiente negativa, x sube mientras y baja."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Creciente",
+        "significado": "La salida sube al aumentar la entrada."
+      },
+      {
+        "termino": "Decreciente",
+        "significado": "La salida baja al aumentar la entrada."
+      },
+      {
+        "termino": "Constante",
+        "significado": "La salida no cambia al variar la entrada."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La función f(x)=4x crece cuando x aumenta.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa el signo de 4.",
+          "La pendiente es positiva.",
+          "Por cada paso de x, y sube 4."
+        ],
+        "retroalimentacion": "Es verdadero: pendiente 4 positiva implica crecimiento."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál función decrece al aumentar x?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "y=2x"
+          },
+          {
+            "id": "b",
+            "texto": "y=5x+1"
+          },
+          {
+            "id": "c",
+            "texto": "y=0x+4"
+          },
+          {
+            "id": "d",
+            "texto": "y=−3x"
+          }
+        ],
+        "pistas": [
+          "Busca una pendiente negativa.",
+          "La pendiente es el coeficiente de x.",
+          "En −3x la salida baja tres por paso."
+        ],
+        "retroalimentacion": "«y=−3x» decrece por tener pendiente −3."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La recta y=7x tiene pendiente positiva. Escribe «crece» o «decrece».",
+        "respuesta": "crece",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El coeficiente de x es 7.",
+          "7 es mayor que cero.",
+          "Pendiente positiva significa subida."
+        ],
+        "retroalimentacion": "Crece: al aumentar x, y aumenta 7 por unidad."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una función lineal con pendiente cero tiene la misma salida para toda entrada.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica cualquier entrada por cero.",
+          "0x=0 para todo x.",
+          "La gráfica es horizontal."
+        ],
+        "retroalimentacion": "Es verdadero: una pendiente cero no produce cambio."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Si y=−2x, ¿cuánto cambia la salida al aumentar x en 3 unidades? Escribe solo el número, con signo.",
+        "respuesta": -6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada unidad reduce la salida en 2.",
+          "Tres unidades producen 3 cambios iguales.",
+          "−2×3=−6."
+        ],
+        "retroalimentacion": "La salida cambia −6, es decir, baja 6."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una recta pasa por (1,8) y (3,4). ¿Qué afirmación es correcta?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Crece porque 8 es mayor que 4"
+          },
+          {
+            "id": "b",
+            "texto": "Decrece porque su pendiente es −2"
+          },
+          {
+            "id": "c",
+            "texto": "Es constante porque hay dos puntos"
+          },
+          {
+            "id": "d",
+            "texto": "Crece porque x pasa de 1 a 3"
+          }
+        ],
+        "pistas": [
+          "Compara las salidas: de 8 a 4.",
+          "La entrada aumenta mientras la salida disminuye.",
+          "La pendiente (4−8)/(3−1)=−2."
+        ],
+        "retroalimentacion": "«Decrece porque su pendiente es −2» se justifica con los dos puntos."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En y=−5x+20, el +20 hace que la función crezca.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El término 20 indica valor inicial.",
+          "El cambio por unidad lo da −5.",
+          "Una pendiente negativa produce descenso."
+        ],
+        "retroalimentacion": "Es falso: b=20 no cambia que la pendiente −5 hace decrecer."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "La tabla x: 0,1,2; y: 9,9,9 muestra una función. ¿Cómo se clasifica su cambio? Escribe «constante».",
+        "respuesta": "constante",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las salidas consecutivas.",
+          "De 9 a 9 el cambio es cero.",
+          "Con pendiente cero no crece ni decrece."
+        ],
+        "retroalimentacion": "Es constante: todas las salidas valen 9."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una recta A tiene pendiente −1 y B pendiente −4. Si x aumenta 2, ¿cuál afirmación es correcta?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "B baja 8 y A baja 2"
+          },
+          {
+            "id": "b",
+            "texto": "A sube 2 y B sube 8"
+          },
+          {
+            "id": "c",
+            "texto": "Ambas suben 2"
+          },
+          {
+            "id": "d",
+            "texto": "A baja 8 y B baja 2"
+          }
+        ],
+        "pistas": [
+          "Calcula los cambios: −1×2 y −4×2.",
+          "A baja 2; B baja 8.",
+          "Ambas decrecen, pero B lo hace más rápido."
+        ],
+        "retroalimentacion": "«B baja 8 y A baja 2» compara bien sus cambios."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una recta que pasa por (2,10) y (5,10) es creciente porque x aumenta.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa si la salida cambió.",
+          "y sigue siendo 10 en ambos puntos.",
+          "El cambio vertical es cero."
+        ],
+        "retroalimentacion": "Es falso: la recta es constante, con pendiente 0."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una temperatura sigue T(h)=18−3h. Si el tiempo aumenta de 2 a 6 horas, ¿cuál es el cambio de temperatura en grados? Escribe solo el número, con signo.",
+        "respuesta": -12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El tiempo aumenta 4 horas.",
+          "Cada hora la temperatura cambia −3 grados.",
+          "−3×4=−12."
+        ],
+        "retroalimentacion": "El cambio es −12 grados; la temperatura disminuye."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una compañera afirma que y=2x−50 decrece porque empieza en −50. ¿Qué respuesta la corrige?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Decrece porque −50 es negativo"
+          },
+          {
+            "id": "b",
+            "texto": "Es constante por empezar bajo cero"
+          },
+          {
+            "id": "c",
+            "texto": "Crece porque su pendiente es +2"
+          },
+          {
+            "id": "d",
+            "texto": "No se puede decidir sin dibujarla"
+          }
+        ],
+        "pistas": [
+          "El valor inicial no decide el crecimiento.",
+          "La pendiente es 2.",
+          "Cada aumento de x suma 2 a y."
+        ],
+        "retroalimentacion": "«Crece porque su pendiente es +2» corrige la confusión con −50."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

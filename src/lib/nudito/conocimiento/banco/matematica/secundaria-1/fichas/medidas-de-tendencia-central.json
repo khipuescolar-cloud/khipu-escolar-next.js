@@ -1,0 +1,1889 @@
+[
+  {
+    "clave": "mat.s1.media-datos-no-agrupados",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-S1-01",
+      "MAT-C25-S1-03"
+    ],
+    "bloque": "Medidas de tendencia central",
+    "nombre": "Media aritmética de datos no agrupados",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Calcula e interpreta la media de un conjunto de datos.",
+    "palabrasClave": [
+      "media",
+      "promedio",
+      "suma",
+      "cantidad de datos",
+      "interpretación"
+    ],
+    "prerrequisitos": [
+      "mat.s1.tabla-frecuencias-s1"
+    ],
+    "ordenSugerido": 97,
+    "ideaCentral": "La media aritmética reparte por igual el total de los datos: suma todos los valores y divide entre la cantidad de datos. Puede resultar un valor que no aparece en la lista.",
+    "pasos": [
+      "Cuenta cuántos datos hay.",
+      "Suma todos los valores, incluso los repetidos.",
+      "Divide la suma entre la cantidad de datos.",
+      "Interpreta el resultado con la unidad y comprueba si queda entre mínimo y máximo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Las páginas leídas por tres estudiantes son 4, 6 y 8.",
+        "desarrollo": "Sumo 4 + 6 + 8 = 18 y divido entre 3.",
+        "respuesta": "La media es 6 páginas."
+      },
+      {
+        "situacion": "Tres días de lluvia registran 2, 3 y 4 mm.",
+        "desarrollo": "La suma es 9 mm; 9 ÷ 3 = 3 mm.",
+        "respuesta": "El promedio es 3 mm por día."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dividir entre el valor mayor en lugar del número de datos.",
+        "correccion": "Cuenta los datos y usa esa cantidad como divisor."
+      },
+      {
+        "error": "Omitir valores repetidos al sumar.",
+        "correccion": "Cada observación cuenta, aunque tenga el mismo número."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Media aritmética",
+        "significado": "Suma de los datos dividida entre su cantidad."
+      },
+      {
+        "termino": "Dato",
+        "significado": "Cada valor observado."
+      },
+      {
+        "termino": "Promedio",
+        "significado": "Nombre común de la media aritmética."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Las notas de tres prácticas son 12, 14 y 16. ¿Cuál es la media? Escribe solo el número.",
+        "respuesta": 14,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las tres notas.",
+          "12 + 14 + 16 = 42.",
+          "Divide 42 entre 3."
+        ],
+        "retroalimentacion": "La media es 14, pues 42 ÷ 3 = 14."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una feria registró ventas de 5, 7 y 9 panes en tres horas. ¿Qué operación halla la media?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero reúne el total de panes.",
+          "Hay tres observaciones, una por hora.",
+          "La suma debe dividirse entre tres."
+        ],
+        "retroalimentacion": "(5 + 7 + 9) ÷ 3 reparte los 21 panes entre las tres horas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(5 + 7 + 9) ÷ 3"
+          },
+          {
+            "id": "b",
+            "texto": "(5 + 7 + 9) ÷ 9"
+          },
+          {
+            "id": "c",
+            "texto": "9 − 5"
+          },
+          {
+            "id": "d",
+            "texto": "5 × 7 × 9"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La media de 6, 6 y 6 es 6.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los tres valores iguales.",
+          "6 + 6 + 6 = 18.",
+          "18 ÷ 3 = 6."
+        ],
+        "retroalimentacion": "Verdadero: el promedio de valores idénticos coincide con ellos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Para hallar la media de cuatro números, ¿entre qué cantidad divides su suma? Escribe la cantidad en palabras.",
+        "respuesta": "cuatro",
+        "alternativasAceptadas": [
+          "4"
+        ],
+        "pistas": [
+          "El divisor es el número de datos.",
+          "Hay cuatro números en la lista.",
+          "La suma se reparte en cuatro partes."
+        ],
+        "retroalimentacion": "Se divide entre cuatro porque hay cuatro datos."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Los tiempos de cuatro vueltas son 10, 12, 14 y 16 segundos. ¿Cuál es la media en segundos? Escribe solo el número.",
+        "respuesta": 13,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los cuatro tiempos.",
+          "10 + 12 + 14 + 16 = 52.",
+          "52 ÷ 4 = 13."
+        ],
+        "retroalimentacion": "La media es 13 segundos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Las cosechas de tres parcelas son 8, 8 y 14 sacos. ¿Cuál es su media en sacos?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No elimines el 8 repetido.",
+          "Suma 8 + 8 + 14 = 30.",
+          "Divide 30 entre 3."
+        ],
+        "retroalimentacion": "10 sacos es la media; las dos parcelas de 8 cuentan por separado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8 sacos"
+          },
+          {
+            "id": "b",
+            "texto": "14 sacos"
+          },
+          {
+            "id": "c",
+            "texto": "10,5 sacos"
+          },
+          {
+            "id": "d",
+            "texto": "10 sacos"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La media de 2, 4 y 9 debe coincidir con uno de esos tres datos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los tres valores: 2 + 4 + 9.",
+          "El total es 15; divide entre 3.",
+          "La media es 5, que no está en la lista."
+        ],
+        "retroalimentacion": "Falso: la media es 5 y ninguno de los datos es 5; una media puede no figurar en la lista."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En 2, 4 y 9, la media es 5. ¿Aparece 5 como dato? Responde sí o no.",
+        "respuesta": "no",
+        "alternativasAceptadas": [
+          "no aparece"
+        ],
+        "pistas": [
+          "Revisa la lista original.",
+          "Sus valores son solo 2, 4 y 9.",
+          "El promedio 5 no está escrito entre ellos."
+        ],
+        "retroalimentacion": "No: la media 5 puede ser distinta de todos los datos observados."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un equipo anota 4, 5, 7 y 8 goles en cuatro jornadas. ¿Cuál es la media de goles? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Reúne los goles de las cuatro jornadas.",
+          "4 + 5 + 7 + 8 = 24.",
+          "24 ÷ 4 = 6."
+        ],
+        "retroalimentacion": "El promedio es 6 goles por jornada."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "La media de cuatro controles es 15. Tres resultados son 12, 14 y 16. ¿Cuál fue el cuarto?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total necesario es media × cantidad.",
+          "15 × 4 = 60.",
+          "Los tres conocidos suman 42; resta 60 − 42."
+        ],
+        "retroalimentacion": "18 completa el total de 60, por eso (12 + 14 + 16 + 18) ÷ 4 = 15.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "15"
+          },
+          {
+            "id": "b",
+            "texto": "18"
+          },
+          {
+            "id": "c",
+            "texto": "16"
+          },
+          {
+            "id": "d",
+            "texto": "20"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Cuatro puestos vendieron 6, 10, 14 y 18 vasos. Se suma un quinto puesto con 22 vasos. ¿Cuál es la nueva media? Escribe solo el número.",
+        "respuesta": 14,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los cuatro valores iniciales.",
+          "6 + 10 + 14 + 18 + 22 = 70.",
+          "Ahora son cinco puestos: 70 ÷ 5."
+        ],
+        "retroalimentacion": "La nueva media es 14 vasos; el divisor cambió de cuatro a cinco."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una clase tiene promedios diarios de 5, 7 y 9 asistentes en tres días. Si el tercer valor cambia de 9 a 12, la media sube de 7 a 8.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la suma inicial y la nueva.",
+          "La suma pasa de 21 a 24.",
+          "21 ÷ 3 = 7 y 24 ÷ 3 = 8."
+        ],
+        "retroalimentacion": "Verdadero: el aumento de 3 en un dato eleva la media en 1."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.mediana",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Usa estrategias y procedimientos para recopilar y procesar datos",
+    "desempenosOrigen": [
+      "MAT-C25-S1-03",
+      "MAT-C25-S1-06"
+    ],
+    "bloque": "Medidas de tendencia central",
+    "nombre": "Mediana de datos no agrupados",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Ordena los datos y encuentra el valor central, con número par o impar de datos.",
+    "palabrasClave": [
+      "mediana",
+      "ordenar",
+      "dato central",
+      "cantidad par",
+      "cantidad impar"
+    ],
+    "prerrequisitos": [
+      "mat.s1.media-datos-no-agrupados"
+    ],
+    "ordenSugerido": 98,
+    "ideaCentral": "La mediana es el centro de una lista ordenada. Con una cantidad impar eliges el dato de en medio; con una cantidad par promedias los dos centrales.",
+    "pasos": [
+      "Ordena los datos de menor a mayor, incluidos los repetidos.",
+      "Cuenta cuántos datos hay.",
+      "Si la cantidad es impar, toma el central.",
+      "Si es par, suma los dos centrales y divide entre dos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Edades: 13, 11 y 12 años.",
+        "desarrollo": "Ordeno 11, 12, 13; el dato del medio es 12.",
+        "respuesta": "Mediana: 12 años."
+      },
+      {
+        "situacion": "Puntajes: 4, 9, 6 y 8.",
+        "desarrollo": "Ordeno 4, 6, 8, 9; los centrales son 6 y 8. Su media es 7.",
+        "respuesta": "Mediana: 7 puntos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Elegir el dato central antes de ordenar.",
+        "correccion": "Ordena toda la lista primero."
+      },
+      {
+        "error": "En una lista par, elegir solo uno de los dos centrales.",
+        "correccion": "Promedia ambos valores centrales."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Mediana",
+        "significado": "Valor central de datos ordenados."
+      },
+      {
+        "termino": "Dato central",
+        "significado": "Valor ubicado en medio de la lista ordenada."
+      },
+      {
+        "termino": "Lista par",
+        "significado": "Lista cuya cantidad de datos es divisible entre dos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Ordena 9, 3 y 6. ¿Cuál es la mediana? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Pon los tres valores de menor a mayor.",
+          "El orden es 3, 6, 9.",
+          "Escoge el que queda entre 3 y 9."
+        ],
+        "retroalimentacion": "La mediana es 6; el orden original no importa."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Los tamaños de cuatro plantas son 10, 12, 14 y 16 cm. ¿Qué pareja se usa para hallar la mediana?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La lista ya está ordenada.",
+          "Al haber cuatro datos, hay dos centrales.",
+          "Descarta los extremos 10 y 16."
+        ],
+        "retroalimentacion": "12 y 14 son los dos valores centrales.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10 y 16"
+          },
+          {
+            "id": "b",
+            "texto": "10 y 12"
+          },
+          {
+            "id": "c",
+            "texto": "12 y 14"
+          },
+          {
+            "id": "d",
+            "texto": "14 y 16"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En la lista ordenada 2, 5, 8, la mediana es 5.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta los tres datos.",
+          "El segundo queda exactamente al centro.",
+          "El segundo valor es 5."
+        ],
+        "retroalimentacion": "Verdadero: 5 ocupa la posición central."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Antes de ubicar la mediana de 7, 2 y 9, ¿qué debes hacer con los datos?",
+        "respuesta": "ordenarlos",
+        "alternativasAceptadas": [
+          "ordenar",
+          "ordenar de menor a mayor"
+        ],
+        "pistas": [
+          "La posición original puede engañar.",
+          "Coloca 2, 7 y 9 en secuencia.",
+          "La acción se llama ordenar."
+        ],
+        "retroalimentacion": "Hay que ordenarlos; así el 7 queda en el centro."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Los precios son 5, 11, 7 y 9 soles. ¿Cuál es la mediana en soles? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ordena los cuatro precios.",
+          "Quedan 5, 7, 9, 11.",
+          "Promedia 7 y 9."
+        ],
+        "retroalimentacion": "La mediana es (7 + 9) ÷ 2 = 8 soles."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En 4, 4, 6, 8 y 9, ¿cuál es la mediana?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Conserva el 4 repetido.",
+          "Son cinco datos; el tercero es central.",
+          "El tercero de la lista ordenada es 6."
+        ],
+        "retroalimentacion": "6 es la mediana; borrar un 4 alteraría la posición central.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6"
+          },
+          {
+            "id": "b",
+            "texto": "4"
+          },
+          {
+            "id": "c",
+            "texto": "8"
+          },
+          {
+            "id": "d",
+            "texto": "9"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La mediana de 1, 2, 10 y 11 es 6.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay cuatro valores ordenados.",
+          "Los centrales son 2 y 10.",
+          "(2 + 10) ÷ 2 = 6."
+        ],
+        "retroalimentacion": "Verdadero: la mediana puede no coincidir con un dato observado."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Al ordenar 15, 11, 12, 14 y 13, ¿qué número queda en el centro?",
+        "respuesta": "13",
+        "alternativasAceptadas": [
+          "trece"
+        ],
+        "pistas": [
+          "Ordénalos de menor a mayor.",
+          "La secuencia es 11, 12, 13, 14, 15.",
+          "El tercer dato es el central."
+        ],
+        "retroalimentacion": "13 queda en el centro de la lista ordenada."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Las distancias son 3, 7, 7, 9, 12 y 14 km. ¿Cuál es la mediana en km? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay seis datos, así que busca dos centrales.",
+          "El tercero es 7 y el cuarto es 9.",
+          "(7 + 9) ÷ 2 = 8."
+        ],
+        "retroalimentacion": "La mediana es 8 km; el 7 repetido sí cuenta."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un informe presenta 2, 5, 6, 7 y 40. Si se reemplaza 40 por 90, ¿qué pasa con la mediana?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ordena ambos conjuntos.",
+          "El tercer lugar no cambia.",
+          "El valor extremo solo ocupa el quinto lugar."
+        ],
+        "retroalimentacion": "Sigue siendo 6: sustituir el último dato no mueve el central.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sube a 90"
+          },
+          {
+            "id": "b",
+            "texto": "Sube a 7"
+          },
+          {
+            "id": "c",
+            "texto": "Baja a 5"
+          },
+          {
+            "id": "d",
+            "texto": "Sigue siendo 6"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Cinco datos ordenados son 3, 6, x, 11 y 15. Si la mediana es 9, ¿cuánto vale x? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En 3, 6, x, 11 y 15 los valores ya están de menor a mayor.",
+          "Con cinco datos, el tercero es la mediana.",
+          "El tercer dato es x y debe ser 9."
+        ],
+        "retroalimentacion": "x = 9, porque ocupa exactamente la posición central."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si a 2, 4, 6, 8 se añade el 10, la mediana cambia de 5 a 6.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula primero la mediana con cuatro datos.",
+          "(4 + 6) ÷ 2 = 5.",
+          "Con cinco datos, el tercero es 6."
+        ],
+        "retroalimentacion": "Verdadero: la mediana pasa de 5 a 6 al añadir 10."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.moda-s1",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Usa estrategias y procedimientos para recopilar y procesar datos",
+    "desempenosOrigen": [
+      "MAT-C25-S1-03",
+      "MAT-C25-S1-06"
+    ],
+    "bloque": "Medidas de tendencia central",
+    "nombre": "Moda de variables cualitativas y cuantitativas",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Identifica la moda, incluidos los casos bimodales o sin moda.",
+    "palabrasClave": [
+      "moda",
+      "frecuencia",
+      "bimodal",
+      "sin moda",
+      "categoría"
+    ],
+    "prerrequisitos": [
+      "mat.s1.tabla-frecuencias-s1"
+    ],
+    "ordenSugerido": 99,
+    "ideaCentral": "La moda es el valor o categoría que más se repite. Puede haber dos modas si empatan en la frecuencia máxima; si todos aparecen la misma cantidad de veces, no hay moda útil.",
+    "pasos": [
+      "Anota cada valor o categoría sin cambiarlo.",
+      "Cuenta cuántas veces aparece cada uno.",
+      "Busca la frecuencia mayor.",
+      "Si dos valores empatan arriba, indica ambas modas; si todos empatan, indica que no hay moda."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Colores elegidos: azul, rojo, azul, verde.",
+        "desarrollo": "Azul aparece dos veces; rojo y verde una.",
+        "respuesta": "La moda es azul."
+      },
+      {
+        "situacion": "Pedidos: pan, jugo, pan, jugo, fruta.",
+        "desarrollo": "Pan y jugo aparecen dos veces cada uno; fruta una.",
+        "respuesta": "Es bimodal: pan y jugo."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Escoger el número más grande como moda.",
+        "correccion": "Cuenta repeticiones; el tamaño del número no determina la moda."
+      },
+      {
+        "error": "Declarar una moda cuando todas las categorías aparecen una vez.",
+        "correccion": "Si ninguna destaca en frecuencia, informa que no hay moda."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Moda",
+        "significado": "Valor o categoría con mayor frecuencia."
+      },
+      {
+        "termino": "Frecuencia",
+        "significado": "Número de veces que aparece un dato."
+      },
+      {
+        "termino": "Bimodal",
+        "significado": "Con dos valores que comparten la mayor frecuencia."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En una encuesta de frutas aparecen mango, pera, mango y uva. ¿Cuál es la moda?",
+        "respuesta": "mango",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cada fruta.",
+          "Mango aparece dos veces.",
+          "Pera y uva aparecen una vez."
+        ],
+        "retroalimentacion": "Mango es la moda porque es la fruta más repetida."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es la moda de 2, 5, 5, 8?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No busques el número mayor.",
+          "Cuenta las veces que aparece cada valor.",
+          "Solo 5 aparece dos veces."
+        ],
+        "retroalimentacion": "5 es la moda; 8 es mayor, pero aparece una sola vez.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8"
+          },
+          {
+            "id": "b",
+            "texto": "5"
+          },
+          {
+            "id": "c",
+            "texto": "2"
+          },
+          {
+            "id": "d",
+            "texto": "No hay moda"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En rojo, verde, azul y amarillo no hay una moda destacada.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cada color.",
+          "Todos aparecen una sola vez.",
+          "Ninguno tiene frecuencia mayor."
+        ],
+        "retroalimentacion": "Verdadero: al empatar todos con frecuencia 1, no hay moda."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Las tallas vendidas son 36, 37, 37, 38, 37. ¿Qué talla es la moda? Escribe solo el número.",
+        "respuesta": 37,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta cuántas veces aparece cada talla.",
+          "La 37 está escrita tres veces.",
+          "Las otras tallas aparecen una vez."
+        ],
+        "retroalimentacion": "La talla modal es 37; se vendió tres veces."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La lista 1, 1, 2, 2, 3 tiene ¿qué modas?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara las frecuencias.",
+          "1 y 2 aparecen dos veces cada uno.",
+          "3 aparece una sola vez."
+        ],
+        "retroalimentacion": "1 y 2 comparten la frecuencia máxima: la lista es bimodal.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo 1"
+          },
+          {
+            "id": "b",
+            "texto": "Solo 2"
+          },
+          {
+            "id": "c",
+            "texto": "Solo 3"
+          },
+          {
+            "id": "d",
+            "texto": "1 y 2"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Votos: ceviche, lomo saltado, ceviche, ají de gallina, ceviche. ¿Qué plato es la moda?",
+        "respuesta": "ceviche",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Agrupa votos por plato.",
+          "Ceviche tiene tres menciones.",
+          "Los otros platos tienen una cada uno."
+        ],
+        "retroalimentacion": "Ceviche es la moda con tres votos."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los datos 4, 4, 7, 7, 9 son bimodales.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca los dos valores más frecuentes.",
+          "4 aparece dos veces y 7 también.",
+          "9 solo aparece una vez."
+        ],
+        "retroalimentacion": "Verdadero: 4 y 7 son dos modas."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Las mascotas anotadas son perro, gato, ave y pez; cada una aparece una vez. Escribe «sin moda» si ninguna destaca.",
+        "respuesta": "sin moda",
+        "alternativasAceptadas": [
+          "no hay moda",
+          "ninguna"
+        ],
+        "pistas": [
+          "Compara las cuatro frecuencias.",
+          "Todas son iguales a uno.",
+          "No existe una categoría más repetida."
+        ],
+        "retroalimentacion": "Sin moda: ninguna mascota supera a las demás en frecuencia."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Resultados: 10, 12, 10, 14, 12, 10, 14. ¿Cuántas veces aparece la moda? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuenta primero las apariciones de 10, 12 y 14.",
+          "10 aparece tres veces; 12 y 14, dos.",
+          "La frecuencia de la moda es tres."
+        ],
+        "retroalimentacion": "La moda es 10 y aparece 3 veces."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tabla indica A: 5 votos, B: 3, C: 5, D: 1. ¿Cómo se describe la moda?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la frecuencia más alta.",
+          "El máximo es 5 votos.",
+          "Dos categorías alcanzan ese máximo."
+        ],
+        "retroalimentacion": "A y C son modas; ambas tienen 5 votos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "A y C son modas"
+          },
+          {
+            "id": "b",
+            "texto": "Solo B es moda"
+          },
+          {
+            "id": "c",
+            "texto": "No hay moda"
+          },
+          {
+            "id": "d",
+            "texto": "D es moda"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al agregar un 6 a la lista 3, 3, 6, 6, 8, la moda deja de ser bimodal y pasa a ser solo 6.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Antes, 3 y 6 aparecen dos veces.",
+          "Después de agregar 6, este aparece tres veces.",
+          "Compara tres con las dos apariciones de 3."
+        ],
+        "retroalimentacion": "Verdadero: 6 pasa a frecuencia 3 y supera a 3."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una lista tiene lápiz 4 veces, borrador 4 y regla 2. Si se registra un borrador más, ¿cuál queda como única moda?",
+        "respuesta": "borrador",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Borrador pasa de cuatro a cinco apariciones.",
+          "Lápiz permanece en cuatro y regla en dos.",
+          "La categoría de frecuencia cinco queda sola arriba."
+        ],
+        "retroalimentacion": "Borrador es la única moda tras añadir una aparición."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.leer-medidas-en-textos",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Comunica su comprensión de los conceptos estadísticos y probabilísticos",
+    "desempenosOrigen": [
+      "MAT-C25-S1-04"
+    ],
+    "bloque": "Medidas de tendencia central",
+    "nombre": "Medidas de tendencia central en noticias e informes",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Interpreta promedios y medianas que aparecen en textos y gráficos.",
+    "palabrasClave": [
+      "noticia",
+      "informe",
+      "promedio",
+      "mediana",
+      "interpretar"
+    ],
+    "prerrequisitos": [
+      "mat.s1.mediana"
+    ],
+    "ordenSugerido": 100,
+    "ideaCentral": "Una noticia puede resumir datos con media o mediana. Para entenderla, identifica qué población y unidad describe la cifra, y recuerda que una media no significa que todos tengan exactamente ese valor.",
+    "pasos": [
+      "Localiza en el texto la población estudiada y la unidad.",
+      "Identifica si «promedio» se refiere a la media o si se menciona la mediana.",
+      "Explica la cifra en palabras: media reparte el total; mediana marca el centro ordenado.",
+      "Comprueba que la conclusión no atribuya el mismo valor a cada persona."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un informe dice: «La media de libros leídos por cuatro estudiantes fue 3».",
+        "desarrollo": "El total de libros es 4 × 3 = 12, aunque cada estudiante pudo leer una cantidad distinta.",
+        "respuesta": "Entre los cuatro leyeron 12 libros."
+      },
+      {
+        "situacion": "Una nota dice: «La mediana de cinco tiempos fue 8 minutos».",
+        "desarrollo": "Al ordenar los cinco tiempos, el tercero vale 8.",
+        "respuesta": "El tiempo central fue 8 minutos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Leer «promedio 4» como «cada persona tuvo 4».",
+        "correccion": "El promedio resume el total; los valores individuales pueden variar."
+      },
+      {
+        "error": "Confundir mediana con el valor mayor de un gráfico.",
+        "correccion": "La mediana es el dato central después de ordenar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Informe",
+        "significado": "Texto que comunica datos y conclusiones."
+      },
+      {
+        "termino": "Promedio",
+        "significado": "Media: total dividido entre cantidad."
+      },
+      {
+        "termino": "Mediana",
+        "significado": "Valor central de una lista ordenada."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una noticia dice «promedio de 6 cuadernos por estudiante». ¿Qué expresa 6?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca la palabra «promedio».",
+          "Promedio resume el total repartido.",
+          "No asegura que cada estudiante tenga seis."
+        ],
+        "retroalimentacion": "La media por estudiante es 6; cada estudiante podría tener otra cantidad.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La cantidad máxima"
+          },
+          {
+            "id": "b",
+            "texto": "La cantidad mínima"
+          },
+          {
+            "id": "c",
+            "texto": "La media por estudiante"
+          },
+          {
+            "id": "d",
+            "texto": "La cantidad exacta de todos"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un informe da una mediana de 12 años para cinco participantes, el tercer dato ordenado es 12.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cinco es una cantidad impar.",
+          "El lugar central es el tercero.",
+          "La mediana informada ocupa ese lugar."
+        ],
+        "retroalimentacion": "Verdadero: el tercer dato ordenado vale 12 años."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un titular dice «La mitad central del grupo se ubica alrededor de la mediana de 15 minutos». ¿Qué unidad corresponde al 15?",
+        "respuesta": "minutos",
+        "alternativasAceptadas": [
+          "minuto",
+          "min"
+        ],
+        "pistas": [
+          "Lee el número y la palabra que lo acompaña.",
+          "La cifra habla de duración.",
+          "El texto dice «15 minutos»."
+        ],
+        "retroalimentacion": "La unidad es minutos; sin unidad la cifra pierde contexto."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un gráfico informa promedio de 4 árboles por parcela entre 3 parcelas. ¿Cuántos árboles hay en total? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Promedio × cantidad da el total.",
+          "Hay tres parcelas y cuatro árboles por parcela en media.",
+          "3 × 4 = 12."
+        ],
+        "retroalimentacion": "El total es 12 árboles; eso no obliga a que cada parcela tenga exactamente 4."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una nota informa: «mediana de espera: 10 minutos» entre siete pacientes. ¿Qué se puede afirmar?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Siete datos tienen un único centro.",
+          "El cuarto lugar es central.",
+          "La mediana no determina máximo ni suma."
+        ],
+        "retroalimentacion": "El cuarto tiempo ordenado es 10 minutos; los demás pueden ser distintos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El cuarto tiempo ordenado es 10 minutos"
+          },
+          {
+            "id": "b",
+            "texto": "Todos esperaron 10 minutos"
+          },
+          {
+            "id": "c",
+            "texto": "La espera máxima fue 10 minutos"
+          },
+          {
+            "id": "d",
+            "texto": "La suma de esperas fue 70 minutos"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "«Promedio de 5 goles en cuatro fechas» implica necesariamente 20 goles en total.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La media es total dividido entre cuatro.",
+          "Multiplica cinco por cuatro.",
+          "5 × 4 = 20."
+        ],
+        "retroalimentacion": "Verdadero: la suma de las cuatro fechas es 20 goles."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un reporte describe ingresos 10, 10, 10, 10 y 60 soles. ¿Qué medida vale 10 y señala el dato central?",
+        "respuesta": "mediana",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ordena los cinco ingresos.",
+          "El tercero es 10.",
+          "El nombre de la medida central es mediana."
+        ],
+        "retroalimentacion": "La mediana es S/ 10; la media sería S/ 20."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una crónica dice que la mediana de 5 puntajes ordenados es el tercero: 7, 8, 9, 13, 20. ¿Cuál es la mediana? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La lista ya está ordenada.",
+          "Cuenta hasta el tercer lugar.",
+          "El tercer valor es 9."
+        ],
+        "retroalimentacion": "La mediana es 9 puntos, aunque el último puntaje sea 20."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un afiche, cuatro familias gastaron 2, 4, 6 y 8 soles y se anuncia «promedio S/ 5». ¿Qué conclusión es válida?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica media por cantidad de familias.",
+          "El gasto medio de S/ 5 entre cuatro familias implica S/ 20 en conjunto.",
+          "Los gastos individuales son distintos de 5."
+        ],
+        "retroalimentacion": "El gasto total fue S/ 20; el promedio no fue el gasto de cada familia.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cada familia gastó S/ 5"
+          },
+          {
+            "id": "b",
+            "texto": "Nadie gastó menos de S/ 5"
+          },
+          {
+            "id": "c",
+            "texto": "El máximo fue S/ 5"
+          },
+          {
+            "id": "d",
+            "texto": "El gasto total fue S/ 20"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un artículo informa mediana de 8 libros en cinco estudiantes y afirma que al menos tres leyeron 8 libros o más. Esa conclusión se desprende de la mediana.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El tercer dato ordenado es 8.",
+          "Los lugares cuarto y quinto no son menores que el tercero.",
+          "Así, tres posiciones son 8 o más."
+        ],
+        "retroalimentacion": "Verdadero: el dato central y los dos superiores son al menos 8."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un informe muestra dos grupos: A con media 10 y B con mediana 10. ¿Qué comparación está justificada solo con ese dato?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una media y una mediana se calculan distinto.",
+          "No se informa el tamaño de los grupos.",
+          "Solo coinciden los valores publicados de dos resúmenes diferentes."
+        ],
+        "retroalimentacion": "Ambos resúmenes valen 10, pero describen cosas distintas; faltan datos para afirmar igualdad de sumas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tienen la misma suma"
+          },
+          {
+            "id": "b",
+            "texto": "Ambos resúmenes valen 10, pero describen cosas distintas"
+          },
+          {
+            "id": "c",
+            "texto": "Cada integrante tiene 10"
+          },
+          {
+            "id": "d",
+            "texto": "Los dos tienen la misma cantidad de personas"
+          }
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una noticia afirma: «El promedio de 5 días fue 12 visitantes». Al revisar el registro, ¿qué suma total de visitantes debes buscar? Escribe solo el número.",
+        "respuesta": 60,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica promedio por cantidad de días.",
+          "Son cinco días a una media de doce.",
+          "5 × 12 = 60."
+        ],
+        "retroalimentacion": "Debes buscar 60 visitantes en total; 12 no es necesariamente cada día."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.medida-representativa",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Sustenta conclusiones o decisiones con base en la información obtenida",
+    "desempenosOrigen": [
+      "MAT-C25-S1-07"
+    ],
+    "bloque": "Medidas de tendencia central",
+    "nombre": "Medida de tendencia central más representativa",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Justifica si la media, la mediana o la moda describe mejor una población.",
+    "palabrasClave": [
+      "media",
+      "mediana",
+      "moda",
+      "representativa",
+      "justificación"
+    ],
+    "prerrequisitos": [
+      "mat.s1.mediana",
+      "mat.s1.moda-s1"
+    ],
+    "ordenSugerido": 101,
+    "ideaCentral": "La medida más útil depende de los datos y de la pregunta. La moda describe la categoría más común; la mediana muestra el centro cuando hay extremos; la media reparte un total entre todos.",
+    "pasos": [
+      "Decide si los datos son categorías o números.",
+      "Si buscas lo más frecuente, revisa la moda.",
+      "Si un valor extremo distorsiona el promedio, revisa la mediana.",
+      "Si interesa repartir un total, calcula la media y justifica tu elección."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Tallas vendidas: S, M, M, L. ¿Qué talla conviene reponer?",
+        "desarrollo": "La talla M aparece más veces; las tallas son categorías.",
+        "respuesta": "La moda M orienta la reposición."
+      },
+      {
+        "situacion": "Sueldos en soles: 1000, 1100, 1200, 1300, 9000.",
+        "desarrollo": "El 9000 eleva mucho la media, pero el centro ordenado es 1200.",
+        "respuesta": "La mediana de S/ 1200 describe mejor el sueldo típico."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Calcular media de categorías como rojo y azul.",
+        "correccion": "Para categorías, usa la moda."
+      },
+      {
+        "error": "Elegir media para describir un grupo con un extremo muy alejado sin revisarlo.",
+        "correccion": "Compara con la mediana y explica el efecto del extremo."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Representativa",
+        "significado": "Medida que resume bien el rasgo que interesa del grupo."
+      },
+      {
+        "termino": "Media",
+        "significado": "Total numérico dividido entre cantidad."
+      },
+      {
+        "termino": "Mediana",
+        "significado": "Dato central ordenado."
+      },
+      {
+        "termino": "Moda",
+        "significado": "Dato o categoría más frecuente."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una tienda quiere saber qué sabor de helado se pidió más: lúcuma, fresa o chocolate. ¿Qué medida conviene?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los sabores son categorías.",
+          "No puedes promediar numéricamente «lúcuma».",
+          "Busca la categoría más frecuente."
+        ],
+        "retroalimentacion": "Moda indica el sabor más pedido.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Media"
+          },
+          {
+            "id": "b",
+            "texto": "Mediana"
+          },
+          {
+            "id": "c",
+            "texto": "Moda"
+          },
+          {
+            "id": "d",
+            "texto": "Rango"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para describir el color de polo más elegido en una clase, la moda es pertinente.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los colores no son números.",
+          "La pregunta pide el color más frecuente.",
+          "Eso es justamente la moda."
+        ],
+        "retroalimentacion": "Verdadero: la moda nombra el color con más elecciones."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Los puntajes ordenados son 8, 9, 10, 11 y 50. ¿Qué medida da el valor central sin desplazarse hacia 50?",
+        "respuesta": "mediana",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 50 está lejos de los otros.",
+          "Busca el tercer valor ordenado.",
+          "La medida que toma ese centro es la mediana."
+        ],
+        "retroalimentacion": "La mediana es 10 y no se desplaza hacia el extremo 50."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una escuela reparte por igual 24 libros entre 6 aulas. ¿Qué medida expresa libros por aula si se iguala el reparto?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay un total y una cantidad de aulas.",
+          "Repartir por igual equivale a dividir 24 entre 6.",
+          "Ese reparto corresponde a la media."
+        ],
+        "retroalimentacion": "La media es 4 libros por aula en un reparto igualitario.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Media"
+          },
+          {
+            "id": "b",
+            "texto": "Moda"
+          },
+          {
+            "id": "c",
+            "texto": "Mediana"
+          },
+          {
+            "id": "d",
+            "texto": "Máximo"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Con 5, 6, 7, 8 y 60, la mediana de 7 describe mejor el centro habitual que la media de 17,2.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuatro datos están entre 5 y 8.",
+          "El 60 está muy lejos.",
+          "La media sube a 17,2 mientras la mediana queda en 7."
+        ],
+        "retroalimentacion": "Verdadero: el extremo 60 arrastra la media y la mediana queda entre los valores habituales."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una zapatería registró tallas 36, 37, 37, 38 y 40. Para pedir más pares de la talla más vendida, ¿qué usa?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La decisión depende de la frecuencia.",
+          "Cuenta cuántas veces aparece cada talla.",
+          "37 se repite dos veces."
+        ],
+        "retroalimentacion": "La moda 37 identifica la talla más vendida.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La media 37,6"
+          },
+          {
+            "id": "b",
+            "texto": "La mediana 37"
+          },
+          {
+            "id": "c",
+            "texto": "El máximo 40"
+          },
+          {
+            "id": "d",
+            "texto": "La moda 37"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Cinco tiempos son 9, 10, 11, 12 y 48 minutos. ¿Qué medida, media o mediana, representa mejor un tiempo habitual?",
+        "respuesta": "mediana",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cuatro tiempos son cercanos.",
+          "El 48 es un extremo alto.",
+          "El dato central ordenado sigue siendo 11."
+        ],
+        "retroalimentacion": "La mediana representa mejor los tiempos habituales; 48 eleva la media."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Los resultados 4, 6 y 8 no tienen extremo. Si eliges la media para resumirlos, ¿cuánto vale? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma los tres valores.",
+          "4 + 6 + 8 = 18.",
+          "Divide 18 entre 3."
+        ],
+        "retroalimentacion": "La media es 6, también el centro de estos datos equilibrados."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una encuesta de transporte: 12 van en bus, 5 a pie y 3 en bicicleta. ¿Qué medida responde «medio más usado»?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los medios de transporte son categorías.",
+          "La mayor frecuencia es 12 para bus.",
+          "El nombre del resumen más frecuente es moda."
+        ],
+        "retroalimentacion": "Moda identifica bus como medio más usado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Mediana"
+          },
+          {
+            "id": "b",
+            "texto": "Moda"
+          },
+          {
+            "id": "c",
+            "texto": "Media"
+          },
+          {
+            "id": "d",
+            "texto": "Mínimo"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Gastos en soles: 8, 9, 10, 11 y 52. Un titular busca describir el gasto típico, no repartir el total. ¿Qué cifra elegirías?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 52 está lejos del resto.",
+          "Ordena: el centro es 10.",
+          "Para valor típico con extremo, usa la mediana."
+        ],
+        "retroalimentacion": "Mediana de S/ 10 refleja los cuatro gastos cercanos; S/ 52 eleva la media.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Mediana de S/ 10"
+          },
+          {
+            "id": "b",
+            "texto": "Media de S/ 18"
+          },
+          {
+            "id": "c",
+            "texto": "Moda de S/ 52"
+          },
+          {
+            "id": "d",
+            "texto": "Máximo de S/ 52"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Las preferencias A, A, B, B, C tienen dos categorías más comunes; informar solo la media numérica sería adecuado.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las preferencias son letras, no cantidades numéricas.",
+          "A y B empatan con dos apariciones.",
+          "La descripción pertinente es bimodal."
+        ],
+        "retroalimentacion": "Falso: no hay media numérica de letras; A y B son las modas."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un comedor debe estimar cuántas raciones hay por mesa si distribuye 45 raciones entre 9 mesas por igual. ¿Qué medida resume ese reparto?",
+        "respuesta": "media",
+        "alternativasAceptadas": [
+          "promedio"
+        ],
+        "pistas": [
+          "Hay un total de raciones.",
+          "Se reparte entre nueve mesas.",
+          "La medida de reparto igual es la media."
+        ],
+        "retroalimentacion": "La media resume el reparto: 45 ÷ 9 = 5 raciones por mesa."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.valores-extremos",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Sustenta conclusiones o decisiones con base en la información obtenida",
+    "desempenosOrigen": [
+      "MAT-C25-S1-07"
+    ],
+    "bloque": "Medidas de tendencia central",
+    "nombre": "Efecto de los valores extremos en la media",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Explica cómo un dato muy alto o muy bajo cambia la media y no la mediana.",
+    "palabrasClave": [
+      "valor extremo",
+      "media",
+      "mediana",
+      "cambio",
+      "dato atípico"
+    ],
+    "prerrequisitos": [
+      "mat.s1.medida-representativa"
+    ],
+    "ordenSugerido": 102,
+    "ideaCentral": "Un valor muy alto o muy bajo puede mover mucho la media porque entra en la suma total. La mediana depende de la posición central de los datos ordenados y puede quedar igual si el extremo cambia.",
+    "pasos": [
+      "Ordena los datos e identifica un valor muy alejado.",
+      "Calcula la media sumando y dividiendo entre el número de datos.",
+      "Ubica la mediana en el centro ordenado.",
+      "Cambia el extremo indicado y compara ambas medidas."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Datos: 2, 3, 4, 5, 6; el 6 se reemplaza por 26.",
+        "desarrollo": "La suma sube 20, así que la media sube 20 ÷ 5 = 4. El tercer dato sigue siendo 4.",
+        "respuesta": "La media pasa de 4 a 8; la mediana sigue en 4."
+      },
+      {
+        "situacion": "Datos: 10, 11, 12, 13, 14; el 10 baja a 0.",
+        "desarrollo": "La suma baja 10, por lo que la media baja 2. El valor central sigue en 12.",
+        "respuesta": "La media pasa de 12 a 10; la mediana sigue en 12."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Suponer que un extremo nunca cambia la media.",
+        "correccion": "Todo dato participa en la suma; calcula cuánto aporta el cambio."
+      },
+      {
+        "error": "Afirmar que la mediana siempre cambia cuando se modifica cualquier dato.",
+        "correccion": "Reordena y comprueba si el centro conserva su valor."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Valor extremo",
+        "significado": "Dato muy alejado de la mayoría."
+      },
+      {
+        "termino": "Media",
+        "significado": "Suma de datos dividida entre su cantidad."
+      },
+      {
+        "termino": "Mediana",
+        "significado": "Valor central de los datos ordenados."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En 3, 4, 5, 6 y 40, ¿cuál es el valor extremo alto?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara cada dato con el grupo principal.",
+          "Cuatro valores están entre 3 y 6.",
+          "El 40 está mucho más lejos."
+        ],
+        "retroalimentacion": "40 es el extremo alto; los otros cuatro están próximos.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "4"
+          },
+          {
+            "id": "c",
+            "texto": "6"
+          },
+          {
+            "id": "d",
+            "texto": "40"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 2, 3, 4, 5 y 50, la mediana es 4 aunque 50 sea grande.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los datos ya están ordenados.",
+          "El tercero de cinco es central.",
+          "El tercero es 4."
+        ],
+        "retroalimentacion": "Verdadero: la mediana es 4 y el 50 queda al extremo."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Los datos 1, 2 y 3 tienen media 2. Si 3 se cambia por 6, ¿cuál es la nueva media? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La nueva lista es 1, 2 y 6.",
+          "La suma nueva es 9.",
+          "9 ÷ 3 = 3."
+        ],
+        "retroalimentacion": "La media sube a 3 porque el extremo mayor aumenta la suma."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En 4, 5, 6, 7 y 30, ¿qué medida permanece en 6 si 30 sube a 50: media o mediana?",
+        "respuesta": "mediana",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El centro de cinco datos es el tercero.",
+          "El tercero sigue siendo 6.",
+          "El total sí cambia, pero el centro no."
+        ],
+        "retroalimentacion": "La mediana permanece en 6; la media sube."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La lista 5, 5, 5, 5 tiene media 5. Se añade 25 como quinto dato. ¿Cuál es la nueva media? Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma cuatro veces 5 y luego 25.",
+          "20 + 25 = 45.",
+          "Ahora hay cinco datos: 45 ÷ 5."
+        ],
+        "retroalimentacion": "La media sube a 9; el 25 alejado aumenta el total."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En 10, 11, 12, 13 y 14 se cambia 14 por 34. ¿Qué sucede con la mediana?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ordena la nueva lista.",
+          "Queda 10, 11, 12, 13, 34.",
+          "El tercer dato sigue siendo 12."
+        ],
+        "retroalimentacion": "Permanece en 12; cambiar el último no mueve el centro.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Permanece en 12"
+          },
+          {
+            "id": "b",
+            "texto": "Sube a 16"
+          },
+          {
+            "id": "c",
+            "texto": "Sube a 34"
+          },
+          {
+            "id": "d",
+            "texto": "Baja a 10"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un dato de una lista de cuatro aumenta en 8 y los demás no cambian, la media aumenta en 2.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La suma total aumenta 8.",
+          "Hay cuatro datos para repartir ese aumento.",
+          "8 ÷ 4 = 2."
+        ],
+        "retroalimentacion": "Verdadero: la media crece 8 ÷ 4 = 2."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una tabla muestra 6, 7, 8, 9 y 70. ¿Qué dato explica que la media supere mucho a la mediana? Escribe solo el número.",
+        "respuesta": "70",
+        "alternativasAceptadas": [
+          "setenta"
+        ],
+        "pistas": [
+          "Cuatro valores están agrupados entre 6 y 9.",
+          "Hay uno muy alejado por arriba.",
+          "Ese dato es 70."
+        ],
+        "retroalimentacion": "El valor extremo 70 eleva mucho la suma y, por ello, la media."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La media de 2, 4 y 6 es 4. Si 6 pasa a 12, ¿cuánto aumenta la media? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El dato aumenta en 6.",
+          "El aumento se reparte entre tres datos.",
+          "6 ÷ 3 = 2."
+        ],
+        "retroalimentacion": "La media aumenta 2, de 4 a 6."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Los datos son 4, 5, 6, 7 y 8. Se cambia el 4 por −16. ¿Qué par describe el efecto?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El dato 4 baja veinte unidades.",
+          "Reparte −20 entre cinco datos: −4 en la media.",
+          "El orden central sigue siendo 6."
+        ],
+        "retroalimentacion": "La media baja 4 y la mediana sigue en 6; −16 queda en el extremo inferior.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Media sube 4; mediana cambia a 5"
+          },
+          {
+            "id": "b",
+            "texto": "Media baja 4; mediana sigue en 6"
+          },
+          {
+            "id": "c",
+            "texto": "Media baja 20; mediana sigue en 6"
+          },
+          {
+            "id": "d",
+            "texto": "Media y mediana quedan iguales"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 1, 2, 3, 4 y 100, sustituir 100 por 200 duplica la media y conserva la mediana.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La mediana sí sigue siendo 3.",
+          "La suma original es 110 y la nueva 210.",
+          "Las medias son 22 y 42; 42 no es el doble de 22."
+        ],
+        "retroalimentacion": "Falso: la mediana queda en 3, pero la media pasa de 22 a 42, no a 44."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Cinco datos tienen media 10. Un valor extremo aumenta en 15 y los otros cuatro quedan iguales. ¿Cuál es la nueva media? Escribe solo el número.",
+        "respuesta": 13,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La suma inicial es 5 × 10.",
+          "El total crece de 50 a 65.",
+          "65 ÷ 5 = 13."
+        ],
+        "retroalimentacion": "La media nueva es 13; el aumento de 15 se reparte entre cinco datos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

@@ -1,0 +1,611 @@
+[
+  {
+    "clave": "mat.s1.razon-aritmetica-geometrica",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-S1-04"
+    ],
+    "bloque": "Razones",
+    "nombre": "Razón aritmética y razón geométrica",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Compara dos cantidades por diferencia o por cociente e interpreta «2 es a 3».",
+    "palabrasClave": [
+      "razón aritmética",
+      "razón geométrica",
+      "diferencia",
+      "cociente"
+    ],
+    "prerrequisitos": [
+      "mat.s1.fraccion-como-medida"
+    ],
+    "ordenSugerido": 78,
+    "ideaCentral": "La razón aritmética compara dos cantidades mediante una resta; la geométrica las compara mediante una división. El orden importa en ambas.",
+    "pasos": [
+      "Identifica la primera y la segunda cantidad.",
+      "Para la razón aritmética, resta segunda a primera.",
+      "Para la razón geométrica, divide primera entre segunda si esta no es cero.",
+      "Interpreta la diferencia o cuántas veces representa una respecto de la otra."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Hay 12 lápices rojos y 8 azules.",
+        "desarrollo": "Razón aritmética 12 − 8 = 4; geométrica 12/8 = 3/2.",
+        "respuesta": "Diferencia 4; cociente 3/2."
+      },
+      {
+        "situacion": "Dos equipos anotan 18 y 6 puntos.",
+        "desarrollo": "18 − 6 = 12; 18/6 = 3.",
+        "respuesta": "El primero tiene 12 puntos más y el triple."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir «cuánto más» con «cuántas veces».",
+        "correccion": "Usa resta para cuánto más y división para cuántas veces."
+      },
+      {
+        "error": "Invertir las cantidades sin revisar el orden.",
+        "correccion": "En «A respecto de B», calcula A − B o A/B."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Razón aritmética",
+        "significado": "Diferencia entre dos cantidades en orden."
+      },
+      {
+        "termino": "Razón geométrica",
+        "significado": "Cociente entre dos cantidades en orden."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una sección tiene 15 estudiantes y otra 11. ¿Cuál es la razón aritmética de la primera respecto de la segunda? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La razón aritmética es una resta.",
+          "Coloca primero quince.",
+          "15 − 11 = 4."
+        ],
+        "retroalimentacion": "No dividas: la razón aritmética es 4."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos cajas tienen 8 y 4 cuadernos. ¿Cuál es la razón geométrica de la primera respecto de la segunda?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4"
+          },
+          {
+            "id": "b",
+            "texto": "2"
+          },
+          {
+            "id": "c",
+            "texto": "1/2"
+          },
+          {
+            "id": "d",
+            "texto": "12"
+          }
+        ],
+        "pistas": [
+          "La razón geométrica es un cociente.",
+          "Divide ocho entre cuatro.",
+          "La primera contiene el doble."
+        ],
+        "retroalimentacion": "8/4 = 2; la diferencia 4 es razón aritmética."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La razón aritmética de 9 respecto de 6 es 3.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resta la segunda cantidad de la primera.",
+          "Calcula 9 − 6.",
+          "La diferencia es tres."
+        ],
+        "retroalimentacion": "Es verdadero: 9 − 6 = 3."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Para las cantidades 10 y 5, ¿cuál es la razón geométrica de la primera a la segunda? Escribe solo el número.",
+        "respuesta": "2",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide la primera entre la segunda.",
+          "Calcula 10/5.",
+          "Diez contiene dos veces cinco."
+        ],
+        "retroalimentacion": "La razón geométrica es 2, no la diferencia 5."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El equipo A hizo 24 puntos y B hizo 16. ¿Qué diferencia de puntos expresa la razón aritmética A respecto de B? Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La palabra diferencia indica resta.",
+          "Resta 16 de 24.",
+          "24 − 16 = 8."
+        ],
+        "retroalimentacion": "A supera a B por 8 puntos; 24/16 es otra razón."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una receta usa 6 tazas de agua y 3 de arroz. ¿Cómo se interpreta la razón geométrica agua/arroz?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Hay tres tazas más de agua"
+          },
+          {
+            "id": "b",
+            "texto": "Hay seis veces más agua"
+          },
+          {
+            "id": "c",
+            "texto": "Hay el doble de agua"
+          },
+          {
+            "id": "d",
+            "texto": "Hay la mitad de agua"
+          }
+        ],
+        "pistas": [
+          "Divide seis entre tres.",
+          "El cociente es dos.",
+          "Relaciona dos tazas de agua por una de arroz."
+        ],
+        "retroalimentacion": "La razón agua/arroz es 2: hay el doble de agua que de arroz."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para 4 y 12, la razón geométrica de 4 respecto de 12 es 3.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El orden es 4/12.",
+          "Simplifica cuatro doceavos.",
+          "La razón es 1/3."
+        ],
+        "retroalimentacion": "Es falso: 4/12 = 1/3; 3 corresponde a 12/4."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Dos puestos venden 18 y 12 jugos. Escribe la razón geométrica del primero respecto del segundo como fracción simplificada.",
+        "respuesta": "3/2",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1,5"
+          },
+          {
+            "id": "b",
+            "texto": "1.5"
+          }
+        ],
+        "pistas": [
+          "Forma 18/12.",
+          "Ambos números son divisibles entre seis.",
+          "18/6 = 3 y 12/6 = 2."
+        ],
+        "retroalimentacion": "La razón es 3/2, no 2/3: importa el orden."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un torneo, A obtuvo 21 puntos y B 7. ¿Qué par muestra razón aritmética y geométrica de A respecto de B?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 y 14"
+          },
+          {
+            "id": "b",
+            "texto": "14 y 7"
+          },
+          {
+            "id": "c",
+            "texto": "28 y 3"
+          },
+          {
+            "id": "d",
+            "texto": "14 y 3"
+          }
+        ],
+        "pistas": [
+          "Primero resta 21 − 7.",
+          "Luego divide 21/7.",
+          "Los resultados son catorce y tres."
+        ],
+        "retroalimentacion": "La diferencia es 14 y el cociente 3."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una mochila pesa 9 kg y otra 3 kg. ¿Cuántas veces pesa la primera respecto de la segunda? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "«Cuántas veces» pide razón geométrica.",
+          "Divide nueve entre tres.",
+          "9/3 = 3."
+        ],
+        "retroalimentacion": "La primera pesa tres veces la segunda; seis sería la diferencia en kg."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Las cantidades 20 y 10 tienen razón aritmética 10 y razón geométrica 2, en ese orden.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 20 − 10.",
+          "Calcula 20/10.",
+          "Obtienes diez y dos."
+        ],
+        "retroalimentacion": "Es verdadero: diferencia 10 y cociente 2."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un salón reunió 30 libros y otro 12. ¿Cuál es la razón aritmética del segundo respecto del primero? Escribe solo el número.",
+        "respuesta": "-18",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Respeta el orden: segundo menos primero.",
+          "Calcula 12 − 30.",
+          "La resta da un número negativo."
+        ],
+        "retroalimentacion": "La razón del segundo respecto del primero es −18, no 18."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.reparto-proporcional",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-S1-01",
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Razones",
+    "nombre": "Reparto proporcional",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Reparte una cantidad en partes proporcionales a números dados.",
+    "palabrasClave": [
+      "reparto proporcional",
+      "razón",
+      "partes",
+      "total"
+    ],
+    "prerrequisitos": [
+      "mat.s1.razon-aritmetica-geometrica"
+    ],
+    "ordenSugerido": 79,
+    "ideaCentral": "En un reparto proporcional, cada destinatario recibe tantas partes como indica su razón. La suma de todas las partes debe recuperar el total.",
+    "pasos": [
+      "Suma los números de la razón para conocer las partes totales.",
+      "Divide la cantidad total entre ese número de partes.",
+      "Multiplica el valor de una parte por cada número de la razón.",
+      "Comprueba que las cantidades sumen el total y respeten la razón."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "S/ 50 se reparten en razón 2:3.",
+        "desarrollo": "Hay 5 partes; cada una vale S/ 10. Los montos son 20 y 30.",
+        "respuesta": "S/ 20 y S/ 30."
+      },
+      {
+        "situacion": "Se reparten 24 semillas en razón 1:2:3.",
+        "desarrollo": "Hay 6 partes de 4 semillas; tocan 4, 8 y 12.",
+        "respuesta": "4, 8 y 12 semillas."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dividir el total entre destinatarios por igual.",
+        "correccion": "Divide entre la suma de las partes de la razón."
+      },
+      {
+        "error": "Olvidar comprobar el total.",
+        "correccion": "Suma las cuotas; deben dar exactamente la cantidad inicial."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Parte proporcional",
+        "significado": "Cuota asociada a un número de la razón."
+      },
+      {
+        "termino": "Razón de reparto",
+        "significado": "Números que indican cómo se comparan las cuotas."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Se reparten S/ 30 entre Ana y Luis en razón 1:2. ¿Cuánto recibe Ana? Escribe solo el número de soles.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las partes: 1 + 2.",
+          "Hay tres partes iguales.",
+          "Cada parte vale 30/3."
+        ],
+        "retroalimentacion": "Ana recibe una parte: S/ 10; Luis recibe S/ 20."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Doce panes se reparten entre dos familias en razón 1:3. ¿Cuántos recibe la segunda?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3 panes"
+          },
+          {
+            "id": "b",
+            "texto": "6 panes"
+          },
+          {
+            "id": "c",
+            "texto": "9 panes"
+          },
+          {
+            "id": "d",
+            "texto": "12 panes"
+          }
+        ],
+        "pistas": [
+          "Las partes suman cuatro.",
+          "Cada parte vale tres panes.",
+          "La segunda recibe tres partes."
+        ],
+        "retroalimentacion": "La segunda familia recibe 9 panes, no 3."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Repartir 20 fichas en razón 1:1 da 10 fichas a cada persona.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las partes son iguales.",
+          "En total hay dos partes.",
+          "20/2 = 10 por parte."
+        ],
+        "retroalimentacion": "Es verdadero: 10 y 10 suman 20 y respetan 1:1."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Se reparten 18 cromos en razón 2:1. ¿Cuánto vale una parte? Escribe solo el número.",
+        "respuesta": "6",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma dos y una partes.",
+          "Hay tres partes en total.",
+          "Divide 18 entre tres."
+        ],
+        "retroalimentacion": "Cada parte vale 6 cromos; las cuotas son 12 y 6."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un premio de S/ 80 se divide entre dos equipos en razón 3:5. ¿Cuánto recibe el primero? Escribe solo el número de soles.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las partes suman ocho.",
+          "Cada parte vale 80/8 = 10.",
+          "El primero recibe tres partes."
+        ],
+        "retroalimentacion": "El primer equipo recibe S/ 30; el segundo S/ 50."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se reparten 36 plantas entre tres huertos en razón 1:2:3. ¿Cuál es el reparto?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "12, 12 y 12"
+          },
+          {
+            "id": "b",
+            "texto": "6, 12 y 18"
+          },
+          {
+            "id": "c",
+            "texto": "9, 12 y 15"
+          },
+          {
+            "id": "d",
+            "texto": "4, 8 y 12"
+          }
+        ],
+        "pistas": [
+          "Suma 1 + 2 + 3.",
+          "Cada una de las seis partes vale seis plantas.",
+          "Multiplica seis por 1, 2 y 3."
+        ],
+        "retroalimentacion": "El reparto es 6, 12 y 18; suma 36."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Las cuotas 8 y 12 reparten 20 en razón 2:3.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Simplifica la razón 8:12.",
+          "Divide ambos valores entre cuatro.",
+          "Obtienes 2:3."
+        ],
+        "retroalimentacion": "Es verdadero: 8 + 12 = 20 y 8:12 = 2:3."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Rosa y Mario reciben S/ 15 y S/ 25 de un fondo. ¿Qué razón simplificada tienen sus cuotas, en ese orden?",
+        "respuesta": "3:5",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3/5"
+          }
+        ],
+        "pistas": [
+          "Escribe 15:25.",
+          "Ambos son divisibles entre cinco.",
+          "Quedan tres y cinco."
+        ],
+        "retroalimentacion": "La razón es 3:5, no 5:3 porque Rosa va primero."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se reparten S/ 90 en razón 2:3:4. ¿Cuánto recibe quien tiene la mayor cuota?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "S/ 20"
+          },
+          {
+            "id": "b",
+            "texto": "S/ 30"
+          },
+          {
+            "id": "c",
+            "texto": "S/ 36"
+          },
+          {
+            "id": "d",
+            "texto": "S/ 40"
+          }
+        ],
+        "pistas": [
+          "Suma las partes: nueve.",
+          "Cada parte vale S/ 10.",
+          "La mayor cuota tiene cuatro partes."
+        ],
+        "retroalimentacion": "La mayor cuota es S/ 40; las otras son S/ 20 y S/ 30."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Tres salones reciben 84 libros en razón 2:3:7. ¿Cuántos recibe el segundo? Escribe solo el número.",
+        "respuesta": 21,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma 2 + 3 + 7 = 12 partes.",
+          "Cada parte vale 84/12 = 7.",
+          "El segundo tiene tres partes."
+        ],
+        "retroalimentacion": "El segundo recibe 21 libros; las tres cuotas suman 84."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al repartir 48 monedas en razón 1:2:3, las cuotas 8, 16 y 24 respetan la razón y el total.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma ocho, dieciséis y veinticuatro.",
+          "La suma es 48.",
+          "Al dividir cada cuota entre ocho queda 1:2:3."
+        ],
+        "retroalimentacion": "Es verdadero: las cuotas suman 48 y mantienen la razón."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Se reparten 60 cuadernos entre A y B en razón 2:3. Si A recibe 24, ¿cuántos recibe B? Escribe solo el número.",
+        "respuesta": "36",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El total debe conservarse.",
+          "Resta la cuota de A a sesenta.",
+          "60 − 24 = 36 y 24:36 = 2:3."
+        ],
+        "retroalimentacion": "B recibe 36; 24 y 36 suman 60 y simplifican a 2:3."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

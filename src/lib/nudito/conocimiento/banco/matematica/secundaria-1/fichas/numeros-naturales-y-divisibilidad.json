@@ -1,0 +1,1525 @@
+[
+  {
+    "clave": "mat.s1.valor-posicional-millones",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-S1-03"
+    ],
+    "bloque": "Números naturales y divisibilidad",
+    "nombre": "Valor posicional hasta los millones",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Lee, escribe y determina el valor de las cifras en números de hasta nueve cifras.",
+    "palabrasClave": [
+      "millones",
+      "cifras",
+      "valor posicional",
+      "lectura",
+      "escritura"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 1,
+    "ideaCentral": "En un número de hasta nueve cifras, cada posición vale diez veces la posición a su derecha. Agrupa las cifras de tres en tres para leer millones, miles y unidades.",
+    "pasos": [
+      "Separa las cifras en grupos de tres desde la derecha.",
+      "Lee primero millones, luego miles y por último unidades.",
+      "Para valorar una cifra, identifica su columna.",
+      "Multiplica la cifra por el valor de esa columna."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "¿Qué vale el 7 en 47 205 018?",
+        "desarrollo": "El 7 está en la columna de millones: 7 × 1 000 000.",
+        "respuesta": "Vale 7 000 000."
+      },
+      {
+        "situacion": "Lee 306 014 025.",
+        "desarrollo": "Los grupos son 306 millones, 014 mil y 025.",
+        "respuesta": "Trescientos seis millones catorce mil veinticinco."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Tratar un cero interior como si eliminara una columna.",
+        "correccion": "El cero conserva la posición; 205 000 no es 25 000."
+      },
+      {
+        "error": "Leer 12 003 000 como doce mil tres.",
+        "correccion": "Agrupa: 12 millones, 003 mil y 000 unidades."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Cifra",
+        "significado": "Cada dígito de 0 a 9 que forma un número."
+      },
+      {
+        "termino": "Valor posicional",
+        "significado": "Valor que recibe una cifra según la columna que ocupa."
+      },
+      {
+        "termino": "Millón",
+        "significado": "Unidad que equivale a 1 000 000."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En 5 248 310, ¿cuántos millones representa la cifra 5? Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "El 5 es la primera cifra de 5 248 310.",
+          "Está a la izquierda del grupo 248 mil.",
+          "Su columna es la de millones."
+        ],
+        "retroalimentacion": "Representa 5 millones; el 5 no vale cinco unidades.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cómo se lee 12 000 000?",
+        "respuesta": "b",
+        "pistas": [
+          "Separa 12 | 000 | 000.",
+          "El primer grupo indica millones.",
+          "Los otros grupos son cero."
+        ],
+        "retroalimentacion": "12 000 000 se lee doce millones.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Doce mil"
+          },
+          {
+            "id": "b",
+            "texto": "Doce millones"
+          },
+          {
+            "id": "c",
+            "texto": "Ciento dos millones"
+          },
+          {
+            "id": "d",
+            "texto": "Doce mil millones"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 83 450 000, la cifra 3 vale 3 000 000.",
+        "respuesta": true,
+        "pistas": [
+          "Separa 83 | 450 | 000.",
+          "El 3 está en el grupo de millones.",
+          "Ocupa la columna de unidades de millón."
+        ],
+        "retroalimentacion": "Es verdadero: el 3 vale 3 000 000.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe con cifras «cuatro millones veinte mil». Usa espacios para separar los grupos.",
+        "respuesta": "4 020 000",
+        "pistas": [
+          "Escribe 4 en el grupo de millones.",
+          "Veinte mil ocupa el grupo central: 020.",
+          "El último grupo queda 000."
+        ],
+        "retroalimentacion": "El número es 4 020 000; omitir el cero central cambia el valor.",
+        "alternativasAceptadas": [
+          "4020000"
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En 207 040 006, ¿cuánto vale la cifra 4? Escribe solo el número.",
+        "respuesta": 40000,
+        "pistas": [
+          "Separa 207 | 040 | 006.",
+          "El 4 está en el grupo de miles.",
+          "Ocupa la columna de decenas de millar: 4 × 10 000."
+        ],
+        "retroalimentacion": "La cifra 4 vale 40 000, no 4 000.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué número corresponde a «noventa y un millones seis mil ocho»?",
+        "respuesta": "d",
+        "pistas": [
+          "El grupo de millones es 091.",
+          "El grupo de miles es 006.",
+          "Las unidades son 008."
+        ],
+        "retroalimentacion": "91 006 008 corresponde a noventa y un millones seis mil ocho.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "91 600 008"
+          },
+          {
+            "id": "b",
+            "texto": "91 060 080"
+          },
+          {
+            "id": "c",
+            "texto": "91 006 080"
+          },
+          {
+            "id": "d",
+            "texto": "91 006 008"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El número 40 003 200 tiene ocho cifras.",
+        "respuesta": true,
+        "pistas": [
+          "Ignora los espacios separadores.",
+          "Cuenta 4, 0, 0, 0, 3, 2, 0, 0: son ocho cifras.",
+          "El primer grupo tiene dos cifras y los otros dos tienen tres cada uno."
+        ],
+        "retroalimentacion": "Es verdadero: 40 tiene dos cifras, 003 tres y 200 tres; total ocho.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "¿Qué posición ocupa el 6 en 164 025 000? Escribe el nombre de la posición.",
+        "respuesta": "decenas de millón",
+        "pistas": [
+          "Separa 164 | 025 | 000.",
+          "El 6 es la segunda cifra del grupo 164.",
+          "En 164 millones, el 6 indica sesenta millones."
+        ],
+        "retroalimentacion": "El 6 ocupa las decenas de millón; vale 60 000 000.",
+        "alternativasAceptadas": [
+          "decenas de millones"
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una noticia escribe «doscientos tres millones cuarenta mil nueve». ¿Cuál cifra ocupa las centenas de millar?",
+        "respuesta": "a",
+        "pistas": [
+          "Escribe primero 203 | 040 | 009.",
+          "El grupo de miles es 040.",
+          "La centena de millar es su primera cifra."
+        ],
+        "retroalimentacion": "La cifra es 0: 203 040 009 no tiene centenas de millar.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0"
+          },
+          {
+            "id": "b",
+            "texto": "4"
+          },
+          {
+            "id": "c",
+            "texto": "2"
+          },
+          {
+            "id": "d",
+            "texto": "9"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En 318 507 092, suma el valor de la cifra 1 y el de la cifra 5. Escribe solo el número.",
+        "respuesta": 10500000,
+        "pistas": [
+          "El 1 está en decenas de millón.",
+          "El 5 está en centenas de millar.",
+          "Suma 10 000 000 + 500 000."
+        ],
+        "retroalimentacion": "La suma es 10 500 000; sumar las cifras 1 + 5 ignora sus posiciones.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Cambiar 205 017 004 por 205 170 004 mantiene el valor de la cifra 7.",
+        "respuesta": false,
+        "pistas": [
+          "Compara los grupos centrales 017 y 170.",
+          "En 017, el 7 está en miles.",
+          "En 170, el 7 está en decenas de millar."
+        ],
+        "retroalimentacion": "Es falso: el 7 pasa de valer 7 000 a valer 70 000.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Completa con cifras: 7 centenas de millón, 2 unidades de millón, 5 decenas de millar y 3 unidades; las demás posiciones valen cero.",
+        "respuesta": "702 050 003",
+        "pistas": [
+          "El grupo de millones es 702.",
+          "La decena de millar 5 forma el grupo 050.",
+          "La unidad 3 forma el grupo final 003."
+        ],
+        "retroalimentacion": "Se obtiene 702 050 003; cada cero conserva una posición.",
+        "alternativasAceptadas": [
+          "702050003"
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.comparar-ordenar-millones",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-S1-03"
+    ],
+    "bloque": "Números naturales y divisibilidad",
+    "nombre": "Comparación y orden de números hasta los millones",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Compara y ordena números grandes en contextos de población, presupuestos o distancias.",
+    "palabrasClave": [
+      "comparar",
+      "ordenar",
+      "millones",
+      "mayor",
+      "menor"
+    ],
+    "prerrequisitos": [
+      "mat.s1.valor-posicional-millones"
+    ],
+    "ordenSugerido": 2,
+    "ideaCentral": "Para comparar números grandes, primero cuenta sus cifras. Si tienen igual longitud, compara de izquierda a derecha hasta hallar la primera cifra diferente.",
+    "pasos": [
+      "Agrupa las cifras de tres en tres para leerlas con claridad.",
+      "El número con más cifras es mayor.",
+      "Si tienen igual cantidad, compara cada columna desde la izquierda.",
+      "Ordena según el primer lugar en que difieren."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Compara 48 900 000 y 49 100 000 habitantes.",
+        "desarrollo": "Ambos tienen ocho cifras; en millones hay 48 frente a 49.",
+        "respuesta": "49 100 000 es mayor."
+      },
+      {
+        "situacion": "Ordena 7 050 000, 7 500 000 y 6 990 000.",
+        "desarrollo": "El 6 va primero; entre los 7 millones, 050 mil es menor que 500 mil.",
+        "respuesta": "6 990 000 < 7 050 000 < 7 500 000."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Comparar solo la primera cifra de números de distinta longitud.",
+        "correccion": "Cuenta primero las cifras: 9 999 999 < 10 000 000."
+      },
+      {
+        "error": "Leer 080 mil como 800 mil.",
+        "correccion": "Los ceros marcan posición: 080 mil son 80 000."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Orden ascendente",
+        "significado": "Del menor al mayor."
+      },
+      {
+        "termino": "Orden descendente",
+        "significado": "Del mayor al menor."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es mayor: 8 900 000 o 10 100 000?",
+        "respuesta": "c",
+        "pistas": [
+          "Cuenta las cifras de cada número.",
+          "8 900 000 tiene siete; 10 100 000 tiene ocho.",
+          "Más cifras implica mayor valor en números naturales."
+        ],
+        "retroalimentacion": "10 100 000 es mayor porque tiene ocho cifras.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8 900 000"
+          },
+          {
+            "id": "b",
+            "texto": "Son iguales"
+          },
+          {
+            "id": "c",
+            "texto": "10 100 000"
+          },
+          {
+            "id": "d",
+            "texto": "No se pueden comparar"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "23 400 000 es menor que 23 900 000.",
+        "respuesta": true,
+        "pistas": [
+          "Ambos comienzan con 23 millones.",
+          "Compara los grupos 400 mil y 900 mil.",
+          "400 < 900."
+        ],
+        "retroalimentacion": "Es verdadero: 23 400 000 < 23 900 000.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Completa con > o <: 54 010 000 __ 54 100 000.",
+        "respuesta": "<",
+        "pistas": [
+          "Los dos números empiezan con 54 millones.",
+          "Compara 010 mil con 100 mil.",
+          "10 000 es menor que 100 000."
+        ],
+        "retroalimentacion": "Corresponde < porque 54 010 000 es menor.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Entre 6 300 000 y 6 800 000, ¿cuántos millones completos tiene el menor? Escribe solo el número.",
+        "respuesta": 6,
+        "pistas": [
+          "Identifica cuál tiene 300 mil y cuál 800 mil.",
+          "6 300 000 es el menor.",
+          "Su grupo de millones es 6."
+        ],
+        "retroalimentacion": "El menor es 6 300 000 y tiene 6 millones completos.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Presupuestos: A = 12 040 000; B = 12 400 000; C = 12 004 000. ¿Cuál es el orden ascendente?",
+        "respuesta": "b",
+        "pistas": [
+          "Todos tienen 12 millones.",
+          "Compara 004, 040 y 400 mil.",
+          "004 < 040 < 400."
+        ],
+        "retroalimentacion": "El orden ascendente es C, A, B: 12 004 000 < 12 040 000 < 12 400 000.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "A, B, C"
+          },
+          {
+            "id": "b",
+            "texto": "C, A, B"
+          },
+          {
+            "id": "c",
+            "texto": "B, A, C"
+          },
+          {
+            "id": "d",
+            "texto": "C, B, A"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Aunque 99 999 999 empieza con 9, es menor que 100 000 000.",
+        "respuesta": true,
+        "pistas": [
+          "El primero tiene ocho cifras.",
+          "El segundo tiene nueve cifras.",
+          "La longitud decide antes que la primera cifra."
+        ],
+        "retroalimentacion": "Es verdadero: 99 999 999 < 100 000 000.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Se ordenan 31 500 000, 30 900 000 y 31 050 000 de menor a mayor. ¿Cuál queda en el medio? Escribe el número.",
+        "respuesta": "31 050 000",
+        "pistas": [
+          "30 millones va primero.",
+          "Compara 050 mil y 500 mil dentro de 31 millones.",
+          "31 050 000 queda antes que 31 500 000."
+        ],
+        "retroalimentacion": "El número central es 31 050 000, no 31 500 000.",
+        "alternativasAceptadas": [
+          "31050000"
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos distritos registran 4 708 120 y 4 780 012 habitantes. ¿Qué comparación es correcta?",
+        "respuesta": "d",
+        "pistas": [
+          "Ambos tienen 4 millones.",
+          "Compara después 708 mil con 780 mil.",
+          "708 mil es menor que 780 mil."
+        ],
+        "retroalimentacion": "4 708 120 < 4 780 012; comparar solo las últimas cifras puede engañar.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4 708 120 > 4 780 012"
+          },
+          {
+            "id": "b",
+            "texto": "Son iguales"
+          },
+          {
+            "id": "c",
+            "texto": "4 708 120 = 4 780 012"
+          },
+          {
+            "id": "d",
+            "texto": "4 708 120 < 4 780 012"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si agregas un cero al final de 7 050 000, el nuevo número queda entre 70 000 000 y 71 000 000.",
+        "respuesta": true,
+        "pistas": [
+          "Agregar cero al final multiplica por 10.",
+          "7 050 000 × 10 = 70 500 000.",
+          "70 500 000 está entre los límites dados."
+        ],
+        "retroalimentacion": "Es verdadero: el nuevo número es 70 500 000.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para ordenar descendentemente 205 008 000, 205 080 000 y 205 800 000, ¿qué secuencia sirve?",
+        "respuesta": "a",
+        "pistas": [
+          "Los tres tienen 205 millones.",
+          "Ordena los grupos de miles 800, 080 y 008.",
+          "Descendente va de mayor a menor."
+        ],
+        "retroalimentacion": "205 800 000 > 205 080 000 > 205 008 000.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "205 800 000, 205 080 000, 205 008 000"
+          },
+          {
+            "id": "b",
+            "texto": "205 008 000, 205 080 000, 205 800 000"
+          },
+          {
+            "id": "c",
+            "texto": "205 080 000, 205 008 000, 205 800 000"
+          },
+          {
+            "id": "d",
+            "texto": "205 800 000, 205 008 000, 205 080 000"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe el menor número de ocho cifras que sea mayor que 24 999 999.",
+        "respuesta": "25 000 000",
+        "pistas": [
+          "Busca el sucesor inmediato de 24 999 999.",
+          "Suma una unidad.",
+          "La suma lleva a 25 millones exactos."
+        ],
+        "retroalimentacion": "El menor número posible es 25 000 000; cualquier otro mayor deja un número intermedio.",
+        "alternativasAceptadas": [
+          "25000000"
+        ]
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si A > B y B > 6 000 000, entonces A > 6 000 000.",
+        "respuesta": true,
+        "pistas": [
+          "Representa A y B en orden descendente.",
+          "A supera a B; B supera a seis millones.",
+          "La relación mayor que se transmite en esa cadena."
+        ],
+        "retroalimentacion": "Es verdadero: A > B > 6 000 000 implica A > 6 000 000.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.descomposicion-polinomica",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-S1-03"
+    ],
+    "bloque": "Números naturales y divisibilidad",
+    "nombre": "Descomposición polinómica de un número",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Expresa un número como suma de productos de sus cifras por potencias de 10.",
+    "palabrasClave": [
+      "descomposición",
+      "potencias de diez",
+      "cifras",
+      "valor posicional"
+    ],
+    "prerrequisitos": [
+      "mat.s1.valor-posicional-millones"
+    ],
+    "ordenSugerido": 3,
+    "ideaCentral": "La descomposición polinómica expresa cada cifra como cifra × potencia de 10 y suma esos productos. Las posiciones con cero pueden omitirse porque su producto vale cero.",
+    "pasos": [
+      "Ubica cada cifra y su posición.",
+      "Asigna potencias de 10 desde 10⁰ en las unidades.",
+      "Multiplica cada cifra por su potencia.",
+      "Suma los productos y comprueba que recuperas el número."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Descompón 4 206.",
+        "desarrollo": "El 4 ocupa millares, el 2 centenas, el 0 decenas y el 6 unidades.",
+        "respuesta": "4 × 10³ + 2 × 10² + 6 × 10⁰."
+      },
+      {
+        "situacion": "¿Qué número es 3 × 10⁶ + 5 × 10³ + 8?",
+        "desarrollo": "Sumo 3 000 000 + 5 000 + 8.",
+        "respuesta": "3 005 008."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Asignar 10¹ a las unidades.",
+        "correccion": "Las unidades son 10⁰ = 1; las decenas son 10¹."
+      },
+      {
+        "error": "Confundir la suma por potencias con el producto de factores primos.",
+        "correccion": "Aquí cada cifra multiplica una potencia de 10 y luego se suman los términos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Potencia de 10",
+        "significado": "10 multiplicado por sí mismo tantas veces como indica el exponente."
+      },
+      {
+        "termino": "Término",
+        "significado": "Cada producto cifra × potencia dentro de la suma."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué potencia corresponde a la cifra de las centenas?",
+        "respuesta": "c",
+        "pistas": [
+          "Las unidades corresponden a 10⁰.",
+          "Las decenas corresponden a 10¹.",
+          "Una posición más a la izquierda corresponde a 10²."
+        ],
+        "retroalimentacion": "Las centenas usan 10², que vale 100.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10⁰"
+          },
+          {
+            "id": "b",
+            "texto": "10¹"
+          },
+          {
+            "id": "c",
+            "texto": "10²"
+          },
+          {
+            "id": "d",
+            "texto": "10³"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En 7 × 10³ + 2 × 10¹, ¿qué número resulta? Escribe solo el número.",
+        "respuesta": 7020,
+        "pistas": [
+          "10³ vale 1000.",
+          "10¹ vale 10.",
+          "Suma 7000 + 20."
+        ],
+        "retroalimentacion": "El número es 7020; entre 7 y 2 hay un cero en centenas.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "5 003 = 5 × 10³ + 3 × 10⁰.",
+        "respuesta": true,
+        "pistas": [
+          "El 5 ocupa millares.",
+          "El 3 ocupa unidades.",
+          "Centenas y decenas tienen cero."
+        ],
+        "retroalimentacion": "Es verdadero: 5000 + 3 = 5003.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En la descomposición de 246, ¿qué exponente lleva el 4? Escribe solo el exponente.",
+        "respuesta": "1",
+        "pistas": [
+          "En 246, el 4 ocupa decenas.",
+          "Las decenas equivalen a 10¹.",
+          "El exponente es el número pequeño sobre el 10."
+        ],
+        "retroalimentacion": "El 4 se escribe 4 × 10¹; el exponente es 1.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El número 60 407 se expresa como:",
+        "respuesta": "b",
+        "pistas": [
+          "Separa 6 decenas de millar, 4 centenas y 7 unidades.",
+          "Sus potencias son 10⁴, 10² y 10⁰.",
+          "Los ceros pueden omitirse."
+        ],
+        "retroalimentacion": "6 × 10⁴ + 4 × 10² + 7 × 10⁰ = 60 407.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6 × 10⁴ + 4 × 10¹ + 7"
+          },
+          {
+            "id": "b",
+            "texto": "6 × 10⁴ + 4 × 10² + 7 × 10⁰"
+          },
+          {
+            "id": "c",
+            "texto": "6 × 10³ + 4 × 10² + 7"
+          },
+          {
+            "id": "d",
+            "texto": "6 × 10⁴ + 4 × 10³ + 7"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 2 × 10⁵ + 8 × 10² + 9 × 10⁰. Escribe solo el número.",
+        "respuesta": 200809,
+        "pistas": [
+          "2 × 10⁵ = 200 000.",
+          "8 × 10² = 800.",
+          "Agrega 9 unidades."
+        ],
+        "retroalimentacion": "Se obtiene 200 809; no hay decenas ni millares.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 31 050, el término de la cifra 5 es 5 × 10².",
+        "respuesta": false,
+        "pistas": [
+          "Ubica el 5 en 31 050.",
+          "Está en las decenas, justo antes del cero final.",
+          "Las decenas son 10¹."
+        ],
+        "retroalimentacion": "Es falso: el término es 5 × 10¹ = 50.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Completa el exponente faltante: 9 000 000 = 9 × 10^?. Escribe solo el número.",
+        "respuesta": "6",
+        "pistas": [
+          "Cuenta los ceros después del 9.",
+          "Hay seis ceros en un millón.",
+          "9 millones son 9 × 10⁶."
+        ],
+        "retroalimentacion": "El exponente es 6, no 7.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una alumna escribe 4 020 006 = 4 × 10⁶ + 2 × 10⁵ + 6. ¿Qué corrección necesita?",
+        "respuesta": "d",
+        "pistas": [
+          "En 4 020 006, el 2 está en el grupo 020 mil.",
+          "Ese 2 vale 20 000.",
+          "20 000 = 2 × 10⁴."
+        ],
+        "retroalimentacion": "Debe usar 2 × 10⁴; 2 × 10⁵ produciría 4 200 006.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cambiar 4 × 10⁶ por 4 × 10⁵"
+          },
+          {
+            "id": "b",
+            "texto": "Cambiar 6 por 6 × 10¹"
+          },
+          {
+            "id": "c",
+            "texto": "Eliminar el 2"
+          },
+          {
+            "id": "d",
+            "texto": "Cambiar 2 × 10⁵ por 2 × 10⁴"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "¿Qué número forman 8 × 10⁷ + 3 × 10⁴ + 2 × 10² + 1? Escribe solo el número.",
+        "respuesta": 80030201,
+        "pistas": [
+          "8 × 10⁷ = 80 000 000.",
+          "3 × 10⁴ y 2 × 10² aportan 30 000 y 200.",
+          "Suma además una unidad."
+        ],
+        "retroalimentacion": "La suma da 80 030 201; los huecos de posición se llenan con ceros.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "3 × 10⁴ + 7 × 10² + 5 × 10⁰ y 3 × 10⁴ + 0 × 10³ + 7 × 10² + 0 × 10¹ + 5 × 10⁰ representan el mismo número.",
+        "respuesta": true,
+        "pistas": [
+          "Los términos adicionales incluyen coeficiente cero.",
+          "0 × 10³ y 0 × 10¹ valen cero.",
+          "Ambas sumas dan 30 705."
+        ],
+        "retroalimentacion": "Es verdadero: agregar términos de valor cero no altera 30 705.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En 6 040 300 falta el término del 4: 6 × 10⁶ + __ + 3 × 10². Escribe el término usando × y potencia.",
+        "respuesta": "4 × 10⁴",
+        "pistas": [
+          "El 4 vale 40 000.",
+          "40 000 es 4 por diez mil.",
+          "Diez mil se escribe 10⁴."
+        ],
+        "retroalimentacion": "El término es 4 × 10⁴; 4 × 10³ solo vale 4000.",
+        "alternativasAceptadas": [
+          "4×10⁴",
+          "4*10^4"
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.factores-primos-divisores",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-03"
+    ],
+    "bloque": "Números naturales y divisibilidad",
+    "nombre": "Descomposición en factores primos y cantidad de divisores",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Descompone un número en factores primos y la distingue de la descomposición polinómica.",
+    "palabrasClave": [
+      "factor primo",
+      "divisor",
+      "descomposición",
+      "exponente"
+    ],
+    "prerrequisitos": [
+      "mat.s1.descomposicion-polinomica"
+    ],
+    "ordenSugerido": 4,
+    "ideaCentral": "Todo número natural mayor que 1 se puede escribir como producto de primos. Si su factorización es pᵃqᵇ, tiene (a + 1)(b + 1) divisores positivos.",
+    "pasos": [
+      "Divide el número sucesivamente entre primos pequeños.",
+      "Continúa hasta que el cociente sea 1.",
+      "Agrupa los factores iguales como potencias.",
+      "Para contar divisores, suma 1 a cada exponente y multiplica esos resultados."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Factoriza 36.",
+        "desarrollo": "36 ÷ 2 = 18; ÷ 2 = 9; ÷ 3 = 3; ÷ 3 = 1.",
+        "respuesta": "36 = 2² × 3²."
+      },
+      {
+        "situacion": "¿Cuántos divisores positivos tiene 12?",
+        "desarrollo": "12 = 2² × 3¹. Calculo (2 + 1)(1 + 1) = 6.",
+        "respuesta": "Tiene 6 divisores."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Incluir 1 como factor primo.",
+        "correccion": "El 1 no es primo; la factorización de 18 es 2 × 3²."
+      },
+      {
+        "error": "Sumar exponentes para contar divisores.",
+        "correccion": "Para 12, (2 + 1)(1 + 1) = 6, no 2 + 1 = 3."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Primo",
+        "significado": "Número mayor que 1 con solo dos divisores positivos: 1 y él mismo."
+      },
+      {
+        "termino": "Factorización prima",
+        "significado": "Escritura de un número como producto de números primos."
+      },
+      {
+        "termino": "Divisor",
+        "significado": "Número que divide exactamente a otro."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es una factorización prima de 18?",
+        "respuesta": "b",
+        "pistas": [
+          "Divide 18 entre 2.",
+          "Queda 9, que es 3 × 3.",
+          "Todos los factores deben ser primos."
+        ],
+        "retroalimentacion": "18 = 2 × 3²; 9 no es primo.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2 × 9"
+          },
+          {
+            "id": "b",
+            "texto": "2 × 3²"
+          },
+          {
+            "id": "c",
+            "texto": "3 × 6"
+          },
+          {
+            "id": "d",
+            "texto": "1 × 18"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "El 1 es un número primo.",
+        "respuesta": false,
+        "pistas": [
+          "Un primo debe ser mayor que 1.",
+          "Cuenta los divisores positivos del 1.",
+          "El 1 solo tiene un divisor."
+        ],
+        "retroalimentacion": "Es falso: el 1 no es primo.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos factores 2 aparecen en 40 = 2 × 2 × 2 × 5? Escribe solo el número.",
+        "respuesta": 3,
+        "pistas": [
+          "Lee el producto dado.",
+          "Cuenta solo los números 2.",
+          "No cuentes el 5."
+        ],
+        "retroalimentacion": "Aparecen tres factores 2; 40 = 2³ × 5.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "¿Qué número primo falta en 30 = 2 × 3 × __?",
+        "respuesta": "5",
+        "pistas": [
+          "2 × 3 = 6.",
+          "Busca qué factor multiplica 6 para dar 30.",
+          "30 ÷ 6 = 5."
+        ],
+        "retroalimentacion": "Falta 5: 2 × 3 × 5 = 30.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuántos divisores positivos tiene 18 = 2¹ × 3²?",
+        "respuesta": "c",
+        "pistas": [
+          "Suma uno a los exponentes 1 y 2.",
+          "Obtienes 2 y 3 opciones de exponente.",
+          "Multiplica 2 × 3."
+        ],
+        "retroalimentacion": "18 tiene 6 divisores positivos: 1, 2, 3, 6, 9 y 18.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "5"
+          },
+          {
+            "id": "c",
+            "texto": "6"
+          },
+          {
+            "id": "d",
+            "texto": "9"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Descompón 72 = 2³ × 3². ¿Cuántos divisores positivos tiene? Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "Para el 2 hay 3 + 1 elecciones.",
+          "Para el 3 hay 2 + 1 elecciones.",
+          "Multiplica 4 × 3."
+        ],
+        "retroalimentacion": "72 tiene 12 divisores positivos; sumar exponentes daría un valor incorrecto.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La expresión 45 = 5 × 9 ya es una factorización prima completa.",
+        "respuesta": false,
+        "pistas": [
+          "Examina si 9 es primo.",
+          "9 = 3 × 3.",
+          "Una factorización prima solo contiene primos."
+        ],
+        "retroalimentacion": "Es falso: 45 = 3² × 5.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Completa con potencias: 24 = 2^? × 3. Escribe solo el exponente faltante.",
+        "respuesta": "3",
+        "pistas": [
+          "24 ÷ 3 = 8.",
+          "8 = 2 × 2 × 2.",
+          "Tres factores 2 forman 2³."
+        ],
+        "retroalimentacion": "El exponente es 3: 24 = 2³ × 3.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un número tiene factorización 2² × 5¹. ¿Cuál de estos NO es divisor suyo?",
+        "respuesta": "d",
+        "pistas": [
+          "El número es 4 × 5 = 20.",
+          "Un divisor solo puede usar hasta dos factores 2 y uno 5.",
+          "25 necesita dos factores 5."
+        ],
+        "retroalimentacion": "25 no divide 20; exigiría 5² cuando solo hay 5¹.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4"
+          },
+          {
+            "id": "b",
+            "texto": "5"
+          },
+          {
+            "id": "c",
+            "texto": "10"
+          },
+          {
+            "id": "d",
+            "texto": "25"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos divisores positivos tiene 60 si 60 = 2² × 3 × 5? Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "Los exponentes son 2, 1 y 1.",
+          "Suma uno a cada exponente.",
+          "Multiplica 3 × 2 × 2."
+        ],
+        "retroalimentacion": "60 tiene 12 divisores positivos.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La descomposición 42 = 4 × 10 + 2 y la factorización 42 = 2 × 3 × 7 sirven para lo mismo y usan solo productos de primos.",
+        "respuesta": false,
+        "pistas": [
+          "Observa el signo + en 4 × 10 + 2.",
+          "Esa expresión usa valores posicionales.",
+          "Solo 2 × 3 × 7 es producto exclusivo de primos."
+        ],
+        "retroalimentacion": "Es falso: 4 × 10 + 2 es descomposición polinómica, no factorización prima.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "La factorización prima de un número es 3² × 7. ¿Qué número es? Escribe solo sus cifras.",
+        "respuesta": "63",
+        "pistas": [
+          "3² = 9.",
+          "Multiplica 9 por 7.",
+          "Verifica que 63 ÷ 7 = 9."
+        ],
+        "retroalimentacion": "El número es 63, no 37.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.mcm-mcd-situaciones",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-S1-01",
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Números naturales y divisibilidad",
+    "nombre": "MCM y MCD en situaciones de la vida diaria",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Resuelve situaciones de coincidencia periódica y de reparto en partes iguales máximas.",
+    "palabrasClave": [
+      "MCM",
+      "MCD",
+      "coincidencia",
+      "reparto",
+      "divisibilidad"
+    ],
+    "prerrequisitos": [
+      "mat.s1.factores-primos-divisores"
+    ],
+    "ordenSugerido": 5,
+    "ideaCentral": "Usa el mínimo común múltiplo para saber cuándo coinciden ciclos. Usa el máximo común divisor para formar grupos iguales lo más grandes posible sin sobrantes.",
+    "pasos": [
+      "Decide si buscas una coincidencia futura o un reparto exacto máximo.",
+      "Factoriza los números o enumera múltiplos y divisores.",
+      "Para MCM toma cada primo con el mayor exponente; para MCD, solo los comunes con el menor.",
+      "Interpreta el resultado en la situación y comprueba las divisiones."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Dos buses pasan cada 6 y 8 minutos. Salen juntos ahora.",
+        "desarrollo": "6 = 2 × 3; 8 = 2³. MCM = 2³ × 3 = 24.",
+        "respuesta": "Coinciden otra vez en 24 minutos."
+      },
+      {
+        "situacion": "Reparte 18 lápices y 24 borradores en paquetes idénticos, con la mayor cantidad posible de paquetes.",
+        "desarrollo": "MCD(18,24) = 6; cada paquete recibe 3 lápices y 4 borradores.",
+        "respuesta": "Se forman 6 paquetes."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Usar MCD para hallar la próxima coincidencia.",
+        "correccion": "Los ciclos se encuentran en un múltiplo común; busca el menor."
+      },
+      {
+        "error": "Sumar cantidades antes de buscar paquetes iguales.",
+        "correccion": "Cada tipo debe repartirse sin sobrantes: calcula un divisor común."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "MCM",
+        "significado": "Menor múltiplo positivo común a dos o más números."
+      },
+      {
+        "termino": "MCD",
+        "significado": "Mayor divisor positivo común a dos o más números."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos timbres suenan cada 4 y 6 minutos. Para su próxima coincidencia, ¿qué herramienta conviene?",
+        "respuesta": "a",
+        "pistas": [
+          "Buscas un tiempo que sea múltiplo de 4.",
+          "También debe ser múltiplo de 6.",
+          "Elige el menor múltiplo común."
+        ],
+        "retroalimentacion": "Conviene el MCM, porque se busca la primera coincidencia.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "MCM"
+          },
+          {
+            "id": "b",
+            "texto": "MCD"
+          },
+          {
+            "id": "c",
+            "texto": "Resta"
+          },
+          {
+            "id": "d",
+            "texto": "Promedio"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Una luz parpadea cada 3 segundos y otra cada 5 segundos. Si parpadean juntas ahora, ¿en cuántos segundos repetirán la coincidencia? Escribe solo el número.",
+        "respuesta": 15,
+        "pistas": [
+          "Enumera múltiplos de 3: 3, 6, 9, 12, 15.",
+          "Enumera múltiplos de 5: 5, 10, 15.",
+          "El primer común es 15."
+        ],
+        "retroalimentacion": "Coinciden tras 15 segundos, no tras 8 segundos.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para repartir 12 panes y 18 frutas en bolsas idénticas sin sobrantes, puede usarse el MCD.",
+        "respuesta": true,
+        "pistas": [
+          "Cada cantidad de bolsas debe dividir 12.",
+          "También debe dividir 18.",
+          "El mayor divisor común maximiza las bolsas."
+        ],
+        "retroalimentacion": "Es verdadero: el MCD de 12 y 18 es 6 bolsas.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Si buscas cuándo vuelven a coincidir ciclos de 8 y 10 días, escribe la sigla del cálculo necesario.",
+        "respuesta": "MCM",
+        "pistas": [
+          "El tiempo debe ser múltiplo de 8 y de 10.",
+          "Interesa la primera coincidencia positiva.",
+          "La sigla empieza por mínimo común."
+        ],
+        "retroalimentacion": "Se usa MCM, no MCD.",
+        "alternativasAceptadas": [
+          "mínimo común múltiplo"
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En una feria, actividades de 6 y 9 minutos comienzan juntas. ¿Después de cuántos minutos comienzan juntas otra vez? Escribe solo el número.",
+        "respuesta": 18,
+        "pistas": [
+          "Múltiplos de 6: 6, 12, 18.",
+          "Múltiplos de 9: 9, 18.",
+          "El primero compartido es 18."
+        ],
+        "retroalimentacion": "MCM(6,9) = 18 minutos.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Hay 20 cuadernos y 30 lapiceros para armar la mayor cantidad de kits idénticos sin sobras. ¿Cuántos kits?",
+        "respuesta": "c",
+        "pistas": [
+          "La cantidad de kits debe dividir a 20 y a 30.",
+          "Los divisores comunes son 1, 2, 5 y 10.",
+          "El mayor es 10."
+        ],
+        "retroalimentacion": "Se forman 10 kits; cada uno lleva 2 cuadernos y 3 lapiceros.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "10"
+          },
+          {
+            "id": "d",
+            "texto": "50"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Como MCM(4,10) = 20, dos eventos cada 4 y 10 días coinciden de nuevo en 20 días si hoy coinciden.",
+        "respuesta": true,
+        "pistas": [
+          "20 es múltiplo de 4.",
+          "20 también es múltiplo de 10.",
+          "No hay un múltiplo positivo común menor."
+        ],
+        "retroalimentacion": "Es verdadero: la próxima coincidencia es en 20 días.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Se cortan cintas de 24 cm y 36 cm en trozos iguales lo más largos posible, sin sobrantes. ¿Cuántos centímetros mide cada trozo? Escribe solo el número.",
+        "respuesta": 12,
+        "pistas": [
+          "La longitud debe dividir 24 y 36.",
+          "Compara sus divisores comunes.",
+          "El mayor divisor común es 12."
+        ],
+        "retroalimentacion": "Cada trozo mide 12 cm; 24 cm no divide 36 cm.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una campaña entrega agua cada 12 días y útiles cada 18 días. Hoy coincide la entrega. ¿Cuántos días faltan para la segunda coincidencia después de hoy?",
+        "respuesta": "d",
+        "pistas": [
+          "Halla primero MCM(12,18).",
+          "La primera coincidencia futura ocurre a los 36 días.",
+          "La segunda ocurre dos ciclos comunes después de hoy."
+        ],
+        "retroalimentacion": "La segunda coincidencia futura ocurre a los 72 días, no a los 36.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "18"
+          },
+          {
+            "id": "b",
+            "texto": "30"
+          },
+          {
+            "id": "c",
+            "texto": "36"
+          },
+          {
+            "id": "d",
+            "texto": "72"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Con 48 galletas y 60 mandarinas se hacen bolsas idénticas, tantas como sea posible. ¿Cuántas mandarinas lleva cada bolsa? Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "Calcula MCD(48,60) = 12 bolsas.",
+          "Reparte las 60 mandarinas entre 12.",
+          "60 ÷ 12 = 5."
+        ],
+        "retroalimentacion": "Cada bolsa lleva 5 mandarinas; 12 es la cantidad de bolsas.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si hay 15 polos y 25 gorras, se pueden preparar 10 paquetes idénticos sin sobras porque 10 es menor que ambas cantidades.",
+        "respuesta": false,
+        "pistas": [
+          "La cantidad de paquetes debe dividir ambos totales.",
+          "15 ÷ 10 no es entero.",
+          "MCD(15,25) = 5."
+        ],
+        "retroalimentacion": "Es falso: 10 paquetes dejan sobrantes; el máximo es 5.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Dos talleres se repiten cada 8 y 12 días y coinciden hoy. ¿En cuántos días coinciden por tercera vez después de hoy? Escribe solo el número.",
+        "respuesta": "72",
+        "pistas": [
+          "MCM(8,12) = 24 días.",
+          "Las coincidencias futuras son 24, 48, 72.",
+          "La tercera es tres veces 24."
+        ],
+        "retroalimentacion": "La tercera coincidencia futura es en 72 días.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

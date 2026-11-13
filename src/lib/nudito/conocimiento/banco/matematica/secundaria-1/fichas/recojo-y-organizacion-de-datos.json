@@ -1,0 +1,1604 @@
+[
+  {
+    "clave": "mat.s1.variables-tipos",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+    "desempenosOrigen": [
+      "MAT-C25-S1-01"
+    ],
+    "bloque": "Recojo y organización de datos",
+    "nombre": "Variables cualitativas nominales, ordinales y cuantitativas discretas",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Clasifica variables según cómo se expresan sus datos.",
+    "palabrasClave": [
+      "variable",
+      "nominal",
+      "ordinal",
+      "discreta"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 24,
+    "ideaCentral": "Una variable cualitativa nominal nombra categorías sin orden; una ordinal nombra categorías ordenables. Una variable cuantitativa discreta cuenta cantidades enteras.",
+    "pasos": [
+      "Pregunta qué dato se registra de cada persona u objeto.",
+      "Si son categorías, verifica si tienen un orden natural.",
+      "Si es un conteo entero, clasifícalo como cuantitativa discreta.",
+      "Comprueba la clasificación con dos valores posibles."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Se registra el color de mochila de cada estudiante.",
+        "desarrollo": "Rojo, azul y verde son nombres sin orden natural.",
+        "respuesta": "Variable cualitativa nominal."
+      },
+      {
+        "situacion": "Se registra cuántos hermanos tiene cada estudiante.",
+        "desarrollo": "Se cuenta 0, 1, 2... hermanos, sin valores fraccionarios.",
+        "respuesta": "Variable cuantitativa discreta."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Tratar números de camiseta como cantidades.",
+        "correccion": "Si funcionan como etiquetas, son categorías nominales."
+      },
+      {
+        "error": "Pensar que toda categoría es nominal.",
+        "correccion": "Si hay niveles ordenados, es ordinal."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Nominal",
+        "significado": "Categorías sin orden natural."
+      },
+      {
+        "termino": "Ordinal",
+        "significado": "Categorías con orden natural."
+      },
+      {
+        "termino": "Discreta",
+        "significado": "Cantidad obtenida al contar valores enteros."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una encuesta se anota el color favorito. ¿Qué tipo de variable es?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ordinal"
+          },
+          {
+            "id": "b",
+            "texto": "Nominal"
+          },
+          {
+            "id": "c",
+            "texto": "Discreta"
+          },
+          {
+            "id": "d",
+            "texto": "Continua"
+          }
+        ],
+        "pistas": [
+          "Los valores son nombres de colores.",
+          "No hay un orden natural entre rojo y azul.",
+          "Elige categoría cualitativa sin orden."
+        ],
+        "retroalimentacion": "Color favorito es cualitativa nominal; no se cuenta."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La cantidad de mascotas de una familia es una variable cuantitativa discreta.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se cuenta el número de mascotas.",
+          "Los resultados posibles son 0, 1, 2...",
+          "No se anotan medias mascotas."
+        ],
+        "retroalimentacion": "Es verdadero: cantidad de mascotas es conteo entero discreto."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La satisfacción se registra como baja, media o alta. ¿Es nominal, ordinal o discreta?",
+        "respuesta": "ordinal",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Son categorías, no conteos.",
+          "Baja, media y alta se pueden ordenar.",
+          "La categoría ordenable se llama ordinal."
+        ],
+        "retroalimentacion": "Es ordinal: baja < media < alta."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál dato es cuantitativo discreto?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Distrito de residencia"
+          },
+          {
+            "id": "b",
+            "texto": "Color de gorra"
+          },
+          {
+            "id": "c",
+            "texto": "Nivel de satisfacción"
+          },
+          {
+            "id": "d",
+            "texto": "Número de libros"
+          }
+        ],
+        "pistas": [
+          "Busca una cantidad contada.",
+          "Una talla o un distrito son categorías.",
+          "El número de libros se cuenta en enteros."
+        ],
+        "retroalimentacion": "La cantidad de libros es discreta; distrito y talla son categorías."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El puesto de llegada: primero, segundo y tercero es una variable nominal.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los puestos son categorías.",
+          "Primero, segundo y tercero tienen orden.",
+          "Una categoría ordenada es ordinal."
+        ],
+        "retroalimentacion": "Es falso: el puesto de llegada es ordinal."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un formulario pregunta el distrito donde vive cada estudiante. ¿Qué tipo de variable es?",
+        "respuesta": "nominal",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los valores son nombres de distritos.",
+          "No existe un orden natural entre Lima y Callao.",
+          "Clasifica como categoría sin orden."
+        ],
+        "retroalimentacion": "Distrito de residencia es nominal, no ordinal."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se anotan los niveles «inicial, intermedio, avanzado» de lectura. ¿Cuál es la clasificación?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Nominal"
+          },
+          {
+            "id": "b",
+            "texto": "Discreta"
+          },
+          {
+            "id": "c",
+            "texto": "Ordinal"
+          },
+          {
+            "id": "d",
+            "texto": "Cantidad continua"
+          }
+        ],
+        "pistas": [
+          "Son nombres de nivel.",
+          "Se pueden ordenar de menor a mayor dominio.",
+          "Busca la categoría cualitativa ordenable."
+        ],
+        "retroalimentacion": "Los niveles de lectura son ordinales."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "El número 10 en una camiseta convierte el dato «número de camiseta» en cuantitativo discreto.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa si sumar dos números de camiseta tiene sentido.",
+          "El 10 identifica al jugador.",
+          "Una etiqueta numérica no es un conteo."
+        ],
+        "retroalimentacion": "Es falso: el número de camiseta funciona como etiqueta nominal."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un puesto registra 0, 1, 2 o 3 panes vendidos por cliente. ¿Qué clase de variable es? Responde con dos palabras.",
+        "respuesta": "cuantitativa discreta",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "discreta"
+          }
+        ],
+        "pistas": [
+          "Los datos indican cantidades.",
+          "Se cuentan panes completos.",
+          "El conteo entero es cuantitativo discreto."
+        ],
+        "retroalimentacion": "Panes vendidos es variable cuantitativa discreta."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un colegio registra sección (A/B), desempeño (inicio/proceso/logro) y faltas del mes (0/1/2). ¿Cuál orden de tipos corresponde?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Nominal, ordinal, discreta"
+          },
+          {
+            "id": "b",
+            "texto": "Ordinal, nominal, discreta"
+          },
+          {
+            "id": "c",
+            "texto": "Discreta, ordinal, nominal"
+          },
+          {
+            "id": "d",
+            "texto": "Nominal, discreta, ordinal"
+          }
+        ],
+        "pistas": [
+          "Sección es etiqueta sin orden.",
+          "Desempeño tiene niveles ordenados.",
+          "Faltas es un conteo entero."
+        ],
+        "retroalimentacion": "Corresponde nominal, ordinal y discreta, en ese orden."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si se registra «ninguno, uno, dos, tres» hermanos, la variable sigue siendo cuantitativa discreta aunque se escriba con palabras.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Importa lo que representan los datos.",
+          "Son conteos de hermanos completos.",
+          "Escribir números con palabras no cambia el tipo."
+        ],
+        "retroalimentacion": "Es verdadero: sigue siendo conteo discreto."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Para cada alumno se anota su medio de transporte: a pie, bus o bicicleta. Si se pregunta cuál es el más usado, ¿qué tipo de variable se analizó?",
+        "respuesta": "nominal",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las opciones son medios de transporte.",
+          "No tienen jerarquía natural.",
+          "Es una categoría cualitativa sin orden."
+        ],
+        "retroalimentacion": "Medio de transporte es nominal, aunque se cuente cuántos eligen cada categoría."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.poblacion-muestra",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+    "desempenosOrigen": [
+      "MAT-C25-S1-01"
+    ],
+    "bloque": "Recojo y organización de datos",
+    "nombre": "Población, muestra y unidad de análisis",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Distingue a quiénes se estudia y a quiénes se encuesta en un estudio.",
+    "palabrasClave": [
+      "población",
+      "muestra",
+      "unidad de análisis",
+      "encuesta"
+    ],
+    "prerrequisitos": [
+      "mat.s1.variables-tipos"
+    ],
+    "ordenSugerido": 25,
+    "ideaCentral": "La población reúne a todos los elementos que quieres estudiar; la muestra es la parte observada. Cada persona u objeto sobre el que registras datos es una unidad de análisis.",
+    "pasos": [
+      "Identifica la pregunta del estudio y a quiénes se quieren conocer.",
+      "Nombra la población completa.",
+      "Reconoce a quiénes se encuestó u observó: esa es la muestra.",
+      "Señala cada elemento individual del que se toma un dato."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Se quiere conocer el desayuno de 500 alumnos y se encuesta a 50.",
+        "desarrollo": "Los 500 son población; los 50 encuestados, muestra; cada alumno es una unidad.",
+        "respuesta": "Población 500, muestra 50."
+      },
+      {
+        "situacion": "Una biblioteca estudia sus 200 libros y revisa 30.",
+        "desarrollo": "Todos los libros forman la población; 30 son la muestra.",
+        "respuesta": "La unidad de análisis es cada libro."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Llamar población solo a los encuestados.",
+        "correccion": "Los encuestados son muestra si el interés abarca un grupo mayor."
+      },
+      {
+        "error": "Confundir tamaño de muestra con unidad.",
+        "correccion": "La unidad es cada elemento observado, no el número de elementos."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Población",
+        "significado": "Conjunto total que se desea estudiar."
+      },
+      {
+        "termino": "Muestra",
+        "significado": "Parte de la población que se observa."
+      },
+      {
+        "termino": "Unidad de análisis",
+        "significado": "Cada persona u objeto del que se obtiene un dato."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una encuesta quiere conocer la lectura de todos los 300 alumnos de un colegio; consulta a 40. ¿Cuál es la población?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Los 40 consultados"
+          },
+          {
+            "id": "b",
+            "texto": "Los 300 alumnos"
+          },
+          {
+            "id": "c",
+            "texto": "Cada libro leído"
+          },
+          {
+            "id": "d",
+            "texto": "Los docentes"
+          }
+        ],
+        "pistas": [
+          "La población es el grupo sobre el que se quiere concluir.",
+          "La pregunta abarca a todos los alumnos del colegio.",
+          "Hay 300 alumnos en ese grupo."
+        ],
+        "retroalimentacion": "La población son los 300 alumnos; 40 forman la muestra."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si se entrevista a 25 de los 200 comerciantes de un mercado para estudiar ventas, esos 25 son la muestra.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El estudio busca conocer a 200 comerciantes.",
+          "Solo 25 aportaron datos.",
+          "Esa parte observada es la muestra."
+        ],
+        "retroalimentacion": "Es verdadero: los 25 entrevistados forman la muestra."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Se estudia el peso de 100 mochilas y se revisan 10. ¿Cuál es la unidad de análisis?",
+        "respuesta": "mochila",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "cada mochila"
+          },
+          {
+            "id": "b",
+            "texto": "una mochila"
+          }
+        ],
+        "pistas": [
+          "Busca el objeto del que se anota un peso.",
+          "Se pesa cada mochila por separado.",
+          "La unidad es una de esas mochilas."
+        ],
+        "retroalimentacion": "La unidad es cada mochila, no las diez juntas."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Un colegio tiene 240 alumnos y encuesta a 60. ¿Cuántos alumnos integran la muestra? Escribe solo el número.",
+        "respuesta": 60,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La muestra es el grupo encuestado.",
+          "Distingue 240 en total de 60 consultados.",
+          "El número de consultados es sesenta."
+        ],
+        "retroalimentacion": "La muestra tiene 60 alumnos; 240 es la población."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se quieren estudiar las viviendas de un barrio y se observan 80 de 600. ¿Cuál es la unidad de análisis?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El barrio"
+          },
+          {
+            "id": "b",
+            "texto": "Las 80 viviendas juntas"
+          },
+          {
+            "id": "c",
+            "texto": "Cada vivienda"
+          },
+          {
+            "id": "d",
+            "texto": "Las 600 familias"
+          }
+        ],
+        "pistas": [
+          "El dato se toma de cada vivienda.",
+          "Ochenta es tamaño de muestra.",
+          "Seiscientas es tamaño de población."
+        ],
+        "retroalimentacion": "Cada vivienda es una unidad de análisis."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para estudiar a todos los estudiantes de 1.° B, se encuesta a los 28 que forman el salón. En ese caso, muestra y población coinciden.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El interés se limita a 1.° B.",
+          "Se consultó a los 28 integrantes.",
+          "No quedó nadie del grupo objetivo sin consultar."
+        ],
+        "retroalimentacion": "Es verdadero: al observar a todo 1.° B, la muestra coincide con la población."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una municipalidad estudia la edad de sus 1500 trabajadores y elige 120. ¿Cómo se llama el grupo de 120?",
+        "respuesta": "muestra",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El grupo objetivo reúne 1500 personas.",
+          "Solo 120 son elegidas para medir.",
+          "La parte seleccionada se llama muestra."
+        ],
+        "retroalimentacion": "Los 120 trabajadores son la muestra; 1500 es la población."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Se revisan 35 de los 140 cuadernos de un grado. ¿Cuántos cuadernos quedan en la población fuera de la muestra? Escribe solo el número.",
+        "respuesta": 105,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay 140 cuadernos en total.",
+          "Treinta y cinco fueron revisados.",
+          "Resta 140 − 35."
+        ],
+        "retroalimentacion": "Quedan 105 fuera de la muestra; el total sigue siendo 140."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una investigación busca conocer el transporte de los 900 estudiantes de un distrito. Solo pregunta a 90 de un colegio. ¿Qué afirmación identifica bien los grupos?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Población 90 y muestra 900"
+          },
+          {
+            "id": "b",
+            "texto": "Población el colegio y muestra el distrito"
+          },
+          {
+            "id": "c",
+            "texto": "Cada bus es unidad de análisis"
+          },
+          {
+            "id": "d",
+            "texto": "Población 900 y muestra 90"
+          }
+        ],
+        "pistas": [
+          "El objetivo abarca el distrito.",
+          "Los 90 preguntados son solo parte del grupo.",
+          "Distingue 900 objetivo y 90 observados."
+        ],
+        "retroalimentacion": "La población son 900 estudiantes; la muestra son 90."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si se quiere estudiar el estado de 500 árboles y se revisan 50, cada árbol revisado es una unidad de análisis.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El dato es el estado de un árbol.",
+          "Se observa cada árbol individualmente.",
+          "La unidad no es el conjunto de cincuenta."
+        ],
+        "retroalimentacion": "Es verdadero: cada árbol es una unidad; 50 árboles forman la muestra."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En una feria hay 75 puestos. Para estudiar sus ventas se seleccionan 15 puestos. ¿Cuál es la población? Responde con un número y la palabra puestos.",
+        "respuesta": "75 puestos",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La población incluye todos los puestos de interés.",
+          "Quince es solo la selección.",
+          "El total de la feria es setenta y cinco."
+        ],
+        "retroalimentacion": "La población son los 75 puestos, no los 15 seleccionados."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una encuesta de alimentación incluye a los 120 alumnos de dos salones completos de 30 y 90 alumnos. ¿Cuál es el tamaño de la muestra? Escribe solo el número.",
+        "respuesta": 120,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La muestra reúne a ambos salones.",
+          "Suma treinta y noventa.",
+          "30 + 90 = 120."
+        ],
+        "retroalimentacion": "La muestra suma 120 alumnos; tomar solo un salón omite encuestados."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.diseno-encuestas",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Usa estrategias y procedimientos para recopilar y procesar datos",
+    "desempenosOrigen": [
+      "MAT-C25-S1-05"
+    ],
+    "bloque": "Recojo y organización de datos",
+    "nombre": "Diseño y aplicación de encuestas",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Formula preguntas cerradas y abiertas adecuadas a la variable que se quiere estudiar.",
+    "palabrasClave": [
+      "encuesta",
+      "variable",
+      "pregunta cerrada",
+      "pregunta abierta",
+      "respuesta"
+    ],
+    "prerrequisitos": [
+      "mat.s1.poblacion-muestra"
+    ],
+    "ordenSugerido": 26,
+    "ideaCentral": "Una encuesta recoge datos de una población o muestra mediante preguntas claras. Elige preguntas cerradas si necesitas contar respuestas y abiertas si buscas explicaciones.",
+    "pasos": [
+      "Define qué variable quieres conocer y a quién preguntarás.",
+      "Redacta una pregunta neutral que trate una sola idea.",
+      "Elige respuestas cerradas completas y sin superposición, o deja espacio para una respuesta abierta.",
+      "Prueba la pregunta con una persona y corrige ambigüedades."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "El municipio escolar quiere conocer cómo llegan sus compañeros al colegio.",
+        "desarrollo": "La variable es medio de transporte; conviene preguntar «¿Cómo llegaste hoy?» con opciones caminar, bicicleta, transporte público, movilidad escolar y otro.",
+        "respuesta": "Es una pregunta cerrada que permite contar cada medio."
+      },
+      {
+        "situacion": "Una profesora quiere saber por qué algunos estudiantes prefieren leer en la biblioteca.",
+        "desarrollo": "Quiere motivos, no solo cantidades; pregunta «¿Qué te gusta de leer en la biblioteca?».",
+        "respuesta": "La pregunta es abierta y recoge explicaciones."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Preguntar «¿Te gusta mucho nuestro excelente comedor?»",
+        "correccion": "«Excelente» induce una respuesta; pregunta «¿Cómo calificarías el comedor?» con opciones equilibradas."
+      },
+      {
+        "error": "Ofrecer solo «bus» y «caminar» para preguntar cómo viajan.",
+        "correccion": "Incluye todas las opciones probables y «otro» para no forzar respuestas falsas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Variable",
+        "significado": "Característica que quieres estudiar."
+      },
+      {
+        "termino": "Pregunta cerrada",
+        "significado": "Pregunta con respuestas previstas."
+      },
+      {
+        "termino": "Pregunta abierta",
+        "significado": "Pregunta que permite responder con palabras propias."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para contar el deporte favorito de tu salón, ¿qué pregunta sirve mejor?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en el dato que quieres contar: el deporte preferido.",
+          "Necesitas que cada compañero nombre un deporte.",
+          "La pregunta útil pide elegir el deporte favorito."
+        ],
+        "retroalimentacion": "«¿Cuál es tu deporte favorito?» recoge la variable; «¿Practicas deporte?» solo da sí o no.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "¿Practicas deporte?"
+          },
+          {
+            "id": "b",
+            "texto": "¿Cuál es tu deporte favorito?"
+          },
+          {
+            "id": "c",
+            "texto": "¿Cuántas horas duermes?"
+          },
+          {
+            "id": "d",
+            "texto": "¿Dónde vives?"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "«¿Cuántos libros leíste el mes pasado?» pregunta por una cantidad que puede contarse.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica qué responderías: un número de libros.",
+          "Una cantidad se puede registrar con 0, 1, 2...",
+          "Contar libros leídos produce un dato numérico."
+        ],
+        "retroalimentacion": "Verdadero: el número de libros leídos es una cantidad; confundirlo con un título cambia la variable."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Para saber por qué tus compañeros usan la biblioteca, ¿conviene una pregunta abierta o cerrada? Escribe una palabra.",
+        "respuesta": "abierta",
+        "alternativasAceptadas": [
+          "pregunta abierta"
+        ],
+        "pistas": [
+          "Se buscan motivos personales, no una lista fija de opciones.",
+          "Una respuesta libre permite explicar razones.",
+          "El tipo de pregunta que admite explicaciones se llama abierta."
+        ],
+        "retroalimentacion": "Conviene abierta: así cada estudiante explica su motivo; una cerrada limitaría las razones."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una encuesta pregunta «¿Cómo llegaste hoy al colegio?». ¿Qué conjunto de opciones cubre mejor las respuestas?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Revisa si una persona que llegó en bicicleta puede responder.",
+          "También deben poder responder quienes caminaron o usaron transporte.",
+          "Una opción «otro» cubre medios no previstos."
+        ],
+        "retroalimentacion": "«Caminando, bicicleta, transporte público, movilidad u otro» evita forzar a quien usa otro medio.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo caminando o bus"
+          },
+          {
+            "id": "b",
+            "texto": "Solo taxi o bicicleta"
+          },
+          {
+            "id": "c",
+            "texto": "Caminando, bicicleta, transporte público, movilidad u otro"
+          },
+          {
+            "id": "d",
+            "texto": "Sí o no"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La pregunta «¿Te encanta la deliciosa comida del quiosco?» es neutral para medir opiniones.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa los adjetivos de la pregunta.",
+          "«Deliciosa» sugiere una opinión favorable.",
+          "Una formulación neutral sería «¿Qué opinas de la comida del quiosco?»."
+        ],
+        "retroalimentacion": "Falso: «deliciosa» y «encanta» inducen aprobación; la pregunta debe ser neutral."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Quieres contar cuántas horas estudia cada persona por semana. ¿Cuál pregunta mide exactamente esa variable?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La variable incluye horas y una semana.",
+          "Descarta preguntas sobre materias o gustos.",
+          "La opción precisa pide un número de horas semanales."
+        ],
+        "retroalimentacion": "«¿Cuántas horas estudias en una semana?» fija unidad y período; «¿Estudias?» no mide horas.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "¿Qué materia te gusta?"
+          },
+          {
+            "id": "b",
+            "texto": "¿Estudias en casa?"
+          },
+          {
+            "id": "c",
+            "texto": "¿Cuántos cursos tienes?"
+          },
+          {
+            "id": "d",
+            "texto": "¿Cuántas horas estudias en una semana?"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una pregunta da estas opciones de edad: 11–13, 13–15 y 16–17. ¿Qué edad aparece en dos rangos? Escribe solo el número.",
+        "respuesta": "13",
+        "alternativasAceptadas": [
+          "trece"
+        ],
+        "pistas": [
+          "Busca el extremo compartido entre los dos primeros rangos.",
+          "El primer rango termina en 13.",
+          "El segundo comienza en 13; esa persona tendría dos casillas."
+        ],
+        "retroalimentacion": "La edad 13 aparece dos veces; conviene usar 11–12 y 13–15 para no superponer rangos."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para una encuesta sobre el desayuno de hoy, ¿qué pregunta evita juntar dos variables?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Una pregunta debe tratar una sola característica.",
+          "«Qué comiste y a qué hora» mezcla alimento y tiempo.",
+          "Busca la opción que pregunta solo por el alimento."
+        ],
+        "retroalimentacion": "«¿Qué desayunaste hoy?» trata solo el alimento; juntar alimento y hora dificulta clasificar.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "¿Qué desayunaste hoy?"
+          },
+          {
+            "id": "b",
+            "texto": "¿Qué desayunaste y a qué hora?"
+          },
+          {
+            "id": "c",
+            "texto": "¿Desayunaste y almorzaste?"
+          },
+          {
+            "id": "d",
+            "texto": "¿A qué hora y con quién desayunaste?"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Quieres comparar el medio de llegada de estudiantes de dos turnos. ¿Qué diseño permite contar y comparar sin perder respuestas raras?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La comparación requiere la misma pregunta en ambos turnos.",
+          "Necesitas opciones de medios y una salida para casos inesperados.",
+          "Usa opciones iguales con «otro» en ambos grupos."
+        ],
+        "retroalimentacion": "La misma pregunta cerrada con opciones y «otro» en ambos turnos permite comparar; preguntas distintas no.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una pregunta distinta en cada turno"
+          },
+          {
+            "id": "b",
+            "texto": "Solo una entrevista abierta en un turno"
+          },
+          {
+            "id": "c",
+            "texto": "La misma pregunta cerrada con opciones y «otro» en ambos turnos"
+          },
+          {
+            "id": "d",
+            "texto": "Preguntar solo a quienes vienen en bus"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para medir tiempo diario de lectura, preguntar «¿Lees mucho?» y ofrecer «sí/no» basta para calcular minutos.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "«Mucho» depende de cada persona.",
+          "Sí o no no informa minutos concretos.",
+          "Debes preguntar «¿Cuántos minutos lees al día?»."
+        ],
+        "retroalimentacion": "Falso: «¿Lees mucho?» no da minutos; la variable exige una cantidad y unidad."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una encuesta quiere conocer el motivo para elegir un taller. La pregunta propuesta es «¿Te gusta Arte? Sí/No». ¿Qué tipo de pregunta, abierta o cerrada, permitirá obtener motivos?",
+        "respuesta": "abierta",
+        "alternativasAceptadas": [
+          "pregunta abierta"
+        ],
+        "pistas": [
+          "Sí/No mide gusto, pero no explica por qué.",
+          "Un motivo necesita palabras de la persona encuestada.",
+          "Pregunta «¿Por qué elegiste ese taller?» y clasifica su tipo."
+        ],
+        "retroalimentacion": "Abierta: una explicación libre recoge el motivo; el sí/no solo indica preferencia."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se pregunta «¿Cuántos hermanos tienes?» y las opciones son 0, 1 y 2. Varios estudiantes tienen 3. ¿Cuál corrección conserva la pregunta cerrada y permite responder a todos?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La pregunta ya mide una sola variable.",
+          "Falta una respuesta para tres o más hermanos.",
+          "Añade «3 o más» sin cambiar las demás opciones."
+        ],
+        "retroalimentacion": "Agregar «3 o más» cubre a esos estudiantes; dejarlos fuera sesga el conteo.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Quitar la opción 0"
+          },
+          {
+            "id": "b",
+            "texto": "Añadir «3 o más»"
+          },
+          {
+            "id": "c",
+            "texto": "Preguntar solo a quienes tienen 2"
+          },
+          {
+            "id": "d",
+            "texto": "Cambiar a «¿Te gustan tus hermanos?»"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.tabla-frecuencias-s1",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Usa estrategias y procedimientos para recopilar y procesar datos",
+    "desempenosOrigen": [
+      "MAT-C25-S1-05"
+    ],
+    "bloque": "Recojo y organización de datos",
+    "nombre": "Tabla de frecuencias absolutas y relativas",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Organiza datos en tablas con frecuencia absoluta y relativa.",
+    "palabrasClave": [
+      "tabla",
+      "frecuencia absoluta",
+      "frecuencia relativa",
+      "total",
+      "categoría"
+    ],
+    "prerrequisitos": [
+      "mat.s1.diseno-encuestas"
+    ],
+    "ordenSugerido": 27,
+    "ideaCentral": "Una tabla de frecuencias ordena cuántas veces aparece cada dato. La frecuencia relativa divide cada conteo entre el total y permite comparar grupos de distinto tamaño.",
+    "pasos": [
+      "Define categorías que no se superpongan.",
+      "Cuenta los datos de cada categoría: esa es su frecuencia absoluta.",
+      "Suma los conteos para comprobar el total.",
+      "Divide cada conteo entre el total para hallar su frecuencia relativa."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En un salón, 4 eligen vóley y 6 fútbol.",
+        "desarrollo": "El total es 10. Para vóley, frecuencia absoluta 4 y relativa 4/10 = 0,4.",
+        "respuesta": "Vóley: 4 y 0,4."
+      },
+      {
+        "situacion": "Una encuesta de frutas registra manzana 3, plátano 2, mandarina 5.",
+        "desarrollo": "El total es 10; las frecuencias relativas son 3/10, 2/10 y 5/10. Suman 1.",
+        "respuesta": "La tabla queda 3–0,3; 2–0,2; 5–0,5."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dividir cada conteo entre el número de categorías.",
+        "correccion": "Divide entre el total de respuestas, no entre la cantidad de filas."
+      },
+      {
+        "error": "Olvidar una respuesta al sumar.",
+        "correccion": "Comprueba que la suma de frecuencias absolutas iguale el número de personas encuestadas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Frecuencia absoluta",
+        "significado": "Número de veces que aparece una categoría."
+      },
+      {
+        "termino": "Frecuencia relativa",
+        "significado": "Parte del total que representa una categoría."
+      },
+      {
+        "termino": "Categoría",
+        "significado": "Respuesta o grupo de datos que ocupa una fila."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Respuestas sobre fruta: mango, pera, mango, uva, mango. ¿Cuál es la frecuencia absoluta de mango? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Subraya cada aparición de mango.",
+          "Aparece al inicio, en medio y al final.",
+          "Cuenta esas tres marcas."
+        ],
+        "retroalimentacion": "La frecuencia absoluta de mango es 3; contar todas las frutas daría el total, no la fila."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una tabla aparecen: caminar 7, bicicleta 2 y bus 5. ¿Cuál es el total?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las tres frecuencias absolutas.",
+          "Primero 7 + 2 = 9.",
+          "Completa 9 + 5."
+        ],
+        "retroalimentacion": "El total es 14; usar solo la categoría mayor dejaría respuestas sin contar.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "14"
+          },
+          {
+            "id": "b",
+            "texto": "12"
+          },
+          {
+            "id": "c",
+            "texto": "7"
+          },
+          {
+            "id": "d",
+            "texto": "3"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 6 de 12 estudiantes eligen ajedrez, su frecuencia relativa es 6/12 = 0,5.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El numerador es el conteo de ajedrez.",
+          "El denominador es el total: 12.",
+          "La mitad de 12 es 6."
+        ],
+        "retroalimentacion": "Verdadero: 6/12 = 0,5; no se divide entre el número de juegos."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "La lista es rojo, azul, rojo, verde. ¿Qué color tiene frecuencia absoluta 2?",
+        "respuesta": "rojo",
+        "alternativasAceptadas": [
+          "el rojo"
+        ],
+        "pistas": [
+          "Revisa cuál respuesta se repite.",
+          "Azul y verde aparecen una vez.",
+          "El color de la primera y tercera posición es el mismo."
+        ],
+        "retroalimentacion": "Rojo aparece dos veces; azul y verde solo una."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Tabla de transporte: a pie 8, bus 9, bicicleta 3. ¿Cuántas respuestas hay? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma todas las filas de la tabla.",
+          "8 + 9 = 17.",
+          "Añade las 3 respuestas de bicicleta."
+        ],
+        "retroalimentacion": "Hay 20 respuestas; omitir bicicleta daría 17."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "De 20 estudiantes, 5 prefieren quinua. ¿Qué frecuencia relativa corresponde a quinua?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide el conteo entre el total.",
+          "La fracción es 5/20.",
+          "Simplifica a un cuarto o escribe su decimal."
+        ],
+        "retroalimentacion": "La frecuencia relativa es 0,25 porque 5/20 = 1/4; 5 es la absoluta.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5"
+          },
+          {
+            "id": "b",
+            "texto": "0,5"
+          },
+          {
+            "id": "c",
+            "texto": "0,2"
+          },
+          {
+            "id": "d",
+            "texto": "0,25"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una tabla tiene frecuencias absolutas 4, 3 y 2 para 10 respuestas. Está completa.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Suma las tres filas.",
+          "4 + 3 + 2 = 9.",
+          "Compara 9 con el total declarado, 10."
+        ],
+        "retroalimentacion": "Falso: falta una respuesta; la suma de las frecuencias debe ser 10."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "En 16 respuestas, la frecuencia relativa de quienes eligen teatro es 0,25. ¿Cuántos eligieron teatro? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La frecuencia relativa es conteo dividido entre 16.",
+          "0,25 representa un cuarto.",
+          "Un cuarto de 16 es 4."
+        ],
+        "retroalimentacion": "Eligieron teatro 4; 16 × 0,25 = 4."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Tabla A: vóley 6 de 12. Tabla B: vóley 8 de 20. ¿En qué grupo tiene mayor frecuencia relativa?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No compares solo 6 con 8: los grupos tienen distinto tamaño.",
+          "Calcula 6/12 y 8/20.",
+          "Obtienes 0,5 y 0,4."
+        ],
+        "retroalimentacion": "El grupo A tiene 0,5 frente a 0,4 del B; mirar solo el conteo 8 llevaría al grupo equivocado.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Grupo B"
+          },
+          {
+            "id": "b",
+            "texto": "Grupo A"
+          },
+          {
+            "id": "c",
+            "texto": "Son iguales"
+          },
+          {
+            "id": "d",
+            "texto": "No se puede calcular"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una tabla de 25 respuestas, danza tiene 7, teatro 8 y música el resto. ¿Cuál es la frecuencia absoluta de música? Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las tres categorías completan 25.",
+          "Danza y teatro suman 7 + 8 = 15.",
+          "Resta 15 del total."
+        ],
+        "retroalimentacion": "Música tiene 10 respuestas; 25 − 7 − 8 = 10."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En una tabla, las frecuencias relativas son 0,2 para caminar, 0,3 para bus y 0,5 para bicicleta. ¿Cuál es la categoría más frecuente?",
+        "respuesta": "bicicleta",
+        "alternativasAceptadas": [
+          "la bicicleta"
+        ],
+        "pistas": [
+          "Compara las tres partes del total.",
+          "0,5 es mayor que 0,3 y 0,2.",
+          "Busca la categoría asociada a 0,5."
+        ],
+        "retroalimentacion": "Bicicleta es la categoría más frecuente; 0,5 del total supera las otras proporciones."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 20 encuestas, una tabla muestra 8 respuestas «sí» y 12 «no». Las frecuencias relativas 0,4 y 0,6 son coherentes y suman 1.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Comprueba primero 8 + 12.",
+          "Divide cada conteo entre 20: 8/20 y 12/20.",
+          "Revisa que 0,4 + 0,6 complete el total."
+        ],
+        "retroalimentacion": "Verdadero: los conteos suman 20 y las partes 0,4 + 0,6 = 1."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.frecuencia-porcentual",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 25,
+    "capacidad": "Usa estrategias y procedimientos para recopilar y procesar datos",
+    "desempenosOrigen": [
+      "MAT-C25-S1-05",
+      "MAT-C25-S1-06"
+    ],
+    "bloque": "Recojo y organización de datos",
+    "nombre": "Frecuencia relativa porcentual",
+    "disciplina": "estadistica",
+    "descripcionCorta": "Expresa la frecuencia relativa en porcentaje para comparar grupos.",
+    "palabrasClave": [
+      "porcentaje",
+      "frecuencia relativa",
+      "total",
+      "comparación",
+      "cien"
+    ],
+    "prerrequisitos": [
+      "mat.s1.tabla-frecuencias-s1"
+    ],
+    "ordenSugerido": 28,
+    "ideaCentral": "La frecuencia porcentual expresa una parte del total sobre 100. Divide la frecuencia absoluta entre el total y multiplica por 100; así comparas grupos de tamaños distintos.",
+    "pasos": [
+      "Cuenta las respuestas de la categoría y el total.",
+      "Calcula categoría ÷ total.",
+      "Multiplica el resultado por 100 y agrega %.",
+      "Comprueba que todos los porcentajes sumen 100 % si las categorías cubren el total."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "De 20 estudiantes, 5 llegan en bicicleta.",
+        "desarrollo": "5 ÷ 20 = 0,25; 0,25 × 100 = 25.",
+        "respuesta": "El 25 % llega en bicicleta."
+      },
+      {
+        "situacion": "En un grupo de 40, 12 prefieren vóley.",
+        "desarrollo": "12 ÷ 40 = 0,3; 0,3 × 100 = 30.",
+        "respuesta": "Vóley representa el 30 %."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Escribir 5 % porque hubo 5 respuestas.",
+        "correccion": "El conteo no es el porcentaje; divide entre el total y multiplica por 100."
+      },
+      {
+        "error": "Comparar 8 respuestas de 20 con 6 de 10 solo por conteo.",
+        "correccion": "Compara porcentajes: 40 % frente a 60 %."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Frecuencia porcentual",
+        "significado": "Porcentaje del total que pertenece a una categoría."
+      },
+      {
+        "termino": "Porcentaje",
+        "significado": "Cantidad de cada cien, indicada con %."
+      },
+      {
+        "termino": "Total",
+        "significado": "Número de respuestas de todas las categorías."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "De 10 votos, 3 son para ajedrez. ¿Qué porcentaje de votos obtuvo? Escribe solo el número del porcentaje.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tres de diez es 3/10.",
+          "3/10 = 0,3.",
+          "Multiplica 0,3 por 100."
+        ],
+        "retroalimentacion": "Ajedrez obtuvo 30 %; 3 votos no significan 3 %."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Si la frecuencia relativa de una opción es 0,4, ¿cuál es su frecuencia porcentual?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El decimal se convierte multiplicando por 100.",
+          "0,4 × 100 = 40.",
+          "Añade el símbolo de porcentaje."
+        ],
+        "retroalimentacion": "0,4 equivale a 40 %; 0,4 % sería cien veces menor.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4 %"
+          },
+          {
+            "id": "b",
+            "texto": "0,4 %"
+          },
+          {
+            "id": "c",
+            "texto": "40 %"
+          },
+          {
+            "id": "d",
+            "texto": "400 %"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La mitad de las respuestas corresponde al 50 % del total.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La mitad se escribe 1/2.",
+          "1/2 = 0,5.",
+          "0,5 × 100 = 50."
+        ],
+        "retroalimentacion": "Verdadero: la mitad es 50 %."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En una encuesta de 20 personas, 10 eligieron caminar. ¿Qué porcentaje eligió caminar? Escribe solo el número.",
+        "respuesta": 50,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara 10 con el total 20.",
+          "10/20 es una mitad.",
+          "Una mitad de cien es 50."
+        ],
+        "retroalimentacion": "Caminar representa 50 %; 10 es el conteo, no el porcentaje."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En un aula de 25 estudiantes, 5 usan bicicleta. ¿Qué porcentaje usa bicicleta?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide 5 entre 25.",
+          "5/25 = 1/5.",
+          "Un quinto de 100 es 20."
+        ],
+        "retroalimentacion": "Usa bicicleta el 20 %; 5 % confunde el conteo con el porcentaje.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 %"
+          },
+          {
+            "id": "b",
+            "texto": "20 %"
+          },
+          {
+            "id": "c",
+            "texto": "25 %"
+          },
+          {
+            "id": "d",
+            "texto": "50 %"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una tabla de 40 respuestas muestra 12 a favor del taller de música. ¿Qué porcentaje es? Escribe solo el número.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Forma la fracción 12/40.",
+          "12 ÷ 40 = 0,3.",
+          "Convierte 0,3 a porcentaje."
+        ],
+        "retroalimentacion": "Música recibe 30 %; 12/40 × 100 = 30."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una encuesta con solo dos categorías, si una tiene 35 %, la otra tiene 75 %.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los porcentajes de ambas deben sumar 100 %.",
+          "Calcula 100 − 35.",
+          "La parte restante es 65 %."
+        ],
+        "retroalimentacion": "Falso: la otra categoría tiene 65 %, no 75 %; 35 + 75 supera 100."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un gráfico indica 75 % para leer y 25 % para jugar. ¿Qué actividad tiene mayor frecuencia porcentual?",
+        "respuesta": "leer",
+        "alternativasAceptadas": [
+          "lectura"
+        ],
+        "pistas": [
+          "Compara 75 y 25.",
+          "75 % representa tres cuartos del total.",
+          "Identifica la actividad asociada a 75 %."
+        ],
+        "retroalimentacion": "Leer tiene mayor porcentaje: 75 % frente a 25 %."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Grupo A: 9 de 15 prefieren ceviche. Grupo B: 12 de 25. ¿Dónde es mayor el porcentaje?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula una proporción para cada grupo.",
+          "9/15 = 0,6 y 12/25 = 0,48.",
+          "Compara 60 % con 48 %."
+        ],
+        "retroalimentacion": "El grupo A tiene 60 %, mayor que 48 % del B; 12 votos absolutos no bastan.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Grupo B, porque 12 > 9"
+          },
+          {
+            "id": "b",
+            "texto": "Son iguales"
+          },
+          {
+            "id": "c",
+            "texto": "No hay total suficiente"
+          },
+          {
+            "id": "d",
+            "texto": "Grupo A, porque 60 % > 48 %"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "En una tabla, deporte tiene 45 % y arte 30 %; ciencia reúne el resto. ¿Qué porcentaje corresponde a ciencia? Escribe solo el número.",
+        "respuesta": 25,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las tres categorías completan 100 %.",
+          "Deporte y arte reúnen 45 + 30 = 75 %.",
+          "Resta 75 de 100."
+        ],
+        "retroalimentacion": "Ciencia tiene 25 %; sumar los tres porcentajes da 100 %."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una encuesta de 50 personas reporta 15 que eligen teatro. Afirmar que teatro representa 30 % es correcto.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide 15 entre 50.",
+          "15/50 = 0,3.",
+          "0,3 × 100 = 30."
+        ],
+        "retroalimentacion": "Verdadero: 15 de 50 equivale al 30 %; el número de personas no es el porcentaje."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Dos salones respondieron lo mismo. En el primero, 20 % de 30 eligió danza; en el segundo, 25 % de 40. ¿Cuántas personas más eligieron danza en el segundo? Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula cada cantidad por separado.",
+          "20 % de 30 = 6 y 25 % de 40 = 10.",
+          "Resta 10 − 6."
+        ],
+        "retroalimentacion": "En el segundo son 4 personas más: 10 frente a 6."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

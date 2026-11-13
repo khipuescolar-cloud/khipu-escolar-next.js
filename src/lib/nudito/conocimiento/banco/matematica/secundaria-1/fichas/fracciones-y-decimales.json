@@ -1,0 +1,3218 @@
+[
+  {
+    "clave": "mat.s1.fraccion-como-medida",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-S1-04"
+    ],
+    "bloque": "Fracciones y decimales",
+    "nombre": "Fracción como medida",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Usa fracciones para expresar medidas no enteras con una unidad de referencia.",
+    "palabrasClave": [
+      "unidad",
+      "fracción",
+      "medida",
+      "partes iguales"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 35,
+    "ideaCentral": "Una fracción mide cuántas partes iguales de una unidad tomas. El denominador indica en cuántas partes se dividió cada unidad y el numerador cuántas partes tomaste.",
+    "pasos": [
+      "Elige y nombra la unidad de referencia.",
+      "Divídela en tantas partes iguales como indique el denominador.",
+      "Cuenta las partes tomadas, incluso si atraviesas más de una unidad.",
+      "Expresa la medida con numerador y denominador."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una cinta de 1 m se divide en 4 partes iguales y se usan 3. ¿Cuánto se usó?",
+        "desarrollo": "Cada parte mide 1/4 m; tres partes miden 3/4 m.",
+        "respuesta": "3/4 m."
+      },
+      {
+        "situacion": "Una jarra de 1 L se divide en 3 porciones iguales. Se sirven 5 porciones.",
+        "desarrollo": "Cinco tercios son 5/3 L; se supera una jarra completa.",
+        "respuesta": "5/3 L."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Contar partes de distinto tamaño como cuartos.",
+        "correccion": "Las partes deben medir lo mismo para representar una fracción."
+      },
+      {
+        "error": "Creer que 5/3 de unidad es imposible.",
+        "correccion": "Una medida puede superar una unidad: 5/3 = 1 y 2/3."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Unidad",
+        "significado": "Cantidad completa que sirve de referencia."
+      },
+      {
+        "termino": "Denominador",
+        "significado": "Número de partes iguales en cada unidad."
+      },
+      {
+        "termino": "Numerador",
+        "significado": "Número de partes que se toman."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un metro de tela se corta en 5 partes iguales. ¿Qué fracción de metro mide una parte?",
+        "respuesta": "1/5",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La unidad completa es 1 metro.",
+          "Se separó en 5 partes iguales.",
+          "Una de cinco partes se escribe con 1 arriba."
+        ],
+        "retroalimentacion": "Escribir 5/1 confunde parte y unidad: una parte mide 1/5 de metro."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "De una botella de 1 L dividida en cuatro medidas iguales, Julia sirve tres. ¿Qué medida sirvió?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/4 L"
+          },
+          {
+            "id": "b",
+            "texto": "4/3 L"
+          },
+          {
+            "id": "c",
+            "texto": "3/4 L"
+          },
+          {
+            "id": "d",
+            "texto": "3 L"
+          }
+        ],
+        "pistas": [
+          "Cada medida es un cuarto de litro.",
+          "Se sirvieron tres de esas medidas.",
+          "Cuenta 3 partes de 4 de la unidad."
+        ],
+        "retroalimentacion": "Tomar 1/4 L cuenta solo una medida; Julia sirvió 3/4 L."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una regla de 1 m se marca en diez tramos iguales, cada tramo mide 1/10 m.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El metro es la unidad completa.",
+          "Hay diez tramos iguales en esa unidad.",
+          "Un tramo es una de esas diez partes."
+        ],
+        "retroalimentacion": "Es verdadero: cada tramo es 1/10 m, no 10 m."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En una cuerda marcada en tercios de metro, se cuentan dos tramos desde cero. Escribe la medida como fracción de metro.",
+        "respuesta": "2/3",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada tramo equivale a 1/3 m.",
+          "Desde cero se avanzan dos tramos.",
+          "Suma 1/3 m + 1/3 m."
+        ],
+        "retroalimentacion": "No es 1/3 m, porque se avanzaron dos tramos: son 2/3 m."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una receta usa 7 vasitos de 1/4 L de agua. ¿Cuál es el volumen total?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4/7 L"
+          },
+          {
+            "id": "b",
+            "texto": "1/4 L"
+          },
+          {
+            "id": "c",
+            "texto": "7 L"
+          },
+          {
+            "id": "d",
+            "texto": "7/4 L"
+          }
+        ],
+        "pistas": [
+          "Cada vasito representa un cuarto de litro.",
+          "Siete vasitos son siete cuartos.",
+          "El numerador puede superar al denominador."
+        ],
+        "retroalimentacion": "Limitar la respuesta a 1 L pierde tres vasitos: son 7/4 L."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un listón mide 1 m y medio. Escríbelo como fracción impropia de metro.",
+        "respuesta": "3/2",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Medio metro es 1/2 m.",
+          "Un metro completo son 2/2 m.",
+          "Junta 2/2 y 1/2."
+        ],
+        "retroalimentacion": "Si pusiste 1/2, omitiste el metro entero: 3/2 m."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Seis tramos de 1/3 m cubren exactamente 2 m.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tres tramos de 1/3 m hacen un metro.",
+          "Seis tramos forman dos grupos de tres.",
+          "6/3 m se simplifica a 2 m."
+        ],
+        "retroalimentacion": "Es verdadero: 6 × 1/3 m = 6/3 m = 2 m."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una recta, entre 0 y 1 L hay 8 espacios iguales. La marca 5 desde cero representa ¿cuánto?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8/5 L"
+          },
+          {
+            "id": "b",
+            "texto": "5/8 L"
+          },
+          {
+            "id": "c",
+            "texto": "3/8 L"
+          },
+          {
+            "id": "d",
+            "texto": "5 L"
+          }
+        ],
+        "pistas": [
+          "Cada espacio vale 1/8 L.",
+          "La quinta marca está a cinco espacios de cero.",
+          "La medida tiene 5 arriba y 8 abajo."
+        ],
+        "retroalimentacion": "Usar 5/1 ignora la partición de la unidad: la marca es 5/8 L."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una cinta tiene marcas cada 1/6 m. Desde cero hasta el corte hay 9 intervalos. Escribe la longitud como fracción impropia de metro.",
+        "respuesta": "9/6",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Cada intervalo vale 1/6 m.",
+          "Nueve intervalos suman nueve sextos.",
+          "Mantén el denominador 6 y cuenta 9 arriba."
+        ],
+        "retroalimentacion": "No son 9 m: cada intervalo es solo un sexto; la medida es 9/6 m."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dos dibujos muestran una barra: A tiene 3 de 4 partes iguales pintadas; B tiene 3 partes pintadas, pero de tamaños diferentes. ¿Cuál representa 3/4 de barra?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ambos"
+          },
+          {
+            "id": "b",
+            "texto": "Solo B"
+          },
+          {
+            "id": "c",
+            "texto": "Solo A"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguno"
+          }
+        ],
+        "pistas": [
+          "Para medir cuartos, las cuatro partes deben ser iguales.",
+          "En A hay cuatro partes iguales.",
+          "En B no se pueden contar cuartos por sus tamaños distintos."
+        ],
+        "retroalimentacion": "Contar solo las partes pintadas no basta: solo A representa 3/4."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una botella de 2 L dividida en cuatro vasos iguales da vasos de 1/4 L.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La unidad dada contiene 2 L.",
+          "Cada vaso es 1/4 de esa botella de 2 L.",
+          "2 ÷ 4 = 1/2 L por vaso."
+        ],
+        "retroalimentacion": "Es falso: 1/4 de 2 L equivale a 1/2 L, no a 1/4 L."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una marca está a 2/3 m y otra a 5/3 m desde cero. ¿Cuántos tercios de metro separan las marcas? Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ambas medidas están expresadas en tercios.",
+          "Cuenta de 2/3 a 5/3: 3/3, 4/3, 5/3.",
+          "También resta los numeradores 5 − 2."
+        ],
+        "retroalimentacion": "No se separan cinco tercios; la diferencia es 3 tercios."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.fraccion-irreductible",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-08"
+    ],
+    "bloque": "Fracciones y decimales",
+    "nombre": "Fracciones equivalentes y fracción irreductible",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Simplifica fracciones hasta su forma irreductible usando el MCD.",
+    "palabrasClave": [
+      "equivalencia",
+      "simplificar",
+      "MCD",
+      "fracción irreductible"
+    ],
+    "prerrequisitos": [
+      "mat.s1.fraccion-como-medida",
+      "mat.s1.mcm-mcd-situaciones"
+    ],
+    "ordenSugerido": 36,
+    "ideaCentral": "Dos fracciones son equivalentes si miden lo mismo. Para llegar a la forma irreductible divides numerador y denominador entre su MCD.",
+    "pasos": [
+      "Halla un divisor común del numerador y denominador.",
+      "Divide ambos por ese mismo número sin alterar el valor.",
+      "Repite hasta que el único divisor común sea 1.",
+      "Comprueba la equivalencia multiplicando en cruz."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Un afiche ocupa 12/18 de una pared.",
+        "desarrollo": "El MCD de 12 y 18 es 6. Divido ambos entre 6.",
+        "respuesta": "12/18 = 2/3."
+      },
+      {
+        "situacion": "Una mezcla pide 15/25 de taza.",
+        "desarrollo": "El MCD de 15 y 25 es 5; al dividir queda 3/5.",
+        "respuesta": "3/5 de taza."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dividir solo el numerador.",
+        "correccion": "Divide arriba y abajo por el mismo divisor para conservar la medida."
+      },
+      {
+        "error": "Detenerse en 6/8.",
+        "correccion": "Todavía comparten el divisor 2; la forma irreductible es 3/4."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Equivalentes",
+        "significado": "Fracciones que expresan la misma cantidad."
+      },
+      {
+        "termino": "MCD",
+        "significado": "Mayor divisor común de dos números."
+      },
+      {
+        "termino": "Irreductible",
+        "significado": "Fracción cuyos términos no comparten divisores mayores que 1."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Simplifica 6/8 hasta su forma irreductible.",
+        "respuesta": "3/4",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "6 y 8 comparten un divisor.",
+          "Divide ambos términos entre 2.",
+          "6 ÷ 2 = 3 y 8 ÷ 2 = 4."
+        ],
+        "retroalimentacion": "Dejar 6/8 no simplifica; la forma irreductible es 3/4."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál equivale a 2/3?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2/6"
+          },
+          {
+            "id": "b",
+            "texto": "4/3"
+          },
+          {
+            "id": "c",
+            "texto": "4/6"
+          },
+          {
+            "id": "d",
+            "texto": "3/4"
+          }
+        ],
+        "pistas": [
+          "Multiplica arriba y abajo por el mismo número.",
+          "Si duplicas 2, duplica también 3.",
+          "2 × 2 = 4 y 3 × 2 = 6."
+        ],
+        "retroalimentacion": "Cambiar solo el numerador altera el valor: 2/3 = 4/6."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La fracción 5/7 ya es irreductible.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca divisores comunes de 5 y 7.",
+          "Ambos son primos distintos.",
+          "Su único divisor común es 1."
+        ],
+        "retroalimentacion": "Es verdadero: el MCD de 5 y 7 es 1."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Reduce 10/15 a términos mínimos.",
+        "respuesta": "2/3",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Busca el MCD de 10 y 15.",
+          "Los dos son divisibles entre 5.",
+          "Divide 10 y 15 entre 5."
+        ],
+        "retroalimentacion": "Dividir solo 10 daría otra cantidad; 10/15 = 2/3."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Entre 8/12, 4/6, 2/3 y 6/9, ¿cuál está en forma irreductible?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8/12"
+          },
+          {
+            "id": "b",
+            "texto": "4/6"
+          },
+          {
+            "id": "c",
+            "texto": "6/9"
+          },
+          {
+            "id": "d",
+            "texto": "2/3"
+          }
+        ],
+        "pistas": [
+          "Todas representan la misma medida.",
+          "Revisa cuál pareja de términos no comparte divisor mayor que 1.",
+          "2 y 3 son coprimos."
+        ],
+        "retroalimentacion": "8/12 aún se divide entre 4; la única irreductible es 2/3."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En un mosaico se pintaron 18 de 24 cuadros. Escribe la fracción pintada irreductible.",
+        "respuesta": "3/4",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La fracción inicial es 18/24.",
+          "El MCD de 18 y 24 es 6.",
+          "Divide 18 y 24 entre 6."
+        ],
+        "retroalimentacion": "18/24 no está reducida; la proporción mínima es 3/4."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Al dividir numerador y denominador de 21/28 entre 7 se obtiene 3/4.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula 21 ÷ 7.",
+          "Calcula también 28 ÷ 7.",
+          "Los resultados son 3 y 4."
+        ],
+        "retroalimentacion": "Es verdadero: 21/28 = 3/4, pues se dividieron ambos términos entre 7."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué número falta en 9/12 = __/4?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "9"
+          },
+          {
+            "id": "c",
+            "texto": "3"
+          },
+          {
+            "id": "d",
+            "texto": "4"
+          }
+        ],
+        "pistas": [
+          "El denominador 12 se dividió entre 3.",
+          "Haz lo mismo con el numerador 9.",
+          "9 ÷ 3 = 3."
+        ],
+        "retroalimentacion": "Escribir 9/4 cambia la fracción: 9/12 = 3/4."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Simplifica 42/56 usando el mayor divisor común.",
+        "respuesta": "3/4",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Descompón 42 y 56 o busca su MCD.",
+          "El MCD es 14.",
+          "Divide 42 y 56 entre 14."
+        ],
+        "retroalimentacion": "Reducir entre 2 deja 21/28, aún reducible; el final es 3/4."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Luis afirma que 16/20 y 12/15 no son equivalentes porque sus números son distintos. ¿Qué prueba lo corrige?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "16 + 20 = 12 + 15"
+          },
+          {
+            "id": "b",
+            "texto": "Ambas se reducen a 4/5"
+          },
+          {
+            "id": "c",
+            "texto": "20 − 16 = 15 − 12"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguna se puede simplificar"
+          }
+        ],
+        "pistas": [
+          "Simplifica cada fracción por separado.",
+          "16/20 se divide entre 4.",
+          "12/15 se divide entre 3."
+        ],
+        "retroalimentacion": "Los números pueden diferir y medir igual: ambas se reducen a 4/5."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "La fracción 27/45 es irreductible porque 27 y 45 son impares.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Ser impar no impide compartir divisores.",
+          "27 y 45 son múltiplos de 9.",
+          "Divide ambos entre 9."
+        ],
+        "retroalimentacion": "Es falso: 27/45 = 3/5; impar no significa irreductible."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una fracción equivalente a 3/5 tiene numerador 24. ¿Cuál es su denominador? Escribe solo el número.",
+        "respuesta": 40,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "De 3 a 24 multiplicaste por 8.",
+          "Para conservar el valor, multiplica también 5 por 8.",
+          "5 × 8 = 40."
+        ],
+        "retroalimentacion": "Dejar el denominador 5 altera el valor; 24/40 = 3/5."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.adicion-sustraccion-fracciones",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Fracciones y decimales",
+    "nombre": "Adición y sustracción de fracciones y mixtos",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Suma y resta fracciones heterogéneas y números mixtos con el MCM.",
+    "palabrasClave": [
+      "sumar fracciones",
+      "restar fracciones",
+      "MCM",
+      "mixtos"
+    ],
+    "prerrequisitos": [
+      "mat.s1.fraccion-irreductible"
+    ],
+    "ordenSugerido": 37,
+    "ideaCentral": "Para sumar o restar fracciones, primero las expresas con un denominador común y después operas los numeradores. Un número mixto se puede convertir en fracción impropia.",
+    "pasos": [
+      "Busca un denominador común, preferentemente el MCM.",
+      "Transforma cada fracción sin cambiar su valor.",
+      "Suma o resta los numeradores y conserva el denominador.",
+      "Simplifica el resultado y revisa si tiene sentido."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En la feria, Ana compra 1/2 kg de queso y 1/3 kg más.",
+        "desarrollo": "El MCM es 6: 1/2 = 3/6 y 1/3 = 2/6; sumo 5/6.",
+        "respuesta": "Compró 5/6 kg."
+      },
+      {
+        "situacion": "Queda 1 1/4 L de refresco y se sirve 1/2 L.",
+        "desarrollo": "1 1/4 = 5/4; 1/2 = 2/4; resta 5/4 − 2/4.",
+        "respuesta": "Quedan 3/4 L."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar denominadores, como 1/2 + 1/3 = 2/5.",
+        "correccion": "Primero expresa ambas en sextos; el resultado es 5/6."
+      },
+      {
+        "error": "Restar solo las partes enteras de un mixto.",
+        "correccion": "Convierte a impropia o reagrupa una unidad antes de restar."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Denominador común",
+        "significado": "Denominador compartido por fracciones equivalentes."
+      },
+      {
+        "termino": "MCM",
+        "significado": "Menor múltiplo común útil como denominador."
+      },
+      {
+        "termino": "Mixto",
+        "significado": "Número que combina una parte entera y una fracción."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Calcula 1/4 + 2/4. Responde como fracción.",
+        "respuesta": "3/4",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los denominadores ya son iguales.",
+          "Suma los numeradores 1 y 2.",
+          "Conserva el denominador 4."
+        ],
+        "retroalimentacion": "Sumar también los denominadores daría otra medida; 1/4 + 2/4 = 3/4."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para 1/2 + 1/4, ¿cuál es la suma?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2/6"
+          },
+          {
+            "id": "b",
+            "texto": "3/4"
+          },
+          {
+            "id": "c",
+            "texto": "1/4"
+          },
+          {
+            "id": "d",
+            "texto": "2/4"
+          }
+        ],
+        "pistas": [
+          "Escribe 1/2 en cuartos.",
+          "1/2 = 2/4.",
+          "Suma 2/4 + 1/4."
+        ],
+        "retroalimentacion": "1/6 suma denominadores por error; el resultado es 3/4."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "De 5/8 de una torta, si se comen 2/8, quedan 3/8.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Las partes tienen el mismo tamaño.",
+          "Resta 5 − 2 en el numerador.",
+          "El denominador sigue siendo 8."
+        ],
+        "retroalimentacion": "Es verdadero: 5/8 − 2/8 = 3/8."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Suma 1/3 + 1/6 y simplifica.",
+        "respuesta": "1/2",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte el tercio en sextos.",
+          "1/3 = 2/6.",
+          "2/6 + 1/6 = 3/6; reduce."
+        ],
+        "retroalimentacion": "Dejar 3/6 es equivalente, pero la forma reducida pedida es 1/2."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una botella tiene 3/4 L y le agregan 2/3 L. ¿Cuánto contiene?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5/7 L"
+          },
+          {
+            "id": "b",
+            "texto": "11/12 L"
+          },
+          {
+            "id": "c",
+            "texto": "17/12 L"
+          },
+          {
+            "id": "d",
+            "texto": "1 L"
+          }
+        ],
+        "pistas": [
+          "El MCM de 4 y 3 es 12.",
+          "3/4 = 9/12 y 2/3 = 8/12.",
+          "Suma 9 y 8."
+        ],
+        "retroalimentacion": "Sumar 3 + 2 y 4 + 3 da una fracción falsa; son 17/12 L."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Resta 7/10 − 1/5 y simplifica.",
+        "respuesta": "1/2",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 1/5 a décimos.",
+          "1/5 = 2/10.",
+          "7/10 − 2/10 = 5/10."
+        ],
+        "retroalimentacion": "Restar 7 − 1 sin convertir denominador falla; queda 1/2."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "1 1/2 + 1/4 es igual a 1 3/4.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mantén la unidad completa.",
+          "La parte fraccionaria es 1/2 + 1/4.",
+          "1/2 = 2/4; al sumar 1/4 son 3/4."
+        ],
+        "retroalimentacion": "Es verdadero: 1 1/2 + 1/4 = 1 3/4."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "De 2 1/3 kg de papa se usan 5/6 kg. ¿Cuánto queda?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1 1/2 kg"
+          },
+          {
+            "id": "b",
+            "texto": "1/2 kg"
+          },
+          {
+            "id": "c",
+            "texto": "2 1/2 kg"
+          },
+          {
+            "id": "d",
+            "texto": "1 2/3 kg"
+          }
+        ],
+        "pistas": [
+          "Convierte 2 1/3 a sextos.",
+          "2 1/3 = 14/6.",
+          "14/6 − 5/6 = 9/6."
+        ],
+        "retroalimentacion": "Restar 5/6 de solo 1/3 ignora las unidades; queda 1 1/2 kg."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una caminata cubre 3/5 km en la mañana y 7/10 km en la tarde. Escribe la distancia total como fracción impropia simplificada.",
+        "respuesta": "13/10",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 3/5 en décimos.",
+          "3/5 = 6/10.",
+          "6/10 + 7/10 = 13/10."
+        ],
+        "retroalimentacion": "Si respondes 10/15 sumaste denominadores; la distancia es 13/10 km."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Celia calcula 5/6 − 1/4. ¿Qué desarrollo es correcto?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4/2 = 2"
+          },
+          {
+            "id": "b",
+            "texto": "5/24 − 1/24 = 4/24"
+          },
+          {
+            "id": "c",
+            "texto": "10/12 − 3/12 = 7/12"
+          },
+          {
+            "id": "d",
+            "texto": "5/6 − 1/6 = 4/6"
+          }
+        ],
+        "pistas": [
+          "El MCM de 6 y 4 es 12.",
+          "5/6 equivale a 10/12.",
+          "1/4 equivale a 3/12."
+        ],
+        "retroalimentacion": "Restar numeradores originales sin convertir no sirve; 10/12 − 3/12 = 7/12."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si a 2 1/4 le restas 3/4, el resultado es 1 1/2.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "2 1/4 son 9/4.",
+          "Resta 9/4 − 3/4.",
+          "6/4 se expresa como 1 1/2."
+        ],
+        "retroalimentacion": "Es verdadero: 9/4 − 3/4 = 6/4 = 1 1/2."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Completa: 3/4 + __ = 1 1/6. Da la fracción faltante simplificada.",
+        "respuesta": "5/12",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte 1 1/6 en una fracción impropia.",
+          "1 1/6 = 7/6 = 14/12.",
+          "3/4 = 9/12; resta 14/12 − 9/12."
+        ],
+        "retroalimentacion": "Sumar 3/4 y 1 1/6 no encuentra el faltante; es 5/12."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.multiplicacion-division-fracciones",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Fracciones y decimales",
+    "nombre": "Multiplicación y división de fracciones",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Multiplica fracciones y divide multiplicando por la inversa.",
+    "palabrasClave": [
+      "producto",
+      "cociente",
+      "inversa",
+      "simplificar"
+    ],
+    "prerrequisitos": [
+      "mat.s1.fraccion-irreductible"
+    ],
+    "ordenSugerido": 38,
+    "ideaCentral": "Multiplicar fracciones es multiplicar numeradores entre sí y denominadores entre sí. Para dividir, multiplicas por la fracción inversa del divisor.",
+    "pasos": [
+      "Decide si debes multiplicar o repartir.",
+      "En un producto, multiplica arriba con arriba y abajo con abajo.",
+      "En una división, invierte solo el divisor y multiplica.",
+      "Simplifica la fracción y comprueba el resultado."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una receta usa 2/3 de una bolsa de 3/4 kg.",
+        "desarrollo": "Multiplico 2/3 × 3/4 = 6/12 = 1/2.",
+        "respuesta": "Usa 1/2 kg."
+      },
+      {
+        "situacion": "Se reparten 3/4 L en vasos de 1/8 L.",
+        "desarrollo": "Divido 3/4 ÷ 1/8 = 3/4 × 8/1 = 6.",
+        "respuesta": "Se llenan 6 vasos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Invertir ambas fracciones al dividir.",
+        "correccion": "Solo invierte el divisor, es decir, la segunda fracción."
+      },
+      {
+        "error": "Sumar denominadores al multiplicar.",
+        "correccion": "Multiplica denominador por denominador y simplifica."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Inversa",
+        "significado": "Fracción obtenida al intercambiar numerador y denominador."
+      },
+      {
+        "termino": "Producto",
+        "significado": "Resultado de una multiplicación."
+      },
+      {
+        "termino": "Cociente",
+        "significado": "Resultado de una división."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Calcula 2/3 × 1/4 y simplifica.",
+        "respuesta": "1/6",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica los numeradores.",
+          "Multiplica los denominadores.",
+          "2/12 se reduce entre 2."
+        ],
+        "retroalimentacion": "Sumar 2 y 1 no corresponde al producto: 2/3 × 1/4 = 1/6."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es la inversa de 3/5 para dividir entre esa fracción?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3/5"
+          },
+          {
+            "id": "b",
+            "texto": "−3/5"
+          },
+          {
+            "id": "c",
+            "texto": "5/3"
+          },
+          {
+            "id": "d",
+            "texto": "1/3"
+          }
+        ],
+        "pistas": [
+          "Intercambia numerador y denominador.",
+          "El 5 pasa arriba.",
+          "El 3 pasa abajo."
+        ],
+        "retroalimentacion": "Cambiar solo un término no produce la inversa: es 5/3."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "1/2 × 1/3 es igual a 1/6.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 1 por 1 arriba.",
+          "Multiplica 2 por 3 abajo.",
+          "Obtienes 1 sobre 6."
+        ],
+        "retroalimentacion": "Es verdadero: 1/2 × 1/3 = 1/6, no 2/5."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Calcula 3/4 ÷ 3/2.",
+        "respuesta": "1/2",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Invierte el divisor 3/2.",
+          "Multiplica 3/4 × 2/3.",
+          "6/12 se reduce a la mitad."
+        ],
+        "retroalimentacion": "Invertir 3/4 por error cambia el cociente: resulta 1/2."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un mural usa 3/5 de un balde de 2/3 L. ¿Cuánto se usa?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/5 L"
+          },
+          {
+            "id": "b",
+            "texto": "6/15 L"
+          },
+          {
+            "id": "c",
+            "texto": "5/8 L"
+          },
+          {
+            "id": "d",
+            "texto": "2/5 L"
+          }
+        ],
+        "pistas": [
+          "Multiplica 3/5 por 2/3.",
+          "Los 3 se pueden cancelar.",
+          "Queda 2/5 L."
+        ],
+        "retroalimentacion": "Sumar las fracciones daría más de un balde; se usan 2/5 L."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántas porciones de 1/4 kg salen de 3/2 kg? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Se trata de dividir cantidad total entre tamaño de porción.",
+          "Calcula 3/2 ÷ 1/4.",
+          "Multiplica 3/2 × 4."
+        ],
+        "retroalimentacion": "Multiplicar por 1/4 daría el peso de una parte; salen 6 porciones."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Dividir 5/6 entre 1/2 equivale a multiplicar 5/6 por 2.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La inversa de 1/2 es 2/1.",
+          "Solo se invierte el divisor.",
+          "5/6 ÷ 1/2 = 5/6 × 2."
+        ],
+        "retroalimentacion": "Es verdadero: dividir entre un medio duplica la cantidad."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué operación calcula 2/3 ÷ 4/5 correctamente?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3/2 × 4/5"
+          },
+          {
+            "id": "b",
+            "texto": "2/3 × 4/5"
+          },
+          {
+            "id": "c",
+            "texto": "2/3 × 5/4"
+          },
+          {
+            "id": "d",
+            "texto": "3/2 × 5/4"
+          }
+        ],
+        "pistas": [
+          "Al dividir, conserva la primera fracción.",
+          "Invierte solo 4/5.",
+          "La inversa de 4/5 es 5/4."
+        ],
+        "retroalimentacion": "Invertir 2/3 altera la operación; corresponde 2/3 × 5/4."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Calcula 5/8 ÷ 15/16; responde con fracción irreductible.",
+        "respuesta": "2/3",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Invierte 15/16 y multiplica.",
+          "5/8 × 16/15 permite simplificar 16 con 8.",
+          "Queda 10/15, luego reduce."
+        ],
+        "retroalimentacion": "No inviertas el dividendo 5/8: el cociente correcto es 2/3."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un tanque tiene 9/10 L. Cada frasco recibe 3/20 L. ¿Cuántos frascos completos se llenan?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "9"
+          },
+          {
+            "id": "d",
+            "texto": "12"
+          }
+        ],
+        "pistas": [
+          "Divide el total entre la capacidad del frasco.",
+          "9/10 ÷ 3/20 = 9/10 × 20/3.",
+          "Simplifica 20/10 y 9/3."
+        ],
+        "retroalimentacion": "Multiplicar por 3/20 reduce el total; el reparto llena 6 frascos."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "El cociente 3/4 ÷ 1/2 es menor que 3/4.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Dividir entre un medio cuenta cuántas mitades caben.",
+          "3/4 ÷ 1/2 = 3/4 × 2.",
+          "Eso da 3/2, mayor que 3/4."
+        ],
+        "retroalimentacion": "Es falso: el cociente es 3/2; dividir entre una fracción menor que 1 puede aumentar el resultado."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un tejido de 7/6 m se corta en tramos de 7/12 m. ¿Cuántos tramos salen? Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide la longitud total entre la de cada tramo.",
+          "7/6 ÷ 7/12 = 7/6 × 12/7.",
+          "Cancela los 7 y divide 12 entre 6."
+        ],
+        "retroalimentacion": "Contar solo un tramo omite la otra mitad: salen 2 tramos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.operaciones-combinadas-fracciones",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Fracciones y decimales",
+    "nombre": "Operaciones combinadas con fracciones",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Resuelve expresiones con varias operaciones y fracciones respetando la jerarquía.",
+    "palabrasClave": [
+      "jerarquía",
+      "paréntesis",
+      "producto",
+      "suma"
+    ],
+    "prerrequisitos": [
+      "mat.s1.adicion-sustraccion-fracciones",
+      "mat.s1.multiplicacion-division-fracciones"
+    ],
+    "ordenSugerido": 39,
+    "ideaCentral": "En una expresión con varias operaciones, resuelves primero los paréntesis, después multiplicaciones y divisiones, y al final sumas y restas. Las fracciones se simplifican sin cambiar ese orden.",
+    "pasos": [
+      "Resuelve los paréntesis de adentro hacia afuera.",
+      "Haz productos y cocientes de izquierda a derecha.",
+      "Usa denominador común para sumas y restas restantes.",
+      "Simplifica y comprueba que no cambiaste la jerarquía."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula 1/2 + 1/3 × 3/4.",
+        "desarrollo": "Primero 1/3 × 3/4 = 1/4; luego 1/2 + 1/4 = 3/4.",
+        "respuesta": "3/4."
+      },
+      {
+        "situacion": "Calcula (1/2 + 1/4) ÷ 3/2.",
+        "desarrollo": "Paréntesis: 3/4. Luego 3/4 × 2/3 = 1/2.",
+        "respuesta": "1/2."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sumar antes de multiplicar sin paréntesis.",
+        "correccion": "Multiplica primero y luego suma."
+      },
+      {
+        "error": "Olvidar que una división afecta al resultado completo del paréntesis.",
+        "correccion": "Resuelve el grupo y después divide todo el valor."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Jerarquía",
+        "significado": "Orden convenido para resolver operaciones."
+      },
+      {
+        "termino": "Paréntesis",
+        "significado": "Signos que agrupan una parte de la expresión."
+      },
+      {
+        "termino": "Expresión",
+        "significado": "Combinación de números y operaciones."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Resuelve 1/2 + 1/4 × 2. Da una fracción simplificada.",
+        "respuesta": "1",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero multiplica 1/4 por 2.",
+          "El producto es 1/2.",
+          "Suma 1/2 + 1/2."
+        ],
+        "retroalimentacion": "Sumar antes de multiplicar cambia el valor; el resultado es 1."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué se resuelve primero en (1/3 + 1/6) × 2?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La multiplicación por 2"
+          },
+          {
+            "id": "b",
+            "texto": "El denominador 6"
+          },
+          {
+            "id": "c",
+            "texto": "La suma dentro del paréntesis"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguna operación"
+          }
+        ],
+        "pistas": [
+          "Los paréntesis tienen prioridad.",
+          "Dentro aparece una suma.",
+          "Después de esa suma se multiplica por 2."
+        ],
+        "retroalimentacion": "Multiplicar primero por 2 ignora el grupo; va primero la suma dentro del paréntesis."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 3/4 − 1/2 × 1/2, el producto se calcula antes de la resta.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No hay paréntesis.",
+          "La multiplicación tiene prioridad sobre la resta.",
+          "Calcula 1/2 × 1/2 antes de restar."
+        ],
+        "retroalimentacion": "Es verdadero: primero el producto 1/4, luego 3/4 − 1/4."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Calcula (1/2 + 1/2) × 3/4.",
+        "respuesta": "3/4",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resuelve la suma entre paréntesis.",
+          "1/2 + 1/2 = 1.",
+          "Multiplica 1 por 3/4."
+        ],
+        "retroalimentacion": "Multiplicar solo un sumando por 3/4 deja incompleto el grupo; da 3/4."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuánto vale 2/3 − 1/6 ÷ 1/2?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/3"
+          },
+          {
+            "id": "b",
+            "texto": "1/2"
+          },
+          {
+            "id": "c",
+            "texto": "1"
+          },
+          {
+            "id": "d",
+            "texto": "5/6"
+          }
+        ],
+        "pistas": [
+          "Haz la división antes de la resta.",
+          "1/6 ÷ 1/2 = 1/3.",
+          "2/3 − 1/3 = 1/3."
+        ],
+        "retroalimentacion": "Restar 2/3 − 1/6 primero ignora la prioridad; vale 1/3."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Resuelve (3/4 − 1/2) × 2/3.",
+        "respuesta": "1/6",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero calcula el paréntesis.",
+          "3/4 − 1/2 = 1/4.",
+          "1/4 × 2/3 = 2/12."
+        ],
+        "retroalimentacion": "Multiplicar 3/4 sin restar 1/2 cambia el grupo; da 1/6."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La expresión 1/2 + 1/3 × 3 equivale a 3/2.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 1/3 por 3.",
+          "El producto es 1.",
+          "Suma 1/2 + 1."
+        ],
+        "retroalimentacion": "Es verdadero: 1/2 + 1 = 3/2; la suma se hace al final."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "En 1 − (1/4 + 1/2) ÷ 3, ¿qué valor se resta a 1?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3/4"
+          },
+          {
+            "id": "b",
+            "texto": "1/4"
+          },
+          {
+            "id": "c",
+            "texto": "1/2"
+          },
+          {
+            "id": "d",
+            "texto": "1/12"
+          }
+        ],
+        "pistas": [
+          "El paréntesis vale 3/4.",
+          "Divide 3/4 entre 3.",
+          "3/4 ÷ 3 = 1/4."
+        ],
+        "retroalimentacion": "Restar 3/4 directamente omite la división: se resta 1/4."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Evalúa 1/2 + (2/3 − 1/6) × 3/5.",
+        "respuesta": "4/5",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El paréntesis es 4/6 − 1/6 = 1/2.",
+          "Multiplica 1/2 × 3/5 = 3/10.",
+          "Suma 5/10 + 3/10."
+        ],
+        "retroalimentacion": "Sumar 1/2 antes del producto rompe la jerarquía; da 4/5."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una estudiante dice que 1/2 + 1/2 ÷ 1/4 = 4 porque sumó primero. ¿Cuál es el valor correcto?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4"
+          },
+          {
+            "id": "b",
+            "texto": "2"
+          },
+          {
+            "id": "c",
+            "texto": "5/2"
+          },
+          {
+            "id": "d",
+            "texto": "1/4"
+          }
+        ],
+        "pistas": [
+          "La división va antes de la suma.",
+          "1/2 ÷ 1/4 = 2.",
+          "Luego 1/2 + 2 = 5/2."
+        ],
+        "retroalimentacion": "El 4 sale de agrupar sin paréntesis; el valor correcto es 5/2."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "(3/4 + 1/4) ÷ (2/3 × 3/2) tiene valor 1.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resuelve los dos paréntesis por separado.",
+          "El primero suma 1.",
+          "El segundo multiplica hasta 1; luego 1 ÷ 1."
+        ],
+        "retroalimentacion": "Es verdadero: ambos paréntesis valen 1 y su cociente es 1."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Completa 2/3 − (1/2 × 1/3 + 1/6) con una fracción simplificada.",
+        "respuesta": "1/3",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Dentro, multiplica 1/2 × 1/3.",
+          "1/6 + 1/6 = 1/3.",
+          "Finalmente 2/3 − 1/3."
+        ],
+        "retroalimentacion": "Restar antes de terminar el paréntesis produce otro valor; queda 1/3."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.fraccion-de-fraccion-resto",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-S1-01",
+      "MAT-C23-S1-02"
+    ],
+    "bloque": "Fracciones y decimales",
+    "nombre": "Problemas de fracciones sucesivas y del resto",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Resuelve situaciones de gastos o repartos sucesivos sobre lo que queda.",
+    "palabrasClave": [
+      "resto",
+      "fracciones sucesivas",
+      "cantidad inicial",
+      "reparto"
+    ],
+    "prerrequisitos": [
+      "mat.s1.multiplicacion-division-fracciones"
+    ],
+    "ordenSugerido": 40,
+    "ideaCentral": "Cuando tomas una fracción de lo que queda, la nueva base es el resto después de la primera acción. Calcula cada etapa en orden y distingue siempre la cantidad inicial de la restante.",
+    "pasos": [
+      "Identifica la cantidad inicial.",
+      "Calcula la primera fracción y resta para hallar lo que queda.",
+      "Aplica la siguiente fracción solo al resto indicado.",
+      "Resta o reúne cantidades según lo que se pregunta y comprueba el total."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "De S/ 60, Luis gasta 1/3 y luego 1/2 del resto.",
+        "desarrollo": "Primero gasta S/ 20 y quedan S/ 40; luego gasta S/ 20.",
+        "respuesta": "Quedan S/ 20."
+      },
+      {
+        "situacion": "De 24 panes se venden 1/4 y después 1/3 de los restantes.",
+        "desarrollo": "Se venden 6; quedan 18. Un tercio de 18 es 6.",
+        "respuesta": "Quedan 12 panes."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Aplicar ambas fracciones al monto inicial.",
+        "correccion": "La segunda fracción se calcula sobre lo que quedó."
+      },
+      {
+        "error": "Confundir lo gastado en total con lo restante.",
+        "correccion": "Registra cada gasto y resta del total inicial."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Resto",
+        "significado": "Cantidad que queda después de una acción."
+      },
+      {
+        "termino": "Base",
+        "significado": "Cantidad sobre la que se calcula una fracción."
+      },
+      {
+        "termino": "Sucesivas",
+        "significado": "Acciones realizadas una después de otra."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "De 20 cuadernos se entrega 1/4. ¿Cuántos cuadernos quedan? Escribe solo el número. ",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula la cuarta parte de 20.",
+          "20 ÷ 4 = 5 entregados.",
+          "Resta 20 − 5."
+        ],
+        "retroalimentacion": "Si respondiste 5, diste los entregados; quedan 15."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una caja tiene 12 mandarinas. Se come 1/3 y luego 1/2 de las restantes. ¿Cuántas quedan?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2"
+          },
+          {
+            "id": "b",
+            "texto": "4"
+          },
+          {
+            "id": "c",
+            "texto": "6"
+          },
+          {
+            "id": "d",
+            "texto": "8"
+          }
+        ],
+        "pistas": [
+          "Primero se comen 4 de 12.",
+          "Restan 8; ahora se come la mitad de 8.",
+          "Después de comer 4 más, quedan 4."
+        ],
+        "retroalimentacion": "Usar la mitad de 12 en la segunda etapa cambia la base; quedan 4."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si gastas 1/2 de S/ 30, el resto para un gasto posterior es S/ 15.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La mitad de 30 es 15.",
+          "Resta 15 a los 30 iniciales.",
+          "Lo que queda también son 15 soles."
+        ],
+        "retroalimentacion": "Es verdadero: tras gastar S/ 15 quedan S/ 15."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Hay 18 panes; se venden 1/3 y luego 1/2 de los que quedan. ¿Cuántos panes quedan? Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Un tercio de 18 son 6 panes.",
+          "Quedan 12 antes de la segunda venta.",
+          "La mitad de 12 son 6; resta otra vez."
+        ],
+        "retroalimentacion": "Calcular la mitad de 18 para la segunda venta es el error; quedan 6."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Marta usa 1/4 de 40 hojas y después 1/3 del resto. ¿Cuántas hojas usa en la segunda etapa?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "30"
+          },
+          {
+            "id": "b",
+            "texto": "13"
+          },
+          {
+            "id": "c",
+            "texto": "10"
+          },
+          {
+            "id": "d",
+            "texto": "20"
+          }
+        ],
+        "pistas": [
+          "Primero usa 10 hojas.",
+          "Después de eso quedan 30.",
+          "Un tercio de 30 es 10."
+        ],
+        "retroalimentacion": "Aplicar 1/3 a 40 usa la base equivocada; la segunda etapa emplea 10 hojas."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "De S/ 80, Diego separa 1/5 para pasajes y gasta 1/4 del resto en merienda. ¿Cuántos soles conserva? Escribe solo el número.",
+        "respuesta": 48,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Pasajes: 1/5 de 80 = 16.",
+          "Después quedan 64 soles.",
+          "Merienda: 1/4 de 64 = 16; resta."
+        ],
+        "retroalimentacion": "Usar 1/4 de 80 para merienda confunde las bases; conserva S/ 48."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Tras vender 1/3 de 27 polos y luego 1/2 del resto, se han vendido 18 polos en total.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La primera venta es de 9 polos.",
+          "Quedan 18; la segunda venta es de 9.",
+          "Suma ambas ventas: 9 + 9."
+        ],
+        "retroalimentacion": "Es verdadero: se vendieron 9 + 9 = 18 polos."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una olla tiene 36 porciones. Sirven 1/2 y luego 1/3 de lo que queda. ¿Qué fracción del total inicial queda?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/6"
+          },
+          {
+            "id": "b",
+            "texto": "1/2"
+          },
+          {
+            "id": "c",
+            "texto": "2/3"
+          },
+          {
+            "id": "d",
+            "texto": "1/3"
+          }
+        ],
+        "pistas": [
+          "Después de servir la mitad quedan 18.",
+          "Un tercio de 18 son 6; restan 12.",
+          "12 de 36 es 1/3."
+        ],
+        "retroalimentacion": "Confundir un tercio del resto con un tercio inicial altera el cálculo; queda 1/3."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "De 60 semillas se siembra 2/5 y después 1/3 de las restantes. ¿Cuántas semillas quedan sin sembrar? Escribe solo el número.",
+        "respuesta": 24,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La primera siembra usa 24 semillas.",
+          "El resto es 36.",
+          "Un tercio de 36 es 12; quedan 24."
+        ],
+        "retroalimentacion": "Tomar 1/3 de 60 en la segunda etapa confunde el resto; quedan 24."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "El comité usa 1/3 del presupuesto y después 1/4 de lo que quedó. ¿Qué fracción del presupuesto inicial conserva?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5/12"
+          },
+          {
+            "id": "b",
+            "texto": "1/2"
+          },
+          {
+            "id": "c",
+            "texto": "7/12"
+          },
+          {
+            "id": "d",
+            "texto": "2/3"
+          }
+        ],
+        "pistas": [
+          "Tras el primer uso queda 2/3.",
+          "Del 2/3 se usa 1/4, por lo que se conserva 3/4 de ese resto.",
+          "2/3 × 3/4 = 1/2."
+        ],
+        "retroalimentacion": "Restar 1/3 y 1/4 del total ignora la base cambiante; conserva 1/2."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si de 48 entradas se venden primero 1/4 y luego 1/2 del resto, quedan 18 entradas.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero se venden 12 entradas.",
+          "Quedan 36 antes de la segunda venta.",
+          "La mitad de 36 son 18; ese mismo número queda."
+        ],
+        "retroalimentacion": "Es verdadero: 48 − 12 − 18 = 18."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una biblioteca presta 1/6 de 72 libros el lunes y 2/5 de los restantes el martes. ¿Cuántos libros siguen en la biblioteca? Escribe solo el número.",
+        "respuesta": 36,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El lunes se prestan 12 libros.",
+          "El martes se calcula 2/5 de los 60 restantes.",
+          "2/5 de 60 son 24; resta 60 − 24."
+        ],
+        "retroalimentacion": "Aplicar 2/5 a 72 da un préstamo incorrecto; siguen 36 libros."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.decimales-exactos-periodicos",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Comunica su comprensión sobre los números y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-S1-08"
+    ],
+    "bloque": "Fracciones y decimales",
+    "nombre": "Decimales exactos y periódicos",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Clasifica decimales según su parte decimal y reconoce qué fracciones los generan.",
+    "palabrasClave": [
+      "decimal exacto",
+      "periódico puro",
+      "repetición",
+      "fracción"
+    ],
+    "prerrequisitos": [
+      "mat.s1.fraccion-irreductible"
+    ],
+    "ordenSugerido": 41,
+    "ideaCentral": "Un decimal exacto termina; un decimal periódico repite una cifra o un bloque sin fin. Al dividir una fracción irreductible, un denominador con solo factores 2 y 5 produce decimal exacto.",
+    "pasos": [
+      "Observa si las cifras decimales terminan o siguen un patrón repetido.",
+      "Si termina, clasifícalo como exacto.",
+      "Si una cifra o bloque se repite sin fin, identifica el período.",
+      "En fracciones irreductibles, revisa los factores del denominador para anticipar el tipo."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "La medida 3/8 m se expresa como 0,375 m.",
+        "desarrollo": "Al dividir 3 entre 8, las cifras terminan.",
+        "respuesta": "0,375 es exacto."
+      },
+      {
+        "situacion": "La razón 2/3 se escribe 0,666…",
+        "desarrollo": "La cifra 6 se repite sin fin; el período es 6.",
+        "respuesta": "Es periódico puro."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que 0,333… termina tras tres cifras.",
+        "correccion": "Los puntos indican que el 3 continúa repitiéndose."
+      },
+      {
+        "error": "Examinar el denominador sin simplificar la fracción.",
+        "correccion": "Primero reduce; luego revisa sus factores."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Decimal exacto",
+        "significado": "Representación decimal con un número finito de cifras."
+      },
+      {
+        "termino": "Decimal periódico",
+        "significado": "Decimal con cifras repetidas indefinidamente."
+      },
+      {
+        "termino": "Período",
+        "significado": "Cifra o bloque que se repite."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cómo clasificas 0,75?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Periódico puro"
+          },
+          {
+            "id": "b",
+            "texto": "Exacto"
+          },
+          {
+            "id": "c",
+            "texto": "Entero"
+          },
+          {
+            "id": "d",
+            "texto": "No decimal"
+          }
+        ],
+        "pistas": [
+          "Cuenta las cifras después de la coma.",
+          "Solo aparecen 7 y 5.",
+          "La escritura termina sin puntos suspensivos."
+        ],
+        "retroalimentacion": "Llamarlo periódico supone repetición infinita; 0,75 es exacto."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En 0,444… ¿qué cifra forma el período?",
+        "respuesta": "4",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Mira la secuencia después de la coma.",
+          "La misma cifra aparece una y otra vez.",
+          "El bloque mínimo repetido tiene una sola cifra."
+        ],
+        "retroalimentacion": "No es 444 como bloque mínimo; el período es 4."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "0,125 es un decimal exacto.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La escritura tiene tres cifras decimales.",
+          "No hay puntos que indiquen continuación.",
+          "Tras el 5, termina."
+        ],
+        "retroalimentacion": "Es verdadero: 0,125 tiene una cantidad finita de cifras."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "La división 1 ÷ 3 produce 0,333… ¿Qué tipo es?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Exacto"
+          },
+          {
+            "id": "b",
+            "texto": "Periódico mixto"
+          },
+          {
+            "id": "c",
+            "texto": "Periódico puro"
+          },
+          {
+            "id": "d",
+            "texto": "Entero"
+          }
+        ],
+        "pistas": [
+          "El 3 se repite desde el primer decimal.",
+          "No hay cifras decimales previas al período.",
+          "La repetición es infinita."
+        ],
+        "retroalimentacion": "Truncar en 0,3 lo convertiría en aproximación; 0,333… es periódico puro."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe «exacto» o «periódico» para 7/20 = 0,35.",
+        "respuesta": "exacto",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Observa el decimal dado.",
+          "0,35 termina en la cifra 5.",
+          "Una escritura decimal finita es exacta."
+        ],
+        "retroalimentacion": "El denominador 20 también contiene solo 2 y 5; 0,35 es exacto."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué fracción irreductible genera un decimal exacto?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/3"
+          },
+          {
+            "id": "b",
+            "texto": "3/8"
+          },
+          {
+            "id": "c",
+            "texto": "2/7"
+          },
+          {
+            "id": "d",
+            "texto": "5/6"
+          }
+        ],
+        "pistas": [
+          "Revisa factores de los denominadores.",
+          "8 = 2 × 2 × 2.",
+          "Los denominadores 3, 7 y 6 incluyen factores distintos."
+        ],
+        "retroalimentacion": "3/8 produce 0,375 exacto; los otros denominadores contienen 3 o 7."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La fracción 2/9 genera 0,222… y su período es 2.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide 2 entre 9.",
+          "Cada paso vuelve a dejar resto 2.",
+          "Se repite la cifra 2 sin fin."
+        ],
+        "retroalimentacion": "Es verdadero: 2/9 = 0,222… con período 2."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En 0,272727… escribe el período mínimo.",
+        "respuesta": "27",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa las cifras en grupos repetidos.",
+          "Aparece 27, luego 27 y luego 27.",
+          "El bloque más corto que repite todo es de dos cifras."
+        ],
+        "retroalimentacion": "Responder 2727 repite innecesariamente el bloque; el período es 27."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una estudiante dice que 6/15 es periódico porque 15 tiene factor 3. ¿Qué debe hacer antes de clasificar?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Dividir 15 entre 6"
+          },
+          {
+            "id": "b",
+            "texto": "Simplificar a 2/5"
+          },
+          {
+            "id": "c",
+            "texto": "Multiplicar ambos por 3"
+          },
+          {
+            "id": "d",
+            "texto": "Quitar el denominador"
+          }
+        ],
+        "pistas": [
+          "La regla se aplica al denominador irreductible.",
+          "6 y 15 comparten el divisor 3.",
+          "6/15 = 2/5 = 0,4."
+        ],
+        "retroalimentacion": "Revisar 15 sin reducir lleva al error: simplifica a 2/5, que es exacto."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "0,181818… y 0,18 son el mismo número decimal.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "0,18 termina tras dos cifras.",
+          "0,181818… continúa indefinidamente.",
+          "Una diferencia aparece en las cifras posteriores."
+        ],
+        "retroalimentacion": "Es falso: 0,18 es exacto y 0,181818… es periódico y ligeramente mayor."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Para la fracción irreductible 5/12, ¿el decimal es exacto o periódico? Responde con una palabra.",
+        "respuesta": "periódico",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Factoriza 12.",
+          "12 = 2² × 3.",
+          "El factor 3 impide que termine la división decimal."
+        ],
+        "retroalimentacion": "5/12 = 0,41666…; no es exacto, es periódico."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál descripción distingue 0,1666… de 0,666…?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ambos son exactos"
+          },
+          {
+            "id": "b",
+            "texto": "El segundo termina"
+          },
+          {
+            "id": "c",
+            "texto": "El primero tiene anteperíodo 1"
+          },
+          {
+            "id": "d",
+            "texto": "El primero es entero"
+          }
+        ],
+        "pistas": [
+          "Observa desde dónde se repite el 6.",
+          "En 0,1666… hay un 1 antes de los 6.",
+          "En 0,666… el período empieza de inmediato."
+        ],
+        "retroalimentacion": "Ambos son periódicos, pero 0,1666… tiene anteperíodo 1."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.fraccion-generatriz",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-08"
+    ],
+    "bloque": "Fracciones y decimales",
+    "nombre": "Fracción generatriz de un decimal",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Obtiene la fracción que genera un decimal exacto o periódico puro.",
+    "palabrasClave": [
+      "fracción generatriz",
+      "decimal exacto",
+      "período",
+      "simplificación"
+    ],
+    "prerrequisitos": [
+      "mat.s1.decimales-exactos-periodicos"
+    ],
+    "ordenSugerido": 42,
+    "ideaCentral": "Todo decimal exacto y periódico puro puede expresarse como una fracción. En el exacto usas una potencia de 10; en el periódico puro, tantos nueves como cifras tenga el período.",
+    "pasos": [
+      "Identifica si el decimal termina o si repite un bloque desde la coma.",
+      "Para un exacto, quita la coma y pon abajo 10, 100 o 1000 según las cifras.",
+      "Para un periódico puro, coloca el bloque repetido sobre 9, 99 o 999; separa la parte entera si existe.",
+      "Simplifica y comprueba dividiendo numerador entre denominador."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Convierte 0,45 en fracción.",
+        "desarrollo": "Tiene dos decimales: 45/100. Divido entre 5.",
+        "respuesta": "9/20."
+      },
+      {
+        "situacion": "Convierte 0,272727… en fracción.",
+        "desarrollo": "El período 27 tiene dos cifras: 27/99; simplifico entre 9.",
+        "respuesta": "3/11."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Poner 0,45 sobre 10.",
+        "correccion": "Dos cifras decimales necesitan denominador 100."
+      },
+      {
+        "error": "Usar 10 en lugar de 9 para 0,333….",
+        "correccion": "Un período de una cifra usa 9; así 3/9 = 1/3."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Generatriz",
+        "significado": "Fracción cuyo cociente reproduce el decimal."
+      },
+      {
+        "termino": "Periódico puro",
+        "significado": "Decimal cuyo bloque se repite desde la primera cifra decimal."
+      },
+      {
+        "termino": "Potencia de diez",
+        "significado": "10, 100, 1000 y sucesivos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Convierte 0,5 en fracción irreductible.",
+        "respuesta": "1/2",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay una cifra decimal.",
+          "Escribe 5/10.",
+          "Reduce numerador y denominador entre 5."
+        ],
+        "retroalimentacion": "Responder 5/10 conserva el valor, pero la forma irreductible es 1/2."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué fracción genera 0,25?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1/4"
+          },
+          {
+            "id": "b",
+            "texto": "1/25"
+          },
+          {
+            "id": "c",
+            "texto": "25/10"
+          },
+          {
+            "id": "d",
+            "texto": "4/1"
+          }
+        ],
+        "pistas": [
+          "Tiene dos cifras decimales.",
+          "Escribe 25/100.",
+          "Simplifica dividiendo entre 25."
+        ],
+        "retroalimentacion": "25/10 vale 2,5; 0,25 corresponde a 1/4."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "0,777… tiene como fracción generatriz 7/9.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El período consta de una cifra.",
+          "Coloca el 7 sobre un 9.",
+          "7 ÷ 9 repite 7."
+        ],
+        "retroalimentacion": "Es verdadero: 7/9 = 0,777…."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Escribe 0,121212… como fracción irreductible.",
+        "respuesta": "4/33",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El período es 12.",
+          "Dos cifras repetidas dan 12/99.",
+          "Reduce 12/99 dividiendo entre 3."
+        ],
+        "retroalimentacion": "Usar 12/100 representa 0,12 exacto; la generatriz es 4/33."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "El decimal 0,08 se convierte primero en 8/100. ¿Cuál es su forma irreductible?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8/10"
+          },
+          {
+            "id": "b",
+            "texto": "4/50"
+          },
+          {
+            "id": "c",
+            "texto": "2/25"
+          },
+          {
+            "id": "d",
+            "texto": "1/8"
+          }
+        ],
+        "pistas": [
+          "8 y 100 tienen divisor común 4.",
+          "8 ÷ 4 = 2.",
+          "100 ÷ 4 = 25."
+        ],
+        "retroalimentacion": "1/8 no equivale a 0,08; la forma reducida es 2/25."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Convierte 0,363636… a fracción irreductible.",
+        "respuesta": "4/11",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El período 36 tiene dos cifras.",
+          "Escribe 36/99.",
+          "Divide numerador y denominador entre 9."
+        ],
+        "retroalimentacion": "36/100 sería el exacto 0,36; el periódico es 4/11."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "0,09 exacto y 0,090909… tienen la misma fracción generatriz.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "0,09 exacto es 9/100.",
+          "0,090909… tiene período 09: es 9/99.",
+          "9/100 y 9/99 no son iguales."
+        ],
+        "retroalimentacion": "Es falso: 0,09 = 9/100, mientras 0,090909… = 1/11."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué fracción irreductible genera 1,5?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "15/100"
+          },
+          {
+            "id": "b",
+            "texto": "5/10"
+          },
+          {
+            "id": "c",
+            "texto": "1/5"
+          },
+          {
+            "id": "d",
+            "texto": "3/2"
+          }
+        ],
+        "pistas": [
+          "Separa 1 + 0,5.",
+          "0,5 es 1/2.",
+          "1 + 1/2 = 3/2."
+        ],
+        "retroalimentacion": "Poner 15/100 confunde una cifra con dos; 1,5 = 3/2."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Convierte 1,222… en fracción irreductible.",
+        "respuesta": "11/9",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa la parte entera 1.",
+          "0,222… = 2/9.",
+          "Suma 1 + 2/9."
+        ],
+        "retroalimentacion": "Ignorar el entero produce 2/9; 1,222… = 11/9."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para hallar la generatriz de 0,454545…, Ana propone 45/100. ¿Qué denominador debe usar y por qué?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "10, porque se repite una vez"
+          },
+          {
+            "id": "b",
+            "texto": "100, porque hay dos cifras"
+          },
+          {
+            "id": "c",
+            "texto": "99, porque el período tiene dos cifras"
+          },
+          {
+            "id": "d",
+            "texto": "9, porque hay un bloque"
+          }
+        ],
+        "pistas": [
+          "El decimal no termina en 45.",
+          "El bloque 45 se repite desde la coma.",
+          "Un período de dos cifras usa dos nueves."
+        ],
+        "retroalimentacion": "100 sirve para 0,45 exacto; para 0,454545… se usa 99."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "2,333… equivale a 7/3.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa 2 + 0,333….",
+          "0,333… es 1/3.",
+          "2 + 1/3 = 7/3."
+        ],
+        "retroalimentacion": "Es verdadero: 7/3 = 2,333…."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "El número 0,181818… tiene período 18. Halla su fracción irreductible.",
+        "respuesta": "2/11",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Primero coloca 18 sobre 99.",
+          "18 y 99 comparten el divisor 9.",
+          "18 ÷ 9 = 2 y 99 ÷ 9 = 11."
+        ],
+        "retroalimentacion": "18/100 daría el exacto 0,18; la generatriz periódica es 2/11."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.operaciones-decimales-s1",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Fracciones y decimales",
+    "nombre": "Multiplicación y división de decimales con divisor decimal",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Multiplica y divide decimales, incluido el divisor decimal, y redondea el resultado.",
+    "palabrasClave": [
+      "multiplicar decimales",
+      "divisor decimal",
+      "coma decimal",
+      "redondeo"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 43,
+    "ideaCentral": "Al multiplicar decimales, multiplicas como enteros y ubicas la coma según el total de cifras decimales. Al dividir por un decimal, desplazas la coma igual en dividendo y divisor hasta que el divisor sea entero.",
+    "pasos": [
+      "En multiplicación, cuenta las cifras decimales de ambos factores.",
+      "Multiplica los números sin coma y repón el total de cifras.",
+      "En división, multiplica dividendo y divisor por la misma potencia de 10 para quitar la coma del divisor.",
+      "Divide y, si te lo piden, redondea mirando la cifra siguiente."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una fruta pesa 0,6 kg y cuesta S/ 4,5 por kg.",
+        "desarrollo": "6 × 45 = 270; hay dos cifras decimales en total: 2,70.",
+        "respuesta": "Cuesta S/ 2,70."
+      },
+      {
+        "situacion": "Se reparte 4,8 L en vasos de 0,3 L.",
+        "desarrollo": "Multiplico ambos por 10: 48 ÷ 3 = 16.",
+        "respuesta": "Se llenan 16 vasos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Mover la coma solo en el divisor.",
+        "correccion": "En división debes desplazarla igual en ambos números."
+      },
+      {
+        "error": "Redondear mirando la cifra que se conserva.",
+        "correccion": "Mira la cifra siguiente para decidir si aumenta la última retenida."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Dividendo",
+        "significado": "Cantidad que se divide."
+      },
+      {
+        "termino": "Divisor",
+        "significado": "Número entre el que se divide."
+      },
+      {
+        "termino": "Redondear",
+        "significado": "Aproximar según la cifra siguiente."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 0,5 × 0,4. Escribe solo el número.",
+        "respuesta": 0.2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 5 × 4.",
+          "Los factores tienen dos cifras decimales en total.",
+          "20 con dos decimales es 0,20."
+        ],
+        "retroalimentacion": "Escribir 2 ignora las comas: 0,5 × 0,4 = 0,2."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuánto vale 1,2 × 3?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "36"
+          },
+          {
+            "id": "b",
+            "texto": "0,36"
+          },
+          {
+            "id": "c",
+            "texto": "3,6"
+          },
+          {
+            "id": "d",
+            "texto": "4,2"
+          }
+        ],
+        "pistas": [
+          "Calcula 12 × 3.",
+          "El primer factor tiene una cifra decimal.",
+          "36 con una cifra decimal es 3,6."
+        ],
+        "retroalimentacion": "36 omite la coma; 1,2 × 3 = 3,6."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "2,4 ÷ 0,6 es igual a 24 ÷ 6.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica dividendo y divisor por 10.",
+          "La división conserva su valor.",
+          "24 ÷ 6 = 4."
+        ],
+        "retroalimentacion": "Es verdadero: mover ambas comas una posición da 24 ÷ 6."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 3,6 ÷ 0,9. Escribe solo el número.",
+        "respuesta": 4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Quita la coma del divisor multiplicando por 10.",
+          "Multiplica también 3,6 por 10.",
+          "36 ÷ 9 = 4."
+        ],
+        "retroalimentacion": "Mover solo la coma de 0,9 cambia el cociente; el resultado es 4."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una cinta de 2,5 m se corta en trozos de 0,5 m. ¿Cuántos salen?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4"
+          },
+          {
+            "id": "b",
+            "texto": "5"
+          },
+          {
+            "id": "c",
+            "texto": "10"
+          },
+          {
+            "id": "d",
+            "texto": "50"
+          }
+        ],
+        "pistas": [
+          "Divide 2,5 entre 0,5.",
+          "Multiplica ambos valores por 10.",
+          "25 ÷ 5 = 5."
+        ],
+        "retroalimentacion": "Multiplicar 2,5 × 0,5 mide otra cosa; salen 5 trozos."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 0,24 × 1,5. Escribe solo el número.",
+        "respuesta": 0.36,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 24 × 15 = 360.",
+          "Hay tres cifras decimales en los factores juntos.",
+          "360 con tres decimales es 0,360."
+        ],
+        "retroalimentacion": "Colocar solo dos decimales da 3,6; el producto es 0,36."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "7,2 ÷ 0,12 se transforma correctamente en 720 ÷ 12.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El divisor tiene dos decimales.",
+          "Multiplica ambos números por 100.",
+          "7,2 × 100 = 720 y 0,12 × 100 = 12."
+        ],
+        "retroalimentacion": "Es verdadero: desplazar dos posiciones en ambos conserva el cociente 60."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es 5,04 ÷ 0,7 redondeado a una cifra decimal?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0,72"
+          },
+          {
+            "id": "b",
+            "texto": "7,2"
+          },
+          {
+            "id": "c",
+            "texto": "72"
+          },
+          {
+            "id": "d",
+            "texto": "7,3"
+          }
+        ],
+        "pistas": [
+          "Multiplica ambos números por 10.",
+          "50,4 ÷ 7 = 7,2.",
+          "Ya hay una cifra decimal exacta."
+        ],
+        "retroalimentacion": "Redondear a 7 olvida la décima; el resultado es 7,2."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Se compran 3,5 kg de papa a S/ 2,4 por kg. ¿Cuántos soles se pagan? Escribe solo el número.",
+        "respuesta": 8.4,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 35 por 24.",
+          "El producto entero es 840.",
+          "Hay dos decimales en total: 8,40."
+        ],
+        "retroalimentacion": "Responder 84 desplaza mal la coma; se pagan S/ 8,4."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "La cuenta 1,44 ÷ 0,12 se convierte en 144 ÷ 12. ¿Cuál es el cociente?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1,2"
+          },
+          {
+            "id": "b",
+            "texto": "120"
+          },
+          {
+            "id": "c",
+            "texto": "0,12"
+          },
+          {
+            "id": "d",
+            "texto": "12"
+          }
+        ],
+        "pistas": [
+          "Ambos números se multiplicaron por 100.",
+          "Ahora divide 144 entre 12.",
+          "12 × 12 = 144."
+        ],
+        "retroalimentacion": "Mover comas de modo distinto cambia el valor; el cociente es 12."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "El resultado 2,05 × 0,4 es menor que 1.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Multiplica 205 × 4 = 820.",
+          "Los factores suman tres cifras decimales.",
+          "El producto es 0,820."
+        ],
+        "retroalimentacion": "Es verdadero: 2,05 × 0,4 = 0,82, que es menor que 1."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un depósito de 5,5 L se vacía a razón de 0,8 L por minuto. ¿Cuántos minutos toma vaciarlo? Redondea a dos decimales y escribe solo el número.",
+        "respuesta": 6.88,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide 5,5 entre 0,8.",
+          "Multiplica ambos por 10: 55 ÷ 8 = 6,875.",
+          "A dos decimales, el tercer decimal 5 hace subir el 7."
+        ],
+        "retroalimentacion": "Truncar en 6,87 omite el redondeo; toma 6,88 minutos."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.orden-fracciones-decimales",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-S1-05",
+      "MAT-C23-S1-09"
+    ],
+    "bloque": "Fracciones y decimales",
+    "nombre": "Orden de fracciones y decimales en la recta",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Ordena fracciones y decimales y justifica su ubicación en la recta numérica.",
+    "palabrasClave": [
+      "comparar",
+      "ordenar",
+      "recta numérica",
+      "fracción decimal"
+    ],
+    "prerrequisitos": [
+      "mat.s1.fraccion-generatriz"
+    ],
+    "ordenSugerido": 44,
+    "ideaCentral": "Para ordenar fracciones y decimales, exprésalos en una forma comparable y ubícalos respecto de 0, 1 y otros puntos de referencia. En la recta, el número mayor siempre queda más a la derecha.",
+    "pasos": [
+      "Convierte las fracciones a decimales o a un denominador común.",
+      "Alinea unidades, décimos y centésimos al comparar decimales.",
+      "Ordena de menor a mayor y ubica cada valor de izquierda a derecha.",
+      "Justifica con una igualdad o desigualdad concreta."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "En la recta, ¿va primero 1/2 o 0,6?",
+        "desarrollo": "1/2 = 0,5, y 0,5 < 0,6.",
+        "respuesta": "1/2 va a la izquierda."
+      },
+      {
+        "situacion": "Ordena 3/4, 0,8 y 2/3.",
+        "desarrollo": "3/4 = 0,75; 2/3 = 0,666…; comparo con 0,8.",
+        "respuesta": "2/3 < 3/4 < 0,8."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que 0,8 < 0,75 porque 8 < 75.",
+        "correccion": "Escribe 0,8 como 0,80 y compara centésimos."
+      },
+      {
+        "error": "Poner la fracción de mayor denominador siempre a la derecha.",
+        "correccion": "Compara los valores reales: 1/8 < 1/4 aunque 8 > 4."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Recta numérica",
+        "significado": "Línea donde los valores crecen hacia la derecha."
+      },
+      {
+        "termino": "Equivalencia",
+        "significado": "Dos escrituras de un mismo valor."
+      },
+      {
+        "termino": "Referencia",
+        "significado": "Punto conocido, como 0, 1/2 o 1."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál queda más a la derecha en la recta: 0,4 o 1/2?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "0,4"
+          },
+          {
+            "id": "b",
+            "texto": "Ambos coinciden"
+          },
+          {
+            "id": "c",
+            "texto": "1/2"
+          },
+          {
+            "id": "d",
+            "texto": "Ninguno"
+          }
+        ],
+        "pistas": [
+          "Convierte 1/2 a decimal.",
+          "1/2 = 0,5.",
+          "Compara 0,5 con 0,4."
+        ],
+        "retroalimentacion": "Confundir denominador 2 con valor pequeño lleva a error: 1/2 = 0,5 queda más a la derecha."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "0,25 y 1/4 ocupan el mismo punto de la recta.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Divide 1 entre 4.",
+          "1/4 = 0,25.",
+          "Dos formas del mismo número comparten punto."
+        ],
+        "retroalimentacion": "Es verdadero: 1/4 = 0,25."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Ordena de menor a mayor 0,7 y 0,3. Escribe ambos separados por coma y espacio.",
+        "respuesta": "0,3, 0,7",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Compara los décimos.",
+          "3 décimos es menos que 7 décimos.",
+          "Escribe primero 0,3."
+        ],
+        "retroalimentacion": "Poner 0,7 primero invierte la recta: 0,3, 0,7."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Entre 3/4 y 0,8, ¿qué número es mayor?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "3/4"
+          },
+          {
+            "id": "b",
+            "texto": "0,8"
+          },
+          {
+            "id": "c",
+            "texto": "Son iguales"
+          },
+          {
+            "id": "d",
+            "texto": "No se pueden comparar"
+          }
+        ],
+        "pistas": [
+          "3/4 equivale a 0,75.",
+          "Escribe 0,8 como 0,80.",
+          "0,80 supera a 0,75."
+        ],
+        "retroalimentacion": "Comparar 8 con 75 sin posiciones confunde: 0,8 es mayor."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "En una recta, 2/5 queda a la izquierda de 0,6. ¿A qué decimal equivale 2/5? Usa coma decimal.",
+        "respuesta": "0,4",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte a décimos: 2/5 = 4/10.",
+          "Cuatro décimos se escriben con un dígito tras la coma.",
+          "4/10 = 0,4."
+        ],
+        "retroalimentacion": "2/5 no es 0,25; equivale a 0,4."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "1/3 está a la derecha de 0,4 en la recta.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "1/3 = 0,333….",
+          "Compara 0,333… con 0,400….",
+          "0,333… es menor."
+        ],
+        "retroalimentacion": "Es falso: 1/3 queda a la izquierda de 0,4."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué orden ascendente tienen 0,9, 4/5 y 0,75?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4/5 < 0,75 < 0,9"
+          },
+          {
+            "id": "b",
+            "texto": "0,9 < 4/5 < 0,75"
+          },
+          {
+            "id": "c",
+            "texto": "0,75 < 4/5 < 0,9"
+          },
+          {
+            "id": "d",
+            "texto": "0,75 < 0,9 < 4/5"
+          }
+        ],
+        "pistas": [
+          "Convierte 4/5 a decimal.",
+          "4/5 = 0,8.",
+          "Compara 0,75, 0,8 y 0,9."
+        ],
+        "retroalimentacion": "Poner 4/5 después de 0,9 ignora que vale 0,8; el orden es 0,75 < 4/5 < 0,9."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Entre 1/4 y 3/4 en la recta, ¿qué fracción de denominador 4 señala el punto medio?",
+        "respuesta": "2/4",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los extremos están en 1 y 3 cuartos.",
+          "El número de cuartos entre 1 y 3 es 2.",
+          "2/4 equivale a 1/2."
+        ],
+        "retroalimentacion": "3/4 es un extremo, no el punto medio; es 2/4."
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una ruta marca 0,62 km, 5/8 km y 0,7 km. ¿Cuál punto queda entre los otros dos?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5/8 km"
+          },
+          {
+            "id": "b",
+            "texto": "0,62 km"
+          },
+          {
+            "id": "c",
+            "texto": "0,7 km"
+          },
+          {
+            "id": "d",
+            "texto": "Los tres coinciden"
+          }
+        ],
+        "pistas": [
+          "Convierte 5/8 a decimal.",
+          "5/8 = 0,625.",
+          "0,62 < 0,625 < 0,7."
+        ],
+        "retroalimentacion": "Redondear 0,625 a 0,62 pierde precisión; el punto intermedio es 5/8 km."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si 7/10 se ubica a la izquierda de 2/3, la recta está bien ordenada.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "7/10 = 0,7.",
+          "2/3 = 0,666….",
+          "0,7 es mayor y debe ir a la derecha."
+        ],
+        "retroalimentacion": "Es falso: 7/10 queda a la derecha de 2/3."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Ordena de menor a mayor 1/2, 0,45 y 3/5. Copia las formas dadas y sepáralas con punto y coma.",
+        "respuesta": "0,45; 1/2; 3/5",
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte las fracciones para comparar.",
+          "1/2 = 0,5 y 3/5 = 0,6.",
+          "Compara 0,45 < 0,5 < 0,6."
+        ],
+        "retroalimentacion": "Colocar 1/2 antes de 0,45 confunde décimos; el orden es 0,45; 1/2; 3/5."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una recta de 0 a 1, la marca A está en 0,58 y B en 3/5. ¿Cuál justificación es correcta?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "A está a la derecha porque 58 > 3"
+          },
+          {
+            "id": "b",
+            "texto": "B está a la izquierda porque 3 < 58"
+          },
+          {
+            "id": "c",
+            "texto": "Ocupan el mismo punto"
+          },
+          {
+            "id": "d",
+            "texto": "A está a la izquierda porque 0,58 < 0,60"
+          }
+        ],
+        "pistas": [
+          "Convierte 3/5 a centésimos.",
+          "3/5 = 0,60.",
+          "Compara 58 con 60 centésimos."
+        ],
+        "retroalimentacion": "Afirmar que A está a la derecha invierte el orden: A está a la izquierda porque 0,58 < 0,60."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

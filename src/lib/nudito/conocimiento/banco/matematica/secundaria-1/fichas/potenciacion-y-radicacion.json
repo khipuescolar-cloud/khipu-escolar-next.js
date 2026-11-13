@@ -1,0 +1,1892 @@
+[
+  {
+    "clave": "mat.s1.potenciacion-enteros",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-S1-01",
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Potenciación y radicación",
+    "nombre": "Potenciación con base entera",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Calcula potencias de base positiva o negativa y deduce el signo según el exponente.",
+    "palabrasClave": [
+      "potencia",
+      "base entera",
+      "exponente",
+      "signo",
+      "paridad"
+    ],
+    "prerrequisitos": [
+      "mat.s1.multiplicacion-enteros"
+    ],
+    "ordenSugerido": 29,
+    "ideaCentral": "Una potencia repite la multiplicación de la misma base tantas veces como indica el exponente. Con base negativa, un exponente par da resultado positivo y uno impar da negativo.",
+    "pasos": [
+      "Identifica la base completa, incluidos los paréntesis.",
+      "Repite la multiplicación según el exponente.",
+      "Agrupa los signos: cada par de negativos produce positivo.",
+      "Comprueba si el signo coincide con la paridad del exponente."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula (−3)².",
+        "desarrollo": "(−3) × (−3) = 9.",
+        "respuesta": "9."
+      },
+      {
+        "situacion": "Calcula (−2)³.",
+        "desarrollo": "(−2) × (−2) × (−2) = −8.",
+        "respuesta": "−8."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Decir que toda potencia con base negativa es negativa.",
+        "correccion": "El signo depende de si el exponente es par o impar."
+      },
+      {
+        "error": "Confundir −3² con (−3)².",
+        "correccion": "Sin paréntesis solo 3 está elevado: −3² = −9."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Base",
+        "significado": "Número que se multiplica repetidamente."
+      },
+      {
+        "termino": "Exponente",
+        "significado": "Cantidad de veces que aparece la base como factor."
+      },
+      {
+        "termino": "Paridad",
+        "significado": "Condición de ser par o impar."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 4². Escribe solo el número.",
+        "respuesta": 16,
+        "pistas": [
+          "El exponente es dos.",
+          "Multiplica 4 por 4.",
+          "4 × 4 = 16."
+        ],
+        "retroalimentacion": "4² no es 4 × 2; vale 16.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué signo tiene (−5)²?",
+        "respuesta": "b",
+        "pistas": [
+          "La base negativa aparece dos veces.",
+          "Negativo por negativo es positivo.",
+          "El exponente 2 es par."
+        ],
+        "retroalimentacion": "El signo es positivo, aunque la base sea negativa.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Negativo"
+          },
+          {
+            "id": "b",
+            "texto": "Positivo"
+          },
+          {
+            "id": "c",
+            "texto": "Cero"
+          },
+          {
+            "id": "d",
+            "texto": "No se puede saber"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La potencia (−2)³ vale −8.",
+        "respuesta": true,
+        "pistas": [
+          "Escribe tres factores −2.",
+          "Los dos primeros dan +4.",
+          "Multiplica +4 por −2."
+        ],
+        "retroalimentacion": "Es verdadero: (−2)³ = −8.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula (−3)². Escribe solo el número.",
+        "respuesta": 9,
+        "pistas": [
+          "Son dos factores negativos.",
+          "Multiplica −3 por −3.",
+          "El producto de dos negativos es positivo."
+        ],
+        "retroalimentacion": "No es −9: (−3)² = 9.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula (−2)⁴. Escribe solo el número.",
+        "respuesta": 16,
+        "pistas": [
+          "Cuatro negativos forman dos pares.",
+          "Cada pareja da +4.",
+          "Dos grupos de +4 se multiplican y forman +16."
+        ],
+        "retroalimentacion": "El exponente par deja resultado positivo: 16.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el valor de (−4)³?",
+        "respuesta": "d",
+        "pistas": [
+          "El exponente impar deja signo negativo.",
+          "4 × 4 × 4 = 64.",
+          "Agrega el signo negativo."
+        ],
+        "retroalimentacion": "El valor es −64; −12 confunde potencia con multiplicar por 3.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−12"
+          },
+          {
+            "id": "b",
+            "texto": "12"
+          },
+          {
+            "id": "c",
+            "texto": "64"
+          },
+          {
+            "id": "d",
+            "texto": "−64"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Las expresiones −5² y (−5)² tienen el mismo valor.",
+        "respuesta": false,
+        "pistas": [
+          "Observa qué está entre paréntesis.",
+          "−5² es −(5 × 5).",
+          "(−5)² multiplica dos negativos."
+        ],
+        "retroalimentacion": "Es falso: −5² = −25 y (−5)² = 25.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Un juego da (−3)³ puntos de penalización. ¿Qué entero representa ese puntaje? Escribe solo el número.",
+        "respuesta": -27,
+        "pistas": [
+          "Hay tres factores −3.",
+          "Los primeros dos dan +9.",
+          "+9 × −3 = −27."
+        ],
+        "retroalimentacion": "No es −9: el puntaje es −27.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una secuencia alterna signos al elevar −1. ¿Qué valor tiene (−1)¹¹?",
+        "respuesta": "a",
+        "pistas": [
+          "El exponente 11 es impar.",
+          "Cada pareja de −1 da +1.",
+          "Sobra un factor −1."
+        ],
+        "retroalimentacion": "El valor es −1; +1 correspondería a exponente par.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−1"
+          },
+          {
+            "id": "b",
+            "texto": "0"
+          },
+          {
+            "id": "c",
+            "texto": "1"
+          },
+          {
+            "id": "d",
+            "texto": "11"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula (−2)³ + (−3)². Escribe solo el número.",
+        "respuesta": 1,
+        "pistas": [
+          "Calcula ambas potencias antes de sumar.",
+          "(−2)³ = −8 y (−3)² = 9.",
+          "−8 + 9 = 1."
+        ],
+        "retroalimentacion": "No sumes bases primero; el resultado es 1.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si n es un entero impar positivo, (−6)ⁿ siempre es negativo.",
+        "respuesta": true,
+        "pistas": [
+          "Una pareja de factores negativos da positivo.",
+          "Con cantidad impar queda uno sin pareja.",
+          "Ese factor final vuelve negativo el producto."
+        ],
+        "retroalimentacion": "Es verdadero: exponente impar conserva signo negativo.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula (−2)⁴ − (−2)³. Escribe solo el número.",
+        "respuesta": 24,
+        "pistas": [
+          "La cuarta potencia vale 16.",
+          "La tercera potencia vale −8.",
+          "16 − (−8) = 24."
+        ],
+        "retroalimentacion": "Restar 8 en vez de −8 daría 8; la respuesta es 24.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.potencias",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-05",
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Potenciación y radicación",
+    "nombre": "Propiedades de la potenciación",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Aplica producto y cociente de bases iguales, potencia de potencia y exponente cero.",
+    "palabrasClave": [
+      "producto de potencias",
+      "cociente",
+      "potencia de potencia",
+      "exponente cero",
+      "misma base"
+    ],
+    "prerrequisitos": [
+      "mat.s1.potenciacion-enteros"
+    ],
+    "ordenSugerido": 30,
+    "ideaCentral": "Las propiedades de las potencias permiten calcular sin repetir todos los factores: al multiplicar bases iguales sumas exponentes, al dividirlos restas y en una potencia de potencia multiplicas exponentes. Toda base distinta de cero elevada a cero vale 1.",
+    "pasos": [
+      "Comprueba que las bases sean iguales antes de combinar exponentes.",
+      "En producto suma exponentes y en cociente réstalos.",
+      "En potencia de potencia multiplica exponentes.",
+      "Calcula la potencia resultante y verifica con factores sencillos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula 2³ × 2².",
+        "desarrollo": "Misma base: 2^(3+2) = 2⁵.",
+        "respuesta": "32."
+      },
+      {
+        "situacion": "Calcula (3²)³.",
+        "desarrollo": "Multiplica exponentes: 3^(2×3) = 3⁶.",
+        "respuesta": "729."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Multiplicar exponentes al multiplicar potencias de igual base.",
+        "correccion": "En producto se suman exponentes."
+      },
+      {
+        "error": "Aplicar exponente cero a base cero.",
+        "correccion": "La regla a⁰ = 1 requiere a distinto de cero."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Producto de potencias",
+        "significado": "Multiplicación de potencias con la misma base."
+      },
+      {
+        "termino": "Cociente de potencias",
+        "significado": "División de potencias con la misma base no nula."
+      },
+      {
+        "termino": "Exponente cero",
+        "significado": "Potencia que vale 1 si la base no es cero."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 2² × 2³. Escribe solo el número.",
+        "respuesta": 32,
+        "pistas": [
+          "Las bases son iguales.",
+          "Suma exponentes: 2 + 3 = 5.",
+          "2⁵ = 32."
+        ],
+        "retroalimentacion": "Multiplicar exponentes daría 2⁶; el valor es 32.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿A qué potencia equivale 5³ ÷ 5²?",
+        "respuesta": "b",
+        "pistas": [
+          "La base 5 no cambia.",
+          "En cociente resta exponentes.",
+          "3 − 2 = 1."
+        ],
+        "retroalimentacion": "Equivale a 5¹, no a 5⁵.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5⁵"
+          },
+          {
+            "id": "b",
+            "texto": "5¹"
+          },
+          {
+            "id": "c",
+            "texto": "5⁶"
+          },
+          {
+            "id": "d",
+            "texto": "1⁵"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Para cualquier base distinta de cero, a⁰ = 1.",
+        "respuesta": true,
+        "pistas": [
+          "Piensa en a² ÷ a².",
+          "Todo número no nulo dividido entre sí vale 1.",
+          "Restar exponentes da a⁰."
+        ],
+        "retroalimentacion": "Es verdadero: a⁰ = 1 cuando a ≠ 0.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 7⁰. Escribe solo el número.",
+        "respuesta": 1,
+        "pistas": [
+          "La base 7 no es cero.",
+          "Usa la propiedad del exponente cero.",
+          "El resultado no depende de que 7 sea grande."
+        ],
+        "retroalimentacion": "7⁰ vale 1, no 0.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 3⁴ ÷ 3². Escribe solo el número.",
+        "respuesta": 9,
+        "pistas": [
+          "Resta exponentes de igual base.",
+          "3^(4−2) = 3².",
+          "3 × 3 = 9."
+        ],
+        "retroalimentacion": "Dividir exponentes da 3² por casualidad aquí; la regla es restar y vale 9.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué potencia resulta de (2³)²?",
+        "respuesta": "d",
+        "pistas": [
+          "Es una potencia elevada a otra.",
+          "Multiplica 3 por 2.",
+          "La base sigue siendo 2."
+        ],
+        "retroalimentacion": "Resulta 2⁶; 2⁵ sumaría los exponentes incorrectamente.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "2¹"
+          },
+          {
+            "id": "b",
+            "texto": "2³"
+          },
+          {
+            "id": "c",
+            "texto": "2⁵"
+          },
+          {
+            "id": "d",
+            "texto": "2⁶"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "4² × 4³ = 4⁶.",
+        "respuesta": false,
+        "pistas": [
+          "Es producto de igual base.",
+          "Suma 2 + 3.",
+          "Obtienes exponente 5."
+        ],
+        "retroalimentacion": "Es falso: 4² × 4³ = 4⁵, no 4⁶.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula (−2)² × (−2)³. Escribe solo el número.",
+        "respuesta": -32,
+        "pistas": [
+          "Ambas bases son −2.",
+          "Los exponentes de las dos potencias de base −2 suman cinco.",
+          "(−2)⁵ = −32."
+        ],
+        "retroalimentacion": "No pierdas los paréntesis: el resultado es −32.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Simplifica (3²)³ ÷ 3⁴. ¿Cuál es el valor?",
+        "respuesta": "a",
+        "pistas": [
+          "Multiplica primero 2 × 3.",
+          "Queda 3⁶ ÷ 3⁴.",
+          "Resta 6 − 4 y calcula 3²."
+        ],
+        "retroalimentacion": "Vale 9; restar exponentes antes de desarrollar la potencia de potencia da error.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9"
+          },
+          {
+            "id": "b",
+            "texto": "27"
+          },
+          {
+            "id": "c",
+            "texto": "81"
+          },
+          {
+            "id": "d",
+            "texto": "729"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula 2⁵ × 2² ÷ 2⁴. Escribe solo el número.",
+        "respuesta": 8,
+        "pistas": [
+          "Combina las potencias de base 2.",
+          "Exponente total: 5 + 2 − 4.",
+          "2³ = 8."
+        ],
+        "retroalimentacion": "No multipliques exponentes: el resultado es 8.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si b ≠ 0, entonces b⁵ ÷ b⁵ = b⁰ = 1.",
+        "respuesta": true,
+        "pistas": [
+          "Un número no nulo dividido por sí mismo vale 1.",
+          "La resta de exponentes es 5 − 5.",
+          "b⁰ representa ese mismo 1."
+        ],
+        "retroalimentacion": "Es verdadero: ambas expresiones valen 1.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula (2²)³ ÷ (2³)¹. Escribe solo el número.",
+        "respuesta": 8,
+        "pistas": [
+          "La primera potencia es 2⁶.",
+          "La segunda es 2³.",
+          "Divide: 2^(6−3) = 2³."
+        ],
+        "retroalimentacion": "Sumar exponentes daría 2⁹; el cociente es 8.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.radicacion-exacta",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Traduce cantidades a expresiones numéricas",
+    "desempenosOrigen": [
+      "MAT-C23-S1-01",
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Potenciación y radicación",
+    "nombre": "Raíz cuadrada y raíz cúbica exactas",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Halla raíces exactas relacionándolas con cuadrados y cubos perfectos.",
+    "palabrasClave": [
+      "raíz cuadrada",
+      "raíz cúbica",
+      "cuadrado perfecto",
+      "cubo perfecto",
+      "radicación"
+    ],
+    "prerrequisitos": [
+      "mat.s1.potenciacion-enteros"
+    ],
+    "ordenSugerido": 31,
+    "ideaCentral": "Sacar una raíz es deshacer una potencia: √49 = 7 porque 7² = 49, y ∛27 = 3 porque 3³ = 27. Una raíz es exacta cuando el número es un cuadrado perfecto o un cubo perfecto.",
+    "pasos": [
+      "Fíjate en el índice: sin número es raíz cuadrada (buscas un cuadrado); con un 3 pequeño es raíz cúbica (buscas un cubo).",
+      "Pregúntate: ¿qué número multiplicado por sí mismo dos veces (o tres veces) da el número de adentro?",
+      "Prueba con números conocidos: 1, 4, 9, 16, 25, 36… para cuadrados; 1, 8, 27, 64, 125… para cubos.",
+      "Comprueba elevando tu respuesta al cuadrado o al cubo: debe darte el número de adentro."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una chacra cuadrada en Huancayo tiene 81 m² de área. ¿Cuánto mide cada lado?",
+        "desarrollo": "El lado por sí mismo debe dar 81. Pruebas: 8 × 8 = 64 (falta), 9 × 9 = 81 (justo). Entonces √81 = 9.",
+        "respuesta": "Cada lado mide 9 m."
+      },
+      {
+        "situacion": "Un cubo de madera tiene 64 cm³ de volumen. ¿Cuánto mide su arista?",
+        "desarrollo": "Buscas un número que multiplicado tres veces dé 64: 3 × 3 × 3 = 27 (falta), 4 × 4 × 4 = 64. Entonces ∛64 = 4.",
+        "respuesta": "La arista mide 4 cm."
+      },
+      {
+        "situacion": "¿Es exacta la raíz cuadrada de 30?",
+        "desarrollo": "5² = 25 y 6² = 36. El 30 queda entre los dos y no es ningún cuadrado perfecto.",
+        "respuesta": "No: √30 no es exacta, está entre 5 y 6."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Sacar la mitad en vez de la raíz: decir que √36 = 18.",
+        "correccion": "La raíz cuadrada no es dividir entre 2. Busca el número que por sí mismo da 36: 6 × 6 = 36, así que √36 = 6."
+      },
+      {
+        "error": "Confundir raíz cúbica con dividir entre 3: decir que ∛27 = 9.",
+        "correccion": "Comprueba con la potencia: 9³ = 729, no 27. En cambio 3 × 3 × 3 = 27, por eso ∛27 = 3."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Radicando",
+        "significado": "El número que está dentro de la raíz."
+      },
+      {
+        "termino": "Índice",
+        "significado": "El numerito que dice qué raíz es: 2 (no se escribe) para la cuadrada, 3 para la cúbica."
+      },
+      {
+        "termino": "Cuadrado perfecto",
+        "significado": "Número que resulta de elevar un entero al cuadrado, como 25 o 144."
+      },
+      {
+        "termino": "Cubo perfecto",
+        "significado": "Número que resulta de elevar un entero al cubo, como 8 o 125."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuánto es √49? Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Buscas un número que multiplicado por sí mismo dé 49.",
+          "Prueba con 6 × 6 y con 7 × 7.",
+          "6 × 6 = 36 se queda corto; el siguiente da justo 49."
+        ],
+        "retroalimentacion": "No se trata de la mitad de 49. Como 7 × 7 = 49, la raíz cuadrada de 49 es 7."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La raíz cuadrada de 36 es 18.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Eleva 18 al cuadrado y mira si obtienes 36.",
+          "18 × 18 = 324, muy lejos de 36.",
+          "El número que por sí mismo da 36 es menor que 10."
+        ],
+        "retroalimentacion": "Es falso: 18 es la mitad de 36, no su raíz. √36 = 6 porque 6 × 6 = 36."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estos números es un cuadrado perfecto?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "48"
+          },
+          {
+            "id": "b",
+            "texto": "64"
+          },
+          {
+            "id": "c",
+            "texto": "72"
+          },
+          {
+            "id": "d",
+            "texto": "90"
+          }
+        ],
+        "pistas": [
+          "Un cuadrado perfecto sale de multiplicar un entero por sí mismo.",
+          "Repasa los cuadrados cercanos: 6² = 36, 7² = 49, 8² = ?, 9² = 81.",
+          "Solo uno de los cuatro aparece en la lista de cuadrados, justo entre 49 y 81."
+        ],
+        "retroalimentacion": "64 es cuadrado perfecto porque 8 × 8 = 64. Los números 48, 72 y 90 no son el cuadrado de ningún entero."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula ∛27. Escribe solo el número.",
+        "respuesta": 3,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El 3 pequeño indica raíz cúbica: buscas un número que usado tres veces como factor dé 27.",
+          "2 × 2 × 2 = 8, todavía es poco.",
+          "Prueba 3 × 3 = 9 y luego 9 × 3."
+        ],
+        "retroalimentacion": "Cuidado con dividir 27 entre 3 y responder 9. La raíz cúbica es 3, porque 3 × 3 × 3 = 27."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El patio cuadrado de una casa en Ayacucho tiene 144 m² de área. ¿Cuántos metros mide cada lado? Escribe solo el número.",
+        "respuesta": 12,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "En un cuadrado, área = lado × lado; necesitas la raíz cuadrada de 144.",
+          "10 × 10 = 100 y 15 × 15 = 225: el lado está entre 10 y 15.",
+          "Prueba 12 × 12: 12 × 10 = 120 y 12 × 2 = 24."
+        ],
+        "retroalimentacion": "Algunos dividen 144 entre 4 y dicen 36, pero eso sería para el perímetro. √144 = 12, así que cada lado mide 12 m."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué número elevado al cubo da 125?",
+        "respuesta": "d",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "25"
+          },
+          {
+            "id": "b",
+            "texto": "41"
+          },
+          {
+            "id": "c",
+            "texto": "15"
+          },
+          {
+            "id": "d",
+            "texto": "5"
+          }
+        ],
+        "pistas": [
+          "Elevar al cubo es multiplicar el número tres veces por sí mismo.",
+          "25 × 25 ya es 625, demasiado grande; el número buscado es pequeño.",
+          "Calcula 5 × 5 y multiplica el resultado otra vez por 5."
+        ],
+        "retroalimentacion": "∛125 = 5 porque 5 × 5 × 5 = 125. El 25 es solo 5², y 41 o 15 salen de dividir o restar, no de una raíz."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Como 8 × 8 × 8 = 512, entonces ∛512 = 8.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La raíz cúbica deshace lo que hace el cubo.",
+          "Si 8³ = 512, pregúntate qué número al cubo da 512.",
+          "La multiplicación del enunciado ya te muestra el número que buscas."
+        ],
+        "retroalimentacion": "Es verdadero: la raíz cúbica de 512 es el número cuyo cubo da 512, y ese número es 8."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Completa con una palabra: √81 = 9 porque 9 elevado al ______ da 81.",
+        "respuesta": "cuadrado",
+        "alternativasAceptadas": [
+          "al cuadrado",
+          "2",
+          "dos",
+          "exponente 2"
+        ],
+        "pistas": [
+          "La raíz cuadrada y una potencia son operaciones inversas.",
+          "9 × 9 = 81: el 9 aparece dos veces como factor.",
+          "Cuando un número se multiplica por sí mismo dos veces, se dice que está elevado al…"
+        ],
+        "retroalimentacion": "La palabra es «cuadrado»: 9² = 81, y por eso √81 = 9. Elevar al cubo daría 729."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula √400. Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Piensa en 400 como 4 × 100.",
+          "√4 = 2 y √100 = 10.",
+          "Comprueba tu candidato: 20 × 20 = ?"
+        ],
+        "retroalimentacion": "No es 200 (la mitad). √400 = 20 porque 20 × 20 = 400."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula √121 + ∛64. Escribe solo el número.",
+        "respuesta": 15,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resuelve cada raíz por separado antes de sumar.",
+          "11 × 11 = 121 te da la primera raíz.",
+          "Para ∛64 busca el número que tres veces como factor da 64: 4 × 4 × 4. Luego suma 11 + 4."
+        ],
+        "retroalimentacion": "Un error típico es tomar ∛64 como 8 (eso es √64). Lo correcto: √121 = 11 y ∛64 = 4, y 11 + 4 = 15."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Don Hilario cubre un piso cuadrado con 196 losetas cuadradas iguales, sin que sobre ninguna. ¿Cuántas losetas puso en cada fila?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "14"
+          },
+          {
+            "id": "b",
+            "texto": "98"
+          },
+          {
+            "id": "c",
+            "texto": "49"
+          },
+          {
+            "id": "d",
+            "texto": "16"
+          }
+        ],
+        "pistas": [
+          "Filas y columnas tienen la misma cantidad: fila × fila = 196.",
+          "13 × 13 = 169 y 15 × 15 = 225; el número está entre 13 y 15.",
+          "Verifica 14 × 14: 14 × 10 = 140 y 14 × 4 = 56."
+        ],
+        "retroalimentacion": "98 es la mitad de 196 y 49 es la cuarta parte: ninguna es la raíz. √196 = 14, entonces hay 14 losetas por fila."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "√50 es una raíz exacta porque 50 = 5 × 10.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Para que sea exacta, 50 debería ser un entero multiplicado por sí mismo.",
+          "Calcula 7 × 7 y 8 × 8.",
+          "50 queda atrapado entre 49 y 64, dos cuadrados perfectos seguidos."
+        ],
+        "retroalimentacion": "Es falso. Que 50 se pueda escribir como producto no basta: los factores deben ser iguales. 7² = 49 y 8² = 64, así que √50 no es exacta."
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Rosa pensó un número, lo elevó al cubo y obtuvo 343. Su hermano pensó otro, lo elevó al cuadrado y obtuvo 169. ¿Cuánto suman los dos números pensados? Escribe solo el número.",
+        "respuesta": 20,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El número de Rosa es ∛343 y el de su hermano es √169.",
+          "7 × 7 = 49 y 49 × 7 = 343.",
+          "13 × 13 = 169. Ahora suma los dos números que encontraste."
+        ],
+        "retroalimentacion": "Aquí hay que usar una raíz cúbica y otra cuadrada, sin mezclarlas: ∛343 = 7 y √169 = 13. La suma es 20."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.propiedades-radicacion",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-05",
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Potenciación y radicación",
+    "nombre": "Propiedades de la radicación",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Usa la raíz de un producto y de un cociente para simplificar cálculos.",
+    "palabrasClave": [
+      "raíz de un producto",
+      "raíz de un cociente",
+      "propiedades",
+      "simplificar",
+      "radicación"
+    ],
+    "prerrequisitos": [
+      "mat.s1.radicacion-exacta",
+      "mat.s1.potencias"
+    ],
+    "ordenSugerido": 32,
+    "ideaCentral": "La raíz de una multiplicación se puede repartir: √(a × b) = √a × √b. Lo mismo pasa con la división: √(a ÷ b) = √a ÷ √b. Con sumas y restas NO se puede repartir.",
+    "pasos": [
+      "Mira qué operación hay dentro de la raíz: solo puedes separar si es multiplicación o división.",
+      "Separa en raíces de números cuya raíz conoces (cuadrados perfectos como 4, 9, 25, 100).",
+      "Calcula cada raíz por separado.",
+      "Multiplica o divide los resultados, según la operación original, y comprueba."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula √(9 × 16) sin multiplicar primero.",
+        "desarrollo": "Hay un producto dentro, así que separas: √9 × √16 = 3 × 4 = 12. Compruebas: 9 × 16 = 144 y 12² = 144.",
+        "respuesta": "√(9 × 16) = 12."
+      },
+      {
+        "situacion": "Una plaza cuadrada de Arequipa mide 2500 m². ¿Cuánto mide su lado?",
+        "desarrollo": "Escribes 2500 = 25 × 100. Entonces √2500 = √25 × √100 = 5 × 10 = 50.",
+        "respuesta": "El lado mide 50 m."
+      },
+      {
+        "situacion": "Calcula √(400 ÷ 16).",
+        "desarrollo": "Hay un cociente dentro: √400 ÷ √16 = 20 ÷ 4 = 5. Compruebas: 400 ÷ 16 = 25 y √25 = 5.",
+        "respuesta": "√(400 ÷ 16) = 5."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Repartir la raíz en una suma: creer que √(9 + 16) = √9 + √16 = 7.",
+        "correccion": "Con sumas primero se opera adentro: 9 + 16 = 25 y √25 = 5. La propiedad solo vale para multiplicar y dividir."
+      },
+      {
+        "error": "Separar la raíz pero cambiar la operación: √(4 × 25) = √4 + √25.",
+        "correccion": "La operación se conserva: producto adentro, producto afuera. √4 × √25 = 2 × 5 = 10."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Raíz de un producto",
+        "significado": "Propiedad que dice que √(a × b) = √a × √b."
+      },
+      {
+        "termino": "Raíz de un cociente",
+        "significado": "Propiedad que dice que √(a ÷ b) = √a ÷ √b, con b distinto de cero."
+      },
+      {
+        "termino": "Factor",
+        "significado": "Cada uno de los números que se multiplican."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "√(4 × 9) = √4 × √9.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Dentro de la raíz hay una multiplicación.",
+          "Calcula el lado izquierdo: 4 × 9 = 36 y luego su raíz.",
+          "Calcula el lado derecho: 2 × 3. Compara ambos resultados."
+        ],
+        "retroalimentacion": "Es verdadero: √36 = 6 y también √4 × √9 = 2 × 3 = 6. Es la propiedad de la raíz de un producto."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Usa la propiedad para calcular √(4 × 25). Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa en dos raíces que se multiplican: √4 y √25.",
+          "√4 = 2 y √25 = 5.",
+          "Multiplica 2 × 5."
+        ],
+        "retroalimentacion": "Ojo con sumar 2 + 5 = 7: la operación sigue siendo multiplicar. √4 × √25 = 2 × 5 = 10."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál expresión es igual a √(100 ÷ 4)?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "√100 − √4"
+          },
+          {
+            "id": "b",
+            "texto": "√100 ÷ √4"
+          },
+          {
+            "id": "c",
+            "texto": "100 ÷ 4"
+          },
+          {
+            "id": "d",
+            "texto": "√100 + √4"
+          }
+        ],
+        "pistas": [
+          "Al separar la raíz, la operación de adentro no cambia.",
+          "Adentro hay una división, así que afuera también debe haberla.",
+          "√(100 ÷ 4) = √25 = 5; busca la expresión que también da 5."
+        ],
+        "retroalimentacion": "La correcta es √100 ÷ √4 = 10 ÷ 2 = 5. Restar o sumar las raíces da 8 o 12, y 100 ÷ 4 = 25 olvida la raíz."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula √(36 ÷ 9) separando la raíz. Escribe solo el número.",
+        "respuesta": 2,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Escribe √36 ÷ √9.",
+          "√36 = 6 y √9 = 3.",
+          "Divide 6 ÷ 3."
+        ],
+        "retroalimentacion": "Si respondiste 4, te faltó sacar la raíz. √36 ÷ √9 = 6 ÷ 3 = 2 (y también √4 = 2)."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula √(16 × 49) sin hacer la multiplicación de adentro. Escribe solo el número.",
+        "respuesta": 28,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "16 y 49 son cuadrados perfectos: aprovecha eso.",
+          "√16 = 4 y √49 = 7.",
+          "El resultado es el producto 4 × 7."
+        ],
+        "retroalimentacion": "No hace falta calcular 16 × 49 = 784. Con la propiedad: √16 × √49 = 4 × 7 = 28."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "√(9 + 16) = √9 + √16.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Fíjate bien en el signo que hay dentro de la raíz.",
+          "Lado izquierdo: 9 + 16 = 25, y su raíz es 5.",
+          "Lado derecho: 3 + 4 = 7. ¿Coincide con 5?"
+        ],
+        "retroalimentacion": "Es falso: √(9 + 16) = √25 = 5, pero √9 + √16 = 7. La raíz no se reparte en las sumas."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula √(900 ÷ 25). Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Convierte la raíz del cociente en un cociente de raíces.",
+          "√900 = 30, porque 30 × 30 = 900.",
+          "√25 = 5; ahora divide 30 ÷ 5."
+        ],
+        "retroalimentacion": "Un error común es responder 36, que es solo 900 ÷ 25. Falta la raíz: √900 ÷ √25 = 30 ÷ 5 = 6."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Dayana quiere hallar √3600 separándolo en un producto de cuadrados perfectos. ¿Cuál separación le sirve?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "√360 × √10"
+          },
+          {
+            "id": "b",
+            "texto": "√3000 + √600"
+          },
+          {
+            "id": "c",
+            "texto": "√36 × √100"
+          }
+        ],
+        "pistas": [
+          "Los dos factores deben tener raíz exacta.",
+          "360 y 10 no son cuadrados perfectos; y una suma no permite separar.",
+          "3600 = 36 × 100, y conoces las raíces de 36 y de 100."
+        ],
+        "retroalimentacion": "Le sirve √36 × √100 = 6 × 10 = 60. En √360 × √10 las raíces no son exactas, y con una suma la propiedad no vale."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "La propiedad también vale para la raíz cúbica. Calcula ∛(8 × 27). Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Separa en ∛8 × ∛27.",
+          "2 × 2 × 2 = 8 y 3 × 3 × 3 = 27.",
+          "Multiplica las dos raíces cúbicas: 2 × 3."
+        ],
+        "retroalimentacion": "Cuidado con usar raíces cuadradas aquí. ∛8 = 2 y ∛27 = 3, y su producto es 6 (en efecto, 6³ = 216 = 8 × 27)."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula √(4 × 9 × 25). Escribe solo el número.",
+        "respuesta": 30,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "La propiedad funciona igual con tres factores.",
+          "Saca cada raíz: √4, √9 y √25.",
+          "Multiplica 2 × 3 = 6 y luego 6 × 5."
+        ],
+        "retroalimentacion": "No sumes las raíces (2 + 3 + 5 = 10). Se multiplican: 2 × 3 × 5 = 30, y 30² = 900 = 4 × 9 × 25."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un mural cuadrado de Barranco ocupa 1600 dm². Para hallar su lado, Thiago escribe 1600 = 16 × 100. ¿Cuánto mide el lado?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "40 dm"
+          },
+          {
+            "id": "b",
+            "texto": "80 dm"
+          },
+          {
+            "id": "c",
+            "texto": "400 dm"
+          },
+          {
+            "id": "d",
+            "texto": "16 dm"
+          }
+        ],
+        "pistas": [
+          "El lado es √1600, y Thiago ya lo separó en dos factores cómodos.",
+          "√16 = 4 y √100 = 10.",
+          "Multiplica 4 × 10 y comprueba elevando al cuadrado."
+        ],
+        "retroalimentacion": "El lado mide 40 dm: √16 × √100 = 4 × 10. Quien responde 400 dm dividió 1600 entre 4, y 80 dm duplicó en vez de multiplicar las raíces."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "√(144 ÷ 36) da el mismo resultado que √144 ÷ √36 y que √4.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula las tres expresiones por separado y compáralas.",
+          "144 ÷ 36 = 4, así que la primera es √4.",
+          "√144 = 12 y √36 = 6; divide 12 ÷ 6."
+        ],
+        "retroalimentacion": "Es verdadero: las tres valen 2. Operar adentro primero o separar la raíz del cociente lleva al mismo resultado."
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula √(64 × 25) ÷ √(100 ÷ 4). Escribe solo el número.",
+        "respuesta": 8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resuelve primero cada raíz grande usando la propiedad que le corresponde.",
+          "√(64 × 25) = 8 × 5 = 40.",
+          "√(100 ÷ 4) = 10 ÷ 2 = 5. Te queda dividir 40 ÷ 5."
+        ],
+        "retroalimentacion": "Hay que usar las dos propiedades sin mezclarlas: el dividendo es 8 × 5 = 40 y el divisor es 10 ÷ 2 = 5. El resultado es 8."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.operaciones-potencias-raices",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Usa estrategias y procedimientos de estimación y cálculo",
+    "desempenosOrigen": [
+      "MAT-C23-S1-06"
+    ],
+    "bloque": "Potenciación y radicación",
+    "nombre": "Operaciones combinadas con potencias y raíces",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Resuelve expresiones con potencias y raíces respetando la jerarquía de operaciones.",
+    "palabrasClave": [
+      "jerarquía de operaciones",
+      "potencias",
+      "raíces",
+      "operaciones combinadas",
+      "paréntesis"
+    ],
+    "prerrequisitos": [
+      "mat.s1.propiedades-radicacion",
+      "mat.s1.operaciones-combinadas-enteros"
+    ],
+    "ordenSugerido": 33,
+    "ideaCentral": "Cuando una expresión mezcla varias operaciones hay un orden fijo: primero lo que está entre paréntesis, luego potencias y raíces, después multiplicaciones y divisiones, y al final sumas y restas.",
+    "pasos": [
+      "Resuelve primero lo que está dentro de paréntesis (o dentro de una raíz).",
+      "Calcula todas las potencias y raíces.",
+      "Haz las multiplicaciones y divisiones de izquierda a derecha.",
+      "Termina con las sumas y restas de izquierda a derecha.",
+      "Copia la expresión completa en cada paso para no perder ningún número."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Calcula 3 + 2² × 5.",
+        "desarrollo": "Primero la potencia: 2² = 4. Queda 3 + 4 × 5. Luego la multiplicación: 4 × 5 = 20. Al final la suma: 3 + 20.",
+        "respuesta": "El resultado es 23."
+      },
+      {
+        "situacion": "Calcula (√36 − 2)² ÷ 8.",
+        "desarrollo": "Dentro del paréntesis: √36 = 6 y 6 − 2 = 4. Luego la potencia: 4² = 16. Finalmente 16 ÷ 8.",
+        "respuesta": "El resultado es 2."
+      },
+      {
+        "situacion": "En una feria de Huaraz, Nina arma 2³ bolsas con √25 choclos cada una y aparta 3² choclos sueltos. ¿Cuántos choclos usa?",
+        "desarrollo": "La expresión es 2³ × √25 + 3². Potencias y raíz: 8 × 5 + 9. Multiplicación: 40 + 9.",
+        "respuesta": "Usa 49 choclos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Operar de izquierda a derecha sin mirar la jerarquía: en 2 × 3² hacer 2 × 3 = 6 y luego 6² = 36.",
+        "correccion": "La potencia va antes que la multiplicación: 3² = 9 y luego 2 × 9 = 18."
+      },
+      {
+        "error": "Sumar antes de dividir: en 8 + √36 ÷ 2 hacer (8 + 6) ÷ 2 = 7.",
+        "correccion": "Sin paréntesis, la división va primero: 6 ÷ 2 = 3 y luego 8 + 3 = 11."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Jerarquía de operaciones",
+        "significado": "El orden acordado para resolver una expresión con varias operaciones."
+      },
+      {
+        "termino": "Signos de agrupación",
+        "significado": "Paréntesis, corchetes o llaves que indican qué se resuelve primero."
+      },
+      {
+        "termino": "Operación combinada",
+        "significado": "Expresión que mezcla varias operaciones distintas."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula 3² + √16. Escribe solo el número.",
+        "respuesta": 13,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay una potencia y una raíz: resuélvelas antes de sumar.",
+          "3² = 3 × 3 = 9.",
+          "√16 = 4. Suma 9 + 4."
+        ],
+        "retroalimentacion": "Si te dio 10, tomaste 3² como 6. Lo correcto es 9 + 4 = 13."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la expresión 5 + 2³ × 4, ¿qué se calcula primero?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5 + 2"
+          },
+          {
+            "id": "b",
+            "texto": "2³"
+          },
+          {
+            "id": "c",
+            "texto": "3 × 4"
+          }
+        ],
+        "pistas": [
+          "Recuerda el orden: potencias antes que multiplicaciones y sumas.",
+          "No hay paréntesis, así que no empiezas por la suma.",
+          "Busca en la expresión el número que tiene exponente."
+        ],
+        "retroalimentacion": "Primero va la potencia 2³ = 8. Después 8 × 4 = 32 y al final 5 + 32 = 37. Empezar por 5 + 2 rompe la jerarquía."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "2 × 3² = 36.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Decide cuál va primero: la multiplicación o la potencia.",
+          "El exponente 2 afecta solo al 3, no al producto 2 × 3.",
+          "3² = 9; ahora multiplica 2 × 9."
+        ],
+        "retroalimentacion": "Es falso. 36 sale de hacer (2 × 3)², pero no hay paréntesis: 2 × 3² = 2 × 9 = 18."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula √81 − 2². Escribe solo el número.",
+        "respuesta": 5,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Antes de restar, resuelve la raíz y la potencia.",
+          "√81 = 9, porque 9 × 9 = 81.",
+          "2² = 4. Te queda 9 − 4."
+        ],
+        "retroalimentacion": "No restes 81 − 2 primero. √81 = 9 y 2² = 4, así que el resultado es 5."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 4² − √25 × 3. Escribe solo el número.",
+        "respuesta": 1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empieza por la potencia y la raíz: 4² y √25.",
+          "Queda 16 − 5 × 3: ¿resta o multiplicación primero?",
+          "5 × 3 = 15 y después 16 − 15."
+        ],
+        "retroalimentacion": "El error típico es hacer (16 − 5) × 3 = 33. La multiplicación va antes: 16 − 15 = 1."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula (√49 + 3)² ÷ 10. Escribe solo el número.",
+        "respuesta": 10,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El paréntesis manda: resuélvelo completo antes de elevar.",
+          "√49 = 7 y 7 + 3 = 10.",
+          "10² = 100; por último divide 100 ÷ 10."
+        ],
+        "retroalimentacion": "No eleves al cuadrado solo el 3. Primero el paréntesis da 10, luego 10² = 100 y 100 ÷ 10 = 10."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál es el resultado de 2³ + √36 ÷ 2?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "11"
+          },
+          {
+            "id": "b",
+            "texto": "7"
+          },
+          {
+            "id": "c",
+            "texto": "14"
+          },
+          {
+            "id": "d",
+            "texto": "5"
+          }
+        ],
+        "pistas": [
+          "2³ = 8 y √36 = 6; reescribe la expresión con esos valores.",
+          "Tienes 8 + 6 ÷ 2: la división va antes que la suma.",
+          "6 ÷ 2 = 3 y luego 8 + 3."
+        ],
+        "retroalimentacion": "Quien suma primero obtiene (8 + 6) ÷ 2 = 7. Respetando la jerarquía: 8 + 3 = 11."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "10 − √64 + 2² = 6.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Calcula √64 y 2² antes de cualquier suma o resta.",
+          "La expresión se convierte en 10 − 8 + 4.",
+          "Sumas y restas van de izquierda a derecha: 10 − 8 = 2, después 2 + 4."
+        ],
+        "retroalimentacion": "Es verdadero: 10 − 8 + 4 = 6. Si haces 8 + 4 primero y restas de 10, obtienes −2, que es incorrecto."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula 5² − 3² × √4. Escribe solo el número.",
+        "respuesta": 7,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Hay dos potencias y una raíz: 5², 3² y √4.",
+          "Sustituye: 25 − 9 × 2.",
+          "9 × 2 = 18; termina con 25 − 18."
+        ],
+        "retroalimentacion": "No restes 25 − 9 antes de multiplicar (eso daría 32). Lo correcto es 25 − 18 = 7."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula (−2)³ + √100 × 3 − 4². Escribe solo el número.",
+        "respuesta": 6,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Tres cálculos van primero: (−2)³, √100 y 4².",
+          "(−2)³ = −8, √100 = 10 y 4² = 16; queda −8 + 10 × 3 − 16.",
+          "10 × 3 = 30; luego −8 + 30 = 22 y 22 − 16."
+        ],
+        "retroalimentacion": "Un tropiezo frecuente es tomar (−2)³ como +8; con exponente impar el signo negativo se queda. −8 + 30 − 16 = 6."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Kiara resolvió √(9 + 16) × 2² − 3 así. Paso 1: √25 = 5. Paso 2: 5 × 2 = 10. Paso 3: 10² = 100. Paso 4: 100 − 3 = 97. ¿En qué paso rompió la jerarquía?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Paso 4"
+          },
+          {
+            "id": "b",
+            "texto": "Paso 1"
+          },
+          {
+            "id": "c",
+            "texto": "Paso 2"
+          }
+        ],
+        "pistas": [
+          "Revisa en cada paso si la operación elegida era la que tocaba.",
+          "Después de obtener 5, la expresión es 5 × 2² − 3.",
+          "En 5 × 2² la potencia debe calcularse antes de multiplicar."
+        ],
+        "retroalimentacion": "Se equivocó en el paso 2: multiplicó 5 × 2 antes de resolver 2². Lo correcto es 5 × 4 − 3 = 17."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un vivero de Tarma prepara 3² bandejas con √144 plantines cada una y luego regala 2³ plantines. ¿Cuántos plantines le quedan? Escribe solo el número.",
+        "respuesta": 100,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Traduce la situación: bandejas × plantines por bandeja − regalados.",
+          "3² = 9 bandejas, √144 = 12 plantines y 2³ = 8 regalados.",
+          "Calcula 9 × 12 = 108 y después resta 8."
+        ],
+        "retroalimentacion": "Hay que armar 3² × √144 − 2³ y respetar el orden: 9 × 12 − 8 = 108 − 8 = 100 plantines."
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "(√(5² − 3²))³ ÷ 2³ = 8.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Empieza por lo más interno: la resta que está dentro de la raíz.",
+          "5² − 3² = 25 − 9 = 16 y √16 = 4.",
+          "4³ = 64 y 2³ = 8; divide 64 ÷ 8."
+        ],
+        "retroalimentacion": "Es verdadero. Ojo: √(25 − 9) no es 5 − 3. Se resta primero: √16 = 4, luego 4³ = 64 y 64 ÷ 8 = 8."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.errores-potencias",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 23,
+    "capacidad": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+    "desempenosOrigen": [
+      "MAT-C23-S1-09"
+    ],
+    "bloque": "Potenciación y radicación",
+    "nombre": "Errores frecuentes con potencias de base negativa",
+    "disciplina": "aritmetica",
+    "descripcionCorta": "Explica la diferencia entre (−2)⁴ y −2⁴ y corrige errores de signo.",
+    "palabrasClave": [
+      "base negativa",
+      "paréntesis",
+      "signo",
+      "exponente par",
+      "exponente impar"
+    ],
+    "prerrequisitos": [
+      "mat.s1.potencias"
+    ],
+    "ordenSugerido": 34,
+    "ideaCentral": "El paréntesis decide qué se eleva: en (−2)⁴ la base es −2 y el resultado es 16; en −2⁴ la base es solo 2 y el signo menos se pone al final, así que da −16.",
+    "pasos": [
+      "Mira si el signo menos está dentro de un paréntesis junto con el número.",
+      "Si está dentro, la base es negativa: exponente par da resultado positivo, exponente impar da negativo.",
+      "Si no hay paréntesis, eleva solo el número y después colócale el signo menos.",
+      "Comprueba escribiendo la potencia como multiplicación repetida."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Compara (−3)² y −3².",
+        "desarrollo": "(−3)² = (−3) × (−3) = 9. En cambio −3² = −(3 × 3) = −9. No son iguales.",
+        "respuesta": "(−3)² = 9 y −3² = −9."
+      },
+      {
+        "situacion": "Calcula (−2)³.",
+        "desarrollo": "(−2) × (−2) = 4 y 4 × (−2) = −8. Con exponente impar queda un factor negativo sin pareja.",
+        "respuesta": "(−2)³ = −8."
+      },
+      {
+        "situacion": "En Juliaca la temperatura fue −5 °C. Pilar eleva al cuadrado ese valor en su calculadora y teclea −5². ¿Obtiene lo que quería?",
+        "desarrollo": "Ella quería (−5)² = 25, pero −5² significa −(5 × 5) = −25. Le faltó el paréntesis.",
+        "respuesta": "No: debe teclear (−5)² para obtener 25."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Creer que −2⁴ = 16 porque «menos por menos es más».",
+        "correccion": "Sin paréntesis el signo menos no forma parte de la base: −2⁴ = −(2 × 2 × 2 × 2) = −16."
+      },
+      {
+        "error": "Pensar que toda base negativa da resultado negativo: (−3)⁴ = −81.",
+        "correccion": "Cuenta los factores: cuatro negativos forman dos parejas positivas. (−3)⁴ = 81."
+      },
+      {
+        "error": "Multiplicar la base por el exponente: (−2)³ = −6.",
+        "correccion": "El exponente indica cuántas veces se repite el factor: (−2) × (−2) × (−2) = −8."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Base",
+        "significado": "El número que se repite como factor en una potencia."
+      },
+      {
+        "termino": "Exponente",
+        "significado": "El número pequeño que indica cuántas veces se multiplica la base."
+      },
+      {
+        "termino": "Opuesto",
+        "significado": "El mismo número con el signo cambiado; −2⁴ es el opuesto de 2⁴."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula (−3)². Escribe solo el número.",
+        "respuesta": 9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "El paréntesis encierra al −3: esa es la base.",
+          "Escribe la multiplicación: (−3) × (−3).",
+          "Negativo por negativo da positivo; 3 × 3 = 9."
+        ],
+        "retroalimentacion": "Si respondiste −9, olvidaste que el paréntesis incluye el signo. (−3) × (−3) = 9."
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Calcula −3². Escribe solo el número, con su signo.",
+        "respuesta": -9,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Aquí no hay paréntesis: el exponente solo toca al 3.",
+          "Primero 3² = 9.",
+          "Ahora coloca delante el signo menos que estaba esperando."
+        ],
+        "retroalimentacion": "Muchos responden 9 por costumbre. Sin paréntesis se eleva solo el 3 y luego va el signo: −9."
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "(−2)⁴ y −2⁴ dan el mismo resultado.",
+        "respuesta": false,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Identifica la base de cada potencia.",
+          "(−2)⁴ = (−2) × (−2) × (−2) × (−2).",
+          "−2⁴ = −(2 × 2 × 2 × 2). Compara los signos finales."
+        ],
+        "retroalimentacion": "Es falso: (−2)⁴ = 16 y −2⁴ = −16. El paréntesis cambia cuál es la base."
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En la expresión −5², ¿cuál es la base de la potencia?",
+        "respuesta": "c",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−5"
+          },
+          {
+            "id": "b",
+            "texto": "2"
+          },
+          {
+            "id": "c",
+            "texto": "5"
+          }
+        ],
+        "pistas": [
+          "La base es lo que el exponente tiene justo debajo, pegado a él.",
+          "No hay paréntesis que una el signo menos con el 5.",
+          "El 2 es el exponente; el signo queda fuera de la potencia."
+        ],
+        "retroalimentacion": "La base es 5. El signo menos queda afuera, por eso −5² = −25. Para que la base sea −5 haría falta escribir (−5)²."
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál de estas potencias da un resultado negativo?",
+        "respuesta": "a",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "(−2)³"
+          },
+          {
+            "id": "b",
+            "texto": "(−2)⁴"
+          },
+          {
+            "id": "c",
+            "texto": "(−1)⁶"
+          },
+          {
+            "id": "d",
+            "texto": "(−10)²"
+          }
+        ],
+        "pistas": [
+          "Todas tienen base negativa entre paréntesis: lo que decide es el exponente.",
+          "Exponente par: los factores negativos se emparejan y el resultado es positivo.",
+          "Busca la única potencia con exponente impar."
+        ],
+        "retroalimentacion": "(−2)³ = −8 es la negativa, porque su exponente es impar. (−2)⁴ = 16, (−1)⁶ = 1 y (−10)² = 100 son positivas."
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula (−2)⁵. Escribe solo el número, con su signo.",
+        "respuesta": -32,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Decide primero el signo: ¿5 es par o impar?",
+          "Calcula 2⁵ = 2 × 2 × 2 × 2 × 2.",
+          "2⁵ = 32, y como el exponente es impar, el resultado conserva el signo de la base."
+        ],
+        "retroalimentacion": "No es −10 (eso es multiplicar base por exponente) ni +32. Cinco factores negativos dan negativo: −32."
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Una base negativa entre paréntesis elevada a un exponente par siempre da un resultado positivo.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Prueba con ejemplos: (−1)², (−3)², (−2)⁴.",
+          "Con exponente par, cada factor negativo tiene su pareja.",
+          "Cada pareja de negativos da un producto positivo."
+        ],
+        "retroalimentacion": "Es verdadero: con exponente par los factores negativos se agrupan de dos en dos y cada pareja es positiva. Por ejemplo, (−3)² = 9."
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Sin calcular el valor: ¿el resultado de (−7)⁹ es positivo o negativo? Escribe una sola palabra.",
+        "respuesta": "negativo",
+        "alternativasAceptadas": [
+          "negativa",
+          "es negativo",
+          "menos"
+        ],
+        "pistas": [
+          "No necesitas multiplicar nueve veces: basta con mirar el exponente.",
+          "9 es impar.",
+          "Con nueve factores negativos se forman cuatro parejas y sobra uno."
+        ],
+        "retroalimentacion": "Es negativo: el exponente 9 es impar, así que queda un factor negativo sin pareja."
+      },
+      {
+        "id": "e09",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Calcula −4² + (−4)². Escribe solo el número.",
+        "respuesta": 0,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Los dos sumandos parecen iguales, pero uno tiene paréntesis y el otro no.",
+          "−4² = −16, porque se eleva solo el 4.",
+          "(−4)² = 16. Suma −16 + 16."
+        ],
+        "retroalimentacion": "Quien cree que ambas valen 16 responde 32. En realidad −4² = −16 y (−4)² = 16, y juntas dan 0."
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Joaquín escribió en su cuaderno: «(−3)⁴ = −81, porque la base es negativa». ¿Qué corrección le harías?",
+        "respuesta": "b",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Está bien: toda base negativa da resultado negativo"
+          },
+          {
+            "id": "b",
+            "texto": "Da 81: son cuatro factores negativos y se emparejan"
+          },
+          {
+            "id": "c",
+            "texto": "Da −12: se multiplica −3 por 4"
+          },
+          {
+            "id": "d",
+            "texto": "Da 12: menos por menos es más"
+          }
+        ],
+        "pistas": [
+          "Escribe la potencia de Joaquín como multiplicación repetida.",
+          "(−3) × (−3) = 9, y eso ocurre dos veces.",
+          "9 × 9 = 81, con signo positivo porque el exponente es par."
+        ],
+        "retroalimentacion": "La corrección es que da 81: cuatro factores negativos forman dos parejas positivas. No se multiplica la base por el exponente, y el signo depende de si el exponente es par o impar."
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula −2⁴ − (−2)³. Escribe solo el número, con su signo.",
+        "respuesta": -8,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Resuelve cada potencia por separado, mirando dónde hay paréntesis.",
+          "−2⁴ = −16 y (−2)³ = −8.",
+          "Te queda −16 − (−8): restar un negativo equivale a sumar su opuesto."
+        ],
+        "retroalimentacion": "Hay dos trampas de signo: −2⁴ es −16 (no 16) y restar −8 es sumar 8. Entonces −16 + 8 = −8."
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si n es un número impar, entonces (−1)ⁿ y −1ⁿ dan el mismo resultado.",
+        "respuesta": true,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "Prueba con un impar concreto, por ejemplo n = 3.",
+          "(−1)³ = −1, porque el exponente es impar.",
+          "−1³ = −(1 × 1 × 1). Compara los dos valores."
+        ],
+        "retroalimentacion": "Es verdadero: con n impar, (−1)ⁿ = −1, y −1ⁿ = −(1) = −1. Coinciden solo porque n es impar; con n par darían 1 y −1."
+      },
+      {
+        "id": "e13",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Calcula (−1)¹⁰⁰ + (−1)⁹⁹ − 1². Escribe solo el número, con su signo.",
+        "respuesta": -1,
+        "alternativasAceptadas": [],
+        "pistas": [
+          "No multipliques cien veces: fíjate en si cada exponente es par o impar.",
+          "(−1)¹⁰⁰ = 1 y (−1)⁹⁹ = −1.",
+          "1² = 1 y se está restando: 1 + (−1) − 1."
+        ],
+        "retroalimentacion": "El último término es una resta de 1², no una base negativa. 1 − 1 − 1 = −1."
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]

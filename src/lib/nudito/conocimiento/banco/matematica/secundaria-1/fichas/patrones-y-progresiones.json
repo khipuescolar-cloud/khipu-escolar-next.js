@@ -1,0 +1,1573 @@
+[
+  {
+    "clave": "mat.s1.patrones-graficos-transformaciones",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-S1-01",
+      "MAT-C24-S1-03"
+    ],
+    "bloque": "Patrones y progresiones",
+    "nombre": "Patrones gráficos con traslaciones, rotaciones y ampliaciones",
+    "disciplina": "algebra",
+    "descripcionCorta": "Reconoce la transformación que genera un patrón gráfico y lo continúa.",
+    "palabrasClave": [
+      "patrón gráfico",
+      "traslación",
+      "rotación",
+      "ampliación",
+      "figuras"
+    ],
+    "prerrequisitos": [],
+    "ordenSugerido": 113,
+    "ideaCentral": "Un patrón gráfico cambia siguiendo una regla visible: se desplaza, gira o crece. Observa qué se conserva y qué cambia para continuar la secuencia.",
+    "pasos": [
+      "Compara dos figuras consecutivas.",
+      "Decide si se mueve sin girar, gira o aumenta su tamaño.",
+      "Aplica la misma transformación a la última figura.",
+      "Comprueba que la regla explica todos los pasos anteriores."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Una flecha apunta ↑, luego →, luego ↓. ¿Qué sigue?",
+        "desarrollo": "Cada flecha gira un cuarto de vuelta en sentido horario.",
+        "respuesta": "Sigue ←."
+      },
+      {
+        "situacion": "Las figuras tienen ★, ★★ y ★★★ en fila.",
+        "desarrollo": "Cada paso añade una estrella al extremo derecho.",
+        "respuesta": "La cuarta figura tiene ★★★★."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Confundir trasladar con girar.",
+        "correccion": "Si la orientación cambia, hubo giro; si solo cambia de lugar, hubo traslación."
+      },
+      {
+        "error": "Continuar solo por apariencia sin verificar pasos previos.",
+        "correccion": "La regla debe servir entre todas las parejas consecutivas."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Traslación",
+        "significado": "Desplazamiento sin girar ni cambiar tamaño."
+      },
+      {
+        "termino": "Rotación",
+        "significado": "Giro alrededor de un punto."
+      },
+      {
+        "termino": "Ampliación",
+        "significado": "Crecimiento que conserva la forma."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una flecha cambia así: ↑, →, ↓, __. ¿Qué sigue si gira 90° en sentido horario?",
+        "respuesta": "b",
+        "pistas": [
+          "De ↑ a → hay un cuarto de vuelta.",
+          "De → a ↓ se repite el giro.",
+          "Desde ↓ gira otra vez a la derecha."
+        ],
+        "retroalimentacion": "Sigue ←; repetir ↑ saltaría un giro.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "↑"
+          },
+          {
+            "id": "b",
+            "texto": "←"
+          },
+          {
+            "id": "c",
+            "texto": "→"
+          },
+          {
+            "id": "d",
+            "texto": "↓"
+          }
+        ]
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un cuadrado se mueve tres casillas a la derecha sin girar, ocurre una traslación.",
+        "respuesta": true,
+        "pistas": [
+          "Compara la orientación antes y después.",
+          "La forma y el tamaño se conservan.",
+          "Solo cambió su posición."
+        ],
+        "retroalimentacion": "Es verdadero: cambiar solo de lugar es traslación.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Un triángulo gira de apuntar arriba a apuntar derecha. ¿Cómo se llama esa transformación?",
+        "respuesta": "rotación",
+        "pistas": [
+          "La figura no se agranda.",
+          "Su orientación sí cambia.",
+          "Cambiar orientación mediante giro es una rotación."
+        ],
+        "retroalimentacion": "Se llama rotación; trasladar no cambia la dirección.",
+        "alternativasAceptadas": [
+          "giro"
+        ]
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Figuras de puntos: ●, ●●, ●●●. Si agregas un punto al final cada vez, ¿qué sigue?",
+        "respuesta": "d",
+        "pistas": [
+          "Cuenta 1, 2 y 3 puntos.",
+          "La regla agrega uno.",
+          "La próxima figura contiene 4."
+        ],
+        "retroalimentacion": "Sigue ●●●●; la figura conserva la fila y aumenta un punto.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "●●"
+          },
+          {
+            "id": "b",
+            "texto": "●●●"
+          },
+          {
+            "id": "c",
+            "texto": "●●●●●"
+          },
+          {
+            "id": "d",
+            "texto": "●●●●"
+          }
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Las flechas ↑, ↓, ↑, ↓ pueden seguir la regla «girar media vuelta en cada paso».",
+        "respuesta": true,
+        "pistas": [
+          "Compara ↑ con ↓.",
+          "Media vuelta equivale a 180°.",
+          "Al girar otra media vuelta, ↓ vuelve a ↑."
+        ],
+        "retroalimentacion": "Es verdadero: cada flecha gira 180°.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una figura muestra ● arriba de ★; la siguiente muestra ★ arriba de ●. ¿Qué transformación explica el cambio si ambas marcas conservan su distancia?",
+        "respuesta": "c",
+        "pistas": [
+          "El orden vertical se invirtió.",
+          "Un desplazamiento conservaría qué marca está arriba.",
+          "Media vuelta invierte arriba y abajo."
+        ],
+        "retroalimentacion": "Una rotación de 180° intercambia las posiciones verticales.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Traslación a la derecha"
+          },
+          {
+            "id": "b",
+            "texto": "Ampliación al doble"
+          },
+          {
+            "id": "c",
+            "texto": "Rotación de 180°"
+          },
+          {
+            "id": "d",
+            "texto": "Ningún cambio"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una estrella de 1 unidad de ancho pasa a 2 y luego a 4, conservando su forma. ¿Qué transformación de tamaño se repite?",
+        "respuesta": "ampliación",
+        "pistas": [
+          "Compara anchos 1, 2 y 4.",
+          "Cada ancho es el doble del anterior.",
+          "Crecer conservando forma es ampliar."
+        ],
+        "retroalimentacion": "Es una ampliación al doble en cada paso.",
+        "alternativasAceptadas": [
+          "ampliacion"
+        ]
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Patrón: ↑, ←, ↓, __. ¿Qué dirección sigue si cada paso gira 90° en sentido antihorario?",
+        "respuesta": "a",
+        "pistas": [
+          "Desde ↑, un giro antihorario da ←.",
+          "Desde ←, el mismo giro da ↓.",
+          "Repite desde ↓."
+        ],
+        "retroalimentacion": "Sigue →; girar en sentido horario daría ←.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "→"
+          },
+          {
+            "id": "b",
+            "texto": "↑"
+          },
+          {
+            "id": "c",
+            "texto": "←"
+          },
+          {
+            "id": "d",
+            "texto": "↓"
+          }
+        ]
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una figura se traslada dos cuadros a la derecha y luego gira 90°, la figura final puede tener otra orientación.",
+        "respuesta": true,
+        "pistas": [
+          "La primera transformación solo cambia lugar.",
+          "La segunda es un giro.",
+          "Un giro de 90° cambia orientación."
+        ],
+        "retroalimentacion": "Es verdadero: el giro final puede cambiar la orientación.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una flecha está ↑. La mueves a la izquierda sin girarla y luego la rotas 180°. ¿Hacia dónde apunta al final?",
+        "respuesta": "b",
+        "pistas": [
+          "Trasladar a la izquierda conserva ↑.",
+          "Media vuelta desde ↑ apunta abajo.",
+          "La posición final no determina la orientación."
+        ],
+        "retroalimentacion": "Apunta ↓; moverla a la izquierda no significa que apunte ←.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "←"
+          },
+          {
+            "id": "b",
+            "texto": "↓"
+          },
+          {
+            "id": "c",
+            "texto": "→"
+          },
+          {
+            "id": "d",
+            "texto": "↑"
+          }
+        ]
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Un patrón muestra grupos de puntos: ●, ●●, ●●●●. Si la regla es ampliar al doble la cantidad en cada figura, escribe con puntos la siguiente figura.",
+        "respuesta": "●●●●●●●●",
+        "pistas": [
+          "Las cantidades son 1, 2 y 4.",
+          "Duplica 4 para obtener 8.",
+          "Escribe ocho símbolos ● seguidos."
+        ],
+        "retroalimentacion": "La siguiente figura tiene ocho puntos: ●●●●●●●●.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "En una secuencia, una flecha → se traslada una casilla arriba en cada paso; después de tres pasos aparece ↑. ¿Qué afirmación detecta el error?",
+        "respuesta": "d",
+        "pistas": [
+          "Trasladar cambia la casilla.",
+          "Trasladar no cambia la orientación →.",
+          "Una flecha ↑ exige además un giro."
+        ],
+        "retroalimentacion": "La flecha ↑ no sigue solo traslaciones: debería seguir apuntando →.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La flecha debió hacerse más grande"
+          },
+          {
+            "id": "b",
+            "texto": "Tres pasos siempre producen giro"
+          },
+          {
+            "id": "c",
+            "texto": "La casilla no puede cambiar"
+          },
+          {
+            "id": "d",
+            "texto": "La orientación debió seguir →"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.progresiones-aritmeticas",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Traduce datos y condiciones a expresiones algebraicas y gráficas",
+    "desempenosOrigen": [
+      "MAT-C24-S1-01",
+      "MAT-C24-S1-03"
+    ],
+    "bloque": "Patrones y progresiones",
+    "nombre": "Progresiones aritméticas",
+    "disciplina": "algebra",
+    "descripcionCorta": "Identifica la razón constante de una progresión con números enteros y la continúa.",
+    "palabrasClave": [
+      "progresión aritmética",
+      "razón",
+      "diferencia constante",
+      "sucesión"
+    ],
+    "prerrequisitos": [
+      "mat.s1.adicion-enteros"
+    ],
+    "ordenSugerido": 114,
+    "ideaCentral": "Una progresión aritmética suma la misma cantidad, llamada razón, para pasar de un término al siguiente. La razón también puede ser negativa.",
+    "pasos": [
+      "Resta cada término al que sigue.",
+      "Comprueba que las diferencias son iguales.",
+      "Llama razón a esa diferencia común.",
+      "Suma la razón al último término para continuar."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Continúa 4, 9, 14, 19.",
+        "desarrollo": "Las diferencias son 5, 5 y 5.",
+        "respuesta": "El siguiente término es 24."
+      },
+      {
+        "situacion": "¿Es aritmética 8, 5, 2, −1?",
+        "desarrollo": "Cada paso resta 3.",
+        "respuesta": "Sí; la razón es −3."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Calcular la razón como término anterior menos siguiente.",
+        "correccion": "Usa siguiente − anterior; en 8, 5 la razón es −3."
+      },
+      {
+        "error": "Considerar aritmética una secuencia con diferencias distintas.",
+        "correccion": "Comprueba todos los saltos, no solo el primero."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Término",
+        "significado": "Cada número de una sucesión."
+      },
+      {
+        "termino": "Razón",
+        "significado": "Diferencia constante entre términos consecutivos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "La secuencia 3, 7, 11, 15 aumenta siempre igual. ¿Cuál es su razón? Escribe solo el número.",
+        "respuesta": 4,
+        "pistas": [
+          "Resta 7 − 3.",
+          "Comprueba 11 − 7.",
+          "Ambas diferencias son 4."
+        ],
+        "retroalimentacion": "La razón es 4, no 7.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Qué número continúa 10, 13, 16, 19?",
+        "respuesta": "b",
+        "pistas": [
+          "Cada salto suma 3.",
+          "De 16 a 19 también hay 3.",
+          "Suma 3 a 19."
+        ],
+        "retroalimentacion": "Sigue 22; la razón es +3.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "20"
+          },
+          {
+            "id": "b",
+            "texto": "22"
+          },
+          {
+            "id": "c",
+            "texto": "23"
+          },
+          {
+            "id": "d",
+            "texto": "26"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "La sucesión 2, 4, 8, 16 es aritmética.",
+        "respuesta": false,
+        "pistas": [
+          "Calcula 4 − 2.",
+          "Luego calcula 8 − 4.",
+          "Las diferencias 2 y 4 no son iguales."
+        ],
+        "retroalimentacion": "Es falso: se duplica, pero las diferencias no son constantes.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En 9, 6, 3, 0, ¿cuál es la razón? Escríbela con signo.",
+        "respuesta": "−3",
+        "pistas": [
+          "Calcula 6 − 9.",
+          "Comprueba 3 − 6.",
+          "Ambas restas dan un número negativo."
+        ],
+        "retroalimentacion": "La razón es −3; +3 iría en sentido contrario.",
+        "alternativasAceptadas": [
+          "-3"
+        ]
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuál lista es una progresión aritmética?",
+        "respuesta": "c",
+        "pistas": [
+          "Compara diferencias consecutivas en cada lista.",
+          "Una progresión exige la misma diferencia siempre.",
+          "En 12, 8, 4, 0 se resta 4 cada vez."
+        ],
+        "retroalimentacion": "12, 8, 4, 0 tiene razón −4.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "1, 2, 4, 8"
+          },
+          {
+            "id": "b",
+            "texto": "3, 6, 10, 15"
+          },
+          {
+            "id": "c",
+            "texto": "12, 8, 4, 0"
+          },
+          {
+            "id": "d",
+            "texto": "5, 5, 6, 6"
+          }
+        ]
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una progresión empieza en −4 y suma 6 cada vez. ¿Cuál es el cuarto término? Escribe solo el número.",
+        "respuesta": 14,
+        "pistas": [
+          "Los términos son −4, 2, 8...",
+          "Suma 6 a 8.",
+          "El cuarto término es 14."
+        ],
+        "retroalimentacion": "El cuarto término es 14; contar el inicial como salto extra daría 20.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En 20, 15, 10, 5 la razón es −5.",
+        "respuesta": true,
+        "pistas": [
+          "Resta 15 − 20.",
+          "Comprueba 10 − 15.",
+          "Ambas diferencias son −5."
+        ],
+        "retroalimentacion": "Es verdadero: se resta 5 en cada paso.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Completa el término faltante: −7, −3, __, 5. Escribe solo el número.",
+        "respuesta": "1",
+        "pistas": [
+          "De −7 a −3 se suma 4.",
+          "Suma 4 a −3.",
+          "Comprueba que de 1 a 5 también se suma 4."
+        ],
+        "retroalimentacion": "Falta 1; así todos los saltos son +4.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una secuencia de ahorros en soles es 5, 9, 13, 17. Si sigue aritméticamente, ¿cuánto suman el quinto y sexto términos?",
+        "respuesta": "d",
+        "pistas": [
+          "La razón es 4.",
+          "Los siguientes términos son 21 y 25.",
+          "Suma 21 + 25."
+        ],
+        "retroalimentacion": "Los términos quinto y sexto suman S/ 46; sumar 17 + 21 usaría los términos cuarto y quinto.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "38"
+          },
+          {
+            "id": "b",
+            "texto": "42"
+          },
+          {
+            "id": "c",
+            "texto": "44"
+          },
+          {
+            "id": "d",
+            "texto": "46"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Los números −6, −2, 2, 7 forman una progresión aritmética porque los tres primeros saltos son +4.",
+        "respuesta": false,
+        "pistas": [
+          "Calcula los tres saltos: −6 a −2, −2 a 2, 2 a 7.",
+          "Los dos primeros son +4.",
+          "El último es +5."
+        ],
+        "retroalimentacion": "Es falso: el último salto rompe la diferencia constante.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una progresión termina en 18 y tiene razón −4. ¿Cuál es el término inmediatamente anterior? Escribe solo el número.",
+        "respuesta": 22,
+        "pistas": [
+          "El último resulta de sumar −4 al anterior.",
+          "Deshaz ese paso sumando 4 a 18.",
+          "18 + 4 = 22."
+        ],
+        "retroalimentacion": "El anterior es 22; 14 sería el siguiente.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Se quiere completar 2, __, __, 17 con dos términos para formar una progresión aritmética. ¿Qué pareja sirve?",
+        "respuesta": "a",
+        "pistas": [
+          "Del primero al cuarto hay tres saltos.",
+          "17 − 2 = 15, así que cada salto es 5.",
+          "Los términos intermedios son 7 y 12."
+        ],
+        "retroalimentacion": "7 y 12 dan 2, 7, 12, 17, con razón 5.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "7 y 12"
+          },
+          {
+            "id": "b",
+            "texto": "5 y 10"
+          },
+          {
+            "id": "c",
+            "texto": "8 y 13"
+          },
+          {
+            "id": "d",
+            "texto": "6 y 11"
+          }
+        ]
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.termino-enesimo",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-S1-03",
+      "MAT-C24-S1-07"
+    ],
+    "bloque": "Patrones y progresiones",
+    "nombre": "Término enésimo de una progresión aritmética",
+    "disciplina": "algebra",
+    "descripcionCorta": "Obtiene la regla de formación aₙ = a₁ + (n − 1)r y calcula términos lejanos.",
+    "palabrasClave": [
+      "término enésimo",
+      "posición",
+      "razón",
+      "regla general"
+    ],
+    "prerrequisitos": [
+      "mat.s1.progresiones-aritmeticas",
+      "mat.s1.valor-numerico"
+    ],
+    "ordenSugerido": 115,
+    "ideaCentral": "En una progresión aritmética, el término de posición n es aₙ = a₁ + (n − 1)r. Desde el primero hasta el término n hay n − 1 saltos de tamaño r.",
+    "pasos": [
+      "Identifica el primer término a₁ y la razón r.",
+      "Sustituye la posición deseada en n − 1.",
+      "Multiplica los saltos por r y suma a₁.",
+      "Comprueba la fórmula con un término cercano conocido."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Halla el décimo término de 3, 7, 11, ...",
+        "desarrollo": "a₁ = 3, r = 4; a₁₀ = 3 + (10 − 1) × 4.",
+        "respuesta": "a₁₀ = 39."
+      },
+      {
+        "situacion": "Una progresión empieza en 12 y baja de 2 en 2. ¿Qué vale a₈?",
+        "desarrollo": "a₈ = 12 + 7 × (−2) = −2.",
+        "respuesta": "El octavo término es −2."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Multiplicar la razón por n en vez de n − 1.",
+        "correccion": "La primera posición no requiere salto: a₁ = a₁ + 0r."
+      },
+      {
+        "error": "Perder el signo de una razón negativa.",
+        "correccion": "Si r = −3, el término n es a₁ − 3(n − 1)."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "aₙ",
+        "significado": "Término de la posición n."
+      },
+      {
+        "termino": "a₁",
+        "significado": "Primer término de la progresión."
+      },
+      {
+        "termino": "Razón r",
+        "significado": "Cambio constante entre términos consecutivos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "En 2, 5, 8, ..., ¿cuál es el quinto término? Escribe solo el número.",
+        "respuesta": 14,
+        "pistas": [
+          "El primer término es 2.",
+          "La razón es 3 y hasta el quinto hay cuatro saltos.",
+          "Calcula 2 + 4 × 3."
+        ],
+        "retroalimentacion": "El quinto término es 14; 17 sería el sexto.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "¿Cuántos saltos separan el primer término del décimo?",
+        "respuesta": "c",
+        "pistas": [
+          "Del primero al segundo hay un salto.",
+          "Del primero al tercero hay dos.",
+          "Para posición n hay n − 1 saltos."
+        ],
+        "retroalimentacion": "Hay 9 saltos hasta el décimo término.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "8"
+          },
+          {
+            "id": "b",
+            "texto": "10"
+          },
+          {
+            "id": "c",
+            "texto": "9"
+          },
+          {
+            "id": "d",
+            "texto": "11"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si a₁ = 6 y r = 4, entonces a₄ = 6 + 3 × 4.",
+        "respuesta": true,
+        "pistas": [
+          "La cuarta posición está a tres saltos de la primera.",
+          "Cada salto vale 4.",
+          "Suma tres veces 4 a 6."
+        ],
+        "retroalimentacion": "Es verdadero: a₄ = 18.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Completa la regla de 7, 9, 11, ...: aₙ = 7 + (n − 1) × __.",
+        "respuesta": "2",
+        "pistas": [
+          "Resta 9 − 7.",
+          "Comprueba 11 − 9.",
+          "Ambas diferencias dan la razón."
+        ],
+        "retroalimentacion": "La razón faltante es 2.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "El primer término es 5 y la razón es 3. ¿Cuánto vale a₁₂? Escribe solo el número.",
+        "respuesta": 38,
+        "pistas": [
+          "Hasta a₁₂ hay 11 saltos.",
+          "11 × 3 = 33.",
+          "Suma 5 + 33."
+        ],
+        "retroalimentacion": "a₁₂ = 38; usar doce saltos daría 41.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Para −4, 1, 6, ... ¿qué regla calcula aₙ?",
+        "respuesta": "b",
+        "pistas": [
+          "El primer término es −4.",
+          "La razón es 5.",
+          "Usa a₁ + (n − 1)r."
+        ],
+        "retroalimentacion": "La regla es −4 + 5(n − 1); en n = 1 devuelve −4.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "−4 + 5n"
+          },
+          {
+            "id": "b",
+            "texto": "−4 + 5(n − 1)"
+          },
+          {
+            "id": "c",
+            "texto": "5 − 4(n − 1)"
+          },
+          {
+            "id": "d",
+            "texto": "−4 − 5(n − 1)"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "En una progresión que comienza en 20 y tiene razón −3, el sexto término es 5.",
+        "respuesta": true,
+        "pistas": [
+          "Hay cinco saltos hasta la posición 6.",
+          "Cinco veces −3 es −15.",
+          "20 − 15 = 5."
+        ],
+        "retroalimentacion": "Es verdadero: a₆ = 20 + 5(−3) = 5.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "La regla es aₙ = 4 + 6(n − 1). ¿Cuál es a₉? Escribe solo el número.",
+        "respuesta": "52",
+        "pistas": [
+          "Sustituye n = 9.",
+          "9 − 1 = 8.",
+          "Calcula 4 + 6 × 8."
+        ],
+        "retroalimentacion": "a₉ = 52, no 58.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una progresión tiene a₁ = −3 y a₂ = 1. ¿Cuánto vale a₂₅?",
+        "respuesta": "d",
+        "pistas": [
+          "La razón es 1 − (−3) = 4.",
+          "Hasta el término 25 hay 24 saltos.",
+          "Calcula −3 + 24 × 4."
+        ],
+        "retroalimentacion": "a₂₅ = 93; usar 25 saltos produciría 97.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "97"
+          },
+          {
+            "id": "b",
+            "texto": "100"
+          },
+          {
+            "id": "c",
+            "texto": "89"
+          },
+          {
+            "id": "d",
+            "texto": "93"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una fila de asientos empieza con 18 y cada fila posterior tiene 2 asientos más. ¿Cuántos asientos tiene la fila 30? Escribe solo el número.",
+        "respuesta": 76,
+        "pistas": [
+          "La primera fila tiene 18.",
+          "Hasta la fila 30 hay 29 aumentos.",
+          "18 + 29 × 2 = 76."
+        ],
+        "retroalimentacion": "La fila 30 tiene 76 asientos, no 78.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Las reglas aₙ = 3 + 4(n − 1) y aₙ = 4n − 1 describen la misma progresión.",
+        "respuesta": true,
+        "pistas": [
+          "Desarrolla 3 + 4n − 4.",
+          "Simplifica constantes: 3 − 4 = −1.",
+          "Obtienes 4n − 1."
+        ],
+        "retroalimentacion": "Es verdadero: las dos expresiones son equivalentes.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Para a₁ = 50 y r = −7, calcula a₈. Escribe solo el número.",
+        "respuesta": "1",
+        "pistas": [
+          "Hasta a₈ hay siete saltos.",
+          "Siete veces −7 es −49.",
+          "Suma 50 − 49."
+        ],
+        "retroalimentacion": "a₈ = 1; multiplicar por ocho saltos daría −6.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.numero-terminos-progresion",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-S1-07"
+    ],
+    "bloque": "Patrones y progresiones",
+    "nombre": "Número de términos de una progresión",
+    "disciplina": "algebra",
+    "descripcionCorta": "Despeja n en la regla de formación para saber cuántos términos tiene una progresión.",
+    "palabrasClave": [
+      "número de términos",
+      "progresión",
+      "posición final",
+      "despejar"
+    ],
+    "prerrequisitos": [
+      "mat.s1.termino-enesimo",
+      "mat.s1.ecuaciones-lineales"
+    ],
+    "ordenSugerido": 116,
+    "ideaCentral": "Si conoces el primer término, el último y la razón de una progresión aritmética, despeja n en aₙ = a₁ + (n − 1)r. El número de términos es n = (último − primero)/r + 1.",
+    "pasos": [
+      "Identifica primer término, último término y razón.",
+      "Resta último menos primero para hallar el cambio total.",
+      "Divide ese cambio entre la razón para contar saltos.",
+      "Suma uno: hay un término más que saltos."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "¿Cuántos términos hay en 3, 7, 11, ..., 23?",
+        "desarrollo": "(23 − 3) ÷ 4 = 5 saltos; 5 + 1 = 6.",
+        "respuesta": "Hay 6 términos."
+      },
+      {
+        "situacion": "Cuenta 20, 17, 14, ..., 2.",
+        "desarrollo": "La razón es −3; (2 − 20) ÷ (−3) = 6 saltos.",
+        "respuesta": "Hay 7 términos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Dar el número de saltos como cantidad de términos.",
+        "correccion": "Incluye el primer término: si hay cinco saltos, hay seis términos."
+      },
+      {
+        "error": "Usar razón positiva en una progresión descendente.",
+        "correccion": "Conserva el signo: (2 − 20)/(−3) = 6."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Posición n",
+        "significado": "Lugar que ocupa un término al contar desde el primero."
+      },
+      {
+        "termino": "Salto",
+        "significado": "Paso entre dos términos consecutivos."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "¿Cuántos términos tiene 2, 4, 6, 8, 10? Escribe solo el número.",
+        "respuesta": 5,
+        "pistas": [
+          "Cuenta las posiciones desde 2.",
+          "Hay cuatro saltos de +2.",
+          "Agrega el término inicial."
+        ],
+        "retroalimentacion": "Son 5 términos, aunque solo hay 4 saltos.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "En 5, 8, 11, ..., 17, ¿cuántos términos hay?",
+        "respuesta": "b",
+        "pistas": [
+          "La razón es 3.",
+          "De 5 a 17 hay 12 unidades: cuatro saltos.",
+          "Cuatro saltos forman cinco términos."
+        ],
+        "retroalimentacion": "Hay 5 términos: 5, 8, 11, 14, 17.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "4"
+          },
+          {
+            "id": "b",
+            "texto": "5"
+          },
+          {
+            "id": "c",
+            "texto": "6"
+          },
+          {
+            "id": "d",
+            "texto": "12"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si una progresión tiene seis saltos desde el primero hasta el último, tiene siete términos.",
+        "respuesta": true,
+        "pistas": [
+          "El primer término está antes del primer salto.",
+          "Cada salto llega a un nuevo término.",
+          "Cuenta 1 inicial + 6 llegadas."
+        ],
+        "retroalimentacion": "Es verdadero: seis saltos producen siete términos.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "En 10, 20, 30, ..., 60, ¿cuántos términos hay? Escribe solo el número.",
+        "respuesta": "6",
+        "pistas": [
+          "La razón es 10.",
+          "(60 − 10) ÷ 10 = 5 saltos.",
+          "Suma uno al número de saltos."
+        ],
+        "retroalimentacion": "Hay 6 términos: 10, 20, 30, 40, 50, 60.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una progresión empieza en 7, aumenta de 4 en 4 y termina en 31. ¿Cuántos términos tiene? Escribe solo el número.",
+        "respuesta": 7,
+        "pistas": [
+          "El cambio total es 31 − 7 = 24.",
+          "24 ÷ 4 = 6 saltos.",
+          "Suma uno para incluir el 7."
+        ],
+        "retroalimentacion": "Tiene 7 términos, no 6.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "La lista 18, 15, 12, ..., 0 baja de 3 en 3. ¿Cuál es su cantidad de términos?",
+        "respuesta": "c",
+        "pistas": [
+          "En la lista 18, 15, 12, cada paso retrocede tres unidades.",
+          "(0 − 18) ÷ (−3) = 6 saltos.",
+          "El cero es la séptima posición contando desde 18."
+        ],
+        "retroalimentacion": "Hay 7 términos: 18, 15, 12, 9, 6, 3, 0.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "5"
+          },
+          {
+            "id": "b",
+            "texto": "6"
+          },
+          {
+            "id": "c",
+            "texto": "7"
+          },
+          {
+            "id": "d",
+            "texto": "8"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "La progresión 4, 9, 14, ..., 34 tiene siete términos.",
+        "respuesta": true,
+        "pistas": [
+          "La razón es 5.",
+          "(34 − 4) ÷ 5 = 6 saltos.",
+          "Seis saltos implican siete términos."
+        ],
+        "retroalimentacion": "Es verdadero: termina en el séptimo término.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Una progresión de razón −2 va de 11 a −1. ¿Cuántos términos incluye? Escribe solo el número.",
+        "respuesta": "7",
+        "pistas": [
+          "Calcula −1 − 11 = −12.",
+          "Divide −12 entre −2: son 6 saltos.",
+          "Incluye el 11 inicial."
+        ],
+        "retroalimentacion": "Incluye 7 términos: 11, 9, 7, 5, 3, 1, −1.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un corredor marca distancias de 6, 10, 14, ... metros y su última marca es 46 m. ¿Cuántas marcas hizo?",
+        "respuesta": "d",
+        "pistas": [
+          "La razón entre marcas es 4 m.",
+          "De 6 m a 46 m hay 40 m: diez saltos.",
+          "Cuenta también la marca inicial."
+        ],
+        "retroalimentacion": "Hizo 11 marcas; 10 cuenta solo los intervalos.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "9"
+          },
+          {
+            "id": "b",
+            "texto": "10"
+          },
+          {
+            "id": "c",
+            "texto": "12"
+          },
+          {
+            "id": "d",
+            "texto": "11"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Una escalera de valores va de −8 a 28 con saltos de +6. ¿Cuántos valores aparecen, incluidos los extremos? Escribe solo el número.",
+        "respuesta": 7,
+        "pistas": [
+          "El cambio total es 28 − (−8) = 36.",
+          "36 ÷ 6 = 6 saltos.",
+          "Suma uno a los saltos."
+        ],
+        "retroalimentacion": "Aparecen 7 valores: −8, −2, 4, 10, 16, 22 y 28.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si el cambio total entre extremos es 20 y la razón es 6, puede haber una progresión aritmética que incluya ambos extremos.",
+        "respuesta": false,
+        "pistas": [
+          "Divide 20 entre 6.",
+          "El cociente no es un número entero de saltos.",
+          "No se puede llegar exactamente al extremo con pasos de 6."
+        ],
+        "retroalimentacion": "Es falso: 20 ÷ 6 no es entero, así que ese extremo no pertenece a la progresión.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "Una secuencia de razón 5 empieza en 3 y contiene 9 términos. ¿Cuál es el último? Escribe solo el número.",
+        "respuesta": "43",
+        "pistas": [
+          "Nueve términos contienen ocho saltos.",
+          "Ocho saltos de 5 suman 40.",
+          "Agrega 40 al primer término 3."
+        ],
+        "retroalimentacion": "El último es 43; usar nueve saltos daría 48.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  },
+  {
+    "clave": "mat.s1.terminos-desconocidos-patron",
+    "area": "matematica",
+    "nivel": "secundaria",
+    "grado": 1,
+    "competenciaCneb": 24,
+    "capacidad": "Usa estrategias y procedimientos para encontrar equivalencias y reglas generales",
+    "desempenosOrigen": [
+      "MAT-C24-S1-07"
+    ],
+    "bloque": "Patrones y progresiones",
+    "nombre": "Términos desconocidos en un patrón gráfico",
+    "disciplina": "algebra",
+    "descripcionCorta": "Halla la cantidad de elementos de una figura lejana del patrón con su regla.",
+    "palabrasClave": [
+      "patrón gráfico",
+      "figura lejana",
+      "regla",
+      "cantidad de elementos"
+    ],
+    "prerrequisitos": [
+      "mat.s1.patrones-graficos-transformaciones",
+      "mat.s1.termino-enesimo"
+    ],
+    "ordenSugerido": 117,
+    "ideaCentral": "Para saber cuántos elementos tiene una figura lejana de un patrón, relaciona la posición con la cantidad. Si cada figura agrega la misma cantidad, usa la regla del término enésimo.",
+    "pasos": [
+      "Cuenta los elementos de las primeras figuras.",
+      "Halla cuánto aumenta la cantidad entre figuras.",
+      "Escribe cantidad = primera cantidad + (posición − 1) × aumento.",
+      "Sustituye la posición buscada y comprueba con una figura cercana."
+    ],
+    "ejemplos": [
+      {
+        "situacion": "Figuras de puntos: ●●, ●●●●, ●●●●●●. ¿Cuántos puntos tiene la figura 10?",
+        "desarrollo": "La primera tiene 2 y se agregan 2 por figura: 2 + 9 × 2.",
+        "respuesta": "La figura 10 tiene 20 puntos."
+      },
+      {
+        "situacion": "Una fila de palitos usa 3 en la primera figura y agrega 2 cada vez.",
+        "desarrollo": "La cantidad de la figura n es 3 + 2(n − 1).",
+        "respuesta": "La figura 5 usa 11 palitos."
+      }
+    ],
+    "erroresFrecuentes": [
+      {
+        "error": "Multiplicar el aumento por la posición completa.",
+        "correccion": "Desde la figura 1 hasta la figura n hay n − 1 aumentos."
+      },
+      {
+        "error": "Suponer crecimiento constante sin contar las primeras figuras.",
+        "correccion": "Comprueba las diferencias antes de usar una regla lineal."
+      }
+    ],
+    "vocabulario": [
+      {
+        "termino": "Figura n",
+        "significado": "Figura ubicada en la posición n del patrón."
+      },
+      {
+        "termino": "Regla de formación",
+        "significado": "Expresión que da la cantidad de elementos para cualquier posición."
+      }
+    ],
+    "ejercicios": [
+      {
+        "id": "e01",
+        "dificultad": 1,
+        "tipo": "numerico",
+        "enunciado": "Las figuras tienen 3, 5, 7 puntos. ¿Cuántos puntos tendrá la figura 4 si sigue la regla? Escribe solo el número.",
+        "respuesta": 9,
+        "pistas": [
+          "Las cantidades aumentan de 2 en 2.",
+          "La tercera figura tiene 7.",
+          "Agrega 2 para la cuarta."
+        ],
+        "retroalimentacion": "La figura 4 tiene 9 puntos.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e02",
+        "dificultad": 1,
+        "tipo": "opcion_multiple",
+        "enunciado": "Un mosaico usa 4, 7, 10 fichas en sus tres primeras figuras. ¿Cuántas usa la cuarta?",
+        "respuesta": "c",
+        "pistas": [
+          "Compara 7 − 4 y 10 − 7.",
+          "Cada figura agrega 3 fichas.",
+          "Suma 3 a 10."
+        ],
+        "retroalimentacion": "La cuarta usa 13 fichas; el aumento constante es 3.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "11"
+          },
+          {
+            "id": "b",
+            "texto": "12"
+          },
+          {
+            "id": "c",
+            "texto": "13"
+          },
+          {
+            "id": "d",
+            "texto": "14"
+          }
+        ]
+      },
+      {
+        "id": "e03",
+        "dificultad": 1,
+        "tipo": "verdadero_falso",
+        "enunciado": "Si un patrón tiene 2 estrellas en la figura 1 y agrega 1 por figura, la figura 5 tiene 6 estrellas.",
+        "respuesta": true,
+        "pistas": [
+          "Entre figuras 1 y 5 hay cuatro pasos.",
+          "Cada paso suma una estrella.",
+          "2 + 4 = 6."
+        ],
+        "retroalimentacion": "Es verdadero: la figura 5 tiene 6 estrellas.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e04",
+        "dificultad": 1,
+        "tipo": "texto_corto",
+        "enunciado": "Figuras de cuadrados: ■, ■■■, ■■■■■. ¿Cuántos cuadrados habrá en la figura 4? Escribe solo el número.",
+        "respuesta": "7",
+        "pistas": [
+          "Cuenta 1, 3 y 5 cuadrados.",
+          "El aumento es 2.",
+          "5 + 2 = 7."
+        ],
+        "retroalimentacion": "La figura 4 contiene 7 cuadrados.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e05",
+        "dificultad": 2,
+        "tipo": "numerico",
+        "enunciado": "Una serie de figuras usa 5 palitos al inicio y añade 3 por figura. ¿Cuántos palitos usa la figura 8? Escribe solo el número.",
+        "respuesta": 26,
+        "pistas": [
+          "De la figura 1 a la 8 hay siete aumentos.",
+          "Siete aumentos de 3 suman 21.",
+          "Suma 5 + 21."
+        ],
+        "retroalimentacion": "La figura 8 usa 26 palitos, no 29.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e06",
+        "dificultad": 2,
+        "tipo": "opcion_multiple",
+        "enunciado": "Las cantidades de puntos son 6, 10, 14, ... ¿Qué regla da los puntos de la figura n?",
+        "respuesta": "b",
+        "pistas": [
+          "La primera figura tiene 6.",
+          "Cada nueva figura suma 4.",
+          "Usa n − 1 aumentos."
+        ],
+        "retroalimentacion": "La regla es 6 + 4(n − 1), que da 6 cuando n = 1.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "6 + 4n"
+          },
+          {
+            "id": "b",
+            "texto": "6 + 4(n − 1)"
+          },
+          {
+            "id": "c",
+            "texto": "4 + 6(n − 1)"
+          },
+          {
+            "id": "d",
+            "texto": "6 − 4(n − 1)"
+          }
+        ]
+      },
+      {
+        "id": "e07",
+        "dificultad": 2,
+        "tipo": "verdadero_falso",
+        "enunciado": "Un patrón de 8, 12, 16 elementos permite hallar la figura 10 con 8 + 10 × 4.",
+        "respuesta": false,
+        "pistas": [
+          "La primera figura ya tiene 8 elementos.",
+          "Hasta la figura 10 hay nueve incrementos.",
+          "La expresión correcta es 8 + 9 × 4."
+        ],
+        "retroalimentacion": "Es falso: la figura 10 tiene 44 elementos, no 48.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e08",
+        "dificultad": 2,
+        "tipo": "texto_corto",
+        "enunciado": "Un dibujo crece de 4 a 9 y luego a 14 puntos. ¿Cuántos puntos habrá en la figura 6? Escribe solo el número.",
+        "respuesta": "29",
+        "pistas": [
+          "La diferencia es +5.",
+          "De la figura 1 a la 6 hay cinco incrementos.",
+          "4 + 5 × 5 = 29."
+        ],
+        "retroalimentacion": "La figura 6 tendrá 29 puntos.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e09",
+        "dificultad": 3,
+        "tipo": "opcion_multiple",
+        "enunciado": "Una figura 1 tiene 3 fichas y la figura 4 tiene 15, con aumento constante. ¿Cuántas fichas tiene la figura 7?",
+        "respuesta": "d",
+        "pistas": [
+          "Entre figuras 1 y 4 hay tres saltos.",
+          "El aumento por salto es (15 − 3) ÷ 3 = 4.",
+          "De la figura 4 a la 7 hay otros tres saltos."
+        ],
+        "retroalimentacion": "La figura 7 tiene 27 fichas: 15 + 3 × 4.",
+        "alternativasAceptadas": [],
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "19"
+          },
+          {
+            "id": "b",
+            "texto": "23"
+          },
+          {
+            "id": "c",
+            "texto": "24"
+          },
+          {
+            "id": "d",
+            "texto": "27"
+          }
+        ]
+      },
+      {
+        "id": "e10",
+        "dificultad": 3,
+        "tipo": "numerico",
+        "enunciado": "Un patrón empieza con 2 puntos y agrega 4 en cada nueva figura. ¿Cuántos puntos tiene la figura 25? Escribe solo el número.",
+        "respuesta": 98,
+        "pistas": [
+          "Desde la primera hasta la figura 25 hay 24 cambios.",
+          "24 × 4 = 96 puntos añadidos.",
+          "Suma los 2 iniciales."
+        ],
+        "retroalimentacion": "La figura 25 tiene 98 puntos; multiplicar 25 × 4 olvida el inicio.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e11",
+        "dificultad": 3,
+        "tipo": "verdadero_falso",
+        "enunciado": "Las figuras con 5, 8 y 12 palitos pueden seguir la regla de aumento constante +3.",
+        "respuesta": false,
+        "pistas": [
+          "De la primera a la segunda se agregan 3.",
+          "De la segunda a la tercera se agregan 4.",
+          "Una regla constante exigiría la misma diferencia."
+        ],
+        "retroalimentacion": "Es falso: los aumentos son 3 y 4.",
+        "alternativasAceptadas": []
+      },
+      {
+        "id": "e12",
+        "dificultad": 3,
+        "tipo": "texto_corto",
+        "enunciado": "En un patrón, la figura 2 tiene 7 círculos y la figura 5 tiene 16. Si el aumento es constante, ¿cuántos círculos tiene la figura 10? Escribe solo el número.",
+        "respuesta": "31",
+        "pistas": [
+          "Entre las figuras 2 y 5 hay tres pasos.",
+          "(16 − 7) ÷ 3 = 3 círculos por paso.",
+          "De la figura 5 a la 10 hay cinco pasos: 16 + 5 × 3."
+        ],
+        "retroalimentacion": "La figura 10 tiene 31 círculos.",
+        "alternativasAceptadas": []
+      }
+    ],
+    "fuentes": [
+      {
+        "documento": "Programa curricular de Educación Secundaria, MINEDU",
+        "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4550"
+      }
+    ],
+    "version": 1,
+    "revisado": null
+  }
+]
