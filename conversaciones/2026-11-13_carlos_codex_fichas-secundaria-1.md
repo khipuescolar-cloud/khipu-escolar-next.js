@@ -5,7 +5,7 @@
 | Fecha | 2026-11-13 |
 | Colaborador | Carlos (dueño del producto) |
 | Agente y modelo | Codex · GPT-5 |
-| Rama y commits | `feat/fichas-banco` · pendiente de registrar |
+| Rama y commits | `feat/fichas-banco` · `06832ce`; integrado en `dev` como `c9d1155` |
 | Specs afectadas | `specs/50-nudito-banco-de-conocimiento.md` |
 
 ## Pedidos del colaborador (textual)
@@ -23,8 +23,9 @@
 
 ## Validación
 - Validador del banco: `Banco válido: 2238 fichas activas; 27034 ejercicios`.
-- Lint del script: ejecutado junto al validador, sin errores atribuibles al cambio.
-- Typecheck: no ejecutable en este worktree porque el enlace compartido a dependencias no contiene `src/generated/prisma`; los errores reportados son de módulos Prisma y tipos Next generados ausentes.
+- `pnpm lint`: sin errores; 2 avisos preexistentes en `tests/carga`.
+- `pnpm typecheck`: sin errores.
+- `pnpm test`: 173 archivos y 1 331 pruebas aprobadas.
 
 ## Pendientes y preguntas abiertas
 - Escribir y validar Ciencia y Tecnología de 1.° de secundaria antes de continuar con 2.°.
