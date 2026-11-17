@@ -18,6 +18,7 @@ const nextConfig: NextConfig = {
   // `pnpm dev:nube` (scripts/dev-nube.mjs) compila en otra carpeta para convivir con `pnpm dev`.
   distDir: process.env.NEXT_DIST_DIR || ".next",
   experimental: {
+    agentUpgrade: "security",
     authInterrupts: true, // forbidden() / unauthorized() para el bloqueo por plan y rol
     // Adjuntos de comunicados y tareas: hasta 5 archivos de 10 MB (specs/14) + margen del multipart.
     // El proxy también bufferiza el cuerpo (10 MB por defecto): se sube al mismo tope.
