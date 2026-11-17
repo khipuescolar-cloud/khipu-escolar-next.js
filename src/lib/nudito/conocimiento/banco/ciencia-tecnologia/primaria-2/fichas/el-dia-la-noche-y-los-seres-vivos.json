@@ -103,15 +103,15 @@
         "id": "e02",
         "dificultad": 1,
         "tipo": "verdadero_falso",
-        "enunciado": "Las personas dormimos de noche para descansar.",
+        "enunciado": "Muchas personas duermen por la noche, aunque otras trabajan o descansan en distintos horarios.",
         "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Piensa en cuándo te acuestas.",
-          "Es cuando hay oscuridad.",
-          "El cuerpo descansa."
+          "Piensa si todas las personas tienen el mismo horario.",
+          "Algunas trabajan de noche.",
+          "La frase dice muchas, no todas."
         ],
-        "retroalimentacion": "Es verdadero: de noche dormimos y descansamos."
+        "retroalimentacion": "Es verdadero: muchas personas duermen de noche, pero hay personas con otros horarios."
       },
       {
         "id": "e03",
@@ -263,29 +263,29 @@
         "id": "e10",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Lucía dice: «Si el día y la noche no existieran, todos dormiríamos igual». ¿Qué pasaría?",
+        "enunciado": "Cuando el lugar donde vivimos gira y deja de recibir luz solar directa, ¿qué comienza allí?",
         "respuesta": "b",
         "opciones": [
           {
             "id": "a",
-            "texto": "Todos dormirían igual"
+            "texto": "Un eclipse cada día"
           },
           {
             "id": "b",
-            "texto": "Les costaría saber cuándo descansar"
+            "texto": "La noche"
           },
           {
             "id": "c",
-            "texto": "Nada cambiaría"
+            "texto": "La estación de verano"
           }
         ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Piensa en cómo cambia tu actividad.",
-          "El día y la noche marcan cuándo estamos activos.",
-          "Sin ellos nos costaría descansar."
+          "Imagina la Tierra girando frente al Sol.",
+          "Ese lugar pasa al lado no iluminado.",
+          "Piensa en el cambio entre día y noche."
         ],
-        "retroalimentacion": "Sin día y noche, a los seres vivos les costaría saber cuándo descansar. No dormirían todos igual."
+        "retroalimentacion": "Comienza la noche en ese lugar porque queda del lado que no recibe luz solar directa."
       },
       {
         "id": "e11",
@@ -338,10 +338,126 @@
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
+      },
+      {
+        "documento": "NASA Heliophysics Big Idea 1.1",
+        "url": "https://science.nasa.gov/learn/heat/big-ideas/big-idea-1-1/"
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "El día y la noche cambian la vida de los seres vivos",
+          "narracion": "Hola. Hoy veremos qué pasa de día y qué pasa de noche. Como idea principal, el día y la noche se alternan porque la Tierra gira: el lado que mira al Sol recibe su luz y allí es de día, y el lado que queda de espaldas está oscuro y allí es de noche. Los seres vivos se adaptan: unos están activos de día y otros de noche."
+        },
+        {
+          "id": "situacion-sol-tierra",
+          "tipo": "recurso",
+          "titulo": "El Sol ilumina una mitad de la Tierra",
+          "narracion": "Observemos este dibujo del Sol y la Tierra. A la izquierda está el Sol, que envía su luz. Esa luz llega a la mitad de la Tierra que lo mira, y allí es de día. La otra mitad queda a oscuras y allí es de noche. Es un modelo: el tamaño y la distancia no son reales.",
+          "recursoRef": "sol-tierra"
+        },
+        {
+          "id": "ejemplo-mono-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: un mono en la selva",
+          "narracion": "En la selva de Madre de Dios, un mono recorre las ramas de un árbol. En la imagen, el mono camina con cuidado por una rama gruesa y en el cielo se ve el Sol. Nos preguntamos: ¿cuándo crees que está activo?",
+          "recursoRef": "mono"
+        },
+        {
+          "id": "ejemplo-mono-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: activo cuando hay luz",
+          "narracion": "El mono se mueve y busca su alimento cuando hay luz. Un animal que está activo de día se llama diurno. Entonces el mono es un animal diurno, y de noche descansa.",
+          "recursoRef": "mono"
+        },
+        {
+          "id": "ejemplo-buho-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un búho en el campo",
+          "narracion": "Un búho caza ratones en el campo. En la imagen, el búho está posado en un poste de una cerca, tiene los ojos muy abiertos y en el cielo se ve la Luna. Nos preguntamos: ¿cuándo crees que está activo?",
+          "recursoRef": "buho"
+        },
+        {
+          "id": "ejemplo-buho-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ve bien en la oscuridad",
+          "narracion": "El búho tiene ojos grandes y ve bien en la oscuridad, así que puede buscar su comida de noche. Un animal activo de noche se llama nocturno. Entonces el búho es nocturno, y de día suele descansar.",
+          "recursoRef": "buho"
+        },
+        {
+          "id": "error-sol-apaga",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: creer que de noche el Sol se apaga",
+          "narracion": "Hay quien piensa que el Sol se apaga cuando oscurece. El Sol sigue brillando todo el tiempo. Lo que cambia es que la Tierra gira y nuestro lugar queda en el lado donde su luz no llega, como la mitad oscura del dibujo.",
+          "recursoRef": "sol-tierra"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira si hay luz del Sol o está oscuro",
+          "narracion": "Primero fíjate en el momento: ¿hay luz del Sol o está oscuro? En el dibujo, la mitad clara de la Tierra es el día y la mitad oscura es la noche.",
+          "recursoRef": "sol-tierra"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: fíjate cuándo está activo el ser vivo",
+          "narracion": "Después observa qué hace el ser vivo en cada momento. El mono se mueve cuando hay luz. El búho caza cuando está oscuro. Las personas suelen jugar y trabajar de día y dormir de noche para descansar."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: clasifica y explica",
+          "narracion": "Por último, clasifica: si el animal está activo de día, es diurno; si está activo de noche, es nocturno. Explica con una frase, como «El mono es diurno porque se mueve cuando hay luz»."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "sol-tierra",
+          "src": "/nudito/diagramas/ciencia-tecnologia/dia-noche-tierra-sol.svg",
+          "alt": "El Sol a la izquierda ilumina la mitad izquierda de la Tierra, que es de día; la mitad derecha está oscura y es de noche.",
+          "descripcion": "A la izquierda hay un Sol amarillo con rayos. A la derecha hay un círculo grande que representa la Tierra. La mitad izquierda es clara y dice día, porque mira al Sol; la mitad derecha es azul oscura y dice noche."
+        },
+        {
+          "id": "mono",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-2/mono-selva-dia-zimage-v1.webp",
+          "alt": "Mono marrón que camina por una rama gruesa de un árbol, con el Sol brillando en un cielo claro.",
+          "descripcion": "Un mono marrón con la cara clara camina con cuidado sobre una rama gruesa. Alrededor hay troncos y hojas verdes, el cielo está celeste y un Sol amarillo brilla arriba a la izquierda."
+        },
+        {
+          "id": "buho",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-2/buho-noche-campo-zimage-v1.webp",
+          "alt": "Búho marrón de ojos grandes posado en un poste de madera, de noche, con la Luna llena en un cielo oscuro.",
+          "descripcion": "Un búho marrón de ojos muy grandes y abiertos está posado sobre un poste de una cerca de madera. Detrás hay pasto, un cielo azul oscuro con algunas estrellas y una Luna llena brillante."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Es de noche en Cusco y Marco no ve el Sol. ¿Qué pasó con el Sol?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El Sol se apagó por la noche y mañana se encenderá otra vez."
+          },
+          {
+            "id": "b",
+            "texto": "El Sol se escondió detrás de la Luna hasta que amanezca."
+          },
+          {
+            "id": "c",
+            "texto": "El Sol sigue brillando, pero su luz no llega al lugar de Marco."
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "El Sol sigue brillando. La Tierra gira y el lado donde vive Marco queda sin recibir su luz.",
+        "pista": "Piensa en la mitad oscura de la Tierra en el dibujo."
+      }
+    }
   },
   {
     "clave": "cyt.p2.por-que-hay-dia-y-noche",
@@ -1000,29 +1116,29 @@
         "id": "e12",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Hugo anota: «Cuy, lechuza, gato montés, paloma». Sabe que la lechuza sale de noche. ¿Qué animal de su lista también es nocturno si lo ves cazar al oscurecer?",
+        "enunciado": "Hugo anota: «Cuy, lechuza, murciélago, paloma». Sabe que la lechuza sale de noche. ¿Qué animal de su lista también es nocturno si lo ves cazar al oscurecer?",
         "respuesta": "c",
         "opciones": [
           {
             "id": "a",
-            "texto": "La paloma"
+            "texto": "La paloma en el patio"
           },
           {
             "id": "b",
-            "texto": "El cuy en el corral a mediodía"
+            "texto": "El cuy en su corral"
           },
           {
             "id": "c",
-            "texto": "El gato montés"
+            "texto": "El murciélago al volar"
           }
         ],
         "alternativasAceptadas": [],
         "pistas": [
           "De los cuatro, uno caza al oscurecer.",
           "La paloma está activa de día.",
-          "El gato montés caza en la penumbra."
+          "El murciélago sale de noche."
         ],
-        "retroalimentacion": "El gato montés es nocturno porque caza al oscurecer. La paloma es diurna."
+        "retroalimentacion": "El murciélago es nocturno porque está activo de noche. La paloma es diurna."
       }
     ],
     "fuentes": [
@@ -1032,7 +1148,117 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Animales de día y animales de noche",
+          "narracion": "Hola. Hoy veremos animales diurnos y nocturnos. Como idea principal, los animales diurnos están activos de día y duermen de noche. Los nocturnos descansan de día y salen de noche, y usan el oído, el olfato o sus ojos grandes para orientarse en la oscuridad."
+        },
+        {
+          "id": "situacion-anochecer",
+          "tipo": "recurso",
+          "titulo": "Cuando termina el día",
+          "narracion": "Observemos esta situación en el campo. En la imagen, el sol se esconde detrás de unas lomas y el cielo se pinta de naranja y morado. Ya se ven una luna delgada y unas estrellas. Una casita de adobe tiene una ventana encendida. Nos preguntamos: ¿qué animales se van a dormir y cuáles empiezan a moverse?",
+          "recursoRef": "campo-anochecer"
+        },
+        {
+          "id": "ejemplo-gallina-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la gallina",
+          "narracion": "Vamos al patio de la casa de Rosa. En la imagen, tres gallinas picotean granos en la tierra bajo un sol brillante. Atrás hay un gallinero de madera con la puerta abierta. Nos preguntamos: ¿cuándo están activas?",
+          "recursoRef": "gallinas-dia"
+        },
+        {
+          "id": "ejemplo-gallina-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: activa con la luz",
+          "narracion": "Las gallinas buscan su comida cuando hay luz, y por la noche duermen en el gallinero. Un animal activo de día se llama diurno. Entonces la gallina es un animal diurno.",
+          "recursoRef": "gallinas-dia"
+        },
+        {
+          "id": "ejemplo-murcielago-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el murciélago",
+          "narracion": "Ahora vamos a una cueva de Tingo María. En la imagen es de noche, con luna llena y estrellas. Un murciélago marrón vuela con las alas abiertas sobre las plantas de la selva, cerca de la entrada oscura de la cueva. Nos preguntamos: ¿cuándo está activo y cómo se orienta?",
+          "recursoRef": "murcielago-noche"
+        },
+        {
+          "id": "ejemplo-murcielago-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: se orienta con el oído",
+          "narracion": "El murciélago sale de noche, así que es un animal nocturno. Emite sonidos y escucha el eco para no chocar con nada. Se orienta con el oído. De día descansa.",
+          "recursoRef": "murcielago-noche"
+        },
+        {
+          "id": "error-todos-duermen",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: todos duermen de noche",
+          "narracion": "Hay quien cree que todos los animales duermen de noche. Los nocturnos, como el murciélago y el búho, están despiertos de noche y duermen de día."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: observa cuándo se mueve",
+          "narracion": "Primero fíjate en el momento en que el animal se mueve y busca su comida: ¿hay luz del sol o está oscuro?"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: clasifica al animal",
+          "narracion": "Después clasifica. Si está activo de día, es diurno, como la gallina. Si está activo de noche, es nocturno, como el murciélago."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: piensa cómo se orienta",
+          "narracion": "Por último, piensa cómo se orienta de noche: ojos grandes, buen oído o buen olfato. Explica con una frase, como «El murciélago es nocturno porque vuela de noche»."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "campo-anochecer",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-2/campo-anochecer-zimage-v1.webp",
+          "alt": "Atardecer en el campo: el sol baja tras las lomas, el cielo es naranja y morado, hay una luna delgada y una casita de adobe con una ventana encendida.",
+          "descripcion": "Un sol amarillo asoma sobre unas lomas azul oscuro. El cielo va del naranja al morado, con una luna creciente muy delgada y unas pocas estrellas. A la derecha hay una casita de adobe con la ventana iluminada. No se ven animales."
+        },
+        {
+          "id": "gallinas-dia",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-2/gallinas-patio-dia-zimage-v1.webp",
+          "alt": "Tres gallinas picotean granos en la tierra de un patio soleado, delante de un gallinero de madera con la puerta abierta.",
+          "descripcion": "Tres gallinas, una clara y dos marrones, bajan la cabeza para picotear granos sobre tierra y pasto. Detrás hay un gallinero de madera sobre patas con la puerta abierta. Arriba a la izquierda brilla un sol amarillo en un cielo celeste."
+        },
+        {
+          "id": "murcielago-noche",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-2/murcielago-cueva-noche-zimage-v1.webp",
+          "alt": "Un murciélago marrón con las alas abiertas vuela de noche sobre plantas de selva, cerca de la entrada oscura de una cueva, con luna llena.",
+          "descripcion": "El cielo es azul oscuro, con una luna llena amarilla y algunas estrellas. Un murciélago marrón de orejas puntiudas y ojos grandes vuela con las alas extendidas. Abajo hay hojas verdes y, a la izquierda, una cueva oscura."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En la selva, una lechuza duerme todo el día en un árbol y vuela cuando oscurece. ¿Cómo es la lechuza?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Nocturna, porque vuela de noche."
+          },
+          {
+            "id": "b",
+            "texto": "Diurna, porque come con el sol."
+          },
+          {
+            "id": "c",
+            "texto": "Diurna, porque caza con el sol."
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "La lechuza es nocturna: duerme de día y está activa de noche.",
+        "pista": "Mira cuándo duerme y cuándo vuela."
+      }
+    }
   },
   {
     "clave": "cyt.p2.plantas-de-dia-y-de-noche",

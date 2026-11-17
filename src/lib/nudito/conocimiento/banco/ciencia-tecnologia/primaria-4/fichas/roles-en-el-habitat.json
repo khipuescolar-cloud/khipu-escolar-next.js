@@ -48,6 +48,118 @@
         "respuesta": "Son descomponedores."
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Quién fabrica, quién come y quién descompone",
+          "narracion": "Bienvenido a esta clase sobre las cadenas alimenticias. Primero conocerás la idea principal, luego analizarás dos hábitats del Perú y al final responderás una pregunta. Como idea principal de este tema, en un hábitat los productores, como las plantas y las algas, fabrican su propio alimento; los consumidores, como los animales, se alimentan de otros seres vivos; y los descomponedores, como los hongos y las bacterias, transforman los restos en nutrientes. Una cadena alimenticia une estos seres vivos con flechas que muestran quién alimenta a quién."
+        },
+        {
+          "id": "situacion-puna",
+          "tipo": "recurso",
+          "titulo": "Un hábitat de la puna",
+          "narracion": "Observemos esta situación en la puna del sur del Perú. Hay matas de pasto, dos vicuñas, una de ellas comiendo, y, más lejos, un puma sobre una roca. Pensemos en esta pregunta: ¿cómo están conectados estos seres vivos por el alimento?",
+          "recursoRef": "puna-habitat"
+        },
+        {
+          "id": "ejemplo-1-ordena",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ordena la cadena de la puna",
+          "narracion": "El pasto fabrica su alimento con la luz del sol, así que es el productor y comienza la cadena. La vicuña come pasto: es consumidora. El puma puede cazar vicuñas: también es consumidor. Cada flecha va del ser vivo que es comido hacia el que lo come: del pasto a la vicuña y de la vicuña al puma.",
+          "recursoRef": "puna-habitat"
+        },
+        {
+          "id": "ejemplo-1-sequia",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: qué pasa si falta el pasto",
+          "narracion": "Imaginemos que una sequía acaba con gran parte del pasto. Las vicuñas tendrían menos alimento y el puma encontraría menos presas. Los seres vivos de una cadena dependen unos de otros, y todo comienza en los productores, que fabrican el alimento."
+        },
+        {
+          "id": "ejemplo-2-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: observa el suelo de la selva",
+          "narracion": "Ahora viajemos al bosque amazónico de Madre de Dios. Observemos esta situación: sobre el suelo hay hojas caídas, un tronco viejo y pequeños hongos que crecen sobre él. Pensemos en esta pregunta: ¿qué ocurre con esas hojas y ese tronco cuando pasa el tiempo, y quiénes participan en ese cambio?",
+          "recursoRef": "hojarasca-selva"
+        },
+        {
+          "id": "ejemplo-2-descomponedores",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: los descomponedores",
+          "narracion": "Los hongos y las bacterias descomponen las hojas y los troncos caídos. Al hacerlo, transforman los restos en nutrientes que pasan al suelo. Las plantas absorben esos nutrientes por sus raíces y los aprovechan para crecer, así que la cadena vuelve a empezar. Por eso los descomponedores son tan importantes.",
+          "recursoRef": "hojarasca-selva"
+        },
+        {
+          "id": "error-frecuente",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: «la flecha apunta hacia el que es comido»",
+          "narracion": "A veces se dibuja la flecha desde la vicuña hacia el pasto, pensando que muestra quién come a quién. Pero la flecha señala hacia quien recibe el alimento: sale del ser vivo que es comido y llega al que lo consume. Si la vicuña come pasto, la flecha sale del pasto y llega a la vicuña."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca al productor",
+          "narracion": "Ahora aprenderemos una forma de razonar en tres pasos. Esta imagen muestra otra cadena, con hierba, saltamontes y rana, y aparte unos restos y unos hongos. Primero, busca a la planta o alga: es el productor y va al inicio de la cadena.",
+          "recursoRef": "esquema-roles"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: ubica a los consumidores",
+          "narracion": "Después, ubica a los animales que se alimentan de otros seres vivos. El saltamontes come hierba y la rana come saltamontes, así que ambos son consumidores. Sigue las flechas: señalan quién recibe el alimento.",
+          "recursoRef": "esquema-roles"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: busca a los descomponedores",
+          "narracion": "Por último, busca hongos o bacterias que degradan restos. En la parte de abajo de la imagen, los hongos transforman restos en nutrientes para el suelo; son los descomponedores. Revisa si la cadena tiene los tres roles.",
+          "recursoRef": "esquema-roles"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "puna-habitat",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-4/cadena-puna-habitat-zimage-v1.webp",
+          "alt": "Dos vicuñas en una pradera de pasto, una comiendo y otra atenta, y un puma echado sobre una roca a lo lejos.",
+          "descripcion": "En una pradera alta con matas de pasto hay dos vicuñas: una baja la cabeza para comer pasto y la otra mira alrededor. Al fondo, sobre una roca grande y con montañas detrás, descansa un puma echado."
+        },
+        {
+          "id": "hojarasca-selva",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-4/cadena-selva-hojarasca-zimage-v1.webp",
+          "alt": "Suelo del bosque con hojas verdes y marrones caídas, un tronco viejo y pequeños hongos sobre y junto al tronco.",
+          "descripcion": "Sobre la tierra marrón del bosque hay hojas caídas, unas verdes y otras secas de tono marrón. En el centro descansa un tronco viejo y, sobre él y a su lado, crecen pequeños hongos de sombrero claro con puntitos."
+        },
+        {
+          "id": "esquema-roles",
+          "src": "/nudito/diagramas/ciencia-tecnologia/cadena-roles.svg",
+          "alt": "Hierba, productor, hacia saltamontes y rana, consumidores; aparte, restos y hongos descomponedores.",
+          "descripcion": "Arriba hay una columna con tres cuadros unidos por flechas hacia abajo: hierba, saltamontes y rana. A la derecha se lee «productor» junto a la hierba y «consumidor» junto a los otros dos. Abajo, separado por una línea punteada, un cuadro de restos tiene una flecha hacia un cuadro de hongos, con la palabra «descomponedor»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En una laguna, unos peces pequeños comen algas y una garza come esos peces. ¿Qué rol cumplen los peces pequeños y hacia dónde apunta la flecha entre ellos y la garza?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Son productores y la flecha va de los peces hacia la garza."
+          },
+          {
+            "id": "b",
+            "texto": "Son consumidores y la flecha va de la garza hacia los peces."
+          },
+          {
+            "id": "c",
+            "texto": "Son consumidores y la flecha va de los peces hacia la garza."
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Los peces pequeños se alimentan de otros seres vivos, las algas, así que son consumidores. La flecha va del ser vivo que es comido hacia el que lo come: de los peces hacia la garza.",
+        "pista": "Pregunta si los peces fabrican su propio alimento y mira hacia quién llega el alimento cuando alguien se lo come."
+      }
+    },
     "erroresFrecuentes": [
       {
         "error": "Creer que la flecha apunta hacia quien es comido.",

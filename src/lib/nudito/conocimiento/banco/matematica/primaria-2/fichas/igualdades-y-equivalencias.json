@@ -74,7 +74,7 @@
       {
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Mira: Grupo A ●●●●●●●● (8 fichas). Grupo B ●●●● ●●●● (4 y 4). ¿Qué es verdad?",
+        "enunciado": "Mira: el grupo A tiene 8 fichas en una fila. El grupo B tiene 4 fichas en un montón y otras 4 en otro. ¿Qué es verdad?",
         "respuesta": "c",
         "alternativasAceptadas": [],
         "opciones": [
@@ -88,7 +88,7 @@
           },
           {
             "id": "c",
-            "texto": "A y B tienen la misma cantidad"
+            "texto": "Tienen la misma cantidad"
           },
           {
             "id": "d",
@@ -285,7 +285,7 @@
       {
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "En la feria, Mario tiene 11 ● + 6 ● en dos cestas. Rita tiene 20 ● en total. Rita quiere que Mario tenga lo mismo que ella. ¿Cuántos ● debe ponerle a Mario? Escribe solo el número.",
+        "enunciado": "En la feria, Mario tiene 11 fichas en una cesta y 6 fichas en otra. Rita tiene 20 fichas en total. Rita quiere que Mario tenga lo mismo que ella. ¿Cuántas fichas debe ponerle a Mario? Escribe solo el número.",
         "respuesta": 3,
         "alternativasAceptadas": [],
         "pistas": [
@@ -297,6 +297,7 @@
         "id": "e12"
       }
     ],
+    "claseGuiada": {"version":1,"momentos":[{"id":"idea","tipo":"idea","titulo":"Contar antes de comparar","narracion":"Bienvenida y bienvenido. Hoy aprenderemos a reconocer grupos con la misma cantidad. Como idea principal, cuenta todos los objetos de cada grupo. Si los dos conteos terminan en el mismo número, las cantidades son iguales, aunque los objetos estén separados, juntos o en filas distintas."},{"id":"situacion","tipo":"recurso","titulo":"Botones organizados de otra manera","narracion":"Observemos esta situación. El grupo Sol tiene botones amarillos en dos filas. El grupo Luna tiene botones turquesa en tres filas desiguales. Cuenta cada grupo completo y piensa si tienen la misma cantidad.","recursoRef":"situacion"},{"id":"ejemplo-1-guiado","tipo":"ejemplo","titulo":"Ejemplo 1: filas y montón","narracion":"En la chacra hay tres filas con cuatro papas en cada una. En la cocina hay un montón de papas. Cuenta las filas de cuatro y luego cuenta el montón. ¿Los dos conteos terminan igual?","recursoRef":"papas"},{"id":"ejemplo-1-razona","tipo":"ejemplo","titulo":"Ejemplo 1: el conteo decide","narracion":"Tres filas de cuatro papas forman doce. El montón también tiene doce. La forma cambió, pero ambos grupos tienen la misma cantidad.","recursoRef":"papas"},{"id":"ejemplo-2-guiado","tipo":"ejemplo","titulo":"Ejemplo 2: junta dos colores","narracion":"Luis tiene seis canicas rojas y cinco amarillas. Sara tiene once canicas verdes. Antes de comparar, junta mentalmente las dos partes de Luis. ¿Llegan los dos grupos al mismo número?","recursoRef":"canicas"},{"id":"ejemplo-2-razona","tipo":"ejemplo","titulo":"Ejemplo 2: primero reúne","narracion":"Seis canicas y cinco canicas forman once. Sara también tiene once. Aunque Luis usa dos colores, los dos tienen la misma cantidad.","recursoRef":"canicas"},{"id":"contraejemplo","tipo":"ejemplo","titulo":"No te dejes engañar","narracion":"Un grupo puede ocupar más espacio sin tener más objetos. En el panel izquierdo, las ocho fichas están muy separadas, pero separarlas no cambia cuántas son. Otro error es contar solo una parte: en el panel derecho falta revisar la parte marcada. Siempre cuenta todo el grupo.","recursoRef":"errores"},{"id":"paso-1","tipo":"paso","titulo":"Paso 1: cuenta el primer grupo","narracion":"Señala cada objeto una sola vez. Recorre el primer grupo en un orden claro, por filas o por colores, hasta terminar."},{"id":"paso-2","tipo":"paso","titulo":"Paso 2: reúne y cuenta el segundo","narracion":"Si el segundo grupo está separado en partes, reúne sus cantidades. Después cuenta todo, sin olvidar ninguna parte."},{"id":"paso-3","tipo":"paso","titulo":"Paso 3: compara los resultados","narracion":"Compara los dos números obtenidos. Si son el mismo número, los grupos tienen la misma cantidad. Si cambian, uno tiene más o menos."}],"recursos":[{"id":"situacion","src":"/nudito/diagramas/matematica/grupos-misma-cantidad-situacion.svg","alt":"Dos tarjetas con botones: amarillos en dos filas y turquesa en tres filas desiguales.","descripcion":"La tarjeta Grupo Sol muestra botones amarillos en dos filas. La tarjeta Grupo Luna muestra botones turquesa en tres filas desiguales. Arriba se pregunta si tienen la misma cantidad."},{"id":"papas","src":"/nudito/diagramas/matematica/grupos-misma-cantidad-papas.svg","alt":"Papas en tres filas a la izquierda y papas amontonadas a la derecha.","descripcion":"Dos tarjetas blancas. La primera muestra papas amarillas en tres filas. La segunda muestra papas amarillas en un montón irregular, sin escribir los totales."},{"id":"canicas","src":"/nudito/diagramas/matematica/grupos-misma-cantidad-canicas.svg","alt":"Canicas rojas y amarillas de Luis frente a canicas verdes de Sara.","descripcion":"La tarjeta de Luis muestra seis canicas rojas y cinco amarillas. La de Sara muestra once canicas verdes en tres filas. El título pide juntar las partes antes de comparar."},{"id":"errores","src":"/nudito/diagramas/matematica/grupos-misma-cantidad-errores.svg","alt":"Un grupo muy separado y otro grupo con una parte olvidada.","descripcion":"El panel izquierdo muestra dos filas de cuatro fichas amarillas muy separadas. El derecho muestra seis fichas turquesa y, debajo, un recuadro punteado vacío rotulado Parte olvidada."}],"comprobacion":{"pregunta":"El grupo Sol tiene nueve semillas en una fila. El grupo Luna tiene cuatro semillas arriba y cinco abajo. ¿Tienen la misma cantidad?","opciones":[{"id":"a","texto":"No, Sol tiene más"},{"id":"b","texto":"Sí, cuentan igual"},{"id":"c","texto":"No, Luna tiene más"}],"respuesta":"b","mensajeCorrecto":"Correcto. Cuatro semillas y cinco semillas forman nueve, la misma cantidad que tiene el grupo Sol.","pista":"Cuenta todo el grupo Luna antes de comparar los dos resultados."}},
     "version": 1,
     "revisado": null,
     "fuentes": [
@@ -1240,7 +1241,132 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "La balanza de platillos y la igualdad",
+          "narracion": "Bienvenida y bienvenido. Hoy vas a conocer la balanza de platillos. Como idea principal, una balanza está en equilibrio cuando los dos platillos pesan lo mismo. Eso se parece a una igualdad: lo que hay de un lado vale lo mismo que lo que hay del otro. Si un lado tiene más, ese platillo baja."
+        },
+        {
+          "id": "situacion-balanza",
+          "tipo": "recurso",
+          "titulo": "Los dos platillos",
+          "narracion": "Observemos esta situación. Es una balanza de platillos. Tiene un platillo a la izquierda y otro a la derecha. En el izquierdo hay cinco pesas y en el derecho hay dos pesas. El platillo izquierdo está más abajo y el derecho está más arriba. Así se ve cuando un lado tiene más pesas que el otro.",
+          "recursoRef": "inclinada"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ¿hay equilibrio?",
+          "narracion": "A la izquierda hay nueve pesas. A la derecha hay seis pesas de un grupo y tres pesas de otro grupo. Todas las pesas son iguales. Queremos saber si hay equilibrio. Primero juntamos las pesas de la derecha: seis más tres.",
+          "recursoRef": "nueve-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: comparamos los dos lados",
+          "narracion": "Seis más tres son nueve. A la izquierda hay nueve y a la derecha también hay nueve. Los dos lados valen lo mismo, entonces la balanza está en equilibrio.",
+          "recursoRef": "nueve-resuelto"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ¿qué platillo baja?",
+          "narracion": "Ahora a la izquierda hay diez pesas y a la derecha hay siete pesas. Las pesas son iguales. Queremos saber qué platillo baja y cuántas pesas hay que poner del otro lado para igualar. Para empezar, compara diez con siete.",
+          "recursoRef": "diez-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: igualamos los lados",
+          "narracion": "Diez es mayor que siete, entonces baja el platillo izquierdo, que tiene más. Para igualar, agregamos pesas al platillo que sube. Faltan tres, porque diez menos siete son tres. Con tres pesas más a la derecha, los dos lados valen diez.",
+          "recursoRef": "diez-resuelto"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Dos errores frecuentes",
+          "narracion": "Un error frecuente es pensar que hay equilibrio solo porque cada lado tiene la misma cantidad de objetos. Si de un lado hay tres pesas pequeñas y del otro tres pesas muy grandes, no pesan lo mismo. Hay que mirar cuánto vale cada lado. Otro error es quitar pesas al platillo que sube. Para igualar, se agrega al platillo que sube o se quita al que baja."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: calcula el platillo izquierdo",
+          "narracion": "Cuenta o suma lo que hay en el platillo izquierdo. En el primer ejemplo, el izquierdo tiene nueve pesas.",
+          "recursoRef": "nueve-resuelto"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: calcula el platillo derecho",
+          "narracion": "Ahora cuenta o suma lo que hay en el derecho. Si hay dos grupos, júntalos: seis más tres son nueve.",
+          "recursoRef": "nueve-resuelto"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: compara y, si hace falta, iguala",
+          "narracion": "Compara los dos lados. Si valen lo mismo, hay equilibrio. Si no, baja el que tiene más. Para igualar, agrega pesas al que sube. En el segundo ejemplo faltaban tres pesas a la derecha.",
+          "recursoRef": "diez-resuelto"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "inclinada",
+          "src": "/nudito/diagramas/matematica/balanza-platillos-inclinada.svg",
+          "alt": "Balanza de platillos inclinada: el platillo izquierdo con cinco pesas está más abajo que el derecho con dos pesas.",
+          "descripcion": "Una balanza con un platillo a cada extremo de la barra. El izquierdo tiene cinco pesas y está más abajo. El derecho tiene dos pesas y está más arriba. Debajo se leen las palabras izquierdo y derecho."
+        },
+        {
+          "id": "nueve-pregunta",
+          "src": "/nudito/diagramas/matematica/balanza-platillos-nueve-seis-tres-pregunta.svg",
+          "alt": "Dos platillos sin balanza: el izquierdo con nueve pesas y el derecho con seis pesas de un color y tres de otro. Se pregunta si hay equilibrio.",
+          "descripcion": "Hay dos platillos separados, con un signo de interrogación en el centro. En el izquierdo hay nueve pesas. En el derecho hay seis pesas verdes y tres pesas amarillas. Arriba se pregunta si hay equilibrio."
+        },
+        {
+          "id": "nueve-resuelto",
+          "src": "/nudito/diagramas/matematica/balanza-platillos-nueve-seis-tres-resuelto.svg",
+          "alt": "Balanza en equilibrio: nueve pesas a la izquierda y seis más tres pesas a la derecha. Los dos lados valen nueve.",
+          "descripcion": "La barra de la balanza está horizontal. A la izquierda hay nueve pesas y debajo el número nueve. A la derecha hay seis pesas verdes y tres amarillas, con la cuenta seis más tres igual a nueve."
+        },
+        {
+          "id": "diez-pregunta",
+          "src": "/nudito/diagramas/matematica/balanza-platillos-diez-siete-pregunta.svg",
+          "alt": "Dos platillos sin balanza: el izquierdo con diez pesas y el derecho con siete pesas. Se pregunta cuál platillo baja.",
+          "descripcion": "Hay dos platillos separados, con un signo de interrogación en el centro. El izquierdo tiene diez pesas y el derecho tiene siete. Arriba se pregunta cuál platillo baja."
+        },
+        {
+          "id": "diez-resuelto",
+          "src": "/nudito/diagramas/matematica/balanza-platillos-diez-siete-resuelto.svg",
+          "alt": "Balanza inclinada: baja el platillo izquierdo con diez pesas; al derecho, con siete, le faltan tres pesas, dibujadas con borde punteado.",
+          "descripcion": "La balanza está inclinada y el lado izquierdo, con diez pesas, queda más abajo. El derecho tiene siete pesas y tres círculos punteados que muestran las pesas que faltan. Debajo se leen diez y siete."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En el platillo izquierdo de una balanza hay quince pesas iguales. En el derecho hay nueve. ¿Cuántas pesas hay que agregar al platillo derecho para que haya equilibrio?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Seis pesas"
+          },
+          {
+            "id": "b",
+            "texto": "Quince pesas"
+          },
+          {
+            "id": "c",
+            "texto": "Cinco pesas"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Quince menos nueve son seis, así que se agregan seis pesas al platillo derecho.",
+        "pista": "Pregúntate cuántas pesas faltan para llegar de nueve a quince."
+      }
+    }
   },
   {
     "clave": "mat.p2.repartir-para-igualar",
@@ -1863,7 +1989,119 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Una balanza en equilibrio",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a cuidar el equilibrio de una balanza. Como idea principal, si los dos platillos valen lo mismo y pones la misma cantidad en cada uno, siguen valiendo lo mismo. Pasa igual si quitas la misma cantidad de los dos."
+        },
+        {
+          "id": "situacion-balanza",
+          "tipo": "recurso",
+          "titulo": "La balanza está derecha",
+          "narracion": "Observemos esta balanza. Está derecha, sin inclinarse. En cada platillo hay seis fichas, aunque son de colores distintos. Como los dos lados valen lo mismo, hay equilibrio.",
+          "recursoRef": "balanza-seis"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ponemos fichas",
+          "narracion": "Cada platillo tiene seis fichas. Ahora ponemos tres fichas más en el platillo izquierdo y tres fichas más en el platillo derecho. Hacemos el mismo cambio en los dos lados.",
+          "recursoRef": "mas-tres"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: contamos otra vez",
+          "narracion": "Contamos. Seis más tres son nueve, en el platillo izquierdo. Y seis más tres son nueve, en el platillo derecho. Nueve y nueve: la balanza sigue derecha.",
+          "recursoRef": "mas-tres"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ahora con números",
+          "narracion": "Sabemos que cinco más tres es igual a ocho. Sumamos dos a los dos lados. A la izquierda: cinco más tres más dos son diez. A la derecha: ocho más dos son diez."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ahora quitamos",
+          "narracion": "Partimos de diez igual a diez. Quitamos cuatro de cada lado. Diez menos cuatro son seis a la izquierda, y diez menos cuatro son seis a la derecha. Seis igual a seis: sigue la igualdad."
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuando quitas de un solo lado",
+          "narracion": "Cuidado con este error. La balanza tenía nueve fichas en cada lado y quitamos cuatro solo del lado derecho. Nueve menos cuatro son cinco. Ahora hay nueve a la izquierda y cinco a la derecha, y la balanza se inclina. Para arreglarla, hay que quitar también cuatro del lado izquierdo.",
+          "recursoRef": "desigual"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira que valgan lo mismo",
+          "narracion": "Primero mira los dos platillos. Antes de cambiar algo, comprueba que valen lo mismo.",
+          "recursoRef": "balanza-seis"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: haz el mismo cambio",
+          "narracion": "Después decide qué haces: poner o quitar. Haz exactamente el mismo cambio en los dos lados. Si pones tres a un lado, pones tres al otro.",
+          "recursoRef": "mas-tres"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: calcula y comprueba",
+          "narracion": "Por último, calcula cuánto vale cada lado. Si los dos números son iguales, la igualdad se mantiene. Mira la balanza inclinada: tiene nueve fichas a la izquierda y cinco a la derecha, porque quitamos cuatro solo del lado derecho. Nueve y cinco no son iguales, así que falta quitar también cuatro del lado izquierdo.",
+          "recursoRef": "desigual"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "balanza-seis",
+          "src": "/nudito/diagramas/matematica/igualdad-balanza-seis.svg",
+          "alt": "Balanza derecha con seis fichas en cada platillo.",
+          "descripcion": "Se ve una balanza horizontal con dos platillos. En el platillo de la izquierda hay cuatro fichas turquesas y dos amarillas. En el de la derecha hay tres fichas rosadas y tres azules. Los dos lados tienen seis fichas."
+        },
+        {
+          "id": "mas-tres",
+          "src": "/nudito/diagramas/matematica/igualdades-equilibrio-mas-tres.svg",
+          "alt": "Balanza derecha con nueve fichas en cada platillo: seis turquesas y tres amarillas.",
+          "descripcion": "Hay una balanza derecha. Cada platillo tiene seis fichas turquesas y, en la fila de abajo, tres fichas amarillas que acabamos de poner. Debajo de cada platillo se lee el nueve."
+        },
+        {
+          "id": "desigual",
+          "src": "/nudito/diagramas/matematica/igualdades-equilibrio-desigual.svg",
+          "alt": "Balanza inclinada: nueve fichas a la izquierda y cinco a la derecha; cuatro fichas quitadas del lado derecho.",
+          "descripcion": "La balanza está inclinada hacia la izquierda. El platillo izquierdo tiene nueve fichas y baja. El platillo derecho sube porque tiene cinco fichas, y cuatro más aparecen con línea punteada, como fichas que se quitaron."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una balanza tiene ocho fichas en cada platillo. Pones cuatro fichas más en el platillo derecho. ¿Cuántas fichas debes poner en el platillo izquierdo para que siga en equilibrio?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ocho fichas"
+          },
+          {
+            "id": "b",
+            "texto": "Doce fichas"
+          },
+          {
+            "id": "c",
+            "texto": "Cuatro fichas"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Pusiste cuatro fichas en el platillo derecho, así que pones cuatro en el izquierdo. Ahora cada platillo tiene doce fichas.",
+        "pista": "Haz el mismo cambio en los dos lados."
+      }
+    }
   },
   {
     "clave": "mat.p2.igualdad-verdadera",

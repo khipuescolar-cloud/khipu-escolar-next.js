@@ -649,7 +649,133 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "La centena como nueva unidad",
+          "narracion": "Bienvenida y bienvenido. Hoy conoceremos la centena. Como idea principal, una centena es un grupo de cien. Se forma juntando diez decenas, porque diez grupos de diez hacen cien. Entonces una centena es lo mismo que diez decenas y lo mismo que cien unidades."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Las bolsas de chapitas",
+          "narracion": "Observemos esta situación. En una tienda hay bolsas con diez chapitas cada una. Cada barra es una bolsa, o sea, una decena. Hay diez barras en fila. Queremos saber cuántas chapitas hay en total y qué nombre tiene esa cantidad.",
+          "recursoRef": "decenas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: juntamos las bolsas",
+          "narracion": "Cada barra tiene diez cuadritos, uno por chapita. Cuenta las barras: hay diez decenas. Piensa: si juntamos las diez barras en un solo bloque, ¿qué nombre tendrá?",
+          "recursoRef": "decenas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: formamos la centena",
+          "narracion": "Juntamos las diez barras y formamos un cuadrado grande de diez filas de diez cuadritos. Ese cuadrado es una centena. Diez decenas son cien chapitas.",
+          "recursoRef": "centena-cuadro"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: las cajas de lápices",
+          "narracion": "Ahora hay dieciséis cajas, y cada caja tiene diez lápices. Cada barra es una caja, o sea, una decena. Piensa: ¿cuántas centenas completas podemos formar? ¿Sobran decenas?",
+          "recursoRef": "resto-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: lo que sobra",
+          "narracion": "Con diez cajas formamos una centena. Para saber cuántas cajas sobran, restamos: dieciséis menos diez es seis. Entonces tenemos una centena y seis decenas, que son ciento sesenta lápices.",
+          "recursoRef": "resto-resultado"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Mira estos dos casos. A la izquierda hay diez cuadritos sueltos, o sea, diez unidades. Eso es solo una decena, no una centena, y por eso lleva una equis roja. A la derecha hay un cuadrado grande de diez por diez, que son diez decenas, y eso sí es una centena. Otro error es olvidar lo que sobra: después de formar la centena, cuenta lo que quedó afuera.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: forma decenas",
+          "narracion": "Primero forma decenas: grupos de diez unidades. Cada barra de la imagen es una decena.",
+          "recursoRef": "decenas-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: junta diez decenas",
+          "narracion": "Segundo, cuenta las decenas. Cuando llegues a diez, júntalas en una centena, como en este cuadrado grande.",
+          "recursoRef": "centena-cuadro"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: nombra lo que sobra",
+          "narracion": "Tercero, si sobran decenas o unidades, déjalas aparte y nómbralas. Aquí sobran seis barras, y las decimos junto a la centena: una centena y seis decenas.",
+          "recursoRef": "resto-resultado"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "decenas-pregunta",
+          "src": "/nudito/diagramas/matematica/centena-como-unidad-decenas-pregunta.svg",
+          "alt": "Diez barras de diez cuadritos cada una, con el texto cada barra es una decena y diez decenas igual a un signo de pregunta.",
+          "descripcion": "Diez barras turquesa, una junto a otra, cada una dividida en diez cuadritos. Debajo se lee cada barra es una decena y, más abajo, diez decenas igual a un signo de pregunta."
+        },
+        {
+          "id": "centena-cuadro",
+          "src": "/nudito/diagramas/matematica/centena-como-unidad-centena-cuadro.svg",
+          "alt": "Un cuadrado de diez filas de diez cuadritos, con el texto una centena igual a diez decenas e igual a cien unidades.",
+          "descripcion": "A la izquierda, un cuadrado turquesa formado por diez filas de diez cuadritos. A la derecha se lee una centena, en turquesa, y debajo igual a diez decenas e igual a cien unidades."
+        },
+        {
+          "id": "resto-pregunta",
+          "src": "/nudito/diagramas/matematica/centena-como-unidad-resto-pregunta.svg",
+          "alt": "Dieciséis barras de diez cuadritos en dos filas de ocho, con el texto dieciséis decenas igual a un signo de pregunta.",
+          "descripcion": "Dieciséis barras turquesa de diez cuadritos cada una, acomodadas en dos filas de ocho barras. Abajo se lee dieciséis decenas igual a un signo de pregunta."
+        },
+        {
+          "id": "resto-resultado",
+          "src": "/nudito/diagramas/matematica/centena-como-unidad-resto-resultado.svg",
+          "alt": "Un cuadrado de una centena, un signo más y seis barras de una decena; abajo, dieciséis decenas igual a una centena más seis decenas.",
+          "descripcion": "A la izquierda, un cuadrado turquesa de diez por diez cuadritos, con el texto una centena debajo. En el centro, un signo más. A la derecha, seis barras turquesa de diez cuadritos, con el texto seis decenas debajo. Al pie se lee dieciséis decenas igual a una centena más seis decenas."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/centena-como-unidad-errores.svg",
+          "alt": "A la izquierda, diez cuadritos sueltos con equis roja: no es una centena; a la derecha, un cuadrado de cien cuadritos con palomita: es una centena.",
+          "descripcion": "Una línea punteada divide el dibujo. A la izquierda hay diez cuadritos turquesa sueltos, en dos filas de cinco, con una equis roja al lado; debajo se lee diez unidades y, en rojo, no es una centena. A la derecha hay un cuadrado turquesa de diez por diez cuadritos, con una palomita; debajo se lee diez decenas y, en turquesa, es una centena."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "¿Cuál de estas cantidades forma exactamente una centena?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Diez unidades"
+          },
+          {
+            "id": "b",
+            "texto": "Diez decenas"
+          },
+          {
+            "id": "c",
+            "texto": "Cien decenas"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Diez decenas son diez grupos de diez, y eso hace cien: una centena.",
+        "pista": "Piensa cuántos grupos de diez hacen cien."
+      }
+    }
   },
   {
     "clave": "mat.p3.representar-tres-cifras",
@@ -1737,7 +1863,7 @@
         "opciones": [
           {
             "id": "a",
-            "texto": "046"
+            "texto": "506"
           },
           {
             "id": "b",
@@ -1915,7 +2041,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "El cero que guarda el lugar",
+          "narracion": "Bienvenida y bienvenido. Hoy veremos para qué sirve el cero en los números de tres cifras. Como idea principal, el cero avisa que en ese lugar no hay nada. Pero guarda el sitio para que las otras cifras no se muevan. Si lo borras, el número cambia. Además, al leer el número, el cero no se nombra."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Los lápices de la tienda",
+          "narracion": "Observemos esta situación. En una tienda cuentan los lápices en una tabla de centenas, decenas y unidades. En las centenas hay cuatro cajas de cien lápices. En las decenas no hay ningún paquete de diez. En las unidades hay siete lápices sueltos. ¿Qué número forman?",
+          "recursoRef": "lapices-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: escribir la cantidad",
+          "narracion": "Escribamos la cantidad de lápices con cifras. Cada columna necesita una cifra. Piensa qué cifra va en cada lugar. ¿Qué pasa con las decenas, si no hay ningún paquete?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una cifra en cada lugar",
+          "narracion": "En las centenas hay cuatro cajas, así que escribimos cuatro. En las decenas no hay nada, y ahí va un cero, marcado en amarillo. En las unidades hay siete lápices. El número es cuatrocientos siete. Sin el cero, sería otro número.",
+          "recursoRef": "cuatrocientos-siete"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: dos números con un cero",
+          "narracion": "Ahora comparemos dos números parecidos: seiscientos cinco y seiscientos cincuenta. Los dos tienen un cero. ¿En qué lugar está el cero de cada uno? Piensa qué lugar no se nombra al decir el número."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el lugar del cero",
+          "narracion": "En seiscientos cinco, el cero está en las decenas: no hay decenas. En seiscientos cincuenta, el cero está en las unidades: no hay unidades sueltas. El cero está en amarillo en las dos filas. Tienen las mismas cifras, pero no son el mismo número.",
+          "recursoRef": "seiscientos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Mira estas tres filas. La primera está bien. Si borras el cero de la segunda, el cuatro baja a las decenas y el siete a las unidades. Si cambias el cero de lugar, como en la tercera, el siete se corre a las decenas. En los dos casos, el número cambió.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca el lugar vacío",
+          "narracion": "Primero mira las columnas. ¿Cuál no tiene nada? Puede ser la de las decenas o la de las unidades."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: pon un cero",
+          "narracion": "Escribe un cero en ese lugar. Así cada cifra conserva su valor y no se corre."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: lee el número",
+          "narracion": "Al leer, no nombres el lugar con cero. Por ejemplo, cuatrocientos seis. Esta tarjeta resume los pasos.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "lapices-pregunta",
+          "src": "/nudito/diagramas/matematica/cero-posicional-lapices-pregunta.svg",
+          "alt": "Tabla de centenas, decenas y unidades: cuatro cajas de cien, nada en las decenas y siete lápices sueltos.",
+          "descripcion": "Tres columnas separadas por líneas: centenas, decenas y unidades. En las centenas hay cuatro cajas con la marca cien. Las decenas están vacías. En las unidades hay siete lápices. Abajo se lee: ¿Qué número forman?"
+        },
+        {
+          "id": "cuatrocientos-siete",
+          "src": "/nudito/diagramas/matematica/cero-posicional-cuatrocientos-siete.svg",
+          "alt": "La misma tabla con las cifras cuatro, cero y siete bajo cada columna y el número cuatrocientos siete.",
+          "descripcion": "La misma tabla de lápices. Debajo hay tres casillas con cuatro, cero y siete; el cero está en amarillo. Se lee: ningún paquete, va un cero. Abajo: número cuatrocientos siete."
+        },
+        {
+          "id": "seiscientos",
+          "src": "/nudito/diagramas/matematica/cero-posicional-seiscientos.svg",
+          "alt": "Dos filas de casillas: seiscientos cinco y seiscientos cincuenta, con el cero en amarillo en cada una.",
+          "descripcion": "Arriba están las iniciales de centenas, decenas y unidades. La primera fila tiene seis, cero y cinco, con el cero en amarillo y el texto cero en las decenas. La segunda tiene seis, cinco y cero, con el cero en amarillo y el texto cero en las unidades."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/cero-posicional-errores.svg",
+          "alt": "Tres filas de cifras: cuatrocientos siete bien, cuarenta y siete sin el cero y cuatrocientos setenta con el cero movido.",
+          "descripcion": "Tres filas de casillas bajo las iniciales de centenas, decenas y unidades. Primera: cuatro, cero y siete, con el texto cuatrocientos siete, bien. Segunda: casilla vacía con borde rojo, cuatro y siete, con el texto cuarenta y siete, sin cero. Tercera: cuatro, siete y cero, con el texto cuatrocientos setenta, cero movido."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/cero-posicional-pasos.svg",
+          "alt": "Tarjeta con tres pasos: busca el lugar vacío, pon un cero ahí y lee sin nombrar el cero.",
+          "descripcion": "Tres tarjetas numeradas. Uno, busca el lugar vacío: ¿qué columna no tiene nada? Dos, pon un cero en ese lugar: el cero guarda el sitio. Tres, lee sin nombrar el cero; por ejemplo, cuatrocientos seis."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "La señora Pilar escribe con cifras el número setecientos ocho. ¿En qué lugar pone el cero?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "En las unidades"
+          },
+          {
+            "id": "b",
+            "texto": "En las decenas"
+          },
+          {
+            "id": "c",
+            "texto": "En las centenas"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. En setecientos ocho no se nombran decenas, y allí va el cero: siete, cero, ocho.",
+        "pista": "Fíjate qué lugar no se nombra cuando dices el número."
+      }
+    }
   },
   {
     "clave": "mat.p3.componer-descomponer",
@@ -2542,7 +2790,131 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Canjes de piezas",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a hacer canjes. Canjear es cambiar piezas por otras que valen lo mismo. Como idea principal, diez unidades se canjean por una decena, y diez decenas se canjean por una centena. También se puede hacer al revés, desarmando una pieza grande en diez piezas más pequeñas. El valor total no cambia."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Piezas de bloques",
+          "narracion": "Observemos esta situación. A la izquierda hay tres piezas: la placa, la barra y el cubito. A la derecha, Tomás tiene trece cubitos sueltos. Nos preguntamos si puede usar menos piezas y tener el mismo valor.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: cubitos y una barra",
+          "narracion": "Tomás junta sus trece cubitos. Al lado hay una barra, que está hecha de cuadritos. Contemos los cuadritos de la barra: ¿cuántos cubitos hacen una barra?",
+          "recursoRef": "canje-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el canje de unidades",
+          "narracion": "La barra tiene diez cuadritos, así que diez cubitos se canjean por una barra. De los trece cubitos, diez se cambian por una barra y quedan tres cubitos sueltos. Trece unidades son una decena y tres unidades. Usamos menos piezas, pero el valor es el mismo.",
+          "recursoRef": "canje-trece"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: restar con pocas barras",
+          "narracion": "Ahora tenemos doscientos treinta y cinco: dos placas, tres barras y cinco cubitos. Queremos quitar setenta, o sea siete barras, pero solo hay tres barras. ¿Qué podemos hacer?",
+          "recursoRef": "desarmar-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: desarmar una placa",
+          "narracion": "Desarmamos una placa y la cambiamos por diez barras. Ahora hay una placa, trece barras y cinco cubitos. Sigue siendo doscientos treinta y cinco. Con trece barras ya podemos quitar siete, y quedan seis barras. El resultado es ciento sesenta y cinco.",
+          "recursoRef": "desarmar-solucion"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es cambiar una placa por diez cubitos sueltos. La placa vale cien, y diez cubitos solo valen diez, así que se cambia por diez barras. Otro error es pensar que el número cambió después del canje. El canje solo cambia la forma de las piezas; la cantidad es la misma."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca grupos de diez",
+          "narracion": "Mira si tienes diez o más piezas del mismo tipo. En el primer ejemplo había trece cubitos.",
+          "recursoRef": "canje-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: canjea",
+          "narracion": "Cambia diez piezas por la pieza siguiente: diez cubitos por una barra, y diez barras por una placa. Si necesitas lo contrario, desarma una pieza grande en diez pequeñas, como hicimos con la placa."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: revisa el total",
+          "narracion": "Comprueba que el total sea el mismo antes y después. Trece cubitos, o una barra con tres cubitos, valen igual.",
+          "recursoRef": "canje-trece"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/canjes-piezas-situacion.svg",
+          "alt": "Una placa, una barra y un cubito con sus nombres, y trece cubitos sueltos de Tomás.",
+          "descripcion": "Arriba a la izquierda hay una placa cuadriculada grande, una barra larga con rayitas y un cubito pequeño; debajo dicen placa, barra y cubito. A la derecha hay trece cubitos amarillos en tres filas. Abajo se lee Tomás tiene 13 cubitos sueltos y la pregunta ¿Puede usar menos piezas y tener el mismo valor?"
+        },
+        {
+          "id": "canje-pregunta",
+          "src": "/nudito/diagramas/matematica/canjes-canje-pregunta.svg",
+          "alt": "Trece cubitos sueltos y una barra dividida en cuadritos, con la pregunta cuántos cubitos hacen una barra.",
+          "descripcion": "A la izquierda hay trece cubitos amarillos en tres filas y debajo dice 13 cubitos. A la derecha hay una barra alta dividida en cuadritos y debajo dice barra. Abajo se lee: ¿Cuántos cubitos hacen una barra?"
+        },
+        {
+          "id": "canje-trece",
+          "src": "/nudito/diagramas/matematica/canjes-canje-trece.svg",
+          "alt": "Trece cubitos canjeados por una barra y tres cubitos sueltos.",
+          "descripcion": "A la izquierda hay trece cubitos amarillos y debajo dice 13 cubitos. Una flecha turquesa apunta a la derecha, donde hay una barra de diez cuadritos y tres cubitos turquesa; debajo dice 1 barra y 3 cubitos. Abajo se lee 13 unidades = 1 decena y 3 unidades."
+        },
+        {
+          "id": "desarmar-pregunta",
+          "src": "/nudito/diagramas/matematica/canjes-desarmar-pregunta.svg",
+          "alt": "Dos placas, tres barras y cinco cubitos: doscientos treinta y cinco menos setenta.",
+          "descripcion": "Hay dos placas cuadriculadas, tres barras y cinco cubitos en fila; debajo dicen 2 placas, 3 barras y 5 cubitos. Más abajo se lee 235 − 70, luego Quitar 7 barras: solo hay 3 y ¿Qué se puede hacer?"
+        },
+        {
+          "id": "desarmar-solucion",
+          "src": "/nudito/diagramas/matematica/canjes-desarmar-solucion.svg",
+          "alt": "Una placa, trece barras y cinco cubitos; diez de las barras, turquesa, salen de la placa desarmada.",
+          "descripcion": "Hay una placa cuadriculada, trece barras y cinco cubitos. Las tres primeras barras son amarillas y las diez siguientes son turquesa. Debajo dicen 1 placa, 13 barras y 5 cubitos. Abajo se lee 100 + 130 + 5 = 235, Las 10 barras turquesa salen de la placa y Ahora sí se pueden quitar 7 barras."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Elena tiene tres placas de cien. Desarma una placa para cambiarla por barras. ¿Qué piezas tiene ahora?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Dos placas y diez barras"
+          },
+          {
+            "id": "b",
+            "texto": "Dos placas y diez cubitos"
+          },
+          {
+            "id": "c",
+            "texto": "Tres placas y diez barras"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Quedan dos placas, y la placa desarmada se cambia por diez barras. El valor sigue siendo trescientos.",
+        "pista": "Piensa cuántas placas quedan y por qué piezas cambió la que desarmó."
+      }
+    }
   },
   {
     "clave": "mat.p3.descomposicion-no-usual",
@@ -3153,7 +3525,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comparar números grandes",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a comparar números de tres cifras. Como idea principal, compara primero las centenas. Si son iguales, mira las decenas. Si también son iguales, mira las unidades. El primer lugar donde se diferencian decide cuál número es mayor."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Cosecha de mazorcas",
+          "narracion": "Observemos esta situación. Ana y Beto juntan mazorcas en dos cestos. El cesto de Ana tiene quinientas setenta y cuatro y el de Beto, quinientas cuarenta y siete. Queremos saber qué cesto tiene más. En el dibujo se ven los dos cestos con su cantidad.",
+          "recursoRef": "cestos-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el cesto de Ana",
+          "narracion": "Comparemos los cestos de Ana y de Beto. Ana tiene quinientas setenta y cuatro mazorcas y Beto, quinientas cuarenta y siete. ¿Cuántas centenas tiene cada cantidad? Si son iguales, ¿qué lugar miras después?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: empate en las centenas",
+          "narracion": "Las dos cantidades tienen cinco centenas, así que las centenas empatan. Pasamos a las decenas: la cifra de Ana es siete y la de Beto, cuatro. Siete es mayor que cuatro. Entonces el cesto de Ana tiene más. En el dibujo, la tabla muestra cada cantidad. Las letras C, D y U quieren decir centenas, decenas y unidades.",
+          "recursoRef": "tabla-centenas-iguales"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: dos puntajes",
+          "narracion": "Carla hizo seiscientos noventa y dos puntos en un juego y Diego, setecientos uno. Carla tiene una cifra mayor que Diego en las decenas y en las unidades. ¿Eso basta para decir que su número es mayor? Piensa qué lugar se mira primero."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: las centenas deciden",
+          "narracion": "Miramos primero las centenas: Carla tiene seis y Diego tiene siete. Seis es menor que siete, así que no hace falta mirar más. El número de Diego es mayor, aunque su cifra de las decenas y de las unidades sea menor. En el dibujo, la columna de las centenas está resaltada.",
+          "recursoRef": "tabla-centenas-deciden"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado: no empieces por el final",
+          "narracion": "Luis tiene cuatrocientos ochenta y tres puntos y Rosa, cuatrocientos treinta y ocho. Un niño mira solo las unidades: tres es menor que ocho, y dice que Rosa tiene más. Es un error. Las centenas empatan, y en las decenas ocho es mayor que tres. Luis tiene más. En el dibujo, la columna de las unidades tiene un marco rojo.",
+          "recursoRef": "tabla-error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: alinea los números",
+          "narracion": "Escribe los dos números uno debajo del otro, con cada lugar en su columna."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: empieza por la izquierda",
+          "narracion": "Compara las centenas. El número que tiene más centenas es el mayor."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: si empatan, sigue",
+          "narracion": "Si las centenas son iguales, compara las decenas. Si también empatan, compara las unidades. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "tres-pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cestos-pregunta",
+          "src": "/nudito/diagramas/matematica/comparar-tres-cifras-cestos-pregunta.svg",
+          "alt": "Dos cestos de mazorcas: el de Ana con quinientas setenta y cuatro y el de Beto con quinientas cuarenta y siete.",
+          "descripcion": "Dos cestos amarillos con forma de trapecio. En el de la izquierda se lee quinientos setenta y cuatro y debajo, Cesto de Ana. En el de la derecha, quinientos cuarenta y siete y debajo, Cesto de Beto. Arriba: Mazorcas en los cestos. Abajo: ¿Qué cesto tiene más?"
+        },
+        {
+          "id": "tabla-centenas-iguales",
+          "src": "/nudito/diagramas/matematica/comparar-tres-cifras-tabla-centenas-iguales.svg",
+          "alt": "Tabla con las cifras de quinientos setenta y cuatro y quinientos cuarenta y siete; las centenas son iguales.",
+          "descripcion": "Una tabla con tres columnas, con las letras C, D y U: centenas, decenas y unidades. Ana: cinco, siete, cuatro. Beto: cinco, cuatro, siete. La columna de centenas está resaltada en verde claro y la de decenas, en amarillo claro. Debajo: Centenas: cinco igual a cinco. Decenas: siete mayor que cuatro. Abajo: quinientos setenta y cuatro mayor que quinientos cuarenta y siete."
+        },
+        {
+          "id": "tabla-centenas-deciden",
+          "src": "/nudito/diagramas/matematica/comparar-tres-cifras-tabla-centenas-deciden.svg",
+          "alt": "Tabla con las cifras de seiscientos noventa y dos y setecientos uno; las centenas son distintas.",
+          "descripcion": "Una tabla con tres columnas, con las letras C, D y U: centenas, decenas y unidades. Carla: seis, nueve, dos. Diego: siete, cero, uno. La columna de centenas está resaltada en amarillo claro. Debajo: Centenas: seis menor que siete. Ya decidieron las centenas. Abajo: seiscientos noventa y dos menor que setecientos uno."
+        },
+        {
+          "id": "tabla-error",
+          "src": "/nudito/diagramas/matematica/comparar-tres-cifras-tabla-error.svg",
+          "alt": "Tabla de cuatrocientos ochenta y tres y cuatrocientos treinta y ocho; un niño compara solo las unidades y se equivoca.",
+          "descripcion": "Arriba, en rojo: Error: miró solo las unidades. Una tabla con las letras C, D y U, que son centenas, decenas y unidades. Luis: cuatro, ocho, tres. Rosa: cuatro, tres, ocho. La columna de unidades tiene un marco rojo. Debajo, en rojo: Unidades: tres menor que ocho. Dijo que cuatrocientos treinta y ocho es mayor. En verde: Bien: cuatro igual a cuatro y luego ocho mayor que tres. Abajo: cuatrocientos ochenta y tres mayor que cuatrocientos treinta y ocho."
+        },
+        {
+          "id": "tres-pasos",
+          "src": "/nudito/diagramas/matematica/comparar-tres-cifras-tres-pasos.svg",
+          "alt": "Tarjeta con tres pasos para comparar números de tres cifras.",
+          "descripcion": "Tres tarjetas numeradas. Uno: alinea los dos números. Dos: compara primero las centenas. Tres: si empatan, sigue con las decenas."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "La lancha Sol lleva seiscientos cuarenta y tres kilos de carga. La lancha Luna lleva seiscientos treinta y cuatro. ¿Cuál lleva más?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La lancha Sol"
+          },
+          {
+            "id": "b",
+            "texto": "La lancha Luna"
+          },
+          {
+            "id": "c",
+            "texto": "Llevan lo mismo"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Las centenas son iguales. En las decenas, cuatro es mayor que tres, así que la lancha Sol lleva más.",
+        "pista": "Compara primero las centenas. Si empatan, sigue con las decenas."
+      }
+    }
   },
   {
     "clave": "mat.p3.ordenar-tres-cifras",

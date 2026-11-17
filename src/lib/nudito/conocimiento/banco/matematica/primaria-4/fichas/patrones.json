@@ -294,6 +294,128 @@
         "id": "e12"
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Predecir elementos de un patrón",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a encontrar qué elemento sigue o cuál ocupa un lugar determinado. Como idea principal, primero descubre la regla. En un patrón de repetición, ubica el lugar dentro del núcleo. En un patrón numérico, aplica siempre el mismo cambio."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una secuencia de figuras",
+          "narracion": "Observemos esta situación. La fila muestra un círculo maíz, dos cuadrados turquesa, y luego repite el mismo grupo. Una casilla con signo de pregunta pide el elemento siguiente. Debemos reconocer el grupo completo antes de continuar.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: un cambio constante",
+          "narracion": "Un patrón numérico empieza en seis. Después va diez. Luego, catorce. Compara cada término con el anterior. ¿Qué cambio se repite y qué número debe venir después?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: sumar la misma cantidad",
+          "narracion": "En cada salto se suman cuatro unidades. Al sumar cuatro a catorce obtenemos dieciocho. La tarjeta muestra los tres aumentos iguales y destaca el nuevo término.",
+          "recursoRef": "numerico"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: ubicar una posición",
+          "narracion": "Mira los banderines. El núcleo sigue este orden: maíz, turquesa e índigo. Diez banderines ya están colocados. Queremos saber qué color ocupa la posición once. Busca qué lugar del núcleo corresponde después del banderín maíz.",
+          "recursoRef": "banderines-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: tres núcleos completos",
+          "narracion": "Tres núcleos completos ocupan nueve posiciones. La posición diez vuelve al primer color, maíz. La posición once ocupa el segundo lugar del núcleo, que es turquesa. La tarjeta separa los núcleos y marca esos dos lugares finales.",
+          "recursoRef": "banderines-resuelto"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Usar una regla que solo sirve una vez",
+          "narracion": "Alguien vio que de tres a seis se sumaban tres unidades y quiso repetir esa regla. La tarjeta la tacha porque después no conduce a doce ni a veinticuatro. Una regla válida debe funcionar en todos los saltos; aquí cada término se duplica.",
+          "recursoRef": "error-regla"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: encuentra la regla",
+          "narracion": "Compara elementos consecutivos. Decide si se repite un núcleo o si los números cambian mediante la misma operación."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: ubica el lugar pedido",
+          "narracion": "Cuenta las posiciones sin saltarte ninguna. Si hay un núcleo, agrupa sus elementos completos y observa qué lugar sobra."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: comprueba y justifica",
+          "narracion": "Coloca el elemento encontrado y verifica que la regla siga funcionando antes y después. Explica tu respuesta nombrando la regla y la posición."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/elemento-siguiente-patron-situacion.svg",
+          "alt": "Círculo, dos cuadrados, círculo y dos cuadrados; debajo aparece una casilla con signo de pregunta.",
+          "descripcion": "La fila muestra un círculo maíz, dos cuadrados turquesa, otro círculo maíz y otros dos cuadrados turquesa. Debajo hay una casilla punteada con signo de pregunta."
+        },
+        {
+          "id": "numerico",
+          "src": "/nudito/diagramas/matematica/elemento-siguiente-patron-numerico.svg",
+          "alt": "Tarjetas con seis, diez, catorce y dieciocho; entre ellas se indica que se suma cuatro.",
+          "descripcion": "Cuatro tarjetas muestran seis, diez, catorce y dieciocho. Sobre cada salto se lee más cuatro y la última tarjeta tiene borde turquesa."
+        },
+        {
+          "id": "banderines-pregunta",
+          "src": "/nudito/diagramas/matematica/elemento-siguiente-patron-banderines-pregunta.svg",
+          "alt": "Diez banderines siguen el orden maíz, turquesa e índigo; una casilla pregunta por la posición once.",
+          "descripcion": "Diez banderines repiten los colores maíz, turquesa e índigo. Debajo hay una casilla punteada con signo de pregunta y arriba se pregunta qué color ocupa la posición once."
+        },
+        {
+          "id": "banderines-resuelto",
+          "src": "/nudito/diagramas/matematica/elemento-siguiente-patron-banderines-resuelto.svg",
+          "alt": "Tres núcleos de banderines y dos círculos que marcan las posiciones diez en maíz y once en turquesa.",
+          "descripcion": "Tres grupos rotulados como núcleo contienen banderines maíz, turquesa e índigo. Abajo, un círculo maíz lleva el diez y uno turquesa lleva el once; se indica que la posición once es turquesa."
+        },
+        {
+          "id": "error-regla",
+          "src": "/nudito/diagramas/matematica/elemento-siguiente-patron-error-regla.svg",
+          "alt": "Patrón tres, seis, doce y veinticuatro; la regla «Siempre sumo tres» está tachada.",
+          "descripcion": "El patrón muestra tres, seis, doce y veinticuatro. La frase «Siempre sumo tres» tiene una equis roja y abajo se aclara que el valor se duplica en cada paso."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un patrón numérico empieza en siete. Después va doce, luego diecisiete y después veintidós. Si mantiene la regla, ¿qué número sigue?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Veintisiete"
+          },
+          {
+            "id": "b",
+            "texto": "Veintinueve"
+          },
+          {
+            "id": "c",
+            "texto": "Veinticuatro"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. El patrón suma cinco cada vez, así que después de veintidós viene veintisiete.",
+        "pista": "Compara dos términos seguidos y aplica ese mismo cambio al último."
+      }
+    },
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
@@ -909,7 +1031,113 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Patrones aditivos y multiplicativos",
+          "narracion": "Bienvenida y bienvenido. Hoy distinguirás dos tipos de patrones numéricos. Como idea principal, en un patrón aditivo siempre se suma el mismo número, y en un patrón multiplicativo siempre se multiplica por el mismo número. Para saber cuál es, compruebas cómo cambia cada número."
+        },
+        {
+          "id": "situacion-monedas",
+          "tipo": "recurso",
+          "titulo": "Las monedas de Ana",
+          "narracion": "Observemos esta situación. Ana junta monedas durante cuatro días: cinco, diez, quince y veinte monedas. Entre cada par de casillas hay un arco que muestra cuánto crece. En todos los arcos dice más cinco.",
+          "recursoRef": "monedas"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: cinco, diez, quince, veinte",
+          "narracion": "Restamos cada número al siguiente. Diez menos cinco son cinco. Quince menos diez son cinco. Veinte menos quince son cinco.",
+          "recursoRef": "monedas"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: es un patrón aditivo",
+          "narracion": "La diferencia siempre es cinco, así que es un patrón aditivo y la regla es sumar cinco. El número que sigue es veinticinco, porque veinte más cinco son veinticinco.",
+          "recursoRef": "monedas"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: los cuyes de doña Rita",
+          "narracion": "Doña Rita cuenta sus cuyes mes a mes: dos, seis, dieciocho y cincuenta y cuatro. Las diferencias son cuatro, doce y treinta y seis, y no se repiten. Probamos con la multiplicación: dos por tres son seis.",
+          "recursoRef": "cuyes-mes"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: se multiplica por tres",
+          "narracion": "Seis por tres son dieciocho, y dieciocho por tres son cincuenta y cuatro. Siempre se multiplica por tres. Es un patrón multiplicativo, y el número que sigue es ciento sesenta y dos.",
+          "recursoRef": "cuyes-mes"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "No revises solo los dos primeros",
+          "narracion": "Cuidado con revisar solo los dos primeros números. En dos, cuatro, ocho podrías pensar que se suma dos, porque dos más dos son cuatro. Pero cuatro más dos son seis y no ocho: en realidad se multiplica por dos. Y en uno, dos, cuatro, siete, las diferencias son uno, dos y tres, y tampoco se multiplica siempre por lo mismo. Esa secuencia no es ninguno de los dos patrones."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: resta cada número al siguiente",
+          "narracion": "Primero resta cada número al siguiente. Si la diferencia siempre es la misma, el patrón es aditivo.",
+          "recursoRef": "monedas"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: si cambia, divide",
+          "narracion": "Si la diferencia cambia, divide cada número entre el anterior. Si siempre sale el mismo número, el patrón es multiplicativo.",
+          "recursoRef": "cuyes-mes"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: comprueba y di la regla",
+          "narracion": "Por último, comprueba tu idea con todos los términos y di la regla completa: se suma tal número, o se multiplica por tal número."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "monedas",
+          "src": "/nudito/diagramas/matematica/patrones-monedas-mas-cinco.svg",
+          "alt": "Cuatro casillas con cinco, diez, quince y veinte monedas; entre cada una hay un arco que dice más cinco.",
+          "descripcion": "Hay cuatro casillas en fila, una por día, con los números cinco, diez, quince y veinte. Debajo, tres arcos unen casillas vecinas, y cada arco dice más cinco. Abajo se leen las restas: diez menos cinco es cinco, quince menos diez es cinco y veinte menos quince es cinco."
+        },
+        {
+          "id": "cuyes-mes",
+          "src": "/nudito/diagramas/matematica/patrones-cuyes-por-tres.svg",
+          "alt": "Cuatro círculos con dos, seis, dieciocho y cincuenta y cuatro cuyes; entre cada par hay un arco que dice por tres.",
+          "descripcion": "Hay cuatro círculos turquesa con los números dos, seis, dieciocho y cincuenta y cuatro, uno por mes. Encima, tres arcos unen círculos vecinos y cada uno dice por tres. Abajo se lee dos por tres es seis, seis por tres es dieciocho y dieciocho por tres es cincuenta y cuatro."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Mira la secuencia cinco, quince, cuarenta y cinco, ciento treinta y cinco. ¿Cuál es la regla?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Se multiplica por tres"
+          },
+          {
+            "id": "b",
+            "texto": "Se suma diez"
+          },
+          {
+            "id": "c",
+            "texto": "Se suma tres"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Cinco por tres son quince, quince por tres son cuarenta y cinco, y cuarenta y cinco por tres son ciento treinta y cinco. Las diferencias no se repiten, así que el patrón es multiplicativo.",
+        "pista": "Mira cuánto crece cada número: ¿las diferencias son iguales?"
+      }
+    }
   },
   {
     "clave": "mat.p4.regla-formacion-patron",
@@ -2414,6 +2642,128 @@
         "id": "e12"
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Predecir un elemento del patrón",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a saber qué elemento ocupa un lugar lejano de un patrón sin dibujarlo todo. Como idea principal, usamos la regla. Si el patrón se repite, miramos dónde cae el lugar dentro del grupo que se repite. Si es de números, aplicamos la regla paso a paso."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una fila que se repite",
+          "narracion": "Observemos esta fila. Hay un círculo y dos cuadrados, y luego otra vez un círculo y dos cuadrados. Al final hay una casilla vacía. Nos preguntan qué elemento sigue. Antes de responder, busca el grupo que se repite.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: banderines",
+          "narracion": "Mira esta cuerda de banderines. Los colores se repiten: amarillo, turquesa y azul. Nos preguntan qué color ocupa la posición once. Piensa cuántos banderines tiene el grupo y qué lugar le toca a la posición once dentro de un grupo.",
+          "recursoRef": "banderines-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: lugar dentro del grupo",
+          "narracion": "Cada grupo tiene tres banderines. Tres grupos completos llegan hasta la posición nueve. La posición diez es amarillo y la once es turquesa. Por eso, el color pedido es turquesa.",
+          "recursoRef": "banderines-resuelto"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: números",
+          "narracion": "Ahora el patrón es de números: seis, diez, catorce. Nos piden el término que sigue a catorce. Antes de calcular, descubre cuánto sube de un número al siguiente."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: aplicar la regla",
+          "narracion": "Cada número sube cuatro respecto del anterior. Las flechas muestran el mismo aumento en cada salto. Al aplicar la regla a catorce, el siguiente término es dieciocho.",
+          "recursoRef": "numerico"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Una regla que no sirve",
+          "narracion": "Alguien miró la fila tres, seis, doce, veinticuatro y dijo que siempre se suma tres. La tarjeta tacha esa regla. En realidad, cada número se duplica. Sumar tres solo sirve en el primer salto. Una regla buena debe funcionar en todos los saltos.",
+          "recursoRef": "error-regla"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: descubre la regla",
+          "narracion": "Busca el grupo que se repite o cuánto cambia de un número al siguiente."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: ubica el lugar pedido",
+          "narracion": "Marca la posición que pide el problema. Si el patrón se repite, mira dónde cae dentro del grupo."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: aplica y explica",
+          "narracion": "Usa la regla hasta llegar a ese lugar y explica tu respuesta con ella."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/elemento-siguiente-patron-situacion.svg",
+          "alt": "Fila de seis figuras: círculo, cuadrado, cuadrado, círculo, cuadrado, cuadrado, y una casilla con signo de pregunta.",
+          "descripcion": "Una fila de seis figuras: un círculo amarillo y dos cuadrados turquesa, y otra vez un círculo y dos cuadrados. Debajo hay una casilla con línea discontinua y un signo de pregunta."
+        },
+        {
+          "id": "banderines-pregunta",
+          "src": "/nudito/diagramas/matematica/elemento-siguiente-patron-banderines-pregunta.svg",
+          "alt": "Diez banderines de colores amarillo, turquesa y azul repetidos; debajo, una casilla con signo de pregunta.",
+          "descripcion": "Una cuerda con diez banderines que repiten amarillo, turquesa y azul. Arriba se pregunta qué color ocupa la posición once y debajo hay una casilla con signo de pregunta."
+        },
+        {
+          "id": "banderines-resuelto",
+          "src": "/nudito/diagramas/matematica/elemento-siguiente-patron-banderines-resuelto.svg",
+          "alt": "Tres grupos de banderines amarillo, turquesa y azul y dos círculos numerados diez y once.",
+          "descripcion": "Tres grupos de banderines, cada uno rotulado «grupo», con amarillo, turquesa y azul. Debajo, un círculo amarillo con el diez y uno turquesa con el once, y abajo se lee «La posición once es turquesa»."
+        },
+        {
+          "id": "numerico",
+          "src": "/nudito/diagramas/matematica/elemento-siguiente-patron-numerico.svg",
+          "alt": "Cuatro cajas con seis, diez, catorce y dieciocho; flechas indican sumar cuatro en cada salto.",
+          "descripcion": "Cuatro cajas con seis, diez, catorce y dieciocho. Tres flechas con «más cuatro» unen cada caja con la siguiente. Abajo se lee «Después de catorce viene dieciocho»."
+        },
+        {
+          "id": "error-regla",
+          "src": "/nudito/diagramas/matematica/elemento-siguiente-patron-error-regla.svg",
+          "alt": "Fila tres, seis, doce, veinticuatro y una regla de sumar tres tachada.",
+          "descripcion": "Arriba se ve la fila tres, seis, doce, veinticuatro. En una tarjeta roja dice «Siempre sumo tres» con una equis a un lado. Abajo se lee «Se duplica en cada paso»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un collar repite este grupo de cuentas: roja, azul y verde. ¿De qué color es la cuenta en la posición siete?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Roja"
+          },
+          {
+            "id": "b",
+            "texto": "Azul"
+          },
+          {
+            "id": "c",
+            "texto": "Verde"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Cada grupo tiene tres cuentas; dos grupos llegan a la posición seis, así que la siete vuelve a empezar con la roja.",
+        "pista": "Mira cuántas cuentas tiene el grupo y cuántos grupos completos caben antes de la posición siete."
+      }
+    },
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",

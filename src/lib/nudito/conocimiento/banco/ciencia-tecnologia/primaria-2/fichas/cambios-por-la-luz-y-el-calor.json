@@ -323,7 +323,120 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "La luz y el calor pueden cambiar las cosas",
+          "narracion": "Hola. Hoy veremos qué les pasa a las cosas cuando reciben luz y calor. Como idea principal, el Sol da luz y también calor, y los dos pueden cambiar lo que tocan: un helado se derrite, la ropa mojada se seca y la cera de una vela se ablanda. Pero no todo cambia igual: una piedra casi no cambia."
+        },
+        {
+          "id": "situacion-patio",
+          "tipo": "recurso",
+          "titulo": "Un patio con mucho sol",
+          "narracion": "Observemos esta situación. Es un patio muy soleado. Una niña cuelga ropa mojada en un tendedero y, sobre una mesa, hay un helado. Vamos a pensar qué puede pasar con la ropa y con el helado si siguen un rato bajo el sol.",
+          "recursoRef": "patio"
+        },
+        {
+          "id": "ejemplo-helado-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: un helado de lúcuma al sol",
+          "narracion": "Nico compró un helado de lúcuma en una plaza de Chiclayo. Ahora lo sostiene bajo el sol del mediodía y el helado todavía está entero y firme. Vamos a pensar qué le pasa si pasa un rato bajo el sol.",
+          "recursoRef": "helado"
+        },
+        {
+          "id": "ejemplo-helado-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el sol da calor",
+          "narracion": "El sol no solo da luz: también da calor. El helado recibe ese calor y, después de un rato, se vuelve líquido. Entonces el calor derrite el helado.",
+          "recursoRef": "helado"
+        },
+        {
+          "id": "ejemplo-ropa-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la ropa mojada en el patio",
+          "narracion": "Mamá tiende ropa mojada en el patio de la casa, como la niña de la primera imagen. La ropa gotea y pesa. ¿Qué crees que pasará después de un buen rato al sol?",
+          "recursoRef": "patio"
+        },
+        {
+          "id": "ejemplo-ropa-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el agua se va de la ropa",
+          "narracion": "El sol calienta la ropa y el agua se va de ella hacia el aire, aunque casi no la veamos. Al rato la ropa ya no está mojada: está seca. Entonces el calor seca la ropa.",
+          "recursoRef": "patio"
+        },
+        {
+          "id": "error-todo-se-derrite",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: pensar que todo se derrite con el calor",
+          "narracion": "Algunas personas creen que, si algo recibe sol, siempre se derrite. No es así. El hielo, la cera y el helado se derriten con el calor, pero una piedra casi no cambia. Por eso conviene observar cada objeto y no suponer."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira cómo está al comienzo",
+          "narracion": "Primero observa el objeto antes de darle sol o calor: si está duro o blando, mojado o seco, frío o tibio. En la ilustración, la primera tarjeta tiene un ojo que mira.",
+          "recursoRef": "pasos"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: dale sol o calor un rato",
+          "narracion": "Después pon el objeto al sol o cerca de una fuente de calor y espera un rato. En la segunda tarjeta aparece el sol. Hazlo con ayuda de una persona adulta si hay una llama o algo muy caliente.",
+          "recursoRef": "pasos"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: observa qué cambió y cuéntalo",
+          "narracion": "Por último, mira otra vez y compara con el comienzo. Cuenta el cambio con una palabra: se derritió, se secó, se ablandó o casi no cambió. La tercera tarjeta tiene una lupa para recordarte que debes observar.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "patio",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-2/patio-sol-ropa-helado-zimage-v1.webp",
+          "alt": "Niña de espaldas cuelga ropa en un tendedero bajo un sol brillante; a su lado hay una mesa con un helado.",
+          "descripcion": "Bajo un sol brillante, una niña vista de espaldas cuelga ropa en un cordel: pantalones cortos y una camiseta. A la izquierda, sobre una mesa pequeña, hay un helado en un vasito. El patio es de pasto y al fondo hay arbustos."
+        },
+        {
+          "id": "helado",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-2/nino-helado-plaza-zimage-v1.webp",
+          "alt": "Niño sonriente que sostiene un cono de helado entero y firme bajo el sol de una plaza.",
+          "descripcion": "Un niño sonríe y sostiene con una mano un cono con helado de color crema, entero y con forma de remolino. Detrás hay una plaza con casas de colores, otros niños que juegan y un sol brillante en el cielo."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/ciencia-tecnologia/pasos-luz-calor.svg",
+          "alt": "Tres tarjetas: un ojo para mirar al comienzo, un sol para dar calor y una lupa para ver qué cambió.",
+          "descripcion": "Tres tarjetas de colores. La primera tiene un ojo y dice mira cómo está al comienzo. La segunda tiene un sol y dice dale sol o calor un rato. La tercera tiene una lupa y dice mira qué cambió después."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Camila deja al sol una paleta de helado y una piedra. Después de un rato, ¿qué observa?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La paleta y la piedra se derriten del mismo modo."
+          },
+          {
+            "id": "b",
+            "texto": "Ni la paleta ni la piedra cambian con el sol."
+          },
+          {
+            "id": "c",
+            "texto": "La paleta se derrite y la piedra casi no cambia."
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "El calor derrite la paleta, pero una piedra casi no cambia: no todo reacciona igual.",
+        "pista": "Piensa en qué cosas se derriten con el calor y en cuáles casi no cambian."
+      }
+    }
   },
   {
     "clave": "cyt.p2.fuentes-de-calor",

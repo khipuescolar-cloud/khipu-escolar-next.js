@@ -490,7 +490,7 @@
           "Puedes estar a favor o en contra.",
           "Empieza con p."
         ],
-        "retroalimentacion": "Se llama postura. Confundirla con un dato es un error: la postura se respalda con datos."
+        "retroalimentacion": "Se llama postura. Una postura es la idea que defiendes; no es un dato. La postura se respalda con datos."
       },
       {
         "id": "e04",
@@ -712,7 +712,124 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Antenas y salud: un debate",
+          "narracion": "Hola. Hoy veremos un debate: las antenas de telefonía y la salud. Como idea principal, para defender una postura conviene apoyarse en fuentes confiables y en mediciones. También hay que separar los hechos de los miedos y escuchar con respeto a quien piensa distinto. Una postura es la idea que defiendes en un debate."
+        },
+        {
+          "id": "situacion-antena",
+          "tipo": "recurso",
+          "titulo": "Una antena en el barrio",
+          "narracion": "Observemos esta situación. En la imagen, una torre alta y delgada, con antenas blancas, se levanta sobre un cerro verde, y a su lado hay tres casas pequeñas. Los vecinos se preguntan si deben aceptar esa antena o no. Nos preguntamos: ¿cómo podemos formar una opinión que no sea solo un miedo?",
+          "recursoRef": "antena"
+        },
+        {
+          "id": "ejemplo-1-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: buscar mediciones",
+          "narracion": "En la imagen, un técnico con casco blanco y chaleco naranja sostiene un aparato de mano en una calle del barrio. El aparato sirve para medir las ondas del ambiente. Nos preguntamos: ¿por qué sus datos pesan más que un comentario de alguien?",
+          "recursoRef": "tecnico"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: un dato con fuente",
+          "narracion": "Una medición es un dato con fuente: se puede revisar y repetir. Un comentario del tipo: me dijeron que enferma, no prueba nada. Por eso un argumento sólido usa las mediciones del organismo regulador.",
+          "recursoRef": "tecnico"
+        },
+        {
+          "id": "ejemplo-2-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: dos frases",
+          "narracion": "En la imagen hay dos tarjetas con dos frases. La primera dice: las antenas enferman, me lo dijo mi tío. La segunda dice: un organismo de salud revisó estudios y no halló daño bajo los límites. Nos preguntamos: ¿cuál de las dos tiene mejor respaldo, y por qué?",
+          "recursoRef": "frases"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: respaldo con pruebas",
+          "narracion": "La segunda tiene mejor respaldo. Cita un organismo de salud y estudios que otras personas pueden revisar. La primera es un testimonio sin pruebas.",
+          "recursoRef": "frases"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: un solo caso",
+          "narracion": "Algunas personas creen que, si un vecino se enfermó después de que pusieron la antena, entonces la antena lo causó. No es así. Un caso aislado no prueba una causa. Hacen falta estudios con muchos casos y mediciones. Del mismo modo, decir que algo es seguro sin datos tampoco sirve."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: pregunta y fuentes",
+          "narracion": "Primero escribe la pregunta del debate: ¿se instala o no la antena? Después busca información en fuentes confiables, como los organismos de salud y los reguladores."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: hechos y postura",
+          "narracion": "Luego separa los hechos, como las mediciones y los estudios, de las opiniones y los miedos. Con los hechos, arma tu postura con dos razones respaldadas por evidencia."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: escucha y responde",
+          "narracion": "Por último, escucha la otra postura y responde con datos, no con ataques. Mira las cinco tarjetas numeradas. Resumiendo los pasos: escribe la pregunta, busca fuentes confiables, separa hechos de miedos, arma tu postura con dos razones, y escucha y responde con datos.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "antena",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/antenas-barrio-cerro-zimage-v1.webp",
+          "alt": "Una torre alta con antenas se levanta sobre un cerro verde, junto a tres casas pequeñas, bajo un cielo azul.",
+          "descripcion": "Sobre un cerro verde y suave se levanta una torre delgada y gris con seis antenas blancas, tres arriba y tres un poco más abajo. A su derecha hay tres casas pequeñas, dos de color crema y una anaranjada, con techos rojos. El cielo es azul y despejado. No hay personas."
+        },
+        {
+          "id": "tecnico",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/antenas-tecnico-medicion-zimage-v1.webp",
+          "alt": "Un técnico con casco blanco y chaleco naranja sostiene un aparato de mano con pantalla en una calle de un barrio con casas y árboles.",
+          "descripcion": "Un técnico de perfil, con casco blanco, camisa azul y chaleco naranja con una franja gris, sostiene con las dos manos un aparato de mano con pantalla pequeña y botones, unido a un cable. Está en una calle tranquila, con un poste a la izquierda, árboles y casas de colores desenfocadas al fondo."
+        },
+        {
+          "id": "frases",
+          "src": "/nudito/diagramas/ciencia-tecnologia/antenas-de-telefonia-dos-frases.svg",
+          "alt": "Dos tarjetas con frases: las antenas enferman porque lo dijo un tío; un organismo de salud revisó estudios y no halló daño bajo los límites.",
+          "descripcion": "Dos tarjetas una sobre otra. La primera, turquesa, dice frase uno: las antenas enferman, me lo dijo mi tío. La segunda, azul claro, dice frase dos: un organismo de salud revisó estudios y no halló daño bajo los límites."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/ciencia-tecnologia/antenas-de-telefonia-cinco-pasos.svg",
+          "alt": "Cinco tarjetas numeradas con los pasos del debate: pregunta, fuentes confiables, hechos y miedos, postura con dos razones, y escuchar con datos.",
+          "descripcion": "Cinco tarjetas una sobre otra, con un círculo numerado a la izquierda. Uno: escribe la pregunta del debate. Dos: busca fuentes confiables. Tres: separa hechos de miedos. Cuatro: arma tu postura con dos razones. Cinco: escucha y responde con datos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un vecino reclama que la antena se instaló sin avisar a nadie. Quieres responderle. ¿Qué le dices?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Es válido pedir aviso; veamos las mediciones"
+          },
+          {
+            "id": "b",
+            "texto": "Es puro miedo y no merece ninguna respuesta"
+          },
+          {
+            "id": "c",
+            "texto": "Si no te gusta, múdate a otro barrio lejos"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Reconocer que pedir aviso es una preocupación válida y responder con las mediciones oficiales hace más fuerte tu argumento.",
+        "pista": "Piensa qué respuesta toma en serio la queja del vecino y la responde con evidencia, sin atacar."
+      }
+    }
   },
   {
     "clave": "cyt.p6.alimentos-transgenicos",
@@ -902,7 +1019,7 @@
         "id": "e06",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "El Perú tiene una moratoria que impide cultivar transgénicos hasta 2035. ¿Qué significa moratoria?",
+        "enunciado": "El Perú tiene una moratoria que impide cultivar transgénicos. ¿Qué significa moratoria?",
         "respuesta": "a",
         "opciones": [
           {
@@ -921,7 +1038,7 @@
         "alternativasAceptadas": [],
         "pistas": [
           "Piensa en una pausa.",
-          "Tiene una fecha límite: 2035.",
+          "Tiene una fecha límite.",
           "No es un permiso."
         ],
         "retroalimentacion": "Significa prohibición temporal: se suspende el cultivo hasta una fecha. No es permiso permanente ni premio."
@@ -1076,7 +1193,123 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Qué son los alimentos transgénicos",
+          "narracion": "Hola, hoy vamos a descubrir en qué consisten los alimentos transgénicos y cómo evaluarlos. Como idea principal, un transgénico es un ser vivo al que se le agregó un gen de otra especie. Sobre ellos hay argumentos a favor y en contra, y se evalúan con evidencia de fuentes confiables."
+        },
+        {
+          "id": "situacion-mercado",
+          "tipo": "recurso",
+          "titulo": "Una mesa de mercado peruano",
+          "narracion": "Observemos esta situación. Es una mesa de mercado con canastas de papas nativas de muchos colores y mazorcas de maíz de varios tonos. El Perú tiene una gran variedad de papas y de maíces, y se discute si deben cultivarse alimentos transgénicos. En este tema aprenderemos a entender qué son y a evaluarlos con evidencia.",
+          "recursoRef": "mercado"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: un gen que pasa de una especie a otra",
+          "narracion": "Un gen es la parte del material hereditario que lleva una característica. Un científico toma de una bacteria un gen que produce una sustancia dañina para ciertas orugas. Si ese gen se coloca en una planta de maíz, ¿cómo llamaríamos a ese maíz? Piénsalo antes de seguir."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: un maíz transgénico",
+          "narracion": "En el esquema, la bacteria tiene un gen marcado en amarillo. Ese gen pasa al maíz, que no lo tenía. Como el gen viene de otra especie, el maíz resultante es un transgénico. Con ese gen nuevo, el maíz puede defenderse de una plaga de orugas.",
+          "recursoRef": "gen"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: evaluar un argumento a favor",
+          "narracion": "Mira la hoja de maíz con un hueco en el borde y una oruga encima. Una plaga como esta puede arruinar buena parte de la cosecha. Un agricultor afirma que el maíz transgénico resiste plagas y necesita menos insecticida. ¿Cómo podemos saber si es cierto? Piénsalo antes de seguir.",
+          "recursoRef": "maiz"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: evidencia y opinión",
+          "narracion": "Para evaluar la afirmación buscamos evidencia: estudios que midan cuánto insecticida se usa en campos con ese maíz y sin él. Un estudio es evidencia; un comentario como «mi abuela dice que sabe raro» es solo una opinión. Un argumento a favor es que algunos cultivos resisten plagas. Una preocupación es que puedan afectar las variedades nativas del Perú, y eso también se debe estudiar.",
+          "recursoRef": "maiz"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: confundir cruce y transgénico",
+          "narracion": "Se confunde el transgénico con mejorar plantas por cruce. Observa los dos recuadros: en el cruce se unen dos variedades de la misma especie, como dos papas, y la planta nueva mezcla lo que ya tenían. En el transgénico se agrega un gen de otra especie. Tampoco todos los transgénicos son iguales: cada uno lleva un gen distinto y se evalúa por separado.",
+          "recursoRef": "cruce"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: entiende de qué se trata",
+          "narracion": "Primero entiende de qué se trata: un transgénico es un ser vivo con un gen de otra especie. Averigua qué gen tiene y para qué sirve."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca y ordena la información",
+          "narracion": "Después busca información en fuentes confiables, como estudios y organismos científicos, y haz una lista de argumentos a favor y en contra."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: distingue evidencia de opinión",
+          "narracion": "Por último distingue la evidencia de la opinión, elige tu postura y defiéndela con razones. Una postura equilibrada pide evaluaciones independientes, caso por caso, y protege las variedades nativas."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "mercado",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/transgenicos-mercado-zimage-v1.webp",
+          "alt": "Una mesa de madera con cuatro canastas de papas de colores, morado, rojo, vino y amarillo, y dos mazorcas de maíz de colores.",
+          "descripcion": "Una mesa de madera con cuatro canastas tejidas llenas de papas de colores: morado, rojo, vino y amarillo. A la derecha hay dos mazorcas de maíz, una azul oscuro y otra roja."
+        },
+        {
+          "id": "gen",
+          "src": "/nudito/diagramas/ciencia-tecnologia/transgenicos-gen-pasa.svg",
+          "alt": "Una bacteria con un gen amarillo y una flecha que lleva el gen hasta una planta de maíz.",
+          "descripcion": "A la izquierda, una bacteria ovalada con una hebra ondulada y un recuadro amarillo. Una flecha azul oscuro sale hacia la derecha, con el rótulo gen encima, y llega a una planta de maíz verde con una espiga amarilla."
+        },
+        {
+          "id": "maiz",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/transgenicos-maiz-zimage-v1.webp",
+          "alt": "Una oruga verde sobre una hoja de maíz con un hueco irregular en el borde, en un campo de maíz.",
+          "descripcion": "Una oruga verde de cabeza redonda y cuerpo en segmentos avanza sobre una hoja de maíz que tiene un hueco irregular en el borde. Detrás se ve un campo de maíz desenfocado bajo un cielo azul."
+        },
+        {
+          "id": "cruce",
+          "src": "/nudito/diagramas/ciencia-tecnologia/transgenicos-cruce-vs-gen.svg",
+          "alt": "Dos recuadros: cruce de dos papas de la misma especie y transgénico, donde un gen de otra especie pasa a una planta.",
+          "descripcion": "Recuadro Cruce: dos óvalos, uno morado y otro amarillo, con flechas hacia un óvalo mitad morado y mitad amarillo; abajo, misma especie. Recuadro Transgénico: un óvalo celeste con un gen amarillo y un óvalo verde, con flechas hacia un óvalo verde con ese gen; abajo, otra especie."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una compañera recibe un mensaje reenviado que dice «este maíz transgénico es peligroso», sin autor ni fuentes. ¿Qué debe hacer primero para evaluarlo?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Buscar datos en fuentes confiables"
+          },
+          {
+            "id": "b",
+            "texto": "Compartirlo con todos sus compañeros"
+          },
+          {
+            "id": "c",
+            "texto": "Creerlo porque muchos lo comparten"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Para evaluar una afirmación hay que buscar evidencia en fuentes confiables, y no basta con que muchas personas la repitan.",
+        "pista": "Piensa de dónde sale la evidencia y no solo cuántas personas repiten algo."
+      }
+    }
   },
   {
     "clave": "cyt.p6.mineria-y-ambiente",

@@ -645,6 +645,96 @@
         "retroalimentacion": "Usaste textura; no podrían estar juntas si el criterio fuera color."
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Una característica para cada grupo",
+          "narracion": "Hoy aprenderemos a clasificar objetos. Como idea principal de este tema, recuerda lo siguiente: clasificar es reunir objetos que comparten una característica. Esa característica se llama criterio. Podemos elegir el color, la forma, el tamaño o la textura, pero debemos usar el mismo criterio para todos los objetos."
+        },
+        {
+          "id": "situacion-formas",
+          "tipo": "recurso",
+          "titulo": "Dos grupos por su forma",
+          "narracion": "Observemos esta mesa. A la izquierda hay tres botones amarillos redondos. A la derecha hay tres botones amarillos cuadrados. Todos tienen el mismo color, pero sus formas son diferentes. Si elegimos la forma como criterio, reunimos los redondos en un grupo y los cuadrados en otro.",
+          "recursoRef": "botones-formas"
+        },
+        {
+          "id": "ejemplo-forma-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: clasifica por la forma",
+          "narracion": "Imagina que recibes los seis botones mezclados. Primero eliges el criterio forma. Después miras el borde de cada botón. Los que tienen forma de círculo van juntos, aunque estén en lugares distintos al comenzar.",
+          "recursoRef": "botones-formas"
+        },
+        {
+          "id": "ejemplo-forma-explica",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: explica tus grupos",
+          "narracion": "Al terminar puedes explicar: formé un grupo de tres botones redondos y otro de tres botones cuadrados. No los agrupé por color, porque todos son amarillos. La explicación nombra el criterio que usaste.",
+          "recursoRef": "botones-formas"
+        },
+        {
+          "id": "ejemplo-color-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: clasifica por el color",
+          "narracion": "Ahora miremos seis tapas circulares. Tres son verdes y están a la izquierda. Las otras tres son naranjas y están a la derecha. Como todas tienen la misma forma, elegimos el color para formar los grupos.",
+          "recursoRef": "tapas-colores"
+        },
+        {
+          "id": "ejemplo-color-explica",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el criterio cambia el resultado",
+          "narracion": "Con el criterio color se forma un grupo de tres tapas verdes y otro de tres tapas naranjas. Si el criterio fuera forma, las seis quedarían juntas porque todas son circulares. Por eso debemos decir qué característica elegimos.",
+          "recursoRef": "tapas-colores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: elige una característica",
+          "narracion": "Primero decide qué vas a observar. Puede ser el color, la forma, el tamaño o la textura. Elige solo una característica para comenzar."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: compara todos los objetos",
+          "narracion": "Después mira esa misma característica en cada objeto. Si elegiste color, no cambies a tamaño a mitad del trabajo. Coloca juntos los objetos que comparten el criterio.",
+          "recursoRef": "tapas-colores"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: explica cómo agrupaste",
+          "narracion": "Por último, nombra el criterio y describe los grupos. Puedes decir: clasifiqué por color; las verdes van juntas y las naranjas van juntas. Así otra persona puede comprender tu decisión."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "botones-formas",
+          "src": "/nudito/ilustraciones/clasificar-objetos/botones-formas-gemini-v1.webp",
+          "alt": "Tres botones amarillos redondos separados de tres botones amarillos cuadrados.",
+          "descripcion": "Sobre una mesa clara hay dos grupos. A la izquierda se ven tres botones redondos y a la derecha tres botones cuadrados; los seis son amarillos y del mismo tamaño."
+        },
+        {
+          "id": "tapas-colores",
+          "src": "/nudito/diagramas/ciencia-tecnologia/clasificar-tapas-por-color.svg",
+          "alt": "Tres tapas verdes agrupadas a la izquierda y tres tapas naranjas agrupadas a la derecha.",
+          "descripcion": "El diagrama muestra seis tapas circulares del mismo tamaño. Tres verdes forman el grupo izquierdo y tres naranjas forman el grupo derecho."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lucía reúne una pelota roja y un cubo rojo, aunque tienen formas diferentes. ¿Qué criterio usó para formar ese grupo?",
+        "opciones": [
+          { "id": "a", "texto": "El color" },
+          { "id": "b", "texto": "La forma" },
+          { "id": "c", "texto": "El tamaño" }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Los dos objetos son rojos. Lucía usó el color como criterio, aunque sus formas sean diferentes.",
+        "pista": "Busca la característica que comparten la pelota y el cubo."
+      }
+    },
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",

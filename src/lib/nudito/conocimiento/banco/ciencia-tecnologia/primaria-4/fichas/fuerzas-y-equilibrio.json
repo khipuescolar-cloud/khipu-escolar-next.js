@@ -1523,6 +1523,118 @@
         "respuesta": "La soga se mueve hacia la izquierda."
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Cuando las fuerzas se compensan",
+          "narracion": "Bienvenido a esta clase sobre fuerzas y equilibrio. Primero conocerás la idea principal, luego analizarás dos juegos escolares y al final responderás una pregunta. Como idea principal de este tema, sobre un objeto casi siempre actúan varias fuerzas. Si dos fuerzas son iguales y van en sentidos opuestos, se compensan y el objeto sigue en reposo, es decir, en equilibrio. Si una fuerza es mayor que la otra, el objeto se mueve hacia el lado de la fuerza mayor."
+        },
+        {
+          "id": "situacion-carrito",
+          "tipo": "recurso",
+          "titulo": "Dos niños y un carrito",
+          "narracion": "Observemos esta situación en una escuela. Un niño y una niña empujan un carrito de madera, cada uno desde un lado distinto: él empuja hacia la derecha y ella hacia la izquierda. Los dos hacen el mismo esfuerzo. Pensemos en esta pregunta: ¿hacia dónde se moverá el carrito?",
+          "recursoRef": "carrito-ninos"
+        },
+        {
+          "id": "ejemplo-1-compara",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: compara las dos fuerzas",
+          "narracion": "Ubiquemos las fuerzas. El niño empuja hacia la derecha y la niña hacia la izquierda: son fuerzas en sentidos opuestos. Como los dos hacen el mismo esfuerzo, las fuerzas son iguales. Cuando dos fuerzas son iguales y opuestas, se compensan, así que el carrito no se mueve: está en equilibrio.",
+          "recursoRef": "carrito-ninos"
+        },
+        {
+          "id": "ejemplo-1-uno-suelta",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: si uno deja de empujar",
+          "narracion": "Imaginemos que la niña se cansa y deja de empujar. Entonces solo queda el empuje del niño hacia la derecha y ya no hay nada que lo compense. El carrito se moverá hacia la derecha."
+        },
+        {
+          "id": "ejemplo-2-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: observa un tira y afloja",
+          "narracion": "Ahora observemos esta situación. En un tira y afloja, dos niños jalan la soga hacia la izquierda y un solo niño jala hacia la derecha. Todos jalan con la misma fuerza. Pensemos en esta pregunta: ¿hacia qué lado se moverá la soga?",
+          "recursoRef": "tira-afloja"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: razona con fuerzas distintas",
+          "narracion": "Sumemos las fuerzas de cada lado. A la izquierda se suman dos fuerzas iguales y a la derecha hay una sola. Las fuerzas son opuestas pero no iguales, así que no se compensan. La soga se mueve hacia la izquierda, que es el lado de la fuerza mayor.",
+          "recursoRef": "tira-afloja"
+        },
+        {
+          "id": "error-frecuente",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: «si está quieto, no hay fuerzas»",
+          "narracion": "Un libro sobre una mesa no se mueve, y algunas personas piensan que entonces no actúan fuerzas sobre él. Pero sí actúan: el peso lo jala hacia abajo y la mesa lo empuja hacia arriba con la misma fuerza. Las dos se compensan, y por eso el libro está en reposo."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: identifica las fuerzas",
+          "narracion": "Ahora aprenderemos una forma de razonar en tres pasos. Este esquema muestra bloques con flechas: cada flecha es una fuerza y apunta hacia donde empuja o jala. Primero, identifica qué fuerzas actúan sobre el objeto y hacia dónde apunta cada una.",
+          "recursoRef": "esquema-fuerzas"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: compara las fuerzas opuestas",
+          "narracion": "Después, compara el tamaño de las fuerzas que van en sentidos opuestos. En el esquema, arriba las dos flechas tienen el mismo largo, y abajo una flecha es más larga que la otra.",
+          "recursoRef": "esquema-fuerzas"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: decide si hay equilibrio",
+          "narracion": "Por último, decide. Si las fuerzas opuestas son iguales, se compensan: hay equilibrio y el objeto sigue en reposo. Si una es mayor, el objeto se mueve hacia el lado de la fuerza mayor.",
+          "recursoRef": "esquema-fuerzas"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "carrito-ninos",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-4/equilibrio-carrito-ninos-zimage-v1.webp",
+          "alt": "Un niño y una niña con uniforme empujan, desde lados opuestos, un carrito de madera ubicado entre los dos.",
+          "descripcion": "Un niño a la izquierda y una niña a la derecha, con uniforme escolar, agarran los bordes opuestos de un carrito de madera con cuatro ruedas. Los dos se inclinan hacia el carrito con los brazos estirados, como si empujaran, y sonríen."
+        },
+        {
+          "id": "tira-afloja",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-4/equilibrio-tira-afloja-zimage-v1.webp",
+          "alt": "Dos niños jalan una soga hacia la izquierda y un niño jala hacia la derecha; una cinta roja marca el centro.",
+          "descripcion": "En un patio, dos niños están parados a la izquierda y sujetan una soga con las dos manos. Un tercer niño, a la derecha, sujeta el otro extremo. La soga tiene una cinta roja en el centro, y los tres jalan hacia sus lados."
+        },
+        {
+          "id": "esquema-fuerzas",
+          "src": "/nudito/diagramas/ciencia-tecnologia/equilibrio-fuerzas.svg",
+          "alt": "Un bloque con dos flechas largas iguales hacia lados opuestos y otro bloque con una flecha larga a la izquierda y una corta a la derecha.",
+          "descripcion": "En la parte de arriba, un bloque verde tiene una flecha hacia la izquierda y otra hacia la derecha, del mismo largo; debajo se lee «se compensan: sigue quieto». En la parte de abajo, un bloque amarillo tiene una flecha larga hacia la izquierda y una corta hacia la derecha; debajo se lee «se mueve hacia la fuerza mayor»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un carrito de mercado sobre ruedas es jalado hacia la derecha por Rita con una fuerza grande y hacia la izquierda por su hermano con una fuerza menor. ¿Qué ocurre con el carrito?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Se queda quieto porque sobre él actúan dos fuerzas opuestas."
+          },
+          {
+            "id": "b",
+            "texto": "Se mueve hacia la derecha porque la fuerza de Rita es mayor."
+          },
+          {
+            "id": "c",
+            "texto": "Se mueve hacia la izquierda porque su hermano jala en ese sentido."
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Las dos fuerzas son opuestas, pero la de Rita es mayor, así que no se compensan. El carrito se mueve hacia el lado de la fuerza mayor: la derecha.",
+        "pista": "Compara el tamaño de las dos fuerzas. Para que haya equilibrio, tendrían que ser iguales."
+      }
+    },
     "erroresFrecuentes": [
       {
         "error": "Pensar que si un objeto está quieto no hay fuerzas sobre él.",

@@ -1759,7 +1759,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Del intestino a la sangre",
+          "narracion": "Hola. Hoy veremos cómo el cuerpo aprovecha los alimentos. Como idea principal, los nutrientes pasan a la sangre a través de la pared del intestino delgado, que tiene vellosidades para absorber más. Luego la sangre los reparte a todo el cuerpo."
+        },
+        {
+          "id": "situacion-desayuno",
+          "tipo": "recurso",
+          "titulo": "Comida de la mañana",
+          "narracion": "Observemos esta situación. En la imagen hay una mesa con un tazón de quinua con leche, un pan y un plátano. Es un desayuno. Después de comerlo, el cuerpo lo transforma en nutrientes muy pequeños. Nos preguntamos: ¿cómo llegarán esos nutrientes hasta las piernas de quien corre más tarde?",
+          "recursoRef": "desayuno"
+        },
+        {
+          "id": "ejemplo-1-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la pared del intestino",
+          "narracion": "Observemos este esquema. Arriba, dentro del intestino delgado, hay puntos amarillos: son los nutrientes. Abajo, la pared tiene muchos pliegues pequeños, como dedos. Del otro lado de la pared hay un tubo rojo. Nos preguntamos: ¿cómo se llaman esos pliegues y qué hacen con los nutrientes?",
+          "recursoRef": "pared-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: pliegues que absorben",
+          "narracion": "Esos pliegues son las vellosidades. Hacen más grande la superficie de la pared, y así pasan más nutrientes. Ahora arriba queda solo un punto amarillo. Algunos puntos están dentro de los pliegues y otros dentro del tubo rojo, que lleva sangre. Los que faltan arriba atravesaron la pared y pasaron a la sangre. Ese paso se llama absorción.",
+          "recursoRef": "pared-solucion"
+        },
+        {
+          "id": "ejemplo-2-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el camino completo",
+          "narracion": "Ahora miremos el recorrido completo. Esta columna tiene cuatro cuadros. Primero está el desayuno, luego el intestino delgado, después un cuadro con un signo de pregunta y al final los músculos de las piernas. Nos preguntamos: ¿qué va en el cuadro de pregunta?",
+          "recursoRef": "recorrido-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la sangre reparte",
+          "narracion": "En ese cuadro va la sangre. Los nutrientes pasan a la sangre en el intestino delgado, y la sangre los lleva hasta los músculos. Los músculos usan esos nutrientes para tener energía y poder correr.",
+          "recursoRef": "recorrido-solucion"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: un atajo que no existe",
+          "narracion": "Hay quien cree que los nutrientes salen del estómago y van directo a los músculos. No es así. Primero pasan a la sangre en el intestino delgado. Además, la pared del intestino no es lisa: tiene vellosidades."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: ubica el intestino delgado",
+          "narracion": "Primero ubica dónde terminó la digestión. La comida ya se transformó en nutrientes muy pequeños, y están en el intestino delgado."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: de la pared a la sangre",
+          "narracion": "Luego sigue el paso a la sangre. Las vellosidades de la pared hacen más grande la superficie, y los nutrientes atraviesan la pared y pasan a la sangre."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: sigue a la sangre",
+          "narracion": "Por último, sigue el viaje de la sangre. Ella lleva los nutrientes a todas las partes del cuerpo, como los músculos y el cerebro. Comprueba la secuencia: intestino delgado, sangre y partes del cuerpo."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "desayuno",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-4/absorcion-desayuno-mesa-zimage-v1.webp",
+          "alt": "Una mesa de madera con un tazón celeste de quinua con leche que echa vapor, un pan y un plátano.",
+          "descripcion": "Sobre una mesa de madera clara hay un tazón celeste con quinua y leche, del que sale vapor. A la izquierda hay una rebanada de pan y una cuchara blanca. A la derecha hay un plátano amarillo."
+        },
+        {
+          "id": "pared-pregunta",
+          "src": "/nudito/diagramas/ciencia-tecnologia/absorcion-pared-pregunta.svg",
+          "alt": "Esquema de la pared del intestino delgado con pliegues como dedos; arriba hay puntos amarillos y abajo, un tubo rojo.",
+          "descripcion": "Una caja clara dice dentro del intestino delgado y tiene seis puntos amarillos. Debajo, la pared color piel forma nueve pliegues como dedos. Más abajo hay un tubo rojo vacío, con la frase tubo del otro lado de la pared."
+        },
+        {
+          "id": "pared-solucion",
+          "src": "/nudito/diagramas/ciencia-tecnologia/absorcion-pared-solucion.svg",
+          "alt": "Esquema de la pared del intestino delgado: queda un punto amarillo arriba y otros están dentro de los pliegues y del tubo rojo.",
+          "descripcion": "Una caja clara dice dentro del intestino delgado y tiene un solo punto amarillo. Debajo, la pared forma nueve pliegues como dedos; dos de ellos tienen un punto amarillo. El tubo rojo de abajo tiene tres puntos amarillos. Al pie dice que son nutrientes."
+        },
+        {
+          "id": "recorrido-pregunta",
+          "src": "/nudito/diagramas/ciencia-tecnologia/absorcion-recorrido-pregunta.svg",
+          "alt": "Cuatro cuadros en columna con flechas: desayuno, intestino delgado, un cuadro con signo de pregunta y músculos de las piernas.",
+          "descripcion": "Cuatro cuadros blancos en una columna, unidos por flechas hacia abajo. De arriba abajo dicen desayuno, intestino delgado, un signo de pregunta y músculos de las piernas."
+        },
+        {
+          "id": "recorrido-solucion",
+          "src": "/nudito/diagramas/ciencia-tecnologia/absorcion-recorrido-solucion.svg",
+          "alt": "Cuatro cuadros en columna con flechas: desayuno, intestino delgado, sangre y músculos de las piernas.",
+          "descripcion": "Cuatro cuadros en una columna, unidos por flechas hacia abajo. De arriba abajo dicen desayuno, intestino delgado, sangre, en un cuadro amarillo, y músculos de las piernas."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Después del almuerzo, los nutrientes de las lentejas ya están muy pequeños dentro del intestino delgado. ¿Qué ocurre después con ellos?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Salen por la boca"
+          },
+          {
+            "id": "b",
+            "texto": "Vuelven al estómago"
+          },
+          {
+            "id": "c",
+            "texto": "Pasan a la sangre"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Pasan a la sangre a través de la pared del intestino delgado, y la sangre los reparte por el cuerpo.",
+        "pista": "Piensa por dónde viajan los nutrientes hasta llegar a los músculos."
+      }
+    }
   },
   {
     "clave": "cyt.p4.intestino-grueso",

@@ -627,7 +627,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Cada golpe de voz es una sílaba",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a contar sílabas. Como idea principal, una sílaba es cada golpe de voz que oyes al decir una palabra. Puedes dar una palmada por cada golpe y después contar las palmadas."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Palmadas en círculo",
+          "narracion": "Observemos esta escena: cuatro niños forman un círculo y dan palmadas, sonrientes. Con las palmadas sentimos el ritmo de las palabras. Cada palmada marca un golpe de voz.",
+          "recursoRef": "palmadas"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la casa",
+          "narracion": "Observemos este dibujo: es una casa. Di la palabra «casa» despacio. La pregunta es cuántas sílabas tiene.",
+          "recursoRef": "casa"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: palmada por golpe",
+          "narracion": "Digo «casa» despacio: «ca», «sa». Oigo dos golpes de voz. Doy una palmada con «ca» y otra con «sa». Son dos palmadas, así que «casa» tiene dos sílabas."
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el zapato",
+          "narracion": "Ahora lee la palabra de la tarjeta: «zapato». La pregunta amarilla quiere saber cuántas sílabas tiene.",
+          "recursoRef": "zapato-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: separa y cuenta",
+          "narracion": "Observemos cómo se separa «zapato»: «za», «pa», «to». Cada recuadro es un golpe de voz y debajo hay un círculo amarillo, que es una palmada. Hay tres recuadros y tres palmadas, así que «zapato» tiene tres sílabas.",
+          "recursoRef": "zapato-palmadas"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: una sílaba por letra",
+          "narracion": "En la tarjeta, arriba, se lee la palabra «sapo». Alguien cree que hay una sílaba por cada letra. Abajo se corrige: se cuentan golpes de voz, no letras.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: di la palabra",
+          "narracion": "Primero, di la palabra despacio, sin apuro."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: una palmada por golpe",
+          "narracion": "Segundo, da una palmada por cada golpe de voz."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: cuenta y comprueba",
+          "narracion": "Tercero, cuenta las palmadas y repite la palabra para comprobar."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "palmadas",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-1/silabas-palmadas-zimage-v1.webp",
+          "alt": "Cuatro niños en círculo dan palmadas y sonríen.",
+          "descripcion": "Cuatro niños con uniforme escolar forman un círculo en un salón amplio. Todos tienen las manos juntas, como si estuvieran dando palmadas, y dos de ellos sonríen de frente."
+        },
+        {
+          "id": "casa",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-1/silabas-casa-zimage-v1.webp",
+          "alt": "Una casa de paredes claras, techo rojo, una puerta y dos ventanas, con un árbol al lado.",
+          "descripcion": "Una casa sencilla de paredes crema y techo rojo. Tiene una puerta marrón en el centro y una ventana a cada lado. A la derecha hay un árbol de copa verde y tronco marrón. El fondo es blanco."
+        },
+        {
+          "id": "zapato-pregunta",
+          "src": "/nudito/diagramas/comunicacion/silabas-zapato-pregunta.svg",
+          "alt": "Tarjeta con la palabra zapato y la pregunta cuántas sílabas tiene.",
+          "descripcion": "Un recuadro blanco con la palabra zapato en letras grandes. Debajo, una tarjeta amarilla pregunta: ¿Cuántas sílabas tiene?"
+        },
+        {
+          "id": "zapato-palmadas",
+          "src": "/nudito/diagramas/comunicacion/silabas-zapato-palmadas.svg",
+          "alt": "La palabra zapato separada en tres recuadros, cada uno con un círculo amarillo debajo.",
+          "descripcion": "Tres recuadros blancos con las sílabas za, pa y to. Debajo de cada recuadro hay un círculo amarillo con tres rayitas, que representa una palmada. Abajo, una tarjeta dice: Tres golpes, tres palmadas."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/comunicacion/silabas-error.svg",
+          "alt": "La palabra sapo, una respuesta roja con cruz y otra verde con palomita.",
+          "descripcion": "Un recuadro blanco con la palabra Sapo. Debajo, una tarjeta roja con cruz dice: Sapo tiene cuatro sílabas porque tiene cuatro letras. Luego, una tarjeta verde con palomita dice: No. Se dice sa-po: dos golpes de voz, dos sílabas."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "¿Cuántas sílabas tiene «conejo»? Dilo despacio y da una palmada por cada golpe de voz.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "dos"
+          },
+          {
+            "id": "b",
+            "texto": "tres"
+          },
+          {
+            "id": "c",
+            "texto": "cuatro"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "«Conejo» se dice «co», «ne», «jo»: tres golpes de voz, tres sílabas.",
+        "pista": "Separa la palabra en golpes de voz y cuenta los grupos."
+      }
+    }
   },
   {
     "clave": "com.p1.palabras-que-riman",

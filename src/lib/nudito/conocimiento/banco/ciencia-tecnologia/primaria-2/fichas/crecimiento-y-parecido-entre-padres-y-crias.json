@@ -328,7 +328,120 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Las crías se parecen a sus padres",
+          "narracion": "Hola. Hoy compararemos a las crías con sus padres. Como idea principal, una cría se parece a su mamá o a su papá en algunas partes del cuerpo, como el color o la forma, pero también tiene diferencias, como el tamaño. Al crecer, la cría se va pareciendo más al adulto."
+        },
+        {
+          "id": "situacion-llamas",
+          "tipo": "recurso",
+          "titulo": "Una llama y su cría en el pastizal",
+          "narracion": "Observemos esta situación. En un pastizal alto de los Andes, una llama adulta y su cría están una al lado de la otra. Vamos a mirarlas con calma para comparar cómo son.",
+          "recursoRef": "llamas"
+        },
+        {
+          "id": "ejemplo-llama-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una llama y su cría",
+          "narracion": "Mira primero el cuello, las patas y la lana de las dos llamas, y luego su tamaño. Nos preguntamos: ¿qué partes se ven iguales y qué es diferente?",
+          "recursoRef": "llamas"
+        },
+        {
+          "id": "ejemplo-llama-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: iguales y diferentes",
+          "narracion": "Las dos tienen cuello largo, cuatro patas y lana. La cría es más pequeña. Entonces se parecen en el cuello, las patas y la lana, y se diferencian en el tamaño.",
+          "recursoRef": "llamas"
+        },
+        {
+          "id": "ejemplo-perros-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una perra y su cachorro",
+          "narracion": "Una perra marrón tuvo un cachorro. En la imagen se ven los dos sentados juntos: el cachorro también tiene pelo marrón, aunque un poco más claro, y tiene el pecho y las patitas blancos. Vamos a comparar el color.",
+          "recursoRef": "perros"
+        },
+        {
+          "id": "ejemplo-perros-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el color se repite, pero no todo",
+          "narracion": "Los dos tienen pelo marrón, aunque el del cachorro es un tono más claro: ese parecido viene de ser hijo de esa perra. El pecho y las patitas blancos son una diferencia, porque su mamá no los tiene. Así que se parecen en el pelo marrón, pero el cachorro no tiene las mismas manchas.",
+          "recursoRef": "perros"
+        },
+        {
+          "id": "error-identica",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: creer que la cría es idéntica a su mamá o a su papá",
+          "narracion": "Algunas personas piensan que una cría debe ser una copia exacta de sus padres. No es así. Se parecen en varias cosas, pero también tienen diferencias, como el tamaño o las manchas. Por eso el cachorro de la imagen sigue siendo hijo de su mamá, aunque tenga manchas distintas.",
+          "recursoRef": "perros"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira a la cría y al adulto",
+          "narracion": "Primero observa con atención a la cría y a su mamá o a su papá, sin apurarte. Mira de arriba abajo: la cabeza, el cuerpo, las patas y la cola."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca lo que se parece",
+          "narracion": "Después busca partes que se vean iguales: el color, la forma, las patas, las orejas o las plumas. En la ilustración, a la izquierda, dos círculos iguales muestran lo que se parece.",
+          "recursoRef": "comparar"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: anota lo distinto y concluye",
+          "narracion": "Por último, anota también lo que es distinto, como el tamaño, y concluye con una frase: «Se parecen en esto, pero se diferencian en aquello». En la ilustración, a la derecha, un círculo grande y uno pequeño muestran lo que es distinto.",
+          "recursoRef": "comparar"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "llamas",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-2/llama-cria-pastizal-zimage-v1.webp",
+          "alt": "Una llama adulta y su cría de pie sobre el pastizal, con montañas nevadas al fondo.",
+          "descripcion": "Sobre un pastizal verde hay una llama adulta alta y, a su izquierda, una cría pequeña. Las dos tienen cuello largo, cuatro patas y lana color crema con algunas manchas marrones. Atrás se ven montañas con nieve."
+        },
+        {
+          "id": "perros",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-2/perra-cachorro-marron-zimage-v1.webp",
+          "alt": "Una perra de pelo marrón oscuro y su cachorro, de pelo marrón más claro con pecho y patitas blancos, sentados juntos.",
+          "descripcion": "Sobre un suelo de tierra están sentados una perra grande de pelo marrón y, a su izquierda, su cachorro pequeño. El cachorro también tiene pelo marrón, un tono más claro, y tiene blancos el pecho y las patitas."
+        },
+        {
+          "id": "comparar",
+          "src": "/nudito/diagramas/ciencia-tecnologia/comparar-cria-adulto.svg",
+          "alt": "Dos columnas: dos círculos iguales muestran lo que se parece; un círculo grande y uno pequeño muestran lo que es distinto.",
+          "descripcion": "Dos columnas. En la izquierda, titulada se parece, hay dos círculos marrones del mismo tamaño y la frase el mismo color, la misma forma. En la derecha, titulada es distinto, hay un círculo marrón grande y uno pequeño y la frase el tamaño no es igual."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lola ve una gallina y su pollito. Los dos tienen pico y dos patas, y su cuerpo está cubierto de plumón o plumas, pero el pollito es más pequeño. ¿Qué dice Lola?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Se parecen en el pico y las patas, y se diferencian en el tamaño del cuerpo."
+          },
+          {
+            "id": "b",
+            "texto": "Son iguales en todo: no hay ninguna diferencia entre la gallina y el pollito."
+          },
+          {
+            "id": "c",
+            "texto": "No se parecen en nada, porque el pollito es mucho más pequeño que la gallina."
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Se parecen en varias partes, como el pico y las patas, y se diferencian en el tamaño.",
+        "pista": "Busca primero lo que tienen igual y después lo que es distinto."
+      }
+    }
   },
   {
     "clave": "cyt.p2.del-huevo-al-pollito",

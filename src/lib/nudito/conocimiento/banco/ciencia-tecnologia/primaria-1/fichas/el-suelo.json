@@ -359,7 +359,114 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "En el suelo encontramos elementos diferentes",
+          "narracion": "Bienvenida y bienvenido. Hoy observaremos qué puede haber en el suelo. Como idea principal, recuerda que allí encontramos materiales no vivos, como tierra, arena y piedras, pero también seres vivos, como lombrices y hormigas, y partes de plantas vivas, como las raíces. Estar bajo tierra no convierte todo en un ser vivo."
+        },
+        {
+          "id": "situacion-observacion",
+          "tipo": "recurso",
+          "titulo": "Una observación cuidadosa del jardín",
+          "narracion": "Observemos esta situación. Eva mira una pequeña zona de suelo con una lupa sin tocar a los animales. Se distinguen tierra oscura, piedritas, una lombriz y raíces unidas a una planta. Cada hallazgo pertenece a un grupo diferente y debemos describirlo antes de clasificarlo.",
+          "recursoRef": "observacion-suelo"
+        },
+        {
+          "id": "ejemplo-gusano-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una piedra y una lombriz",
+          "narracion": "Eva encuentra una piedra pequeña y una lombriz. La piedra es dura, no se alimenta ni crece como un organismo; es un elemento no vivo. La lombriz es un animal: necesita alimento, responde al ambiente y forma parte de los seres vivos.",
+          "recursoRef": "observacion-suelo"
+        },
+        {
+          "id": "ejemplo-gusano-compara",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: no clasifiques solo por el lugar",
+          "narracion": "La piedra y la lombriz estaban juntas en el suelo, pero eso no significa que sean del mismo tipo. Para clasificar, observamos qué es cada hallazgo. El lugar donde aparece ofrece una pista, pero no decide si está vivo.",
+          "recursoRef": "observacion-suelo"
+        },
+        {
+          "id": "ejemplo-raices-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: raíces dentro de la tierra",
+          "narracion": "Veamos una maceta de habas. Debajo del tallo aparecen raíces claras rodeadas de tierra. Las raíces no son animales ni piedras: son partes de la planta viva. Ayudan a sujetarla y absorben agua y minerales del suelo.",
+          "recursoRef": "raices"
+        },
+        {
+          "id": "ejemplo-raices-distingue",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: distingue raíz y tierra",
+          "narracion": "Aunque la tierra queda pegada a las raíces, siguen siendo elementos diferentes. La raíz pertenece a la planta; la tierra es material no vivo. Podemos separar mentalmente lo que forma parte del ser vivo de lo que lo rodea.",
+          "recursoRef": "raices"
+        },
+        {
+          "id": "ejemplo-raices-cuida",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: observa sin dañar",
+          "narracion": "Para aprender no necesitamos arrancar plantas ni lastimar animales. Podemos mirar una raíz visible en una maceta preparada por una persona adulta y devolver con cuidado la tierra a su lugar. La observación científica también incluye respeto por los seres vivos.",
+          "recursoRef": "raices"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: observa y nombra cada hallazgo",
+          "narracion": "Primero mira una zona pequeña y nombra lo que ves: tierra, arena, piedra, animal o raíz. Evita tocar organismos que no conoces y pide acompañamiento a una persona adulta.",
+          "recursoRef": "observacion-suelo"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: pregunta qué es y a qué pertenece",
+          "narracion": "Después decide si es un material no vivo, un ser vivo o una parte de un ser vivo. Una lombriz es un animal; una raíz pertenece a una planta; una piedra no está viva.",
+          "recursoRef": "raices"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: clasifica y explica la diferencia",
+          "narracion": "Por último, coloca cada hallazgo en su grupo y explica por qué. No uses solamente «estaba en el suelo». Di qué observaste: «La lombriz es un animal vivo; la piedra es un elemento no vivo; la raíz es parte de una planta»."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "observacion-suelo",
+          "src": "/nudito/ilustraciones/el-suelo/observacion-jardin-gemini-v1.webp",
+          "alt": "Niña observa tierra, piedras, una lombriz y raíces en una pequeña zona del jardín.",
+          "descripcion": "Eva usa una lupa sobre una zona de suelo del jardín. Se ven tierra oscura, varias piedras pequeñas, una lombriz y raíces que continúan unidas a una planta."
+        },
+        {
+          "id": "raices",
+          "src": "/nudito/ilustraciones/el-suelo/raices-maceta-gemini-v1.webp",
+          "alt": "Maceta vista de lado con raíces unidas a una planta, tierra y una piedra.",
+          "descripcion": "Una maceta se muestra parcialmente abierta para observar raíces claras unidas al tallo de una planta de habas. Alrededor hay tierra y una piedra separada de las raíces."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En una maceta observas una lombriz, una piedra y raíces unidas a una planta. ¿Cuál clasificación es correcta?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La lombriz es un ser vivo, la piedra no está viva y las raíces son partes de la planta."
+          },
+          {
+            "id": "b",
+            "texto": "Todo está vivo porque se encuentra dentro del suelo."
+          },
+          {
+            "id": "c",
+            "texto": "La piedra es un animal y las raíces son tierra."
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "La lombriz es un animal vivo, la piedra es un elemento no vivo y las raíces pertenecen a una planta viva.",
+        "pista": "Clasifica cada hallazgo por lo que es, no solo por estar en el suelo."
+      }
+    }
   },
   {
     "clave": "cyt.p1.animales-del-suelo",

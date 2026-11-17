@@ -900,7 +900,133 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Área con unidades cuadradas",
+          "narracion": "Bienvenida y bienvenido. Hoy medimos el área contando cuadrados. Como idea principal, el área dice cuánto espacio cubre una superficie. Se mide con cuadrados iguales, sin huecos ni encimados. Para objetos pequeños usamos centímetros cuadrados y para superficies grandes, metros cuadrados. Dos mitades juntas forman un cuadrado entero."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una tarjeta con cuadritos",
+          "narracion": "Observemos esta situación. Una tarjeta está cubierta con cuadritos. Cada cuadrito amarillo entero mide un centímetro cuadrado. En la fila de abajo hay dos mitades turquesa. Abajo se pregunta cuántos centímetros cuadrados cubre la tarjeta.",
+          "recursoRef": "figura-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la tarjeta",
+          "narracion": "Primero cuenta los cuadritos enteros. Después junta las mitades. Piensa: dos mitades forman un cuadrito entero.",
+          "recursoRef": "figura-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: contar la tarjeta",
+          "narracion": "Hay seis cuadritos enteros, numerados del uno al seis. Las dos mitades juntas valen un cuadrito. Seis más uno es siete. La tarjeta tiene siete centímetros cuadrados.",
+          "recursoRef": "figura-contada"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el patio",
+          "narracion": "Ahora un patio cubierto con baldosas. Cada baldosa entera mide un metro cuadrado. Abajo hay dos medias baldosas turquesa. Piensa: ¿cuántos metros cuadrados mide el patio?",
+          "recursoRef": "patio-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: contar el patio",
+          "narracion": "Hay nueve baldosas enteras, numeradas del uno al nueve. Las dos medias baldosas juntas valen una. Nueve más uno es diez. El patio mide diez metros cuadrados.",
+          "recursoRef": "patio-contado"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Mira estos dos errores, marcados con equis roja. A la izquierda, dos mitades juntas se contaron como dos cuadritos, pero forman uno. A la derecha, cuatro cuadritos se escribieron con centímetros, pero el área se escribe con centímetros cuadrados.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: elige cuadrados iguales",
+          "narracion": "Primero identifica la superficie y elige cuadrados iguales, sin huecos ni encimados. Aquí todos los cuadritos son iguales.",
+          "recursoRef": "figura-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: cuenta y junta mitades",
+          "narracion": "Luego cuenta los cuadrados enteros. Después junta las mitades de dos en dos, porque dos mitades forman uno.",
+          "recursoRef": "figura-contada"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: escribe la unidad",
+          "narracion": "Por último, escribe el resultado con la unidad cuadrada. Para el patio, metros cuadrados.",
+          "recursoRef": "patio-contado"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "figura-pregunta",
+          "src": "/nudito/diagramas/matematica/area-unidades-cuadradas-figura-pregunta.svg",
+          "alt": "Figura de seis cuadritos enteros amarillos y dos mitades turquesa, con leyenda y la pregunta de cuántos centímetros cuadrados cubre.",
+          "descripcion": "Una figura de dos filas. Arriba hay cuatro cuadritos amarillos. Abajo hay dos amarillos y, a la derecha, dos mitades turquesa separadas; cada una ocupa la mitad de un cuadrito. Debajo está la leyenda: un cuadrito amarillo es un centímetro cuadrado y una mitad turquesa es la mitad de un cuadrito. Al final se pregunta cuántos centímetros cuadrados cubre."
+        },
+        {
+          "id": "figura-contada",
+          "src": "/nudito/diagramas/matematica/area-unidades-cuadradas-figura-contada.svg",
+          "alt": "La misma figura con los seis cuadritos numerados, las dos mitades unidas por un arco y la suma seis más uno igual siete centímetros cuadrados.",
+          "descripcion": "La misma figura. Los seis cuadritos amarillos están numerados del uno al seis. Las dos mitades turquesa llevan escrito un medio, y un arco marrón las une con las palabras juntas igual uno. Abajo se lee la suma: seis más uno igual siete centímetros cuadrados."
+        },
+        {
+          "id": "patio-pregunta",
+          "src": "/nudito/diagramas/matematica/area-unidades-cuadradas-patio-pregunta.svg",
+          "alt": "Patio de nueve baldosas enteras y dos medias baldosas, con leyenda y la pregunta de cuántos metros cuadrados mide.",
+          "descripcion": "Una figura de tres filas. Las dos primeras tienen cuatro baldosas amarillas cada una. En la tercera hay una baldosa amarilla y, a su derecha, dos medias baldosas turquesa separadas. Debajo está la leyenda: una baldosa amarilla es un metro cuadrado y una media baldosa es turquesa. Al final se pregunta cuántos metros cuadrados mide el patio."
+        },
+        {
+          "id": "patio-contado",
+          "src": "/nudito/diagramas/matematica/area-unidades-cuadradas-patio-contado.svg",
+          "alt": "El mismo patio con las nueve baldosas numeradas, las dos medias unidas por un arco y la suma nueve más uno igual diez metros cuadrados.",
+          "descripcion": "El mismo patio. Las nueve baldosas amarillas están numeradas del uno al nueve. Las dos medias baldosas turquesa llevan escrito un medio, y un arco marrón las une con las palabras juntas igual uno. Abajo se lee la suma: nueve más uno igual diez metros cuadrados."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/area-unidades-cuadradas-errores.svg",
+          "alt": "Dos mitades contadas como dos cuadritos, con equis roja, y como uno, con palomita; cuatro cuadritos escritos con centímetros y con centímetros cuadrados.",
+          "descripcion": "A la izquierda hay dos mitades turquesa, separadas. Debajo, en rojo y con una equis, dos cuadritos; más abajo, con una palomita verde, un cuadrito. A la derecha hay cuatro cuadritos amarillos en dos filas de dos. Debajo, en rojo y con una equis, cuatro centímetros; más abajo, con una palomita verde, cuatro centímetros cuadrados."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una tarjeta está cubierta por doce cuadritos enteros y cuatro medios cuadritos, todos de un centímetro cuadrado. ¿Cuál es su área?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Catorce centímetros cuadrados"
+          },
+          {
+            "id": "b",
+            "texto": "Dieciséis centímetros cuadrados"
+          },
+          {
+            "id": "c",
+            "texto": "Quince centímetros cuadrados"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Cuatro medios cuadritos forman dos enteros, y doce más dos son catorce centímetros cuadrados.",
+        "pista": "Primero junta los medios cuadritos de dos en dos y luego cuenta todos."
+      }
+    }
   },
   {
     "clave": "mat.p6.area-rectangulo-cuadrado",
@@ -1174,7 +1300,7 @@
           "Calcula 42÷6.",
           "Comprueba que 6×7=42."
         ],
-        "retroalimentacion": "Debe medir 7 m de largo; 42 m es la superficie expresada sin cuadrado."
+        "retroalimentacion": "Debe medir 7 m de largo, porque 6 × 7 = 42. El 42 es el área en metros cuadrados, no el largo."
       },
       {
         "id": "e12",
@@ -1198,7 +1324,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Contar cuadrados en una región",
+          "narracion": "Bienvenida y bienvenido. Hoy calcularemos el área de un rectángulo y de un cuadrado. Como idea principal, el área es base por altura. Cada fila tiene tantos cuadrados como la base, y hay tantas filas como la altura. En un cuadrado, la base y la altura son iguales: lado por lado. El resultado se escribe en unidades cuadradas."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "El piso del taller",
+          "narracion": "Observemos esta situación. Un taller tiene el piso en forma de rectángulo. Mide ocho metros de largo y cinco metros de ancho. Se quiere cubrir con baldosas de un metro cuadrado, como la que aparece abajo. ¿Cuántas baldosas hacen falta?",
+          "recursoRef": "taller-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: baldosa por baldosa",
+          "narracion": "Imagina las baldosas en filas. ¿Cuántas baldosas caben en una fila a lo largo del piso? ¿Cuántas filas hay a lo ancho? Piensa cómo usar esos dos datos para saber el total."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: filas de baldosas",
+          "narracion": "El piso se llena con cinco filas. En cada fila hay ocho baldosas. Para no contarlas una por una, multiplicamos: ocho por cinco son cuarenta. El área del piso es de cuarenta metros cuadrados. La baldosa amarilla es una de ellas.",
+          "recursoRef": "filas-baldosas"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un patio cuadrado",
+          "narracion": "Ahora hay un patio cuadrado de siete metros de lado. En un cuadrado, ¿cuánto miden la base y la altura? Piensa cómo se calcula el área."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: lado por lado",
+          "narracion": "En el cuadrado, la base y la altura son iguales: siete metros. Hay siete filas de siete baldosas. Multiplicamos siete por siete y obtenemos cuarenta y nueve. El área del patio es de cuarenta y nueve metros cuadrados.",
+          "recursoRef": "patio-cuadrado"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Primer error: sumar los lados. Ocho más cinco son trece, pero eso no cuenta cuadrados. El área se halla multiplicando. Segundo error: escribir cuarenta metros. Los metros miden longitud. Como son cuadrados de un metro de lado, se escribe cuarenta metros cuadrados.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mide base y altura",
+          "narracion": "Primero identifica la base y la altura. Las dos deben estar en la misma unidad."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: multiplica",
+          "narracion": "Multiplica la base por la altura. En un cuadrado, multiplica el lado por sí mismo."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: escribe la unidad",
+          "narracion": "Escribe el resultado con unidades cuadradas, como centímetros cuadrados o metros cuadrados. Esta tarjeta resume los pasos.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "taller-pregunta",
+          "src": "/nudito/diagramas/matematica/area-rectangulo-taller-pregunta.svg",
+          "alt": "Un piso rectangular de ocho metros de largo y cinco de ancho, y una baldosa que vale un metro cuadrado.",
+          "descripcion": "Un rectángulo turquesa con ocho metros rotulado abajo y cinco metros a la izquierda. Debajo, una baldosa amarilla y el texto: igual a baldosa de un metro cuadrado."
+        },
+        {
+          "id": "filas-baldosas",
+          "src": "/nudito/diagramas/matematica/area-rectangulo-filas-baldosas.svg",
+          "alt": "El piso cubierto por cinco filas de ocho baldosas, con la cuenta ocho por cinco igual a cuarenta metros cuadrados.",
+          "descripcion": "Una cuadrícula de ocho columnas y cinco filas; la baldosa de arriba a la izquierda es amarilla. Rótulos: ocho metros, cinco metros, ocho en cada fila y cinco filas. Abajo: ocho por cinco igual a cuarenta metros cuadrados."
+        },
+        {
+          "id": "patio-cuadrado",
+          "src": "/nudito/diagramas/matematica/area-rectangulo-patio-cuadrado.svg",
+          "alt": "Patio cuadrado cubierto por siete filas de siete baldosas, con siete por siete igual a cuarenta y nueve metros cuadrados.",
+          "descripcion": "Una cuadrícula cuadrada de siete columnas y siete filas; la baldosa de arriba a la izquierda es amarilla. Rótulos: siete metros abajo y siete metros a la izquierda. Abajo: siete por siete igual a cuarenta y nueve metros cuadrados."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/area-rectangulo-errores.svg",
+          "alt": "Dos errores: ocho más cinco tachado, y cuarenta metros tachado junto a cuarenta metros cuadrados.",
+          "descripcion": "Arriba, un recuadro: sumar los lados, ocho más cinco igual a trece, tachado en rojo, y el texto no cuenta cuadrados. Abajo, otro recuadro: escribir la unidad, cuarenta metros tachado en rojo, cuarenta metros cuadrados en turquesa y el texto son cuadrados de un metro."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/area-rectangulo-pasos.svg",
+          "alt": "Tarjeta con tres pasos: mide base y altura, multiplica y escribe unidades cuadradas.",
+          "descripcion": "Tres tarjetas numeradas. Uno, mide base y altura, las dos en la misma unidad. Dos, multiplica base por altura; en el cuadrado, lado por lado. Tres, escribe unidades cuadradas: centímetros cuadrados o metros cuadrados, nunca solo centímetros o metros."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una pared rectangular mide cinco metros de largo y cuatro metros de alto. ¿Cuánta superficie hay que pintar?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Veinte metros cuadrados"
+          },
+          {
+            "id": "b",
+            "texto": "Dieciocho metros de borde"
+          },
+          {
+            "id": "c",
+            "texto": "Nueve metros cuadrados"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Son cuatro filas de cinco cuadrados: cinco por cuatro son veinte metros cuadrados.",
+        "pista": "Piensa en la pared cubierta por cuadrados de un metro de lado."
+      }
+    }
   },
   {
     "clave": "mat.p6.area-paralelogramo",
@@ -1496,7 +1744,122 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Área del paralelogramo",
+          "narracion": "Bienvenida y bienvenido. Hoy hallarás el área de un paralelogramo. Como idea principal, un paralelogramo se puede recortar y reacomodar como un rectángulo sin cambiar su área. Por eso su área es la base por la altura perpendicular, y no la base por el lado inclinado."
+        },
+        {
+          "id": "situacion-terreno",
+          "tipo": "recurso",
+          "titulo": "Un terreno inclinado",
+          "narracion": "Observemos esta situación. Es un terreno con forma de paralelogramo. Su base mide catorce metros y su lado inclinado mide diez metros. Una línea punteada baja desde una esquina de arriba hasta la base y forma un ángulo recto: mide seis metros. Queremos hallar el área del terreno.",
+          "recursoRef": "terreno-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: elegir la medida correcta",
+          "narracion": "Tenemos tres medidas: catorce, diez y seis metros. ¿Cuál usamos junto con la base? Piensa en un rectángulo: su área es base por altura, y la altura forma un ángulo recto con la base. El lado inclinado no forma ángulo recto, así que no sirve como altura. Veamos por qué."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: recortar y mover",
+          "narracion": "Miremos cómo cambia la figura. Cortamos el triángulo de la izquierda, el que queda a un lado de la línea punteada, y lo movemos al lado derecho. El paralelogramo se transforma en un rectángulo de catorce metros de base y seis metros de alto. Su área es catorce por seis, que son ochenta y cuatro metros cuadrados. El lado de diez metros no se usó.",
+          "recursoRef": "rectangulo"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: hallar la altura",
+          "narracion": "Ahora al revés. Un vidrio con forma de paralelogramo tiene un área de setenta y dos centímetros cuadrados y una base de nueve centímetros. ¿Cuánto mide su altura? Como el área es base por altura, buscamos el número que multiplicado por nueve da setenta y dos."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: dividir el área entre la base",
+          "narracion": "En el dibujo está el vidrio con su área y su base. Para hallar la altura dividimos el área entre la base: setenta y dos entre nueve son ocho. La altura mide ocho centímetros. Comprobamos: nueve por ocho son setenta y dos.",
+          "recursoRef": "vidrio"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Errores en el paralelogramo",
+          "narracion": "Un error frecuente es multiplicar la base por el lado inclinado. En el terreno, catorce por diez daría ciento cuarenta, pero el área real es ochenta y cuatro. El lado inclinado es más largo que la altura, así que el resultado sale demasiado grande. Otro error es dividir entre dos, como en un triángulo: el paralelogramo se convierte en un rectángulo completo, no en su mitad."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: ubica la altura",
+          "narracion": "Primero ubica la altura. Es la medida que forma un ángulo recto con la base. Si la figura trae un lado inclinado, ese lado no es la altura."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: multiplica base por altura",
+          "narracion": "Segundo, multiplica la base por la altura. Antes de multiplicar, asegúrate de que las dos medidas estén en la misma unidad."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: escribe la unidad cuadrada",
+          "narracion": "Estas tres tarjetas resumen los pasos con el terreno. La primera dice que la altura es de seis metros y no el lado de diez metros. La segunda dice que catorce por seis es ochenta y cuatro. La tercera dice que el resultado se escribe en metros cuadrados.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "terreno-pregunta",
+          "src": "/nudito/diagramas/matematica/paralelogramo-terreno-pregunta.svg",
+          "alt": "Paralelogramo con base de catorce metros, lado inclinado de diez metros y una altura punteada de seis metros.",
+          "descripcion": "Se ve un paralelogramo inclinado hacia la derecha. Abajo se lee catorce metros, a la izquierda del lado inclinado se lee diez metros, y una línea punteada vertical con un ángulo recto en la base dice seis metros. Al final se lee la pregunta: cuál es el área del terreno."
+        },
+        {
+          "id": "rectangulo",
+          "src": "/nudito/diagramas/matematica/paralelogramo-a-rectangulo.svg",
+          "alt": "Un triángulo de la izquierda del paralelogramo se mueve a la derecha y forma un rectángulo de catorce por seis: ochenta y cuatro metros cuadrados.",
+          "descripcion": "Arriba está el paralelogramo con el triángulo izquierdo pintado de amarillo y una flecha que dice mover hacia la derecha, donde hay un triángulo punteado. Abajo está el rectángulo ya formado, de catorce metros de base y seis metros de alto, con el triángulo amarillo a la derecha. A su lado se lee catorce por seis es igual a ochenta y cuatro metros cuadrados. Al final se lee que el lado de diez metros no se usa."
+        },
+        {
+          "id": "vidrio",
+          "src": "/nudito/diagramas/matematica/paralelogramo-vidrio-altura.svg",
+          "alt": "Paralelogramo de base nueve centímetros y área setenta y dos centímetros cuadrados: la altura es setenta y dos entre nueve, ocho centímetros.",
+          "descripcion": "Se ve un paralelogramo con la base de nueve centímetros abajo y el área de setenta y dos centímetros cuadrados dentro. Una línea punteada vertical es la altura y dice ocho centímetros. Debajo se lee nueve por altura es igual a setenta y dos, y setenta y dos entre nueve es igual a ocho centímetros."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/paralelogramo-tres-pasos.svg",
+          "alt": "Tres tarjetas: ubicar la altura de seis metros, multiplicar catorce por seis y escribir ochenta y cuatro metros cuadrados.",
+          "descripcion": "Hay tres tarjetas numeradas. La primera dice ubica la altura: seis metros, no el lado de diez metros. La segunda dice multiplica: catorce por seis es igual a ochenta y cuatro. La tercera dice escribe la unidad: ochenta y cuatro metros cuadrados."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un cartel con forma de paralelogramo tiene base de dieciocho centímetros, lado inclinado de doce centímetros y altura de diez centímetros. ¿Cuál es su área?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ciento ochenta centímetros cuadrados"
+          },
+          {
+            "id": "b",
+            "texto": "Doscientos dieciséis cm cuadrados"
+          },
+          {
+            "id": "c",
+            "texto": "Noventa centímetros cuadrados en total"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. El área es la base por la altura perpendicular: dieciocho por diez son ciento ochenta centímetros cuadrados.",
+        "pista": "Piensa qué medida forma un ángulo recto con la base."
+      }
+    }
   },
   {
     "clave": "mat.p6.area-triangulos",
@@ -1795,7 +2158,125 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Área del triángulo: la mitad de un paralelogramo",
+          "narracion": "Bienvenida y bienvenido. Hoy descubrirás cómo calcular el área de un triángulo. Como idea principal, dos triángulos iguales se juntan y forman un paralelogramo con la misma base y la misma altura, así que el área de un triángulo es la mitad de base por altura. Con esta idea podrás medir banderines, tapetes y terrenos sin contar cuadraditos."
+        },
+        {
+          "id": "situacion-paralelogramo",
+          "tipo": "recurso",
+          "titulo": "Dos triángulos forman un paralelogramo",
+          "narracion": "Observemos esta situación. Un paralelogramo se parte con una diagonal en dos triángulos iguales. La altura baja en ángulo recto hasta la base, y con ella podemos medir cuánto ocupa la figura completa. Primero miraremos el paralelogramo y después la mitad que corresponde a un triángulo.",
+          "recursoRef": "paralelogramo-medidas"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: un banderín de diez por seis",
+          "narracion": "Un banderín triangular tiene diez centímetros de base y seis de altura. ¿Cuál es su área? Si juntamos dos banderines iguales formamos un paralelogramo, que tiene diez por seis, es decir, sesenta centímetros cuadrados. Un banderín es solo la mitad: sesenta entre dos son treinta. El banderín mide treinta centímetros cuadrados."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: comprobamos con las dos mitades",
+          "narracion": "Comprobamos: los dos banderines juntos son treinta más treinta, es decir, sesenta, el área del paralelogramo. Por eso, cada banderín es exactamente la mitad de ese paralelogramo.",
+          "recursoRef": "paralelogramo"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un tapete de treinta por veinticuatro",
+          "narracion": "Un tapete tejido tiene forma de triángulo. Su base mide treinta centímetros y su altura, en ángulo recto con la base, mide veinticuatro. Uno de los lados inclinados mide veintiséis centímetros, pero ese dato no se usa para el área. Multiplicamos la base por la altura: treinta por veinticuatro son setecientos veinte."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: dividimos entre dos",
+          "narracion": "Ahora dividimos entre dos, porque el triángulo es la mitad del paralelogramo: setecientos veinte entre dos son trescientos sesenta. El tapete tiene trescientos sesenta centímetros cuadrados. Comprobamos al revés: trescientos sesenta por dos vuelven a dar setecientos veinte.",
+          "recursoRef": "tres-pasos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "El lado inclinado no es la altura",
+          "narracion": "Un error frecuente es usar el lado inclinado como si fuera la altura. En el tapete, treinta por veintiséis entre dos daría trescientos noventa, y esa respuesta es incorrecta, porque la altura debe formar un ángulo recto con la base. Otro error es olvidar la división entre dos: setecientos veinte es el área del paralelogramo, no la del tapete.",
+          "recursoRef": "tapete-altura"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: elige la base y su altura",
+          "narracion": "Primero elige un lado como base y busca su altura, que es la distancia en ángulo recto desde el vértice opuesto. En el tapete, la base mide treinta y la altura veinticuatro. El lado de veintiséis no sirve como altura.",
+          "recursoRef": "tapete-altura"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: multiplica y divide entre dos",
+          "narracion": "Multiplica la base por la altura y divide el resultado entre dos. En el tapete, treinta por veinticuatro son setecientos veinte, y la mitad es trescientos sesenta.",
+          "recursoRef": "tres-pasos"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: escribe la unidad cuadrada",
+          "narracion": "Termina con la unidad cuadrada. Como la base y la altura están en centímetros, el área queda en centímetros cuadrados. Cierra con una oración: el tapete tiene trescientos sesenta centímetros cuadrados.",
+          "recursoRef": "tres-pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "paralelogramo",
+          "src": "/nudito/diagramas/matematica/triangulos-paralelogramo.svg",
+          "alt": "Paralelogramo partido en dos triángulos iguales; base diez, altura seis y área sesenta centímetros cuadrados.",
+          "descripcion": "Un paralelogramo está partido por una diagonal en dos triángulos iguales, uno amarillo y otro turquesa. Una línea punteada baja en ángulo recto hasta la base y mide seis centímetros; la base mide diez. Debajo se lee diez por seis igual a sesenta centímetros cuadrados, y que cada triángulo tiene treinta."
+        },
+        {
+          "id": "tapete-altura",
+          "src": "/nudito/diagramas/matematica/triangulos-altura-inclinada.svg",
+          "alt": "Triángulo de base treinta, altura veinticuatro y lado inclinado de veintiséis centímetros.",
+          "descripcion": "Se ve un triángulo turquesa con la base de treinta centímetros abajo. Desde el vértice superior baja una línea punteada, la altura de veinticuatro centímetros, que forma un ángulo recto con la base. El lado inclinado de la izquierda mide veintiséis. Abajo se lee treinta por veinticuatro entre dos igual a trescientos sesenta centímetros cuadrados."
+        },
+        {
+          "id": "tres-pasos",
+          "src": "/nudito/diagramas/matematica/triangulos-tres-pasos.svg",
+          "alt": "Tres pasos para el área: multiplicar, dividir entre dos y escribir la unidad cuadrada.",
+          "descripcion": "Hay tres tarjetas numeradas, una debajo de otra. La primera dice base por altura, treinta por veinticuatro igual a setecientos veinte. La segunda dice dividir entre dos, setecientos veinte entre dos igual a trescientos sesenta. La tercera muestra el resultado con su unidad: trescientos sesenta centímetros cuadrados."
+        },
+        {
+          "id": "paralelogramo-medidas",
+          "src": "/nudito/diagramas/matematica/triangulos-paralelogramo-medidas.svg",
+          "alt": "Paralelogramo de base diez y altura seis centímetros, partido en dos triángulos iguales.",
+          "descripcion": "Un paralelogramo está partido por una diagonal en dos triángulos iguales, uno amarillo y otro turquesa. Una línea punteada baja en ángulo recto hasta la base y mide seis centímetros; la base mide diez. Abajo se lee la pregunta: cuánto mide cada triángulo."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un cartel triangular tiene dieciocho centímetros de base y siete de altura; su lado inclinado mide nueve centímetros. ¿Cuál es su área?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sesenta y tres centímetros cuadrados"
+          },
+          {
+            "id": "b",
+            "texto": "Ciento veintiséis centímetros cuadrados"
+          },
+          {
+            "id": "c",
+            "texto": "Ochenta y un centímetros cuadrados"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Dieciocho por siete son ciento veintiséis, y la mitad es sesenta y tres centímetros cuadrados. El lado de nueve no es la altura y no se usa.",
+        "pista": "Multiplica la base por la altura en ángulo recto y divide el resultado entre dos."
+      }
+    }
   },
   {
     "clave": "mat.p6.area-figuras-compuestas",
@@ -2099,7 +2580,131 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Piezas y áreas",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a hallar el área de figuras compuestas. Como idea principal, separamos la figura en piezas conocidas, rectángulos y triángulos, que no se encimen. Calculamos cada área y las sumamos. Si hay un hueco, lo restamos. Un rectángulo mide base por altura. Un triángulo mide base por altura entre dos."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Mural con techo",
+          "narracion": "Observemos esta situación. Un mural une un rectángulo de seis metros de ancho y cuatro de alto con un triángulo encima, que tiene la misma base y dos metros de altura. Queremos saber cuántos metros cuadrados mide todo el mural.",
+          "recursoRef": "mural-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el mural",
+          "narracion": "¿En qué piezas podemos separar el mural? Calcula el área del rectángulo. Luego calcula el área del triángulo: es la mitad de un rectángulo con su misma base y altura. ¿Cómo juntarás las dos áreas?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dos piezas sumadas",
+          "narracion": "Mira el mural con sus dos piezas de colores. El rectángulo mide seis por cuatro, o sea veinticuatro metros cuadrados. El triángulo mide seis por dos, dividido entre dos, o sea seis metros cuadrados. Las dos piezas se suman: veinticuatro más seis da treinta metros cuadrados.",
+          "recursoRef": "mural-resuelto"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el patio",
+          "narracion": "Un patio rectangular mide ocho metros por cinco. Una esquina triangular, de base dos metros y altura tres, no se pavimenta. ¿Cuánto mide el área pavimentada? Mira la esquina rayada y piensa: ¿sumas o restas?",
+          "recursoRef": "patio-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: restar la esquina",
+          "narracion": "El patio completo mide ocho por cinco, o sea cuarenta metros cuadrados. La esquina sin pavimentar mide dos por tres, dividido entre dos, o sea tres metros cuadrados. Como esa esquina no cuenta, se resta: cuarenta menos tres da treinta y siete metros cuadrados.",
+          "recursoRef": "patio-resuelto"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error frecuente es sumar la base y la altura del triángulo. Mira este triángulo de cuatro centímetros de base y tres de altura, dentro de un rectángulo de cuatro por tres. El triángulo es la mitad del rectángulo. Entonces su área es seis centímetros cuadrados, no siete. Otro error es contar dos veces la zona donde se unen las piezas: las piezas no deben encimarse.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: separa en piezas",
+          "narracion": "Traza una línea mental que divida la figura en rectángulos y triángulos conocidos. En el mural, el rectángulo queda abajo y el triángulo encima.",
+          "recursoRef": "mural-resuelto"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: calcula cada pieza",
+          "narracion": "Anota la base y la altura de cada pieza con la misma unidad. Los rectángulos se calculan con base por altura. Los triángulos, con base por altura entre dos."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: suma o resta",
+          "narracion": "Suma las áreas de las piezas, o resta la parte que se retira. Escribe el resultado en unidades cuadradas. En el patio restamos la esquina y quedaron treinta y siete metros cuadrados.",
+          "recursoRef": "patio-resuelto"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "mural-pregunta",
+          "src": "/nudito/diagramas/matematica/area-figuras-compuestas-mural-pregunta.svg",
+          "alt": "Un mural formado por un rectángulo de seis por cuatro metros con un triángulo encima de la misma base; una línea punteada marca su altura, dos metros.",
+          "descripcion": "Un mural: un rectángulo blanco de seis metros de ancho por cuatro de alto, con un triángulo turquesa encima, de la misma base. Una línea punteada baja desde la punta del triángulo hasta su base, y al lado dice dos metros."
+        },
+        {
+          "id": "mural-resuelto",
+          "src": "/nudito/diagramas/matematica/area-figuras-compuestas-mural-resuelto.svg",
+          "alt": "El mismo mural con sus dos piezas de colores: rectángulo de veinticuatro metros cuadrados y triángulo de seis; abajo, veinticuatro más seis igual treinta metros cuadrados.",
+          "descripcion": "El mismo mural, con las piezas unidas y coloreadas: el rectángulo amarillo dice veinticuatro metros cuadrados y el triángulo turquesa dice seis metros cuadrados. A la izquierda dice cuatro metros. Abajo, en turquesa, dice veinticuatro más seis igual treinta metros cuadrados."
+        },
+        {
+          "id": "patio-pregunta",
+          "src": "/nudito/diagramas/matematica/area-figuras-compuestas-patio-pregunta.svg",
+          "alt": "Un patio rectangular de ocho por cinco metros con una esquina triangular rayada, de dos metros de base y tres de altura, sin pavimentar.",
+          "descripcion": "Un patio rectangular blanco: abajo dice ocho metros y a la izquierda, cinco metros. En la esquina de arriba a la derecha hay un triángulo rayado de amarillo, con dos metros arriba y tres metros a su derecha. Abajo, una leyenda: esquina sin pavimentar."
+        },
+        {
+          "id": "patio-resuelto",
+          "src": "/nudito/diagramas/matematica/area-figuras-compuestas-patio-resuelto.svg",
+          "alt": "El patio con cuarenta metros cuadrados y la esquina rayada de tres metros cuadrados; abajo, cuarenta menos tres igual treinta y siete metros cuadrados.",
+          "descripcion": "El patio amarillo dice cuarenta metros cuadrados. En su esquina de arriba a la derecha está el triángulo rayado, unido por una línea al texto tres metros cuadrados. Abajo, en turquesa, dice cuarenta menos tres igual treinta y siete metros cuadrados."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/area-figuras-compuestas-errores.svg",
+          "alt": "Un rectángulo punteado de cuatro por tres centímetros cortado por una diagonal; el triángulo turquesa es la mitad del rectángulo.",
+          "descripcion": "Un rectángulo punteado de cuatro centímetros de ancho y tres de alto, cortado por una diagonal. El triángulo turquesa, abajo a la izquierda, es la mitad del rectángulo. Abajo dice el triángulo es la mitad del rectángulo."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un cartel junta un rectángulo de nueve por cuatro metros y un triángulo de base nueve metros y altura dos metros, sin encimarse. ¿Cuántos metros cuadrados mide el cartel?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuarenta y cinco"
+          },
+          {
+            "id": "b",
+            "texto": "Cincuenta y cuatro"
+          },
+          {
+            "id": "c",
+            "texto": "Cuarenta y siete"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. El rectángulo mide treinta y seis, el triángulo nueve, y juntos dan cuarenta y cinco metros cuadrados.",
+        "pista": "Calcula cada pieza por separado; el triángulo es la mitad de un rectángulo."
+      }
+    }
   },
   {
     "clave": "mat.p6.perimetro-vs-area",

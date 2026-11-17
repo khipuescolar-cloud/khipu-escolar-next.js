@@ -1253,7 +1253,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Continuar y completar patrones",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a descubrir qué figura sigue o cuál falta en un patrón. Como idea principal, encuentra el núcleo, que es la parte que se repite. Luego recorre sus figuras en el mismo orden, sin saltar ni cambiar ninguna."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una fila con un espacio",
+          "narracion": "Observemos esta situación. La fila alterna un círculo y un cuadrado. Después aparecen otra vez un círculo y un cuadrado, y luego un círculo con un espacio vacío. Queremos descubrir qué figura completa la fila.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: seguir la alternancia",
+          "narracion": "El núcleo tiene dos figuras: primero un círculo y después un cuadrado. La fila termina en círculo. Recorre el núcleo desde el inicio y piensa qué figura toca después."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: vuelve el cuadrado",
+          "narracion": "Después del círculo toca un cuadrado. La tarjeta agrupa tres vueltas del mismo núcleo. Cada vuelta conserva el orden: círculo y cuadrado. Por eso el espacio se completa con un cuadrado.",
+          "recursoRef": "alternado"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: un núcleo más largo",
+          "narracion": "Mira la nueva fila. El núcleo es triángulo, triángulo y círculo. En la segunda vuelta hay un triángulo, un espacio vacío y un círculo. ¿Qué figura debe ir en el espacio para conservar el orden?",
+          "recursoRef": "doble-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: termina la vuelta",
+          "narracion": "La segunda posición del núcleo también es un triángulo. La tarjeta muestra dos vueltas completas: dos triángulos y un círculo en cada una. Por eso faltaba un triángulo.",
+          "recursoRef": "doble"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Empezar demasiado pronto",
+          "narracion": "La tarjeta muestra una fila incorrecta, con un anillo rojo en el último círculo. Después del primer triángulo de la segunda vuelta aparece un círculo, como si el núcleo ya hubiera terminado. Falta el segundo triángulo. Antes de volver al inicio, completa todas las figuras del núcleo.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: encuentra el núcleo",
+          "narracion": "Busca el grupo más corto de figuras que aparece otra vez en el mismo orden. Nómbralo despacio para recordarlo."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: ubica el lugar",
+          "narracion": "Mira qué figuras están antes y después del espacio. Decide qué lugar del núcleo corresponde allí."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: lee toda la fila",
+          "narracion": "Coloca la figura y vuelve a leer el patrón desde el comienzo. Todas las vueltas deben conservar el mismo orden."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/continuar-patron-situacion.svg",
+          "alt": "Fila alternada de círculos y cuadrados con una casilla con signo de pregunta al final.",
+          "descripcion": "La fila presenta círculo, cuadrado, círculo, cuadrado, círculo y una casilla con signo de pregunta. Arriba se lee «¿Qué figura falta?»."
+        },
+        {
+          "id": "alternado",
+          "src": "/nudito/diagramas/matematica/continuar-patron-alternado.svg",
+          "alt": "Tres repeticiones completas de círculo y cuadrado, agrupadas como núcleos.",
+          "descripcion": "La fila alterna seis figuras: círculo, cuadrado, círculo, cuadrado, círculo y cuadrado. Tres líneas turquesas, una bajo cada pareja, las rotulan como núcleo. Abajo se lee que después del círculo va el cuadrado."
+        },
+        {
+          "id": "doble-pregunta",
+          "src": "/nudito/diagramas/matematica/continuar-patron-doble-pregunta.svg",
+          "alt": "Fila de triángulo, triángulo, círculo, triángulo, una casilla vacía y círculo.",
+          "descripcion": "La fila muestra triángulo, triángulo, círculo, triángulo, una casilla con signo de pregunta y círculo. Abajo se pregunta qué toca antes del último círculo."
+        },
+        {
+          "id": "doble",
+          "src": "/nudito/diagramas/matematica/continuar-patron-doble.svg",
+          "alt": "Dos repeticiones completas de dos triángulos y un círculo.",
+          "descripcion": "La fila contiene dos veces la secuencia triángulo, triángulo y círculo. Dos líneas turquesas, rotuladas vuelta uno y vuelta dos, las separan. Abajo se lee que faltaba un triángulo."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/continuar-patron-error.svg",
+          "alt": "Fila de dos triángulos y un círculo, luego un triángulo y un círculo rodeado por un anillo rojo: la vuelta se cortó.",
+          "descripcion": "La fila muestra triángulo, triángulo, círculo, triángulo y círculo. El último círculo está rodeado por un anillo rojo. Debajo, en rojo, se lee que se cortó el núcleo y, en ámbar, que hay que terminar la vuelta y luego repetir."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "El patrón repite círculo, cuadrado y cuadrado. Luego aparece círculo, cuadrado y un espacio. ¿Qué figura falta?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un cuadrado"
+          },
+          {
+            "id": "b",
+            "texto": "Un círculo"
+          },
+          {
+            "id": "c",
+            "texto": "Un triángulo"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. El núcleo termina con dos cuadrados, así que falta el segundo cuadrado.",
+        "pista": "Nombra las tres figuras del núcleo y ubica cuál corresponde al último lugar."
+      }
+    }
   },
   {
     "clave": "mat.p2.crear-patron",
@@ -1576,7 +1698,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Crear un patrón",
+          "narracion": "Bienvenida y bienvenido. Hoy vamos a inventar patrones. Como idea principal, un patrón se crea con un núcleo. El núcleo es la parte corta que se repite. Elegimos dos cosas que cambian, por ejemplo la forma y el color. Luego repetimos el núcleo dos veces o más, para que otros vean el patrón."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Las cuentas de Inés",
+          "narracion": "Observemos esta situación. Inés quiere hacer un collar de cuentas. Tiene tres clases de cuentas: círculo rojo, cuadrado azul y triángulo amarillo. El collar todavía está vacío y tiene seis lugares. Ella quiere inventar su propio patrón. ¿Cómo puede empezar?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: un núcleo de dos cuentas",
+          "narracion": "Inés elige un núcleo de dos cuentas: cuadrado azul y círculo rojo. Las dos cambian en forma y en color. Ahora debe llenar los seis lugares. ¿Cuántas veces repite el núcleo?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el primer collar",
+          "narracion": "El núcleo ocupa dos lugares. Con seis lugares, se repite tres veces. El primer par está marcado como núcleo. Los otros dos pares son vueltas del mismo núcleo.",
+          "recursoRef": "ejemplo-uno"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un núcleo de tres cuentas",
+          "narracion": "Ahora Inés prueba otro núcleo, de tres cuentas: triángulo amarillo, círculo rojo y círculo rojo. Tiene otra vez seis lugares. ¿Cuántas veces cabe el núcleo?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el segundo collar",
+          "narracion": "El núcleo ocupa tres lugares. Con seis lugares, cabe dos veces. El triángulo amarillo marca el comienzo de cada vuelta. Después de él van siempre los dos círculos rojos.",
+          "recursoRef": "ejemplo-dos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estas fallas",
+          "narracion": "Mira dos intentos con fallas. En el primero, hay una sola vuelta del núcleo. Con una vuelta no se nota qué se repite. En el segundo, el collar empieza bien con cuadrado azul y círculo rojo, pero al final cambia el orden. Las dos últimas cuentas, dentro de un recuadro rojo, rompen el patrón.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: elige qué cambia",
+          "narracion": "Elige dos cosas que cambian entre las cuentas, como la forma y el color."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: inventa el núcleo",
+          "narracion": "Inventa un núcleo corto con esas dos cosas. Puede tener dos o tres cuentas."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: repite el núcleo",
+          "narracion": "Repite el núcleo dos veces o más y léelo en voz alta. Debe sonar igual en cada vuelta. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/crear-patron-situacion.svg",
+          "alt": "Tres clases de cuentas, círculo rojo, cuadrado azul y triángulo amarillo, y un collar vacío con seis lugares. Pregunta qué patrón puede crear.",
+          "descripcion": "En un recuadro, un círculo rojo, un cuadrado azul y un triángulo amarillo, cada uno con su nombre. Debajo, las palabras collar vacío y seis círculos de borde punteado, vacíos. Abajo se lee la pregunta: qué patrón puede crear."
+        },
+        {
+          "id": "ejemplo-uno",
+          "src": "/nudito/diagramas/matematica/crear-patron-ejemplo-uno.svg",
+          "alt": "Collar de seis cuentas: cuadrado azul y círculo rojo, tres veces. Una línea turquesa marca el primer par como núcleo.",
+          "descripcion": "Seis cuentas en fila: cuadrado azul, círculo rojo, cuadrado azul, círculo rojo, cuadrado azul, círculo rojo. Debajo, una línea por cada par. La primera, turquesa, dice núcleo; las otras dos, ocres, dicen otra vez. Abajo: seis cuentas, tres vueltas."
+        },
+        {
+          "id": "ejemplo-dos",
+          "src": "/nudito/diagramas/matematica/crear-patron-ejemplo-dos.svg",
+          "alt": "Collar de seis cuentas: triángulo amarillo y dos círculos rojos, dos veces. La primera línea marca el núcleo.",
+          "descripcion": "Seis cuentas en fila: triángulo amarillo, círculo rojo, círculo rojo, triángulo amarillo, círculo rojo, círculo rojo. Debajo, una línea por cada grupo de tres. La primera, turquesa, dice núcleo; la segunda, ocre, dice otra vez. Abajo: seis cuentas, dos vueltas."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/crear-patron-error.svg",
+          "alt": "Dos collares con fallas: el primero tiene una sola vuelta; en el segundo, las dos últimas cuentas están dentro de un recuadro rojo punteado.",
+          "descripcion": "Arriba, un cuadrado azul y un círculo rojo, con el texto una sola vuelta. Abajo, seis cuentas: cuadrado azul, círculo rojo, cuadrado azul, círculo rojo, círculo rojo, cuadrado azul. Las dos últimas están en un recuadro rojo punteado y debajo dice cambió el orden."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/crear-patron-pasos.svg",
+          "alt": "Tarjeta con tres pasos para crear un patrón: elegir qué cambia, inventar el núcleo y repetirlo.",
+          "descripcion": "Tres tarjetas numeradas. La uno dice elige qué cambia: forma y color. La dos dice inventa un núcleo corto. La tres dice repítelo dos veces o más y léelo en voz alta."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Marcos eligió el núcleo triángulo verde, cuadrado rojo. ¿Cuál fila muestra su patrón repetido dos veces?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Triángulo verde, cuadrado rojo, triángulo verde, cuadrado rojo"
+          },
+          {
+            "id": "b",
+            "texto": "Triángulo verde, cuadrado rojo, cuadrado rojo, triángulo verde"
+          },
+          {
+            "id": "c",
+            "texto": "Triángulo verde, cuadrado rojo, triángulo verde, triángulo verde"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. La fila repite dos veces el mismo par: triángulo verde y cuadrado rojo.",
+        "pista": "Cada vuelta debe empezar igual y tener las mismas figuras, en el mismo orden."
+      }
+    }
   },
   {
     "clave": "mat.p2.mismo-patron-dos-versiones",

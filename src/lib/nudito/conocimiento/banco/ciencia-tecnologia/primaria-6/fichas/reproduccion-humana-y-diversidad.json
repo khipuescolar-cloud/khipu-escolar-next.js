@@ -328,7 +328,127 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Parecidos, pero no idénticos",
+          "narracion": "Hola, hoy descubriremos por qué los hermanos se parecen entre sí, pero por lo general no son idénticos. Como idea principal, en la reproducción sexual se unen dos células reproductoras, una de cada progenitor. El nuevo ser vivo recibe información de ambos y esa mezcla es distinta en cada hijo. Por eso la reproducción sexual produce diversidad."
+        },
+        {
+          "id": "situacion-llamas",
+          "tipo": "recurso",
+          "titulo": "Una familia de llamas",
+          "narracion": "Observemos esta situación en una pradera altoandina. Dos llamas adultas, una blanca y otra marrón, están acompañadas por dos crías: una marrón y otra blanca con manchas marrones. Las crías se parecen a sus padres, pero no son iguales entre sí. Nos preguntaremos de dónde sale esa variedad.",
+          "recursoRef": "llamas"
+        },
+        {
+          "id": "modelo-union",
+          "tipo": "recurso",
+          "titulo": "Cómo se reparte la información",
+          "narracion": "Este esquema muestra cómo se reparte la información. Cada progenitor aporta una célula reproductora con su propia información: barras naranjas para la madre y azules para el padre. Al unirse, la nueva célula recibe barras de ambos y en cada hijo la combinación es distinta. Es un modelo: la información real no son barras de colores.",
+          "recursoRef": "union"
+        },
+        {
+          "id": "ejemplo-llamas-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dos crías de llama",
+          "narracion": "Volvamos a las dos crías. Cada una nació de la unión de una célula reproductora de la madre y otra del padre. Esas uniones no son idénticas: en cada una la mezcla de información es distinta. Por eso las crías pueden tener colores y rasgos diferentes.",
+          "recursoRef": "llamas"
+        },
+        {
+          "id": "ejemplo-llamas-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: parecidas, pero no iguales",
+          "narracion": "Todas las crías heredaron información de la misma madre y del mismo padre, así que se parecen a ellos. Como la combinación cambia, también hay diferencias entre hermanas y hermanos. El parecido y la diferencia pueden aparecer juntos.",
+          "recursoRef": "llamas"
+        },
+        {
+          "id": "ejemplo-papa-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: papa de tubérculo o de semilla",
+          "narracion": "En una chacra de Huánuco pueden obtenerse plantas de papa de dos maneras: sembrando un trozo de tubérculo o sembrando una semilla. El trozo de tubérculo procede de una sola planta. La semilla se forma cuando se unen células reproductoras.",
+          "recursoRef": "papa"
+        },
+        {
+          "id": "ejemplo-papa-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: cuáles se parecen más a la planta madre",
+          "narracion": "El trozo de tubérculo viene de una sola planta, así que la planta nueva se parece mucho a ella. En la semilla hubo una unión de células reproductoras con mezcla de información, y las plantas nuevas varían más. Por eso muchos agricultores multiplican la papa con tubérculos para conservar una variedad.",
+          "recursoRef": "papa"
+        },
+        {
+          "id": "error-copias",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: los hijos son copias de un progenitor",
+          "narracion": "Se piensa que un hijo se parece solo a su madre o solo a su padre, o que los hermanos son copias. Cada hijo recibe información de ambos progenitores y la mezcla cambia en cada uno. Puede parecerse a los dos y también tener rasgos propios.",
+          "recursoRef": "union"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: identifica cuántos seres participan",
+          "narracion": "Primero pregunta de cuántos seres vivos procede el nuevo organismo. Si viene de una sola planta o animal, no hubo unión de células reproductoras. Si participan dos progenitores con células reproductoras, es reproducción sexual.",
+          "recursoRef": "papa"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: sigue la información",
+          "narracion": "Después sigue la información: cada progenitor aporta una célula reproductora, las dos se unen y el nuevo ser recibe una mezcla. Pregúntate si esa mezcla puede repetirse exactamente igual cada vez.",
+          "recursoRef": "union"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: concluye con parecidos y diferencias",
+          "narracion": "Por último explica con razones: «Los hijos se parecen a sus progenitores porque heredan información de ambos, pero difieren entre sí porque la mezcla cambia en cada unión de células». Evita responder solo que cada uno es distinto porque sí."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "llamas",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/reproduccion-llamas-zimage-v1.webp",
+          "alt": "Dos llamas adultas, una blanca y una marrón, con dos crías: una marrón y otra blanca con manchas marrones, en una pradera verde.",
+          "descripcion": "En una pradera verde con colinas al fondo hay una llama adulta blanca y otra marrón. Entre ellas están dos crías: una marrón, de pelaje más corto, y otra blanca con manchas marrones. Todas miran hacia el frente."
+        },
+        {
+          "id": "union",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/reproduccion-union-celulas-svg-v1.svg",
+          "alt": "Una célula de la madre con barras naranjas y una del padre con barras azules se unen y originan tres hijos con mezclas distintas.",
+          "descripcion": "Arriba hay una célula de la madre con tres barras naranjas y otra del padre con tres barras azules. Dos flechas llegan a «Se unen». Abajo hay tres hijos, cada uno con una combinación distinta de barras naranjas y azules."
+        },
+        {
+          "id": "papa",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/reproduccion-papa-svg-v1.svg",
+          "alt": "Dos formas de obtener papa: un trozo de tubérculo y una semilla, cada uno origina una planta nueva.",
+          "descripcion": "A la izquierda hay un trozo de tubérculo y a la derecha una semilla. De cada uno sale una flecha hacia una planta nueva con hojas verdes sobre la tierra."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una familia de Ayacucho tiene dos hijas. Ambas se parecen a su mamá y a su papá, pero una tiene pelo rizado y la otra lacio. ¿Qué explica mejor esa diferencia?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo la hija de pelo rizado recibió información de la mamá."
+          },
+          {
+            "id": "b",
+            "texto": "Cada hija se formó a partir de una sola célula del papá."
+          },
+          {
+            "id": "c",
+            "texto": "Cada hija recibió una mezcla distinta de información de ambos."
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Cada hija se formó de la unión de células reproductoras de su mamá y de su papá, pero la mezcla de información fue distinta en cada una. Por eso se parecen a ambos y tienen diferencias.",
+        "pista": "Piensa en cuántos progenitores aportan información y si la mezcla es siempre igual."
+      }
+    }
   },
   {
     "clave": "cyt.p6.gametos",

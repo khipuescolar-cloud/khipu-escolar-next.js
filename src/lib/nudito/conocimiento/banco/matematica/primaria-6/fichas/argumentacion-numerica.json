@@ -341,7 +341,132 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comprobar afirmaciones con números",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a comprobar afirmaciones sobre números pares, impares y múltiplos. Como idea principal, una afirmación se demuestra con una regla que valga para todos los casos, y basta un solo contraejemplo para mostrar que es falsa. Un número par es dos veces un número entero, y un impar es dos veces un número entero, más uno."
+        },
+        {
+          "id": "situacion-parejas",
+          "tipo": "recurso",
+          "titulo": "Pares e impares como parejas",
+          "narracion": "Observemos esta situación. Los puntos están agrupados en parejas. El seis forma tres parejas y no sobra ningún punto: es par. El siete forma tres parejas y sobra un punto, marcado en amarillo: es impar. Con esta idea de parejas y sobrantes vamos a estudiar qué ocurre al operar con números.",
+          "recursoRef": "situacion-parejas"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo uno: dos impares",
+          "narracion": "María afirma que la suma de dos impares es par. Probemos con tres más cinco. El tres tiene una pareja y un sobrante. El cinco tiene dos parejas y un sobrante. ¿Qué pasa al juntar todos los puntos?",
+          "recursoRef": "impares-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo uno: los sobrantes",
+          "narracion": "Los dos sobrantes se juntan y forman otra pareja. Los ocho puntos quedan en cuatro parejas, así que tres más cinco, que es ocho, es par. En general, un impar es dos veces un número, más uno, y otro impar es dos veces otro número, más uno. Al sumarlos queda dos veces, la suma de esos números más uno. Eso es un múltiplo de dos. La afirmación es verdadera.",
+          "recursoRef": "impares-solucion"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo dos: múltiplos de seis",
+          "narracion": "En el taller dicen que todo múltiplo de seis es también múltiplo de cuatro. Escribamos algunos múltiplos de seis: seis, doce, dieciocho y veinticuatro. Revisaremos cuáles se pueden dividir exactamente entre cuatro.",
+          "recursoRef": "multiplos-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo dos: buscamos un caso que falle",
+          "narracion": "Doce es cuatro por tres y veinticuatro es cuatro por seis, así que ellos sí lo cumplen. Pero seis y dieciocho no se pueden escribir como cuatro por un número entero: dieciocho entre cuatro es cuatro y medio. Basta un caso que falle. Dieciocho es un contraejemplo y la afirmación es falsa.",
+          "recursoRef": "multiplos-solucion"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Dos errores frecuentes",
+          "narracion": "Veamos qué conviene evitar. El primero es creer que varios ejemplos prueban una regla para todos los números. Que tres más cinco sea par no demuestra nada por sí solo: hace falta una explicación general. Para refutar, en cambio, basta un contraejemplo. El segundo error es pensar que un contraejemplo debe ser un número grande o difícil: uno pequeño, como seis, sirve igual si la afirmación falla con él."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: identifica de qué trata",
+          "narracion": "Identifica si la afirmación habla de pares, impares o múltiplos, y qué operación involucra. En el primer ejemplo se trataba de sumar dos impares.",
+          "recursoRef": "impares-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: prueba casos pequeños",
+          "narracion": "Prueba casos pequeños para buscar un contraejemplo. Con los múltiplos de seis, bastó revisar seis, doce, dieciocho y veinticuatro para encontrar los que fallan.",
+          "recursoRef": "multiplos-solucion"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: explica o refuta",
+          "narracion": "Si ningún caso falla, explica con una regla general por qué siempre se cumple, como hicimos con dos veces un número, más uno, en la suma de impares. Si algún caso la contradice, esa afirmación queda refutada.",
+          "recursoRef": "impares-solucion"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion-parejas",
+          "src": "/nudito/diagramas/matematica/afirmaciones-pares-puntos-parejas.svg",
+          "alt": "Seis puntos en tres parejas sin sobrante y siete puntos en tres parejas con un punto amarillo sobrante.",
+          "descripcion": "En la primera fila hay seis puntos turquesa en tres parejas, y debajo dice: seis es par, no sobra ninguno. En la segunda hay siete puntos: tres parejas y un punto amarillo suelto, y debajo dice: siete es impar, sobra uno. Abajo se pregunta: ¿qué pasa al sumar impares?"
+        },
+        {
+          "id": "impares-pregunta",
+          "src": "/nudito/diagramas/matematica/afirmaciones-suma-impares-pregunta.svg",
+          "alt": "Tres puntos con un sobrante amarillo más cinco puntos con un sobrante amarillo. Se pregunta si la suma es par o impar.",
+          "descripcion": "A la izquierda hay tres puntos: una pareja y un punto amarillo sobrante, con la etiqueta tres es impar. Luego un signo más. A la derecha hay cinco puntos: dos parejas y un amarillo sobrante, con la etiqueta cinco es impar. Abajo: ¿par o impar?"
+        },
+        {
+          "id": "impares-solucion",
+          "src": "/nudito/diagramas/matematica/afirmaciones-suma-impares-solucion.svg",
+          "alt": "Los ocho puntos forman cuatro parejas porque los dos sobrantes se unen. Regla general: dos veces un número más uno, sumado con otro impar, da dos veces algo.",
+          "descripcion": "Se ven cuatro parejas de puntos; la última pareja es de los dos puntos amarillos sobrantes. Debajo se lee: los dos sobrantes hacen una pareja; tres más cinco igual ocho, cuatro parejas; la regla general con letras. En verde: la suma de dos impares es par."
+        },
+        {
+          "id": "multiplos-pregunta",
+          "src": "/nudito/diagramas/matematica/afirmaciones-multiplos-seis-pregunta.svg",
+          "alt": "Cuatro tarjetas con los múltiplos de seis: seis, doce, dieciocho y veinticuatro. Se pregunta si también son múltiplos de cuatro.",
+          "descripcion": "Cuatro tarjetas en fila con los números seis, doce, dieciocho y veinticuatro. Debajo se lee: todos son múltiplos de seis. Abajo: ¿también de cuatro?"
+        },
+        {
+          "id": "multiplos-solucion",
+          "src": "/nudito/diagramas/matematica/afirmaciones-multiplos-seis-solucion.svg",
+          "alt": "Doce y veinticuatro sí son múltiplos de cuatro; seis y dieciocho no, y son contraejemplos.",
+          "descripcion": "Las mismas cuatro tarjetas. Doce y veinticuatro están en turquesa con la palabra sí debajo. Seis y dieciocho están en amarillo con la palabra no. Se lee: ¿es múltiplo de cuatro?; seis y dieciocho son contraejemplos; un caso basta, es falsa."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Sara afirma que todo múltiplo de cinco es impar. ¿Qué número muestra que se equivoca?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cinco"
+          },
+          {
+            "id": "b",
+            "texto": "Diez"
+          },
+          {
+            "id": "c",
+            "texto": "Quince"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Diez es múltiplo de cinco y es par, así que contradice la afirmación. Cinco y quince sí son impares.",
+        "pista": "Revisa cada opción: ¿es múltiplo de cinco y además no es impar?"
+      }
+    }
   },
   {
     "clave": "mat.p6.decimales-entre-decimales",
@@ -685,7 +810,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Decimales en medio de otros",
+          "narracion": "Bienvenida y bienvenido. Hoy buscaremos números decimales que estén en medio de otros dos. Como idea principal, entre dos decimales distintos siempre cabe otro. Para verlo, escribimos los dos con la misma cantidad de cifras decimales, agregando ceros. Si no queda lugar, agregamos una cifra más. Después elegimos uno que sea mayor que el primero y menor que el segundo."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Medida de una cuerda",
+          "narracion": "Observemos esta situación. Una cuerda mide más de cinco coma tres metros y menos de cinco coma cuatro metros. En el dibujo, una recta tiene un punto en cada extremo: cinco coma tres a la izquierda y cinco coma cuatro a la derecha. Queremos saber qué medida cabe en medio.",
+          "recursoRef": "cuerda-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: décimas y centésimas",
+          "narracion": "Escribe cinco coma tres y cinco coma cuatro con dos cifras decimales, agregando un cero a cada uno. Luego busca un número que esté entre los dos."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el número del medio",
+          "narracion": "Cinco coma tres es lo mismo que cinco coma treinta. Cinco coma cuatro es lo mismo que cinco coma cuarenta. Entre treinta y cuarenta centésimas cabe treinta y cinco centésimas. Entonces cinco coma treinta y cinco está entre los dos. En el dibujo, la lupa muestra once marcas y el punto verde está en el medio.",
+          "recursoRef": "lupa-cinco-tres"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: cuando no hay lugar",
+          "narracion": "Ahora busquemos un número en medio. El primero es tres coma cuarenta y cinco. El segundo es tres coma cuarenta y seis. Con dos cifras decimales no queda otro número en medio. ¿Qué haces para tener más lugar?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una cifra más",
+          "narracion": "Escribimos el primer número como tres coma cuatrocientos cincuenta. El segundo, como tres coma cuatrocientos sesenta. Ahora sí hay lugar en medio: tres coma cuatrocientos cincuenta y cinco. En el dibujo, la lupa muestra once marcas y el punto verde está en el medio.",
+          "recursoRef": "lupa-tres-cuarenta-y-cinco"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado: sí cabe otro",
+          "narracion": "Un niño dice que entre uno coma dos y uno coma tres no cabe ningún decimal. En el dibujo, esa idea está en un recuadro rojo. Es un error. Si escribimos uno coma veinte y uno coma treinta, la lupa muestra que uno coma veinticinco sí cabe en medio.",
+          "recursoRef": "nada-en-medio"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: iguala las cifras",
+          "narracion": "Escribe los dos números con la misma cantidad de cifras decimales. Agrega ceros al final si hace falta."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca lugar",
+          "narracion": "Si entre los dos no hay otro número, agrega una cifra decimal más a los dos."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: elige y comprueba",
+          "narracion": "Elige un número mayor que el primero y menor que el segundo. Comprueba las dos comparaciones. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "tres-pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cuerda-pregunta",
+          "src": "/nudito/diagramas/matematica/decimales-entre-decimales-cuerda-pregunta.svg",
+          "alt": "Recta con los extremos cinco coma tres y cinco coma cuatro metros; se pregunta qué medida cabe en medio.",
+          "descripcion": "Un segmento horizontal con un punto en cada extremo. A la izquierda se lee cinco coma tres metros y a la derecha, cinco coma cuatro metros. Abajo: ¿Qué medida cabe en medio?"
+        },
+        {
+          "id": "lupa-cinco-tres",
+          "src": "/nudito/diagramas/matematica/decimales-entre-decimales-lupa-cinco-tres.svg",
+          "alt": "Recta ampliada con once marcas, de cinco coma treinta a cinco coma cuarenta; el punto verde está en cinco coma treinta y cinco.",
+          "descripcion": "Un segmento con once marcas iguales. La primera dice cinco coma treinta; la del medio, cinco coma treinta y cinco, con un punto verde; la última, cinco coma cuarenta. Arriba: Con la lupa: diez centésimas."
+        },
+        {
+          "id": "lupa-tres-cuarenta-y-cinco",
+          "src": "/nudito/diagramas/matematica/decimales-entre-decimales-lupa-tres-cuarenta-y-cinco.svg",
+          "alt": "Recta ampliada con once marcas, de tres coma cuatrocientos cincuenta a tres coma cuatrocientos sesenta; el punto verde está en el medio.",
+          "descripcion": "Un segmento con once marcas iguales. La primera dice tres coma cuatrocientos cincuenta; la del medio, tres coma cuatrocientos cincuenta y cinco, con un punto verde; la última, tres coma cuatrocientos sesenta. Arriba: Con la lupa: diez milésimas."
+        },
+        {
+          "id": "nada-en-medio",
+          "src": "/nudito/diagramas/matematica/decimales-entre-decimales-nada-en-medio.svg",
+          "alt": "Una idea errónea en rojo entre uno coma dos y uno coma tres; la lupa muestra uno coma veinticinco en el medio.",
+          "descripcion": "Arriba, un segmento con puntos en uno coma dos y uno coma tres, y un recuadro rojo con Error: no cabe nada. Dos líneas de rayas bajan a una recta con once marcas, de uno coma veinte a uno coma treinta, con un punto verde en uno coma veinticinco. Abajo: uno coma veinticinco sí cabe en medio."
+        },
+        {
+          "id": "tres-pasos",
+          "src": "/nudito/diagramas/matematica/decimales-entre-decimales-tres-pasos.svg",
+          "alt": "Tarjeta con tres pasos para hallar un decimal en medio.",
+          "descripcion": "Tres tarjetas numeradas. Uno: iguala las cifras decimales con ceros. Dos: si falta lugar, agrega otra cifra. Tres: elige uno en medio y compruébalo."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "¿Cuál de estos números está entre siete coma seis y siete coma siete?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Siete coma cincuenta y cinco"
+          },
+          {
+            "id": "b",
+            "texto": "Siete coma sesenta y cinco"
+          },
+          {
+            "id": "c",
+            "texto": "Siete coma setenta y cinco"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Escritos con centésimas, el primer extremo es siete coma sesenta y el segundo es siete coma setenta. Siete coma sesenta y cinco queda en medio.",
+        "pista": "Escribe los dos extremos con dos cifras decimales y compara."
+      }
+    }
   },
   {
     "clave": "mat.p6.errores-operar-fracciones",

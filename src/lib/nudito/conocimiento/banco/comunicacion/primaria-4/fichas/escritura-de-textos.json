@@ -746,7 +746,124 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Contar cómo es algo",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a escribir una descripción. Como idea principal, describir es contar cómo es una persona, un animal o un lugar para que quien lea pueda imaginarlo. Para eso dices detalles, como el tamaño, el color, la forma o cómo se mueve, y los ordenas para que no se mezclen."
+        },
+        {
+          "id": "situacion-dos-formas",
+          "tipo": "recurso",
+          "titulo": "Dos formas de describir",
+          "narracion": "Observemos este cuadro con dos descripciones del mismo perro. La de arriba dice solo «Mi perro es bonito», y no sabemos cómo es. La de abajo dice «Chato es pequeño, de pelo marrón y con orejas caídas». Ahora sí puedes imaginarlo, porque nombra el tamaño, el color y la forma.",
+          "recursoRef": "comparar"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el picaflor",
+          "narracion": "Leamos esta descripción: «El picaflor es pequeño y tiene plumas verdes que brillan. Su pico es largo y delgado. Vuela muy rápido y a veces se queda quieto frente a una flor». ¿Qué datos nos da sobre el ave?"
+        },
+        {
+          "id": "ejemplo-1-detalles",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: cada detalle en su lugar",
+          "narracion": "En el cuadro, cada detalle ocupa su fila. El tamaño: pequeño. El color: plumas verdes. La forma: pico largo y delgado. Y cómo se mueve: vuela muy rápido. Cada detalle ocupa su fila del cuadro, y por eso se entiende bien.",
+          "recursoRef": "picaflor"
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una escuela en lo alto del cerro",
+          "narracion": "Ahora describamos un lugar. Lee: «Mi escuela está en lo alto de un cerro. Su techo es de calamina roja y sus paredes son blancas. En el patio hay un molle con una banca bajo su sombra». ¿En qué orden nos lleva el texto?"
+        },
+        {
+          "id": "ejemplo-2-orden",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: de arriba hacia abajo",
+          "narracion": "Mira el cuadro con cuatro escalones. Empieza por lo más alto, el cerro. Sigue con el techo rojo, baja a las paredes blancas y termina en el patio con su molle. Ese orden de arriba hacia abajo permite recorrer el lugar con la imaginación sin perderse.",
+          "recursoRef": "orden-escuela"
+        },
+        {
+          "id": "error-es-bonito",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: decir solo «es bonito»",
+          "narracion": "Un error frecuente es escribir solo «es bonito». Eso es lo que muestra la caja de arriba: parece una descripción, pero no dice cómo es. Mejor agrega detalles que se puedan imaginar, como el color, la forma o el tamaño, igual que en la caja de abajo.",
+          "recursoRef": "comparar"
+        },
+        {
+          "id": "error-repetir-es",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: repetir «es» y mezclar ideas",
+          "narracion": "Otro error es empezar todas las oraciones con «es» y saltar de un detalle a otro. Por ejemplo: «Es verde. Es pequeño. Es rápido. Su pico es largo. Es verde brillante». Mejor termina un detalle antes de pasar al siguiente y cambia de verbo: «tiene», «luce» o «se ve»."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: elige qué describir y piensa sus características",
+          "narracion": "Primero elige qué vas a describir y piensa en sus características: tamaño, color, forma y cómo se mueve o suena. Puedes llenar un cuadro como el del picaflor antes de escribir.",
+          "recursoRef": "picaflor"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: ordena tus ideas",
+          "narracion": "Luego decide un orden y síguelo, por ejemplo, de arriba hacia abajo, como en la escuela del cerro. Así no saltas de un detalle a otro sin motivo.",
+          "recursoRef": "orden-escuela"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: usa adjetivos y revisa",
+          "narracion": "Por último, usa adjetivos, que son palabras que dicen cómo es algo, como «pequeño», «verde» o «suave». Lee tu texto y comprueba que alguien que no vio lo que describes pueda imaginarlo."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "comparar",
+          "src": "/nudito/diagramas/comunicacion/descripcion-comparar.svg",
+          "alt": "Dos recuadros: con una equis, Mi perro es bonito; con una marca de visto, Chato es pequeño, de pelo marrón y con orejas caídas.",
+          "descripcion": "Un recuadro rojo con una equis, titulado «Casi no dice nada», contiene «Mi perro es bonito». Un recuadro verde con una marca de visto, titulado «Podemos imaginarlo», contiene «Chato es pequeño, de pelo marrón y con orejas caídas» y recuerda: tamaño, color y forma."
+        },
+        {
+          "id": "picaflor",
+          "src": "/nudito/diagramas/comunicacion/descripcion-picaflor.svg",
+          "alt": "Cuadro del picaflor con cuatro filas: tamaño, pequeño; color, plumas verdes; forma, pico largo y delgado; se mueve, vuela muy rápido.",
+          "descripcion": "Bajo el título «El picaflor» hay cuatro filas. En cada una, a la izquierda aparece el tipo de detalle y a la derecha, su valor: tamaño, pequeño; color, plumas verdes; forma, pico largo y delgado; se mueve, vuela muy rápido."
+        },
+        {
+          "id": "orden-escuela",
+          "src": "/nudito/diagramas/comunicacion/descripcion-orden-escuela.svg",
+          "alt": "Cuatro escalones numerados con flechas hacia abajo: el cerro, el techo rojo, las paredes blancas y el patio con su molle.",
+          "descripcion": "Cuatro cuadros numerados del uno al cuatro, uno debajo de otro y unidos por flechas hacia abajo: el cerro, el techo rojo, las paredes blancas y el patio con su molle. Al pie dice «De arriba hacia abajo»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "¿Cuál oración describe mejor a una llama?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La llama tiene lana espesa, cuello largo y orejas curvas."
+          },
+          {
+            "id": "b",
+            "texto": "La llama es linda. Es buena. Es muy especial para mí."
+          },
+          {
+            "id": "c",
+            "texto": "Ayer vi una llama en el cerro y luego volví a mi casa."
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "La primera oración da detalles que se pueden imaginar: lana espesa, cuello largo y orejas curvas. La segunda repite «es» sin decir cómo es la llama, y la tercera cuenta lo que hiciste, no cómo es el animal.",
+        "pista": "Busca la oración que dice cómo es la llama: su color, su forma o su tamaño."
+      }
+    }
   },
   {
     "clave": "com.p4.escribo-una-nota-o-aviso",

@@ -384,7 +384,120 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Predices con indicios antes de leer",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a predecir de qué trata un texto antes de leerlo. Como idea principal, puedes mirar los indicios: el título, el dibujo, los colores y la forma del texto. Con ellos dices una predicción con «porque», y después la confirmas o la cambias al leer."
+        },
+        {
+          "id": "situacion-portada",
+          "tipo": "recurso",
+          "titulo": "Una portada de libro",
+          "narracion": "Observemos esta portada. El fondo es azul oscuro, como de noche. Arriba dice «La noche de las luciérnagas». Hay puntos amarillos que brillan y, abajo, dos niños con una linterna que alumbra hacia la derecha. Debajo, una tarjeta amarilla dice que es la portada de un libro.",
+          "recursoRef": "portada"
+        },
+        {
+          "id": "ejemplo-portada-indicios",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: junta los indicios",
+          "narracion": "Juntemos los indicios. El título habla de la noche y de luciérnagas. El dibujo muestra puntos de luz y niños con linterna. Todos los indicios apuntan a la noche.",
+          "recursoRef": "portada"
+        },
+        {
+          "id": "ejemplo-portada-prediccion",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: di tu predicción",
+          "narracion": "Con esos indicios decimos: «Creo que trata de una aventura de noche, porque hay linternas y luciérnagas». Usamos «porque» para mostrar de dónde sale la idea."
+        },
+        {
+          "id": "ejemplo-poema-mira",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: mira cómo está escrito",
+          "narracion": "A veces la forma del texto da pistas. Mira este texto. Tiene el título «Canto al amanecer» y debajo líneas cortas, una debajo de otra: «Canta el gallo», «ya sale el sol», «y el cerro se viste» y «de color».",
+          "recursoRef": "poema"
+        },
+        {
+          "id": "ejemplo-poema-predice",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: predice por la forma",
+          "narracion": "Las líneas cortas y el título que parece un canto nos hacen pensar que es un poema. Decimos: «Creo que es un poema, porque está escrito en líneas cortas».",
+          "recursoRef": "poema"
+        },
+        {
+          "id": "error-sin-pistas",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: predecir sin pistas",
+          "narracion": "Un error es decir una predicción sin fijarse en ninguna pista, como «creo que es de dinosaurios» cuando nada lo muestra. Otro es creer que la predicción debe ser perfecta. En la imagen, la predicción está arriba. Si al leer coincide, la confirmas. Si no coincide, la cambias, y eso está bien.",
+          "recursoRef": "confirmar"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira el título",
+          "narracion": "Primero mira el título. En la portada, «La noche de las luciérnagas» ya nos habla de la noche.",
+          "recursoRef": "portada"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: observa dibujos y forma",
+          "narracion": "Después observa los dibujos, los colores y la forma del texto, como las líneas cortas del poema.",
+          "recursoRef": "poema"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: di tu predicción",
+          "narracion": "Por último junta las pistas y di tu predicción con «Creo que trata de… porque…». Al leer, confirmas o cambias tu idea, como muestra la imagen.",
+          "recursoRef": "confirmar"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "portada",
+          "src": "/nudito/diagramas/comunicacion/predecir-portada-luciernagas.svg",
+          "alt": "Portada azul oscura: «La noche de las luciérnagas», puntos amarillos y dos niños con linterna.",
+          "descripcion": "Una portada de libro de fondo azul oscuro. Arriba, en letras blancas: La noche de las luciérnagas. Hay puntos amarillos que brillan, y abajo dos niños con una linterna que alumbra hacia la derecha. Debajo, una tarjeta amarilla dice: Portada de un libro."
+        },
+        {
+          "id": "poema",
+          "src": "/nudito/diagramas/comunicacion/predecir-poema-forma.svg",
+          "alt": "Texto en líneas cortas con el título «Canto al amanecer».",
+          "descripcion": "Un recuadro blanco con el título Canto al amanecer y cuatro líneas cortas, una bajo otra: Canta el gallo, ya sale el sol, y el cerro se viste, de color. Debajo, una tarjeta amarilla pregunta: ¿Qué texto parece?"
+        },
+        {
+          "id": "confirmar",
+          "src": "/nudito/diagramas/comunicacion/predecir-frase-confirmar.svg",
+          "alt": "Una predicción con «porque» y dos caminos: si coincide, se confirma; si no, se cambia.",
+          "descripcion": "Arriba, una tarjeta azul con la predicción: Creo que trata de una aventura de noche, porque hay linternas y luciérnagas. Una flecha baja a dos tarjetas: a la izquierda, si coincide con lo que leo, la confirmo; a la derecha, si no coincide, la cambio."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un texto se llama «El pescador y la luna». En el dibujo hay un bote pequeño sobre un mar tranquilo y una luna grande en el cielo. ¿Qué predicción se apoya mejor en esas pistas?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Creo que trata de un pescador de noche, porque hay un bote y la luna."
+          },
+          {
+            "id": "b",
+            "texto": "Creo que trata de un viaje por la selva, porque hay un bote."
+          },
+          {
+            "id": "c",
+            "texto": "Creo que es una receta de cocina, porque el título nombra al pescador."
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "La primera predicción usa pistas visibles: el título habla de un pescador y la luna, y el dibujo muestra un bote y la luna. Las otras no se apoyan bien en esas pistas.",
+        "pista": "Busca la predicción que use el título y el dibujo con «porque»."
+      }
+    }
   },
   {
     "clave": "com.p3.comprobar-predicciones",

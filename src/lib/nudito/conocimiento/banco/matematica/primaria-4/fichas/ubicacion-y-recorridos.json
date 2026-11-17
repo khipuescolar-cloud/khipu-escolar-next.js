@@ -305,7 +305,133 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Croquis con puntos de referencia",
+          "narracion": "Bienvenida y bienvenido. Hoy hacemos croquis. Como idea principal, un croquis es un plano sencillo que muestra dónde están los lugares. Para hacerlo bien usamos puntos de referencia, que son lugares fijos, como el mercado o la iglesia. Y decimos si cada lugar queda a la izquierda, a la derecha o al frente."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "La calle del barrio",
+          "narracion": "Observemos esta situación. Es el croquis de una calle, visto desde arriba. En el lado de arriba hay tres lugares, de izquierda a derecha: la bodega, el mercado y la posta. Abajo, al otro lado de la calle, hay tres espacios vacíos, listos para dibujar más lugares.",
+          "recursoRef": "calle-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ubicar el colegio",
+          "narracion": "Un dato dice que el colegio está al frente del mercado. El mercado es el punto de referencia, porque no se mueve. Piensa: al frente quiere decir al otro lado de la calle, justo enfrente. ¿En cuál de los tres espacios de abajo dibujas el colegio?",
+          "recursoRef": "calle-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el colegio en su lugar",
+          "narracion": "El colegio va en el espacio de abajo que queda justo enfrente del mercado, es decir, el del centro. La flecha de dos puntas une los dos lugares a través de la calle. Así, desde el mercado, el colegio queda al frente.",
+          "recursoRef": "calle-colegio"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un segundo lugar",
+          "narracion": "Ahora el colegio ya está dibujado y será nuestro punto de referencia. La farmacia está a la izquierda del colegio, en el mismo lado de la calle. Piensa: la izquierda es hacia donde queda la bodega en este croquis. ¿En cuál de los dos espacios vacíos dibujas la farmacia?",
+          "recursoRef": "farmacia-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: izquierda y derecha",
+          "narracion": "La farmacia va en el espacio de la izquierda. Desde el colegio, la farmacia queda a la izquierda, tal como dice el dato. El espacio de la derecha no se dibuja, porque no tenemos ningún dato para llenarlo. Un croquis solo muestra lo que sabemos.",
+          "recursoRef": "farmacia-croquis"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "En el cuadro rojo, alguien elige una mototaxi como punto de referencia. Es un error: la mototaxi se mueve, y mañana ya no estará ahí. En el cuadro verde, la iglesia no se mueve, y sirve de referencia. Otro error es cambiar la izquierda por la derecha: un lugar que está a la izquierda en la realidad debe dibujarse a la izquierda.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: elige referencias fijas",
+          "narracion": "Primero elige puntos de referencia que no se muevan. En este croquis sirven la bodega, el mercado y la posta, porque siempre están en el mismo lugar.",
+          "recursoRef": "calle-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: ubica cada lugar",
+          "narracion": "Después decide dónde va cada lugar respecto de una referencia: a la izquierda, a la derecha o al frente. Aquí, el colegio queda al frente del mercado.",
+          "recursoRef": "calle-colegio"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: dibuja y comprueba",
+          "narracion": "Por último, dibuja cada lugar en su posición real y ponle su nombre. Luego léelo con otra persona para comprobar que lo entienda. Aquí, cualquiera puede decir que la farmacia queda a la izquierda del colegio.",
+          "recursoRef": "farmacia-croquis"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "calle-pregunta",
+          "src": "/nudito/diagramas/matematica/croquis-referencias-calle-pregunta.svg",
+          "alt": "Croquis de una calle visto desde arriba: bodega, mercado y posta arriba y tres espacios vacíos abajo.",
+          "descripcion": "Una calle de color arena con una línea blanca punteada y la palabra calle. Arriba hay tres edificios en fila, de izquierda a derecha: bodega, mercado y posta. Abajo hay tres recuadros vacíos de borde punteado, uno bajo cada edificio."
+        },
+        {
+          "id": "calle-colegio",
+          "src": "/nudito/diagramas/matematica/croquis-referencias-calle-colegio.svg",
+          "alt": "El colegio abajo, al frente del mercado, unido a él por una flecha de dos puntas que cruza la calle.",
+          "descripcion": "El mismo croquis. Abajo, en el centro, hay un edificio celeste con la palabra colegio, justo enfrente del mercado. Una flecha vertical de dos puntas cruza la calle entre los dos, con las palabras al frente. Los otros espacios de abajo ya no se dibujan."
+        },
+        {
+          "id": "farmacia-pregunta",
+          "src": "/nudito/diagramas/matematica/croquis-referencias-farmacia-pregunta.svg",
+          "alt": "Croquis con el colegio abajo en el centro y dos recuadros vacíos de borde punteado a sus lados.",
+          "descripcion": "El mismo croquis. Arriba están la bodega, el mercado y la posta. Abajo, en el centro, está el colegio, celeste. A su izquierda y a su derecha hay un recuadro vacío de borde punteado."
+        },
+        {
+          "id": "farmacia-croquis",
+          "src": "/nudito/diagramas/matematica/croquis-referencias-farmacia-croquis.svg",
+          "alt": "La farmacia abajo, a la izquierda del colegio, con una flecha que apunta a la izquierda.",
+          "descripcion": "El mismo croquis. Abajo, a la izquierda, hay un edificio amarillo con la palabra farmacia y, a su derecha, el colegio celeste. Debajo, una flecha turquesa apunta a la izquierda, con las palabras a la izquierda del colegio. A la derecha del colegio no hay nada dibujado."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/croquis-referencias-errores.svg",
+          "alt": "Dos referencias: una mototaxi que se mueve, con equis roja, y una iglesia que no se mueve, con palomita verde.",
+          "descripcion": "Dos recuadros. En el rojo hay una mototaxi amarilla con rayas de movimiento y las palabras mototaxi, se mueve, con una equis roja. En el verde hay una iglesia con una cruz y las palabras iglesia, no se mueve, con una palomita verde."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En un croquis, la posta es el punto de referencia. En la realidad, la ferretería está a su derecha y el parque está a su izquierda. ¿Dónde dibujas la ferretería?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "A la izquierda de la posta"
+          },
+          {
+            "id": "b",
+            "texto": "A la derecha de la posta"
+          },
+          {
+            "id": "c",
+            "texto": "A la izquierda del parque"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "En la realidad la ferretería está a la derecha de la posta, así que en el croquis también va a su derecha.",
+        "pista": "Fíjate en qué lado de la posta queda la ferretería en la realidad."
+      }
+    }
   },
   {
     "clave": "mat.p4.instrucciones-ubicacion",
@@ -824,7 +950,7 @@
         "id": "e07",
         "dificultad": 2,
         "tipo": "texto_corto",
-        "enunciado": "Vas de la casilla (5, 5) a la casilla (5, 2) de la cuadrícula. Escribe la instrucción con el número y la dirección, por ejemplo «2 izquierda».",
+        "enunciado": "En una cuadrícula, la columna se cuenta de izquierda a derecha y la fila, de abajo hacia arriba. Cada casilla se escribe (columna, fila). Vas de la casilla (5, 5) a la casilla (5, 2) de la cuadrícula. Escribe la instrucción con el número y la dirección, por ejemplo «2 izquierda».",
         "respuesta": "3 abajo",
         "alternativasAceptadas": [
           "abajo 3",
@@ -858,7 +984,7 @@
         "id": "e09",
         "dificultad": 2,
         "tipo": "verdadero_falso",
-        "enunciado": "Para ir de la casilla (2, 2) a la casilla (6, 4) basta con moverte 4 casillas a la derecha y 2 casillas hacia arriba.",
+        "enunciado": "En una cuadrícula, la columna se cuenta de izquierda a derecha y la fila, de abajo hacia arriba. Cada casilla se escribe (columna, fila). Para ir de la casilla (2, 2) a la casilla (6, 4) basta con moverte 4 casillas a la derecha y 2 casillas hacia arriba.",
         "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
@@ -886,7 +1012,7 @@
         "id": "e11",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "El cuy de la chacra está en la casilla (2, 2) y la quinua está en la casilla (6, 5). ¿Qué recorrido lleva al cuy hasta la quinua?",
+        "enunciado": "En una cuadrícula, la columna se cuenta de izquierda a derecha y la fila, de abajo hacia arriba. Cada casilla se escribe (columna, fila). El cuy de la chacra está en la casilla (2, 2) y la quinua está en la casilla (6, 5). ¿Qué recorrido lleva al cuy hasta la quinua?",
         "respuesta": "d",
         "alternativasAceptadas": [],
         "opciones": [
@@ -918,7 +1044,7 @@
         "id": "e12",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "Una ficha parte de la casilla (1, 7). Sigue este recorrido: 6 casillas a la derecha, 4 hacia abajo, 2 a la izquierda y 1 hacia arriba. ¿En qué fila termina? Escribe solo el número.",
+        "enunciado": "En una cuadrícula, la columna se cuenta de izquierda a derecha y la fila, de abajo hacia arriba. Cada casilla se escribe (columna, fila). Una ficha parte de la casilla (1, 7). Sigue este recorrido: 6 casillas a la derecha, 4 hacia abajo, 2 a la izquierda y 1 hacia arriba. ¿En qué fila termina? Escribe solo el número.",
         "respuesta": 4,
         "alternativasAceptadas": [],
         "pistas": [
@@ -954,6 +1080,128 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Recorridos en una cuadrícula",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a describir un recorrido en una cuadrícula. Como idea principal, un recorrido se dice con cuántas casillas te mueves y hacia dónde: derecha, izquierda, arriba o abajo. Derecha e izquierda cambian la columna. Arriba y abajo cambian la fila."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Un cuy y su comedero",
+          "narracion": "Observemos esta situación. En una cuadrícula hay un cuy y, más lejos, su comedero. El cuy quiere llegar a comer. Queremos describir el recorrido que debe hacer. En el dibujo se ven la cuadrícula, el cuy en una casilla y el comedero en otra, más lejos.",
+          "recursoRef": "cuadricula-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el recorrido del cuy",
+          "narracion": "El cuy está en la columna dos, fila uno. El comedero está en la columna cinco, fila tres. Las columnas se cuentan de izquierda a derecha y las filas, de abajo hacia arriba. ¿Cuántas columnas cambian y hacia dónde? ¿Y cuántas filas?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dos movimientos",
+          "narracion": "De la columna dos a la columna cinco, el cuy avanza tres casillas hacia la derecha. De la fila uno a la fila tres, sube dos casillas. El recorrido es tres a la derecha y dos hacia arriba. En el dibujo, una flecha va a la derecha y luego otra sube hasta el comedero.",
+          "recursoRef": "cuadricula-derecha-arriba"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una ficha y una bandera",
+          "narracion": "Ahora una ficha está en la columna seis, fila cuatro, y debe llegar a una bandera en la columna dos, fila dos. ¿Hacia dónde cambia la columna, a la izquierda o a la derecha? ¿Y la fila, sube o baja?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: hacia atrás y hacia abajo",
+          "narracion": "De la columna seis a la columna dos, la ficha se mueve cuatro casillas hacia la izquierda. De la fila cuatro a la fila dos, baja dos casillas. El recorrido es cuatro a la izquierda y dos hacia abajo. En el dibujo, una flecha va hacia la izquierda y otra baja hasta la bandera.",
+          "recursoRef": "cuadricula-izquierda-abajo"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado: la casilla de salida",
+          "narracion": "Una ficha debe llegar a una bandera. Un niño dice que hay que avanzar cuatro casillas a la derecha, porque cuenta también la casilla donde empieza la ficha. Es un error: esa casilla no es un movimiento. En el dibujo, la fila de arriba cuenta cuatro números en rojo y la de abajo cuenta solo los pasos: son tres.",
+          "recursoRef": "casillas-error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: ubica los puntos",
+          "narracion": "Ubica la casilla de salida y la casilla de llegada."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: mira las columnas",
+          "narracion": "Cuenta cuántas columnas cambian y di el número con derecha o izquierda."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: mira las filas",
+          "narracion": "Cuenta cuántas filas cambian y di el número con arriba o abajo. Junta los dos movimientos y comprueba contando casilla por casilla. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "tres-pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cuadricula-pregunta",
+          "src": "/nudito/diagramas/matematica/desplazamientos-cuadricula-cuadricula-pregunta.svg",
+          "alt": "Una cuadrícula sin números, con un cuy en una casilla y un comedero en otra, más lejos.",
+          "descripcion": "Una cuadrícula blanca de seis columnas y cinco filas, sin números. Un cuy amarillo está en una casilla y un comedero verde con granos está en otra, más lejos. Abajo: ¿Qué recorrido lleva al cuy al comedero?"
+        },
+        {
+          "id": "cuadricula-derecha-arriba",
+          "src": "/nudito/diagramas/matematica/desplazamientos-cuadricula-cuadricula-derecha-arriba.svg",
+          "alt": "Cuadrícula numerada; una flecha lleva al cuy tres casillas a la derecha y dos arriba hasta el comedero.",
+          "descripcion": "Una cuadrícula con las columnas numeradas del uno al seis, debajo, y las filas del uno al cinco, a la izquierda. El cuy está en la columna dos, fila uno. Una flecha verde va a la derecha hasta la columna cinco y otra sube hasta el comedero, en la fila tres. Abajo: tres derecha, dos arriba."
+        },
+        {
+          "id": "cuadricula-izquierda-abajo",
+          "src": "/nudito/diagramas/matematica/desplazamientos-cuadricula-cuadricula-izquierda-abajo.svg",
+          "alt": "Cuadrícula numerada; una flecha lleva la ficha cuatro casillas a la izquierda y dos abajo hasta una bandera.",
+          "descripcion": "Una cuadrícula con las columnas numeradas del uno al seis, debajo, y las filas del uno al cinco, a la izquierda. Una ficha azul oscuro está en la columna seis, fila cuatro. Una flecha verde va a la izquierda hasta la columna dos y otra baja hasta una bandera, en la fila dos. Abajo: cuatro izquierda, dos abajo."
+        },
+        {
+          "id": "casillas-error",
+          "src": "/nudito/diagramas/matematica/desplazamientos-cuadricula-casillas-error.svg",
+          "alt": "Dos filas de cuatro casillas: en una se cuenta también la casilla de salida y en la otra solo los pasos.",
+          "descripcion": "Arriba, en rojo: Error: dijo cuatro derecha. Una fila de cuatro casillas, con una ficha en la primera y una bandera en la última. Debajo, los números uno, dos, tres y cuatro en rojo, uno por casilla. Luego, en rojo: Contó también la salida. En verde: Bien: son tres derecha. Una segunda fila igual, con los números uno, dos y tres en verde, bajo las tres últimas casillas."
+        },
+        {
+          "id": "tres-pasos",
+          "src": "/nudito/diagramas/matematica/desplazamientos-cuadricula-tres-pasos.svg",
+          "alt": "Tarjeta con tres pasos para describir un recorrido.",
+          "descripcion": "Tres tarjetas numeradas. Uno: ubica la salida y la llegada. Dos: cuenta las columnas, derecha o izquierda. Tres: cuenta las filas, arriba o abajo."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En una cuadrícula, la columna se cuenta de izquierda a derecha y la fila, de abajo hacia arriba. Un robot está en la columna uno, fila dos, y llega a la columna cinco, fila cinco. ¿Qué recorrido hizo?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuatro a la izquierda y tres hacia arriba"
+          },
+          {
+            "id": "b",
+            "texto": "Tres a la derecha y cuatro hacia abajo"
+          },
+          {
+            "id": "c",
+            "texto": "Cuatro a la derecha y tres hacia arriba"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. De la columna uno a la cinco son cuatro casillas a la derecha, y de la fila dos a la cinco, tres hacia arriba.",
+        "pista": "Mira cuántas columnas y cuántas filas cambian."
+      }
+    }
   }
 ]

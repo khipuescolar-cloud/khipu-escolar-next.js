@@ -321,7 +321,133 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Croquis con calles y avenidas",
+          "narracion": "Bienvenida y bienvenido. Hoy ubicamos lugares con ayuda de calles y avenidas. Como idea principal, un lugar se describe con el cruce de una calle y una avenida. Cada vía tiene su nombre. Para decir dónde está un lugar, nombramos las dos vías, no solo una."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Un barrio con tres calles",
+          "narracion": "Observemos esta situación. Es el croquis de un barrio. En este croquis, las calles van de lado a lado y las avenidas van de arriba abajo. Las calles se llaman Tacna, Junín y Puno. Las avenidas se llaman Brasil, Arica y Colón. Hay dos lugares marcados, una posta y un mercado, cada uno en un cruce.",
+          "recursoRef": "plano-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: leer un cruce",
+          "narracion": "Vamos a ubicar la posta. Busca el círculo turquesa. Sigue con la vista su calle hacia la izquierda, hasta leer el nombre. Luego sigue su avenida hacia arriba, hasta leer el nombre. ¿En qué cruce está la posta?",
+          "recursoRef": "plano-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: calle y avenida",
+          "narracion": "La posta está sobre la calle Junín, en turquesa claro, y sobre la avenida Colón, en amarillo. Las dos vías se encuentran en un solo punto, y ahí está la posta. Entonces decimos: la posta está en la calle Junín con la avenida Colón.",
+          "recursoRef": "plano-posta"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ubicar un lugar",
+          "narracion": "Ahora vamos al revés. Este es otro barrio, con las calles Cusco, Piura y Tumbes y las avenidas Norte, Centro y Sur. Ya hay un parque marcado. Un dato dice que la escuela está en la calle Piura con la avenida Centro. ¿Dónde dibujas la escuela?",
+          "recursoRef": "cruce-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: dos vías que se cruzan",
+          "narracion": "Primero buscamos la calle Piura, en turquesa claro. Luego buscamos la avenida Centro, en amarillo. La escuela va en el punto donde las dos se cruzan. El parque está en otro cruce, así que no se confunde con la escuela.",
+          "recursoRef": "cruce-escuela"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "En este mapa, el mercado y la posta están sobre la misma calle Junín. Si alguien dice solo calle Junín, no sabemos cuál de los dos lugares es. Falta decir la avenida. Con las dos vías, el mercado queda en la calle Junín con la avenida Brasil, y la posta en la calle Junín con la avenida Colón. Otro error es confundir una calle con una avenida: fíjate en que el nombre de las avenidas lleva la palabra avenida.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee los nombres",
+          "narracion": "Primero fíjate en cómo se llaman las calles y las avenidas. Las calles están anotadas a la izquierda y las avenidas, arriba.",
+          "recursoRef": "plano-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca el cruce",
+          "narracion": "Después ubica el punto donde se encuentran las dos vías. Aquí, la calle Junín y la avenida Colón se encuentran en la posta.",
+          "recursoRef": "plano-posta"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: di las dos vías",
+          "narracion": "Al explicar dónde queda un lugar, nombra las dos vías. Así cualquiera lo encuentra, sin depender de la izquierda o la derecha. Por ejemplo, la escuela queda en la calle Piura con la avenida Centro.",
+          "recursoRef": "cruce-escuela"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "plano-pregunta",
+          "src": "/nudito/diagramas/matematica/croquis-calles-plano-pregunta.svg",
+          "alt": "Mapa de un barrio con tres calles de lado a lado, tres avenidas de arriba abajo, una posta y un mercado.",
+          "descripcion": "Tres calles horizontales llamadas Tacna, Junín y Puno, anotadas a la izquierda, y tres avenidas verticales llamadas Brasil, Arica y Colón, anotadas arriba. Un círculo turquesa con la palabra posta y un círculo amarillo con la palabra mercado marcan dos cruces. Abajo, en ámbar, se lee que, en el mapa, las calles van de lado a lado y las avenidas, de arriba abajo."
+        },
+        {
+          "id": "plano-posta",
+          "src": "/nudito/diagramas/matematica/croquis-calles-plano-posta.svg",
+          "alt": "El mismo mapa con la calle Junín y la avenida Colón resaltadas, que se cruzan en la posta.",
+          "descripcion": "El mismo mapa. La calle Junín está en turquesa claro y la avenida Colón en amarillo, y se cruzan en el círculo turquesa de la posta. El mercado sigue en su cruce. Abajo se lee: posta, calle Junín con avenida Colón."
+        },
+        {
+          "id": "cruce-pregunta",
+          "src": "/nudito/diagramas/matematica/croquis-calles-cruce-pregunta.svg",
+          "alt": "Mapa de otro barrio con las calles Cusco, Piura y Tumbes, las avenidas Norte, Centro y Sur y un parque.",
+          "descripcion": "Tres calles horizontales llamadas Cusco, Piura y Tumbes y tres avenidas verticales llamadas Norte, Centro y Sur. Un círculo amarillo con la palabra parque marca un cruce de la fila de abajo, en la avenida de la derecha. Abajo, en ámbar, se lee que, en el mapa, las calles van de lado a lado y las avenidas, de arriba abajo."
+        },
+        {
+          "id": "cruce-escuela",
+          "src": "/nudito/diagramas/matematica/croquis-calles-cruce-escuela.svg",
+          "alt": "El mismo mapa con la escuela en el cruce de la calle Piura con la avenida Centro, ambas resaltadas.",
+          "descripcion": "El mismo mapa. La calle Piura está en turquesa claro y la avenida Centro en amarillo. Donde se cruzan hay un círculo azul oscuro con la palabra escuela. El parque sigue en su cruce. Abajo se lee: escuela, calle Piura con avenida Centro."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/croquis-calles-errores.svg",
+          "alt": "Mapa con el mercado y la posta sobre la misma calle Junín: nombrar solo la calle no basta, hay que nombrar también la avenida.",
+          "descripcion": "Un mapa con la calle Junín resaltada en turquesa claro. El mercado, círculo amarillo, está en el cruce con la avenida Brasil, y la posta, círculo turquesa, en el cruce con la avenida Colón. Abajo, con una equis roja, dice solo calle Junín, no basta; con una palomita verde, Junín con Brasil y Junín con Colón."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una farmacia está donde se cruzan la calle Puno y la avenida Arica. ¿Qué par de nombres la ubica en el croquis?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Calle Tacna con avenida Arica"
+          },
+          {
+            "id": "b",
+            "texto": "Calle Puno con avenida Colón"
+          },
+          {
+            "id": "c",
+            "texto": "Calle Puno con avenida Arica"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Una sola vía pasa por muchos cruces. Con la calle Puno y la avenida Arica, el lugar queda en un solo punto.",
+        "pista": "Revisa que el par nombre la calle y la avenida que se cruzan en la farmacia."
+      }
+    }
   },
   {
     "clave": "mat.p5.describir-recorridos",
@@ -1302,7 +1428,132 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Ampliar y reducir en la cuadrícula",
+          "narracion": "Bienvenida y bienvenido. Hoy trabajaremos con ampliación y reducción de figuras en la cuadrícula. Como idea principal, ampliar o reducir una figura significa multiplicar o dividir todas sus longitudes por el mismo factor. Así la figura conserva su forma, aunque cambie de tamaño. Si cambiaras solo una medida, la figura se deformaría."
+        },
+        {
+          "id": "situacion-triangulo",
+          "tipo": "recurso",
+          "titulo": "Una figura que queremos copiar",
+          "narracion": "Observemos esta situación. Sobre una cuadrícula hay un triángulo con una base de tres cuadros y una altura de cuatro cuadros. Queremos hacer una copia al doble de tamaño que conserve su forma. Antes de dibujar, debemos decidir qué hacer con cada medida.",
+          "recursoRef": "situacion-triangulo"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo uno: un rectángulo al doble",
+          "narracion": "Un rectángulo mide dos cuadros de ancho y tres de alto. Lo vamos a ampliar al doble. Eso significa que cada medida se multiplica por dos. ¿Qué medidas tendrá el nuevo rectángulo?",
+          "recursoRef": "rectangulo-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo uno: multiplicamos ambos lados",
+          "narracion": "Multiplicamos ambos lados por dos: dos por dos es cuatro y tres por dos es seis. El nuevo rectángulo mide cuatro por seis cuadros. En la cuadrícula se ve el rectángulo grande cubriendo al original, desde la misma esquina, y con la misma forma.",
+          "recursoRef": "rectangulo-solucion"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo dos: un cuadrado reducido",
+          "narracion": "Ahora tenemos un cuadrado de ocho cuadros por lado. Lo reducimos a la mitad. Reducir a la mitad significa dividir cada longitud entre dos. ¿Cuánto medirá cada lado nuevo?",
+          "recursoRef": "cuadrado-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo dos: dividimos entre dos",
+          "narracion": "Dividimos entre dos: ocho entre dos es cuatro. El nuevo cuadrado mide cuatro cuadros por lado y cabe en una esquina del original. Sus lados cambian por igual, así que sigue siendo un cuadrado.",
+          "recursoRef": "cuadrado-solucion"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Errores frecuentes al ampliar",
+          "narracion": "Un error frecuente es creer que ampliar al doble es sumar dos cuadros a cada lado. Un rectángulo de tres por cuatro pasaría a cinco por seis, y esa figura ya no tiene la misma forma. Al doble significa multiplicar: seis por ocho. Otro error es cambiar solo una medida, por ejemplo el ancho, porque deforma la figura."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: mide la figura original",
+          "narracion": "Cuenta cuántos cuadros mide cada lado de la figura. En el rectángulo del primer ejemplo son dos cuadros de ancho y tres de alto.",
+          "recursoRef": "rectangulo-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: aplica el mismo factor",
+          "narracion": "Identifica el factor y aplícalo a todos los lados, horizontales y verticales. Para ampliar se multiplica y para reducir se divide. Con el cuadrado del segundo ejemplo, ocho entre dos es cuatro.",
+          "recursoRef": "cuadrado-solucion"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: comprueba la relación",
+          "narracion": "Comprueba que los lados correspondientes mantengan la misma relación. En el rectángulo, cuatro es el doble de dos y seis es el doble de tres: ambos lados se duplicaron.",
+          "recursoRef": "rectangulo-solucion"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion-triangulo",
+          "src": "/nudito/diagramas/matematica/ampliacion-reduccion-triangulo-cuadricula.svg",
+          "alt": "Triángulo en una cuadrícula con base de tres cuadros y alto de cuatro cuadros. Se pregunta cómo hacerlo al doble.",
+          "descripcion": "A la izquierda hay una cuadrícula de ocho por ocho con un triángulo amarillo que tiene un ángulo recto abajo a la izquierda. A la derecha se lee: base, tres cuadros; alto, cuatro cuadros; ¿cómo lo hacemos al doble?"
+        },
+        {
+          "id": "rectangulo-pregunta",
+          "src": "/nudito/diagramas/matematica/ampliacion-reduccion-rectangulo-pregunta.svg",
+          "alt": "Rectángulo de dos cuadros de ancho y tres de alto en una cuadrícula. Se pregunta cómo sería al doble.",
+          "descripcion": "En una cuadrícula hay un rectángulo turquesa de dos cuadros de ancho y tres de alto. A la derecha se lee: ancho, dos; alto, tres; ¿al doble?"
+        },
+        {
+          "id": "rectangulo-solucion",
+          "src": "/nudito/diagramas/matematica/ampliacion-reduccion-rectangulo-solucion.svg",
+          "alt": "El rectángulo de dos por tres dentro de su ampliación al doble, de cuatro por seis cuadros, desde la misma esquina.",
+          "descripcion": "En la cuadrícula, un rectángulo amarillo grande de cuatro cuadros de ancho y seis de alto cubre al rectángulo turquesa pequeño, que comparte su esquina inferior izquierda. A la derecha se lee: dos por dos igual cuatro; tres por dos igual seis; mide cuatro por seis."
+        },
+        {
+          "id": "cuadrado-pregunta",
+          "src": "/nudito/diagramas/matematica/ampliacion-reduccion-cuadrado-pregunta.svg",
+          "alt": "Cuadrado de lado ocho cuadros en una cuadrícula. Se pregunta cómo reducirlo a la mitad.",
+          "descripcion": "Una cuadrícula de ocho por ocho está cubierta por un cuadrado grande. A la derecha se lee: lado ocho; reducir a la mitad."
+        },
+        {
+          "id": "cuadrado-solucion",
+          "src": "/nudito/diagramas/matematica/ampliacion-reduccion-cuadrado-solucion.svg",
+          "alt": "El cuadrado de lado ocho y dentro, en su esquina inferior izquierda, el cuadrado reducido de lado cuatro.",
+          "descripcion": "En la cuadrícula, el cuadrado grande tiene dentro, abajo a la izquierda, un cuadrado amarillo de cuatro cuadros por lado. A la derecha se lee: ocho entre dos igual cuatro; en verde: lado nuevo, cuatro."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un rectángulo mide tres por cinco cuadros y se amplía al triple. ¿Qué medidas tiene el rectángulo nuevo?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Nueve por quince"
+          },
+          {
+            "id": "b",
+            "texto": "Seis por dieciocho"
+          },
+          {
+            "id": "c",
+            "texto": "Nueve por cinco"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Tres por tres es nueve y cinco por tres es quince. Ambos lados se multiplican por el mismo factor.",
+        "pista": "Piensa qué le pasa a cada lado cuando se amplía al triple."
+      }
+    }
   },
   {
     "clave": "mat.p5.reflexion-figuras",

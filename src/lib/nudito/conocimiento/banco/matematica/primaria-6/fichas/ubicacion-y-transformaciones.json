@@ -316,7 +316,124 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Croquis y planos con calles y avenidas",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a leer croquis y planos. Como idea principal, un croquis muestra los lugares y las calles vistos desde arriba. Para decir dónde está un lugar, damos el cruce de dos calles o una referencia clara, como estar entre dos avenidas."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "El barrio visto desde arriba",
+          "narracion": "Observemos esta situación. Es un croquis de un barrio. Dos jirones, Ica y Piura, van de arriba hacia abajo. Dos avenidas, Sucre y Bolívar, cruzan de lado a lado. Hay cinco lugares: biblioteca, parque, posta, colegio y mercado. Queremos explicar dónde están la biblioteca y el colegio.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ubicar la biblioteca",
+          "narracion": "Busca la biblioteca en el croquis. Fíjate junto a qué esquina está. ¿Qué dos calles se cruzan allí?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el cruce",
+          "narracion": "La biblioteca está a la izquierda del jirón Ica, arriba de la avenida Sucre, junto al cruce de esas dos calles. Esas dos calles, marcadas en amarillo, se cruzan en un solo punto. Por eso decimos: la biblioteca está en la esquina del jirón Ica con la avenida Sucre.",
+          "recursoRef": "cruce"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ubicar el colegio",
+          "narracion": "Ahora busca el colegio. Está junto a un jirón, pero no en una esquina. Fíjate qué dos avenidas lo encierran. ¿Entre cuáles queda?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: entre dos avenidas",
+          "narracion": "El colegio está junto al jirón Piura. Siguiendo ese jirón de arriba hacia abajo, lo encontramos después de la avenida Sucre y antes de la avenida Bolívar. Entonces decimos: el colegio está en el jirón Piura, entre la avenida Sucre y la avenida Bolívar.",
+          "recursoRef": "entre"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Un dato que se queda corto",
+          "narracion": "Mira este error. Alguien dice: la posta está en la avenida Sucre. Pero en otro croquis hay dos postas junto a esa avenida, una arriba y otra abajo. Con una sola calle no sabemos cuál es. Hay que añadir el cruce o una referencia más.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee los nombres",
+          "narracion": "Primero lee los nombres de los jirones y las avenidas, y localiza el lugar que buscas."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: ubica el cruce o el tramo",
+          "narracion": "Luego busca junto a qué cruce está el lugar, o entre qué dos calles queda."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: comprueba que sea uno solo",
+          "narracion": "Por último, revisa que tu descripción señale un solo lugar y no varios."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/croquis-planos-situacion.svg",
+          "alt": "Croquis de un barrio visto desde arriba con dos jirones, dos avenidas y cinco lugares.",
+          "descripcion": "Croquis con dos jirones verticales, Ica y Piura, y dos avenidas horizontales, Sucre y Bolívar. Biblioteca, Parque y Posta arriba; Colegio al centro, junto al jirón Piura; Mercado abajo a la derecha. Abajo: ¿Dónde está la biblioteca?"
+        },
+        {
+          "id": "cruce",
+          "src": "/nudito/diagramas/matematica/croquis-planos-cruce.svg",
+          "alt": "El croquis con el jirón Ica y la avenida Sucre en amarillo y un círculo en su cruce.",
+          "descripcion": "El croquis con el jirón Ica y la avenida Sucre resaltados en amarillo. Un círculo turquesa marca el punto donde se cruzan; la biblioteca queda a su izquierda, arriba de la avenida, y el parque, a su derecha. Abajo se lee: Cruce: jirón Ica y avenida Sucre."
+        },
+        {
+          "id": "entre",
+          "src": "/nudito/diagramas/matematica/croquis-planos-entre.svg",
+          "alt": "El croquis con el tramo del jirón Piura entre las avenidas Sucre y Bolívar en amarillo.",
+          "descripcion": "El croquis con un tramo amarillo del jirón Piura, entre la avenida Sucre y la avenida Bolívar. Dos círculos turquesa marcan esos dos cruces. El colegio queda junto a ese tramo. Abajo: Entre avenida Sucre y avenida Bolívar."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/croquis-planos-error.svg",
+          "alt": "Croquis con dos postas junto a la avenida Sucre, que está en amarillo.",
+          "descripcion": "Croquis con la avenida Sucre en amarillo y dos postas junto a ella: una arriba, entre los dos jirones, y otra abajo, a la derecha del jirón Piura. Abajo, en rojo: Solo avenida Sucre: ¿cuál posta?"
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En un plano, el banco está sobre la avenida Sucre. Para llegar, Rosa cruza el jirón Ica y todavía no llega al jirón Piura. ¿Dónde queda el banco?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Antes del jirón Ica"
+          },
+          {
+            "id": "b",
+            "texto": "Entre ambos jirones"
+          },
+          {
+            "id": "c",
+            "texto": "Pasando el jirón Piura"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Rosa ya pasó el jirón Ica y aún no llega al jirón Piura, así que el banco está en el tramo de la avenida que queda en medio.",
+        "pista": "Ubica los dos jirones y sigue el camino de Rosa sobre la avenida."
+      }
+    }
   },
   {
     "clave": "mat.p6.puntos-cardinales",
@@ -1571,7 +1688,132 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Ampliación y reducción de figuras en el plano cartesiano",
+          "narracion": "Bienvenida y bienvenido. Hoy vas a ampliar y reducir figuras. Como idea principal, para ampliar o reducir una figura sin deformarla, todas sus longitudes se multiplican o se dividen por el mismo número, llamado factor de escala. En el plano cartesiano, si el centro es el origen, multiplicamos o dividimos las dos coordenadas de cada vértice por ese factor."
+        },
+        {
+          "id": "situacion-casitas",
+          "tipo": "recurso",
+          "titulo": "Una figura y su ampliación",
+          "narracion": "Observemos esta situación. Sobre una cuadrícula hay dos casitas con la misma forma: una pequeña y otra más grande. Se ven iguales, solo cambia el tamaño. Cada lado de la casita grande es el mismo número de veces más largo que el lado correspondiente de la pequeña. Eso es ampliar sin deformar.",
+          "recursoRef": "casitas"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ampliar un rectángulo",
+          "narracion": "En una cuadrícula hay un rectángulo de tres cuadros de ancho y dos cuadros de alto. Lo vamos a ampliar con factor de escala tres. Eso quiere decir que cada medida se multiplica por tres. Hay que hallar las dos medidas nuevas, la del ancho y la del alto.",
+          "recursoRef": "rectangulo-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: las dos medidas cambian",
+          "narracion": "El ancho nuevo es tres por tres, que son nueve cuadros. El alto nuevo es dos por tres, que son seis cuadros. El rectángulo ampliado mide nueve por seis cuadros. Comprobamos la forma: nueve entre tres es tres y seis entre dos también es tres. El mismo factor en las dos medidas conserva la forma.",
+          "recursoRef": "rectangulo-resuelto"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: reducir en el plano",
+          "narracion": "En el plano cartesiano hay un triángulo con vértices en los puntos cuatro, dos; ocho, dos; y cuatro, seis. Lo reducimos a la mitad con centro en el origen. Eso significa que, en cada vértice, la coordenada horizontal y la coordenada vertical se dividen entre dos.",
+          "recursoRef": "plano-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: los vértices nuevos",
+          "narracion": "El punto cuatro, dos pasa a dos, uno. El punto ocho, dos pasa a cuatro, uno. El punto cuatro, seis pasa a dos, tres. El triángulo reducido tiene la mitad del tamaño y la misma forma, porque dividimos las dos coordenadas entre el mismo número. Los trazos punteados unen cada punto con su nuevo punto; si se prolongaran, pasarían por el origen.",
+          "recursoRef": "plano-resuelto"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Dos errores frecuentes",
+          "narracion": "Un error frecuente es sumar o restar en lugar de multiplicar o dividir. Si piden duplicar un rectángulo de dos por tres y sumas dos a cada lado, obtienes cuatro por cinco. Pero cuatro es el doble de dos y cinco no es el doble de tres, así que la figura se deforma. Otro error es cambiar una sola medida, por ejemplo solo el ancho. Duplicar es multiplicar por dos todas las medidas."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: identifica el factor de escala",
+          "narracion": "Averigua por qué número cambian las medidas. Puedes comparar un lado de la figura original con el lado correspondiente de la ampliada, o usar el factor que te dan: por dos es el doble y entre dos es la mitad.",
+          "recursoRef": "casitas"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: aplica el mismo factor a todas las medidas",
+          "narracion": "Multiplica, si amplías, o divide, si reduces, cada medida por el factor. En el rectángulo fueron tres por tres y dos por tres.",
+          "recursoRef": "rectangulo-resuelto"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: en el plano, transforma las dos coordenadas de cada vértice",
+          "narracion": "Con el origen como centro, cambia las dos coordenadas de cada vértice con el mismo factor. Al final comprueba que las medidas del triángulo sigan en la misma proporción.",
+          "recursoRef": "plano-resuelto"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "casitas",
+          "src": "/nudito/diagramas/matematica/ampliacion-reduccion-casitas.svg",
+          "alt": "Dos casitas con la misma forma sobre una cuadrícula: una pequeña y una ampliada, más grande pero sin deformarse.",
+          "descripcion": "Sobre una cuadrícula hay dos casitas con techo amarillo y puerta verde. La de la izquierda es pequeña y la de la derecha es más grande. Tienen la misma forma y debajo se leen las palabras pequeña y ampliada."
+        },
+        {
+          "id": "rectangulo-pregunta",
+          "src": "/nudito/diagramas/matematica/ampliacion-reduccion-rectangulo-tres-dos-pregunta.svg",
+          "alt": "Un rectángulo de tres cuadros de ancho y dos de alto sobre una cuadrícula. Se pide ampliarlo con factor tres.",
+          "descripcion": "A la izquierda hay un rectángulo verde sobre cuadrícula, con las medidas ancho tres y alto dos. A la derecha se leen dos preguntas en rojo: cuál es el ancho nuevo y cuál es el alto nuevo. Arriba dice ampliar con factor tres."
+        },
+        {
+          "id": "rectangulo-resuelto",
+          "src": "/nudito/diagramas/matematica/ampliacion-reduccion-rectangulo-tres-dos-resuelto.svg",
+          "alt": "El rectángulo de tres por dos cuadros y su ampliación con factor tres, de nueve por seis cuadros.",
+          "descripcion": "A la izquierda, el rectángulo pequeño de ancho tres y alto dos. A la derecha, un rectángulo amarillo mucho más grande en cuadrícula. Debajo se leen las cuentas ancho tres por tres igual a nueve y alto dos por tres igual a seis."
+        },
+        {
+          "id": "plano-pregunta",
+          "src": "/nudito/diagramas/matematica/ampliacion-reduccion-plano-triangulo-pregunta.svg",
+          "alt": "Plano cartesiano con un triángulo de vértices cuatro y dos, ocho y dos, y cuatro y seis, que se reducirá a la mitad desde el origen.",
+          "descripcion": "A la izquierda hay un plano con cuadrícula y números de cero a ocho en el eje horizontal y de cero a seis en el vertical. Un triángulo verde tiene vértices en cuatro, dos; ocho, dos; y cuatro, seis. A la derecha está la lista de esos tres vértices."
+        },
+        {
+          "id": "plano-resuelto",
+          "src": "/nudito/diagramas/matematica/ampliacion-reduccion-plano-triangulo-resuelto.svg",
+          "alt": "Plano con el triángulo original y su reducción a la mitad: cuatro y dos pasa a dos y uno, ocho y dos a cuatro y uno, cuatro y seis a dos y tres.",
+          "descripcion": "El mismo plano, con el triángulo verde original y, más cerca del origen, un triángulo amarillo más pequeño con vértices dos, uno; cuatro, uno; y dos, tres. Rectas punteadas unen cada vértice con su nuevo vértice. A la derecha se leen las tres parejas."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un afiche mide doce por dieciocho centímetros. Se reduce a un tercio sin deformarlo. ¿Cuáles son sus nuevas medidas?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Nueve por quince centímetros"
+          },
+          {
+            "id": "b",
+            "texto": "Cuatro por seis centímetros"
+          },
+          {
+            "id": "c",
+            "texto": "Cuatro por dieciocho centímetros"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Doce entre tres son cuatro y dieciocho entre tres son seis, así que mide cuatro por seis centímetros.",
+        "pista": "Divide las dos medidas entre tres."
+      }
+    }
   },
   {
     "clave": "mat.p6.giros-plano",

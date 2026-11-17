@@ -483,7 +483,7 @@
         "alternativasAceptadas": [],
         "pistas": [
           "Cuenta los palitos de perros.",
-          "Hay una fila de ||||| con 5 palitos.",
+          "Mira la fila de perros y cuenta palito por palito.",
           "No cuentes los de gatos."
         ],
         "retroalimentacion": "Perros tiene 5 palitos, entonces 5 niños. Gatos tiene 4.",
@@ -665,7 +665,131 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Preguntar y anotar",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a hacer encuestas y entrevistas. Como idea principal, una encuesta hace la misma pregunta a muchas personas y anota sus respuestas. Una entrevista es una conversación corta con una sola persona. Una buena pregunta es clara, ofrece respuestas posibles y no empuja a contestar de cierta manera. Para anotar, se usa un palito por cada respuesta, y al final se cuentan."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Cómo llegamos al colegio",
+          "narracion": "Observemos esta situación. Un salón de cuarto grado quiere saber cómo viene cada niño al colegio. En el dibujo hay tres tarjetas: una persona caminando, una combi y una moto. Abajo, un recuadro dice que el salón quiere saber cómo viene cada niño. Veamos cómo preguntar y cómo anotar las respuestas.",
+          "recursoRef": "transporte-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: escribir la pregunta",
+          "narracion": "Primero hay que escribir la pregunta. Una pregunta clara pide una sola cosa y da las respuestas posibles. Dos amigos proponen preguntas distintas. Uno pregunta: ¿Cómo vienes al colegio: caminando, en combi o en moto? La otra pregunta: ¿No crees que la combi es la mejor? Piensa cuál de las dos sirve para la encuesta y por qué."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la que ofrece respuestas",
+          "narracion": "En el dibujo, la primera pregunta tiene una marca de aprobado turquesa: pregunta cómo viene cada niño y ofrece tres respuestas posibles, así que todos contestan lo mismo. La segunda tiene una cruz roja: dice que la combi es la mejor y empuja a contestar combi. Para la encuesta sirve la primera.",
+          "recursoRef": "dos-preguntas"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: anotar con palitos",
+          "narracion": "Ahora anotemos las respuestas. Cuatro niños dicen caminando, tres dicen en combi y tres dicen en moto. ¿Cómo lo anotas con palitos y cuántos niños respondieron en total?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: palitos y total",
+          "narracion": "En la tabla, cada fila tiene tantos palitos como niños eligieron esa forma de venir. Caminando tiene cuatro palitos, en combi tiene tres y en moto tiene tres. Al sumar cuatro, tres y tres, resulta que respondieron diez niños.",
+          "recursoRef": "registro-palitos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Un error al contar",
+          "narracion": "Aquí hay un error. Ana, Luz y Beto responden la encuesta. Ana y Beto aparecen con un palito cada uno, pero Luz aparece con dos, y el segundo está en rojo porque se le preguntó otra vez. Así salen tres niños y cuatro palitos, y los datos no coinciden. Cada persona debe responder una sola vez.",
+          "recursoRef": "error-doble"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: la pregunta",
+          "narracion": "Primero decide qué quieres saber y escribe una pregunta clara con respuestas posibles. Si fuera una entrevista, conversarías con una sola persona y le harías preguntas para que cuente más. En el dibujo, las tres tarjetas son esas respuestas posibles: caminando, en combi y en moto.",
+          "recursoRef": "transporte-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: un palito por persona",
+          "narracion": "Después pregunta a cada persona una sola vez y anota enseguida su respuesta. En el dibujo, Ana dice combi y en la fila de combi aparece un palito. Una respuesta, un palito.",
+          "recursoRef": "un-palito"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: cuenta las marcas",
+          "narracion": "Por último, cuenta los palitos de cada fila. Caminando tiene cuatro, en combi tiene tres y en moto tiene tres. Si juntas todos los palitos, sabes cuántos niños respondieron.",
+          "recursoRef": "registro-palitos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "transporte-pregunta",
+          "src": "/nudito/diagramas/matematica/encuestas-entrevistas-transporte-pregunta.svg",
+          "alt": "Tres tarjetas con una persona caminando, una combi y una moto; abajo, el salón quiere saber cómo viene cada niño.",
+          "descripcion": "Un dibujo con el título Cómo llegamos al colegio y tres tarjetas blancas en fila. La primera muestra una persona dibujada con palitos y dice caminando; la segunda, una combi celeste con tres ventanas, y dice en combi; la tercera, una moto, y dice en moto. Abajo hay un recuadro amarillo con el texto: el salón quiere saber cómo viene cada niño."
+        },
+        {
+          "id": "dos-preguntas",
+          "src": "/nudito/diagramas/matematica/encuestas-entrevistas-dos-preguntas.svg",
+          "alt": "Dos preguntas: una con tres respuestas posibles, con marca de aprobado; otra que empuja la respuesta, con cruz roja.",
+          "descripcion": "Dos recuadros con preguntas. El de arriba dice: ¿Cómo vienes al colegio: caminando, en combi o en moto? Debajo, una marca turquesa y la nota: sirve, da respuestas posibles. El de abajo, con borde rojo, dice: ¿No crees que la combi es la mejor? Debajo, una cruz roja y la nota: no sirve, empuja la respuesta."
+        },
+        {
+          "id": "un-palito",
+          "src": "/nudito/diagramas/matematica/encuestas-entrevistas-un-palito.svg",
+          "alt": "Ana dice combi y se anota un palito en la fila de combi de una tabla de tres filas.",
+          "descripcion": "A la izquierda, Ana, una figura sonriente, con un globo amarillo que dice combi. Una flecha turquesa va del globo a una tabla de tres filas: caminando, combi y moto. Solo la fila de combi tiene un palito turquesa en la segunda columna; las otras dos están vacías. Abajo dice: cada niño responde una vez."
+        },
+        {
+          "id": "registro-palitos",
+          "src": "/nudito/diagramas/matematica/encuestas-entrevistas-registro-palitos.svg",
+          "alt": "Tabla con cuatro palitos en caminando, tres en combi y tres en moto; abajo, cuatro más tres más tres es diez niños.",
+          "descripcion": "Una tabla con tres filas y tres columnas. La primera columna dice caminando, en combi y en moto; la segunda tiene palitos turquesa: cuatro, tres y tres; la tercera tiene los números cuatro, tres y tres. Debajo se lee: cuatro más tres más tres igual a diez niños."
+        },
+        {
+          "id": "error-doble",
+          "src": "/nudito/diagramas/matematica/encuestas-entrevistas-error-doble.svg",
+          "alt": "Ana y Beto tienen un palito y Luz tiene dos, el segundo en rojo con la nota otra vez; abajo, tres niños y cuatro palitos.",
+          "descripcion": "Tres caritas con sus nombres: Ana, Luz y Beto. Bajo Ana y bajo Beto hay un palito turquesa. Bajo Luz hay dos: uno turquesa y otro rojo, con la nota otra vez. Una línea separa la parte de abajo, donde se lee tres niños, un signo de distinto y cuatro palitos en rojo."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Quieres saber qué mascota prefieren los niños de tu salón. ¿Cuál es la mejor pregunta?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "¿No crees que los gatos son la mejor mascota?"
+          },
+          {
+            "id": "b",
+            "texto": "¿Qué piensas de tener mascotas en tu casa?"
+          },
+          {
+            "id": "c",
+            "texto": "¿Qué mascota prefieres: perro, gato o pez?"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Esa pregunta es clara, pide una sola cosa y ofrece respuestas posibles sin empujar a ninguna.",
+        "pista": "Busca la pregunta que ofrece respuestas para elegir y no sugiere cuál escoger."
+      }
+    }
   },
   {
     "clave": "mat.p4.tabla-frecuencias-4",

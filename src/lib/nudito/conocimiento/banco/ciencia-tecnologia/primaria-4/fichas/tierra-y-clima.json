@@ -1142,6 +1142,119 @@
         "respuesta": "Es una zona templada."
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Tres tipos de zonas en la Tierra",
+          "narracion": "Bienvenido a esta clase sobre las zonas climáticas de la Tierra. Primero conocerás la idea principal, luego ubicarás dos lugares del mundo y al final responderás una pregunta. Como idea principal de este tema, la Tierra se divide en zonas climáticas, que son franjas donde el clima es parecido. Hay una zona cálida alrededor del ecuador, dos zonas templadas a los lados y dos zonas polares cerca de los polos. Se forman porque los rayos del Sol llegan casi rectos al ecuador y cada vez más inclinados hacia los polos."
+        },
+        {
+          "id": "situacion-mapa",
+          "tipo": "recurso",
+          "titulo": "Tres lugares en el globo",
+          "narracion": "Observemos esta situación. Tenemos tres lugares y queremos saber cómo será su clima según dónde queden respecto al ecuador. Pensemos en esta pregunta: ¿cómo cambia el clima de un lugar cuando está más cerca o más lejos del ecuador?",
+          "recursoRef": "mapa-ubicaciones"
+        },
+        {
+          "id": "ejemplo-1-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: observa Pucallpa",
+          "narracion": "Observemos esta situación en Pucallpa, una ciudad de la selva peruana junto al río Ucayali. Los niños usan ropa ligera y sombrero para el sol durante casi todo el año. Pensemos en esta pregunta: ¿qué nos dice esa ropa sobre el clima y sobre la zona donde está la ciudad?",
+          "recursoRef": "rio-tropical"
+        },
+        {
+          "id": "ejemplo-1-ubica",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ubica Pucallpa en el esquema",
+          "narracion": "Ahora ubiquemos esta ciudad en el esquema. Pucallpa queda muy cerca de la línea del ecuador. Allí los rayos del Sol llegan casi rectos y calientan mucho, por eso casi siempre hace calor. Entonces Pucallpa pertenece a la zona cálida.",
+          "recursoRef": "mapa-ubicaciones"
+        },
+        {
+          "id": "ejemplo-2-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ubica Madrid",
+          "narracion": "Ahora observemos Madrid en el esquema. Queda en el hemisferio norte, bastante lejos del ecuador y también lejos del polo norte. Pensemos en esta pregunta: si no está ni cerca del ecuador ni cerca del polo, ¿cómo serán sus temperaturas?",
+          "recursoRef": "mapa-ubicaciones"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una zona intermedia",
+          "narracion": "Madrid está entre la zona cálida y la zona polar. Los rayos del Sol llegan con una inclinación intermedia: ni tan rectos como en el ecuador ni tan inclinados como cerca del polo. Por eso sus temperaturas no son ni muy altas ni muy bajas, y cambian a lo largo del año. Madrid está en una zona templada.",
+          "recursoRef": "mapa-ubicaciones"
+        },
+        {
+          "id": "error-frecuente",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: «en el ecuador hace calor porque está más cerca del Sol»",
+          "narracion": "Algunas personas creen que en el ecuador hace más calor porque queda más cerca del Sol. Pero esa diferencia de distancia es muy pequeña. Lo que importa es la inclinación con que llegan los rayos: en el ecuador llegan casi rectos y calientan más, y hacia los polos llegan más inclinados y se reparten sobre una superficie mayor."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: ubica el ecuador",
+          "narracion": "Ahora aprenderemos una forma de razonar en tres pasos. Este esquema muestra rayos del Sol que llegan a un globo, y en su borde hay una franja anaranjada en el centro, franjas verdes a los lados y franjas azules en los extremos. Primero, ubica el lugar respecto al ecuador. Si queda cerca de esa línea, corresponde a la franja del centro: la zona cálida.",
+          "recursoRef": "zonas-y-rayos"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: mira hacia el norte y hacia el sur",
+          "narracion": "Después, mira hacia el norte o hacia el sur. Entre la zona cálida y las zonas polares hay dos zonas templadas, una en cada hemisferio. Si un lugar queda lejos del ecuador y lejos del polo, está en una zona templada.",
+          "recursoRef": "zonas-y-rayos"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: explica la causa con los rayos del Sol",
+          "narracion": "Por último, explica la causa con los rayos del Sol. En el ecuador llegan casi rectos, en la zona templada llegan algo inclinados y cerca de los polos llegan muy inclinados. Mientras más inclinados, menos calientan. En las montañas altas hace más frío por la altura, pero la zona climática se decide por la ubicación respecto al ecuador.",
+          "recursoRef": "zonas-y-rayos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "mapa-ubicaciones",
+          "src": "/nudito/diagramas/ciencia-tecnologia/zonas-mapa-ubicaciones.svg",
+          "alt": "Globo con polo norte, polo sur y ecuador punteado; tres puntos marcan Pucallpa cerca del ecuador, Madrid al norte y una base polar al sur.",
+          "descripcion": "Un globo terráqueo tiene el polo norte arriba y el polo sur abajo. Una línea roja punteada, el ecuador, lo cruza por el medio. Un punto marca Pucallpa justo debajo del ecuador, otro marca Madrid arriba, en el hemisferio norte, y otro marca una base polar cerca del polo sur."
+        },
+        {
+          "id": "rio-tropical",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-4/zonas-rio-tropical-zimage-v1.webp",
+          "alt": "Cinco niños con camisa clara, short o falda y sombrero de paja miran un río ancho con una canoa, palmeras y casas.",
+          "descripcion": "Cinco niños con ropa ligera y sombreros de paja están de pie en la orilla de un río ancho y tranquilo. En el agua hay una canoa de madera. Alrededor se ven palmeras, vegetación densa, algunas casas pequeñas y un cielo luminoso con nubes."
+        },
+        {
+          "id": "zonas-y-rayos",
+          "src": "/nudito/diagramas/ciencia-tecnologia/zonas-rayos-y-zonas.svg",
+          "alt": "Rayos del Sol llegan a un globo con franjas de color: cálida al centro, templadas a los lados y polares en los extremos.",
+          "descripcion": "Tres rayos amarillos llegan desde la izquierda a un globo: uno al centro, uno más arriba y otro cerca del extremo superior. En el borde del globo hay una franja anaranjada central, dos franjas verdes y dos franjas azules en los extremos. Dentro se leen «Zona cálida» y «Zona templada», y arriba «Zona polar»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Buenos Aires queda en el hemisferio sur, lejos del ecuador y lejos del polo sur. ¿Qué zona climática le corresponde y por qué?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Templada, porque los rayos del Sol llegan allí con una inclinación intermedia."
+          },
+          {
+            "id": "b",
+            "texto": "Cálida, porque está más cerca del Sol que otras ciudades de la Tierra."
+          },
+          {
+            "id": "c",
+            "texto": "Polar, porque está en el hemisferio sur, donde siempre hace mucho frío."
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Buenos Aires está entre la zona cálida y la zona polar. Los rayos del Sol llegan con una inclinación intermedia, por eso sus temperaturas no son ni muy altas ni muy bajas.",
+        "pista": "Ubica la ciudad entre el ecuador y el polo, y piensa cómo llegan allí los rayos del Sol."
+      }
+    },
     "erroresFrecuentes": [
       {
         "error": "Creer que hace calor en el ecuador porque está más cerca del Sol.",

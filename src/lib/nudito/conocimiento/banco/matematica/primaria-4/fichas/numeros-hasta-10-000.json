@@ -77,15 +77,15 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Ana tiene 3 482 soles y Beto 3 428. ¿Quién tiene más?",
+        "enunciado": "Ana tiene 3 482 soles y Beto 3 428 soles. ¿Quién tiene más soles?",
         "opciones": [
           {
             "id": "a",
-            "texto": "3 482"
+            "texto": "Ana, con 3 482 soles"
           },
           {
             "id": "b",
-            "texto": "3 428"
+            "texto": "Beto, con 3 428 soles"
           },
           {
             "id": "c",
@@ -153,15 +153,15 @@
         "opciones": [
           {
             "id": "a",
-            "texto": "Porque tiene más cifras"
+            "texto": "Porque tiene más cifras en total"
           },
           {
             "id": "b",
-            "texto": "Porque tiene 2 centenas y el otro 0"
+            "texto": "Porque tiene 2 centenas y no 0"
           },
           {
             "id": "c",
-            "texto": "Porque termina en 5"
+            "texto": "Porque su última cifra es un 5"
           }
         ],
         "respuesta": "b",
@@ -228,7 +228,7 @@
         "alternativasAceptadas": [],
         "pistas": [
           "Elimina el que tiene menos millares.",
-          "Quedan 5 480, 5 804 y 5 840, con las mismas millares; compara las centenas.",
+          "Quedan 5 480, 5 804 y 5 840, con el mismo millar; compara las centenas.",
           "Entre 5 804 y 5 840, compara las decenas."
         ],
         "retroalimentacion": "4 999 tiene menos millares; entre los demás, 5 480 tiene 4 centenas y los otros 8; entre 5 804 y 5 840 gana el de 4 decenas: 5 840."
@@ -297,6 +297,131 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Explicar por qué un número es mayor",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a explicar con razones por qué un número de cuatro cifras es mayor que otro. Como idea principal, para comparar empezamos por la izquierda, donde las cifras valen más. Si los millares son iguales, seguimos con las centenas, después con las decenas y al final con las unidades. El primer lugar donde los números se diferencian decide cuál es mayor, y esa es nuestra razón."
+        },
+        {
+          "id": "situacion-almacenes",
+          "tipo": "recurso",
+          "titulo": "Dos almacenes, dos cantidades",
+          "narracion": "Observemos esta situación. En un mercado de Iquitos hay dos almacenes con cajas. El almacén Sol tiene seis mil doscientas cinco cajas y el almacén Mar tiene seis mil veinticinco. Cada almacén aparece en su propio cuadro, con su número en grande. Queremos saber cuál tiene más y explicar en qué lugar se nota la diferencia.",
+          "recursoRef": "almacenes"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: los ahorros de Ana y Beto",
+          "narracion": "Ana ahorró tres mil cuatrocientos ochenta y dos soles y Beto, tres mil cuatrocientos veintiocho. Para compararlos, escribimos cada número en una tabla con cuatro columnas: millares, centenas, decenas y unidades. Ana tiene tres millares, cuatro centenas, ocho decenas y dos unidades. Beto tiene tres millares, cuatro centenas, dos decenas y ocho unidades. Ahora vamos columna por columna, empezando por la izquierda.",
+          "recursoRef": "ahorros-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ¿quién ahorró más?",
+          "narracion": "Los millares son iguales y las centenas también. La primera diferencia aparece en las decenas, la columna resaltada en amarillo: Ana tiene ocho decenas y Beto tiene dos. Ocho decenas son más que dos decenas, así que Ana ahorró más. Que Beto tenga más unidades no cambia nada, porque las unidades valen menos.",
+          "recursoRef": "ahorros-resuelto"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: dos números vecinos",
+          "narracion": "Ahora comparemos cuatro mil novecientos noventa y nueve con cinco mil. Están muy cerca: una flecha va del primero al segundo. Las tres últimas cifras del primero son nueves y las del segundo son ceros. Pensemos cuál es mayor y qué lugar lo explica.",
+          "recursoRef": "millar-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: al sumar una unidad",
+          "narracion": "Si a cuatro mil novecientos noventa y nueve le sumamos uno, se completa un millar nuevo y llegamos a cinco mil. Abajo hay cinco placas de millar, una por cada millar. Cinco millares son más que cuatro millares, así que cinco mil es mayor. Las otras cifras, aunque sean grandes, no alcanzan para formar otro millar.",
+          "recursoRef": "millar-resuelto"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con mirar las cifras del final",
+          "narracion": "Algunas personas dicen que dos mil novecientos ochenta y cinco es mayor que tres mil doce porque ochenta y cinco es más que doce. Así se comparan las cifras del final, que valen menos. Siempre se empieza por la izquierda: dos millares son menos que tres millares, y ahí termina la comparación. El mayor es tres mil doce."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: escribe cada número por lugares",
+          "narracion": "Primero escribe cada número en una tabla, con una columna para millares, otra para centenas, otra para decenas y otra para unidades. Así, en la tabla de Ana y Beto, cada cifra queda en su lugar y se compara con la cifra de su misma columna.",
+          "recursoRef": "ahorros-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca la primera diferencia",
+          "narracion": "Segundo, compara de izquierda a derecha y detente en el primer lugar donde las cifras cambian. En la tabla de Ana y Beto, ese lugar es la columna resaltada de las decenas.",
+          "recursoRef": "ahorros-resuelto"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: explica con una razón",
+          "narracion": "Tercero, di tu razón con palabras: es mayor porque tiene más millares, centenas, decenas o unidades en ese lugar. Con cinco mil, la razón es que cinco millares son más que cuatro millares. Y en los almacenes, seis mil doscientas cinco cajas son más que seis mil veinticinco, porque los millares son iguales y en las centenas hay dos contra cero.",
+          "recursoRef": "millar-resuelto"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "almacenes",
+          "src": "/nudito/diagramas/matematica/justificar-comparaciones-situacion.svg",
+          "alt": "Dos cuadros: almacén Sol con seis mil doscientos cinco y almacén Mar con seis mil veinticinco.",
+          "descripcion": "Dos cuadros lado a lado. El de la izquierda, almacén Sol, muestra el número seis mil doscientos cinco. El de la derecha, almacén Mar, muestra el número seis mil veinticinco. Abajo se pregunta qué lugar decide la comparación."
+        },
+        {
+          "id": "ahorros-pregunta",
+          "src": "/nudito/diagramas/matematica/justificar-comparaciones-ana-beto-pregunta.svg",
+          "alt": "Tabla de millares, centenas, decenas y unidades con las cifras de Ana y de Beto, sin resolver.",
+          "descripcion": "Una tabla con cuatro columnas rotuladas con las letras M, C, D y U: millares, centenas, decenas y unidades. La fila de Ana dice tres, cuatro, ocho y dos. La fila de Beto dice tres, cuatro, dos y ocho. Abajo se pregunta quién tiene más y por qué."
+        },
+        {
+          "id": "ahorros-resuelto",
+          "src": "/nudito/diagramas/matematica/justificar-comparaciones-ana-beto-resuelto.svg",
+          "alt": "La misma tabla con la columna de las decenas resaltada: ocho decenas son más que dos decenas.",
+          "descripcion": "La misma tabla de Ana y Beto. La columna de las decenas está resaltada en amarillo, con ocho para Ana y dos para Beto. Debajo de esa columna hay una flecha hacia la derecha. Abajo dice: ocho decenas son más que dos decenas."
+        },
+        {
+          "id": "millar-pregunta",
+          "src": "/nudito/diagramas/matematica/justificar-comparaciones-cambio-millar-pregunta.svg",
+          "alt": "Dos tarjetas unidas por una flecha, con cuatro mil novecientos noventa y nueve y cinco mil.",
+          "descripcion": "Dos tarjetas blancas. La de la izquierda dice cuatro mil novecientos noventa y nueve y la de la derecha, cinco mil. Una flecha va de la primera a la segunda. Abajo se pregunta cuál es mayor y qué lugar lo explica."
+        },
+        {
+          "id": "millar-resuelto",
+          "src": "/nudito/diagramas/matematica/justificar-comparaciones-cambio-millar-resuelto.svg",
+          "alt": "Cuatro mil novecientos noventa y nueve más uno da cinco mil, con cinco placas de millar.",
+          "descripcion": "Arriba, un cuadro dice cuatro mil novecientos noventa y nueve, más uno, una flecha y cinco mil. Debajo hay cinco recuadros amarillos en fila con el rótulo cinco placas de millar. Al final dice: cinco millares son más que cuatro millares."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Marta ahorró cinco mil cuatrocientos ochenta soles y Pedro, cinco mil cuatrocientos ocho. ¿Por qué Marta ahorró más?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Porque tiene más millares que Pedro"
+          },
+          {
+            "id": "b",
+            "texto": "Porque su última cifra es la mayor"
+          },
+          {
+            "id": "c",
+            "texto": "Porque tiene más decenas que Pedro"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Muy bien. Los millares y las centenas son iguales, y en las decenas Marta tiene ocho y Pedro, cero.",
+        "pista": "Compara de izquierda a derecha y busca el primer lugar donde las cifras son distintas."
+      }
+    }
   }
 ]

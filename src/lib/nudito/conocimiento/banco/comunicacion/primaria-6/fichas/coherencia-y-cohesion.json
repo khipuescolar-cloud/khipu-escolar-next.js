@@ -751,7 +751,117 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Conectores: palabras que dicen cómo se relacionan las ideas",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a elegir conectores que dejen clara la relación entre dos ideas. Como idea principal, un conector es una palabra o expresión que une ideas y dice cómo se relacionan. «Porque» y «ya que» dan la causa; «por eso» y «por lo tanto» dan la consecuencia; «pero» y «sin embargo» muestran contraste. Elegir bien el conector cambia el sentido de lo que escribes."
+        },
+        {
+          "id": "situacion-ideas",
+          "tipo": "recurso",
+          "titulo": "Dos ideas sin conector",
+          "narracion": "Observemos dos ideas separadas. La idea 1 dice: «Había mucha neblina en la carretera». La idea 2 dice: «El bus llegó a tiempo a Huaraz». Entre ellas hay un espacio con un signo de pregunta. Por sí solas no dicen cómo se relacionan. Un conector puede indicarlo, y la elección depende de lo que quieras mostrar.",
+          "recursoRef": "ideas-pregunta"
+        },
+        {
+          "id": "ejemplo-neblina-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ¿causa, consecuencia o contraste?",
+          "narracion": "Resolvamos el espacio vacío de estas dos ideas. Primero pregúntate si una explica a la otra, si una es el resultado de la otra o si se oponen. Con mucha neblina, lo habitual es que los buses se retrasen. ¿Se cumple eso en la segunda idea?",
+          "recursoRef": "ideas-pregunta"
+        },
+        {
+          "id": "ejemplo-neblina-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el conector es «sin embargo»",
+          "narracion": "Con neblina se espera un retraso, pero el bus llegó a tiempo: lo esperado no ocurrió. Eso es contraste, y el conector adecuado es «sin embargo»: «Había mucha neblina en la carretera. Sin embargo, el bus llegó a tiempo a Huaraz». Fíjate en que «sin embargo» va después de un punto y lleva coma. Con «porque» o «por eso», la oración sería absurda, pues la neblina no explica la puntualidad.",
+          "recursoRef": "ideas-resuelto"
+        },
+        {
+          "id": "ejemplo-mercado-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: dos conectores en un texto",
+          "narracion": "Ahora completa dos espacios en un mismo texto: «El sábado llovió y el mercado de Chiclayo cerró temprano. Espacio uno, doña Marta perdió ventas. Espacio dos, no se desanimó: el domingo abrió desde las seis de la mañana». Para cada espacio, mira qué relación hay con la oración anterior.",
+          "recursoRef": "texto-pregunta"
+        },
+        {
+          "id": "ejemplo-mercado-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: consecuencia y contraste",
+          "narracion": "En el espacio uno, perder ventas es el resultado de que el mercado cerró: es una consecuencia, y el conector es «por eso». En el espacio dos, perder ventas podría desanimar, pero doña Marta reaccionó al revés: hay contraste, y el conector es «sin embargo». Dos espacios del mismo texto pidieron relaciones distintas. Por eso conviene leer cada oración con la anterior y no repetir siempre el mismo conector."
+        },
+        {
+          "id": "error-invertir",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: invertir la causa y la consecuencia",
+          "narracion": "Alguien escribe «Faltó a clases por eso estaba enfermo». Suena a explicación, pero «por eso» introduce la consecuencia, y aquí lo que sigue es la causa. Lo correcto es «Faltó a clases porque estaba enfermo» o «Estaba enfermo, por eso faltó a clases». Antes de elegir, identifica cuál idea es el motivo y cuál es el resultado."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: identifica las dos ideas",
+          "narracion": "Primero lee las dos ideas por separado y di con tus palabras qué dice cada una. Todavía no elijas el conector."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: decide qué relación hay",
+          "narracion": "Como en el ejemplo de la neblina y el bus, pregúntate qué relación hay entre las ideas. Si una explica a la otra, es causa o consecuencia; si se oponen, es contraste. Pregúntate también si lo esperado ocurrió o no.",
+          "recursoRef": "ideas-resuelto"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: elige el conector y comprueba el sentido",
+          "narracion": "Elige el conector que corresponde y relee toda la oración. Si dice algo absurdo, cambia de conector. Cuida además la puntuación: «sin embargo» y «por lo tanto» suelen ir al inicio de una oración y llevan coma."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "ideas-pregunta",
+          "src": "/nudito/diagramas/comunicacion/conectores-ideas-pregunta.svg",
+          "alt": "Dos recuadros: idea 1, «Había mucha neblina en la carretera», e idea 2, «El bus llegó a tiempo a Huaraz», con un espacio con signo de pregunta entre ambos.",
+          "descripcion": "Arriba, la idea 1 dice: «Había mucha neblina en la carretera». Abajo, la idea 2 dice: «El bus llegó a tiempo a Huaraz». Entre ambas hay un recuadro punteado con un signo de pregunta que pregunta cómo se relacionan."
+        },
+        {
+          "id": "ideas-resuelto",
+          "src": "/nudito/diagramas/comunicacion/conectores-ideas-resuelto.svg",
+          "alt": "Las dos ideas con «Sin embargo» en el centro y la nota: contraste, con neblina se esperaba un retraso y no ocurrió.",
+          "descripcion": "Arriba, la idea 1: «Había mucha neblina en la carretera». Abajo, la idea 2: «El bus llegó a tiempo a Huaraz». En el centro, en verde, el conector «Sin embargo» con la nota: contraste, con neblina se esperaba un retraso y no ocurrió."
+        },
+        {
+          "id": "texto-pregunta",
+          "src": "/nudito/diagramas/comunicacion/conectores-texto-pregunta.svg",
+          "alt": "Texto sobre un mercado de Chiclayo con dos espacios numerados, 1 y 2, para completar con conectores.",
+          "descripcion": "Un recuadro con el texto: «El sábado llovió y el mercado de Chiclayo cerró temprano. [1] doña Marta perdió ventas. [2] no se desanimó: el domingo abrió desde las seis de la mañana». Abajo, dos preguntas: qué conector va en el espacio 1 y cuál en el 2."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Completa la oración: «Julia entrenó todas las mañanas. ______ no logró clasificar a la final». ¿Qué conector corresponde?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sin embargo"
+          },
+          {
+            "id": "b",
+            "texto": "Por lo tanto"
+          },
+          {
+            "id": "c",
+            "texto": "Debido a que"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Entrenar mucho hace esperar un buen resultado y no ocurrió: hay contraste, y «sin embargo» lo expresa. Con «por lo tanto» o «debido a que», entrenar parecería la causa o el motivo de no clasificar, y no tiene sentido.",
+        "pista": "Pregúntate si el resultado es el que se esperaba después de entrenar tanto."
+      }
+    }
   },
   {
     "clave": "com.p6.conectores-de-conclusion-y-ejemplificacion",

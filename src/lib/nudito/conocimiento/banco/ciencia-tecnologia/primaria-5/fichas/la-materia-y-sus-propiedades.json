@@ -1775,7 +1775,121 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "La materia está hecha de partículas",
+          "narracion": "Bienvenido a esta clase sobre el modelo de partículas. Primero conocerás la idea principal; después observarás un modelo, resolverás dos ejemplos y al final responderás una pregunta. Como idea principal de este tema, según el modelo de partículas, toda la materia está formada por partículas muy pequeñas que no vemos a simple vista. Esas partículas están en movimiento y entre ellas hay espacios vacíos. Un modelo es una explicación que usamos para entender lo que no podemos ver directamente."
+        },
+        {
+          "id": "modelo",
+          "tipo": "recurso",
+          "titulo": "Mirar el agua con una lupa imaginaria",
+          "narracion": "Observemos esta situación: imagina que pudieras ampliar muchísimo una pequeña parte del agua de un vaso. Lo que vemos es un modelo, un dibujo para explicar lo que no se ve a simple vista. En el dibujo no se aprecia el movimiento, pero las partículas no están quietas: se mueven todo el tiempo.",
+          "recursoRef": "modelo"
+        },
+        {
+          "id": "ejemplo-1-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el azúcar en el agua",
+          "narracion": "Una niña de Huánuco echa una cucharada de azúcar en un vaso de agua y revuelve. Al cabo de un rato los granos dejan de verse, pero el agua sabe dulce. Pensemos con el modelo de partículas: ¿qué les ocurre a las partículas del azúcar?",
+          "recursoRef": "azucar"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: partículas que se reparten",
+          "narracion": "Las partículas del azúcar se separan de los granos y se reparten entre las partículas del agua, que también se mueven. El azúcar no desaparece: sigue en el vaso, en partículas tan pequeñas que no vemos, y por eso el agua sabe dulce. A esto se le llama disolver.",
+          "recursoRef": "azucar"
+        },
+        {
+          "id": "ejemplo-2-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un perfume en el salón",
+          "narracion": "En un salón, la profesora abre un frasco de perfume junto a la pizarra y, poco después, los estudiantes sentados en sus pupitres, lejos de ella, sienten el olor. Pensemos: ¿cómo explica el modelo que el olor viaje por el aire hasta los pupitres?",
+          "recursoRef": "perfume"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: partículas que viajan",
+          "narracion": "Las partículas del perfume salen del frasco y, como se mueven y hay espacio vacío entre las partículas del aire, se esparcen por todo el salón hasta llegar a los estudiantes. Si estuvieran quietas, el olor no llegaría a los estudiantes que están lejos de la pizarra.",
+          "recursoRef": "perfume"
+        },
+        {
+          "id": "error-frecuente",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: «entre las partículas hay aire»",
+          "narracion": "Es común creer que el espacio entre las partículas está lleno de aire. Pero el aire también está formado por partículas: si estuviera entre las demás, habría que preguntar qué hay entre las partículas del aire. Según el modelo, entre las partículas no hay nada: hay espacio vacío.",
+          "recursoRef": "modelo"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: imagina partículas",
+          "narracion": "Ahora aprenderás una forma de razonar en tres pasos. Primero, aunque una sustancia parezca continua, imagínala formada por partículas muy pequeñas, como las del agua del vaso ampliado. Son tan pequeñas que no se ven a simple vista.",
+          "recursoRef": "modelo"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: añade movimiento y espacios",
+          "narracion": "Después, agrega dos ideas al modelo: las partículas están en movimiento y entre ellas hay espacios vacíos. Con esas dos ideas se pueden explicar muchos fenómenos que ocurren a nuestro alrededor.",
+          "recursoRef": "modelo"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: usa el modelo para explicar",
+          "narracion": "Por último, aplica el modelo al fenómeno: describe qué hacen las partículas. Por ejemplo, las del azúcar se reparten entre las del agua, y las del perfume se esparcen por el aire. Y ten presente que es un modelo: una forma de explicar lo que no podemos ver.",
+          "recursoRef": "azucar"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "modelo",
+          "src": "/nudito/diagramas/ciencia-tecnologia/materia-particulas-modelo.svg",
+          "alt": "Un vaso con agua y una ampliación circular que muestra el agua como partículas azules separadas por espacios vacíos.",
+          "descripcion": "A la izquierda hay un vaso con agua y un círculo pequeño señalado en el líquido. Dos líneas punteadas lo unen con una ampliación circular donde se ven nueve partículas azules redondas, separadas entre sí. Un rótulo señala una partícula y otro señala, con un círculo punteado, un espacio vacío entre ellas."
+        },
+        {
+          "id": "azucar",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-5/materia-azucar-vaso-zimage-v1.webp",
+          "alt": "Una niña revuelve con una cuchara un vaso de agua con granos de azúcar en el fondo; a su lado hay un recipiente con azúcar.",
+          "descripcion": "Una niña sentada a una mesa de cocina revuelve con una cuchara un vaso de agua. En el fondo del vaso todavía se ven granos blancos de azúcar. A la izquierda hay un recipiente con azúcar."
+        },
+        {
+          "id": "perfume",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-5/materia-perfume-salon-zimage-v1.webp",
+          "alt": "En un salón, una maestra sostiene un frasco pequeño frente a la pizarra y varios estudiantes sentados se llevan la mano a la nariz.",
+          "descripcion": "En un salón de clases, una maestra de pie frente a la pizarra sostiene un frasco pequeño en la mano. Varios estudiantes, vistos de espaldas en sus pupitres, se llevan la mano a la nariz."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una niña dice: «Si el agua está formada por partículas, entre ellas debe haber aire». ¿Qué respuesta es correcta según el modelo?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "No: entre las partículas del agua hay espacio vacío."
+          },
+          {
+            "id": "b",
+            "texto": "Sí: entre las partículas del agua siempre hay aire."
+          },
+          {
+            "id": "c",
+            "texto": "Sí: sin aire entre ellas, las partículas no se moverían."
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Según el modelo de partículas, entre las partículas hay espacio vacío, no aire. El aire también está formado por partículas.",
+        "pista": "Piensa de qué está hecho el aire: si también tiene partículas, ¿puede estar entre ellas?"
+      }
+    }
   },
   {
     "clave": "cyt.p5.particulas-solido-liquido-gas",

@@ -417,7 +417,120 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Un texto corto habla de un solo tema",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a escribir un texto corto. Como idea principal, un texto corto tiene varias oraciones y todas hablan de un mismo tema. Si una oración habla de otra cosa, no va. Además, cada oración debe estar completa."
+        },
+        {
+          "id": "situacion-mercado",
+          "tipo": "recurso",
+          "titulo": "Tres ideas sobre el mercado",
+          "narracion": "Observemos estas tres tarjetas. Sofía quiere escribir sobre el mercado de su barrio. Las tarjetas dicen: «En el mercado venden frutas», «Hay puestos de verduras» y «Mi hermano juega con su trompo». El tema es el mercado. Falta decidir cuáles sirven.",
+          "recursoRef": "mercado"
+        },
+        {
+          "id": "ejemplo-mercado-tema",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ¿de qué habla cada idea?",
+          "narracion": "Pregúntate de qué habla cada tarjeta. La primera habla del mercado: ahí venden frutas. La segunda también habla del mercado: hay puestos de verduras.",
+          "recursoRef": "mercado"
+        },
+        {
+          "id": "ejemplo-mercado-descarta",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: deja la que no encaja",
+          "narracion": "La tercera tarjeta habla del trompo de su hermano. Eso no es del mercado. Sofía usa las dos primeras y deja la tercera para otro texto.",
+          "recursoRef": "mercado"
+        },
+        {
+          "id": "ejemplo-barrio-idea",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una idea suelta",
+          "narracion": "Ahora el tema es mi barrio. Una idea es «parque grande». Son solo dos palabras: dicen qué hay, pero no forman una oración completa. En la imagen, arriba está la idea suelta y abajo la oración ya completa.",
+          "recursoRef": "barrio"
+        },
+        {
+          "id": "ejemplo-barrio-completa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: completa la oración",
+          "narracion": "Para completar, dices quién o qué es y qué tiene o hace: «Mi barrio tiene un parque grande». Ahora se entiende sola. Empieza con mayúscula y termina con punto.",
+          "recursoRef": "barrio"
+        },
+        {
+          "id": "error-frecuente",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: una sola oración o un tema distinto",
+          "narracion": "Hay dos errores comunes. Uno es escribir una sola oración y llamarla texto: un texto corto tiene varias oraciones. El otro es meter una oración de otro tema, como hablar del trompo en un texto sobre el mercado."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: elige el tema",
+          "narracion": "Primero elige de qué vas a escribir. En el ejemplo, Sofía eligió el mercado de su barrio.",
+          "recursoRef": "mercado"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: escribe oraciones completas",
+          "narracion": "Después piensa dos o tres ideas y escribe cada una como oración completa, como cuando «parque grande» pasó a ser «Mi barrio tiene un parque grande».",
+          "recursoRef": "barrio"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: revisa que todas hablen del tema",
+          "narracion": "Por último, lee tu texto y revisa cada oración. Este texto tiene el título «Mi barrio» y tres oraciones: «Mi barrio tiene un parque grande», «Allí juego con mis primos» y «Los domingos vamos a la feria». Todas hablan de mi barrio, y por eso el texto está bien. Si una no encaja, la quitas.",
+          "recursoRef": "revision"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "mercado",
+          "src": "/nudito/diagramas/comunicacion/texto-corto-mercado-ideas.svg",
+          "alt": "Tres tarjetas con ideas sobre el mercado; una habla del trompo de un hermano.",
+          "descripcion": "El título dice: Tema, el mercado de mi barrio. Debajo hay tres tarjetas blancas, una bajo otra: «En el mercado venden frutas», «Hay puestos de verduras» y «Mi hermano juega con su trompo»."
+        },
+        {
+          "id": "barrio",
+          "src": "/nudito/diagramas/comunicacion/texto-corto-barrio-oracion.svg",
+          "alt": "Una idea suelta, «parque grande», y debajo la oración completa que la desarrolla.",
+          "descripcion": "Arriba, una tarjeta azul con la idea suelta: parque grande. Una flecha baja hacia una tarjeta verde con la oración completa: Mi barrio tiene un parque grande."
+        },
+        {
+          "id": "revision",
+          "src": "/nudito/diagramas/comunicacion/texto-corto-barrio-revision.svg",
+          "alt": "Texto corto «Mi barrio» con tres oraciones y una marca de que todas hablan del tema.",
+          "descripcion": "Un recuadro blanco con el título Mi barrio y tres oraciones: Mi barrio tiene un parque grande. Allí juego con mis primos. Los domingos vamos a la feria. Debajo, una tarjeta verde con palomita dice: todas hablan de mi barrio."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "El tema de Ana es «Mi mascota Luna». Ella escribió: «Luna es una perrita blanca. Le gusta correr en el parque. Mi tío maneja un camión». ¿Qué oración debe quitar Ana?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Luna es una perrita blanca."
+          },
+          {
+            "id": "b",
+            "texto": "Le gusta correr en el parque."
+          },
+          {
+            "id": "c",
+            "texto": "Mi tío maneja un camión."
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "El tema es Luna. La tercera oración habla del camión de su tío, así que no pertenece a este texto.",
+        "pista": "Pregunta de qué habla cada oración y busca la que no habla de Luna."
+      }
+    }
   },
   {
     "clave": "com.p2.ampliar-la-informacion",
@@ -816,7 +929,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Más información sobre una idea",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a ampliar la información. Como idea principal de este tema, recuerda esto: ampliar una idea es agregar oraciones con detalles que la explican mejor. Para encontrarlos, pregúntate: cómo, dónde, cuándo o por qué."
+        },
+        {
+          "id": "situacion-abuela",
+          "tipo": "recurso",
+          "titulo": "Una abuela en la cocina",
+          "narracion": "Observemos esta situación. Una abuela sonríe mientras cocina en una olla grande, en su cocina. Dos niños la miran con curiosidad. Sobre la mesa hay frutas y especias. Podemos decir que la abuela cocina, pero esa oración corta dice poco. Con detalles contamos mucho más.",
+          "recursoRef": "abuela"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la abuela",
+          "narracion": "Mira la oración de la pantalla: «Mi abuela cocina». Debajo hay dos preguntas: qué cocina y dónde. Cada respuesta puede ser una oración nueva. ¿Qué detalles podemos agregar?",
+          "recursoRef": "abuela-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dos oraciones nuevas",
+          "narracion": "Respondemos cada pregunta con una oración corta. Primero: cocina mazamorra morada. Después: lo hace en su casa de Ica. Así, la idea queda más completa y sigue hablando de la abuela.",
+          "recursoRef": "abuela-ampliada"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el parque",
+          "narracion": "Veamos otra situación. Dos niños juegan con una cometa en un parque soleado. Imaginemos que escribimos que fuimos al parque. Queremos decir cuándo fuimos y con quién. ¿Qué detalles agregamos?",
+          "recursoRef": "parque"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: cuándo y con quién",
+          "narracion": "Mira la pantalla. Después de «Fui al parque» agregamos: fui el domingo. Y también: fui con mi primo. Son dos datos nuevos sobre la misma idea.",
+          "recursoRef": "parque-ampliada"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Errores al ampliar",
+          "narracion": "Un error frecuente es agregar oraciones que hablan de otra cosa. Si la idea es «Mi gata duerme», decir «Mi mamá trabaja» no la amplía. Otro error es repetir la misma idea con otras palabras. Ampliar es dar datos nuevos."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: escribe la idea",
+          "narracion": "Primero, escribe la idea principal en una oración."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: hazle preguntas",
+          "narracion": "Después, hazle preguntas: cómo es, dónde, cuándo o por qué."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: responde con oraciones cortas",
+          "narracion": "Por último, responde cada pregunta con una oración corta y comprueba que todas hablen de la misma idea."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "abuela",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-2/ampliar-abuela-gemini-v1.webp",
+          "alt": "Una abuela revuelve una olla grande en su cocina mientras dos niños la miran; en la mesa hay frutas y especias.",
+          "descripcion": "Una abuela de trenza gris, con delantal, revuelve con una cuchara de madera una olla grande sobre la cocina. Dos niños la miran sonriendo. En la mesa hay mazorcas, ramas de canela, trozos de piña, una manzana y ciruelas."
+        },
+        {
+          "id": "abuela-pregunta",
+          "src": "/nudito/diagramas/comunicacion/ampliar-abuela-pregunta.svg",
+          "alt": "La oración Mi abuela cocina con las preguntas qué cocina y dónde.",
+          "descripcion": "Arriba, en una tarjeta blanca: «Mi abuela cocina.». Debajo, dos tarjetas con borde verde: «¿Qué cocina?» y «¿Dónde?». Abajo, en amarillo: «Cada pregunta pide un detalle nuevo.»."
+        },
+        {
+          "id": "abuela-ampliada",
+          "src": "/nudito/diagramas/comunicacion/ampliar-abuela-ampliada.svg",
+          "alt": "La idea Mi abuela cocina con dos oraciones nuevas que agregan detalles.",
+          "descripcion": "Una tarjeta blanca: «Mi abuela cocina.». Debajo, dos tarjetas amarillas más oscuras: «Cocina mazamorra morada.» y «Lo hace en su casa de Ica.». Abajo: «Cada oración añade un dato nuevo sobre la misma idea.»."
+        },
+        {
+          "id": "parque",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-2/ampliar-parque-gemini-v1.webp",
+          "alt": "Un niño y una niña juegan con una cometa de colores en un parque soleado con árboles y bancas.",
+          "descripcion": "Un niño con suéter rojo sostiene el hilo de una cometa de colores que vuela alto. Una niña con trenzas corre a su lado y señala la cometa. Ambos ríen. Están en un parque con árboles, bancas, flores y cielo azul con nubes."
+        },
+        {
+          "id": "parque-ampliada",
+          "src": "/nudito/diagramas/comunicacion/ampliar-parque-ampliada.svg",
+          "alt": "La idea Fui al parque con dos oraciones nuevas: cuándo y con quién.",
+          "descripcion": "Una tarjeta blanca: «Fui al parque.». Debajo, dos tarjetas amarillas más oscuras: «Fui el domingo.» y «Fui con mi primo.». Abajo: «Dos datos nuevos: cuándo y con quién.»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "La idea es «Mi hermano juega». ¿Cuál oración agrega un dato nuevo sobre esa idea?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Mi mamá cocina arroz con pollo."
+          },
+          {
+            "id": "b",
+            "texto": "Mi hermano juega con su perro."
+          },
+          {
+            "id": "c",
+            "texto": "Mi hermano juega, juega y juega."
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "«Con su perro» es un dato nuevo sobre la misma idea: con quién juega tu hermano.",
+        "pista": "Busca la oración que sigue hablando del hermano y añade algo que no se sabía."
+      }
+    }
   },
   {
     "clave": "com.p2.conectores-y-tambien",

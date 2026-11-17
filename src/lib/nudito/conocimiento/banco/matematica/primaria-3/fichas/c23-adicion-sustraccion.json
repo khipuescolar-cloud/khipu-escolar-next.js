@@ -3510,7 +3510,133 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Calcular por partes",
+          "narracion": "Bienvenida y bienvenido. Hoy calcularemos de memoria. Como idea principal, separamos un número en centenas, decenas y unidades, y lo sumamos o lo restamos por partes. Primero van las centenas, luego las decenas y al final las unidades. Así cada paso es fácil, y el cálculo completo también."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Los polos de la tienda",
+          "narracion": "Observemos esta situación. Una tienda de ropa vendió trescientos veintiséis polos en la mañana y ciento cuarenta y tres en la tarde. Queremos saber cuántos polos vendió en total, calculando de memoria.",
+          "recursoRef": "tienda-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: sumar por partes",
+          "narracion": "Separa el ciento cuarenta y tres en centenas, decenas y unidades. Piensa: ¿cuánto vale cada parte? Después empieza a sumar al trescientos veintiséis, una parte por vez.",
+          "recursoRef": "tienda-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: los saltos",
+          "narracion": "El ciento cuarenta y tres se separa así: las centenas valen cien, las decenas valen cuarenta y las unidades valen tres. Al trescientos veintiséis le sumamos las centenas, cien, y llegamos a cuatrocientos veintiséis. Luego sumamos las decenas, cuarenta, y llegamos a cuatrocientos sesenta y seis. Por último sumamos las unidades, tres, y llegamos a cuatrocientos sesenta y nueve. La tienda vendió cuatrocientos sesenta y nueve polos.",
+          "recursoRef": "suma-partes"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: restar por partes",
+          "narracion": "Ahora hacemos una resta. En la escuela había setecientas cincuenta y dos hojas y se usaron doscientas treinta y una. Separa las doscientas treinta y una en centenas, decenas y unidades. Recuerda que, al restar, se quitan todas las partes. ¿Cuántas hojas quedan?",
+          "recursoRef": "resta-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: los saltos hacia abajo",
+          "narracion": "El doscientos treinta y uno se separa así: las centenas valen doscientos, las decenas valen treinta y las unidades valen uno. Al setecientos cincuenta y dos le quitamos las centenas, doscientos, y quedan quinientos cincuenta y dos. Luego quitamos las decenas, treinta, y quedan quinientos veintidós. Por último quitamos las unidades, uno, y quedan quinientos veintiuno. Quedan quinientas veintiuna hojas.",
+          "recursoRef": "resta-partes"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con este error",
+          "narracion": "Mira cómo se separa el doscientos cuarenta y tres. A la izquierda quedan tres tarjetas: la del doscientos, la del cuarenta y la del tres, y esas partes juntas forman otra vez el número. Está bien. A la derecha quedan la del dos, la del cuatro y la del tres, que solo suman nueve. Es un error, porque cada cifra vale según su lugar: el dos de las centenas vale doscientos.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: separa el segundo número",
+          "narracion": "Primero parte el segundo número en centenas, decenas y unidades. Así se hizo con el ciento cuarenta y tres de las tarjetas.",
+          "recursoRef": "tienda-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: opera parte por parte",
+          "narracion": "Luego opera con una parte por vez, empezando por las centenas. Con la suma, cada parte se agrega al número anterior. Mira cómo se va formando el resultado.",
+          "recursoRef": "suma-partes"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: revisa las partes",
+          "narracion": "Cuando restas, todas las partes se quitan, una por una. Al final cuenta si usaste las tres partes: centenas, decenas y unidades. Mira el ejemplo de las hojas.",
+          "recursoRef": "resta-partes"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "tienda-pregunta",
+          "src": "/nudito/diagramas/matematica/calculo-mental-descomposicion-tienda-pregunta.svg",
+          "alt": "Tres tarjetas con trescientos veintiséis, ciento cuarenta y tres y un signo de pregunta, unidas por un signo más y un signo igual.",
+          "descripcion": "Tres tarjetas en fila. La primera dice trescientos veintiséis y debajo la palabra mañana. Sigue un signo más y una segunda tarjeta que dice ciento cuarenta y tres, con la palabra tarde. Luego hay un signo igual y una tarjeta turquesa con un signo de pregunta y las palabras en total."
+        },
+        {
+          "id": "suma-partes",
+          "src": "/nudito/diagramas/matematica/calculo-mental-descomposicion-suma-partes.svg",
+          "alt": "Cuatro tarjetas con saltos de suma, de trescientos veintiséis a cuatrocientos sesenta y nueve, y el ciento cuarenta y tres separado.",
+          "descripcion": "A la izquierda, cuatro tarjetas bajan unidas por flechas: trescientos veintiséis, cuatrocientos veintiséis, cuatrocientos sesenta y seis y cuatrocientos sesenta y nueve. Junto a las flechas se leen los saltos: más cien, más cuarenta y más tres. A la derecha, la tarjeta ciento cuarenta y tres se une con tres tarjetas pequeñas: la del cien, la del cuarenta y la del tres."
+        },
+        {
+          "id": "resta-pregunta",
+          "src": "/nudito/diagramas/matematica/calculo-mental-descomposicion-resta-pregunta.svg",
+          "alt": "Tres tarjetas con setecientos cincuenta y dos, doscientos treinta y uno y un signo de pregunta, unidas por un signo menos y un signo igual.",
+          "descripcion": "Tres tarjetas en fila. La primera dice setecientos cincuenta y dos y debajo las palabras había. Sigue un signo menos y una segunda tarjeta que dice doscientos treinta y uno, con las palabras se usaron. Luego hay un signo igual y una tarjeta turquesa con un signo de pregunta y la palabra quedan."
+        },
+        {
+          "id": "resta-partes",
+          "src": "/nudito/diagramas/matematica/calculo-mental-descomposicion-resta-partes.svg",
+          "alt": "Cuatro tarjetas con saltos de resta, de setecientos cincuenta y dos a quinientos veintiuno, y el doscientos treinta y uno separado.",
+          "descripcion": "A la izquierda, cuatro tarjetas bajan unidas por flechas: setecientos cincuenta y dos, quinientos cincuenta y dos, quinientos veintidós y quinientos veintiuno. Junto a las flechas se leen los saltos: menos doscientos, menos treinta y menos uno. A la derecha, la tarjeta doscientos treinta y uno se une con tres tarjetas pequeñas: la del doscientos, la del treinta y la del uno."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/calculo-mental-descomposicion-errores.svg",
+          "alt": "Dos recuadros con el número doscientos cuarenta y tres: a la izquierda separado en tres tarjetas, con una palomita; a la derecha separado en otras tres, con una equis.",
+          "descripcion": "Hay dos recuadros, cada uno con el número doscientos cuarenta y tres arriba y tres tarjetas debajo. En el de la izquierda, la primera tarjeta dice doscientos, la segunda cuarenta y la tercera tres; debajo está la frase suma doscientos cuarenta y tres, con una palomita y la palabra bien. En el de la derecha, las tarjetas dicen dos, cuatro y tres; debajo está la frase suma nueve, con una equis y la palabra error."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Calcula de memoria, por partes: cuatrocientos dieciocho más trescientos veintidós. ¿Cuánto da?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Setecientos cuarenta"
+          },
+          {
+            "id": "b",
+            "texto": "Setecientos treinta"
+          },
+          {
+            "id": "c",
+            "texto": "Setecientos cincuenta"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Cuatrocientos dieciocho más trescientos es setecientos dieciocho, más veinte es setecientos treinta y ocho, y más dos es setecientos cuarenta.",
+        "pista": "Separa el segundo número y suma primero las centenas."
+      }
+    }
   },
   {
     "clave": "mat.p3.completar-centena",
@@ -3839,7 +3965,133 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Completar hasta la centena",
+          "narracion": "Bienvenida y bienvenido. Hoy aprendemos a llegar a la centena siguiente. Como idea principal, primero completamos la decena y luego contamos las decenas que faltan. Así sabemos cuánto falta sin restar de golpe. Una centena es un número redondo, como trescientos o cuatrocientos."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Los caramelos de Rosa",
+          "narracion": "Observemos esta situación. Rosa tiene doscientos ochenta y cuatro caramelos y quiere completar trescientos para armar una caja grande. La recta numérica muestra el punto de partida y la meta. El arco con el signo de pregunta es lo que no sabemos: cuántos caramelos le faltan.",
+          "recursoRef": "recta-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: caramelos",
+          "narracion": "Rosa está en doscientos ochenta y cuatro y su meta es trescientos. Primero piensa: ¿cuánto falta para llegar a la decena que sigue? Después piensa: ¿cuántas decenas faltan hasta trescientos? Por último, ¿cuánto le falta en total?",
+          "recursoRef": "recta-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dos tramos",
+          "narracion": "De doscientos ochenta y cuatro a doscientos noventa faltan seis. De doscientos noventa a trescientos falta una decena, que son diez. Juntamos: seis más diez son dieciséis. A Rosa le faltan dieciséis caramelos. Para comprobar, doscientos ochenta y cuatro más dieciséis son trescientos.",
+          "recursoRef": "recta-saltos"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: tapitas para reciclar",
+          "narracion": "Un grupo de niños junta tapitas para una campaña. Ya tienen cuatrocientos sesenta y dos y su meta es quinientos. Esta vez hay más decenas por contar. Primero completa hasta la decena que sigue. Luego cuenta las decenas hasta la meta. ¿Cuántas tapitas faltan?",
+          "recursoRef": "tapitas-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ocho y treinta",
+          "narracion": "De cuatrocientos sesenta y dos a cuatrocientos setenta faltan ocho. De cuatrocientos setenta a quinientos hay tres decenas, que son treinta. Juntamos: ocho más treinta son treinta y ocho. Faltan treinta y ocho tapitas.",
+          "recursoRef": "tapitas-saltos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Observa los dos recuadros. En el rojo, alguien parte de trescientos cuarenta y dos, completó solo la decena: sumó ocho, llegó a trescientos cincuenta y se detuvo. Pero trescientos cincuenta no es la centena siguiente. En el verde, después de ocho se cuentan cinco decenas más, que son cincuenta, y así se llega a cuatrocientos. Otro error es olvidar las decenas y quedarse solo con las unidades.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca la centena siguiente",
+          "narracion": "Primero encuentra la centena que sigue. Es el número redondo que viene después. Después de doscientos ochenta y cuatro, viene trescientos.",
+          "recursoRef": "recta-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: completa la decena",
+          "narracion": "Después llega hasta la decena que sigue. Cuenta cuánto falta. Aquí, de doscientos ochenta y cuatro a doscientos noventa faltan seis.",
+          "recursoRef": "recta-saltos"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: cuenta las decenas y junta",
+          "narracion": "Luego cuenta las decenas que faltan hasta la centena, y junta todo. En el segundo ejemplo, tres decenas son treinta, y ocho más treinta son treinta y ocho. Para comprobar, cuatrocientos sesenta y dos más treinta y ocho son quinientos.",
+          "recursoRef": "tapitas-saltos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "recta-pregunta",
+          "src": "/nudito/diagramas/matematica/completar-centena-recta-pregunta.svg",
+          "alt": "Recta numérica con un punto en doscientos ochenta y cuatro y otro en trescientos, unidos por un arco con un signo de pregunta.",
+          "descripcion": "Una línea horizontal con dos puntos. El de la izquierda es amarillo y está marcado doscientos ochenta y cuatro. El de la derecha es turquesa y está marcado trescientos. Un arco turquesa los une y tiene en el centro una etiqueta amarilla con un signo de pregunta."
+        },
+        {
+          "id": "recta-saltos",
+          "src": "/nudito/diagramas/matematica/completar-centena-recta-saltos.svg",
+          "alt": "La misma recta con una parada en doscientos noventa: un tramo de seis, otro de diez y el total dieciséis.",
+          "descripcion": "La misma recta con una marca nueva en doscientos noventa. Un arco corto va de doscientos ochenta y cuatro a doscientos noventa y dice más seis. Otro arco largo va de doscientos noventa a trescientos y dice más diez. Abajo, en ámbar, se lee seis más diez son dieciséis."
+        },
+        {
+          "id": "tapitas-pregunta",
+          "src": "/nudito/diagramas/matematica/completar-centena-tapitas-pregunta.svg",
+          "alt": "Recta numérica con un punto en cuatrocientos sesenta y dos y otro en quinientos, unidos por un arco con un signo de pregunta.",
+          "descripcion": "Una línea horizontal con dos puntos. El de la izquierda es amarillo y está marcado cuatrocientos sesenta y dos. El de la derecha es turquesa y está marcado quinientos. Un arco turquesa los une y tiene en el centro una etiqueta amarilla con un signo de pregunta."
+        },
+        {
+          "id": "tapitas-saltos",
+          "src": "/nudito/diagramas/matematica/completar-centena-tapitas-saltos.svg",
+          "alt": "La misma recta con una parada en cuatrocientos setenta: un tramo de ocho, otro de treinta y el total treinta y ocho.",
+          "descripcion": "La misma recta con una marca nueva en cuatrocientos setenta. Un arco corto va de cuatrocientos sesenta y dos a cuatrocientos setenta y dice más ocho. Otro arco largo va de cuatrocientos setenta a quinientos y dice más treinta. Abajo, en ámbar, se lee ocho más treinta son treinta y ocho."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/completar-centena-errores.svg",
+          "alt": "Dos recorridos de trescientos cuarenta y dos a cuatrocientos: el rojo se detiene en trescientos cincuenta; el verde sigue hasta cuatrocientos.",
+          "descripcion": "Dos recuadros con rectas de trescientos cuarenta y dos a cuatrocientos. En el rojo hay un solo arco, más ocho, que termina en trescientos cincuenta con una equis roja; abajo dice se detuvo. En el verde hay dos arcos: más ocho hasta trescientos cincuenta y más cincuenta hasta cuatrocientos; abajo dice llega a cuatrocientos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Tomás tiene seiscientos cuarenta y ocho soles y quiere juntar setecientos. ¿Cuántos soles le faltan?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cincuenta y dos"
+          },
+          {
+            "id": "b",
+            "texto": "Sesenta y dos"
+          },
+          {
+            "id": "c",
+            "texto": "Cincuenta y ocho"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "De seiscientos cuarenta y ocho a seiscientos cincuenta faltan dos, y de seiscientos cincuenta a setecientos faltan cincuenta. Dos más cincuenta son cincuenta y dos.",
+        "pista": "Primero llega a la decena que sigue y después cuenta las decenas hasta setecientos."
+      }
+    }
   },
   {
     "clave": "mat.p3.estimar-sumas-restas",
@@ -4872,7 +5124,132 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Agrupar para sumar fácil",
+          "narracion": "Hola. Hoy aprenderás a sumar tres números de una forma cómoda. Como idea principal, cuando sumas tres números puedes elegir cuáles dos sumar primero, y el total no cambia. Conviene buscar dos números que juntos formen una decena o una centena exacta, como diez, cincuenta o cien. Después se suma el tercer número."
+        },
+        {
+          "id": "situacion-bolsas",
+          "tipo": "recurso",
+          "titulo": "Tres bolsitas de canicas",
+          "narracion": "Observemos esta situación. Ana guarda sus canicas en tres bolsitas. Una tiene seis canicas rojas, otra tiene nueve azules y otra tiene cuatro verdes. Queremos saber cuántas canicas tiene en total. Hay varias formas de ordenar la suma, y vamos a descubrir cuál es la más cómoda.",
+          "recursoRef": "situacion-bolsas"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo uno: las compras",
+          "narracion": "Pilar compró fruta por dieciocho soles, pan por siete soles y leche por tres soles. ¿Cuánto gastó? Miremos los tres números: dieciocho, siete y tres. ¿Cuáles dos conviene sumar primero?",
+          "recursoRef": "compras-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo uno: agrupamos",
+          "narracion": "Siete más tres es diez, un número redondo. Entonces ponemos esos dos entre paréntesis: dieciocho más, entre paréntesis, siete más tres. Eso es dieciocho más diez, que son veintiocho. Pilar gastó veintiocho soles.",
+          "recursoRef": "compras-solucion"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo dos: las sillas",
+          "narracion": "En tres aulas hay ciento veinticinco, treinta y seis y setenta y cinco sillas. ¿Cuántas sillas hay en total? No hace falta sumar en el orden en que aparecen los números. ¿Qué pareja da un número redondo?",
+          "recursoRef": "sillas-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo dos: pareja de centena",
+          "narracion": "Ciento veinticinco más setenta y cinco son doscientos, una centena exacta. Sumamos primero esa pareja, aunque no estén una junto a la otra. Luego, doscientos más treinta y seis son doscientos treinta y seis. Hay doscientas treinta y seis sillas.",
+          "recursoRef": "sillas-solucion"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Tres errores que debes evitar",
+          "narracion": "Cuidado con tres errores. Uno: creer que cambiar la agrupación cambia el total. No cambia. Dos: sumar la pareja fácil y olvidar el tercer número, que siempre se suma al final. Tres: usar esta idea en una resta. Esta forma de agrupar solo sirve cuando todos los números se suman."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: mira los tres sumandos",
+          "narracion": "Mira los tres números que vas a sumar. En el ejemplo de las compras son dieciocho, siete y tres.",
+          "recursoRef": "compras-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: busca la pareja redonda",
+          "narracion": "Busca dos números que juntos formen una decena o una centena exacta. En las sillas, ciento veinticinco y setenta y cinco forman doscientos. Puedes encerrarlos entre paréntesis.",
+          "recursoRef": "sillas-solucion"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: suma el tercer número",
+          "narracion": "Suma la pareja y luego añade el tercer número. En las compras, dieciocho más diez son veintiocho. No olvides decir la respuesta con una oración completa.",
+          "recursoRef": "compras-solucion"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion-bolsas",
+          "src": "/nudito/diagramas/matematica/adicion-asociativa-bolsas-canicas.svg",
+          "alt": "Tres tarjetas con seis, nueve y cuatro canicas, unidas por signos más. Se pregunta cómo sumarlas.",
+          "descripcion": "Hay tres tarjetas amarillas en fila con los números seis, nueve y cuatro, separadas por signos más. Debajo de cada una se lee rojas, azules y verdes. Abajo dice: ¿cómo las sumamos?"
+        },
+        {
+          "id": "compras-pregunta",
+          "src": "/nudito/diagramas/matematica/adicion-asociativa-compras-pregunta.svg",
+          "alt": "Tres tarjetas con dieciocho, siete y tres soles de fruta, pan y leche. Se pregunta cuánto gastó Pilar.",
+          "descripcion": "Tres tarjetas con los números dieciocho, siete y tres, unidas por signos más. Debajo se lee fruta, pan y leche. Abajo dice: ¿cuántos soles gastó?"
+        },
+        {
+          "id": "compras-solucion",
+          "src": "/nudito/diagramas/matematica/adicion-asociativa-compras-solucion.svg",
+          "alt": "Dieciocho, siete y tres: se suman siete y tres para formar diez, y luego dieciocho más diez da veintiocho.",
+          "descripcion": "Sobre las tarjetas siete y tres hay un corchete verde con la cuenta: siete más tres igual diez. Debajo se lee: dieciocho más, entre paréntesis, siete más tres, igual dieciocho más diez, igual veintiocho. En verde: gastó veintiocho soles."
+        },
+        {
+          "id": "sillas-pregunta",
+          "src": "/nudito/diagramas/matematica/adicion-asociativa-sillas-pregunta.svg",
+          "alt": "Tres tarjetas con ciento veinticinco, treinta y seis y setenta y cinco sillas de tres aulas. Se pregunta cuántas hay.",
+          "descripcion": "Tres tarjetas con los números ciento veinticinco, treinta y seis y setenta y cinco, unidas por signos más. Debajo se lee aula uno, aula dos y aula tres. Abajo dice: ¿cuántas sillas hay?"
+        },
+        {
+          "id": "sillas-solucion",
+          "src": "/nudito/diagramas/matematica/adicion-asociativa-sillas-solucion.svg",
+          "alt": "Ciento veinticinco más setenta y cinco da doscientos; luego se suman treinta y seis para llegar a doscientos treinta y seis.",
+          "descripcion": "Un corchete verde une la primera y la tercera tarjeta, con la cuenta: ciento veinticinco más setenta y cinco igual doscientos. Debajo se lee: doscientos más treinta y seis. En verde: hay doscientas treinta y seis sillas."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Don Lalo vendió treinta y cinco panes por la mañana, cuarenta y ocho al mediodía y sesenta y cinco por la tarde. ¿Cuántos panes vendió?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ciento cuarenta y seis"
+          },
+          {
+            "id": "b",
+            "texto": "Ciento cuarenta y ocho"
+          },
+          {
+            "id": "c",
+            "texto": "Ciento cincuenta y ocho"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Treinta y cinco más sesenta y cinco son cien, y cien más cuarenta y ocho son ciento cuarenta y ocho panes.",
+        "pista": "Busca dos números que sumen cien y después suma el tercero."
+      }
+    }
   },
   {
     "clave": "mat.p3.inversa-suma-resta",

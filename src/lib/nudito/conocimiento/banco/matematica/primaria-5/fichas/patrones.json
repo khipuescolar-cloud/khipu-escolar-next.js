@@ -956,7 +956,132 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "De figuras a números",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a convertir figuras que crecen en números. Como idea principal, contamos las marcas de cada figura y anotamos el total. Luego miramos cuántas marcas nuevas aparecen de una figura a la siguiente. En estos patrones, la cantidad que se añade también va creciendo de manera regular."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Escalera que crece",
+          "narracion": "Observemos esta situación. Una escalera de cuadritos crece paso a paso. La primera figura tiene un cuadrito, la segunda tiene dos escalones y la tercera tiene tres. A la derecha hay un espacio vacío para la cuarta figura. Queremos saber cuántos cuadritos tendrá la cuarta.",
+          "recursoRef": "escalera-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: cuántos se añaden",
+          "narracion": "Cuenta los cuadritos de cada figura. Después compara cada figura con la anterior: ¿cuántos cuadritos nuevos aparecen en cada paso? Fíjate en cómo cambian esas cantidades."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: los aumentos crecen",
+          "narracion": "Ahora los cuadritos nuevos están pintados de amarillo y la cuarta figura aparece completa. Entre la primera y la segunda se añaden dos, y entre la segunda y la tercera se añaden tres. Los aumentos suben de uno en uno, así que la cuarta figura añade cuatro. Seis más cuatro son diez cuadritos.",
+          "recursoRef": "escalera-aumentos"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: filas de fichas",
+          "narracion": "Veamos otro patrón, armado con filas de fichas. La primera figura tiene una fila de cuatro fichas. En la segunda se agrega una fila de cinco, y en la tercera, otra de seis. Cuenta todas las fichas de cada figura, no solo las de la última fila.",
+          "recursoRef": "fichas-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: sumar todas las filas",
+          "narracion": "Cada figura reúne todas sus filas. La primera tiene cuatro fichas, la segunda tiene nueve y la tercera tiene quince. Los aumentos son cinco y seis, así que la cuarta añade una fila de siete. Quince más siete son veintidós fichas.",
+          "recursoRef": "fichas-aumentos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Arriba, la última fila tiene cuatro puntos, pero la figura completa reúne tres filas y tiene nueve. No cuentes solo la fila nueva. Abajo, no repitas siempre el mismo aumento: de dos a cinco son tres más y de cinco a nueve son cuatro más, así que el aumento cambia.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cuenta cada figura",
+          "narracion": "Primero cuenta todas las marcas de cada figura y anota el total. En la escalera, las tres figuras tienen un cuadrito, tres y seis.",
+          "recursoRef": "escalera-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: calcula los aumentos",
+          "narracion": "Segundo, compara cada total con el anterior para ver cuántas marcas nuevas aparecen. En la escalera los aumentos son dos y tres, y la cuarta figura añade cuatro.",
+          "recursoRef": "escalera-aumentos"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: observa cómo cambian",
+          "narracion": "Tercero, mira cómo cambian los aumentos. En las fichas suben de uno en uno: cinco, seis y luego siete. Suma el último aumento al último total y comprueba con la figura completa.",
+          "recursoRef": "fichas-aumentos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "escalera-pregunta",
+          "src": "/nudito/diagramas/matematica/patrones-graficos-5-escalera-pregunta.svg",
+          "alt": "Tres figuras de escalera de cuadritos, de uno, dos y tres escalones, y un recuadro punteado con signo de pregunta para la cuarta.",
+          "descripcion": "Tres figuras de cuadritos verde azulado en forma de escalera, de izquierda a derecha: la primera con un cuadrito, la segunda con dos escalones y la tercera con tres. Después hay un recuadro punteado con un signo de pregunta, la cuarta figura. Cada una tiene su rótulo debajo."
+        },
+        {
+          "id": "escalera-aumentos",
+          "src": "/nudito/diagramas/matematica/patrones-graficos-5-escalera-aumentos.svg",
+          "alt": "Cuatro figuras de escalera con totales uno, tres, seis y diez; los cuadritos nuevos están en amarillo y los aumentos son dos, tres y cuatro.",
+          "descripcion": "Cuatro figuras de escalera. En las tres últimas, la columna nueva de la derecha es amarilla. Sobre ellas se leen los aumentos: más dos, más tres y más cuatro. Debajo de cada figura aparece su total: uno, tres, seis y diez. Al pie dice totales de las cuatro figuras."
+        },
+        {
+          "id": "fichas-pregunta",
+          "src": "/nudito/diagramas/matematica/patrones-graficos-5-fichas-pregunta.svg",
+          "alt": "Tres figuras con filas de fichas: la primera con una fila de cuatro; la segunda con filas de cuatro y cinco; la tercera con filas de cuatro, cinco y seis; y un recuadro punteado con signo de pregunta.",
+          "descripcion": "Tres figuras hechas con filas de fichas verde azulado. La primera tiene una fila de cuatro fichas; la segunda, filas de cuatro y cinco; la tercera, filas de cuatro, cinco y seis. A la derecha hay un recuadro punteado con un signo de pregunta, la cuarta figura."
+        },
+        {
+          "id": "fichas-aumentos",
+          "src": "/nudito/diagramas/matematica/patrones-graficos-5-fichas-aumentos.svg",
+          "alt": "Cuatro figuras con totales cuatro, nueve, quince y veintidós; las filas nuevas son amarillas y los aumentos son cinco, seis y siete.",
+          "descripcion": "Cuatro figuras de filas de fichas. La primera tiene una fila de cuatro. Cada figura siguiente agrega abajo una fila amarilla de cinco, seis y siete fichas. Sobre ellas se leen los aumentos: más cinco, más seis y más siete. Debajo de cada figura están los totales: cuatro, nueve, quince y veintidós."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/patrones-graficos-5-errores.svg",
+          "alt": "Arriba, filas de dos, tres y cuatro puntos con la última encerrada en rojo; abajo, dos, cinco y nueve unidos por más tres y más cuatro; mal: sumar siempre tres; bien: sumar tres y luego cuatro.",
+          "descripcion": "Arriba, filas de dos, tres y cuatro puntos; la de cuatro, en rojo. A la derecha, mal: contar solo cuatro; bien: dos más tres más cuatro igual a nueve. Abajo, dos, cinco y nueve unidos por más tres y más cuatro. Debajo, mal: sumar siempre tres; bien: sumar tres y luego cuatro."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una figura de fichas tiene seis, nueve y trece fichas en sus tres primeras figuras. Cada figura añade una ficha más que la anterior. ¿Cuántas fichas tendrá la cuarta figura?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Diecisiete"
+          },
+          {
+            "id": "b",
+            "texto": "Dieciocho"
+          },
+          {
+            "id": "c",
+            "texto": "Veintiséis"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Los aumentos fueron tres y cuatro, así que el siguiente es cinco, y trece más cinco son dieciocho fichas.",
+        "pista": "Calcula cuánto creció cada figura y sigue ese cambio."
+      }
+    }
   },
   {
     "clave": "mat.p5.patrones-regla-formacion",
@@ -1296,7 +1421,119 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Saltos que también cambian",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a describir cómo crece una secuencia de números. Como idea principal, a veces la cantidad que se suma no es siempre la misma, sino que cambia de forma regular. Para descubrir la regla, calcula cuánto sube cada término y luego observa cómo cambian esos saltos."
+        },
+        {
+          "id": "situacion-latas",
+          "tipo": "recurso",
+          "titulo": "Latas apiladas en pirámide",
+          "narracion": "Observemos esta situación. En una bodega de Chiclayo se apilan latas en forma de pirámide. La primera tiene una lata, la segunda tres, la tercera seis y la cuarta diez. De una a otra, las latas aumentan dos, luego tres y luego cuatro. Los saltos no son iguales: cada uno es mayor que el anterior.",
+          "recursoRef": "latas"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: los saltos de las latas",
+          "narracion": "Escribimos la secuencia uno, tres, seis, diez. Calculamos los saltos entre términos vecinos: de uno a tres suben dos, de tres a seis suben tres y de seis a diez suben cuatro. Con esos saltos armamos una tabla."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ¿cómo cambian los saltos?",
+          "narracion": "Miramos los saltos: dos, tres, cuatro. Cada uno es uno más que el anterior. La regla es: empieza en uno y suma dos, luego tres, luego cuatro, y así sigue. El siguiente salto es cinco, por eso el quinto término es diez más cinco: quince, el número verde de la tabla.",
+          "recursoRef": "tabla"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: las figuritas de Valeria",
+          "narracion": "Valeria lleva el conteo de las figuritas de su álbum: tres en la semana uno, cuatro en la dos, seis en la tres y nueve en la cuatro. Los saltos entre semanas son uno, dos y tres."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la semana cinco",
+          "narracion": "Con esa regla, el siguiente salto es cuatro. En la semana cinco, la barra amarilla, Valeria tendría nueve más cuatro: trece figuritas. La regla funciona porque cada salto es uno más que el anterior.",
+          "recursoRef": "album"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "No basta mirar el primer salto",
+          "narracion": "Un error común es fijarse solo en el primer salto. En las figuritas, de tres a cuatro sube uno, y alguien diría que siempre se suma uno, así que vendrían cinco, seis y siete. Pero el tercer término real es seis, no cinco. Por eso calculamos todos los saltos antes de decidir la regla.",
+          "recursoRef": "album"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: calcula los saltos",
+          "narracion": "Primero calcula los saltos entre términos vecinos. En uno, tres, seis, diez, los saltos son dos, tres y cuatro.",
+          "recursoRef": "tabla"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: observa cómo cambian",
+          "narracion": "Segundo, observa cómo cambian esos saltos. Aquí cada salto es uno más que el anterior; en la tabla, la fila de abajo muestra más uno cada vez.",
+          "recursoRef": "tabla"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: escribe y comprueba la regla",
+          "narracion": "Tercero, escribe la regla con palabras y compruébala con todos los términos. En las figuritas: empieza en tres y suma uno, luego dos, luego tres. Tres más uno son cuatro, cuatro más dos son seis y seis más tres son nueve, como en las barras.",
+          "recursoRef": "album"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "latas",
+          "src": "/nudito/diagramas/matematica/patron-latas-apiladas.svg",
+          "alt": "Cuatro pirámides de latas con uno, tres, seis y diez latas; los saltos son más dos, más tres y más cuatro.",
+          "descripcion": "Hay cuatro recuadros en fila. En cada uno se apilan latas en forma de triángulo: una lata, tres, seis y diez. Debajo de cada recuadro está el número de latas. Entre los recuadros se leen los saltos, más dos, más tres y más cuatro. Al pie dice que las sumas crecen: dos, tres, cuatro."
+        },
+        {
+          "id": "album",
+          "src": "/nudito/diagramas/matematica/patron-album-figuritas.svg",
+          "alt": "Cinco barras con las figuritas del álbum en las semanas uno a cinco: tres, cuatro, seis, nueve y trece, esta última en amarillo.",
+          "descripcion": "Hay cinco barras que suben de izquierda a derecha, con el número de la semana debajo. Las cuatro primeras son turquesa y valen tres, cuatro, seis y nueve. La quinta barra es amarilla y vale trece. Entre las barras se leen los saltos: más uno, más dos, más tres y más cuatro."
+        },
+        {
+          "id": "tabla",
+          "src": "/nudito/diagramas/matematica/patron-tabla-saltos.svg",
+          "alt": "Tabla con los términos uno, tres, seis, diez y quince, los saltos más dos a más cinco, y el cambio, más uno cada vez.",
+          "descripcion": "Una tabla con tres filas. La fila de términos tiene uno, tres, seis, diez y, en verde, quince. La fila de saltos tiene más dos, más tres, más cuatro y más cinco. La fila de abajo, llamada cambian, tiene más uno tres veces. Al pie dice que los saltos suben de uno en uno."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una secuencia empieza así: seis, nueve, catorce, veintiuno. Si la regla sigue igual, ¿cuál es el siguiente término?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Veintiocho"
+          },
+          {
+            "id": "b",
+            "texto": "Veinticuatro"
+          },
+          {
+            "id": "c",
+            "texto": "Treinta"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Muy bien. Los saltos son tres, cinco y siete, y crecen de dos en dos. El siguiente salto es nueve, y veintiuno más nueve son treinta.",
+        "pista": "Calcula los saltos entre términos vecinos y mira cuánto cambia cada salto."
+      }
+    }
   },
   {
     "clave": "mat.p5.terminos-faltantes-segundo-orden",

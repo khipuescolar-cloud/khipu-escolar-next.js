@@ -280,7 +280,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Unidad, decena y centena de millar",
+          "narracion": "Bienvenida y bienvenido. Hoy conoceremos la unidad, la decena y la centena de millar. Como idea principal, diez unidades de millar forman una decena de millar. Diez decenas de millar forman una centena de millar. Agrupar de diez en diez nos ayuda a entender cantidades muy grandes."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "El papel de Don Mario",
+          "narracion": "Observemos esta situación. Don Mario reúne papel reciclado en paquetes de mil hojas. Los paquetes están en filas, y cada cuadro es un paquete. Queremos saber cuántas hojas hay en total. ¿Cómo podemos agruparlos de diez en diez para contarlos mejor?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: agrupar paquetes",
+          "narracion": "Hay treinta y cinco paquetes de mil hojas. Agrupa los paquetes de diez en diez. ¿Cuántos grupos completos salen? ¿Cuántos paquetes quedan sueltos? Recuerda que un grupo de diez paquetes es una decena de millar."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: treinta y cinco paquetes",
+          "narracion": "Salen tres grupos de diez paquetes. Cada grupo es una decena de millar y vale diez mil hojas. Quedan cinco paquetes sueltos: son cinco unidades de millar y valen cinco mil hojas. En total son treinta y cinco mil hojas. En el dibujo, las siglas DM significan decena de millar y UM, unidad de millar.",
+          "recursoRef": "ejemplo-uno"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: bajar de orden",
+          "narracion": "Una cooperativa guardó dos centenas de millar y cuatro decenas de millar de semillas. Queremos saber cuántos paquetes de mil semillas se pueden formar. Piensa cuántas unidades de millar hay en cada bloque."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: desagrupar",
+          "narracion": "Una centena de millar equivale a cien unidades de millar. Dos centenas son doscientas. Una decena de millar equivale a diez unidades de millar, así que cuatro decenas son cuarenta. En total hay doscientos cuarenta paquetes de mil semillas.",
+          "recursoRef": "ejemplo-dos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con este error",
+          "narracion": "Rita dice que diez unidades de millar forman una centena de millar. Pero diez unidades de millar son diez mil, una decena de millar. Para llegar a cien mil hacen falta diez decenas de millar. La primera tarjeta muestra el error y las otras dos muestran las igualdades correctas.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: reconoce el orden",
+          "narracion": "Reconoce el orden. La unidad de millar vale mil. La decena de millar vale diez mil. La centena de millar vale cien mil."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: agrupa para subir",
+          "narracion": "Para subir de orden, agrupa de diez en diez. Diez de un orden forman uno del orden siguiente."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: desagrupa para bajar",
+          "narracion": "Para bajar de orden, desagrupa: uno de un orden se cambia por diez del orden menor. La cantidad total no cambia. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/decena-centena-millar-situacion.svg",
+          "alt": "Cuadrícula de cuadros amarillos, cinco columnas y siete filas; cada cuadro es un paquete de mil hojas.",
+          "descripcion": "Cuadros amarillos iguales, en cinco columnas y siete filas, sin agrupar. A la derecha: cada cuadro es un paquete de mil hojas. Abajo se lee la pregunta: cuántas hojas hay en total."
+        },
+        {
+          "id": "ejemplo-uno",
+          "src": "/nudito/diagramas/matematica/decena-centena-millar-ejemplo-uno.svg",
+          "alt": "Tres grupos de diez paquetes, una decena de millar cada uno, y cinco paquetes sueltos. Total: treinta y cinco mil hojas.",
+          "descripcion": "Tres recuadros con diez cuadros cada uno, rotulados uno DM igual diez mil. Debajo, cinco cuadros sueltos, rotulados cinco UM igual cinco mil. Abajo: total, treinta y cinco mil hojas. DM significa decena de millar y UM, unidad de millar."
+        },
+        {
+          "id": "ejemplo-dos",
+          "src": "/nudito/diagramas/matematica/decena-centena-millar-ejemplo-dos.svg",
+          "alt": "Dos bloques de cien mil y cuatro bloques de diez mil, con el total de doscientos cuarenta paquetes de mil.",
+          "descripcion": "Arriba, dos centenas de millar: dos bloques amarillos de cien mil, igual a doscientas unidades de millar (200 UM). Debajo, cuatro decenas de millar: cuatro bloques de diez mil, igual a cuarenta unidades de millar (4 DM = 40 UM). Abajo: total, doscientos cuarenta paquetes de mil. UM significa unidad de millar y DM, decena de millar."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/decena-centena-millar-error.svg",
+          "alt": "Tres tarjetas: diez unidades de millar igual a cien mil, marcado como error, y dos igualdades correctas.",
+          "descripcion": "Una tarjeta de borde rojo punteado con diez UM igual cien mil y la palabra error. Debajo, dos tarjetas turquesa: diez UM igual diez mil igual una DM, y diez DM igual cien mil igual una CM. Al pie: UM es mil, DM es diez mil y CM es cien mil."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/decena-centena-millar-pasos.svg",
+          "alt": "Tarjeta con tres pasos: reconocer el orden, agrupar para subir y desagrupar para bajar.",
+          "descripcion": "Tres tarjetas numeradas. La uno dice reconoce el orden: mil, diez mil, cien mil. La dos dice agrupa de diez en diez para subir de orden. La tres dice desagrupa para bajar: el total no cambia."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una fábrica empacó cuarenta y siete paquetes de mil galletas. Si los agrupa de diez en diez, ¿qué obtiene?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Siete decenas de millar y cuatro paquetes"
+          },
+          {
+            "id": "b",
+            "texto": "Cuatro centenas de millar y siete paquetes"
+          },
+          {
+            "id": "c",
+            "texto": "Cuatro decenas de millar y siete paquetes"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Cuarenta paquetes forman cuatro grupos de diez, o cuatro decenas de millar, y sobran siete paquetes.",
+        "pista": "Cuenta cuántos grupos completos de diez paquetes salen y cuántos paquetes quedan sueltos."
+      }
+    }
   },
   {
     "clave": "mat.p5.leer-escribir-seis-cifras",
@@ -1749,7 +1871,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comparar y ordenar números grandes",
+          "narracion": "Bienvenida y bienvenido. Hoy compararemos y ordenaremos números de hasta seis cifras. Como idea principal, primero miramos cuántas cifras tiene cada número: el que tiene más cifras es mayor. Si tienen las mismas cifras, comparamos de izquierda a derecha, empezando por el orden más alto. Donde aparece la primera diferencia, allí se decide cuál es mayor."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Entradas de dos ferias",
+          "narracion": "Observemos esta situación. Dos ferias vendieron entradas. La primera vendió cuatrocientas siete mil doscientas cincuenta y ocho. La segunda vendió cuatrocientas siete mil quinientas veintiocho. Los números están en una tabla de valor posicional, con una cifra en cada columna. Las columnas llevan siglas, desde las centenas de millar hasta las unidades. Queremos saber cuál feria vendió más.",
+          "recursoRef": "tabla-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: cifra con cifra",
+          "narracion": "Los dos números tienen seis cifras, así que comparamos de izquierda a derecha. Empezamos por las centenas de millar, seguimos con las decenas de millar y luego con las unidades de millar. ¿Qué pasa con esas tres cifras? Sigue hasta encontrar la primera diferencia."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la primera diferencia",
+          "narracion": "Las tres primeras cifras son iguales: cuatro, cero y siete. Esas columnas están en verde claro. Llegamos a las centenas, y allí aparece la primera diferencia: dos frente a cinco. Como dos es menor que cinco, el primer número es menor. La segunda feria vendió más entradas.",
+          "recursoRef": "primera-diferencia"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ordenar tres números",
+          "narracion": "Ahora ordenemos tres números de menor a mayor. Primero, noventa y ocho mil cuatrocientos cincuenta. Segundo, cien mil doscientos treinta. Tercero, noventa y ocho mil quinientos cuarenta. Cuenta las cifras de cada uno. Luego compara los que tengan la misma cantidad."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: de menor a mayor",
+          "narracion": "Dos números tienen cinco cifras y uno tiene seis, así que cien mil doscientos treinta es el mayor. Entre los otros dos, las primeras cifras coinciden y las centenas deciden: cuatro es menor que cinco. El orden de menor a mayor es: primero, noventa y ocho mil cuatrocientos cincuenta; segundo, noventa y ocho mil quinientos cuarenta; tercero, cien mil doscientos treinta.",
+          "recursoRef": "ordenar-tres"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Mira esta comparación: cuatrocientos cincuenta y nueve mil ochocientos veintiséis frente a cuatrocientos cincuenta mil novecientos noventa y ocho. Si miramos solo la última cifra, seis y ocho, diríamos que el segundo es mayor. Es un error, porque la comparación se decide en las unidades de millar, marcadas en amarillo: nueve es mayor que cero. El primero es el mayor. Otro error es creer que noventa y nueve mil novecientos noventa y nueve supera a cien mil. Cien mil tiene seis cifras, y por eso es mayor.",
+          "recursoRef": "ultimas"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cuenta las cifras",
+          "narracion": "Primero cuenta cuántas cifras tiene cada número. Si uno tiene más cifras, ese número es mayor. Por eso cien mil es mayor que noventa y nueve mil."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: compara de izquierda a derecha",
+          "narracion": "Si los números tienen las mismas cifras, compara de izquierda a derecha, empezando por las centenas de millar. Sigue mientras las cifras sean iguales."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: decide en la primera diferencia",
+          "narracion": "En la primera diferencia, la cifra mayor decide cuál número es mayor. Para ordenar varios números, repite la comparación hasta colocarlos todos. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "tres-pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "tabla-pregunta",
+          "src": "/nudito/diagramas/matematica/comparar-ordenar-seis-cifras-tabla-pregunta.svg",
+          "alt": "Tabla de valor posicional con dos números de seis cifras, uno debajo del otro, y la pregunta de cuál vendió más.",
+          "descripcion": "Tabla de valor posicional de seis columnas, rotuladas con siglas, con una línea gruesa que separa los miles. La fila uno es cuatrocientos siete mil doscientos cincuenta y ocho; la dos, cuatrocientos siete mil quinientos veintiocho. Abajo: ¿Cuál vendió más entradas?"
+        },
+        {
+          "id": "primera-diferencia",
+          "src": "/nudito/diagramas/matematica/comparar-ordenar-seis-cifras-primera-diferencia.svg",
+          "alt": "La misma tabla: tres columnas iguales en verde claro y la columna de las centenas, distinta, en amarillo.",
+          "descripcion": "La misma tabla. Las tres primeras columnas de las dos filas están en verde claro, con la palabra iguales; la columna de las centenas, en amarillo, con la palabra distinto. Abajo se lee que dos es menor que cinco."
+        },
+        {
+          "id": "ordenar-tres",
+          "src": "/nudito/diagramas/matematica/comparar-ordenar-seis-cifras-ordenar-tres.svg",
+          "alt": "Tabla con tres números ordenados de menor a mayor, uno de seis cifras y dos de cinco.",
+          "descripcion": "Tres filas numeradas con noventa y ocho mil cuatrocientos cincuenta, noventa y ocho mil quinientos cuarenta y cien mil doscientos treinta, con el signo menor que entre ellos abajo; en amarillo, la cifra que decide cada comparación."
+        },
+        {
+          "id": "ultimas",
+          "src": "/nudito/diagramas/matematica/comparar-ordenar-seis-cifras-ultimas.svg",
+          "alt": "Tabla con dos números: las unidades de millar en amarillo y las unidades con borde rojo punteado.",
+          "descripcion": "Dos filas: cuatrocientos cincuenta y nueve mil ochocientos veintiséis y cuatrocientos cincuenta mil novecientos noventa y ocho. En amarillo, las unidades de millar, donde decide la comparación; con borde rojo punteado, las unidades, que engañan."
+        },
+        {
+          "id": "tres-pasos",
+          "src": "/nudito/diagramas/matematica/comparar-ordenar-seis-cifras-tres-pasos.svg",
+          "alt": "Tarjeta con tres pasos para comparar números: contar cifras, comparar de izquierda a derecha y decidir en la primera diferencia.",
+          "descripcion": "Tres tarjetas numeradas. La uno dice cuenta las cifras: seis cifras gana a cinco. La dos dice compara de izquierda a derecha: cifra con cifra. La tres dice decide en la primera diferencia: ahí sabes cuál es mayor."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Tres cooperativas recolectaron papa. Tarma, cuatrocientos dos mil trescientos kilos. Huaral, cuatrocientos veinte mil trescientos kilos. Puno, cuatrocientos mil doscientos treinta kilos. ¿Cuál es el orden de menor a mayor?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tarma, Huaral, Puno"
+          },
+          {
+            "id": "b",
+            "texto": "Puno, Tarma, Huaral"
+          },
+          {
+            "id": "c",
+            "texto": "Puno, Huaral, Tarma"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Los tres empiezan con cuatrocientos mil. Puno sigue con doscientos treinta, Tarma con dos mil trescientos y Huaral con veinte mil trescientos.",
+        "pista": "Los tres empiezan igual; compara la cifra siguiente de cada uno."
+      }
+    }
   },
   {
     "clave": "mat.p5.redondear-naturales",

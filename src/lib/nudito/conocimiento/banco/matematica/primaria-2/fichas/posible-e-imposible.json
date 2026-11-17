@@ -81,11 +81,11 @@
         "opciones": [
           {
             "id": "a",
-            "texto": "Llueve en Iquitos"
+            "texto": "Hoy llueve fuerte en Iquitos"
           },
           {
             "id": "b",
-            "texto": "Un perro habla como una persona"
+            "texto": "Un perro habla como un niño"
           },
           {
             "id": "c",
@@ -96,9 +96,9 @@
         "pistas": [
           "Piensa en lo que hacen los perros.",
           "Llover o jugar pueden pasar un día cualquiera.",
-          "Un perro no puede hablar como una persona."
+          "Un perro no puede hablar como un niño."
         ],
-        "retroalimentacion": "Es imposible que un perro hable como una persona. Llover en Iquitos y jugar a la pelota sí pueden pasar."
+        "retroalimentacion": "Es imposible que un perro hable como un niño. Llover en Iquitos y jugar a la pelota sí pueden pasar."
       },
       {
         "id": "e02",
@@ -291,6 +291,128 @@
         "retroalimentacion": "Es falso: hay una bolita blanca, así que sacarla es posible aunque salga pocas veces."
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Sucesos posibles e imposibles",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a decidir si algo puede pasar o no puede pasar. Como idea principal, un suceso es posible cuando puede ocurrir al menos una vez. Es imposible cuando no puede ocurrir. Para decidir, revisa primero lo que hay en la situación."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Colores dentro de una bolsa",
+          "narracion": "Observemos esta situación. Una bolsa transparente contiene dos bolitas rojas y dos azules. Nos preguntan si puede salir una bolita verde. Antes de responder, debemos comparar el color pedido con los colores que realmente están dentro.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: lanzar un dado",
+          "narracion": "Imagina un dado normal, con caras desde uno hasta seis. Lo lanzamos y preguntamos si puede salir cuatro. Busca ese número entre las caras posibles y piensa qué respuesta darías."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: una cara disponible",
+          "narracion": "El cuatro sí aparece en el dado. Por eso puede quedar arriba al lanzarlo y el suceso es posible. La tarjeta destaca el cuatro entre las seis caras y confirma nuestra decisión. Volvamos a la bolsa del inicio: tiene rojas y azules, pero ninguna verde. Por eso sacar una verde es imposible.",
+          "recursoRef": "dado-resuelto"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: una bolita entre muchas",
+          "narracion": "Ahora mira otra bolsa. Tiene ocho bolitas naranjas y una morada. Hay muchas más naranjas, pero la pregunta es si puede salir la morada. Decide usando lo que está dentro, no cuántas hay de cada color.",
+          "recursoRef": "bolita-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: también puede ocurrir",
+          "narracion": "La bolita morada está en la bolsa. Aunque haya una sola, puede salir y por eso es posible. La tarjeta muestra las ocho naranjas dentro y la morada saliendo.",
+          "recursoRef": "bolita-resuelta"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Confundir pocas veces con nunca",
+          "narracion": "Alguien afirmó que sacar la morada era imposible porque había una sola. La equis marca esa afirmación como incorrecta. Si una bolita está dentro, sacarla puede ocurrir. Que aparezca pocas veces no significa que nunca pueda pasar.",
+          "recursoRef": "error-pocas"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: identifica lo que se pregunta",
+          "narracion": "Nombra el suceso con una frase corta. Puede ser sacar un color, obtener un número o que ocurra un hecho cotidiano."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: revisa los datos",
+          "narracion": "Comprueba qué colores, números o acciones están disponibles. No decidas por adivinanza ni porque algo parezca raro."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: explica tu decisión",
+          "narracion": "Si puede ocurrir al menos una vez, di que es posible. Si no puede ocurrir con esos datos, di que es imposible y explica qué falta."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/posible-imposible-situacion.svg",
+          "alt": "Bolsa transparente con dos bolitas rojas y dos azules; se pregunta si puede salir una verde.",
+          "descripcion": "Una bolsa transparente contiene dos bolitas rojas y dos azules. Arriba se pregunta si puede salir una bolita verde y abajo se invita a mirar qué colores hay."
+        },
+        {
+          "id": "dado-resuelto",
+          "src": "/nudito/diagramas/matematica/posible-imposible-dado-resuelto.svg",
+          "alt": "Tarjeta con los números del uno al seis; el cuatro está rodeado y se confirma que es posible.",
+          "descripcion": "Una tarjeta muestra los números del uno al seis. El cuatro tiene un círculo amarillo, debajo aparece una marca turquesa y se lee «Cuatro es posible»."
+        },
+        {
+          "id": "bolita-pregunta",
+          "src": "/nudito/diagramas/matematica/posible-imposible-bolita-pregunta.svg",
+          "alt": "Bolsa con ocho bolitas naranjas y una morada; se pregunta si la morada puede salir.",
+          "descripcion": "Una bolsa contiene ocho bolitas naranjas y una morada. Arriba se pregunta si puede salir la morada y abajo se indica que hay una sola."
+        },
+        {
+          "id": "bolita-resuelta",
+          "src": "/nudito/diagramas/matematica/posible-imposible-bolita-resuelta.svg",
+          "alt": "Ocho bolitas naranjas quedan en una bolsa y una morada sale siguiendo una flecha.",
+          "descripcion": "Ocho bolitas naranjas permanecen dentro de una bolsa. Una flecha turquesa lleva hacia una bolita morada afuera y al costado se lee «Puede pasar»."
+        },
+        {
+          "id": "error-pocas",
+          "src": "/nudito/diagramas/matematica/posible-imposible-error-pocas.svg",
+          "alt": "La frase «Es imposible» junto a una bolita morada tiene una equis; debajo se recuerda que la morada está en la bolsa.",
+          "descripcion": "El panel superior muestra una bolita morada, la frase «Es imposible» y una equis roja. El panel inferior dice que la morada está en la bolsa y que puede salir aunque haya una."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una caja contiene fichas rojas y azules, pero ninguna amarilla. ¿Qué ocurre si intentas sacar una ficha amarilla?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Puede salir alguna vez"
+          },
+          {
+            "id": "b",
+            "texto": "Saldrá en cada intento"
+          },
+          {
+            "id": "c",
+            "texto": "No puede salir jamás"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Como no hay fichas amarillas en la caja, sacar una amarilla es imposible.",
+        "pista": "Compara el color pedido con los colores que sí están dentro de la caja."
+      }
+    },
     "version": 1,
     "revisado": null,
     "fuentes": [

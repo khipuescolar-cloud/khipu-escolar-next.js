@@ -472,11 +472,11 @@
         "dificultad": 1,
         "tipo": "texto_corto",
         "enunciado": "Pablo junta la rana, el pez y el pato porque pasan tiempo en el agua. ¿Cuál es su criterio? Responde en 2 o 3 palabras.",
-        "respuesta": "viven en el agua",
+        "respuesta": "pasan tiempo en el agua",
         "alternativasAceptadas": [
+          "viven en el agua",
           "viven en agua",
           "están en el agua",
-          "pasan tiempo en el agua",
           "el agua"
         ],
         "pistas": [
@@ -536,14 +536,14 @@
       {
         "dificultad": 2,
         "tipo": "texto_corto",
-        "enunciado": "Agrupas la mosca, el gato, la abeja y el perro. Con el criterio «tienen pelo», ¿cuántos animales van en ese grupo? Escribe el número.",
+        "enunciado": "Agrupas la lagartija, el gato, el pez y el perro. Con el criterio «tienen pelo», ¿cuántos animales van en ese grupo? Escribe el número.",
         "respuesta": "2",
         "alternativasAceptadas": [
           "dos"
         ],
         "pistas": [
           "Piensa cuáles tienen pelo.",
-          "La mosca y la abeja son insectos y no tienen pelo.",
+          "La lagartija y el pez tienen escamas, no pelo.",
           "Solo quedan los de cuatro patas peludos."
         ],
         "retroalimentacion": "Tienen pelo el gato y el perro: son 2.",
@@ -715,7 +715,124 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Agrupar con un criterio",
+          "narracion": "Hola. Hoy aprenderemos a agrupar seres vivos. Como idea principal, para agrupar eliges una característica, que se llama criterio, como tener alas o vivir en el agua. Pones juntos a los que la cumplen y siempre puedes explicar por qué."
+        },
+        {
+          "id": "situacion-patio",
+          "tipo": "recurso",
+          "titulo": "Animales del patio",
+          "narracion": "Observemos esta situación. En la imagen hay cuatro animales en el patio de un pueblo andino: una llama marrón, una gallina blanca, un perro blanco y negro y una paloma gris. Nos preguntamos: ¿cómo podemos separarlos en dos grupos?",
+          "recursoRef": "patio-animales"
+        },
+        {
+          "id": "ejemplo-1-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el criterio de las plumas",
+          "narracion": "Miremos otra vez a los mismos animales. Elegimos un criterio: tener plumas. Nos preguntamos: ¿cuáles animales lo cumplen y cuáles no?",
+          "recursoRef": "patio-animales"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: los grupos formados",
+          "narracion": "La gallina y la paloma tienen plumas. La llama y el perro no tienen plumas. Tienen pelo. Mira cómo quedan los dos grupos. Podemos explicarlo así: los agrupé porque unos tienen plumas y otros no.",
+          "recursoRef": "grupos-plumas"
+        },
+        {
+          "id": "ejemplo-2-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un criterio con alas",
+          "narracion": "Ahora otro lugar, un estanque. En la imagen hay un pez naranja que nada, una rana verde sentada sobre una hoja grande, un pato blanco que flota y una mariposa amarilla que vuela. Elegimos el criterio tener alas. Nos preguntamos: ¿cómo quedan los grupos?",
+          "recursoRef": "estanque-animales"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: grupos del estanque",
+          "narracion": "El pato y la mariposa tienen alas. El pez y la rana no tienen. El pato pasa mucho tiempo en el agua, igual que el pez. Pero el criterio no es dónde pasan el tiempo, sino si tienen alas. Por eso el pato va con la mariposa.",
+          "recursoRef": "estanque-animales"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: criterios que no separan",
+          "narracion": "Un error es elegir una característica que cumplen todos, como ser animal. Así no se forman dos grupos. Otro error es poner un mismo ser vivo en los dos grupos. Con un criterio, cada ser vivo va en un solo grupo."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: observa y compara",
+          "narracion": "Mira bien a todos los seres vivos. Piensa en qué se parecen y en qué se diferencian."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: elige un criterio",
+          "narracion": "Elige una característica que unos cumplan y otros no. Mira este dibujo con dos círculos. En uno van los que sí la cumplen y en el otro los que no la cumplen. Cada ser vivo va en un solo círculo.",
+          "recursoRef": "criterio-dos-grupos"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: explica tu grupo",
+          "narracion": "Termina con una frase: los agrupé porque tienen tal característica. Si no puedes decir tu criterio, revisa otra vez los grupos."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "patio-animales",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-3/agrupar-patio-cuatro-zimage-v1.webp",
+          "alt": "Una llama marrón, una gallina blanca, un perro blanco y negro y una paloma gris, juntos en el patio de una casa de pueblo.",
+          "descripcion": "En un patio de tierra, frente a una casa de paredes color crema, techo rojo y puerta de madera, hay cuatro animales en fila: una llama marrón de pelo rizado, una gallina blanca de cresta roja, un perro blanco con manchas negras y una paloma gris."
+        },
+        {
+          "id": "grupos-plumas",
+          "src": "/nudito/diagramas/ciencia-tecnologia/agrupar-grupos-plumas.svg",
+          "alt": "Dos tarjetas: con plumas, gallina y paloma; sin plumas, llama y perro.",
+          "descripcion": "Dos tarjetas una sobre otra. La de arriba, turquesa, dice con plumas: gallina y paloma. La de abajo, blanca, dice sin plumas: llama y perro."
+        },
+        {
+          "id": "estanque-animales",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-3/agrupar-estanque-cuatro-zimage-v1.webp",
+          "alt": "En un estanque hay un pato blanco, un pez naranja, una rana verde sobre una hoja grande y una mariposa amarilla que vuela.",
+          "descripcion": "En un estanque de agua celeste flota un pato blanco de pico naranja. Debajo nada un pez naranja. A la derecha, una rana verde está sentada sobre una hoja grande. Arriba vuela una mariposa amarilla."
+        },
+        {
+          "id": "criterio-dos-grupos",
+          "src": "/nudito/diagramas/ciencia-tecnologia/agrupar-criterio-dos-grupos.svg",
+          "alt": "Dos círculos: uno para los seres vivos que sí cumplen el criterio y otro para los que no lo cumplen, cada uno con cinco puntos.",
+          "descripcion": "Dos círculos grandes, uno al lado del otro. El de la izquierda, turquesa, dice sí lo cumplen y tiene cinco puntos amarillos. El de la derecha, blanco, dice no lo cumplen y tiene cinco puntos lilas."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lucía junta la mariposa, la abeja y el colibrí en un grupo, y el gato y el cuy en otro. ¿Qué criterio usó?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Viven en el agua dulce"
+          },
+          {
+            "id": "b",
+            "texto": "Comen semillas y frutos"
+          },
+          {
+            "id": "c",
+            "texto": "Tienen alas y vuelan"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Usó el criterio de tener alas y volar: la mariposa, la abeja y el colibrí sí; el gato y el cuy no.",
+        "pista": "Busca qué tienen en común los animales del primer grupo y no tiene ninguno del segundo."
+      }
+    }
   },
   {
     "clave": "cyt.p3.vertebrados-e-invertebrados",

@@ -407,6 +407,122 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Siempre, a veces y nunca",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos tres palabras para hablar de lo que puede pasar. Siempre significa que ocurre en todos los casos. A veces significa que ocurre en algunos casos. Nunca significa que no ocurre en ningún caso. Antes de elegir, revisa todas las posibilidades."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una bolsa misteriosa",
+          "narracion": "Observemos esta situación. En una bolsa hay tres fichas amarillas. Sacaremos una sin mirar. Antes de responder, pensemos en cada ficha que podría salir.",
+          "recursoRef": "bolsa-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: revisa todas",
+          "narracion": "Recorre una por una las tres posibilidades de la bolsa. ¿Hay alguna ficha de otro color?",
+          "recursoRef": "bolsa-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ocurre en todos los casos",
+          "narracion": "Cada posibilidad es amarilla. Por eso, al sacar una ficha, siempre saldrá amarilla. Las tres marcas de aprobación confirman que el hecho se cumple en todos los casos.",
+          "recursoRef": "siempre"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: dos posibilidades",
+          "narracion": "Ahora hay una tarjeta de sol y una tarjeta de luna. Se toma una sin mirar. Fíjate en las dos opciones y piensa si saldrá la tarjeta de sol.",
+          "recursoRef": "mixtas-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ocurre en algunos casos",
+          "narracion": "Puede salir sol, pero también puede salir luna. Entonces, el sol sale a veces: sucede en un caso, pero no en todos."
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Un intento no decide todo",
+          "narracion": "Aquí salió una tarjeta de sol una sola vez. Decir siempre por ese único resultado es un error. Todavía debemos revisar qué otras tarjetas podían salir.",
+          "recursoRef": "error-un-caso"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: reúne las posibilidades",
+          "narracion": "Primero, identifica todas las cosas que podrían salir o todos los hechos que podrían ocurrir."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: revisa una por una",
+          "narracion": "Después, pregunta si el hecho se cumple en todos los casos, solo en algunos o en ninguno."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: elige la palabra",
+          "narracion": "Al final, elige siempre para todos, a veces para algunos y nunca para ninguno. Por ejemplo, si la bolsa solo tiene fichas azules, una ficha roja nunca saldrá."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "bolsa-pregunta",
+          "src": "/nudito/diagramas/matematica/siempre-veces-nunca-bolsa-pregunta.svg",
+          "alt": "Bolsa con tres fichas amarillas y un signo de pregunta sobre qué puede salir.",
+          "descripcion": "Sobre fondo crema hay una bolsa blanca con borde índigo y cordón turquesa. Dentro se ven tres fichas circulares amarillas. A la derecha aparece un signo de pregunta turquesa."
+        },
+        {
+          "id": "siempre",
+          "src": "/nudito/diagramas/matematica/siempre-veces-nunca-siempre.svg",
+          "alt": "Tres fichas amarillas, cada una con una marca de aprobación, y la palabra Siempre.",
+          "descripcion": "Tres fichas amarillas aparecen en una fila. Debajo de cada ficha hay una marca turquesa de aprobación. Una tarjeta inferior dice «Siempre»."
+        },
+        {
+          "id": "mixtas-pregunta",
+          "src": "/nudito/diagramas/matematica/siempre-veces-nunca-mixtas-pregunta.svg",
+          "alt": "Una tarjeta con un sol y otra con una luna, junto a la pregunta si saldrá sol.",
+          "descripcion": "Dos tarjetas blancas aparecen lado a lado. La primera contiene un sol amarillo y el rótulo SOL. La segunda contiene una luna turquesa y el rótulo LUNA. Abajo se pregunta si saldrá SOL."
+        },
+        {
+          "id": "error-un-caso",
+          "src": "/nudito/diagramas/matematica/siempre-veces-nunca-error-un-caso.svg",
+          "alt": "Una tarjeta de sol que salió una vez junto a una equis roja que rechaza decir siempre.",
+          "descripcion": "A la izquierda, una tarjeta muestra un sol amarillo y el texto «Salió SOL». A la derecha hay una equis roja grande y debajo se lee «No dice “siempre”»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una bolsa tiene solo fichas azules. Sacas una sin mirar. ¿Saldrá una ficha roja?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Esto pasa siempre"
+          },
+          {
+            "id": "b",
+            "texto": "Esto no pasa nunca"
+          },
+          {
+            "id": "c",
+            "texto": "Esto pasa a veces"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Todas las fichas son azules, así que ninguna es roja. Por eso una roja nunca saldrá.",
+        "pista": "Revisa todas las fichas de la bolsa: ¿alguna es roja?"
+      }
+    }
   }
 ]

@@ -1551,7 +1551,133 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Clasificar bloques lógicos",
+          "narracion": "Bienvenida y bienvenido. Hoy clasificaremos bloques lógicos. Como idea principal, cada bloque tiene tres atributos: la forma, el color y el tamaño. Para clasificar, elegimos una sola regla y juntamos los bloques que la cumplen. Los que no la cumplen se quedan aparte."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "La caja de bloques",
+          "narracion": "Observemos esta situación. Hay una caja con ocho bloques. Unos son círculos, otros son cuadrados y otros son triángulos. Hay bloques rojos, azules y amarillos. Unos son grandes y otros son pequeños. Queremos ordenarlos en grupos.",
+          "recursoRef": "caja-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: agrupar por color",
+          "narracion": "Elegimos esta regla: los bloques rojos. Mira la caja y busca los bloques rojos. ¿Cuántos son? ¿Qué forma y qué tamaño tiene cada uno?",
+          "recursoRef": "caja-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: los rojos juntos",
+          "narracion": "Aquí están los bloques separados. A la izquierda quedaron los rojos: un círculo grande, un triángulo pequeño y un cuadrado grande. A la derecha quedaron los demás. Los rojos son distintos en forma y en tamaño, pero todos cumplen la misma regla: son rojos.",
+          "recursoRef": "por-color"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: qué tienen en común",
+          "narracion": "Ahora hacemos lo contrario. Ya hay un grupo de bloques juntos. Mira los tres bloques y compara su forma, su color y su tamaño. ¿Qué se repite? ¿Qué cambia?",
+          "recursoRef": "grupo-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: lo que se repite",
+          "narracion": "Comparamos los tres bloques. Sus formas son distintas: un triángulo, un círculo y un cuadrado. Pero los tres son azules y los tres son grandes. Entonces tienen en común el color y el tamaño.",
+          "recursoRef": "grupo-comun"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Mira los dos grupos. En el de la izquierda hay tres bloques rojos. Son distintos en forma y en tamaño, así que no son iguales en todo: solo comparten el color. En el de la derecha hay un círculo rojo, un cuadrado azul y un triángulo amarillo. Este grupo mezcla todo y no sigue una regla. Antes de juntar, elige la regla.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira cada bloque",
+          "narracion": "Primero mira un bloque. Fíjate en su forma, en su color y en su tamaño. Hazlo con los bloques de la caja.",
+          "recursoRef": "caja-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: elige una regla",
+          "narracion": "Luego elige una sola regla, por ejemplo, los rojos. Junta los bloques que la cumplen y deja aparte los demás.",
+          "recursoRef": "por-color"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: di qué tienen en común",
+          "narracion": "Al final di qué comparten los bloques del grupo. Mira qué atributo se repite en todos: la forma, el color o el tamaño.",
+          "recursoRef": "grupo-comun"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "caja-pregunta",
+          "src": "/nudito/diagramas/matematica/bloques-logicos-caja-pregunta.svg",
+          "alt": "Una caja con ocho bloques: círculos, cuadrados y triángulos, rojos, azules y amarillos, grandes y pequeños.",
+          "descripcion": "Una caja con ocho bloques en dos filas. Arriba: un círculo rojo grande, un cuadrado azul pequeño, un triángulo amarillo grande y un círculo azul grande. Abajo: un triángulo rojo pequeño, un cuadrado rojo grande, un círculo amarillo pequeño y un triángulo azul pequeño. Debajo de la caja se lee una pregunta sobre cómo agruparlos."
+        },
+        {
+          "id": "por-color",
+          "src": "/nudito/diagramas/matematica/bloques-logicos-por-color.svg",
+          "alt": "Los bloques rojos a la izquierda y los demás bloques a la derecha, en dos recuadros.",
+          "descripcion": "A la izquierda, un recuadro rosado con la palabra rojos tiene tres bloques rojos: un círculo grande, un triángulo pequeño y un cuadrado grande. A la derecha, un recuadro con las palabras los demás tiene cinco bloques: un cuadrado azul pequeño, un triángulo amarillo grande, un círculo azul grande, un círculo amarillo pequeño y un triángulo azul pequeño."
+        },
+        {
+          "id": "grupo-pregunta",
+          "src": "/nudito/diagramas/matematica/bloques-logicos-grupo-pregunta.svg",
+          "alt": "Tres bloques juntos dentro de una línea punteada, con la pregunta qué tienen en común.",
+          "descripcion": "Dentro de una línea punteada hay tres bloques: un triángulo azul grande, un círculo azul grande y un cuadrado azul grande. Arriba se lee la pregunta qué tienen en común, y abajo hay un signo de pregunta."
+        },
+        {
+          "id": "grupo-comun",
+          "src": "/nudito/diagramas/matematica/bloques-logicos-grupo-comun.svg",
+          "alt": "Los tres bloques azules grandes con las frases mismo color azul, mismo tamaño grande y formas distintas.",
+          "descripcion": "Los mismos tres bloques dentro de la línea punteada: triángulo, círculo y cuadrado, todos azules y grandes. Debajo hay tres frases: mismo color azul, mismo tamaño grande y formas distintas."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/bloques-logicos-errores.svg",
+          "alt": "A la izquierda, tres bloques rojos juntos con una palomita; a la derecha, tres bloques mezclados con una equis.",
+          "descripcion": "Hay dos recuadros. En el de la izquierda, con las palabras una regla y una palomita con la palabra bien, hay tres bloques rojos: un círculo grande, un triángulo pequeño y un cuadrado grande. En el de la derecha, con las palabras sin regla y una equis roja con la palabra error, hay un círculo rojo pequeño, un cuadrado azul grande y un triángulo amarillo pequeño."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Ana separó los bloques en dos montones: en uno puso todos los círculos y en el otro, todos los demás. ¿Qué regla usó?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Por color"
+          },
+          {
+            "id": "b",
+            "texto": "Por tamaño"
+          },
+          {
+            "id": "c",
+            "texto": "Por forma"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Ana juntó los círculos porque tienen la misma forma.",
+        "pista": "Piensa en qué se parecen todos los bloques de un mismo montón."
+      }
+    }
   },
   {
     "clave": "mat.p2.armar-figuras",
@@ -1588,7 +1714,7 @@
     "ejemplos": [
       {
         "situacion": "Ana pega dos cuadrados iguales por un lado. ¿Qué figura sale?",
-        "desarrollo": "Quedan 4 lados largos y 2 cortos... en total una figura con 4 esquinas, larga.",
+        "desarrollo": "Quedan 2 lados largos y 2 cortos: una figura larga con 4 esquinas.",
         "respuesta": "Un rectángulo."
       },
       {
@@ -1718,7 +1844,7 @@
         "id": "e06",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Juntas dos triángulos grandes iguales por su lado más largo. ¿Qué figura puede salir?",
+        "enunciado": "Juntas dos triángulos grandes iguales, con una esquina recta y los dos lados cortos iguales, por su lado más largo. ¿Qué figura puede salir?",
         "opciones": [
           {
             "id": "a",
@@ -1738,7 +1864,7 @@
         "pistas": [
           "Piensa en el cuadrado partido por la diagonal.",
           "Esa raya es el lado más largo de cada triángulo.",
-          "Al juntarlos por ese lado, recuperas la figura de 4 lados iguales."
+          "Al juntarlos por ese lado, recuperas la figura de 4 lados iguales y 4 esquinas rectas."
         ],
         "retroalimentacion": "Puede salir un cuadrado. Con triángulos no se forman figuras curvas."
       },
@@ -1862,7 +1988,132 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Armar figuras con figuras",
+          "narracion": "Hola. Hoy armaremos figuras nuevas con otras figuras. Como idea principal, cuando juntas dos figuras por un lado del mismo largo, se forma una figura nueva. Dos cuadrados iguales forman un rectángulo. Dos triángulos iguales con una esquina recta y los dos lados cortos iguales pueden formar un cuadrado. Armar es como jugar con piezas."
+        },
+        {
+          "id": "situacion-piezas",
+          "tipo": "recurso",
+          "titulo": "Piezas sueltas para armar",
+          "narracion": "Observemos esta situación. Tenemos piezas sueltas: dos cuadrados del mismo tamaño y dos triángulos iguales. Los triángulos tienen una esquina recta, como la de una hoja, y sus dos lados cortos miden lo mismo. Vamos a juntar las piezas para armar figuras nuevas.",
+          "recursoRef": "situacion-piezas"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo uno: dos cuadrados",
+          "narracion": "Ana tiene dos cuadrados iguales y los quiere pegar por un lado. Un cuadrado está a la izquierda y el otro a la derecha. Se van a tocar en un lado completo. ¿Qué figura saldrá?",
+          "recursoRef": "cuadrados-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo uno: la figura nueva",
+          "narracion": "Los dos cuadrados quedaron juntos. Ahora la figura es larga. Tiene cuatro esquinas, dos lados largos y dos lados cortos. Esa figura es un rectángulo. Dos cuadrados pegados forman un rectángulo.",
+          "recursoRef": "cuadrados-solucion"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo dos: dos triángulos",
+          "narracion": "Luis tiene dos triángulos iguales con una esquina recta y los dos lados cortos iguales. Quiere pegarlos por su lado más largo. Los lados que se tocan miden lo mismo. ¿Qué figura saldrá?",
+          "recursoRef": "triangulos-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo dos: la figura nueva",
+          "narracion": "Al pegarlos, como los lados cortos son iguales, sale una figura con cuatro lados iguales y cuatro esquinas rectas. Es un cuadrado. Luis también puede hacerlo al revés: parte un cuadrado con una raya de esquina a esquina y salen dos triángulos.",
+          "recursoRef": "triangulos-solucion"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Dos errores que debes evitar",
+          "narracion": "Ojo con dos errores. Uno: pegar lados que no miden lo mismo, porque no encajan. Otro: pensar que dos triángulos siempre forman un cuadrado. Si los pegas por un lado corto, puede salir un triángulo más grande. Y si los lados cortos no fueran iguales, tampoco saldría un cuadrado."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: mira tus piezas",
+          "narracion": "Mira qué piezas tienes. Aquí hay cuadrados y triángulos. Fíjate cuántas son y si son iguales.",
+          "recursoRef": "situacion-piezas"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: júntalas por un lado igual",
+          "narracion": "Junta las piezas por lados que midan lo mismo. Así encajan sin dejar huecos. Por ejemplo, los dos cuadrados se tocan por un lado completo.",
+          "recursoRef": "cuadrados-solucion"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: mira y cuenta",
+          "narracion": "Mira la figura nueva y cuenta sus lados. Con los dos triángulos contamos cuatro lados iguales, porque los lados cortos miden lo mismo. Es un cuadrado. Después puedes probar otras formas de juntar las piezas.",
+          "recursoRef": "triangulos-solucion"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion-piezas",
+          "src": "/nudito/diagramas/matematica/figuras-armar-piezas-sueltas.svg",
+          "alt": "Dos cuadrados iguales y dos triángulos iguales con una esquina recta, separados. Se pregunta qué figuras se pueden armar.",
+          "descripcion": "A la izquierda hay dos cuadrados iguales, uno al lado del otro con un espacio. A la derecha hay dos triángulos iguales con una esquina recta. Debajo se lee: dos cuadrados y dos triángulos. Abajo dice: ¿qué figuras podemos armar?"
+        },
+        {
+          "id": "cuadrados-pregunta",
+          "src": "/nudito/diagramas/matematica/figuras-armar-cuadrados-pregunta.svg",
+          "alt": "Dos cuadrados iguales separados con flechas que apuntan uno hacia el otro. Se pregunta qué figura sale.",
+          "descripcion": "Hay un cuadrado a la izquierda y otro igual a la derecha. Dos flechas apuntan hacia el centro, donde dice pegar por un lado. Abajo se lee: ¿qué figura sale?"
+        },
+        {
+          "id": "cuadrados-solucion",
+          "src": "/nudito/diagramas/matematica/figuras-armar-cuadrados-solucion.svg",
+          "alt": "Dos cuadrados pegados forman un rectángulo con cuatro esquinas marcadas, dos lados largos y dos cortos.",
+          "descripcion": "Los dos cuadrados están pegados y forman una figura larga, con una raya en el medio que los separa. En sus cuatro esquinas hay puntos amarillos. Debajo se lee: cuatro esquinas, dos lados largos y dos lados cortos. En verde: sale un rectángulo."
+        },
+        {
+          "id": "triangulos-pregunta",
+          "src": "/nudito/diagramas/matematica/figuras-armar-triangulos-pregunta.svg",
+          "alt": "Dos triángulos iguales con una esquina recta, separados, con flechas hacia el centro. Se pregunta qué figura sale.",
+          "descripcion": "Hay un triángulo amarillo a la izquierda y otro igual, girado, a la derecha. Dos flechas apuntan al centro, donde dice pegar por el lado más largo. Abajo se lee: ¿qué figura sale?"
+        },
+        {
+          "id": "triangulos-solucion",
+          "src": "/nudito/diagramas/matematica/figuras-armar-triangulos-solucion.svg",
+          "alt": "Dos triángulos iguales pegados por su lado más largo forman un cuadrado con una raya de esquina a esquina.",
+          "descripcion": "Un cuadrado está partido por una raya de esquina a esquina. Una mitad es amarilla y la otra turquesa. Debajo se lee: dos triángulos iguales, cuatro lados iguales. En verde: sale un cuadrado."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Tienes cuatro cuadrados iguales pegados en una fila. ¿Qué figura forman?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un rectángulo largo"
+          },
+          {
+            "id": "b",
+            "texto": "Un cuadrado grande"
+          },
+          {
+            "id": "c",
+            "texto": "Un triángulo grande"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Cuatro cuadrados en una fila forman una figura larga con cuatro esquinas: un rectángulo. Para un cuadrado grande harían falta más filas.",
+        "pista": "Piensa en lo que pasó con dos cuadrados pegados."
+      }
+    }
   },
   {
     "clave": "mat.p2.clasificar-por-lados",
@@ -2180,7 +2431,130 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Agrupar figuras por sus lados",
+          "narracion": "Bienvenida y bienvenido. Hoy agruparemos figuras según cuántos lados tienen. Como idea principal, cuenta los lados con el dedo, uno por uno. Con tres lados, la figura es un triángulo. Con cuatro, un cuadrilátero. Con cinco, un pentágono. Con seis, un hexágono."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Tres figuras recortadas",
+          "narracion": "Observemos esta situación. Mateo recortó tres figuras de papel: una turquesa, una amarilla y una azul. Quiere agruparlas por sus lados. Primero hay que ver cuántos lados tiene cada una.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: la figura turquesa",
+          "narracion": "Empecemos con la figura turquesa. Recorre su borde con el dedo y cuenta sus lados, uno por uno. ¿Cuántos lados tiene? ¿Cómo se llama?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: tres lados",
+          "narracion": "Cuenta conmigo: uno, dos y tres. La figura turquesa tiene tres lados. Toda figura con tres lados es un triángulo. En el dibujo, cada lado lleva su número.",
+          "recursoRef": "triangulo"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: pañuelo y ventana",
+          "narracion": "Mateo también guarda un pañuelo cuadrado y una ventana larga. Cuenta los lados de cada uno. ¿Van en el mismo grupo?",
+          "recursoRef": "panuelo-ventana-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: cuatro lados cada uno",
+          "narracion": "El pañuelo tiene cuatro lados y la ventana también. Para agrupar solo importa cuántos lados hay, no si son largos o cortos. Los dos son cuadriláteros y van juntos, igual que la figura amarilla del inicio, que también tiene cuatro lados.",
+          "recursoRef": "panuelo-ventana"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Un lado que se saltó",
+          "narracion": "Aquí alguien contó solo cuatro lados de esta figura y dijo que era un cuadrilátero. Se saltó un lado: el que está marcado en rojo. Para no perderte, marca el primer lado con un punto y da toda la vuelta hasta volver a él. Así salen cinco lados, y es un pentágono.",
+          "recursoRef": "salto"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: recorre el borde",
+          "narracion": "Toca con el dedo cada lado de la figura, uno por uno. Empieza en un lado y márcalo con un punto."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: cuenta y di el número",
+          "narracion": "Cuenta en voz alta mientras das la vuelta. Para cuando vuelvas al primer lado."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: busca el nombre",
+          "narracion": "Busca el nombre que va con ese número de lados. Luego junta en un mismo grupo las figuras que tienen igual cantidad de lados."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/clasificar-lados-situacion.svg",
+          "alt": "Tres figuras de papel rotuladas turquesa, amarilla y azul; se pregunta cuántos lados tiene cada una.",
+          "descripcion": "Tres figuras de papel rotuladas «Turquesa», «Amarilla» y «Azul». La turquesa tiene una punta arriba y una base ancha. La amarilla es más ancha abajo que arriba. La azul se parece a una casita. Arriba se pregunta cuántos lados tiene cada una."
+        },
+        {
+          "id": "triangulo",
+          "src": "/nudito/diagramas/matematica/clasificar-lados-triangulo.svg",
+          "alt": "Figura turquesa de tres lados con un número en cada lado: uno, dos y tres.",
+          "descripcion": "Una figura turquesa con tres lados rectos. En el punto medio de cada lado hay un círculo blanco con un número: uno a la izquierda, dos abajo y tres a la derecha. Debajo dice «Tres lados: es un triángulo»."
+        },
+        {
+          "id": "panuelo-ventana-pregunta",
+          "src": "/nudito/diagramas/matematica/clasificar-lados-panuelo-ventana-pregunta.svg",
+          "alt": "Un pañuelo cuadrado turquesa y una ventana larga amarilla, uno al lado del otro.",
+          "descripcion": "A la izquierda hay un cuadrado turquesa rotulado «Pañuelo». A la derecha hay un rectángulo amarillo más largo y bajo, rotulado «Ventana». Arriba se pregunta si van en el mismo grupo."
+        },
+        {
+          "id": "panuelo-ventana",
+          "src": "/nudito/diagramas/matematica/clasificar-lados-panuelo-ventana.svg",
+          "alt": "Pañuelo cuadrado y ventana larga, con un número en cada lado, del uno al cuatro.",
+          "descripcion": "El cuadrado turquesa y el rectángulo amarillo llevan, en el punto medio de cada lado, un círculo blanco con un número del uno al cuatro, empezando arriba y siguiendo el sentido del reloj. Debajo se leen «Pañuelo» y «Ventana»; más abajo, «Los dos tienen cuatro lados»."
+        },
+        {
+          "id": "salto",
+          "src": "/nudito/diagramas/matematica/clasificar-lados-salto.svg",
+          "alt": "Figura azul de cinco lados: cuatro tienen número y uno, punteado en rojo, quedó sin contar.",
+          "descripcion": "Una figura azul con cinco lados. Cuatro lados llevan un círculo con un número, del uno al cuatro. El quinto, arriba a la izquierda, está punteado en rojo y rotulado «Sin contar». Arriba dice «Contó solo cuatro lados» y abajo, «Son cinco: es un pentágono»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una celda de un panal de abejas tiene seis lados rectos. ¿Cómo se llama su forma?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Pentágono"
+          },
+          {
+            "id": "b",
+            "texto": "Triángulo"
+          },
+          {
+            "id": "c",
+            "texto": "Hexágono"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Una figura con seis lados se llama hexágono.",
+        "pista": "Recuerda que cada nombre va con un número de lados: tres, cuatro, cinco y seis."
+      }
+    }
   },
   {
     "clave": "mat.p2.figura-en-otra-posicion",

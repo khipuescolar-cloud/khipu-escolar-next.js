@@ -2929,6 +2929,114 @@
         "retroalimentacion": "Es verdadero: 10 + 8 = 18 y 18 × 12 = 216."
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Dividir un total por partes",
+          "narracion": "Bienvenida y bienvenido. Hoy dividiremos descomponiendo el dividendo. Como idea principal, separamos el total en sumandos que sean múltiplos del divisor. Dividimos cada parte entre el mismo divisor y sumamos los cocientes parciales. Al final comprobamos multiplicando."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Libros para varios estantes",
+          "narracion": "Observemos esta situación. Una biblioteca tiene ciento cincuenta y seis libros para repartir por igual en doce estantes. La tarjeta de la derecha pregunta cuántos irán en cada estante. En vez de hacer la división de una sola vez, buscaremos dos partes fáciles de repartir entre doce.",
+          "recursoRef": "libros-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: elegir partes útiles",
+          "narracion": "Podemos separar ciento cincuenta y seis en ciento veinte más treinta y seis. Las dos partes forman el total. Además, ambas se dividen exactamente entre doce. Pensemos cuánto da cada cociente parcial."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: sumar cocientes",
+          "narracion": "Ciento veinte entre doce da diez. Treinta y seis entre doce da tres. Sumamos los cocientes parciales: diez más tres da trece. Por eso van trece libros en cada estante.",
+          "recursoRef": "libros-resuelto"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: repartir panes",
+          "narracion": "Ahora se reparten ochenta y cuatro panes entre siete puestos. Separamos el total en setenta más catorce. Las dos partes son múltiplos de siete. Calcula cada reparto antes de juntarlos."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: dos repartos",
+          "narracion": "Setenta entre siete da diez. Catorce entre siete da dos. Al sumar diez más dos obtenemos doce. Cada puesto recibe doce panes. La tarjeta muestra la descomposición, los dos cocientes y la suma final.",
+          "recursoRef": "panes"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con dejar una parte fuera",
+          "narracion": "Aquí se separó noventa y seis en ochenta más dieciséis. Solo se dividió ochenta entre ocho y la otra parte quedó sin repartir. La raya roja señala esa omisión. Debemos dividir también dieciséis entre ocho antes de sumar los resultados.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: busca múltiplos",
+          "narracion": "Separa el dividendo en partes que sumen el total y sean múltiplos del divisor. Para ciento cincuenta y seis entre doce, ciento veinte y treinta y seis cumplen las dos condiciones.",
+          "recursoRef": "libros-resuelto"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: divide todas las partes",
+          "narracion": "Divide cada sumando entre el divisor original. No cambies el divisor y no dejes ninguna parte sin repartir. Escribe cada cociente parcial por separado."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: suma y comprueba",
+          "narracion": "Suma los cocientes parciales. Después multiplica el resultado por el divisor. En el reparto de panes, doce por siete devuelve ochenta y cuatro. Así confirmamos que el reparto es correcto.",
+          "recursoRef": "panes"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "libros-pregunta",
+          "src": "/nudito/diagramas/matematica/descomponer-dividendo-libros-pregunta.svg",
+          "alt": "Ciento cincuenta y seis libros por repartir en doce estantes, con el resultado oculto.",
+          "descripcion": "A la izquierda, cinco libros dibujados representan un conjunto rotulado ciento cincuenta y seis libros. A la derecha, una tarjeta punteada contiene un signo de pregunta y el texto en cada estante, escrito en dos líneas. No muestra el cociente."
+        },
+        {
+          "id": "libros-resuelto",
+          "src": "/nudito/diagramas/matematica/descomponer-dividendo-libros-resuelto.svg",
+          "alt": "Ciento cincuenta y seis se descompone en ciento veinte y treinta y seis para dividir entre doce.",
+          "descripcion": "La primera tarjeta muestra ciento cincuenta y seis igual a ciento veinte más treinta y seis. Debajo aparecen ciento veinte entre doce igual a diez y treinta y seis entre doce igual a tres. La tarjeta amarilla suma diez más tres y obtiene trece."
+        },
+        {
+          "id": "panes",
+          "src": "/nudito/diagramas/matematica/descomponer-dividendo-panes.svg",
+          "alt": "Ochenta y cuatro panes se descomponen en setenta y catorce para dividir entre siete.",
+          "descripcion": "Una tarjeta muestra ochenta y cuatro igual a setenta más catorce. Debajo aparecen dos tarjetas con setenta entre siete igual a diez y catorce entre siete igual a dos, y al pie la suma diez más dos igual a doce."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/descomponer-dividendo-error.svg",
+          "alt": "Noventa y seis se separa en ochenta y dieciséis, pero dieciséis queda sin dividir.",
+          "descripcion": "Arriba se lee noventa y seis igual a ochenta más dieciséis. La tarjeta izquierda muestra ochenta entre ocho igual a diez. La derecha dice dieciséis sin dividir y lleva una raya roja debajo."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Se reparten ciento sesenta y ocho fichas entre doce grupos. ¿Cuántas recibe cada grupo?",
+        "opciones": [
+          { "id": "a", "texto": "Trece en cada grupo" },
+          { "id": "b", "texto": "Catorce en cada grupo" },
+          { "id": "c", "texto": "Quince para cada grupo" }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Ciento veinte entre doce da diez y cuarenta y ocho entre doce da cuatro; en total, catorce.",
+        "pista": "Busca dos partes del total que puedan repartirse exactamente entre doce."
+      }
+    },
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
@@ -4172,7 +4280,119 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Cada operación tiene su turno",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás en qué orden resolver una cuenta con varias operaciones. Como idea principal, si no hay paréntesis, primero se resuelven las multiplicaciones y divisiones, y después las sumas y restas. Dentro de cada grupo trabajas de izquierda a derecha, en el orden en que aparecen."
+        },
+        {
+          "id": "situacion-orden",
+          "tipo": "recurso",
+          "titulo": "El orden de las operaciones",
+          "narracion": "Observemos este esquema de dos recuadros. En el de arriba están la multiplicación y la división, que van primero. En el de abajo están la suma y la resta, que van después. En ambos grupos trabajamos de izquierda a derecha. Con esta regla, todas las personas obtienen el mismo resultado con la misma cuenta.",
+          "recursoRef": "orden"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: las galletas de Rosa",
+          "narracion": "Rosa tiene siete galletas sueltas y compra cuatro bolsas con tres galletas cada una. La cuenta es siete más cuatro por tres. Imaginamos las siete sueltas y las cuatro bolsas. Primero resolvemos la multiplicación: cuatro por tres son doce galletas dentro de las bolsas."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: después sumamos",
+          "narracion": "Ahora sumamos las sueltas: siete más doce son diecinueve. Rosa tiene diecinueve galletas, y coincide con contarlas en el dibujo: siete sueltas y doce dentro de las bolsas.",
+          "recursoRef": "galletas"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: los stickers de Lucía",
+          "narracion": "Lucía tiene cuarenta stickers, regala tres sobres con cinco stickers cada uno y luego recibe seis más. La cuenta es cuarenta menos tres por cinco más seis. Primero va la multiplicación: tres por cinco son quince."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la resta y la suma",
+          "narracion": "Ahora quedan una resta y una suma, que resolvemos de izquierda a derecha. Cuarenta menos quince son veinticinco, y veinticinco más seis son treinta y uno. Lucía queda con treinta y un stickers.",
+          "recursoRef": "stickers"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "La suma no siempre va primero",
+          "narracion": "Un error común es resolver siempre desde el primer signo. En la cuenta de Rosa, si sumas primero siete más cuatro obtienes once, y once por tres son treinta y tres. Pero en el dibujo hay diecinueve galletas, no treinta y tres. La multiplicación va antes, aunque la suma esté escrita primero.",
+          "recursoRef": "galletas"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: resuelve multiplicaciones y divisiones",
+          "narracion": "Primero localiza las multiplicaciones y divisiones y resuélvelas de izquierda a derecha. Es el recuadro de arriba del esquema, el que va primero.",
+          "recursoRef": "orden"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: reescribe la cuenta",
+          "narracion": "Segundo, reescribe la cuenta con ese resultado. En la cuenta de Lucía, tres por cinco se convierte en quince, y queda cuarenta menos quince más seis.",
+          "recursoRef": "stickers"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: suma y resta de izquierda a derecha",
+          "narracion": "Tercero, resuelve las sumas y restas de izquierda a derecha: primero cuarenta menos quince, que son veinticinco, y luego veinticinco más seis. Si hicieras primero quince más seis, la resta daría otro resultado, así que respeta el orden.",
+          "recursoRef": "stickers"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "orden",
+          "src": "/nudito/diagramas/matematica/operaciones-orden-prioridad.svg",
+          "alt": "Dos recuadros: primero multiplicar y dividir, después sumar y restar, de izquierda a derecha.",
+          "descripcion": "Hay dos recuadros uno debajo del otro, unidos por una flecha hacia abajo. El de arriba, turquesa, dice primero: multiplicar y dividir. El de abajo, azul oscuro, dice después: sumar y restar. Al pie se lee: en cada grupo, de izquierda a derecha."
+        },
+        {
+          "id": "galletas",
+          "src": "/nudito/diagramas/matematica/operaciones-galletas-sueltas-y-bolsas.svg",
+          "alt": "Siete galletas sueltas y cuatro bolsas con tres galletas cada una, diecinueve galletas en total.",
+          "descripcion": "A la izquierda hay siete galletas sueltas, en color amarillo. A la derecha hay cuatro bolsas y cada una tiene tres galletas turquesa. Debajo se lee siete más cuatro por tres y, en grande, siete más doce igual a diecinueve galletas."
+        },
+        {
+          "id": "stickers",
+          "src": "/nudito/diagramas/matematica/operaciones-stickers-pasos.svg",
+          "alt": "Tres pasos para calcular cuarenta menos tres por cinco más seis: quince, veinticinco y treinta y uno.",
+          "descripcion": "Arriba se lee la cuenta, cuarenta menos tres por cinco más seis. Debajo hay tres recuadros numerados: primero, tres por cinco igual a quince; segundo, cuarenta menos quince igual a veinticinco; tercero, veinticinco más seis igual a treinta y uno. Al pie dice que quedan treinta y un stickers."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "¿Cuál es el valor de dieciocho menos dos por cinco más cuatro?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Doce"
+          },
+          {
+            "id": "b",
+            "texto": "Ochenta y cuatro"
+          },
+          {
+            "id": "c",
+            "texto": "Cuatro"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Muy bien. Primero dos por cinco son diez; luego dieciocho menos diez son ocho, y ocho más cuatro son doce.",
+        "pista": "Resuelve primero la multiplicación y luego la resta y la suma, de izquierda a derecha."
+      }
+    }
   },
   {
     "clave": "mat.p5.problemas-varias-etapas",

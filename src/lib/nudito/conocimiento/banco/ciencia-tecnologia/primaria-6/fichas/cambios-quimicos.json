@@ -367,7 +367,126 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Cambiar de aspecto no siempre es cambiar de material",
+          "narracion": "Hola, hoy vamos a descubrir cómo cambian los materiales que nos rodean. Como idea principal, un material puede cambiar de forma, de estado o de color, pero eso no siempre significa lo mismo. A veces las partículas solo se mueven o se acomodan de otra manera y el material sigue siendo el mismo. Otras veces se reordenan y se forma un material nuevo."
+        },
+        {
+          "id": "situacion-cocina",
+          "tipo": "recurso",
+          "titulo": "Una cocina con tres materiales",
+          "narracion": "Observemos esta situación en una cocina de la costa. Sobre la mesa hay una barra de mantequilla junto a una ventana soleada, media manzana recién cortada y una bola de masa con un rodillo. Vamos a seguir lo que les ocurre y decidir si cambia solo su aspecto o aparece un material distinto.",
+          "recursoRef": "cocina"
+        },
+        {
+          "id": "modelo-particulas",
+          "tipo": "recurso",
+          "titulo": "Un modelo para pensar en partículas",
+          "narracion": "Para decidir usaremos un modelo de partículas. Arriba, las partículas son las mismas antes y después, pero se acomodan de otra manera. Abajo, las partículas azules y naranjas se juntan en parejas nuevas y forman otro material. Es un dibujo para pensar: las partículas reales no se ven a simple vista.",
+          "recursoRef": "modelo"
+        },
+        {
+          "id": "ejemplo-mantequilla-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la mantequilla al sol",
+          "narracion": "Si dejamos la barra de mantequilla junto a la ventana soleada, se ablandará y terminará derritiéndose sobre el plato. Con el calor, sus partículas se mueven más y se deslizan unas sobre otras. Cambió su estado: pasó de sólido a líquido.",
+          "recursoRef": "cocina"
+        },
+        {
+          "id": "ejemplo-mantequilla-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: sigue siendo mantequilla",
+          "narracion": "Si la mantequilla derretida se enfría, vuelve a ponerse sólida. Eso indica que no apareció una sustancia distinta: las partículas son las mismas y solo cambió su acomodo. Es un cambio físico.",
+          "recursoRef": "cocina"
+        },
+        {
+          "id": "ejemplo-manzana-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la manzana cambia de color",
+          "narracion": "Comparemos dos mitades de manzana: una recién cortada y otra cortada hace rato. La pulpa que era clara se puso marrón. Un cambio de color puede ser una pista, pero antes de decidir debemos preguntar si el material sigue igual.",
+          "recursoRef": "manzana"
+        },
+        {
+          "id": "ejemplo-manzana-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: apareció un material nuevo",
+          "narracion": "Al cortar la manzana, algunas de sus sustancias entran en contacto con el oxígeno del aire. Sus componentes se reordenan y se forman sustancias nuevas, de color marrón. Por eso no recupera su color claro si la dejamos reposar: es un cambio químico.",
+          "recursoRef": "manzana"
+        },
+        {
+          "id": "error-forma",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: cambiar de forma es cambiar de material",
+          "narracion": "Cuando estiras la masa con el rodillo, queda más delgada, pero sigue siendo masa. Cambió su forma, no el material del que está hecha. Cambiar de forma, de tamaño o de estado no basta para decir que hay un material nuevo: hay que preguntar si apareció una sustancia distinta.",
+          "recursoRef": "cocina"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: describe qué cambió",
+          "narracion": "Primero observa y describe con precisión: ¿cambió la forma, el estado, el color, el olor, o aparecieron burbujas, humo o calor? Anota lo que ves antes de explicarlo."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: piensa en las partículas",
+          "narracion": "Después usa el modelo: ¿las partículas siguen siendo las mismas y solo se mueven o se acomodan distinto, o se reordenan para formar partículas nuevas? Esa pregunta separa un cambio físico de uno químico.",
+          "recursoRef": "modelo"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: concluye con evidencia",
+          "narracion": "Por último decide y explica con palabras como partículas y reordenamiento. Por ejemplo: «La manzana se oscurece porque sus componentes se reordenan y forman un material nuevo, mientras que la mantequilla solo se derrite»."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cocina",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/cambios-cocina-mesa-zimage-v1.webp",
+          "alt": "Mesa de cocina con una barra de mantequilla en un plato, media manzana recién cortada, una bola de masa con harina y un rodillo, junto a una ventana.",
+          "descripcion": "Sobre una mesa de madera, junto a una ventana luminosa, hay un plato blanco con una barra de mantequilla amarilla, media manzana de pulpa clara y una bola de masa rodeada de harina, con un rodillo de madera al lado."
+        },
+        {
+          "id": "modelo",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/cambios-modelo-particulas-svg-v1.svg",
+          "alt": "Modelo con dos filas: arriba las mismas partículas azules cambian de acomodo; abajo partículas azules y naranjas forman parejas nuevas.",
+          "descripcion": "En la fila de arriba, doce partículas azules ordenadas pasan a quedar más separadas, pero siguen siendo las mismas. En la fila de abajo, partículas azules y naranjas sueltas pasan a formar cuatro parejas rodeadas por un contorno verde."
+        },
+        {
+          "id": "manzana",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/cambios-manzana-mitades-svg-v1.svg",
+          "alt": "Dos mitades de manzana: la recién cortada tiene la pulpa clara y la cortada hace rato tiene la pulpa marrón.",
+          "descripcion": "A la izquierda, una mitad de manzana recién cortada con pulpa crema y dos semillas. A la derecha, otra mitad cortada hace rato, con la pulpa de color marrón."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lucía deja un clavo de hierro a la intemperie y, semanas después, aparece cubierto de óxido rojizo. ¿Cómo se explica este cambio?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sus partículas solo se separaron y se movieron más, como cuando se derrite un hielo."
+          },
+          {
+            "id": "b",
+            "texto": "Solo cambió de aspecto, así que el material sigue siendo el mismo que antes."
+          },
+          {
+            "id": "c",
+            "texto": "Sus partículas se reordenaron con otras del aire y formaron otro material nuevo."
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "El hierro reacciona con el oxígeno y el agua del ambiente. Sus partículas se reordenan y se forma otro material, el óxido: es un cambio químico.",
+        "pista": "Pregúntate si el hierro y el óxido son el mismo material o si apareció una sustancia diferente."
+      }
+    }
   },
   {
     "clave": "cyt.p6.cambio-fisico-quimico",
@@ -3311,6 +3430,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Cómo reconocer ácidos y bases",
+          "narracion": "Hola, hoy vamos a descubrir cómo saber si una sustancia es ácida, básica o neutra sin probarla. Como idea principal, un indicador, como el jugo de col morada, cambia de color: rojo o rosado con los ácidos, morado con las sustancias neutras y verde o azul verdoso con las bases."
+        },
+        {
+          "id": "situacion-mesa",
+          "tipo": "recurso",
+          "titulo": "Una mesa de cocina con col morada",
+          "narracion": "Observemos esta situación. Sobre una mesa de cocina hay media col morada, una jarra con su jugo, medio limón, una barra de jabón y un frasco de bicarbonato. Nos preguntamos qué color tomará el jugo al mezclarlo con cada una. Recuerda que nunca se prueban sustancias desconocidas con la boca.",
+          "recursoRef": "mesa"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el jugo de limón",
+          "narracion": "Fíjate en el limón. Si agregamos unas gotas de jugo de col morada a una muestra de jugo de limón, ¿de qué color crees que quedará el líquido: rojizo, morado o verdoso? Piénsalo antes de seguir.",
+          "recursoRef": "mesa"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el limón es ácido",
+          "narracion": "El líquido quedó rosado. Con un ácido, el jugo de col morada se vuelve rojo o rosado. El limón es una sustancia ácida, y el indicador nos lo muestra por su color, sin necesidad de probarlo.",
+          "recursoRef": "limon"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el jabón en agua",
+          "narracion": "Ahora pensemos en un poco de jabón disuelto en agua. Si agregamos el mismo indicador, ¿cambiará hacia el color del limón o hacia otro? Piénsalo antes de seguir."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el jabón es una base",
+          "narracion": "El líquido quedó verde azulado. Con una base, el jugo de col morada se vuelve verde o azul verdoso. El jabón es una base, y lo sabemos por el color que toma el indicador.",
+          "recursoRef": "jabon"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: todo es ácido o base",
+          "narracion": "A veces se cree que toda sustancia es ácida o base. Pero mira este vaso: es agua de caño con el indicador y el color sigue siendo morado, el color original del jugo. Eso indica que es una sustancia neutra. Por eso conviene comparar siempre con agua de caño.",
+          "recursoRef": "agua"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: prepara la muestra",
+          "narracion": "Primero prepara el indicador, que es el jugo de col morada. Pon un poco de la muestra en un vaso y agrégale unas gotas. Nunca pruebes la sustancia con la boca."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: observa y compara",
+          "narracion": "Después observa el color con atención y compáralo con el de un vaso de agua de caño, que sirve de referencia."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: interpreta el color",
+          "narracion": "Por último interpreta el color con la barra: si es rojo o rosado, la sustancia es ácida; si es morado, es neutra; y si es verde, es una base. Abajo aparecen ejemplos: el limón, el agua y el jabón.",
+          "recursoRef": "escala"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "mesa",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/indicadores-mesa-zimage-v1.webp",
+          "alt": "Sobre una mesa de cocina, media col morada, una jarra de jugo morado, medio limón, un frasco de polvo blanco, dos vasos vacíos y una barra de jabón celeste en un plato.",
+          "descripcion": "Sobre una mesa redonda de cocina hay media col morada, una jarra de vidrio con jugo morado intenso, medio limón, un frasco con polvo blanco y dos vasos vacíos. En un plato hay una barra de jabón celeste."
+        },
+        {
+          "id": "limon",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/indicadores-limon-zimage-v1.webp",
+          "alt": "Un vaso con líquido rosado junto a medio limón y una cuchara sobre una mesa de madera.",
+          "descripcion": "Un vaso transparente con un líquido de color rosado sobre una mesa de madera. A su derecha hay medio limón amarillo y, delante, una cuchara metálica."
+        },
+        {
+          "id": "jabon",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/indicadores-jabon-zimage-v1.webp",
+          "alt": "Un vaso con líquido verde azulado junto a una barra de jabón celeste sobre un plato blanco y una cuchara, en una mesa de madera.",
+          "descripcion": "Un vaso transparente con un líquido verde azulado sobre una mesa de madera. A la derecha hay una barra de jabón celeste de bordes redondeados sobre un plato blanco y, delante, una cuchara blanca."
+        },
+        {
+          "id": "agua",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/indicadores-agua-zimage-v1.webp",
+          "alt": "Un vaso con líquido morado junto a una jarra de agua transparente y una cuchara sobre una mesa de madera.",
+          "descripcion": "Un vaso transparente con un líquido morado sobre una mesa de madera. A la derecha hay una jarra de vidrio con agua clara y, delante, una cuchara metálica."
+        },
+        {
+          "id": "escala",
+          "src": "/nudito/diagramas/ciencia-tecnologia/indicadores-escala-colores.svg",
+          "alt": "Barra de cuatro colores: rojo y rosado son ácido, morado es neutro y verde es base, con limón, agua y jabón de ejemplo.",
+          "descripcion": "Una barra con cuatro tramos: rojo, rosado, morado y verde. Una llave bajo rojo y rosado dice ácido; bajo morado, neutro; y bajo verde, base. Debajo, en letra más pequeña, limón, agua y jabón."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Luis agrega jugo de col morada a una muestra de vinagre y a otra de bicarbonato disuelto. ¿Qué colores espera ver?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Vinagre, verde; bicarbonato, rosado"
+          },
+          {
+            "id": "b",
+            "texto": "Vinagre, rosado; bicarbonato, verde"
+          },
+          {
+            "id": "c",
+            "texto": "Vinagre, morado; bicarbonato, rosado"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. El vinagre es ácido y vuelve el indicador rosado; el bicarbonato disuelto es una base y lo vuelve verde.",
+        "pista": "Piensa primero si cada sustancia es ácida o base y luego busca su color."
+      }
+    }
   }
 ]

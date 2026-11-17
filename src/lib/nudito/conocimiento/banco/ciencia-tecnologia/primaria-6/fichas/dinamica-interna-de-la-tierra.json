@@ -695,7 +695,128 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "El relieve cambia con el tiempo",
+          "narracion": "Hola, hoy vamos a descubrir cómo cambia la forma de la superficie de la Tierra. Como idea principal, el relieve cambia por dos tipos de fuerzas. Las fuerzas internas, como los movimientos de la corteza, los sismos y los volcanes, levantan o deforman el terreno. Las fuerzas externas, como el agua, el viento y el hielo, lo desgastan lentamente."
+        },
+        {
+          "id": "situacion-andes",
+          "tipo": "recurso",
+          "titulo": "Montañas y valle de los Andes",
+          "narracion": "Observemos esta situación. Es un paisaje de los Andes peruanos, con montañas nevadas y, entre ellas, un valle profundo recorrido por un río. Un grupo de niños lo observa desde un sendero. Cada forma del terreno tiene una historia y una causa. En este tema aprenderemos a reconocer si la causa fue una fuerza interna o una externa.",
+          "recursoRef": "andes"
+        },
+        {
+          "id": "modelo-placas",
+          "tipo": "recurso",
+          "titulo": "Un corte de la corteza",
+          "narracion": "Este esquema muestra un corte de la corteza. Una placa oceánica se desplaza y se hunde bajo la placa continental. Esa presión desde abajo levanta y pliega el terreno, y así se forma una cordillera. Mientras tanto, la lluvia, el viento y el hielo desgastan la superficie desde arriba. Todo ocurre muy despacio, durante millones de años.",
+          "recursoRef": "placas"
+        },
+        {
+          "id": "ejemplo-andes-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: los Andes se levantan",
+          "narracion": "Mira las montañas del paisaje. Los Andes se levantaron durante millones de años porque la placa de Nazca se hunde bajo la placa sudamericana y empuja y pliega la corteza. El origen del levantamiento está en el interior de la Tierra.",
+          "recursoRef": "andes"
+        },
+        {
+          "id": "ejemplo-andes-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: es una fuerza interna",
+          "narracion": "Como la causa viene del interior de la Tierra y levanta el terreno, la clasificamos como fuerza interna. Los sismos y los volcanes de la zona andina forman parte del mismo proceso de movimientos de la corteza.",
+          "recursoRef": "andes"
+        },
+        {
+          "id": "ejemplo-dunas-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: las dunas del desierto de Ica",
+          "narracion": "En la costa, el viento arrastra granos de arena y los acumula formando dunas con ondulaciones finas en su superficie. Ninguna montaña se levantó allí: el viento mueve arena que ya estaba en el lugar.",
+          "recursoRef": "dunas"
+        },
+        {
+          "id": "ejemplo-dunas-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: es una fuerza externa",
+          "narracion": "Esa acción ocurre en la superficie: el viento desgasta, transporta y deposita material. Por eso es una fuerza externa. No viene del interior de la Tierra y no levanta la corteza.",
+          "recursoRef": "dunas"
+        },
+        {
+          "id": "error-erosion",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: la erosión levanta montañas",
+          "narracion": "Se piensa que la erosión forma montañas porque vemos valles y laderas modeladas. Pero la erosión desgasta y arrastra material, no levanta nada. Las montañas suben por fuerzas internas y, a la vez, se desgastan por fuerzas externas.",
+          "recursoRef": "placas"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: describe la forma del relieve",
+          "narracion": "Primero describe qué observas: una montaña, un valle, un cañón o una duna. Pregúntate si el terreno parece levantado, hundido o desgastado.",
+          "recursoRef": "andes"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: decide si se levantó o se desgastó",
+          "narracion": "Después pregunta qué ocurrió. Si algo levantó o deformó la corteza, actuó una fuerza interna. Si agua, viento o hielo arrastraron material, actuó una fuerza externa. En el valle del paisaje, el río arrastra rocas y, durante millones de años, va profundizando su cauce.",
+          "recursoRef": "andes"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: une las dos fuerzas",
+          "narracion": "Por último ten en cuenta que casi siempre actúan juntas: una montaña sube por fuerzas internas y, al mismo tiempo, se desgasta por fuerzas externas. Explica con el tiempo: «Los Andes se levantaron lentamente y la lluvia, el hielo y los ríos los siguen modelando».",
+          "recursoRef": "placas"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "andes",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/relieve-andes-canon-zimage-v1.webp",
+          "alt": "Niños observan desde un sendero montañas nevadas de los Andes y un valle profundo con un río, con terrazas de cultivo en las laderas.",
+          "descripcion": "Una cordillera de picos nevados domina el paisaje. Entre las laderas pardas baja un valle profundo con un río de aguas claras. A la izquierda hay terrazas de cultivo y, en primer plano, un grupo de niños camina por un sendero."
+        },
+        {
+          "id": "dunas",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/relieve-dunas-ica-zimage-v1.webp",
+          "alt": "Dunas de arena dorada con ondulaciones finas en su superficie y un árbol solitario bajo un cielo despejado.",
+          "descripcion": "Varias dunas de arena dorada se suceden hasta el horizonte. En primer plano la superficie tiene ondulaciones finas, como pequeñas olas de arena. Al fondo, sobre una duna, crece un árbol solitario bajo un cielo azul claro."
+        },
+        {
+          "id": "placas",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/relieve-placas-andes-svg-v1.svg",
+          "alt": "Corte de la corteza: una placa oceánica se hunde bajo la continental, que se levanta en cordillera, y la lluvia desgasta la cima.",
+          "descripcion": "Rotulada «Placa oceánica», a la izquierda, una placa bajo el mar se desplaza y se hunde bajo la placa continental. A la derecha, la «Placa continental» forma una cordillera con la cima nevada. Flechas rosadas marcan fuerzas internas y flechas verdes, lluvia."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un glaciar de la Cordillera Blanca arrastra rocas y desgasta lentamente el valle por donde baja. ¿Qué tipo de fuerza modela allí el relieve?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una fuerza interna, porque levanta la corteza desde el interior."
+          },
+          {
+            "id": "b",
+            "texto": "Una fuerza externa, porque el hielo desgasta y arrastra material."
+          },
+          {
+            "id": "c",
+            "texto": "Una fuerza interna, porque ocurre en una zona de montañas."
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "El hielo del glaciar actúa en la superficie: desgasta y arrastra material. Es una fuerza externa, aunque el lugar sea una zona de montañas levantadas por fuerzas internas.",
+        "pista": "Pregúntate si el glaciar levanta el terreno o desgasta y arrastra material."
+      }
+    }
   },
   {
     "clave": "cyt.p6.placas-tectonicas",
@@ -3887,6 +4008,130 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Fuerzas que forman y desgastan el relieve",
+          "narracion": "Hola, hoy vamos a descubrir qué fuerzas forman y desgastan el relieve de la Tierra. Como idea principal, los agentes internos, como los sismos, los volcanes y el plegamiento, vienen del interior de la Tierra y levantan o forman el relieve. Los agentes externos, como la lluvia, el viento, los ríos y los glaciares, actúan en la superficie: lo desgastan y transportan sus materiales."
+        },
+        {
+          "id": "situacion-paisaje",
+          "tipo": "recurso",
+          "titulo": "Un paisaje de las alturas",
+          "narracion": "Observemos esta situación. Es un paisaje de la sierra del Perú, con un volcán a lo lejos, cerros rocosos y un valle profundo con un río. Cada forma del terreno tiene una causa. En este tema aprenderemos a decidir si vino del interior de la Tierra o de la superficie.",
+          "recursoRef": "paisaje"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el volcán",
+          "narracion": "Mira el volcán del fondo, con su forma de cono. Los volcanes se forman cuando sale material caliente por una abertura de la corteza. ¿De dónde crees que viene la fuerza que formó el volcán: de adentro de la Tierra o de la superficie? Piénsalo antes de seguir.",
+          "recursoRef": "paisaje"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una erupción",
+          "narracion": "Aquí el volcán hace erupción: salen ceniza y roca fundida desde el interior de la Tierra. La fuerza que lo forma viene de adentro, así que es un agente interno. Al enfriarse, el material se acumula y el volcán crece. Los sismos y el plegamiento también son agentes internos.",
+          "recursoRef": "volcan"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el valle y su río",
+          "narracion": "Ahora mira el valle del paisaje, con su río. Un río puede cortar la roca durante miles de años. ¿De dónde crees que viene la fuerza que excava el valle: de adentro de la Tierra o de la superficie? Piénsalo antes de seguir.",
+          "recursoRef": "paisaje"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un cañón excavado",
+          "narracion": "Este cañón es muy profundo y tiene un río en el fondo. El agua arrastra arena y piedras y, durante miles de años, va desgastando la roca hacia abajo. Eso es erosión, hecha por un agente externo. El río no levantó nada: excavó.",
+          "recursoRef": "canon"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: actúan por separado",
+          "narracion": "Se suele creer que los agentes actúan por separado, uno primero y otro después. En realidad actúan a la vez: mientras una montaña se levanta por fuerzas internas, la lluvia, el viento y los ríos la desgastan desde la superficie. Por eso el relieve que vemos es el resultado de ambas fuerzas. Otro error es creer que el viento o la lluvia levantan montañas: solo las desgastan.",
+          "recursoRef": "levanta"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca el origen de la fuerza",
+          "narracion": "Primero pregúntate de dónde viene la fuerza: del interior de la Tierra o de la superficie."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: clasifica el agente",
+          "narracion": "Después clasifica. En la tabla, el sismo, el volcán y el plegamiento vienen del interior; la lluvia, el río, el viento y el glaciar actúan en la superficie. El mar también actúa en la superficie: golpea las costas y desgasta sus rocas.",
+          "recursoRef": "clasif"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: decide si construye o desgasta",
+          "narracion": "Por último piensa qué hace cada agente: los internos levantan y forman el relieve, y los externos lo desgastan, transportan y depositan materiales. Un paisaje es el resultado de ambos."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "paisaje",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/agentes-paisaje-zimage-v1.webp",
+          "alt": "Un volcán de punta nevada al fondo, cerros rocosos pardos y un río azul que corre por un valle profundo.",
+          "descripcion": "Un volcán de laderas rojizas y punta nevada se alza al fondo entre cerros rocosos de color pardo. Un río azul corre por un valle profundo hasta el primer plano, con algunas piedras en las orillas. No hay personas ni casas."
+        },
+        {
+          "id": "volcan",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/agentes-volcan-zimage-v1.webp",
+          "alt": "Un volcán oscuro en erupción: del cráter salen llamas y una gran nube de ceniza, y por las laderas baja lava naranja.",
+          "descripcion": "Un volcán oscuro hace erupción bajo un cielo gris. Del cráter salen llamas, chispas y una gran nube de ceniza, y por sus laderas bajan varias corrientes de lava naranja."
+        },
+        {
+          "id": "canon",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/agentes-canon-zimage-v1.webp",
+          "alt": "Un cañón estrecho visto desde el agua: un río corre entre dos altas paredes de roca rojiza, con una franja de cielo azul arriba.",
+          "descripcion": "Un cañón estrecho visto desde el nivel del agua. Un río de agua verdosa corre entre dos paredes muy altas de roca rojiza con capas. Arriba se ve una franja de cielo azul. No hay personas."
+        },
+        {
+          "id": "levanta",
+          "src": "/nudito/diagramas/ciencia-tecnologia/agentes-relieve-levanta-desgasta.svg",
+          "alt": "Una montaña entre dos flechas: a la izquierda, interno levanta, hacia arriba; a la derecha, externo desgasta, hacia abajo.",
+          "descripcion": "Una montaña de laderas pardas y punta blanca sobre el suelo. A la izquierda, el rótulo interno, levanta, y una flecha turquesa hacia arriba. A la derecha, externo, desgasta, y una flecha azul oscuro hacia abajo. Abajo: actúan al mismo tiempo."
+        },
+        {
+          "id": "clasif",
+          "src": "/nudito/diagramas/ciencia-tecnologia/agentes-relieve-clasificacion.svg",
+          "alt": "Tabla de dos columnas: del interior, con sismo, volcán y plegamiento; de la superficie, con lluvia, río, viento y glaciar.",
+          "descripcion": "Dos columnas. En «Del interior» hay tres recuadros: sismo, volcán y plegamiento. En «De la superficie» hay cuatro recuadros: lluvia, río, viento y glaciar."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En la costa, el mar golpea un acantilado y va desgastando la roca. ¿Qué tipo de agente actúa allí?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Interno, porque las rocas son bien duras"
+          },
+          {
+            "id": "b",
+            "texto": "Interno, porque levanta toda la costa"
+          },
+          {
+            "id": "c",
+            "texto": "Externo, porque el mar desgasta la roca"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. El mar actúa en la superficie y desgasta la roca: es un agente externo.",
+        "pista": "Piensa si el mar levanta la roca o la desgasta y se lleva sus pedazos."
+      }
+    }
   }
 ]

@@ -299,14 +299,14 @@
         "id": "e10",
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "¿Cuántos adjetivos describen directamente al perro en el texto (peludo, juguetón, tierno y amigable)?",
+        "enunciado": "¿Cuántos adjetivos describen directamente al perro en el texto?",
         "lectura": "En el patio del colegio vive un perro peludo y juguetón. Cuando llega la lluvia, corre hacia el rincón oscuro donde guarda su hueso viejo. Los niños lo quieren mucho porque es tierno y amigable.",
         "respuesta": 4,
         "alternativasAceptadas": [],
         "pistas": [
           "Busca los adjetivos que dicen cómo es el perro.",
           "Dos están en la primera oración y dos en la última.",
-          "Suma 2 y 2."
+          "Cuenta los adjetivos de cada oración que hablan del perro y júntalos."
         ],
         "retroalimentacion": "El perro es peludo, juguetón, tierno y amigable: son 4 adjetivos."
       },
@@ -382,7 +382,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Eliges adjetivos que dan una imagen clara",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a elegir adjetivos para describir. Como idea principal, los adjetivos dicen cómo es algo o alguien. Si eliges adjetivos precisos, quien lee puede imaginar mejor a un personaje o un lugar, mucho mejor que con palabras vagas como «lindo»."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Un niño escribe en su cuaderno",
+          "narracion": "Observemos esta escena: un niño sentado en una plaza escribe en su cuaderno. Quiere contarle a un amigo cómo es lo que ve. Si solo escribe «lindo», su amigo no podrá imaginarlo. Necesita palabras que den una imagen clara.",
+          "recursoRef": "cuaderno"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: un animal",
+          "narracion": "Lee la tarjeta: «Mi gato es lindo. Duerme todo el día y su pelo es blando». La pregunta amarilla quiere saber qué dos adjetivos más precisos podemos usar.",
+          "recursoRef": "gato"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: busca palabras precisas",
+          "narracion": "En la imagen se ve un gato gris, dormido sobre un cojín. Si duerme todo el día, es dormilón. Si su pelo se siente blando, es suave. Ahora «mi gato es dormilón y suave» da una imagen más clara que «lindo».",
+          "recursoRef": "gato-ill"
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un lugar",
+          "narracion": "Ahora un lugar. La tarjeta dice: «El mercado es bonito. Tiene frutas de muchos colores y mucha gente que habla fuerte». La pregunta amarilla quiere saber qué dos adjetivos precisos usaríamos.",
+          "recursoRef": "mercado"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: piensa qué ves y oyes",
+          "narracion": "Las frutas de muchos colores nos dan «colorido». La gente que habla fuerte nos da «bullicioso». Así queda: el mercado es colorido y bullicioso. Quien lee ya puede imaginar los colores y el ruido."
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: la palabra de siempre",
+          "narracion": "En la tarjeta se lee que el niño comparte su pan con todos. Arriba, alguien lo describe con «lindo», una palabra vaga que no dice nada de lo que hace. Abajo, «generoso» sí lo describe con precisión.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: piensa qué describir",
+          "narracion": "Primero, piensa en el personaje o el lugar que quieres describir."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: imagina y elige",
+          "narracion": "Segundo, imagina qué ves, oyes o sientes y elige adjetivos precisos."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: revisa que coincidan",
+          "narracion": "Tercero, comprueba que cada adjetivo diga algo claro y que encaje con lo que sabes del personaje o del lugar."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cuaderno",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-3/adjetivos-caracterizar-cuaderno-zimage-v1.webp",
+          "alt": "Un niño sentado en una banca de la plaza escribe con lápiz en un cuaderno.",
+          "descripcion": "Un niño con polo azul está sentado en una banca de madera y escribe con un lápiz amarillo en un cuaderno abierto. Detrás se ve una plaza con casas de tejas, un árbol y niños que caminan."
+        },
+        {
+          "id": "gato",
+          "src": "/nudito/diagramas/comunicacion/adjetivos-caracterizar-gato-pregunta.svg",
+          "alt": "Tarjeta con el texto sobre un gato lindo que duerme todo el día y la pregunta qué adjetivos precisos usarías.",
+          "descripcion": "Un recuadro blanco con el texto: Mi gato es lindo. Duerme todo el día y su pelo es blando. Debajo, una tarjeta amarilla pregunta: ¿Qué dos adjetivos precisos usarías?"
+        },
+        {
+          "id": "gato-ill",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-3/adjetivos-caracterizar-gato-zimage-v1.webp",
+          "alt": "Un gato gris con rayas duerme enroscado sobre un cojín blanco.",
+          "descripcion": "Un gato gris con rayas oscuras duerme enroscado sobre un cojín blanco ovalado. Tiene los ojos cerrados y la cola doblada junto al cuerpo. El piso es de madera clara y la pared es crema."
+        },
+        {
+          "id": "mercado",
+          "src": "/nudito/diagramas/comunicacion/adjetivos-caracterizar-mercado-pregunta.svg",
+          "alt": "Tarjeta con el texto sobre un mercado bonito con frutas de colores y la pregunta qué adjetivos precisos usarías.",
+          "descripcion": "Un recuadro blanco con el texto: El mercado es bonito. Tiene frutas de muchos colores y mucha gente que habla fuerte. Debajo, una tarjeta amarilla pregunta: ¿Qué dos adjetivos precisos usarías?"
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/comunicacion/adjetivos-caracterizar-error.svg",
+          "alt": "Texto sobre un niño que comparte su pan, una descripción vaga con cruz y otra precisa con palomita.",
+          "descripcion": "Un recuadro blanco con el texto: El niño comparte su pan con todos. Debajo, una tarjeta roja con cruz dice: El niño es lindo. Luego, una tarjeta verde con palomita dice: El niño es generoso."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Describes un río después de la lluvia: el agua corre muy rápido y hace ruido. ¿Qué adjetivos conviene usar?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "tranquilo y lento"
+          },
+          {
+            "id": "b",
+            "texto": "veloz y ruidoso"
+          },
+          {
+            "id": "c",
+            "texto": "bonito y alegre"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "«Veloz» dice que corre rápido y «ruidoso» que hace ruido. Son adjetivos precisos para esa descripción.",
+        "pista": "Elige los adjetivos que dicen lo que el texto cuenta del agua."
+      }
+    }
   },
   {
     "clave": "com.p3.rima-y-ritmo",

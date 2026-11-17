@@ -327,7 +327,7 @@
       {
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Pedro pone una olla con agua sobre el fogón. Al hervir, se ve vapor, se oye el burbujeo y el agua sube. ¿Qué formas de energía hay?",
+        "enunciado": "Pedro pone una olla con agua sobre un fogón. Al hervir, se ve vapor, se oye el burbujeo y el agua se mueve dentro de la olla. ¿Qué formas de energía observas?",
         "respuesta": "c",
         "opciones": [
           {
@@ -349,11 +349,11 @@
         ],
         "alternativasAceptadas": [],
         "pistas": [
-          "Cuenta cada efecto que se describe.",
-          "Calor, ruido y movimiento del agua.",
-          "Cada efecto es una forma de energía."
+          "Identifica los cambios descritos.",
+          "Hay calentamiento, sonido y movimiento del agua.",
+          "Relaciona cada cambio con su forma de energía."
         ],
-        "retroalimentacion": "Hay calor (térmica), burbujeo (sonora) y agua que se mueve. Decir «solo térmica» olvida el sonido y el movimiento.",
+        "retroalimentacion": "Se observan energía térmica, sonido y movimiento del agua. El agua no necesita subir fuera de la olla para moverse.",
         "id": "e12"
       }
     ],
@@ -364,7 +364,119 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "La energía produce cambios",
+          "narracion": "Bienvenido a esta clase sobre las formas de energía. Primero conocerás la idea principal, luego analizarás dos situaciones de una casa y al final responderás una pregunta. Como idea principal de este tema, la energía es lo que permite que ocurran cambios y movimientos. Se presenta de varias formas: luminosa, que vemos como luz; térmica, que sentimos como calor; sonora, que oímos; de movimiento; eléctrica; y química, que guardan los alimentos, las pilas y el gas."
+        },
+        {
+          "id": "situacion-sala",
+          "tipo": "recurso",
+          "titulo": "Energía en una casa",
+          "narracion": "Observemos esta situación. En una sala, una niña hace su tarea junto a una lámpara encendida; en una repisa hay una radio y sobre la mesa hay un ventilador. Pensemos en esta pregunta: ¿qué cambios produce la energía en esta sala?",
+          "recursoRef": "sala-casa"
+        },
+        {
+          "id": "ejemplo-1-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: observa una cocina",
+          "narracion": "Ahora observemos esta situación. En una cocina, la llama azul de una hornilla a gas calienta una olla con agua, y el agua empieza a producir vapor. Pensemos en esta pregunta: ¿qué formas de energía aparecen y de dónde viene la energía que lo hace posible?",
+          "recursoRef": "cocina-gas"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: razona con el gas",
+          "narracion": "Sigamos los efectos. El fuego calienta la olla: eso es energía térmica. La llama también emite luz: es energía luminosa. ¿De dónde sale esa energía? El gas guarda energía química y la libera cuando se quema. Entonces, en la hornilla, la energía química del gas se transforma en energía térmica y luminosa.",
+          "recursoRef": "cocina-gas"
+        },
+        {
+          "id": "ejemplo-2-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: observa un ventilador",
+          "narracion": "Volvamos a la sala. Observemos esta situación: el ventilador de la mesa está conectado al enchufe mediante un cable y sus aspas giran. Pensemos en esta pregunta: ¿qué forma de energía llega por el cable y qué forma de energía vemos en las aspas?",
+          "recursoRef": "sala-casa"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la electricidad se transforma",
+          "narracion": "Por el cable llega energía eléctrica desde el enchufe. El motor del ventilador la transforma en energía de movimiento, y las aspas giran. Una pequeña parte también se convierte en calor y en un poco de sonido. Entonces el ventilador transforma energía eléctrica en energía de movimiento.",
+          "recursoRef": "sala-casa"
+        },
+        {
+          "id": "error-frecuente",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: «una pila no tiene energía hasta que se usa»",
+          "narracion": "Algunas personas piensan que una pila solo tiene energía mientras un aparato funciona. Pero la pila guarda energía química desde antes de usarla. Al conectarla en un circuito, esa energía química se transforma en energía eléctrica, que luego puede producir luz, sonido o movimiento."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: observa qué efecto aparece",
+          "narracion": "Ahora aprenderemos una forma de razonar en tres pasos. Este esquema tiene cuatro filas que relacionan un efecto con una forma de energía. Primero, observa qué efecto aparece: ¿hay luz, calor, sonido o movimiento?",
+          "recursoRef": "efectos-energia"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: relaciona el efecto con su forma de energía",
+          "narracion": "Después, relaciona ese efecto con su forma de energía, como indica cada fila del esquema: la luz es energía luminosa, el calor es energía térmica, el sonido es energía sonora y el movimiento es energía de movimiento.",
+          "recursoRef": "efectos-energia"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: pregunta de dónde viene la energía",
+          "narracion": "Por último, pregunta de dónde viene la energía. Un enchufe entrega energía eléctrica; los alimentos, las pilas y el gas guardan energía química. Muchas veces una forma de energía se transforma en otra para producir el efecto que observamos."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "sala-casa",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-4/energia-sala-casa-zimage-v1.webp",
+          "alt": "Una niña escribe en su cuaderno sobre una mesa, con una lámpara encendida, un ventilador y una radio en una repisa.",
+          "descripcion": "Una niña con polo naranja escribe en su cuaderno sentada a una mesa. A su lado hay un ventilador azul con un cable. Detrás, sobre un mueble, una lámpara encendida da luz cálida, y en una repisa descansa una radio antigua con una antena."
+        },
+        {
+          "id": "cocina-gas",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-4/energia-cocina-gas-zimage-v1.webp",
+          "alt": "Una mujer vigila una olla con agua que humea sobre una hornilla de gas con llama azul encendida.",
+          "descripcion": "En una cocina, una mujer sostiene el mango de una olla oscura y mueve el contenido con una cuchara de madera. La olla está sobre una hornilla de gas con una llama azul y el agua echa un poco de vapor hacia arriba."
+        },
+        {
+          "id": "efectos-energia",
+          "src": "/nudito/diagramas/ciencia-tecnologia/energia-efectos.svg",
+          "alt": "Cuatro filas: luz con energía luminosa, calor con térmica, sonido con sonora y movimiento con energía de movimiento.",
+          "descripcion": "Hay cuatro filas de colores. La primera relaciona luz con energía luminosa; la segunda, calor con energía térmica; la tercera, sonido con energía sonora; y la cuarta, movimiento con energía de movimiento."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una radio funciona con pilas y suena música. ¿Qué energía guarda la pila antes de usarse y qué forma de energía produce la radio?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La pila guarda energía luminosa y la radio produce energía térmica."
+          },
+          {
+            "id": "b",
+            "texto": "La pila guarda energía química y la radio produce energía sonora."
+          },
+          {
+            "id": "c",
+            "texto": "La pila guarda energía de movimiento y la radio produce energía luminosa."
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "La pila guarda energía química. Al conectarla se transforma en energía eléctrica y la radio la convierte en energía sonora, que es lo que escuchas.",
+        "pista": "Piensa en lo que guarda la pila desde antes de usarla y en el efecto que produce la radio."
+      }
+    }
   },
   {
     "clave": "cyt.p4.luz-y-sombras",

@@ -513,7 +513,7 @@
       {
         "tipo": "opcion_multiple",
         "dificultad": 2,
-        "enunciado": "Los datos de visitantes de un museo en Cusco son 20, 60, 100 y 40. ¿Qué escala es más cómoda?",
+        "enunciado": "Los datos de visitantes de un museo en Cusco son 20, 60, 100 y 40. ¿Qué escala tiene pocas marcas y deja todos los datos justo en una marca?",
         "respuesta": "b",
         "alternativasAceptadas": [],
         "opciones": [
@@ -674,7 +674,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Barras con escala",
+          "narracion": "Bienvenida y bienvenido. Hoy construiremos gráficos de barras. Como idea principal, la altura de cada barra muestra cuánto vale un dato. El eje vertical lleva una escala, que son números que suben con saltos iguales, por ejemplo de diez en diez o de veinte en veinte. Para dibujar una barra, buscamos el valor en la escala y la levantamos hasta esa marca."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Juegos favoritos",
+          "narracion": "Observemos esta situación. Un curso eligió su juego favorito. A la izquierda, cuatro tarjetas muestran los datos: fútbol, sesenta; vóley, cuarenta; ajedrez, veinte; y básquet, ochenta. A la derecha solo hay los dos ejes de un gráfico, sin números ni marcas, con un cero abajo. Queremos dibujar las barras.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: escala de diez en diez",
+          "narracion": "Probemos una escala de diez en diez. El dato mayor es ochenta, así que el eje sube desde cero hasta ochenta. La columna punteada es el lugar de la barra del vóley, que vale cuarenta. ¿Hasta qué marca debe subir?",
+          "recursoRef": "diez-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: levantar cada barra",
+          "narracion": "Contamos las marcas desde cero: diez, veinte, treinta y cuarenta. La barra del vóley sube hasta la cuarta marca, que es cuarenta. Hacemos lo mismo con los otros datos: fútbol llega a sesenta, ajedrez a veinte y básquet a ochenta. Así queda el gráfico, con título y nombres abajo.",
+          "recursoRef": "juegos"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: escala de veinte en veinte",
+          "narracion": "Ahora una biblioteca presta cuarenta libros el lunes, cien el martes y setenta el miércoles. Con saltos de diez serían diez marcas. Elegimos saltos de veinte, que son menos marcas. El dato de setenta no cae justo en una marca. ¿Dónde termina su barra?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: entre dos marcas",
+          "narracion": "Con saltos de veinte, las marcas son veinte, cuarenta, sesenta, ochenta y cien. Setenta está a la mitad entre sesenta y ochenta, así que la barra del miércoles termina entre esas dos marcas. Las barras del lunes y del martes sí llegan justo a cuarenta y a cien.",
+          "recursoRef": "libros"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es elegir una escala que se queda corta. En el gráfico, el eje termina en cincuenta, pero la barra del básquet vale ochenta y se sale por arriba. Otro error es contar mal las marcas, por ejemplo subir hasta cincuenta una barra de sesenta. Cuenta las marcas una por una.",
+          "recursoRef": "corta"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca el dato mayor",
+          "narracion": "Mira los datos y busca el mayor. En los juegos favoritos era ochenta, y en los libros prestados, cien."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: elige la escala",
+          "narracion": "Elige saltos iguales de diez o de veinte que lleguen al dato mayor. Empieza siempre en cero."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: levanta las barras",
+          "narracion": "Levanta cada barra hasta su marca. Si el dato queda entre dos marcas, la barra termina entre ellas. Al final escribe el título y los nombres abajo. Revisa que cada barra termine en su marca."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/barras-escala-diez-situacion.svg",
+          "alt": "Cuatro tarjetas con datos de juegos favoritos y, a la derecha, dos ejes sin números ni marcas.",
+          "descripcion": "A la izquierda hay cuatro tarjetas blancas: Fútbol: 60, Vóley: 40, Ajedrez: 20 y Básquet: 80. A la derecha hay un eje vertical y un eje horizontal con puntas de flecha, sin marcas ni números, y un 0 en la esquina de abajo. Al final se lee: ¿Cómo dibujamos las barras?"
+        },
+        {
+          "id": "diez-pregunta",
+          "src": "/nudito/diagramas/matematica/barras-escala-diez-pregunta.svg",
+          "alt": "Eje de cero a ochenta de diez en diez y una columna punteada con un signo de pregunta para el vóley.",
+          "descripcion": "Arriba dice Escala de 10 en 10. El eje vertical muestra 0, 10, 20, 30, 40, 50, 60, 70 y 80 con líneas de guía. En el centro hay una columna punteada turquesa de toda la altura, con un signo de pregunta. Arriba a la derecha hay una tarjeta que dice Vóley: 40 y abajo, bajo la columna, la palabra Vóley."
+        },
+        {
+          "id": "juegos",
+          "src": "/nudito/diagramas/matematica/barras-escala-diez-juegos.svg",
+          "alt": "Gráfico de barras de juegos favoritos: fútbol sesenta, vóley cuarenta, ajedrez veinte y básquet ochenta.",
+          "descripcion": "Arriba dice Juegos favoritos. El eje vertical va de 0 a 80 de diez en diez. Hay cuatro barras turquesa con su valor encima: Fútbol 60, Vóley 40, Ajedrez 20 y Básquet 80, con el nombre de cada una debajo."
+        },
+        {
+          "id": "corta",
+          "src": "/nudito/diagramas/matematica/barras-escala-diez-corta.svg",
+          "alt": "Eje que solo llega a cincuenta: la barra del vóley llega a cuarenta y la del básquet se sale por arriba.",
+          "descripcion": "Arriba dice Escala que se queda corta. El eje vertical va de 0 a 50 de diez en diez y una línea punteada marca el final en 50. La barra del Vóley llega a 40. La barra del Básquet sube por encima de la línea punteada, y sobre ella se lee 80 no cabe."
+        },
+        {
+          "id": "libros",
+          "src": "/nudito/diagramas/matematica/barras-escala-diez-libros.svg",
+          "alt": "Gráfico de libros prestados con eje de veinte en veinte hasta cien: lunes cuarenta, martes cien, miércoles setenta.",
+          "descripcion": "Arriba dice Libros prestados, de 20 en 20. El eje vertical muestra 0, 20, 40, 60, 80 y 100. Hay tres barras turquesa: Lunes 40, Martes 100 y Miércoles 70, esta última a mitad entre las líneas de 60 y 80. Abajo se lee: 70 queda entre 60 y 80."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En un gráfico con escala de veinte en veinte, una barra vale cincuenta. ¿Dónde termina?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Justo en la marca sesenta"
+          },
+          {
+            "id": "b",
+            "texto": "Entre cuarenta y sesenta"
+          },
+          {
+            "id": "c",
+            "texto": "Justo en la marca cuarenta"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Cincuenta no es una marca de la escala: queda a la mitad entre cuarenta y sesenta.",
+        "pista": "Mira qué marcas de la escala quedan antes y después de cincuenta."
+      }
+    }
   },
   {
     "clave": "mat.p4.leer-barras-escala",

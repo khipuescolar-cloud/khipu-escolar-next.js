@@ -608,7 +608,132 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Partes iguales de un entero",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a escribir fracciones de una tira, una cinta o una regla. Como idea principal, una fracción dice cuántas partes iguales tomamos de un entero que se puede dividir. El número de abajo, el denominador, cuenta todas las partes iguales. El número de arriba, el numerador, cuenta las partes que señalamos. Lo importante es que todas las partes tengan el mismo tamaño."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una cinta pintada",
+          "narracion": "Observemos esta situación. Una cinta de tela está dividida en partes del mismo tamaño. Algunas partes están pintadas de verde azulado y otras quedaron sin pintar. Queremos escribir qué fracción de la cinta está pintada.",
+          "recursoRef": "cinta-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: contar las partes",
+          "narracion": "Para escribir la fracción, cuenta primero cuántas partes iguales tiene toda la cinta. Después cuenta cuántas están pintadas. ¿Cuál de esos dos números va abajo y cuál va arriba?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ocho partes, tres pintadas",
+          "narracion": "Ahora cada parte lleva su número. Hay ocho partes iguales en toda la cinta, y las tres primeras están pintadas. Abajo va el ocho y arriba va el tres. La fracción es tres octavos.",
+          "recursoRef": "cinta-conteo"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una regleta",
+          "narracion": "Ahora una regleta de doce centímetros. Tiene marcas cada tres centímetros y una parte de ella está coloreada. ¿Cuántos tramos iguales forma la regleta y cuántos están coloreados?",
+          "recursoRef": "regleta-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: cuatro tramos",
+          "narracion": "Doce centímetros divididos en tramos de tres centímetros dan cuatro tramos iguales. Dos de ellos están coloreados. Abajo va el cuatro y arriba el dos. La fracción es dos cuartos de la regleta.",
+          "recursoRef": "regleta-fraccion"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Arriba, la tira tiene cuatro partes, pero no son del mismo tamaño. Aunque una esté pintada, no podemos decir un cuarto. Abajo hay seis partes iguales con dos pintadas. Las partes pintadas van arriba y el total va abajo: la fracción buena es dos sextos, no seis medios.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: revisa las partes",
+          "narracion": "Primero comprueba que todas las partes de la cinta tengan el mismo tamaño. Si no son iguales, todavía no se puede escribir una fracción.",
+          "recursoRef": "cinta-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: cuenta y escribe",
+          "narracion": "Segundo, cuenta todas las partes y escribe ese número abajo. Luego cuenta las partes pintadas y escríbelo arriba. En la cinta numerada se ven ocho partes y tres pintadas.",
+          "recursoRef": "cinta-conteo"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: nombra la fracción",
+          "narracion": "Por último, lee la fracción y di de qué entero habla. En la regleta, dos cuartos es la parte coloreada de toda la regleta.",
+          "recursoRef": "regleta-fraccion"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cinta-pregunta",
+          "src": "/nudito/diagramas/matematica/fraccion-todo-continuo-cinta-pregunta.svg",
+          "alt": "Cinta de tela de ocho partes iguales; las tres primeras están pintadas de verde azulado y las demás sin pintar.",
+          "descripcion": "Una cinta horizontal dividida en ocho partes del mismo tamaño. Las tres primeras, a la izquierda, están pintadas de verde azulado y las otras cinco están sin pintar. Arriba dice cinta de tela y abajo dice qué fracción está pintada, con signos de pregunta."
+        },
+        {
+          "id": "cinta-conteo",
+          "src": "/nudito/diagramas/matematica/fraccion-todo-continuo-cinta-conteo.svg",
+          "alt": "La misma cinta con partes numeradas del uno al ocho; llaves para tres pintadas arriba y ocho en total abajo.",
+          "descripcion": "La misma cinta de ocho partes, con un número dentro de cada una, del uno al ocho. Una llave sobre las tres pintadas dice tres pintadas, arriba. Una llave bajo toda la cinta dice ocho en total, abajo. Al pie se lee la fracción tres octavos."
+        },
+        {
+          "id": "regleta-pregunta",
+          "src": "/nudito/diagramas/matematica/fraccion-todo-continuo-regleta-pregunta.svg",
+          "alt": "Regleta de doce centímetros con marcas en cero, tres, seis, nueve y doce; los dos primeros tramos están coloreados.",
+          "descripcion": "Una regleta horizontal con marcas bajo ella en cero, tres, seis, nueve y doce centímetros. Forma cuatro tramos del mismo largo; los dos primeros, a la izquierda, están coloreados de amarillo. Debajo dice medidas en centímetros y al pie, qué fracción está marcada."
+        },
+        {
+          "id": "regleta-fraccion",
+          "src": "/nudito/diagramas/matematica/fraccion-todo-continuo-regleta-fraccion.svg",
+          "alt": "La regleta con una llave de dos marcados arriba y otra de cuatro tramos de tres centímetros abajo; fracción dos cuartos.",
+          "descripcion": "La misma regleta de cuatro tramos. Una llave sobre los dos tramos amarillos dice dos marcados, arriba. Una llave bajo toda la regleta dice cuatro tramos de tres centímetros, abajo. Al pie se lee la fracción dos cuartos."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/fraccion-todo-continuo-errores.svg",
+          "alt": "Arriba, una tira de cuatro partes desiguales con una pintada; abajo, seis partes iguales con dos pintadas, mal seis medios y bien dos sextos.",
+          "descripcion": "Arriba, una tira de cuatro partes de distinto tamaño, con la primera pintada y el letrero partes desiguales y no es un cuarto, en rojo. Abajo, una tira de seis partes iguales con dos pintadas. Debajo, en rojo, mal seis medios y, en verde azulado, bien dos sextos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un listón se divide en cinco partes iguales y se pintan tres. ¿Qué fracción del listón se pintó?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cinco tercios"
+          },
+          {
+            "id": "b",
+            "texto": "Tres cuartos"
+          },
+          {
+            "id": "c",
+            "texto": "Tres quintos"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. El listón tiene cinco partes iguales y se pintaron tres: abajo va el total y arriba las pintadas, así que se pintaron tres quintos.",
+        "pista": "Cuenta cuántas partes iguales tiene todo el listón y cuántas se pintan."
+      }
+    }
   },
   {
     "clave": "mat.p4.fraccion-de-cantidad",
@@ -904,7 +1029,113 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Una parte de un grupo",
+          "narracion": "Bienvenida y bienvenido. Hoy hallarás una parte de un grupo de objetos. Como idea principal, el denominador de la fracción dice en cuántos grupos iguales repartes el total, y el numerador dice cuántos de esos grupos tomas."
+        },
+        {
+          "id": "situacion-canicas",
+          "tipo": "recurso",
+          "titulo": "Veinte canicas en cuatro grupos",
+          "narracion": "Observemos esta situación. Hay veinte canicas repartidas en cuatro grupos iguales de cinco canicas. Tres de los grupos están coloreados. Esos tres grupos son los tres cuartos de las canicas.",
+          "recursoRef": "canicas"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: tres cuartos de veinte canicas",
+          "narracion": "Hallamos tres cuartos de veinte canicas. El cuatro de abajo dice que repartimos las veinte canicas en cuatro grupos iguales. Veinte entre cuatro son cinco canicas en cada grupo.",
+          "recursoRef": "canicas"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: tomamos tres grupos",
+          "narracion": "El tres de arriba dice que tomamos tres grupos. Tres por cinco son quince. Tres cuartos de veinte canicas son quince canicas. Quince es menor que veinte, como debe pasar cuando la fracción es menor que uno.",
+          "recursoRef": "canicas"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: dos quintos de treinta semillas",
+          "narracion": "Hallamos dos quintos de treinta semillas. Repartimos las treinta semillas en cinco filas iguales. Treinta entre cinco son seis semillas en cada fila.",
+          "recursoRef": "semillas"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: tomamos dos filas",
+          "narracion": "Tomamos dos filas, porque el numerador es dos. Dos por seis son doce. Dos quintos de treinta semillas son doce semillas. Comprobamos: las cinco filas suman treinta, y dos de ellas son doce.",
+          "recursoRef": "semillas"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Dos errores frecuentes",
+          "narracion": "Cuidado con dos errores. El primero es multiplicar el total por el denominador: veinte por cuatro son ochenta, y ochenta es más que las veinte canicas, algo imposible para tres cuartos. El segundo es quedarte con un solo grupo, cinco canicas, y olvidar el numerador. Tres cuartos son tres grupos, no uno."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cuenta el total",
+          "narracion": "Primero cuenta cuántos objetos hay en total. Es el número del que tomaremos una parte.",
+          "recursoRef": "canicas"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: divide entre el denominador",
+          "narracion": "Después divide el total entre el denominador. Así sabes cuántos objetos tiene un grupo.",
+          "recursoRef": "semillas"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: multiplica por el numerador",
+          "narracion": "Por último, multiplica ese número por el numerador y comprueba que el resultado no pase del total."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "canicas",
+          "src": "/nudito/diagramas/matematica/fraccion-canicas-tres-cuartos.svg",
+          "alt": "Veinte canicas en cuatro grupos de cinco; tres grupos están coloreados y suman quince canicas.",
+          "descripcion": "Hay cuatro cuadros en fila, cada uno con cinco canicas. Los tres primeros están coloreados y el último está en blanco. Debajo de cada cuadro se lee cinco. Una línea abarca los tres primeros, y dice que tres grupos de cinco son quince. Abajo, veinte entre cuatro es cinco."
+        },
+        {
+          "id": "semillas",
+          "src": "/nudito/diagramas/matematica/fraccion-semillas-dos-quintos.svg",
+          "alt": "Treinta semillas en cinco filas de seis; dos filas están coloreadas y suman doce semillas.",
+          "descripcion": "Hay cinco filas, una debajo de otra, cada una con seis semillas. Las dos primeras filas están coloreadas y las otras tres, en blanco. Abajo se lee treinta entre cinco es seis en cada fila, y dos filas, dos por seis, son doce."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En una chacra de Huancayo hay treinta y seis gallinas y dos tercios son ponedoras. ¿Cuántas gallinas son ponedoras?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Veinticuatro gallinas"
+          },
+          {
+            "id": "b",
+            "texto": "Doce gallinas"
+          },
+          {
+            "id": "c",
+            "texto": "Ciento ocho gallinas"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Treinta y seis entre tres son doce gallinas en cada grupo. Como son dos tercios, tomamos dos grupos: dos por doce son veinticuatro gallinas.",
+        "pista": "Divide treinta y seis entre tres y luego toma dos de esos grupos."
+      }
+    }
   },
   {
     "clave": "mat.p4.fracciones-homogeneas-heterogeneas",
@@ -1584,6 +1815,119 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Distintas fracciones, la misma parte",
+          "narracion": "Bienvenida y bienvenido. Hoy descubrirás que dos fracciones escritas de manera diferente pueden representar la misma parte de un todo. Como idea principal, dos fracciones son equivalentes cuando, en tiras del mismo largo, cubren la misma longitud, aunque una use muchas partes pequeñas y la otra pocas partes grandes."
+        },
+        {
+          "id": "situacion-cintas",
+          "tipo": "recurso",
+          "titulo": "Dos cintas del mismo largo",
+          "narracion": "Observemos esta situación. Dos cintas iguales miden doce centímetros. La primera se divide en tres partes iguales y se colorean dos. La segunda se divide en seis partes iguales y se colorean cuatro. Una regla debajo permite medir hasta dónde llega el color, y en las dos llega al mismo punto: ocho centímetros.",
+          "recursoRef": "cintas-doce"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: un medio y dos cuartos",
+          "narracion": "Tomamos dos tiras del mismo largo. En la primera coloreamos un medio: está dividida en dos partes iguales y pintamos una. En la segunda hay cuatro partes iguales y pintamos dos. Miramos dónde termina cada color: los dos terminan justo a la mitad de la tira.",
+          "recursoRef": "tiras-medio-cuartos"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: partimos cada mitad en dos",
+          "narracion": "¿Por qué ocurre esto? Si partes cada mitad en dos partes iguales, la tira queda dividida en cuatro cuartos. La mitad que estaba coloreada se convierte en dos cuartos. Por eso un medio y dos cuartos son la misma parte de la tira: cambió el número de partes, pero no cambió la longitud pintada.",
+          "recursoRef": "tiras-medio-cuartos"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: tres sextos y cuatro octavos",
+          "narracion": "Ahora comparamos tres sextos y cuatro octavos, con un medio como referencia. Las tres tiras tienen el mismo largo. En la tira de seis partes pintamos tres, y en la de ocho partes pintamos cuatro. Para comparar, miramos hasta dónde llega el color en cada una.",
+          "recursoRef": "tiras-mitad"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la mitad de cada tira",
+          "narracion": "En las dos tiras se pintó justo la mitad de las partes: tres de seis y cuatro de ocho. Por eso ambos colores llegan a la mitad, igual que un medio. Entonces tres sextos, cuatro octavos y un medio son fracciones equivalentes, aunque se escriban distinto.",
+          "recursoRef": "tiras-mitad"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Compara solo tiras del mismo largo",
+          "narracion": "Una advertencia importante. Para comparar fracciones, las tiras deben ser del mismo largo. Si una tira es corta y otra larga, un medio de la tira larga cubre más centímetros que un medio de la tira corta, y no se pueden comparar. Primero asegúrate de que la unidad sea la misma."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: usa la misma unidad",
+          "narracion": "Primero comprueba que las tiras tengan el mismo largo y que cada una esté dividida en partes iguales. En las cintas de doce centímetros se cumple esa condición.",
+          "recursoRef": "cintas-doce"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: cuenta las partes pintadas",
+          "narracion": "Después lee cada fracción. El denominador dice en cuántas partes iguales se dividió la tira, y el numerador dice cuántas se pintaron. En la primera cinta se pintan dos de tres partes, y en la segunda, cuatro de seis partes.",
+          "recursoRef": "cintas-doce"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: compara dónde termina el color",
+          "narracion": "Por último, mira dónde termina el color. Si termina en el mismo punto, las fracciones son equivalentes. Si termina antes o después, no lo son. Así, un medio, tres sextos y cuatro octavos terminan en el mismo lugar.",
+          "recursoRef": "tiras-mitad"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cintas-doce",
+          "src": "/nudito/diagramas/matematica/fracciones-equivalentes-cinta.svg",
+          "alt": "Dos cintas iguales de doce centímetros: dos tercios y cuatro sextos llegan a los ocho centímetros.",
+          "descripcion": "La primera cinta tiene tres partes iguales y dos están coloreadas. La segunda tiene seis partes iguales y cuatro están coloreadas. Una línea punteada baja hasta una regla marcada con cero, cuatro, ocho y doce, y muestra que ambos colores terminan en el ocho."
+        },
+        {
+          "id": "tiras-medio-cuartos",
+          "src": "/nudito/diagramas/matematica/fracciones-equivalentes-medio-cuartos.svg",
+          "alt": "Dos tiras del mismo largo: un medio y dos cuartos coloreados hasta el mismo punto.",
+          "descripcion": "La primera tira está dividida en dos partes y una está coloreada. La segunda está dividida en cuatro partes y dos están coloreadas. Las dos partes coloreadas terminan en el mismo lugar, a la mitad de la tira."
+        },
+        {
+          "id": "tiras-mitad",
+          "src": "/nudito/diagramas/matematica/fracciones-equivalentes-mitad.svg",
+          "alt": "Tres tiras iguales: un medio, tres sextos y cuatro octavos llegan hasta la misma mitad.",
+          "descripcion": "Hay tres tiras del mismo largo. Una tiene dos partes con una coloreada, otra tiene seis partes con tres coloreadas y otra tiene ocho partes con cuatro coloreadas. Una línea punteada vertical marca la mitad y los tres colores terminan allí."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En una tira se pintan dos sextos. En otra tira del mismo largo, dividida en tres partes iguales, ¿qué fracción llega al mismo punto?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un tercio"
+          },
+          {
+            "id": "b",
+            "texto": "Dos tercios"
+          },
+          {
+            "id": "c",
+            "texto": "Un sexto"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Así es. Cada tercio está formado por dos sextos, por eso dos sextos y un tercio llegan al mismo punto.",
+        "pista": "Piensa cuántos sextos forman un tercio de la tira."
+      }
+    }
   }
 ]

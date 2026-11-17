@@ -685,7 +685,117 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Quién come a quién",
+          "narracion": "Hola. Hoy aprenderemos qué es una cadena alimenticia. Como idea principal, una cadena alimenticia muestra el orden en que unos seres se alimentan de otros. Empieza con una planta, sigue con un animal que come esa planta y termina con otro animal que se come al anterior."
+        },
+        {
+          "id": "situacion-cuy-pasto",
+          "tipo": "recurso",
+          "titulo": "Un cuy en la chacra",
+          "narracion": "Observemos esta situación en una chacra de los Andes. En la imagen, un cuy marrón y blanco mordisquea pasto verde. Al fondo hay unas casitas, cerros y dos niños pequeños. Nos preguntamos: ¿qué come el cuy y qué animal podría comérselo a él?",
+          "recursoRef": "cuy-pasto"
+        },
+        {
+          "id": "ejemplo-chacra-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la chacra",
+          "narracion": "En la misma chacra, ahora vemos otra escena. En la imagen, el cuy está sentado sobre el pasto. Un gavilán de plumas marrones está posado en un poste de la cerca, también en el campo. Nos preguntamos: ¿qué come cada animal?",
+          "recursoRef": "cuy-gavilan"
+        },
+        {
+          "id": "ejemplo-chacra-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: pasto, cuy y gavilán",
+          "narracion": "El cuy come pasto, y el gavilán puede comerse al cuy. La cadena queda así: pasto, cuy, gavilán. Primero va la planta, luego el animal que la come y al final el que se come a ese animal.",
+          "recursoRef": "cuy-gavilan"
+        },
+        {
+          "id": "ejemplo-rio-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el río",
+          "narracion": "Ahora una cadena en un río. En la imagen, una garza blanca está en la orilla de pasto, con las patas junto al agua. Cerca, dentro del agua, hay plantas de agua y un pez pequeño de color plateado. Nos preguntamos: ¿en qué orden se alimentan?",
+          "recursoRef": "rio-garza"
+        },
+        {
+          "id": "ejemplo-rio-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: plantas del agua, pez y garza",
+          "narracion": "El pez pequeño come plantas del agua, como las algas, y la garza se come al pez. La cadena queda así: plantas del agua, pez, garza. De nuevo, empieza por la planta.",
+          "recursoRef": "rio-garza"
+        },
+        {
+          "id": "error-al-reves",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: empezar por el animal grande",
+          "narracion": "Hay quien empieza la cadena por el animal más grande, por ejemplo: gavilán, cuy, pasto. Eso la pone al revés. Una cadena siempre empieza con una planta. Recuerda también que, si dibujas flechas, van de lo comido hacia quien lo come."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca la planta",
+          "narracion": "Primero busca la planta, porque ella abre la cadena. En la chacra es el pasto y en el río son las plantas del agua."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: sigue quién come a quién",
+          "narracion": "Luego pregunta: ¿quién come esa planta? Pon a ese animal después de la planta. Después pregunta: ¿quién se come a ese animal? Ponlo al final. La garza se come al pez, no el pez a la garza."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: lee la cadena en voz alta",
+          "narracion": "Por último, comprueba el orden diciendo cada pareja: «El cuy come pasto» y «El gavilán come al cuy». Si todas las parejas suenan bien, la cadena está bien ordenada."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cuy-pasto",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-2/cuy-pasto-chacra-zimage-v1.webp",
+          "alt": "Un cuy marrón y blanco come pasto verde en una chacra, con cerros, casitas y dos niños pequeños al fondo.",
+          "descripcion": "Un cuy grande de pelo marrón y blanco mordisquea unas hojas largas de pasto sobre un campo verde. Detrás hay dos casitas de techo marrón, dos niños pequeños muy lejos, cerros verdes y un cielo celeste con nubes."
+        },
+        {
+          "id": "cuy-gavilan",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-2/cuy-gavilan-chacra-zimage-v1.webp",
+          "alt": "Un gavilán marrón posado en un poste de cerca y, abajo, un cuy sentado sobre el pasto de una chacra.",
+          "descripcion": "En primer plano, un cuy marrón y blanco está sentado sobre el pasto. Atrás hay una cerca de madera y, sobre uno de sus postes, un gavilán de pecho claro y alas marrones. Al fondo hay cerros azulados y nubes."
+        },
+        {
+          "id": "rio-garza",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-2/rio-garza-pez-zimage-v1.webp",
+          "alt": "Una garza blanca de pico naranja en la orilla de pasto de un río, con las patas junto al agua; en el agua hay plantas y un pez pequeño plateado.",
+          "descripcion": "Una garza blanca de pico largo y patas oscuras está sobre la orilla cubierta de pasto, con las patas junto al agua. El agua es verdeazulada. A la izquierda hay dos plantas de hojas verdes que salen del agua y, entre ellas, nada un pez pequeño y plateado."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lalo mira un campo de maíz. Un ratón come maíz y una lechuza se come al ratón. ¿Cuál es el orden de la cadena?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Lechuza, ratón, maíz"
+          },
+          {
+            "id": "b",
+            "texto": "Ratón, maíz, lechuza"
+          },
+          {
+            "id": "c",
+            "texto": "Maíz, ratón, lechuza"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "La cadena es maíz, ratón, lechuza: empieza por la planta, el ratón la come y la lechuza se come al ratón.",
+        "pista": "Empieza por la planta y sigue quién come a quién."
+      }
+    }
   },
   {
     "clave": "cyt.p2.modelo-de-cadena-alimenticia",

@@ -305,7 +305,133 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Sumas y restas que ya sabes",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a calcular rápido sumas y restas pequeñas. Como idea principal, algunas combinaciones se aprenden de memoria, como las parejas que forman diez. Con ellas llenamos primero el diez para sumar. Y cada suma que sabes te ayuda a resolver una resta."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Fichas en dos marcos",
+          "narracion": "Observemos esta situación. Hay dos marcos de diez casillas. En el primero hay siete fichas rojas. En el segundo hay seis fichas verdes. Queremos saber cuántas fichas hay en total.",
+          "recursoRef": "diez-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: llenar el diez",
+          "narracion": "Para sumar, llena primero un marco de diez. ¿Cuántas casillas vacías tiene el marco rojo? ¿De dónde puedes sacar esas fichas? Piénsalo.",
+          "recursoRef": "diez-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: diez y lo que queda",
+          "narracion": "Pasamos tres fichas verdes al marco rojo, y ya tiene diez. En el otro marco quedan tres fichas verdes. Entonces diez y tres son trece. Hay trece fichas.",
+          "recursoRef": "llenar-diez"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una resta",
+          "narracion": "Ahora hay trece fichas y se quitan cinco. ¿Cuántas quedan? No hace falta contar hacia atrás. Piensa qué número se suma con cinco para formar trece.",
+          "recursoRef": "resta-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la suma ayuda",
+          "narracion": "Cinco más ocho son trece. Por eso, si de trece quitamos cinco, quedan ocho. La suma nos dio la resta. Quedan ocho fichas.",
+          "recursoRef": "suma-resta"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con lo que sobra",
+          "narracion": "Aquí sumamos nueve y cuatro. Para llegar a diez, se usa una de las cuatro fichas, la marcada con un aro. Un error frecuente es sumar las cuatro completas al diez, y sale catorce. Eso es mal. Como una ya se usó, solo se suman las tres que sobran, y sale trece.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cuánto falta para diez",
+          "narracion": "Primero mira cuántas casillas le faltan al número más grande para llegar a diez. En el marco rojo faltan tres.",
+          "recursoRef": "diez-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: pasa y suma",
+          "narracion": "Segundo, pasa esa cantidad desde el otro número y llena el diez. Luego suma lo que quedó. Aquí, diez y tres.",
+          "recursoRef": "llenar-diez"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: usa la suma",
+          "narracion": "Tercero, para restar, busca la suma que ya sabes. Cinco más ocho son trece, así que trece menos cinco son ocho.",
+          "recursoRef": "suma-resta"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "diez-pregunta",
+          "src": "/nudito/diagramas/matematica/combinaciones-basicas-diez-pregunta.svg",
+          "alt": "Dos marcos de diez casillas: el primero con siete fichas rojas y el segundo con seis fichas verdes.",
+          "descripcion": "Dos marcos de dos filas de cinco casillas. El de la izquierda tiene siete fichas rojas: cinco arriba y dos abajo. El de la derecha tiene seis fichas verdes: cinco arriba y una abajo. Bajo ellos se lee rojas y verdes."
+        },
+        {
+          "id": "llenar-diez",
+          "src": "/nudito/diagramas/matematica/combinaciones-basicas-llenar-diez.svg",
+          "alt": "El primer marco lleno con siete fichas rojas y tres verdes; el segundo marco con tres fichas verdes.",
+          "descripcion": "Dos marcos de diez casillas. El de la izquierda está lleno: siete fichas rojas y tres verdes. El de la derecha tiene tres fichas verdes arriba. Bajo ellos se lee diez y tres, y más abajo, diez más tres igual trece."
+        },
+        {
+          "id": "resta-pregunta",
+          "src": "/nudito/diagramas/matematica/combinaciones-basicas-resta-pregunta.svg",
+          "alt": "Un marco de diez lleno y otro con tres fichas, y la cuenta trece menos cinco igual a un signo de pregunta.",
+          "descripcion": "Dos marcos de diez casillas con fichas azul oscuro. El de la izquierda está lleno, con diez fichas. El de la derecha tiene tres fichas en la fila de arriba. Abajo se lee trece menos cinco igual a un signo de pregunta."
+        },
+        {
+          "id": "suma-resta",
+          "src": "/nudito/diagramas/matematica/combinaciones-basicas-suma-resta.svg",
+          "alt": "Barra de trece partida en una parte de cinco y otra de ocho, con tres cuentas que usan esos números.",
+          "descripcion": "Una barra larga rotulada trece. Debajo, la misma barra partida en dos: una parte turquesa de cinco, más corta, y una parte azul oscuro de ocho, más larga. Abajo, tres cuentas: cinco más ocho igual trece, trece menos cinco igual ocho, y trece menos ocho igual cinco."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/combinaciones-basicas-errores.svg",
+          "alt": "Cuatro fichas, la primera marcada como ya usada, y dos cuentas: diez más cuatro, mal; diez más tres, bien.",
+          "descripcion": "Arriba se lee nueve más cuatro. Debajo hay cuatro fichas en fila: la primera es azul oscuro, con un aro amarillo y la nota ya se usó; las otras tres son turquesa. Más abajo, una equis roja con diez más cuatro igual catorce, y una marca verde con diez más tres igual trece."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Marta tiene once huevos y usa cinco para una torta. ¿Cuántos huevos quedan?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Seis huevos"
+          },
+          {
+            "id": "b",
+            "texto": "Siete huevos"
+          },
+          {
+            "id": "c",
+            "texto": "Cinco huevos"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Cinco más seis son once, así que once menos cinco son seis.",
+        "pista": "Piensa en una suma que conozcas y que dé once."
+      }
+    }
   },
   {
     "clave": "mat.p2.suma-resta-hasta-100",
@@ -623,7 +749,113 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Decenas con decenas, unidades con unidades",
+          "narracion": "Bienvenida y bienvenido. Hoy sumarás y restarás números de dos cifras. Como idea principal, calculas las decenas con las decenas y las unidades con las unidades. En estas cuentas no hay que cambiar diez unidades por una decena."
+        },
+        {
+          "id": "situacion-bloques",
+          "tipo": "recurso",
+          "titulo": "Barras y cubitos",
+          "narracion": "Observemos estas barras y cubitos. Cada barra es una decena, o sea diez. Cada cubito es una unidad. Arriba está el veintiuno: dos barras y un cubito. Abajo está el trece: una barra y tres cubitos. La última fila muestra el resultado.",
+          "recursoRef": "decenas-suma"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: veintiuno más trece",
+          "narracion": "Sumamos veintiuno más trece. Primero las unidades: uno más tres son cuatro. Después las decenas: dos más uno son tres.",
+          "recursoRef": "decenas-suma"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: juntamos el resultado",
+          "narracion": "Juntamos lo que obtuvimos: tres decenas y cuatro unidades. Es el treinta y cuatro. Entonces veintiuno más trece son treinta y cuatro.",
+          "recursoRef": "decenas-suma"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: cincuenta y tres menos veintiuno",
+          "narracion": "Restamos cincuenta y tres menos veintiuno. En el dibujo hay cinco barras y tres cubitos. Quitamos veintiuno: dos barras y un cubito.",
+          "recursoRef": "decenas-resta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: restamos por columnas",
+          "narracion": "Restamos por columnas. En las decenas: cinco menos dos son tres. En las unidades: tres menos uno son dos. Quedan treinta y dos.",
+          "recursoRef": "decenas-resta"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "No mezcles las columnas",
+          "narracion": "Cuidado con mezclar columnas. En veintiuno más trece, no sumes la decena de un número con la unidad del otro. Las decenas van con las decenas y las unidades con las unidades. Tampoco cambies diez unidades por una decena si no hace falta: aquí uno más tres son cuatro, menos de diez."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: alinea las columnas",
+          "narracion": "Primero escribe los números con las unidades bajo las unidades y las decenas bajo las decenas.",
+          "recursoRef": "decenas-suma"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: calcula unidades y luego decenas",
+          "narracion": "Después calcula primero las unidades y luego las decenas, en el mismo orden en que las alineaste.",
+          "recursoRef": "decenas-resta"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: junta y comprueba",
+          "narracion": "Por último, junta los resultados de las dos columnas y lee el número que formaste. Comprueba que tenga sentido: una suma da más y una resta da menos."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "decenas-suma",
+          "src": "/nudito/diagramas/matematica/suma-resta-bloques-suma.svg",
+          "alt": "Barras de decena y cubitos de unidad: dos barras y un cubito, más una barra y tres cubitos, dan tres barras y cuatro cubitos.",
+          "descripcion": "Hay tres filas con dos columnas, decenas y unidades. La primera fila muestra el veintiuno: dos barras y un cubito. La segunda muestra el trece: una barra y tres cubitos. Una línea separa la tercera fila, el resultado, con tres barras y cuatro cubitos."
+        },
+        {
+          "id": "decenas-resta",
+          "src": "/nudito/diagramas/matematica/suma-resta-bloques-resta.svg",
+          "alt": "De cinco barras y tres cubitos se quitan dos barras y un cubito, y quedan tres barras y dos cubitos.",
+          "descripcion": "Arriba hay cinco barras y tres cubitos, que forman el cincuenta y tres. Las dos últimas barras y el último cubito están con línea punteada, porque se quitan. Abajo quedan tres barras y dos cubitos, que forman el treinta y dos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Doña Luz tiene cuarenta y cinco huevos en su puesto del mercado y vende veintitrés. ¿Cuántos huevos le quedan?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Veintidós huevos"
+          },
+          {
+            "id": "b",
+            "texto": "Sesenta y ocho huevos"
+          },
+          {
+            "id": "c",
+            "texto": "Veintiocho huevos"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Restamos por columnas: cuatro menos dos son dos decenas, y cinco menos tres son dos unidades. Le quedan veintidós huevos.",
+        "pista": "Resta las decenas con las decenas y las unidades con las unidades."
+      }
+    }
   },
   {
     "clave": "mat.p2.problemas-juntar-separar",
@@ -2221,7 +2453,131 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Decenas completas",
+          "narracion": "Bienvenida y bienvenido. Hoy calcularemos con decenas. Una decena es un grupo de diez. Como idea principal, las decenas se suman y se restan como números pequeños: cinco decenas más dos decenas son siete decenas, o sea setenta. Y si a una decena completa le sumamos unidades, las unidades se escriben al final."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Bolsas de naranjas",
+          "narracion": "Observemos esta situación. Rosa vende naranjas en bolsas. Arriba están las cinco bolsas que ya tiene, y cada bolsa dice diez. Abajo están dos bolsas más que compra, también con diez en cada una. Queremos saber cuántas naranjas tiene en total.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: contar decenas",
+          "narracion": "Escribimos la cuenta como cincuenta más veinte. En la imagen, cada barra con rayitas es una decena. A la izquierda hay cinco barras y a la derecha hay dos. ¿Cuántas decenas hay en total?",
+          "recursoRef": "decenas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: sumar decenas",
+          "narracion": "Cinco decenas más dos decenas son siete decenas. Siete decenas valen setenta. Rosa tiene setenta naranjas. Fíjate que sumamos solo los números pequeños, cinco y dos, y luego dijimos decenas.",
+          "recursoRef": "setenta"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: decena y unidades",
+          "narracion": "Tomás tiene sesenta figuritas y gana cuatro más. En la imagen hay seis barras de diez y cuatro cuadritos sueltos. Los cuadritos sueltos son unidades. ¿Qué número se forma al juntarlos?",
+          "recursoRef": "unidades-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: las unidades van al final",
+          "narracion": "Las seis barras son sesenta, y los cuatro cuadritos son cuatro unidades. No hace falta otra cuenta: las unidades se escriben al final, en su lugar. Sesenta más cuatro es sesenta y cuatro. Tomás tiene sesenta y cuatro figuritas.",
+          "recursoRef": "sesenta-y-cuatro"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es sumar decenas y decir solo el número pequeño. Si dices que seis decenas más dos decenas son ocho, falta decir que son ochenta. Otro error es creer que setenta más nueve es ochenta y nueve. El nueve son unidades, y se escriben al final: setenta y nueve."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cuenta las decenas",
+          "narracion": "Mira cuántas decenas tiene cada número. Cincuenta tiene cinco decenas, y veinte tiene dos decenas, como las barras de la imagen.",
+          "recursoRef": "decenas-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: suma o resta las decenas",
+          "narracion": "Suma o resta esos números pequeños y luego di la palabra decenas. También se puede restar: ocho decenas menos tres decenas son cinco decenas, o sea cincuenta."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: agrega las unidades",
+          "narracion": "Si hay unidades sueltas, escríbelas al final. En el segundo ejemplo, seis decenas y cuatro unidades forman sesenta y cuatro.",
+          "recursoRef": "sesenta-y-cuatro"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/calculo-decenas-naranjas-situacion.svg",
+          "alt": "Cinco bolsas de diez naranjas y dos bolsas más, con la pregunta cuántas naranjas hay en total.",
+          "descripcion": "Arriba dice Rosa tiene 5 bolsas, con cinco bolsas amarillas que dicen 10. En medio dice Compra 2 bolsas más, con dos bolsas turquesa que dicen 10. Abajo se lee: Cada bolsa trae 10 naranjas y ¿Cuántas naranjas hay en total?"
+        },
+        {
+          "id": "decenas-pregunta",
+          "src": "/nudito/diagramas/matematica/calculo-decenas-decenas-pregunta.svg",
+          "alt": "Cinco barras de diez y dos barras de diez, rotuladas cincuenta y veinte, con la pregunta cuántas decenas hay.",
+          "descripcion": "Arriba dice Cincuenta más veinte. A la izquierda hay cinco barras amarillas con rayitas y debajo el número 50. En el centro hay un signo más. A la derecha hay dos barras turquesa con rayitas y debajo el número 20. Más abajo se lee: Cada barra es una decena y la pregunta ¿Cuántas decenas hay?"
+        },
+        {
+          "id": "setenta",
+          "src": "/nudito/diagramas/matematica/calculo-decenas-setenta.svg",
+          "alt": "Cinco barras amarillas y dos turquesa: cinco decenas más dos decenas son siete decenas, setenta.",
+          "descripcion": "Arriba dice Sumamos decenas. Hay una fila de siete barras con rayitas: cinco amarillas y dos turquesa. Debajo se lee 5 decenas + 2 decenas, luego = 7 decenas y al final 50 + 20 = 70."
+        },
+        {
+          "id": "unidades-pregunta",
+          "src": "/nudito/diagramas/matematica/calculo-decenas-unidades-pregunta.svg",
+          "alt": "Seis barras de diez, marcadas con 60, y cuatro cuadritos sueltos, marcados con 4, con la pregunta qué número se forma.",
+          "descripcion": "Arriba dice Sesenta más cuatro. A la izquierda hay seis barras amarillas con rayitas y debajo el número 60. Hay un signo más. A la derecha hay cuatro cuadritos amarillos en dos filas de dos y debajo el número 4. Más abajo se lee: Las barras son decenas y ¿Qué número se forma?"
+        },
+        {
+          "id": "sesenta-y-cuatro",
+          "src": "/nudito/diagramas/matematica/calculo-decenas-sesenta-y-cuatro.svg",
+          "alt": "Tabla de decenas y unidades: seis barras de diez, que son sesenta, y cuatro cuadritos; el total es sesenta y cuatro.",
+          "descripcion": "Arriba hay dos rótulos: Decenas, en índigo, y Unidades, en turquesa. Debajo de Decenas hay seis barras con rayitas y el texto 6 decenas = 60. Debajo de Unidades hay cuatro cuadritos amarillos en dos filas y el texto 4 unidades. Abajo se lee 60 + 4 = 64."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un bus lleva cincuenta pasajeros y en la parada bajan veinte. ¿Cuántos pasajeros quedan en el bus?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Setenta pasajeros"
+          },
+          {
+            "id": "b",
+            "texto": "Cuarenta pasajeros"
+          },
+          {
+            "id": "c",
+            "texto": "Treinta pasajeros"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Cinco decenas menos dos decenas son tres decenas, o sea treinta pasajeros.",
+        "pista": "Cuenta cuántas decenas hay en cada número y piensa si los pasajeros suben o bajan."
+      }
+    }
   },
   {
     "clave": "mat.p2.descomponer-para-sumar",
@@ -4098,7 +4454,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Sumar y restar con la decena",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a sumar y restar con ayuda de la decena más cercana. Una decena es un número redondo, como treinta, cuarenta o cincuenta. Como idea principal, primero llega a la decena y después suma o resta lo que sobra."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Un puesto del mercado",
+          "narracion": "Observemos esta situación. Don Tomás tiene veintiocho paltas en su puesto y le llegan seis más. Queremos saber cuántas paltas hay ahora. En el dibujo, una tarjeta dice cuántas tiene y otra, cuántas llegan.",
+          "recursoRef": "paltas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: sumar con la decena",
+          "narracion": "Ana tiene treinta y ocho soles y recibe cinco soles más. ¿Cuánto le falta a treinta y ocho para llegar a cuarenta?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: saltos hasta la decena",
+          "narracion": "A treinta y ocho le faltan dos para llegar a cuarenta. Partimos el cinco en dos y tres. Primero sumamos dos y llegamos a cuarenta. Luego sumamos tres: cuarenta y tres. En el dibujo, un salto de dos va hasta cuarenta y otro salto, de tres, llega a cuarenta y tres.",
+          "recursoRef": "recta-treinta-y-ocho"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: restar con la decena",
+          "narracion": "Un bus lleva sesenta y dos pasajeros y se bajan siete. Quieres bajar primero hasta sesenta. ¿Cuánto restas para llegar a sesenta?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: bajar y quitar el resto",
+          "narracion": "De sesenta y dos bajamos dos y llegamos a sesenta. Del siete ya quitamos dos, y sobran cinco. De sesenta quitamos cinco y quedan cincuenta y cinco. En el dibujo, un salto de dos baja hasta sesenta y otro salto, de cinco, llega a cincuenta y cinco.",
+          "recursoRef": "recta-sesenta-y-dos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado: lo que sobra",
+          "narracion": "Un niño calcula treinta y siete más seis. Suma tres y llega a cuarenta. Luego suma seis otra vez y dice cuarenta y seis. Se equivocó, porque tres de esos seis ya estaban sumados. En el dibujo, la recta de arriba tiene el error en rojo. En la de abajo, después de cuarenta se suma solo tres y se llega a cuarenta y tres.",
+          "recursoRef": "recta-error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cuánto falta",
+          "narracion": "Mira cuánto le falta a tu número para llegar a la decena más cercana."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: el número partido",
+          "narracion": "Parte el número que sumas o restas en dos pedazos. Un pedazo te lleva a la decena y el otro es lo que sobra."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: usa lo que sobra",
+          "narracion": "Desde la decena, suma o resta el pedazo que sobra. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "tres-pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "paltas-pregunta",
+          "src": "/nudito/diagramas/matematica/completar-la-decena-paltas-pregunta.svg",
+          "alt": "Una palta y dos tarjetas: tiene veintiocho paltas y llegan seis más; se pregunta cuántas hay ahora.",
+          "descripcion": "Arriba, una palta verde. Debajo, dos tarjetas unidas por un signo más: una dice Tiene veintiocho paltas y la otra, Llegan seis más. Abajo: ¿Cuántas paltas hay ahora?"
+        },
+        {
+          "id": "recta-treinta-y-ocho",
+          "src": "/nudito/diagramas/matematica/completar-la-decena-recta-treinta-y-ocho.svg",
+          "alt": "Recta numérica de treinta y ocho a cuarenta y tres con un salto de dos hasta cuarenta y otro de tres.",
+          "descripcion": "Una recta con marcas desde el treinta y siete hasta el cuarenta y cuatro. Un salto de más dos va de treinta y ocho a cuarenta y otro de más tres, de cuarenta a cuarenta y tres. Arriba: treinta y ocho más cinco. Abajo: treinta y ocho más dos es cuarenta, y cuarenta más tres es cuarenta y tres."
+        },
+        {
+          "id": "recta-sesenta-y-dos",
+          "src": "/nudito/diagramas/matematica/completar-la-decena-recta-sesenta-y-dos.svg",
+          "alt": "Recta numérica de sesenta y dos a cincuenta y cinco con un salto de dos hasta sesenta y otro de cinco.",
+          "descripcion": "Una recta con marcas desde el cincuenta y cuatro hasta el sesenta y tres. Un salto de menos dos baja de sesenta y dos a sesenta y otro de menos cinco, de sesenta a cincuenta y cinco. Arriba: sesenta y dos menos siete. Abajo: sesenta y dos menos dos es sesenta, y sesenta menos cinco es cincuenta y cinco."
+        },
+        {
+          "id": "recta-error",
+          "src": "/nudito/diagramas/matematica/completar-la-decena-recta-error.svg",
+          "alt": "Dos rectas: arriba, en rojo, se suma seis otra vez hasta cuarenta y seis; abajo se suma tres y se llega a cuarenta y tres.",
+          "descripcion": "Arriba: treinta y siete más seis. En rojo: Error: suma seis otra vez. En la primera recta, un salto de tres va de treinta y siete a cuarenta y otro salto rojo, de seis, llega a cuarenta y seis. En verde: Bien: solo suma lo que sobra. En la segunda recta, un salto de tres va de treinta y siete a cuarenta y otro de tres llega a cuarenta y tres."
+        },
+        {
+          "id": "tres-pasos",
+          "src": "/nudito/diagramas/matematica/completar-la-decena-tres-pasos.svg",
+          "alt": "Tarjeta con tres pasos para completar la decena.",
+          "descripcion": "Tres tarjetas numeradas. Uno: mira cuánto falta para la decena. Dos: parte el número que sumas o restas. Tres: suma o resta lo que sobra."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Carla tiene cuarenta y seis estampitas y gana siete más. Quiere completar la decena primero. ¿Cuántas estampitas tiene ahora?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cincuenta y uno"
+          },
+          {
+            "id": "b",
+            "texto": "Cincuenta y cinco"
+          },
+          {
+            "id": "c",
+            "texto": "Cincuenta y tres"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. A cuarenta y seis le faltan cuatro para cincuenta. Del siete sobran tres, y cincuenta más tres es cincuenta y tres.",
+        "pista": "Mira cuánto le falta a cuarenta y seis para llegar a cincuenta."
+      }
+    }
   },
   {
     "clave": "mat.p2.sumar-restar-9",
@@ -6195,7 +6673,7 @@
     "erroresFrecuentes": [
       {
         "error": "Decir que a 30 le faltan 30 para llegar a 100.",
-        "correccion": "Esa es la mitad de 60. A 30 le faltan 7 decenas: 70, porque 30 + 70 = 100."
+        "correccion": "30 son 3 decenas y 100 son 10 decenas: faltan 7 decenas, o sea 70, porque 30 + 70 = 100."
       },
       {
         "error": "Escribir 30 + 7 = 100.",
@@ -6435,7 +6913,130 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Completar hasta cien con decenas",
+          "narracion": "Bienvenida y bienvenido. Hoy completaremos hasta cien con decenas. Como idea principal, cien es lo mismo que diez decenas. Si ya tienes algunas decenas, cuentas cuántas te faltan para llegar a diez. Cada decena vale diez."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Un álbum de cien láminas",
+          "narracion": "Observemos esta situación. Elena pega láminas en un álbum con espacio para cien. Hay una fila de barras. Las barras oscuras son las láminas que ya pegó: veinte. Las barras vacías son las que faltan. Queremos saber cuántas láminas le faltan.",
+          "recursoRef": "barras-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: cuenta las decenas",
+          "narracion": "Cada barra vale una decena, o sea diez. ¿Cuántas decenas ya tiene Elena? Después piensa cuántas decenas tiene cien. ¿Cuántas barras faltan?",
+          "recursoRef": "barras-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: las decenas que faltan",
+          "narracion": "Veinte son dos decenas. Cien son diez decenas. Diez menos dos son ocho decenas. Ocho decenas son ochenta. A Elena le faltan ochenta láminas. Se comprueba: veinte más ochenta son cien.",
+          "recursoRef": "barras-decenas"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una caja de lápices",
+          "narracion": "Ahora una caja con espacio para cien lápices. Ya tiene setenta. Pensemos en decenas. ¿Cuántas decenas son setenta? ¿Cuántas decenas faltan para llegar a diez?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: los lápices que faltan",
+          "narracion": "Setenta son siete decenas. Diez menos siete son tres decenas. Tres decenas son treinta. Faltan treinta lápices. Se comprueba: setenta más treinta son cien.",
+          "recursoRef": "tira-setenta"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error frecuente es decir que faltan ocho, porque se olvida que son decenas. Veinte más ocho son veintiocho, y no llegan a cien. Las ocho decenas valen ochenta. Por eso se escribe veinte más ochenta.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cuenta las decenas",
+          "narracion": "Primero cuenta cuántas decenas tienes. Por ejemplo, veinte son dos decenas."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: resta de diez",
+          "narracion": "Recuerda que cien son diez decenas. A diez le quitas las decenas que ya tienes."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: escribe y comprueba",
+          "narracion": "Convierte las decenas que faltan en un número y suma para comprobar que llegas a cien. La tarjeta lo muestra con el ejemplo de veinte.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "barras-pregunta",
+          "src": "/nudito/diagramas/matematica/completar-a-100-barras-pregunta.svg",
+          "alt": "Fila de diez barras: las dos primeras oscuras con la etiqueta Ya pegó y las otras vacías.",
+          "descripcion": "Diez barras en fila. Las dos primeras están llenas y tienen arriba la etiqueta Ya pegó. Las otras están vacías, con borde punteado y un corchete debajo que dice ¿Cuánto falta?"
+        },
+        {
+          "id": "barras-decenas",
+          "src": "/nudito/diagramas/matematica/completar-a-100-barras-decenas.svg",
+          "alt": "Diez barras con diez cada una: dos oscuras y ocho verdes, con veinte más ochenta igual a cien.",
+          "descripcion": "Diez barras, cada una con el número diez. Las dos primeras, oscuras, dicen dos decenas son veinte. Las ocho verdes dicen ocho decenas son ochenta. Abajo: veinte más ochenta es igual a cien."
+        },
+        {
+          "id": "tira-setenta",
+          "src": "/nudito/diagramas/matematica/completar-a-100-tira-setenta.svg",
+          "alt": "Diez barras con diez cada una: siete oscuras y tres verdes, con setenta más treinta igual a cien.",
+          "descripcion": "Diez barras, cada una con el número diez. Las siete primeras, oscuras, dicen siete decenas son setenta. Las tres verdes dicen tres decenas son treinta. Abajo: setenta más treinta es igual a cien."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/completar-a-100-errores.svg",
+          "alt": "Diez barras con ocho señaladas, un cálculo equivocado en rojo y el correcto en verde.",
+          "descripcion": "Diez barras: dos oscuras y ocho verdes, estas con la etiqueta ocho decenas. Arriba, en rojo: veinte más ocho es veintiocho, no llega a cien. Abajo, en verde: ocho decenas son ochenta, veinte más ochenta es cien."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/completar-a-100-pasos.svg",
+          "alt": "Tarjeta con tres pasos para completar a cien: contar decenas, restar de diez decenas y comprobar.",
+          "descripcion": "Tres tarjetas numeradas. La uno: cuenta las decenas, veinte son dos decenas. La dos: resta de diez decenas, diez menos dos son ocho decenas. La tres: escribe y comprueba, ochenta; veinte más ochenta es cien."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lucho tiene sesenta figuritas y quiere juntar cien. ¿Cuántas figuritas le faltan?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sesenta"
+          },
+          {
+            "id": "b",
+            "texto": "Cincuenta"
+          },
+          {
+            "id": "c",
+            "texto": "Cuarenta"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Sesenta son seis decenas, cien son diez decenas, y faltan cuatro decenas: cuarenta.",
+        "pista": "Piensa en grupos de diez."
+      }
+    }
   },
   {
     "clave": "mat.p2.resta-con-canje",

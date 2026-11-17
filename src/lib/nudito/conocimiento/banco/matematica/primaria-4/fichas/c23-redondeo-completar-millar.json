@@ -581,6 +581,125 @@
         "retroalimentacion": "Es verdadero: solo falta 1."
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Completar al millar",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a completar un número hasta el siguiente millar. Como idea principal, el siguiente millar es el número redondo de miles que viene después. Lo que falta para llegar a él se llama complemento. Por ejemplo, desde ocho mil quinientos el siguiente millar es nueve mil, y faltan quinientos."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Colecta del colegio",
+          "narracion": "Observemos esta situación. El colegio hace una colecta. Ya llevamos cuatro mil trescientos soles y queremos llegar a cinco mil. En la barra, la parte amarilla ya está reunida y la parte blanca todavía falta. ¿Cuánto falta para llegar a cinco mil?",
+          "recursoRef": "colecta-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Un salto al millar",
+          "narracion": "Primero, un caso sencillo. Tenemos dos mil setecientos soles. El siguiente millar es tres mil. Piensa: ¿cuánto hay que agregar para llegar a tres mil?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "El tramo que falta",
+          "narracion": "Mira la barra. Entre dos mil setecientos y tres mil hay un tramo turquesa. Ese tramo mide trescientos. Comprobamos: dos mil setecientos más trescientos son tres mil. Faltan trescientos soles.",
+          "recursoRef": "dos-mil-setecientos"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Un número con decenas",
+          "narracion": "Ahora tomamos seis mil ochocientos cuarenta. El siguiente millar es siete mil. Podemos llegar en dos saltos: primero a la siguiente centena y después al millar. Piensa: ¿cuál es la siguiente centena?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Dos saltos",
+          "narracion": "Mira la recta. El primer salto suma sesenta y llega a seis mil novecientos. El segundo salto suma cien y llega a siete mil. Sesenta más cien son ciento sesenta. Faltan ciento sesenta.",
+          "recursoRef": "seis-mil-ochocientos-cuarenta"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Meta y faltante",
+          "narracion": "Aquí hay cinco mil cuatrocientos soles y la meta es seis mil. Un error común es decir que faltan seis mil, porque se confunde la meta con lo que falta. La meta es el punto de llegada. Lo que falta es el tramo turquesa: seiscientos. Para saberlo, comparamos la meta con lo que ya tenemos.",
+          "recursoRef": "error-meta"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: halla el millar",
+          "narracion": "Lee el número y busca el siguiente millar. Es el número de miles que viene después."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: completa",
+          "narracion": "Calcula cuánto falta para llegar a ese millar. Puedes restar, o dar saltos hasta la centena y luego hasta el millar."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: comprueba",
+          "narracion": "Suma lo que encontraste al número del principio. Si llegas al millar, está bien. Si no, revisa los saltos."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "colecta-pregunta",
+          "src": "/nudito/diagramas/matematica/completar-millar-colecta-pregunta.svg",
+          "alt": "Barra entre cuatro mil y cinco mil con una parte amarilla reunida y un tramo blanco por completar.",
+          "descripcion": "Una barra horizontal. A la izquierda, la parte amarilla ya reunida llega a la marca cuatro mil trescientos. El resto es blanco y lleva un signo de pregunta arriba. Debajo se leen cuatro mil, cuatro mil trescientos y cinco mil. Arriba: Llevamos cuatro mil trescientos soles. Abajo: ¿Cuánto falta para cinco mil?"
+        },
+        {
+          "id": "dos-mil-setecientos",
+          "src": "/nudito/diagramas/matematica/completar-millar-dos-mil-setecientos.svg",
+          "alt": "Barra de dos mil a tres mil con la marca en dos mil setecientos y un tramo turquesa de trescientos.",
+          "descripcion": "Una barra de dos mil a tres mil. La parte amarilla llega a dos mil setecientos; el tramo turquesa que sigue hasta tres mil dice más trescientos. Debajo se leen dos mil, dos mil setecientos y tres mil. Abajo: Faltan trescientos soles."
+        },
+        {
+          "id": "seis-mil-ochocientos-cuarenta",
+          "src": "/nudito/diagramas/matematica/completar-millar-seis-mil-ochocientos-cuarenta.svg",
+          "alt": "Recta con tres puntos, seis mil ochocientos cuarenta, seis mil novecientos y siete mil, unidos por dos saltos.",
+          "descripcion": "Una recta con tres puntos: seis mil ochocientos cuarenta, seis mil novecientos y siete mil. Un arco turquesa de más sesenta une los dos primeros y otro arco de más cien une los dos últimos. Abajo se lee: sesenta más cien igual a ciento sesenta."
+        },
+        {
+          "id": "error-meta",
+          "src": "/nudito/diagramas/matematica/completar-millar-error-meta.svg",
+          "alt": "Barra de cinco mil a seis mil con la marca en cinco mil cuatrocientos y la meta señalada en seis mil.",
+          "descripcion": "Una barra de cinco mil a seis mil. La parte amarilla llega a cinco mil cuatrocientos y el tramo turquesa hasta seis mil dice más seiscientos. Una línea con la palabra meta señala el extremo de seis mil. Abajo, en rojo: Faltan seiscientos, no seis mil."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una escuela reunió cinco mil setecientas cincuenta tapitas. ¿Cuántas faltan para llegar a seis mil?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Setecientas cincuenta"
+          },
+          {
+            "id": "b",
+            "texto": "Doscientas cuarenta"
+          },
+          {
+            "id": "c",
+            "texto": "Trescientas cincuenta"
+          },
+          {
+            "id": "d",
+            "texto": "Doscientas cincuenta"
+          }
+        ],
+        "respuesta": "d",
+        "mensajeCorrecto": "Correcto. De cinco mil setecientos cincuenta a seis mil faltan doscientas cincuenta.",
+        "pista": "Busca el siguiente millar y mira cuánto hay entre ese número y el tuyo."
+      }
+    },
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",

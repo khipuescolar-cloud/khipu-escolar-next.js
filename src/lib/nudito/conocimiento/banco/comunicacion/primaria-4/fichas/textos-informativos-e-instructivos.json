@@ -372,7 +372,123 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Un texto que enseña a hacer algo",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a leer textos instructivos, como una receta. Como idea principal, un texto instructivo enseña a hacer algo. Dice qué materiales necesitas y qué pasos seguir, uno después de otro y en orden."
+        },
+        {
+          "id": "situacion-partes",
+          "tipo": "recurso",
+          "titulo": "Las partes de un texto instructivo",
+          "narracion": "Observemos este texto: «Cómo sembrar un frijol». Arriba está el título, que dice qué vas a hacer. Luego, los materiales: un frijol, algodón y un vaso. Y abajo, los pasos numerados: uno, pon el algodón en el vaso; dos, moja el algodón; tres, pon el frijol sobre el algodón; cuatro, deja el vaso junto a la ventana; y cinco, riega un poco cada día.",
+          "recursoRef": "partes-instructivo"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: un barquito de papel",
+          "narracion": "Leamos estas instrucciones: «Primero dobla la hoja por la mitad. Luego dobla las puntas hacia el centro. Finalmente sube los bordes de abajo». ¿Qué palabras nos ayudan a seguir el orden?"
+        },
+        {
+          "id": "ejemplo-1-orden",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: las palabras que ordenan",
+          "narracion": "Las palabras «primero», «luego» y «finalmente» marcan el orden. En el cuadro aparecen tres tarjetas. Primero, doblar la hoja por la mitad. Luego, doblar las puntas hacia el centro. Y finalmente, subir los bordes de abajo. Si cambias el orden, el barquito no sale.",
+          "recursoRef": "barquito-orden"
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: lavarse las manos",
+          "narracion": "Ahora ordenemos nosotros. Mira las cuatro tarjetas: A, enjuágalas con agua; B, mójate las manos; C, sécalas con una toalla; y D, frótalas con jabón. Están desordenadas. ¿Cuál va primero?",
+          "recursoRef": "pasos-desordenados"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: pensamos qué va antes y qué va después",
+          "narracion": "Pensemos qué necesita cada paso. Para frotar con jabón, antes hay que mojarse las manos: B va primero y D, después. Para enjuagar, el jabón ya debe estar puesto: A va tercero. Y secar va al final, cuando las manos ya están limpias: C. El orden es B, D, A y C."
+        },
+        {
+          "id": "error-empezar-sin-leer",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: empezar sin leer todo",
+          "narracion": "Un error es empezar por el paso que parece más fácil sin leer el orden. Imagina secarte las manos antes de lavarlas: tendrías que repetirlo todo. Otro error es no revisar los materiales y darte cuenta a mitad de la tarea de que falta uno. Antes de empezar, lee la lista completa y junta lo necesario."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee el título",
+          "narracion": "Primero lee el título: te dice qué vas a hacer."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: revisa los materiales",
+          "narracion": "Luego busca la lista de materiales y comprueba que tengas todo, como el frijol, el algodón y el vaso del texto de la siembra.",
+          "recursoRef": "partes-instructivo"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: sigue los pasos en orden",
+          "narracion": "Después sigue los pasos en el orden en que aparecen, uno por uno, sin saltarte ninguno, como en las tres tarjetas del barquito.",
+          "recursoRef": "barquito-orden"
+        },
+        {
+          "id": "paso-4",
+          "tipo": "paso",
+          "titulo": "Paso 4: fíjate en las palabras que ordenan",
+          "narracion": "Por último, fíjate en palabras como «primero», «luego», «después» y «finalmente»: te dicen qué va antes y qué va después."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "partes-instructivo",
+          "src": "/nudito/diagramas/comunicacion/instructivo-partes.svg",
+          "alt": "Texto instructivo: título, Cómo sembrar un frijol; materiales, 1 frijol, algodón y un vaso; cinco pasos numerados.",
+          "descripcion": "Un título resaltado, «Cómo sembrar un frijol». Debajo, el bloque «Materiales»: 1 frijol, algodón y un vaso. Y el bloque «Pasos» con cinco líneas: 1, pon el algodón en el vaso; 2, moja el algodón; 3, pon el frijol sobre el algodón; 4, deja el vaso junto a la ventana; 5, riega un poco cada día."
+        },
+        {
+          "id": "barquito-orden",
+          "src": "/nudito/diagramas/comunicacion/instructivo-barquito-orden.svg",
+          "alt": "Cómo armar un barquito de papel, tres tarjetas: 1 primero, dobla la hoja por la mitad; 2 luego, dobla las puntas hacia el centro; 3 finalmente, sube los bordes de abajo.",
+          "descripcion": "Bajo el título «Cómo armar un barquito de papel» hay tres tarjetas numeradas. «1. Primero: dobla la hoja por la mitad». «2. Luego: dobla las puntas hacia el centro». «3. Finalmente: sube los bordes de abajo», resaltada."
+        },
+        {
+          "id": "pasos-desordenados",
+          "src": "/nudito/diagramas/comunicacion/instructivo-pasos-desordenados.svg",
+          "alt": "Cómo lavarse las manos, cuatro tarjetas desordenadas: A enjuágalas con agua; B mójate las manos; C sécalas con una toalla; D frótalas con jabón.",
+          "descripcion": "Bajo el título «Cómo lavarse las manos» hay cuatro tarjetas, una debajo de otra y sin orden: «A. Enjuágalas con agua», «B. Mójate las manos», «C. Sécalas con una toalla» y «D. Frótalas con jabón»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee: «Pulsera de lana. Materiales: tres hilos de lana y tijeras. Pasos: 1. Corta tres hilos del mismo largo. 2. Haz un nudo en un extremo. 3. Trenza los hilos. 4. Haz otro nudo al final». ¿Qué paso va justo después de trenzar los hilos?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cortar tres hilos del mismo largo."
+          },
+          {
+            "id": "b",
+            "texto": "Hacer otro nudo al final."
+          },
+          {
+            "id": "c",
+            "texto": "Hacer un nudo en un extremo."
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Después de trenzar los hilos, el paso cuatro indica hacer otro nudo al final para cerrar la pulsera. Cortar los hilos y el primer nudo van antes de trenzar.",
+        "pista": "Busca el número del paso de trenzar y mira el que viene después."
+      }
+    }
   },
   {
     "clave": "com.p4.la-biografia",
@@ -1132,7 +1248,118 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Una noticia informa",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a reconocer las partes y el propósito de una noticia. Como idea principal, una noticia informa sobre un hecho real y reciente. Tiene un titular que lo resume, una entrada con los datos principales y un cuerpo con más detalles."
+        },
+        {
+          "id": "situacion-partes",
+          "tipo": "recurso",
+          "titulo": "Las tres partes de una noticia",
+          "narracion": "Observemos este esquema con tres bloques. Primero está el titular, que resume el hecho en pocas palabras. Debajo, la entrada, que dice qué pasó, quién, cuándo y dónde. Al final, el cuerpo, que da detalles y explicaciones del hecho.",
+          "recursoRef": "partes-noticia"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: árboles en Arequipa",
+          "narracion": "Leamos esta noticia: «Estudiantes siembran 200 árboles. El sábado, estudiantes sembraron 200 árboles en la ribera del río Chili. La municipalidad donó los plantones y los estudiantes los regarán cada semana». Vamos a separar sus partes."
+        },
+        {
+          "id": "ejemplo-1-marca",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ubicamos cada parte",
+          "narracion": "En el cuadro, la franja amarilla es el titular: «Estudiantes siembran 200 árboles». Resume el hecho. La entrada responde qué pasó: sembraron 200 árboles; quién: estudiantes; cuándo: el sábado; y dónde: en la ribera del río Chili. El cuerpo agrega detalles: la municipalidad donó los plantones y los estudiantes los regarán.",
+          "recursoRef": "noticia-marcada"
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ¿noticia o cuento?",
+          "narracion": "Ahora comparemos dos textos. El primero dice: «Ayer se abrió un nuevo mirador en Sacsayhuamán, Cusco». El segundo dice: «Había una vez un puma que hablaba con las estrellas». ¿Cuál de los dos es una noticia?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: buscamos si es un hecho real",
+          "narracion": "Mira las dos tarjetas. La primera cuenta un hecho real y reciente: tiene fecha, ayer, y lugar, Sacsayhuamán en Cusco. Eso es una noticia, y su propósito es informar. La segunda es un cuento: empieza con «había una vez» y habla de un puma que habla con las estrellas, algo inventado, sin fecha ni lugar real.",
+          "recursoRef": "noticia-o-cuento"
+        },
+        {
+          "id": "error-titular-cuerpo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: confundir titular y cuerpo",
+          "narracion": "Un error común es confundir el titular con el cuerpo. En el cuadro de la noticia, el titular es la frase corta y destacada de arriba. El cuerpo es lo que va al final y da los detalles. Si la frase resume todo el hecho en pocas palabras, es el titular; si agrega explicaciones, es el cuerpo.",
+          "recursoRef": "noticia-marcada"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee el titular",
+          "narracion": "Primero lee el titular: resume lo más importante en pocas palabras."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca los datos en la entrada",
+          "narracion": "Luego, en la entrada, busca qué pasó, quién, cuándo y dónde. Después lee el cuerpo para conocer los detalles y las explicaciones del hecho.",
+          "recursoRef": "partes-noticia"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: recuerda el propósito",
+          "narracion": "Por último, piensa para qué se escribió el texto. Una noticia informa sobre hechos reales y recientes, con datos como lugar y fecha. No es una historia inventada, como el cuento del puma.",
+          "recursoRef": "noticia-o-cuento"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "partes-noticia",
+          "src": "/nudito/diagramas/comunicacion/noticia-partes.svg",
+          "alt": "Tres bloques: titular, que resume el hecho; entrada, que dice qué pasó, quién, cuándo y dónde; cuerpo, que da detalles y explicaciones.",
+          "descripcion": "Tres bloques apilados. El amarillo, «Titular», dice que resume el hecho en pocas palabras. El verde azulado, «Entrada», dice que responde qué pasó, quién, cuándo y dónde. El blanco, «Cuerpo», dice que da detalles y explicaciones."
+        },
+        {
+          "id": "noticia-marcada",
+          "src": "/nudito/diagramas/comunicacion/noticia-marcada.svg",
+          "alt": "Noticia en tres bloques: titular, Estudiantes siembran 200 árboles; entrada, con qué, quién, cuándo y dónde; cuerpo, con la donación de plantones y el riego.",
+          "descripcion": "Una noticia dividida en tres bloques. El titular, amarillo: «Estudiantes siembran 200 árboles». La entrada, verde azulada: «El sábado, estudiantes sembraron 200 árboles en la ribera del río Chili». El cuerpo, blanco: «La municipalidad donó los plantones y los estudiantes los regarán»."
+        },
+        {
+          "id": "noticia-o-cuento",
+          "src": "/nudito/diagramas/comunicacion/noticia-o-cuento.svg",
+          "alt": "Dos tarjetas: la noticia, Ayer se abrió un nuevo mirador en Sacsayhuamán, Cusco, con fecha y lugar real; el cuento, Había una vez un puma que hablaba con las estrellas, inventado.",
+          "descripcion": "Una tarjeta verde azulada, «Noticia: hecho real», dice «Ayer se abrió un nuevo mirador en Sacsayhuamán, Cusco» y que tiene fecha y lugar real. Una tarjeta de borde punteado, «Cuento: hecho inventado», dice «Había una vez un puma que hablaba con las estrellas» y que no tiene fecha ni lugar real."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee: «Gran feria de papa nativa reúne a mil visitantes en Huancavelica. Este domingo, mil personas visitaron la feria de papa nativa en la plaza de Huancavelica. Los productores ofrecieron más de cincuenta variedades». ¿Cuál es la entrada, la parte que dice qué pasó, cuándo y dónde?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Gran feria de papa nativa reúne a mil visitantes en Huancavelica."
+          },
+          {
+            "id": "b",
+            "texto": "Los productores ofrecieron más de cincuenta variedades de papa."
+          },
+          {
+            "id": "c",
+            "texto": "Este domingo, mil personas visitaron la feria en Huancavelica."
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "La entrada es la tercera opción: dice qué pasó (mil personas visitaron la feria), cuándo (este domingo) y dónde (en Huancavelica). La primera es el titular, que resume el hecho, y la segunda es un detalle del cuerpo.",
+        "pista": "Busca la oración que responde juntas a qué pasó, cuándo y dónde."
+      }
+    }
   },
   {
     "clave": "com.p4.avisos-y-anuncios",

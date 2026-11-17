@@ -300,7 +300,132 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Gráfico de barras con cubos",
+          "narracion": "Bienvenida y bienvenido. Hoy usaremos cubos para comparar datos. Como idea principal, ponemos un cubo por cada persona que eligió una opción. Los cubos se apilan hacia arriba y forman una torre. La torre más alta es la opción que eligieron más personas."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Los niños y las frutas",
+          "narracion": "Observemos esta situación. Cinco niños eligieron la fresa y tres niños eligieron la lúcuma. Los niños están arriba, con el nombre de su fruta debajo. Más abajo hay dos lugares vacíos, uno para cada fruta, marcados con un signo de pregunta. Allí vamos a poner las torres de cubos.",
+          "recursoRef": "ninos-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la torre de la fresa",
+          "narracion": "Empezamos con la fresa. Cinco niños la eligieron, entonces ponemos cinco cubos, uno por cada niño, y los apilamos desde el suelo. Mira la torre turquesa de la fresa. Todavía falta la torre de la lúcuma, que sigue con su signo de pregunta.",
+          "recursoRef": "torre-fresa"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la torre de la lúcuma",
+          "narracion": "Ahora la lúcuma. Tres niños la eligieron, entonces ponemos tres cubos amarillos. Comparamos las dos torres. La torre de la fresa es más alta que la de la lúcuma. Eso quiere decir que eligieron más la fresa.",
+          "recursoRef": "fresa-lucuma"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el recreo",
+          "narracion": "Ahora pensemos en el recreo. Cuatro niños eligieron jugar fútbol y dos niños eligieron jugar vóley. Queremos saber cuál torre será más alta y cuántos cubos más tendrá. Piensa: un cubo por cada niño y una torre para cada juego."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: dos torres",
+          "narracion": "La torre de fútbol tiene cuatro cubos y la de vóley tiene dos. La de fútbol es más alta. Para saber cuántos cubos más tiene, miramos los que sobran en la torre de fútbol: son los dos de arriba, con borde amarillo. Entonces fútbol tiene dos cubos más.",
+          "recursoRef": "recreo"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Mira estos dos grupos de tres niños. En el grupo de la izquierda, la torre tiene seis cubos y una equis roja: se pusieron dos cubos por niño, y así no sirve. En el grupo de la derecha, la torre tiene tres cubos, uno por niño, y una palomita. Otro error es pensar que la torre más baja es la más elegida. No es así: la más alta es la que más personas eligieron.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: un lugar para cada opción",
+          "narracion": "Primero reparte un lugar para cada opción. En la imagen hay un lugar para la fresa y otro para la lúcuma. Los niños de cada fruta se quedan arriba, junto al nombre de su fruta.",
+          "recursoRef": "ninos-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: un cubo por niño, hacia arriba",
+          "narracion": "Pon un cubo por cada niño que eligió la opción. Apila los cubos hacia arriba, uno encima del otro. Mira las dos torres: cinco cubos para la fresa y tres cubos para la lúcuma.",
+          "recursoRef": "fresa-lucuma"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: compara las torres",
+          "narracion": "Por último, compara las torres. La más alta es la opción que más personas eligieron. En el recreo, la torre de fútbol es más alta que la de vóley.",
+          "recursoRef": "recreo"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "ninos-pregunta",
+          "src": "/nudito/diagramas/matematica/barras-con-material-ninos-pregunta.svg",
+          "alt": "Cinco niños de la fresa y tres niños de la lúcuma, con dos lugares vacíos marcados con un signo de pregunta debajo.",
+          "descripcion": "Arriba hay ocho niños en fila: cinco con ropa turquesa, sobre la palabra fresa, y tres con ropa amarilla, sobre la palabra lúcuma. Debajo de cada nombre hay una columna punteada de toda la altura con un signo de pregunta, apoyada sobre una línea de suelo."
+        },
+        {
+          "id": "torre-fresa",
+          "src": "/nudito/diagramas/matematica/barras-con-material-torre-fresa.svg",
+          "alt": "Torre de cinco cubos turquesa para la fresa; la lúcuma tiene una columna vacía con signo de pregunta.",
+          "descripcion": "Están los mismos ocho niños arriba. Debajo de la palabra fresa sube una torre de cinco cubos turquesa. Debajo de la palabra lúcuma hay una columna punteada de toda la altura con un signo de pregunta."
+        },
+        {
+          "id": "fresa-lucuma",
+          "src": "/nudito/diagramas/matematica/barras-con-material-fresa-lucuma.svg",
+          "alt": "Torre de fresa con cinco cubos turquesa y torre de lúcuma con tres cubos amarillos, bajo sus niños.",
+          "descripcion": "Debajo de los cinco niños de la fresa sube una torre de cinco cubos turquesa. Debajo de los tres niños de la lúcuma sube una torre de tres cubos amarillos. La torre de la fresa es más alta."
+        },
+        {
+          "id": "recreo",
+          "src": "/nudito/diagramas/matematica/barras-con-material-recreo.svg",
+          "alt": "Torre de fútbol de cuatro cubos y torre de vóley de dos cubos.",
+          "descripcion": "Sobre una línea de suelo hay dos torres. La de fútbol, turquesa, tiene cuatro cubos, y los dos de arriba tienen un borde amarillo grueso. La de vóley, amarilla, tiene dos cubos. Debajo se leen los nombres fútbol y vóley."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/barras-con-material-errores.svg",
+          "alt": "Dos grupos de tres niños: una torre de seis cubos con equis roja y otra de tres cubos con palomita.",
+          "descripcion": "A la izquierda, tres niños y una torre de seis cubos amarillos, con una equis roja al lado y el texto seis cubos en rojo. A la derecha, tres niños y una torre de tres cubos turquesa, con una palomita verde al lado y el texto tres cubos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "La torre de la soga tiene cuatro cubos y la torre del trompo tiene siete cubos. ¿Cuántos niños más eligieron el trompo?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Once niños más"
+          },
+          {
+            "id": "b",
+            "texto": "Tres niños más"
+          },
+          {
+            "id": "c",
+            "texto": "Cuatro niños más"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. El trompo tiene tres cubos más que la soga, así que lo eligieron tres niños más.",
+        "pista": "Pon las dos torres lado a lado y mira cuántos cubos tiene de más la más alta."
+      }
+    }
   },
   {
     "clave": "mat.p1.pictograma-horizontal",
@@ -1226,7 +1351,133 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Gráficos con casilleros",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a hacer gráficos de barras con casilleros. Como idea principal, cada niño vale un casillero. Pintamos los casilleros uno encima de otro, desde abajo hacia arriba, y así se forma una columna. La columna más alta es la que tiene más niños."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Los juegos del recreo",
+          "narracion": "Observemos esta situación. Los niños del salón eligieron su juego favorito del recreo: la soga, el trompo o las canicas. Arriba están los niños de cada grupo. Abajo hay una columna de casilleros para cada juego, todavía sin pintar. Queremos mostrar cuántos niños eligieron cada uno.",
+          "recursoRef": "juegos-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: pintar las columnas",
+          "narracion": "Cuenta los niños de cada grupo. Después piensa: ¿cuántos casilleros pintarás en la columna de la soga? ¿Y en la del trompo? ¿Y en la de las canicas? Recuerda que cada niño vale un casillero.",
+          "recursoRef": "juegos-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: así quedan las columnas",
+          "narracion": "Aquí están las columnas pintadas. La soga tiene cuatro niños, y su columna tiene cuatro casilleros. El trompo tiene dos niños, y su columna tiene dos casilleros. Las canicas tienen cinco niños, y su columna tiene cinco casilleros. Todas empiezan abajo y suben sin dejar huecos.",
+          "recursoRef": "juegos-pintado"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: leer un gráfico",
+          "narracion": "Ahora leemos un gráfico que ya está pintado. Los niños eligieron un paseo: la granja, el mercado o la playa. Fíjate en las columnas. ¿Cuál llega más arriba? Y la granja, ¿cuántos niños más tiene que el mercado?",
+          "recursoRef": "paseos-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: comparar columnas",
+          "narracion": "Comparamos las columnas. La de la granja es la más alta: tiene seis casilleros. La del mercado tiene tres. La línea punteada marca hasta dónde llega el mercado. Los casilleros de la granja que pasan esa línea tienen borde amarillo, y son tres. Entonces tres niños más eligieron la granja que el mercado.",
+          "recursoRef": "paseos-mas"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con este error",
+          "narracion": "Mira los dos gráficos de tres niños. En el de la izquierda, cada niño pintó un casillero y quedaron tres, uno encima de otro, desde abajo. Está bien. En el de la derecha, cada niño pintó dos casilleros, y quedaron seis. Es un error: cada niño vale un solo casillero.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: una columna por opción",
+          "narracion": "Primero haz una columna para cada opción. En el gráfico de los juegos hay una columna para la soga, otra para el trompo y otra para las canicas.",
+          "recursoRef": "juegos-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: un casillero por niño",
+          "narracion": "Después cuenta los niños de cada opción. Cada niño se pinta con un solo casillero. Empieza desde abajo y no dejes huecos.",
+          "recursoRef": "juegos-pintado"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: compara las alturas",
+          "narracion": "Por último compara las columnas. La más alta tiene más niños. Para saber cuántos más, cuenta los casilleros que sobran, como hicimos con la granja y el mercado.",
+          "recursoRef": "paseos-mas"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "juegos-pregunta",
+          "src": "/nudito/diagramas/matematica/barras-verticales-juegos-pregunta.svg",
+          "alt": "Tres grupos de niños con sus juegos, soga, trompo y canicas, y debajo tres columnas de casilleros vacías.",
+          "descripcion": "Arriba hay tres grupos de niños, cada uno sobre el nombre de su juego. Soga tiene cuatro niños con ropa turquesa, trompo tiene dos con ropa amarilla y canicas tiene cinco con ropa azul oscuro. Debajo de cada nombre hay una columna de seis casilleros vacíos."
+        },
+        {
+          "id": "juegos-pintado",
+          "src": "/nudito/diagramas/matematica/barras-verticales-juegos-pintado.svg",
+          "alt": "Las tres columnas pintadas de abajo hacia arriba: soga con cuatro casilleros, trompo con dos y canicas con cinco.",
+          "descripcion": "Se ven los mismos grupos de niños y, debajo, las columnas con casilleros pintados desde abajo, uno encima de otro. La columna de soga tiene cuatro casilleros turquesa, la de trompo tiene dos amarillos y la de canicas tiene cinco azul oscuro. Los casilleros de arriba quedan vacíos."
+        },
+        {
+          "id": "paseos-pregunta",
+          "src": "/nudito/diagramas/matematica/barras-verticales-paseos-pregunta.svg",
+          "alt": "Gráfico de tres columnas pintadas: granja, mercado y playa.",
+          "descripcion": "Se ven tres columnas de casilleros pintados desde abajo, con el nombre del paseo debajo. La de granja tiene seis casilleros turquesa, la de mercado tiene tres amarillos y la de playa tiene cuatro azul oscuro. Encima de cada una quedan casilleros vacíos."
+        },
+        {
+          "id": "paseos-mas",
+          "src": "/nudito/diagramas/matematica/barras-verticales-paseos-mas.svg",
+          "alt": "El mismo gráfico con una línea punteada a la altura del mercado y tres casilleros de la granja con borde amarillo.",
+          "descripcion": "Se ve el mismo gráfico. Una línea punteada cruza las tres columnas a la altura de la columna de mercado. En la columna de granja, los tres casilleros que quedan por encima de esa línea tienen un borde amarillo grueso."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/barras-verticales-errores.svg",
+          "alt": "Dos gráficos de tres niños: a la izquierda tres casilleros con una palomita; a la derecha seis casilleros con una equis.",
+          "descripcion": "Hay dos recuadros. En cada uno hay tres niños arriba y una columna debajo. En el de la izquierda, la columna tiene tres casilleros turquesa y lleva una palomita con la palabra bien. En el de la derecha, la columna tiene seis casilleros turquesa y lleva una equis roja con la palabra error."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En un gráfico de la clase, la columna de manzana tiene cuatro casilleros pintados, la de papaya tiene siete y la de plátano tiene cinco. ¿Qué fruta eligieron más niños?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Manzana"
+          },
+          {
+            "id": "b",
+            "texto": "Papaya"
+          },
+          {
+            "id": "c",
+            "texto": "Plátano"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. La columna de papaya es la más alta, así que más niños eligieron papaya.",
+        "pista": "Mira cuál de las tres columnas llega más arriba."
+      }
+    }
   },
   {
     "clave": "mat.p1.leer-barras",

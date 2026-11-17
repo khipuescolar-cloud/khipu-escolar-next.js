@@ -1220,19 +1220,19 @@
         "opciones": [
           {
             "id": "a",
-            "texto": "En la urna 1"
+            "texto": "Es mayor en la urna 1"
           },
           {
             "id": "b",
-            "texto": "En la urna 2"
+            "texto": "Es mayor en la urna 2"
           },
           {
             "id": "c",
-            "texto": "En ambas urnas la posibilidad es exactamente la misma"
+            "texto": "Es igual en las dos"
           },
           {
             "id": "d",
-            "texto": "No se pueden comparar porque tienen distintos totales"
+            "texto": "No se pueden comparar"
           }
         ],
         "pistas": [
@@ -1310,6 +1310,132 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comparación de la posibilidad de dos sucesos",
+          "narracion": "Bienvenida y bienvenido. Hoy compararemos qué suceso es más posible. Como idea principal, contamos los casos favorables de cada suceso y los comparamos con el total de resultados posibles. Si el total es el mismo, gana el suceso con más casos favorables. Si los totales son distintos, comparamos las fracciones."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "La caja de fichas",
+          "narracion": "Observemos esta situación. En una caja hay fichas amarillas y fichas turquesas, todas del mismo tamaño. Sacamos una ficha sin mirar. Queremos saber qué es más posible: que salga amarilla o que salga turquesa.",
+          "recursoRef": "caja-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: contamos los casos",
+          "narracion": "Primero pensamos en el total de resultados posibles: son todas las fichas de la caja. Después contamos cuántas fichas favorecen a cada suceso. Cuenta las amarillas y cuenta las turquesas.",
+          "recursoRef": "caja-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: comparamos",
+          "narracion": "En total hay diez fichas. Seis son amarillas y cuatro son turquesas. Los dos sucesos juegan sobre el mismo total, entonces gana el que tiene más casos favorables. Seis es mayor que cuatro, así que es más posible sacar una ficha amarilla.",
+          "recursoRef": "caja-conteo"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: dos bolsas",
+          "narracion": "Ahora hay dos bolsas de bolitas. Ana gana si saca una bolita roja de su bolsa, y Raúl gana si saca una bolita roja de la suya. Las bolsas no tienen el mismo total de bolitas. ¿Quién tiene más posibilidad de ganar? Piensa antes de seguir.",
+          "recursoRef": "bolsas-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: comparamos fracciones",
+          "narracion": "Ana tiene cuatro rojas entre cinco bolitas: cuatro quintos. Raúl tiene seis rojas entre diez bolitas: seis décimos. Para comparar, escribimos cuatro quintos como ocho décimos, porque multiplicamos arriba y abajo por dos. Ocho décimos es mayor que seis décimos, así que Ana tiene más posibilidad, aunque Raúl tenga más bolitas rojas.",
+          "recursoRef": "bolsas-fracciones"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Mira las bolsas de Eva y de Ivo. Eva tiene tres rojas entre cuatro bolitas, e Ivo tiene cinco rojas entre diez. En la primera línea solo se compararon cinco y tres, y se dijo que gana Ivo: eso lleva una equis roja. En la segunda línea, cinco décimos es la mitad, y tres cuartos es más que la mitad, así que gana Eva, y lleva una palomita.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cuenta el total",
+          "narracion": "Primero determina el total de resultados posibles. En la caja son diez fichas.",
+          "recursoRef": "caja-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: cuenta los casos favorables",
+          "narracion": "Segundo, cuenta los casos favorables de cada suceso: seis amarillas y cuatro turquesas. Si el total es el mismo, el suceso con más casos favorables es el más posible.",
+          "recursoRef": "caja-conteo"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: compara fracciones",
+          "narracion": "Tercero, si los totales son distintos, compara las fracciones. En las bolsas, ocho décimos es mayor que seis décimos.",
+          "recursoRef": "bolsas-fracciones"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "caja-pregunta",
+          "src": "/nudito/diagramas/matematica/comparar-posibilidades-caja-pregunta.svg",
+          "alt": "Una caja con diez fichas amarillas y turquesas mezcladas, con la leyenda de colores y el texto sacamos una sin mirar.",
+          "descripcion": "Una caja rectangular con diez fichas redondas en dos filas de cinco, mezcladas de color amarillo y turquesa. Debajo, una leyenda con un círculo amarillo y la palabra amarilla, y otro turquesa con la palabra turquesa. Abajo se lee sacamos una sin mirar."
+        },
+        {
+          "id": "caja-conteo",
+          "src": "/nudito/diagramas/matematica/comparar-posibilidades-caja-conteo.svg",
+          "alt": "La caja con diez fichas; la leyenda dice amarilla: seis y turquesa: cuatro, y abajo total: diez fichas.",
+          "descripcion": "La misma caja con diez fichas en dos filas de cinco. Debajo, la leyenda dice amarilla: seis y turquesa: cuatro. Abajo se lee total: diez fichas."
+        },
+        {
+          "id": "bolsas-pregunta",
+          "src": "/nudito/diagramas/matematica/comparar-posibilidades-bolsas-pregunta.svg",
+          "alt": "Dos bolsas de bolitas: la de Ana con cuatro rojas y una azul, y la de Raúl con seis rojas y cuatro azules.",
+          "descripcion": "Dos bolsas con bolitas rojas y azules. La bolsa de Ana tiene cinco bolitas: cuatro rojas y una azul. La bolsa de Raúl tiene diez bolitas en dos filas: seis rojas y cuatro azules. Abajo, una leyenda roja y azul y los textos gana quien saca roja y ¿quién tiene más posibilidad?"
+        },
+        {
+          "id": "bolsas-fracciones",
+          "src": "/nudito/diagramas/matematica/comparar-posibilidades-bolsas-fracciones.svg",
+          "alt": "Las bolsas de Ana y de Raúl con cuatro quintos y seis décimos; abajo, cuatro quintos igual ocho décimos, y ocho décimos mayor que seis décimos: Ana.",
+          "descripcion": "Las mismas dos bolsas. Debajo de la de Ana se lee cuatro quintos y debajo de la de Raúl, seis décimos. Más abajo, cuatro quintos igual ocho décimos y, en turquesa, ocho décimos mayor que seis décimos: Ana."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/comparar-posibilidades-errores.svg",
+          "alt": "Eva tiene cuatro bolitas, tres rojas, e Ivo diez, cinco rojas. Comparar solo cinco y tres lleva equis roja; tres cuartos mayor que cinco décimos lleva palomita.",
+          "descripcion": "Arriba, una bolsa chica con cuatro bolitas, tres rojas y una azul, rotulada Eva: tres de cuatro, y una bolsa más grande con diez bolitas, cinco rojas y cinco azules, rotulada Ivo: cinco de diez. Abajo, en rojo, solo comparo cinco y tres: gana Ivo, con una equis roja. Más abajo, en turquesa, tres cuartos mayor que cinco décimos: gana Eva, con una palomita."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Luna tiene una bolsa con tres bolitas rojas y nueve azules. Beto tiene otra con dos rojas y cuatro azules. Cada uno gana si saca una bolita roja sin mirar. ¿Quién tiene más posibilidad de ganar?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Beto tiene más"
+          },
+          {
+            "id": "b",
+            "texto": "Luna tiene más"
+          },
+          {
+            "id": "c",
+            "texto": "Tienen igual"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Luna tiene tres rojas entre doce, que es un cuarto, y Beto tiene dos rojas entre seis, que es un tercio. Un tercio es mayor que un cuarto.",
+        "pista": "Compara la fracción de rojas de cada bolsa, no solo cuántas rojas hay."
+      }
+    }
   }
 ]

@@ -559,7 +559,7 @@
         "id": "e09",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Un centro de salud en Cusco registró casos de resfrío infantil: abril (30 casos), mayo (80 casos), junio (120 casos) y julio (60 casos). La posta debe realizar la vacunación preventiva antes de que se presente el mes con mayor cantidad de enfermos. ¿En qué mes resulta más oportuno aplicar la campaña preventiva?",
+        "enunciado": "Un centro de salud en Cusco registró casos de gripe infantil: abril (30 casos), mayo (80 casos), junio (120 casos) y julio (60 casos). La posta debe realizar la vacunación preventiva antes de que se presente el mes con mayor cantidad de enfermos. ¿Cuándo conviene aplicar la campaña?",
         "respuesta": "c",
         "alternativasAceptadas": [],
         "opciones": [
@@ -655,6 +655,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Decisiones a partir del análisis de datos",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a tomar decisiones con datos. Como idea principal, leemos una tabla o un gráfico, buscamos el dato mayor o el menor y escribimos una conclusión con cifras. Luego proponemos una decisión que responda a lo que muestran los datos, no a lo que nos gusta."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Qué comprar para el recreo",
+          "narracion": "Observemos esta situación. El colegio puede comprar un solo material para el recreo y preguntó a cincuenta alumnos de quinto grado cuál prefieren. El gráfico de barras muestra cuatro opciones: sogas, pelotas, ajedrez y ligas. Cada barra indica cuántos alumnos eligieron esa opción. ¿Qué conviene comprar?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: leer el gráfico",
+          "narracion": "Compara las barras del gráfico. Fíjate cuál es la más alta y cuál es la más baja. ¿Qué opción eligieron más alumnos?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la conclusión",
+          "narracion": "Ahora cada barra muestra su número de votos. Las pelotas son la opción con más votos: veintiuno de los cincuenta alumnos las eligieron. Conclusión: las pelotas son la preferencia mayor. Decisión: comprar pelotas, porque es lo que más alumnos prefieren.",
+          "recursoRef": "conclusion"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: tardanzas de la semana",
+          "narracion": "Ahora una tabla. Muestra cuántos alumnos llegaron tarde cada día de una semana. El tutor quiere hacer una campaña de puntualidad. Lee la tabla y piensa: ¿en qué día conviene hacerla?",
+          "recursoRef": "tabla-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el día con más tardanzas",
+          "narracion": "El lunes tiene nueve tardanzas, más que cualquier otro día. En total hubo veinticinco tardanzas en la semana. Conclusión: el lunes concentra más tardanzas. Decisión: hacer la campaña de puntualidad los lunes.",
+          "recursoRef": "tabla-conclusion"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Decidir por gusto",
+          "narracion": "Mira este error. Una niña dice que le gusta el ajedrez y propone comprarlo. Pero en el gráfico el ajedrez fue de las opciones menos elegidas. Una decisión no se toma por el gusto de una persona, sino por lo que muestran los datos de todos.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee la tabla o el gráfico",
+          "narracion": "Primero lee los títulos, las opciones y los números. Entiende qué se está contando."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca el dato que importa",
+          "narracion": "Luego busca el valor mayor o el menor, según lo que necesites, y compáralo con los demás."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: concluye y decide",
+          "narracion": "Por último, escribe una conclusión que use las cifras y propone una decisión que responda a ella."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/decisiones-datos-situacion.svg",
+          "alt": "Gráfico de barras sin números, con cuatro opciones: sogas, pelotas, ajedrez y ligas.",
+          "descripcion": "Gráfico de barras con dos ejes y sin números. Sogas, altura media; Pelotas, la barra más alta; Ajedrez, más baja que Sogas; Ligas, la más baja de las cuatro. Arriba el título Qué comprar para el recreo; abajo, la pregunta: ¿Qué conviene comprar?"
+        },
+        {
+          "id": "conclusion",
+          "src": "/nudito/diagramas/matematica/decisiones-datos-conclusion.svg",
+          "alt": "El mismo gráfico con el número de votos sobre cada barra y la barra de pelotas en turquesa.",
+          "descripcion": "Sobre las barras: sogas, doce; pelotas, veintiuno, en turquesa y la más alta; ajedrez, nueve; ligas, ocho. Título: Votos de cincuenta alumnos. Abajo: Pelotas: la barra más alta."
+        },
+        {
+          "id": "tabla-pregunta",
+          "src": "/nudito/diagramas/matematica/decisiones-datos-tabla-pregunta.svg",
+          "alt": "Tabla con las tardanzas de cada día de una semana.",
+          "descripcion": "Tabla con dos columnas, Día y Tardanzas. Lunes, nueve; martes, cuatro; miércoles, tres; jueves, cuatro; viernes, cinco. Abajo se lee: ¿Qué decisión conviene tomar?"
+        },
+        {
+          "id": "tabla-conclusion",
+          "src": "/nudito/diagramas/matematica/decisiones-datos-tabla-conclusion.svg",
+          "alt": "La misma tabla con el lunes resaltado y una fila final con el total.",
+          "descripcion": "La tabla de tardanzas con la fila del lunes en amarillo, con nueve tardanzas, y una última fila de total con veinticinco. Abajo: Más tardanzas: lunes."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/decisiones-datos-error.svg",
+          "alt": "Gráfico de votos con un globo de diálogo, Me gusta, que apunta a la barra de ajedrez.",
+          "descripcion": "El gráfico de votos: sogas, doce; pelotas, veintiuno; ajedrez, nueve; ligas, ocho. Un globo rojo dice Me gusta y una flecha apunta a la barra de ajedrez. Abajo, en rojo: Elegir por gusto, sin datos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "El aula de quinto votó qué libros poner en su rincón de lectura. Quince votaron por cuentos, seis por poesía y nueve por cómics. ¿Qué decisión se apoya en los datos?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Comprar solo poesía"
+          },
+          {
+            "id": "b",
+            "texto": "Comprar igual de todo"
+          },
+          {
+            "id": "c",
+            "texto": "Comprar más cuentos"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Cuentos tuvo más votos, quince de treinta, así que conviene comprar más cuentos.",
+        "pista": "Compara los votos de los tres tipos de libro."
+      }
+    }
   }
 ]

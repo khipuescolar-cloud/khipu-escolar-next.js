@@ -970,15 +970,15 @@
         "id": "e08",
         "dificultad": 2,
         "tipo": "verdadero_falso",
-        "enunciado": "En la adivinanza «Tiene corona y no es rey, tiene sol y no da calor», la respuesta puede ser una piña.",
+        "enunciado": "En la adivinanza «Tiene corona y no es rey, tiene escamas y no es pez», la respuesta puede ser un girasol.",
         "respuesta": false,
         "alternativasAceptadas": [],
         "pistas": [
-          "Una piña tiene corona de hojas, pero revisa la otra pista.",
-          "La segunda pista habla de algo que da luz, pero no calor.",
-          "Una piña no tiene sol; piensa en una flor con muchos pétalos."
+          "Una de las pistas habla de escamas.",
+          "Piensa en una fruta con corona de hojas.",
+          "Una piña tiene corona de hojas y una cáscara con forma de escamas."
         ],
-        "retroalimentacion": "Es falso: la piña tiene una corona de hojas, pero la pista del sol apunta a un girasol, que parece un sol y no da calor."
+        "retroalimentacion": "Es falso: la respuesta es la piña, que tiene corona de hojas y una cáscara con forma de escamas; un girasol no tiene escamas."
       },
       {
         "id": "e09",
@@ -1016,7 +1016,7 @@
         "id": "e10",
         "dificultad": 3,
         "tipo": "texto_corto",
-        "enunciado": "«Soy blanca, pero no soy nieve; cuando me escribes en la pizarra, desapareces con el borrador». ¿Qué soy? Escribe dos palabras.",
+        "enunciado": "«Soy blanca, pero no soy nieve; cuando me escribes en la pizarra, desapareces con el borrador». ¿Qué soy? Escribe una palabra.",
         "respuesta": "tiza",
         "alternativasAceptadas": [
           "una tiza",
@@ -1084,7 +1084,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Pistas y frases con doble sentido",
+          "narracion": "Bienvenida y bienvenido. Hoy trabajaremos con adivinanzas y con expresiones que no dicen lo que parecen. Como idea principal de este tema, recuerda esto: una adivinanza da pistas de algo escondido y tú descubres la respuesta uniendo todas las pistas. Una expresión con doble sentido se entiende mirando la situación en que se usa."
+        },
+        {
+          "id": "situacion-abuelo",
+          "tipo": "recurso",
+          "titulo": "Adivinanzas en el patio",
+          "narracion": "Observemos esta situación. Es de noche y hay estrellas en el cielo. Un abuelo cuenta adivinanzas a su nieta y a su nieto en el patio de la casa. Los niños escuchan con curiosidad y sonríen. Una adivinanza se descubre cuando escuchamos todas las pistas.",
+          "recursoRef": "abuelo"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una adivinanza de objeto",
+          "narracion": "El abuelo dice una adivinanza con tres pistas, que puedes leer en la pantalla. La primera pista dice: tiene hojas y no es árbol. La segunda dice: tiene lomo y no es caballo. La tercera dice: te cuenta mil historias. ¿Qué es?",
+          "recursoRef": "libro-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: une las pistas",
+          "narracion": "Veamos cada pista. Las hojas son las páginas. El lomo es la parte donde se unen las páginas. Y se lee para conocer historias. Todas las pistas llevan al mismo objeto: es un libro.",
+          "recursoRef": "libro-solucion"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una frase con doble sentido",
+          "narracion": "Ahora una frase. Doña Rosa, vendedora del mercado, dice: «Hoy estoy con el agua al cuello». Hoy hay muchos clientes en su puesto. ¿Habla del agua de verdad? ¿Qué quiere decir?",
+          "recursoRef": "agua-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: mira la situación",
+          "narracion": "Observa a doña Rosa en su puesto. Aunque sonríe, tiene cajas y sacos a su alrededor, muchos niños le piden cosas a la vez y las manos llenas. No está en el agua: tiene mucho trabajo y poco tiempo. La expresión quiere decir que está muy apurada.",
+          "recursoRef": "rosa"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con entender al pie de la letra",
+          "narracion": "Un error frecuente es entender una expresión al pie de la letra. Si alguien dice «Ana está en las nubes», Ana no está en el cielo. Quiere decir que está distraída. Otro error es adivinar con una sola pista. Una buena respuesta cumple todas."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: escucha todo",
+          "narracion": "Primero, escucha la adivinanza completa y quédate con cada pista."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: une pistas o mira la situación",
+          "narracion": "Después, piensa en cosas que cumplan todas las pistas a la vez. Si una frase suena rara, mira la situación y pregúntate qué quiere decir la persona de verdad."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: comprueba",
+          "narracion": "Por último, comprueba tu respuesta con todas las pistas o con toda la situación."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "abuelo",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-2/adivinanzas-abuelo-gemini-v1.webp",
+          "alt": "Un abuelo con gorro de lana cuenta adivinanzas a dos niños sentados en una banca, en un patio de noche con estrellas.",
+          "descripcion": "Un abuelo con gorro andino y suéter gris habla con las manos en alto a una niña de trenza y a un niño con gorro, sentados juntos en una banca. Es de noche: hay luna, estrellas, una lámpara encendida y macetas con flores en el patio."
+        },
+        {
+          "id": "libro-pregunta",
+          "src": "/nudito/diagramas/comunicacion/adivinanza-expresiones-libro-pregunta.svg",
+          "alt": "Tres pistas de una adivinanza sobre hojas, lomo e historias, y la pregunta ¿Qué es?",
+          "descripcion": "Arriba dice «Pistas de la adivinanza:». Tres tarjetas blancas dicen: «Tiene hojas y no es árbol.», «Tiene lomo y no es caballo.» y «Te cuenta mil historias.». Abajo, en amarillo: «¿Qué es?»."
+        },
+        {
+          "id": "libro-solucion",
+          "src": "/nudito/diagramas/comunicacion/adivinanza-expresiones-libro-solucion.svg",
+          "alt": "Cada pista de la adivinanza unida a su significado, con la respuesta: es un libro.",
+          "descripcion": "Tres tarjetas, cada una con una pista y una flecha: «Tiene hojas y no es árbol» lleva a «las páginas»; «Tiene lomo y no es caballo» lleva a «el lomo del libro»; «Te cuenta mil historias» lleva a «se lee». Abajo, en amarillo: «Es un libro.»."
+        },
+        {
+          "id": "agua-pregunta",
+          "src": "/nudito/diagramas/comunicacion/adivinanza-expresiones-agua-pregunta.svg",
+          "alt": "La frase de doña Rosa, Hoy estoy con el agua al cuello, y la pregunta sobre lo que quiere decir.",
+          "descripcion": "Arriba: «Doña Rosa dice: «Hoy estoy con el agua al cuello.»». Debajo: «Situación: hoy hay muchos clientes.». Una tarjeta blanca: «¿Habla del agua de verdad? Mira la situación.». Abajo, en amarillo: «¿Qué quiere decir?»."
+        },
+        {
+          "id": "rosa",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-2/adivinanzas-rosa-gemini-v1.webp",
+          "alt": "Doña Rosa, vendedora, sostiene papas y telas en su puesto del mercado, rodeada de cajas, sacos y niños que le piden cosas.",
+          "descripcion": "Una vendedora con delantal bordado sostiene papas y telas en las manos, en su puesto de mercado. A su alrededor hay cajas, sacos de papas y frutas. Cuatro niños con mochila estiran los brazos hacia ella y una madre con un bebé espera detrás."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Tomás ve un video de un payaso y dice: «Me muero de risa». ¿Qué quiere decir?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Que se puso muy enfermo hoy."
+          },
+          {
+            "id": "b",
+            "texto": "Que está muy triste y llora."
+          },
+          {
+            "id": "c",
+            "texto": "Que se ríe con muchas ganas."
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "No habla de morir de verdad: quiere decir que Tomás se ríe con muchas ganas.",
+        "pista": "Piensa cómo se siente alguien que ve algo muy gracioso."
+      }
+    }
   },
   {
     "clave": "com.p2.semejanzas-y-diferencias-oral",

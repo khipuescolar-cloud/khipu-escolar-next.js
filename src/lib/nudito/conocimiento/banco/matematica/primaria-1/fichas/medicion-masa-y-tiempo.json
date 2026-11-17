@@ -1278,7 +1278,130 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comparar masas con la balanza",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a comparar lo que pesan dos objetos con una balanza. Como idea principal, mira cuál platillo baja. El objeto de ese platillo pesa más. El que sube pesa menos. Si los dos platillos quedan parejos, los objetos pesan igual."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Papa y cebolla",
+          "narracion": "Observemos esta situación. En el mercado, doña Rosa tiene una balanza con los platillos vacíos y parejos. A los lados hay una papa y una cebolla. Ella quiere saber cuál de las dos pesa más.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: papa y cebolla",
+          "narracion": "Doña Rosa pone la papa en un platillo y la cebolla en el otro. ¿Cuál platillo crees que bajará? ¿Cuál de los dos objetos pesa más?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: baja la papa",
+          "narracion": "El platillo de la papa baja, así que la papa pesa más. La cebolla está en el platillo que sube, así que pesa menos. En el dibujo, la papa está a la izquierda y baja. La cebolla está a la derecha y sube.",
+          "recursoRef": "papa-cebolla"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: lápiz y borrador",
+          "narracion": "Ahora hay un lápiz en un platillo y un borrador en el otro. Los dos platillos quedan a la misma altura. ¿Qué podemos decir de lo que pesan?",
+          "recursoRef": "lapiz-borrador-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: pesan igual",
+          "narracion": "Si ningún platillo baja ni sube, los dos objetos pesan igual. El lápiz y el borrador pesan lo mismo. En el dibujo, la balanza está pareja.",
+          "recursoRef": "lapiz-borrador"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Grande no siempre pesa más",
+          "narracion": "Pedro piensa que lo más grande siempre pesa más. Mira la balanza. El globo es grande, pero su platillo sube. La piedra es pequeña, pero su platillo baja. Así que el tamaño no decide. Decide la balanza.",
+          "recursoRef": "globo-piedra"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: pon los objetos",
+          "narracion": "Pon un objeto en cada platillo. Usa uno solo en cada lado y espera a que la balanza se quede quieta."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: mira los platillos",
+          "narracion": "Mira cuál platillo baja y cuál sube. El que baja tiene el objeto que pesa más. El que sube tiene el objeto que pesa menos."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: di qué pasó",
+          "narracion": "Si los dos platillos quedan parejos, di que pesan igual. Luego explica con una frase corta: este pesa más porque su platillo bajó."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/comparar-masa-situacion.svg",
+          "alt": "Balanza de platillos vacía y pareja, con una papa a la izquierda y una cebolla a la derecha sobre la mesa.",
+          "descripcion": "Una balanza de dos platillos turquesa, vacíos, con el brazo horizontal. Sobre la mesa, a la izquierda, hay una papa marrón rotulada «Papa» y, a la derecha, una cebolla morada rotulada «Cebolla». Arriba se pregunta cuál pesa más."
+        },
+        {
+          "id": "papa-cebolla",
+          "src": "/nudito/diagramas/matematica/comparar-masa-papa-cebolla.svg",
+          "alt": "Balanza con la papa en el platillo izquierdo, que baja, y la cebolla en el derecho, que sube.",
+          "descripcion": "La balanza está inclinada. El platillo izquierdo, con la papa, queda abajo y se rotula «Papa: baja». El platillo derecho, con la cebolla, queda arriba y se rotula «Cebolla: sube». Arriba dice que la papa pesa más."
+        },
+        {
+          "id": "lapiz-borrador-pregunta",
+          "src": "/nudito/diagramas/matematica/comparar-masa-lapiz-borrador-pregunta.svg",
+          "alt": "Balanza con un lápiz en el platillo izquierdo y un borrador en el derecho; los dos platillos están a la misma altura.",
+          "descripcion": "Una balanza con el brazo horizontal. En el platillo izquierdo hay un lápiz amarillo con goma roja y, en el derecho, un borrador blanco con una banda turquesa. Debajo se leen «Lápiz» y «Borrador». Arriba se pregunta qué podemos decir."
+        },
+        {
+          "id": "lapiz-borrador",
+          "src": "/nudito/diagramas/matematica/comparar-masa-lapiz-borrador.svg",
+          "alt": "Balanza pareja con un lápiz y un borrador; el título dice que pesan igual.",
+          "descripcion": "La misma balanza con el brazo horizontal, el lápiz a la izquierda y el borrador a la derecha, rotulados «Lápiz» y «Borrador». Arriba dice «Pesan igual» y, debajo, «Los platillos quedan parejos»."
+        },
+        {
+          "id": "globo-piedra",
+          "src": "/nudito/diagramas/matematica/comparar-masa-globo-piedra.svg",
+          "alt": "Balanza con un globo grande en el platillo izquierdo, que sube, y una piedra pequeña en el derecho, que baja.",
+          "descripcion": "La balanza está inclinada hacia la derecha. En el platillo izquierdo, que queda arriba, hay un globo turquesa grande rotulado «Globo: sube». En el derecho, que queda abajo, hay una piedra gris pequeña rotulada «Piedra: baja». Arriba dice «Grande no siempre pesa más»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Pones una manzana y una naranja en una balanza. El platillo de la manzana sube. ¿Qué objeto pesa más?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La manzana"
+          },
+          {
+            "id": "b",
+            "texto": "La naranja"
+          },
+          {
+            "id": "c",
+            "texto": "Pesan igual"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. El platillo de la manzana sube, así que la manzana pesa menos y la naranja pesa más.",
+        "pista": "Piensa en cuál de las dos frutas está en el platillo que baja."
+      }
+    }
   },
   {
     "clave": "mat.p1.ayer-hoy-manana",
@@ -1606,7 +1729,123 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Ayer, hoy y mañana",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a hablar de los días. Como idea principal de este tema, hoy es el día en que estás. Ayer es el día que pasó antes de hoy. Mañana es el día que viene después de hoy. Los días siguen un orden: lunes, martes, miércoles, jueves, viernes, sábado y domingo."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Mamá y el mercado",
+          "narracion": "Observemos esta situación. Hoy es martes. Mamá fue al mercado ayer. Hay tres tarjetas: ayer, hoy y mañana. En la tarjeta de hoy se lee martes. Las tarjetas de ayer y de mañana tienen un signo de pregunta. Queremos saber qué día fue mamá al mercado.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el día de antes",
+          "narracion": "Mamá fue al mercado ayer. Ayer es el día de antes de hoy. Hoy es martes. Pensemos en el orden de los días. ¿Qué día viene justo antes del martes?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ayer fue lunes",
+          "narracion": "Antes del martes viene el lunes. Entonces mamá fue al mercado el lunes. En las tarjetas, ayer es lunes, hoy es martes y mañana es miércoles.",
+          "recursoRef": "lunes-martes"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el día que sigue",
+          "narracion": "Hoy es viernes. Tito viaja a Cusco mañana. Mañana es el día que sigue después de hoy. Pensemos en el orden de los días. ¿Qué día viene después del viernes?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: mañana es sábado",
+          "narracion": "Después del viernes viene el sábado. Entonces Tito viaja a Cusco el sábado. En las tarjetas, ayer fue jueves, hoy es viernes y mañana es sábado.",
+          "recursoRef": "jueves-sabado"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es decir que mañana es el día de antes. Mañana va después de hoy. El día de antes es ayer. Otro error es pensar que después del domingo viene otro sábado. Los días vuelven a empezar: después del domingo viene el lunes."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: di qué día es hoy",
+          "narracion": "Primero, di qué día es hoy. Todo lo demás se cuenta desde ese día. Por ejemplo, hoy es martes."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: ayer y mañana",
+          "narracion": "Para ayer, piensa en el día de antes. Para mañana, piensa en el día que sigue. Si hoy es martes, ayer es lunes y mañana es miércoles, como muestran las tarjetas.",
+          "recursoRef": "lunes-martes"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: usa el orden de los días",
+          "narracion": "Usa los días en orden. Cuando llegas al domingo, el día que sigue es el lunes. Las tarjetas muestran sábado, domingo y lunes, con flechas en ese orden. Después del domingo no viene otro sábado: la flecha del domingo lleva al lunes, porque otra semana empieza.",
+          "recursoRef": "domingo-lunes"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/ayer-hoy-manana-situacion.svg",
+          "alt": "Tres tarjetas: ayer y mañana con signo de pregunta, y hoy con la palabra martes.",
+          "descripcion": "Arriba dice «Hoy es martes». Hay tres tarjetas en fila. La primera dice Ayer y tiene un signo de pregunta en un recuadro punteado. La del centro, amarilla, dice Hoy y martes. La tercera dice Mañana y también tiene un signo de pregunta en un recuadro punteado. Abajo se lee: Mamá fue al mercado ayer."
+        },
+        {
+          "id": "lunes-martes",
+          "src": "/nudito/diagramas/matematica/ayer-hoy-manana-lunes-martes.svg",
+          "alt": "Tarjetas en orden: ayer lunes, hoy martes y mañana miércoles.",
+          "descripcion": "Arriba dice «Antes y después del martes». Hay tres tarjetas en fila: Ayer, lunes, en verde azulado; Hoy, martes, en amarillo; y Mañana, miércoles, sin color. Abajo se lee: Mamá fue al mercado el lunes."
+        },
+        {
+          "id": "jueves-sabado",
+          "src": "/nudito/diagramas/matematica/ayer-hoy-manana-jueves-sabado.svg",
+          "alt": "Tarjetas en orden: ayer jueves, hoy viernes y mañana sábado.",
+          "descripcion": "Arriba dice «Antes y después del viernes». Hay tres tarjetas en fila: Ayer, jueves, sin color; Hoy, viernes, en amarillo; y Mañana, sábado, en verde azulado. Abajo se lee: Tito viaja a Cusco el sábado."
+        },
+        {
+          "id": "domingo-lunes",
+          "src": "/nudito/diagramas/matematica/ayer-hoy-manana-domingo-lunes.svg",
+          "alt": "Tarjetas de sábado, domingo y lunes unidas por flechas gruesas, en ese orden.",
+          "descripcion": "Arriba dice «Los días vuelven a empezar». Hay tres tarjetas en fila, unidas por flechas gruesas: sábado, sin color; domingo, en amarillo; y lunes, en verde azulado. La flecha del domingo al lunes es verde azulada. Abajo se lee: Después del domingo empieza otra semana."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Hoy es lunes. Ana irá a la chacra mañana. ¿Qué día irá a la chacra?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Domingo"
+          },
+          {
+            "id": "b",
+            "texto": "Lunes"
+          },
+          {
+            "id": "c",
+            "texto": "Martes"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Mañana es el día que sigue a hoy, y después del lunes viene el martes.",
+        "pista": "Mañana es el día que viene después de hoy. Piensa en el orden de los días."
+      }
+    }
   },
   {
     "clave": "mat.p1.dias-semana",
@@ -2834,6 +3073,132 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "El calendario del mes",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a leer un calendario. Como idea principal, el calendario guarda los días del mes en filas de siete. Cada columna es un día de la semana. Para saber cuántos días faltan para una fiesta, contamos desde mañana."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Un paseo en junio",
+          "narracion": "Observemos esta situación. Es el calendario de junio. Hoy es nueve y está marcado en amarillo. El paseo del colegio es el trece y está marcado en turquesa. Queremos saber cuántos días faltan.",
+          "recursoRef": "hoy-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: contar los días",
+          "narracion": "Cuenta con el dedo sobre el calendario. ¿En qué número empiezas a contar? ¿Cuántos números tocas hasta llegar al paseo? Piénsalo y responde.",
+          "recursoRef": "hoy-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: desde mañana",
+          "narracion": "Ahora los días que se cuentan están en turquesa. Hoy no se cuenta. Contamos uno en el diez, dos en el once, tres en el doce y cuatro en el trece. Faltan cuatro días para el paseo.",
+          "recursoRef": "contar"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ¿qué día cae?",
+          "narracion": "Ahora queremos saber qué día de la semana es el diecisiete, que está marcado. Arriba de cada columna están los nombres cortos de los días. Busca la columna del diecisiete y sube con la vista.",
+          "recursoRef": "dia-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: su columna",
+          "narracion": "Ahora la columna del diecisiete está pintada. Arriba dice que es la columna del miércoles. Entonces el diecisiete es miércoles. Cada fila tiene siete días, y por eso el miércoles se repite cada siete números.",
+          "recursoRef": "columna"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado al contar",
+          "narracion": "Aquí hoy es quince y el paseo es dieciocho. En la fila de arriba, mal, se empieza a contar en hoy y salen cuatro. En la fila de abajo, bien, se cuenta desde el dieciséis y salen tres. Faltan tres días. Hoy no se cuenta.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca el número",
+          "narracion": "Primero busca el número que te piden. Aquí está marcado el diecisiete. Mira en qué fila y en qué columna está.",
+          "recursoRef": "dia-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: sube por la columna",
+          "narracion": "Segundo, sube por su columna hasta el nombre del día. Así sabes qué día de la semana es.",
+          "recursoRef": "columna"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: cuenta los que faltan",
+          "narracion": "Tercero, para saber cuántos días faltan, cuenta desde mañana hasta el evento. Los días en turquesa son los que se cuentan. Hoy no cuenta.",
+          "recursoRef": "contar"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "hoy-pregunta",
+          "src": "/nudito/diagramas/matematica/calendario-mes-hoy-pregunta.svg",
+          "alt": "Calendario de junio con el nueve marcado en amarillo como hoy y el trece en turquesa como el paseo.",
+          "descripcion": "Un calendario de junio con las siglas de los siete días arriba y cinco filas de números, del uno al treinta. El nueve, en amarillo con borde azul oscuro, es hoy. El trece, en turquesa, es el paseo. Abajo, la leyenda: amarillo es hoy y turquesa es paseo."
+        },
+        {
+          "id": "contar",
+          "src": "/nudito/diagramas/matematica/calendario-mes-contar.svg",
+          "alt": "Calendario de junio con hoy, el nueve, en amarillo y del diez al trece en turquesa; abajo dice que faltan cuatro días.",
+          "descripcion": "El mismo calendario de junio. El nueve está en amarillo y es hoy. Los números diez, once, doce y trece están en turquesa: son los días que se cuentan. Abajo, la leyenda hoy y se cuentan, y la frase Faltan cuatro días."
+        },
+        {
+          "id": "dia-pregunta",
+          "src": "/nudito/diagramas/matematica/calendario-mes-dia-pregunta.svg",
+          "alt": "Calendario de junio con el diecisiete marcado en amarillo.",
+          "descripcion": "Un calendario de junio con las siglas de los siete días arriba y los números del uno al treinta en filas de siete. El diecisiete tiene fondo amarillo y borde azul oscuro. Abajo, la leyenda dice día marcado."
+        },
+        {
+          "id": "columna",
+          "src": "/nudito/diagramas/matematica/calendario-mes-columna.svg",
+          "alt": "Calendario de junio con la columna del miércoles pintada y el diecisiete en turquesa fuerte.",
+          "descripcion": "El calendario de junio con la tercera columna pintada de turquesa claro. Su encabezado, con la sigla Mi, tiene fondo turquesa. El diecisiete, en esa columna, está en turquesa fuerte. Abajo se lee: Mi quiere decir miércoles."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/calendario-mes-errores.svg",
+          "alt": "Dos conteos entre el quince y el dieciocho: arriba, contando hoy salen cuatro; abajo, sin contar hoy, salen tres.",
+          "descripcion": "Arriba, cuatro casillas: quince en amarillo, dieciséis y diecisiete en blanco y dieciocho en turquesa. Debajo, la fila Mal, con una equis roja y cuatro círculos rojos numerados del uno al cuatro. Más abajo, la fila Bien, con una marca verde: bajo el quince dice hoy y bajo las otras tres hay círculos turquesa numerados del uno al tres. Al pie: Hoy no se cuenta."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Hoy es dieciocho de junio. El paseo es el veintitrés. ¿Cuántos días faltan?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuatro días"
+          },
+          {
+            "id": "b",
+            "texto": "Cinco días"
+          },
+          {
+            "id": "c",
+            "texto": "Seis días"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Hoy no se cuenta: desde el diecinueve hasta el veintitrés hay cinco días.",
+        "pista": "Recuerda que hoy no se cuenta."
+      }
+    }
   }
 ]

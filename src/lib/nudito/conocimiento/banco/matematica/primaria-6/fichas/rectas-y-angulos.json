@@ -654,7 +654,131 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Clases de ángulos",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a clasificar ángulos. Como idea principal, la clase de un ángulo depende de su abertura, medida en grados, y no del largo de sus lados. Si mide menos de noventa grados, es agudo. Si mide noventa, es recto. Si está entre noventa y ciento ochenta, es obtuso. Con ciento ochenta es llano. Entre ciento ochenta y trescientos sesenta es mayor que llano, y con trescientos sesenta es una vuelta completa."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una laptop abierta",
+          "narracion": "Observemos esta situación. Una laptop está abierta y la vemos de lado. La base sale del vértice hacia la derecha y la pantalla sube inclinada hacia la izquierda. La abertura entre las dos mide ciento veinte grados. Queremos saber qué clase de ángulo es.",
+          "recursoRef": "laptop-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: comparar con referencias",
+          "narracion": "Para clasificar, compara la medida con noventa y con ciento ochenta grados. ¿Ciento veinte es menor que noventa o es mayor? ¿Y es menor que ciento ochenta? Respóndete esas dos preguntas y decide el nombre."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: entre noventa y ciento ochenta",
+          "narracion": "Ahora aparecen dos líneas punteadas de referencia: la vertical marca noventa grados y la horizontal hacia la izquierda marca ciento ochenta. La pantalla queda entre las dos. Ciento veinte es mayor que noventa y menor que ciento ochenta. Por eso es un ángulo obtuso.",
+          "recursoRef": "laptop-referencias"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ángulos en un reloj",
+          "narracion": "Ahora usemos relojes. A las tres en punto, el minutero señala el doce y la aguja corta señala el tres. A las seis en punto, la aguja corta señala el seis. ¿Qué abertura forman las agujas en cada caso y cómo se llama ese ángulo?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: dos medidas exactas",
+          "narracion": "A las tres, las agujas forman un cuarto de vuelta: noventa grados, un ángulo recto. A las seis, las agujas quedan sobre una misma línea recta, formando media vuelta: ciento ochenta grados, un ángulo llano.",
+          "recursoRef": "relojes"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Arriba, la línea recta forma ciento ochenta grados. Ese ángulo es llano, no obtuso: un ángulo obtuso siempre mide menos de ciento ochenta. Abajo hay dos ángulos de cincuenta grados. Uno tiene los lados cortos y el otro los tiene largos, pero los dos son iguales y agudos. La clase depende de la abertura, no del largo de los lados.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: vértice y abertura",
+          "narracion": "Primero identifica el vértice, que es el punto donde se unen los dos lados. En la laptop, el vértice está donde se une la base con la pantalla. Luego mira la abertura que hay entre esos lados.",
+          "recursoRef": "laptop-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: compara con las referencias",
+          "narracion": "Compara la medida con noventa y con ciento ochenta grados. En la laptop, ciento veinte queda después de noventa y antes de ciento ochenta.",
+          "recursoRef": "laptop-referencias"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: nombra el ángulo",
+          "narracion": "Mira la barra: antes de noventa es agudo, entre noventa y ciento ochenta es obtuso, y después de ciento ochenta es mayor que llano. Las marcas son recto en noventa, llano en ciento ochenta y vuelta en trescientos sesenta. Si hay dos ángulos, clasifica cada uno por separado.",
+          "recursoRef": "escala"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "laptop-pregunta",
+          "src": "/nudito/diagramas/matematica/clasificacion-angulos-laptop-pregunta.svg",
+          "alt": "Laptop abierta vista de lado: base horizontal y pantalla inclinada con una abertura de ciento veinte grados; se marca el vértice.",
+          "descripcion": "Una línea turquesa horizontal, la base, sale hacia la derecha desde un punto grande. Una línea azul oscuro, la pantalla, sale del mismo punto hacia arriba y a la izquierda. Un arco amarillo entre las dos lleva el rótulo ciento veinte grados. Debajo del punto se lee la palabra vértice."
+        },
+        {
+          "id": "laptop-referencias",
+          "src": "/nudito/diagramas/matematica/clasificacion-angulos-laptop-referencias.svg",
+          "alt": "La laptop con líneas punteadas de referencia de noventa y ciento ochenta grados; la pantalla queda entre ambas.",
+          "descripcion": "La misma laptop: base hacia la derecha, pantalla inclinada hacia arriba y a la izquierda, y arco amarillo con el rótulo ciento veinte grados. Desde el vértice salen dos líneas punteadas grises: una vertical hacia arriba, rotulada noventa grados, y otra horizontal hacia la izquierda, rotulada ciento ochenta grados. La pantalla queda entre las dos."
+        },
+        {
+          "id": "relojes",
+          "src": "/nudito/diagramas/matematica/clasificacion-angulos-relojes.svg",
+          "alt": "Dos relojes: a las tres, ángulo de noventa grados; a las seis, ángulo de ciento ochenta grados.",
+          "descripcion": "A la izquierda, un reloj a las tres: el minutero apunta al doce, la aguja corta turquesa al tres, y un arco amarillo marca noventa grados. A la derecha, un reloj a las seis: el minutero apunta al doce, la aguja corta al seis, y un arco amarillo de media vuelta marca ciento ochenta grados. Cada reloj tiene debajo su hora y su medida."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/clasificacion-angulos-errores.svg",
+          "alt": "Arriba, una línea recta de ciento ochenta grados, llana; abajo, dos ángulos de cincuenta grados con lados cortos y largos.",
+          "descripcion": "Arriba, una línea recta horizontal con un punto en el centro y un arco amarillo por encima, rotulado ciento ochenta grados; debajo dice llano, no obtuso. Abajo hay dos ángulos de cincuenta grados: el de la izquierda con lados cortos y el de la derecha con lados largos, cada uno con su arco amarillo y el rótulo cincuenta grados debajo."
+        },
+        {
+          "id": "escala",
+          "src": "/nudito/diagramas/matematica/clasificacion-angulos-escala.svg",
+          "alt": "Barra de cero a trescientos sesenta grados con agudo, obtuso y mayor que llano; marcas de recto, llano y vuelta.",
+          "descripcion": "Una barra horizontal dividida en tres tramos: agudo, de cero a noventa grados, en verde claro; obtuso, de noventa a ciento ochenta, en amarillo; y mayor que llano, de ciento ochenta a trescientos sesenta, en lila. Debajo hay marcas con cero, noventa y la palabra recto, ciento ochenta y la palabra llano, y trescientos sesenta y la palabra vuelta."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una puerta se abre hasta quedar en línea recta con la pared. ¿Qué clase de ángulo forma?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ángulo llano"
+          },
+          {
+            "id": "b",
+            "texto": "Ángulo recto"
+          },
+          {
+            "id": "c",
+            "texto": "Ángulo obtuso"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Cuando los dos lados quedan sobre una misma línea recta, la abertura mide ciento ochenta grados y es un ángulo llano.",
+        "pista": "Compara con la media vuelta de ciento ochenta grados."
+      }
+    }
   },
   {
     "clave": "mat.p6.medir-construir-angulos",
@@ -902,7 +1026,7 @@
           "El centro debe quedarse sobre el vértice.",
           "La marca final debe indicar 150° en la escala que parte de cero."
         ],
-        "retroalimentacion": "Marcar 150° en esa escala y unir al vértice construye la abertura; 30° es complementaria en el dibujo."
+        "retroalimentacion": "Marcar 150° en esa escala y unir al vértice construye la abertura; 30° es la lectura de la escala contraria."
       },
       {
         "id": "e10",
@@ -954,6 +1078,131 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Medida de abertura",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a medir y a dibujar ángulos con el transportador. Como idea principal, el centro del transportador va sobre el vértice y uno de los lados se alinea con el cero. Luego se lee la escala que empieza en ese cero, porque el otro extremo del transportador muestra una lectura distinta. Para trazar, se marca la medida pedida en esa misma escala y se une la marca con el vértice."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Un ángulo por medir",
+          "narracion": "Observemos esta situación. Tenemos un ángulo: un lado horizontal que sale hacia la derecha y otro lado inclinado que sube desde el mismo punto, el vértice. Un arco amarillo marca la abertura y, más allá del arco, hay un signo de pregunta. Queremos saber cuántos grados mide, y para eso usaremos el transportador.",
+          "recursoRef": "angulo-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: medir el ángulo",
+          "narracion": "Midamos ese ángulo. Primero coloca el centro del transportador sobre el vértice. Luego haz coincidir el lado horizontal con el cero de la escala que empieza a la derecha. Sigue esa escala hasta el otro lado. Ten cuidado: el transportador tiene dos escalas, y solo una empieza en tu cero. ¿Qué número lees?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la escala del cero",
+          "narracion": "En el dibujo, el centro del transportador está sobre el vértice y el lado horizontal pasa por el cero de la escala exterior, la azul de afuera, la de la derecha. El otro lado cruza esa escala en ochenta, y el arco amarillo lo marca. La escala gris de adentro muestra cien en el mismo lugar, pero empieza en el otro extremo, así que no sirve. El ángulo mide ochenta grados.",
+          "recursoRef": "medicion-80"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: construir un ángulo",
+          "narracion": "Ahora vamos a dibujar un ángulo de ciento treinta grados. Ya tenemos el lado inicial horizontal hacia la derecha y su vértice. Falta dibujar el otro lado, donde está el signo de pregunta. ¿Qué escala usarás y en qué marca vas a poner el punto?",
+          "recursoRef": "trazar-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: marcar y unir",
+          "narracion": "En el dibujo, el centro está sobre el vértice y el lado inicial sobre el cero de la escala exterior. Se busca ciento treinta en esa misma escala y se pone una marca amarilla. Luego se une la marca con el vértice y queda dibujado el otro lado. La escala gris de adentro marca cincuenta en ese lugar, pero esa no empieza en el cero del lado inicial.",
+          "recursoRef": "trazar-130"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado al medir",
+          "narracion": "A la izquierda, el mismo ángulo de ochenta grados se lee mal en la escala contraria y sale cien grados. Esa lectura no puede ser, porque el ángulo se ve más cerrado que la esquina de una hoja. A la derecha, el centro del transportador queda lejos del vértice, y con ese error la lectura no vale.",
+          "recursoRef": "errores-medir"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: centro y cero",
+          "narracion": "Primero coloca el centro del transportador sobre el vértice y alinea uno de los lados con el cero. En el dibujo, el círculo blanco del centro está sobre el vértice y el lado turquesa pasa por el cero de la derecha.",
+          "recursoRef": "medicion-80"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: lee desde ese cero",
+          "narracion": "Después sigue la escala que parte de ese cero hasta el otro lado y lee el número. En el dibujo, la escala exterior empieza en cero a la derecha, y el otro lado cruza ochenta.",
+          "recursoRef": "medicion-80"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: para trazar, marca y une",
+          "narracion": "Para dibujar un ángulo, pon el centro sobre el vértice, alinea el lado inicial con el cero, marca la medida pedida en esa escala y une la marca con el vértice. En el dibujo, la marca amarilla está en ciento treinta.",
+          "recursoRef": "trazar-130"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "angulo-pregunta",
+          "src": "/nudito/diagramas/matematica/medir-construir-angulos-angulo-pregunta.svg",
+          "alt": "Un ángulo con un lado horizontal hacia la derecha y otro inclinado hacia arriba; punto grueso en el vértice, arco amarillo y un signo de pregunta.",
+          "descripcion": "Un lado turquesa horizontal sale hacia la derecha desde un punto grueso, el vértice, rotulado abajo. Del mismo punto sube un lado azul oscuro, casi vertical e inclinado a la derecha. Un arco amarillo une los dos lados y, más allá del arco, entre ellos, hay un signo de pregunta."
+        },
+        {
+          "id": "medicion-80",
+          "src": "/nudito/diagramas/matematica/medir-construir-angulos-medicion-80.svg",
+          "alt": "Transportador con el centro en el vértice y un lado en el cero de la escala exterior; el otro lado cruza ochenta; la escala interior marca cien.",
+          "descripcion": "Un transportador semicircular. Su centro, un círculo blanco, está sobre el vértice. El lado turquesa va a la derecha por el cero de la escala exterior; el lado azul sube y cruza ochenta. Un arco amarillo rotulado ochenta grados los une. La escala gris de adentro marca cien en el lado azul. Debajo, a la izquierda, el rótulo escala de adentro, en gris, y a la derecha, escala de afuera, en azul."
+        },
+        {
+          "id": "trazar-pregunta",
+          "src": "/nudito/diagramas/matematica/medir-construir-angulos-trazar-pregunta.svg",
+          "alt": "Un lado horizontal con punto en el vértice y rótulo lado inicial; recuadro con trazar ciento treinta grados y un signo de pregunta.",
+          "descripcion": "Un lado turquesa horizontal sale hacia la derecha desde un punto grueso al centro, con el rótulo vértice debajo y lado inicial a la derecha. Arriba a la izquierda, un recuadro amarillo dice trazar ciento treinta grados. Debajo, en el lugar del otro lado, hay un signo de pregunta."
+        },
+        {
+          "id": "trazar-130",
+          "src": "/nudito/diagramas/matematica/medir-construir-angulos-trazar-130.svg",
+          "alt": "Transportador con el lado inicial en el cero de la escala exterior; una marca amarilla en ciento treinta y el lado trazado hasta ella.",
+          "descripcion": "Un transportador semicircular con el centro en el vértice. El lado turquesa va a la derecha por el cero de la escala exterior. Una marca amarilla en ciento treinta, arriba a la izquierda, se une con el vértice por una línea azul. Un arco amarillo rotulado ciento treinta grados los une. La escala gris de adentro marca cincuenta ahí. Debajo, a la izquierda, el rótulo escala de adentro, en gris, y a la derecha, escala de afuera, en azul."
+        },
+        {
+          "id": "errores-medir",
+          "src": "/nudito/diagramas/matematica/medir-construir-angulos-errores-medir.svg",
+          "alt": "Izquierda: un ángulo de ochenta grados leído como cien, mal; derecha: un transportador con el centro lejos del vértice.",
+          "descripcion": "Dos recuadros con borde rojo. El izquierdo, escala contraria, muestra un ángulo con un lado horizontal y otro casi vertical; dice en rojo lee cien grados: mal, y en turquesa lee ochenta grados: bien. El derecho, centro movido, muestra un transportador con su centro arriba y a la izquierda del vértice; dice centro lejos del vértice."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un lado de un ángulo está sobre el cero de la escala de adentro. El otro lado pasa por noventa y cinco en esa escala y por ochenta y cinco en la escala de afuera. ¿Cuánto mide el ángulo?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ochenta y cinco grados"
+          },
+          {
+            "id": "b",
+            "texto": "Noventa y cinco grados"
+          },
+          {
+            "id": "c",
+            "texto": "Ciento ochenta grados"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Se lee la escala que empieza en el cero del lado inicial, y esa marca dice noventa y cinco.",
+        "pista": "Las dos lecturas suman ciento ochenta; elige la que parte del cero del lado inicial."
+      }
+    }
   }
 ]

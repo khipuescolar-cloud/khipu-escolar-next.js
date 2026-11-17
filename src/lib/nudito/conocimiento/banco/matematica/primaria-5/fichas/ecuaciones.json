@@ -597,7 +597,119 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Un número escondido en una letra",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a descubrir un número escondido. Como idea principal, en una ecuación como equis más tres igual a diez, la letra guarda un número que todavía no conocemos. Para encontrarlo quitamos de cada lado el número que acompaña a la letra, y después comprobamos que la igualdad sea verdadera."
+        },
+        {
+          "id": "situacion-balanza",
+          "tipo": "recurso",
+          "titulo": "Una balanza en equilibrio",
+          "narracion": "Observemos esta balanza. En el platillo izquierdo hay una caja con equis granos escondidos y tres granos sueltos. En el platillo derecho hay diez granos. Como la balanza está en equilibrio, los dos lados pesan lo mismo. Si quitamos tres granos de cada lado, sigue equilibrada: la caja pesa lo mismo que siete granos, y equis vale siete.",
+          "recursoRef": "balanza"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: las naranjas de la bolsa",
+          "narracion": "Una bolsa tiene equis naranjas y le agregamos cinco más; ahora hay doce en total. Escribimos equis más cinco igual a doce. Una parte es la desconocida, equis, y la otra es el cinco. Para hallar equis, al total le quitamos la parte conocida."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: calculamos y comprobamos",
+          "narracion": "Doce menos cinco son siete, entonces equis vale siete. Comprobamos con la suma: siete más cinco son doce, justo el total. Así sabemos que la bolsa tenía siete naranjas.",
+          "recursoRef": "naranjas"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: los soles de Tomás",
+          "narracion": "Tomás tiene equis soles ahorrados y su abuela le regala ocho soles. Ahora tiene veinte soles. La ecuación es equis más ocho igual a veinte. Para saber cuánto tenía antes, a veinte le quitamos ocho: veinte menos ocho son doce."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: probamos los dos valores",
+          "narracion": "Probemos en la ecuación. Si equis fuera veintiocho, tendríamos veintiocho más ocho, que son treinta y seis, y no es veinte. Con doce, doce más ocho son veinte, y sí coincide. Tomás tenía doce soles.",
+          "recursoRef": "soles"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Sumar no encuentra la letra",
+          "narracion": "Un error común es sumar el número que acompaña a la letra. En equis más ocho igual a veinte, alguien suma veinte más ocho y dice que equis vale veintiocho. Pero esa respuesta no cumple la igualdad: veintiocho más ocho dan treinta y seis, no veinte. Cuando la letra está sumando, para encontrarla restamos.",
+          "recursoRef": "soles"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: identifica la letra y el número",
+          "narracion": "Primero identifica la letra y el número que se le suma. En equis más cinco igual a doce, la letra es equis y el número que la acompaña es cinco.",
+          "recursoRef": "naranjas"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: resta ese número al total",
+          "narracion": "Segundo, quita ese número al total, porque restar deshace la suma. Doce menos cinco son siete, así que equis vale siete.",
+          "recursoRef": "naranjas"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: comprueba la igualdad",
+          "narracion": "Tercero, reemplaza la letra por tu valor y revisa que los dos lados sean iguales. En la ecuación de Tomás, con equis igual a doce, doce más ocho son veinte. Si no coincide, revisa la resta.",
+          "recursoRef": "soles"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "balanza",
+          "src": "/nudito/diagramas/matematica/ecuacion-balanza-granos.svg",
+          "alt": "Balanza en equilibrio: a la izquierda una caja con x granos y tres granos sueltos, a la derecha diez granos.",
+          "descripcion": "Una balanza de dos platillos en equilibrio. En el platillo izquierdo hay una caja amarilla con una equis y tres círculos blancos, que son los granos sueltos. En el platillo derecho hay diez círculos blancos en dos filas de cinco. Debajo se lee equis más tres igual a diez."
+        },
+        {
+          "id": "naranjas",
+          "src": "/nudito/diagramas/matematica/ecuacion-barra-naranjas.svg",
+          "alt": "Barra de doce dividida en dos partes: x, la parte desconocida, y cinco, para x más cinco igual a doce.",
+          "descripcion": "Arriba hay una barra larga con el total, doce. Debajo hay otra barra del mismo largo dividida en dos partes: una más grande con la letra equis y otra amarilla con el número cinco. Abajo se lee equis más cinco igual a doce y, en letra más pequeña, doce menos cinco igual a siete."
+        },
+        {
+          "id": "soles",
+          "src": "/nudito/diagramas/matematica/ecuacion-comprobar-soles.svg",
+          "alt": "Dos comprobaciones de x más ocho igual a veinte: con veintiocho resulta treinta y seis, con doce resulta veinte.",
+          "descripcion": "Arriba se lee equis más ocho igual a veinte. Hay dos recuadros. El de la izquierda dice: si equis es veintiocho, veintiocho más ocho es treinta y seis, que no es veinte; no sirve. El de la derecha, con borde turquesa, dice: si equis es doce, doce más ocho es veinte; sirve. Abajo se lee equis vale doce."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En la ecuación equis más siete igual a dieciocho, ¿cuánto vale equis?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Veinticinco"
+          },
+          {
+            "id": "b",
+            "texto": "Doce"
+          },
+          {
+            "id": "c",
+            "texto": "Once"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Muy bien. Dieciocho menos siete son once, y al comprobar, once más siete dan dieciocho.",
+        "pista": "Quita siete al total, porque equis más siete da dieciocho, y luego comprueba sumando."
+      }
+    }
   },
   {
     "clave": "mat.p5.plantear-ecuaciones",
@@ -1886,6 +1998,121 @@
         "retroalimentacion": "Al calcular 12 × 70 obtenemos 840, justificando que el precio unitario propuesto es correcto."
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comprobar una solución",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a comprobar si un número es la solución de una ecuación. Como idea principal, sustituimos la letra por ese número en la ecuación original y calculamos. Si los dos lados de la igualdad dan lo mismo, el número es solución. Si no coinciden, no lo es."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Propuesta de Luis",
+          "narracion": "Observemos esta situación. Luis resolvió la ecuación equis más veinticuatro igual a setenta, y dice que equis vale cuarenta y seis. Aquí está la ecuación, con una caja punteada para el valor que propone Luis. ¿Cómo podemos saber si Luis tiene razón?",
+          "recursoRef": "propuesta-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Probar el valor de Luis",
+          "narracion": "Sustituimos equis por cuarenta y seis en la ecuación original. El lado izquierdo queda cuarenta y seis más veinticuatro. Piensa: ¿cuánto da esa suma? Después la comparamos con setenta."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Lados iguales",
+          "narracion": "Mira las tarjetas. Cuarenta y seis más veinticuatro son setenta. El lado izquierdo da lo mismo que el derecho. Por eso cuarenta y seis es la solución, y Luis tiene razón.",
+          "recursoRef": "suma-correcta"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Un valor que falla",
+          "narracion": "Ahora la ecuación seis por equis igual a setenta y dos. Rosa prueba con once. Sustituimos equis por once y calculamos seis por once. Piensa: ¿da setenta y dos?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Probar dos valores",
+          "narracion": "Seis por once son sesenta y seis, y sesenta y seis no es setenta y dos. Entonces once no es la solución. Probamos con doce: seis por doce son setenta y dos. Ahora sí coincide, así que doce es la solución.",
+          "recursoRef": "producto-incorrecto"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Repetir no comprueba",
+          "narracion": "Ahora la ecuación equis menos quince igual a cuarenta. Pedro restó cuarenta menos quince y obtuvo veinticinco. Para comprobar, repitió la misma resta y otra vez salió veinticinco. Eso solo repite el cálculo y no prueba nada. Hay que sustituir en la ecuación original: veinticinco menos quince da diez, y no es cuarenta. Veinticinco no es la solución.",
+          "recursoRef": "error-operacion"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: sustituye",
+          "narracion": "Escribe la ecuación original y cambia la letra por el valor que quieres probar."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: calcula",
+          "narracion": "Calcula el lado que tiene la letra, usando solo números."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: compara",
+          "narracion": "Compara el resultado con el otro lado de la igualdad. Si son iguales, el valor es solución. Si no, no lo es."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "propuesta-pregunta",
+          "src": "/nudito/diagramas/matematica/comprobar-solucion-ecuacion-propuesta-pregunta.svg",
+          "alt": "Tarjeta con la ecuación equis más veinticuatro igual a setenta y una caja punteada para el valor de Luis.",
+          "descripcion": "Arriba, una tarjeta blanca con la ecuación equis más veinticuatro igual a setenta. Debajo, el texto: Luis propone este valor, y una caja punteada con equis igual y un signo de pregunta. Abajo se lee: ¿Cumple la igualdad?"
+        },
+        {
+          "id": "suma-correcta",
+          "src": "/nudito/diagramas/matematica/comprobar-solucion-ecuacion-suma-correcta.svg",
+          "alt": "Se sustituye equis por cuarenta y seis y la suma da setenta, igual que el otro lado.",
+          "descripcion": "Tres tarjetas. La primera dice equis más veinticuatro igual a setenta. La segunda, equis igual a cuarenta y seis. La tercera, cuarenta y seis más veinticuatro igual a setenta, con una marca de verificación turquesa. Abajo se lee: Los dos lados coinciden."
+        },
+        {
+          "id": "producto-incorrecto",
+          "src": "/nudito/diagramas/matematica/comprobar-solucion-ecuacion-producto-incorrecto.svg",
+          "alt": "Se prueban once y doce en la ecuación seis por equis igual a setenta y dos: once falla y doce cumple.",
+          "descripcion": "Una tarjeta con seis por equis igual a setenta y dos. Debajo, una tarjeta roja con seis por once igual a sesenta y seis y una cruz, y el texto: sesenta y seis no es setenta y dos. Luego una tarjeta turquesa con seis por doce igual a setenta y dos y una marca de verificación. Abajo: Con doce sí coincide."
+        },
+        {
+          "id": "error-operacion",
+          "src": "/nudito/diagramas/matematica/comprobar-solucion-ecuacion-error-operacion.svg",
+          "alt": "Se repite una resta y se sustituye veinticinco en equis menos quince igual a cuarenta: da diez.",
+          "descripcion": "Una tarjeta con equis menos quince igual a cuarenta. Debajo, una tarjeta roja con cuarenta menos quince igual a veinticinco y una cruz, con el texto: Es el mismo cálculo. Luego una tarjeta turquesa con veinticinco menos quince igual a diez y otra cruz. Abajo: Da diez, no cuarenta."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Pablo probó tres números en la ecuación equis menos nueve igual a veintiuno. ¿Cuál hace verdadera la igualdad?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Veinte"
+          },
+          {
+            "id": "b",
+            "texto": "Cuarenta"
+          },
+          {
+            "id": "c",
+            "texto": "Treinta"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Treinta menos nueve da veintiuno, igual que el otro lado.",
+        "pista": "Sustituye cada número en lugar de equis y mira cuál da veintiuno."
+      }
+    },
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",

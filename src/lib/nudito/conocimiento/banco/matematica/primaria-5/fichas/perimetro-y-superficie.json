@@ -888,7 +888,125 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "El área cubre la superficie",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a medir cuánto espacio cubre un rectángulo. Como idea principal, el área cuenta cuántos cuadrados iguales, de una unidad, caben dentro de una figura. En un rectángulo esos cuadrados forman filas iguales, así que multiplicas el número de filas por el número de cuadrados de cada fila. El resultado se escribe en unidades cuadradas, como metros cuadrados."
+        },
+        {
+          "id": "situacion-terraza",
+          "tipo": "recurso",
+          "titulo": "Una terraza cubierta de losetas",
+          "narracion": "Observemos esta situación. Una terraza rectangular está cubierta con losetas cuadradas de un metro de lado, y cada loseta ocupa un metro cuadrado. Hay tres filas y cada fila tiene seis losetas. Contamos seis, doce, dieciocho. Como son tres filas de seis, el área es seis por tres: dieciocho metros cuadrados.",
+          "recursoRef": "terraza"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el patio de Gabriela",
+          "narracion": "Un patio rectangular mide ocho metros de largo y cinco metros de ancho. Lo imaginamos cubierto con cuadrados de un metro de lado. La primera fila, pintada de amarillo, lleva ocho cuadrados, y hay cinco filas iguales. Por eso el área es ocho por cinco: cuarenta metros cuadrados.",
+          "recursoRef": "patio"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: contamos por columnas",
+          "narracion": "Otra forma de pensarlo es mirar las columnas. Hay ocho columnas y cada una tiene cinco cuadrados, así que también obtenemos cuarenta. Filas por columnas o columnas por filas dan el mismo resultado. La respuesta lleva su unidad: cuarenta metros cuadrados.",
+          "recursoRef": "patio"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el corral de cuyes de Emilio",
+          "narracion": "Emilio arma en Huaraz un corral rectangular para sus cuyes. Mide cuatro metros de largo y tres metros de ancho. Si lo cubrimos con cuadros de un metro cuadrado, quedan tres filas de cuatro. Cuatro más cuatro más cuatro son doce, así que el piso del corral tiene doce metros cuadrados."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ¿cuántas bolsas de paja?",
+          "narracion": "Emilio quiere cubrir el piso con paja, y cada bolsa alcanza para dos metros cuadrados. En el dibujo, cada grupo de dos cuadritos tiene un borde grueso, y hay seis grupos. Doce entre dos son seis, así que Emilio necesita seis bolsas de paja.",
+          "recursoRef": "paja"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "El borde no es el área",
+          "narracion": "Un error común es sumar los lados y creer que esa suma es el área. En el mismo corral, cuatro más tres más cuatro más tres son catorce, pero ese número recorre el borde, que se llama perímetro y se mide en metros. El área son los doce cuadritos del interior y se mide en metros cuadrados. Para saber cuánto piso hay, cuenta cuadrados; para saber cuánta malla necesitas, recorre el borde.",
+          "recursoRef": "corral"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: identifica filas y columnas",
+          "narracion": "Primero identifica el largo y el ancho, o cuenta las filas y las columnas. En el patio, el largo es ocho metros y el ancho es cinco metros.",
+          "recursoRef": "patio"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: usa la misma unidad",
+          "narracion": "Segundo, comprueba que las dos medidas estén en la misma unidad. En el patio ambas están en metros; si una estuviera en centímetros, primero tendrías que convertirla.",
+          "recursoRef": "patio"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: multiplica y escribe la unidad",
+          "narracion": "Tercero, multiplica filas por columnas y escribe la unidad cuadrada. Ocho por cinco son cuarenta, así que el patio tiene cuarenta metros cuadrados. Antes de cerrar, pregúntate si contaste cuadrados del interior o recorriste el borde."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "terraza",
+          "src": "/nudito/diagramas/matematica/area-terraza-losetas.svg",
+          "alt": "Terraza de tres filas con seis losetas cuadradas cada una; una loseta marcada vale un metro cuadrado.",
+          "descripcion": "La terraza es un rectángulo de seis columnas y tres filas de losetas iguales. La loseta de la esquina superior izquierda está coloreada y dice un metro cuadrado. Debajo se lee tres filas de seis losetas y, en grande, dieciocho metros cuadrados."
+        },
+        {
+          "id": "patio",
+          "src": "/nudito/diagramas/matematica/area-patio-ocho-por-cinco.svg",
+          "alt": "Patio de ocho metros por cinco metros dividido en cuarenta cuadrados, con la primera fila en amarillo.",
+          "descripcion": "Un rectángulo de ocho columnas y cinco filas de cuadrados iguales. Arriba se lee ocho metros y a la izquierda cinco metros. La primera fila está pintada de amarillo para mostrar que cada fila tiene ocho cuadrados. Debajo se lee ocho por cinco igual a cuarenta metros cuadrados."
+        },
+        {
+          "id": "paja",
+          "src": "/nudito/diagramas/matematica/area-corral-bolsas-paja.svg",
+          "alt": "Corral de cuatro por tres con los doce cuadritos agrupados de dos en dos, seis grupos con borde grueso, seis bolsas de paja.",
+          "descripcion": "Un rectángulo de cuatro columnas y tres filas. Cada pareja de cuadritos vecinos de una misma fila está rodeada por un borde grueso, las tres parejas de la izquierda son turquesa y las tres de la derecha amarillas, así que se forman seis grupos de dos. Debajo se lee doce metros cuadrados y, en grande, seis bolsas de paja."
+        },
+        {
+          "id": "corral",
+          "src": "/nudito/diagramas/matematica/area-borde-y-cuadritos.svg",
+          "alt": "Dos rectángulos de cuatro por tres: uno con el borde marcado, catorce metros, y otro con doce cuadritos, doce metros cuadrados.",
+          "descripcion": "A la izquierda hay un rectángulo de cuatro columnas y tres filas con el contorno grueso; debajo dice borde, catorce metros, y perímetro. A la derecha está el mismo rectángulo con los doce cuadritos del interior coloreados; debajo dice cuadritos, doce metros cuadrados, y área."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un patio rectangular mide siete metros de largo y tres metros de ancho. ¿Cuál es su área?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Veinte metros cuadrados"
+          },
+          {
+            "id": "b",
+            "texto": "Veintiún metros cuadrados"
+          },
+          {
+            "id": "c",
+            "texto": "Diez metros cuadrados"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Muy bien. Son tres filas de siete cuadrados: siete por tres son veintiuno, es decir, veintiún metros cuadrados.",
+        "pista": "Cuenta cuántas filas hay y cuántos cuadrados lleva cada fila, y luego multiplica."
+      }
+    }
   },
   {
     "clave": "mat.p5.cm2-m2",
@@ -1064,7 +1182,7 @@
         "id": "e06",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Una mesa mide aproximadamente 120 cm de largo y 60 cm de ancho. ¿Qué unidad conviene para expresar el área calculada con esas medidas?",
+        "enunciado": "Una mesa mide aproximadamente 120 cm de largo y 60 cm de ancho. Si multiplicas esas dos medidas, ¿en qué unidad queda el resultado?",
         "respuesta": "a",
         "alternativasAceptadas": [],
         "opciones": [
@@ -1238,7 +1356,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Elegir la unidad de superficie",
+          "narracion": "Bienvenida y bienvenido. Hoy elegiremos la unidad para medir una superficie. Como idea principal, el centímetro cuadrado sirve para superficies pequeñas, como una figurita. El metro cuadrado sirve para superficies grandes, como un patio. Elegimos la unidad que dé una medida fácil de entender. Además, una superficie siempre se mide en unidades cuadradas, no en simples longitudes."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una figurita y un patio",
+          "narracion": "Observemos esta situación. Del lado izquierdo hay una figurita pequeña. Del lado derecho está el patio del colegio, mucho más grande. Queremos medir la superficie de cada uno. ¿Qué unidad usamos para cada uno?",
+          "recursoRef": "superficies-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la figurita",
+          "narracion": "Empecemos con la figurita. Para medir su superficie la cubrimos con cuadritos del mismo tamaño. Piensa en cuánto mide el lado de cada cuadrito. ¿Conviene que sea muy grande o muy pequeño?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: cuadritos pequeños",
+          "narracion": "La figurita se cubre con cuadritos. Cada cuadrito tiene un centímetro de lado y se llama centímetro cuadrado. Hay cinco cuadritos de largo y tres de alto; el amarillo es uno de ellos. Son fáciles de contar, por eso para la figurita conviene el centímetro cuadrado.",
+          "recursoRef": "figurita-cuadritos"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el patio",
+          "narracion": "Ahora medimos el patio del colegio. El patio es muy grande. ¿Qué tamaño de cuadrado conviene para cubrirlo? Piensa en un cuadrado que sea fácil de ver y de contar en un lugar tan grande."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: cuadrados grandes",
+          "narracion": "El patio se cubre con cuadrados grandes. Cada cuadrado tiene un metro de lado y se llama metro cuadrado. Hay seis cuadrados de largo y cuatro de ancho. Con cuadritos de un centímetro habría que contar muchísimos. Por eso para el patio conviene el metro cuadrado.",
+          "recursoRef": "patio-cuadrados"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con la unidad",
+          "narracion": "Mira estos dos errores. Una moneda es tan pequeña que un metro cuadrado resulta enorme para ella; para la moneda conviene el centímetro cuadrado. En la pared pasa otra cosa. Mide cuatro metros por tres metros, y su superficie no son doce metros, sino doce metros cuadrados. El metro solo mide longitud.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira la superficie",
+          "narracion": "Primero mira qué superficie vas a medir. ¿Es pequeña, como algo que cabe en la mano, o es grande, como un piso?"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: imagina un cuadrado",
+          "narracion": "Imagina un cuadrado de un centímetro de lado y otro de un metro de lado. ¿Cuál serviría mejor para cubrir esa superficie?"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: elige la unidad",
+          "narracion": "Para superficies pequeñas elige el centímetro cuadrado. Para superficies grandes elige el metro cuadrado. Revisa que tu unidad sea cuadrada y no una longitud. Esta tarjeta resume los pasos.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "superficies-pregunta",
+          "src": "/nudito/diagramas/matematica/cm2-m2-superficies-pregunta.svg",
+          "alt": "Una figurita pequeña y, a la derecha, el patio del colegio, mucho más grande, con la pregunta de qué unidad usar.",
+          "descripcion": "A la izquierda, un rectángulo amarillo pequeño con un círculo en el centro, rotulado figurita. A la derecha, un rectángulo turquesa grande, dividido por una línea y con un círculo en el centro, rotulado patio del colegio. Abajo: ¿Qué unidad usamos?"
+        },
+        {
+          "id": "figurita-cuadritos",
+          "src": "/nudito/diagramas/matematica/cm2-m2-figurita-cuadritos.svg",
+          "alt": "La figurita cubierta por cinco cuadritos de largo y tres de alto; uno amarillo marca un centímetro cuadrado.",
+          "descripcion": "Una figurita dividida en quince cuadritos: cinco de largo y tres de alto. El de arriba a la izquierda es amarillo. Rótulos: cinco centímetros abajo, tres centímetros a la izquierda, y cada cuadrito mide un centímetro de lado, un centímetro cuadrado."
+        },
+        {
+          "id": "patio-cuadrados",
+          "src": "/nudito/diagramas/matematica/cm2-m2-patio-cuadrados.svg",
+          "alt": "El patio cubierto por seis cuadrados de largo y cuatro de ancho; uno amarillo marca un metro cuadrado.",
+          "descripcion": "Un rectángulo dividido en seis columnas y cuatro filas de cuadrados. El de arriba a la izquierda es amarillo. Rótulos: seis metros abajo, cuatro metros a la izquierda, y cada cuadrado mide un metro de lado, un metro cuadrado."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/cm2-m2-errores.svg",
+          "alt": "Dos recuadros: una moneda dentro de un metro cuadrado enorme, y una pared con doce metros tachado y doce metros cuadrados.",
+          "descripcion": "A la izquierda, una moneda amarilla en la esquina de un cuadrado grande rotulado un metro cuadrado, y el texto muy grande. A la derecha, una pared rotulada cuatro metros por tres metros, con doce metros tachado en rojo y doce metros cuadrados en turquesa."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/cm2-m2-pasos.svg",
+          "alt": "Tarjeta con tres pasos: mira la superficie, imagina un cuadrado y elige la unidad.",
+          "descripcion": "Tres tarjetas numeradas. Uno, mira qué superficie es: ¿cabe en la mano o es muy grande? Dos, imagina un cuadrado de un centímetro de lado o de un metro de lado. Tres, elige la unidad: pequeña, centímetro cuadrado; grande, metro cuadrado."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una escuela pintará el techo del auditorio y debe decir cuánta superficie cubrirá. ¿Qué unidad conviene usar?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Los metros de largo"
+          },
+          {
+            "id": "b",
+            "texto": "Los metros cuadrados"
+          },
+          {
+            "id": "c",
+            "texto": "Centímetros cuadrados"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. El techo es una superficie grande, así que conviene el metro cuadrado. Los centímetros cuadrados son demasiado pequeños para un techo, y los metros de largo miden longitud.",
+        "pista": "Piensa en el tamaño del techo y en medir una región plana, no una línea."
+      }
+    }
   },
   {
     "clave": "mat.p5.area-figuras-compuestas",
@@ -1534,7 +1774,122 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Área de figuras compuestas",
+          "narracion": "Bienvenida y bienvenido. Hoy hallarás el área de figuras formadas por varios rectángulos. Como idea principal, una figura formada por varios rectángulos se puede dividir en partes que no se superponen. Calculas el área de cada parte y las sumas. Otra forma es completar el rectángulo grande y restar la parte que falta. El área se mide en unidades cuadradas, como los metros cuadrados."
+        },
+        {
+          "id": "situacion-sala",
+          "tipo": "recurso",
+          "titulo": "El piso de una sala",
+          "narracion": "Observemos esta situación. Es el suelo de un salón con forma de letra ele. Su lado inferior mide ocho metros y su lado izquierdo mide siete metros. El brazo de arriba mide tres metros de ancho, y la franja de abajo tiene tres metros de grosor. Queremos hallar cuántos metros cuadrados tiene el piso.",
+          "recursoRef": "sala-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dividir en dos rectángulos",
+          "narracion": "Para hallar el área del piso no sirve multiplicar ocho por siete, porque la figura no es un rectángulo completo. Mejor la cortamos en dos rectángulos con una línea horizontal. Abajo queda un rectángulo de ocho por tres metros. Arriba queda otro. Para sus medidas restamos: siete menos tres son cuatro metros de alto, y el ancho es tres metros."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: sumar las partes",
+          "narracion": "Miremos el piso cortado en dos partes. La parte de arriba, que llamamos A, mide tres por cuatro, que son doce metros cuadrados. La parte de abajo, B, mide ocho por tres, que son veinticuatro metros cuadrados. Como las partes no se superponen, sumamos: doce más veinticuatro son treinta y seis. El piso tiene treinta y seis metros cuadrados.",
+          "recursoRef": "sala-partes"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: restar un hueco",
+          "narracion": "Ahora una pared de nueve metros de largo y cinco metros de alto, con una ventana de dos metros por tres metros. Queremos pintar solo la pared, sin la ventana. Aquí conviene restar: calculamos la pared completa y le quitamos la ventana."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: pared menos ventana",
+          "narracion": "Miremos la pared con su ventana. La pared completa mide nueve por cinco, que son cuarenta y cinco metros cuadrados. La ventana mide dos por tres, que son seis. Restamos: cuarenta y cinco menos seis son treinta y nueve. Se pintan treinta y nueve metros cuadrados.",
+          "recursoRef": "pared"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Errores en figuras compuestas",
+          "narracion": "Un error frecuente es multiplicar el largo total por el ancho total en una figura en ele. Con ocho por siete obtendrías cincuenta y seis, pero el piso tiene treinta y seis: contarías también la esquina vacía. Otro error es sumar dos partes que se superponen, porque la zona compartida se cuenta dos veces. Y no olvides la unidad: el área va en metros cuadrados, no en metros."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: divide o completa la figura",
+          "narracion": "Primero divide o completa la figura. Corta la figura en rectángulos que no se superpongan, o imagina un rectángulo grande que la cubra y marca lo que falta. Escribe las medidas de cada parte."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: halla el área de cada parte",
+          "narracion": "Segundo, halla el área de cada rectángulo multiplicando su largo por su ancho. Si una medida no está escrita, búscala con una suma o una resta de las medidas que sí conoces."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: suma o resta",
+          "narracion": "Estas tres tarjetas resumen los pasos. La primera dice que dividas o completes la figura con rectángulos sin montarse. La segunda dice que halles el área de cada parte. La tercera dice que, si dividiste, sumes las partes, y que, si completaste, restes el hueco. Al final, escribe el resultado con su unidad cuadrada.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "sala-pregunta",
+          "src": "/nudito/diagramas/matematica/area-sala-ele-pregunta.svg",
+          "alt": "Piso en forma de ele con medidas: ocho metros abajo, siete metros a la izquierda, brazo de tres metros y franja de tres metros.",
+          "descripcion": "Se ve una figura en forma de letra ele. Abajo se lee ocho metros. A la izquierda se lee siete metros. Arriba, sobre el brazo vertical, se lee tres metros, y a la derecha de la franja inferior también se lee tres metros. Al final se lee la pregunta: cuál es el área del piso."
+        },
+        {
+          "id": "sala-partes",
+          "src": "/nudito/diagramas/matematica/area-sala-ele-partes.svg",
+          "alt": "El piso en ele cortado en dos rectángulos: A de tres por cuatro es doce y B de ocho por tres es veinticuatro; total treinta y seis.",
+          "descripcion": "La figura en ele aparece cortada por una línea horizontal. El rectángulo de arriba, A, dice tres por cuatro, doce metros cuadrados. El de abajo, B, dice ocho por tres es igual a veinticuatro metros cuadrados. A la derecha se lee A más B, doce más veinticuatro, igual a treinta y seis. Abajo se lee que el área del piso es treinta y seis metros cuadrados."
+        },
+        {
+          "id": "pared",
+          "src": "/nudito/diagramas/matematica/area-pared-ventana.svg",
+          "alt": "Pared de nueve por cinco metros con una ventana de dos por tres: cuarenta y cinco menos seis son treinta y nueve metros cuadrados.",
+          "descripcion": "Se ve un rectángulo grande que es la pared, con nueve metros abajo y cinco metros a la izquierda. En el centro hay un rectángulo blanco, la ventana, con seis metros cuadrados. Debajo se lee pared completa nueve por cinco es cuarenta y cinco, ventana dos por tres es seis, y cuarenta y cinco menos seis es igual a treinta y nueve metros cuadrados."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/area-compuestas-tres-pasos.svg",
+          "alt": "Tres tarjetas: dividir o completar con rectángulos, hallar el área de cada parte y sumar las partes o restar el hueco.",
+          "descripcion": "Hay tres tarjetas numeradas. La primera dice divide o completa: rectángulos sin montarse. La segunda dice halla cada área: largo por ancho de cada parte. La tercera dice suma o resta: partes, suma; hueco, resta."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un jardín en forma de ele se divide en un rectángulo de seis metros por cuatro metros y otro de tres metros por dos metros, sin superponerse. ¿Cuál es su área?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Veintiún metros cuadrados"
+          },
+          {
+            "id": "b",
+            "texto": "Treinta metros cuadrados"
+          },
+          {
+            "id": "c",
+            "texto": "Quince metros cuadrados"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Seis por cuatro son veinticuatro, tres por dos son seis, y veinticuatro más seis son treinta metros cuadrados.",
+        "pista": "Halla el área de cada rectángulo y suma los dos resultados."
+      }
+    }
   },
   {
     "clave": "mat.p5.perimetro-figuras-compuestas",
@@ -2144,6 +2499,130 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Misma superficie, distinto borde",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos que dos figuras pueden cubrir la misma superficie y tener perímetros distintos. Como idea principal, el área cuenta los cuadrados que cubren la figura. El perímetro mide su borde. Se calculan por separado, y uno puede cambiar mientras el otro se mantiene."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Un par de huertos",
+          "narracion": "Observemos esta situación. Hay dos huertos cuadriculados. Cada cuadrado mide un metro de lado. Uno mide tres metros por cuatro. El otro mide dos metros por seis. Queremos comparar cuánto cubre cada uno y cuánto mide su borde.",
+          "recursoRef": "huertos-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: los huertos",
+          "narracion": "Calcula el área de cada huerto: multiplica el largo por el ancho. ¿Cubren lo mismo? Luego suma los cuatro lados de cada uno. ¿Miden lo mismo de borde? Piénsalo antes de seguir."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: igual área, otro borde",
+          "narracion": "Mira los huertos. Los dos cubren doce metros cuadrados, porque tres por cuatro da doce y dos por seis también da doce. Pero el borde del primero mide catorce metros y el del segundo, dieciséis. Tienen igual área y distinto perímetro.",
+          "recursoRef": "huertos-resuelto"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: las baldosas",
+          "narracion": "Con dieciséis baldosas cuadradas se puede formar un cuadrado de cuatro por cuatro o una tira de dos por ocho. ¿Usan las mismas baldosas? ¿Cuánto mide el borde de cada forma? Mira las dos formas y piensa.",
+          "recursoRef": "baldosas-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: reordenar las baldosas",
+          "narracion": "Las dos formas usan dieciséis baldosas. El cuadrado tiene un perímetro de dieciséis unidades. La tira tiene un perímetro de veinte. Al reordenar las baldosas, el área no cambió, pero el perímetro sí.",
+          "recursoRef": "baldosas-resuelto"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error frecuente es creer que si dos figuras cubren lo mismo, sus bordes también miden lo mismo. Mira esta tira de un cuadrado de ancho y doce de largo. Cubre doce cuadrados, igual que el huerto de tres por cuatro, pero su perímetro mide veintiséis y el del huerto, catorce. Otro error es multiplicar los lados para hallar el borde: eso da el área. El borde se halla sumando los lados.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: calcula las áreas",
+          "narracion": "Elige dos figuras con la misma cantidad de cuadrados. Calcula el área de cada una multiplicando sus lados, y comprueba que coincidan, como en los huertos.",
+          "recursoRef": "huertos-resuelto"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: suma los lados",
+          "narracion": "Suma los lados de cada figura para hallar su perímetro. En las baldosas, el cuadrado mide dieciséis y la tira, veinte.",
+          "recursoRef": "baldosas-resuelto"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: compara por separado",
+          "narracion": "Compara las áreas y los perímetros por separado. Si el área es igual, el perímetro puede ser distinto. Explica qué cambió al reordenar la superficie."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "huertos-pregunta",
+          "src": "/nudito/diagramas/matematica/area-perimetro-relacion-huertos-pregunta.svg",
+          "alt": "Dos huertos cuadriculados con cuadrados de un metro: uno de tres metros por cuatro y otro de dos metros por seis; abajo: ¿Igual área? ¿Igual perímetro?",
+          "descripcion": "Dos huertos cuadriculados. El de la izquierda es turquesa claro y mide tres metros por cuatro. El de la derecha es amarillo y mide dos metros por seis. Cada cuadrito es de un metro de lado. Abajo se lee: ¿Igual área? ¿Igual perímetro?"
+        },
+        {
+          "id": "huertos-resuelto",
+          "src": "/nudito/diagramas/matematica/area-perimetro-relacion-huertos-resuelto.svg",
+          "alt": "Los dos huertos con el borde en índigo: tres por cuatro, área doce y perímetro catorce; dos por seis, área doce y perímetro dieciséis.",
+          "descripcion": "Los mismos huertos, con el borde marcado en índigo. Debajo del de tres por cuatro dice área doce metros cuadrados y perímetro catorce metros. Debajo del de dos por seis dice área doce metros cuadrados y perímetro dieciséis metros."
+        },
+        {
+          "id": "baldosas-pregunta",
+          "src": "/nudito/diagramas/matematica/area-perimetro-relacion-baldosas-pregunta.svg",
+          "alt": "Dieciséis baldosas ordenadas de dos formas: un cuadrado de cuatro por cuatro y una tira de dos por ocho; abajo: ¿Cuánto mide el borde de cada una?",
+          "descripcion": "El título dice dieciséis baldosas. A la izquierda, un cuadrado turquesa claro de cuatro por cuatro; a la derecha, una tira amarilla de dos por ocho. Bajo cada forma se lee cuatro por cuatro y dos por ocho. Abajo dice: ¿Cuánto mide el borde de cada una?"
+        },
+        {
+          "id": "baldosas-resuelto",
+          "src": "/nudito/diagramas/matematica/area-perimetro-relacion-baldosas-resuelto.svg",
+          "alt": "El cuadrado de cuatro por cuatro con perímetro dieciséis y la tira de dos por ocho con perímetro veinte, con el borde en índigo.",
+          "descripcion": "Las mismas formas con el borde marcado en índigo. Bajo el cuadrado dice cuatro por cuatro, perímetro dieciséis. Bajo la tira dice dos por ocho, perímetro veinte. Abajo, en turquesa, dice área: dieciséis baldosas en las dos."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/area-perimetro-relacion-errores.svg",
+          "alt": "Un rectángulo de tres por cuatro y una tira de uno por doce, los dos con doce cuadros; el rectángulo tiene perímetro catorce y la tira, veintiséis.",
+          "descripcion": "Arriba, un rectángulo turquesa claro de tres por cuatro cuadros; a su derecha dice doce cuadros y perímetro catorce. Abajo, una tira amarilla de un cuadro de ancho y doce de largo; bajo ella dice doce cuadros y perímetro veintiséis."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Dos rectángulos cubren dieciocho cuadrados cada uno: uno mide dos por nueve y el otro, tres por seis. ¿Qué afirmación es verdadera?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Los dos tienen el mismo perímetro"
+          },
+          {
+            "id": "b",
+            "texto": "El segundo tiene mayor perímetro"
+          },
+          {
+            "id": "c",
+            "texto": "El primero tiene más perímetro"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. El primero mide veintidós de perímetro y el segundo, dieciocho.",
+        "pista": "Calcula el perímetro de cada rectángulo sumando sus cuatro lados."
+      }
+    }
   }
 ]

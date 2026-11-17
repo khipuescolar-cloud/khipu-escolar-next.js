@@ -981,7 +981,132 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Familias de cuadriláteros",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a clasificar cuadriláteros. Como idea principal, los cuadriláteros se agrupan en tres familias, según cuántos pares de lados paralelos tienen. Con dos pares es un paralelogramo, como el cuadrado o el rectángulo. Con un par es un trapecio. Y sin ningún par es un trapezoide. Dos lados son paralelos si nunca se cruzan, aunque los prolongues."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una ventana inclinada",
+          "narracion": "Observemos esta situación. Es una ventana con cuatro lados, inclinada como se ve. Queremos saber a qué familia de cuadriláteros pertenece.",
+          "recursoRef": "ventana-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: mirar los lados opuestos",
+          "narracion": "Revisa los lados opuestos de dos en dos. ¿El de arriba y el de abajo son paralelos? ¿Y los dos de los costados? ¿Cuántos pares paralelos hay?",
+          "recursoRef": "ventana-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dos pares",
+          "narracion": "Ahora cada par de lados opuestos tiene su color y sus marcas. Arriba y abajo, en turquesa, llevan una punta de flecha y son paralelos. Los costados, en azul oscuro, llevan dos puntas de flecha y también son paralelos. Hay dos pares, así que la ventana es un paralelogramo.",
+          "recursoRef": "ventana-pares"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un terreno",
+          "narracion": "Ahora imagina un terreno con cuatro lados, todos de distinto largo. Para saber si dos lados son paralelos, puedes prolongarlos con rayas y ver si se cruzan. ¿Cuántos pares de lados paralelos tendrá? ¿A qué familia pertenecerá?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ningún par",
+          "narracion": "Este es el terreno. Si prolongamos con rayas los lados de arriba y de abajo, se cruzan a la derecha, así que no son paralelos. Los lados de los costados también se inclinan en sentidos distintos, así que tampoco lo son. No hay ningún par paralelo: es un trapezoide.",
+          "recursoRef": "terreno-lados"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Un solo par no basta",
+          "narracion": "Esta figura tiene dos lados paralelos: la base de abajo y la de arriba, con una punta de flecha cada una. Alguien podría decir que es un paralelogramo. Pero los lados de los costados, prolongados con rayas, se cruzan arriba, así que no son paralelos. Con un par de lados paralelos y nada más, es un trapecio.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: compara lados opuestos",
+          "narracion": "Primero mira los lados opuestos de dos en dos. En la ventana, compara el de arriba con el de abajo, y el de un costado con el del otro.",
+          "recursoRef": "ventana-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: cuenta los pares",
+          "narracion": "Segundo, cuenta cuántos pares de lados son paralelos. Las mismas puntas de flecha en dos lados te dicen que son paralelos entre sí.",
+          "recursoRef": "ventana-pares"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: nombra la familia",
+          "narracion": "Tercero, nombra la familia. Dos pares es un paralelogramo, un par es un trapecio y ningún par es un trapezoide.",
+          "recursoRef": "familias"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "ventana-pregunta",
+          "src": "/nudito/diagramas/matematica/clasificar-cuadrilateros-ventana-pregunta.svg",
+          "alt": "Una figura de cuatro lados inclinada, sin marcas.",
+          "descripcion": "Un cuadrilátero blanco con borde azul oscuro, con un lado arriba y otro abajo horizontales, y dos lados inclinados a los costados. No lleva marcas."
+        },
+        {
+          "id": "ventana-pares",
+          "src": "/nudito/diagramas/matematica/clasificar-cuadrilateros-ventana-pares.svg",
+          "alt": "La misma figura con dos pares de lados marcados: arriba y abajo con una marca turquesa, los costados con dos marcas azules.",
+          "descripcion": "El cuadrilátero con sus lados pintados por pares. Los lados de arriba y de abajo son turquesa y cada uno lleva una marca en forma de punta de flecha. Los lados de los costados son azul oscuro y cada uno lleva dos marcas. Abajo se lee dos pares paralelos."
+        },
+        {
+          "id": "terreno-lados",
+          "src": "/nudito/diagramas/matematica/clasificar-cuadrilateros-terreno-lados.svg",
+          "alt": "Un terreno de cuatro lados; los lados de arriba y de abajo, prolongados con rayas, se cruzan a la derecha.",
+          "descripcion": "Un cuadrilátero más alto a la izquierda y más angosto a la derecha: su lado de arriba baja hacia la derecha y el de abajo sube hacia la derecha. Desde las dos esquinas de la derecha salen rayas ocres que se cruzan en un punto, con la nota se cruzan. Abajo se lee ningún par paralelo."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/clasificar-cuadrilateros-errores.svg",
+          "alt": "Un trapecio con las bases marcadas en turquesa; los otros dos lados, prolongados con rayas, se cruzan arriba.",
+          "descripcion": "Una figura con la base de abajo larga y la de arriba corta, ambas turquesa y con una marca cada una. Los lados de los costados se inclinan hacia el centro: prolongados con rayas ocres, se cruzan en un punto arriba, con la nota se cruzan. Abajo se lee un par: trapecio."
+        },
+        {
+          "id": "familias",
+          "src": "/nudito/diagramas/matematica/clasificar-cuadrilateros-familias.svg",
+          "alt": "Tres figuras de cuatro lados con su nombre: paralelogramo, dos pares; trapecio, un par; trapezoide, ningún par.",
+          "descripcion": "Tres filas. En la primera, un paralelogramo inclinado, con los textos Paralelogramo y dos pares. En la segunda, una figura con base larga abajo y corta arriba, con Trapecio y un par. En la tercera, una figura de lados desiguales, con Trapezoide y ningún par."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una figura tiene cuatro lados. Dos de ellos son paralelos entre sí y los otros dos no lo son. ¿Cómo se llama?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Es un rectángulo"
+          },
+          {
+            "id": "b",
+            "texto": "Es un trapezoide"
+          },
+          {
+            "id": "c",
+            "texto": "Es un trapecio"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Con un solo par de lados paralelos, la figura es un trapecio.",
+        "pista": "Cuenta cuántos pares de lados paralelos hay."
+      }
+    }
   },
   {
     "clave": "mat.p5.clases-de-angulos",
@@ -1054,7 +1179,7 @@
         "id": "e01",
         "dificultad": 1,
         "tipo": "numerico",
-        "enunciado": "¿Cuántos grados sexagesimales mide con exactitud un ángulo recto? Escribe solo el número.",
+        "enunciado": "¿Cuántos grados mide un ángulo recto? Escribe solo el número.",
         "respuesta": 90,
         "alternativasAceptadas": [],
         "pistas": [
@@ -1114,7 +1239,7 @@
         "id": "e04",
         "dificultad": 1,
         "tipo": "texto_corto",
-        "enunciado": "¿Qué denominación recibe un ángulo cuya medida está comprendida entre 0° y 90°: agudo u obtuso?",
+        "enunciado": "¿Cómo se llama un ángulo que mide entre 0° y 90°: agudo u obtuso?",
         "respuesta": "agudo",
         "alternativasAceptadas": [
           "agudo",
@@ -1126,7 +1251,7 @@
           "La palabra evoca una forma puntiaguda y afilada.",
           "Elige entre las dos opciones dadas en la pregunta."
         ],
-        "retroalimentacion": "El ángulo menor que 90° se denomina agudo."
+        "retroalimentacion": "El ángulo menor que 90° se llama agudo."
       },
       {
         "id": "e05",
@@ -1306,7 +1431,130 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Clases de ángulos",
+          "narracion": "Bienvenida y bienvenido. Hoy clasificaremos ángulos. Un ángulo es la abertura entre dos lados que salen del mismo punto, llamado vértice. Como idea principal, lo comparamos con el ángulo recto, que mide noventa grados y forma una esquina como la de una hoja. Si es menor que el recto, es agudo. Si es igual, es recto. Si es mayor que el recto pero menor que una línea recta, es obtuso."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Tres aberturas",
+          "narracion": "Observemos esta situación. Hay tres ángulos con lados del mismo largo, marcados con los números uno, dos y tres. El primero se abre poco, el segundo se abre más y el tercero se abre todavía más. Queremos compararlos con algo fijo.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la escuadra",
+          "narracion": "Usaremos una escuadra, que tiene una esquina recta. En la imagen, la esquina de la escuadra es la zona turquesa punteada. Colocamos su vértice sobre el vértice del ángulo, y un lado sobre uno de los lados. Ahora miramos el otro lado del ángulo: ¿queda adentro, igual o afuera de la esquina?",
+          "recursoRef": "agudo-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dentro de la esquina",
+          "narracion": "El otro lado está dentro de la zona turquesa. La abertura es más cerrada que un ángulo recto, o sea menor que noventa grados. Por eso este ángulo es agudo.",
+          "recursoRef": "agudo-solucion"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un respaldo muy echado",
+          "narracion": "Ahora pensemos en el respaldo de una silla muy echado hacia atrás. Ponemos la esquina de la escuadra en el pliegue de la silla, con un lado sobre el asiento. ¿Qué pasa con el respaldo: queda adentro o afuera de la esquina?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: fuera de la esquina",
+          "narracion": "En la imagen, el lado inclinado sale de la zona turquesa. La abertura es más grande que un ángulo recto, pero todavía no llega a ser una línea recta. Es mayor que noventa grados y menor que ciento ochenta. Por eso es un ángulo obtuso.",
+          "recursoRef": "obtuso-solucion"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es creer que un ángulo es más grande porque sus lados se dibujaron más largos. Lo que importa es la abertura, no el largo de los lados. Otro error es llamar recto a un ángulo que solo se parece, como uno de ochenta y siete grados. Para estar seguros, usamos la escuadra."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: ubica el vértice y los lados",
+          "narracion": "Busca el punto donde se juntan los dos lados: es el vértice. Fíjate bien en los dos lados que forman la abertura."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: coloca la escuadra",
+          "narracion": "Pon el vértice de la escuadra sobre el vértice del ángulo y uno de sus lados sobre uno de los lados del ángulo, como en el primer ejemplo.",
+          "recursoRef": "agudo-pregunta"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: mira el otro lado",
+          "narracion": "Si el otro lado queda adentro, el ángulo es agudo. Si coincide, es recto. Si queda afuera, es obtuso. La imagen resume las tres clases con sus medidas.",
+          "recursoRef": "tres-clases"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/clases-angulos-situacion.svg",
+          "alt": "Tres ángulos numerados uno, dos y tres que se abren cada vez más, con la pregunta cómo comparamos las aberturas.",
+          "descripcion": "Hay tres ángulos indigo con una marca amarilla en la abertura, cada uno con un círculo con su número debajo: 1, 2 y 3. El primero se abre poco, el segundo más y el tercero todavía más. Abajo se lee: ¿Cómo comparamos las aberturas?"
+        },
+        {
+          "id": "agudo-pregunta",
+          "src": "/nudito/diagramas/matematica/clases-angulos-agudo-pregunta.svg",
+          "alt": "Una escuadra turquesa y un ángulo con un lado sobre su borde de abajo, con la pregunta si el otro lado queda adentro, igual o afuera.",
+          "descripcion": "Arriba dice La escuadra sobre un ángulo. Hay una zona turquesa punteada con forma de cuarto de círculo y esquina recta abajo a la izquierda. Un ángulo indigo comparte con ella el lado de abajo, y su otro lado sube desde el vértice. Se lee la frase esquina de la escuadra. Abajo: ¿El otro lado queda adentro, igual o afuera de la escuadra?"
+        },
+        {
+          "id": "agudo-solucion",
+          "src": "/nudito/diagramas/matematica/clases-angulos-agudo-solucion.svg",
+          "alt": "El mismo ángulo dentro de la esquina de la escuadra: queda adentro, es menor que noventa grados.",
+          "descripcion": "Arriba dice Ángulo agudo. Se ve la zona turquesa de la escuadra y el ángulo indigo con su otro lado dentro de ella; dentro de la zona dice queda adentro, y a la derecha, esquina de la escuadra. Abajo se lee: El otro lado queda adentro: menor que 90°, es agudo."
+        },
+        {
+          "id": "obtuso-solucion",
+          "src": "/nudito/diagramas/matematica/clases-angulos-obtuso-solucion.svg",
+          "alt": "Un ángulo con un lado en el borde de la escuadra y el otro lado fuera de la zona turquesa: obtuso.",
+          "descripcion": "Arriba dice Ángulo obtuso. La zona turquesa de la escuadra queda a la derecha de la esquina. El ángulo indigo comparte el lado de abajo, y su otro lado sube hacia la izquierda, fuera de la zona. Arriba a la izquierda dice queda afuera y a la derecha, escuadra. Abajo: El otro lado queda afuera: mayor que 90° y menor que 180°."
+        },
+        {
+          "id": "tres-clases",
+          "src": "/nudito/diagramas/matematica/clases-angulos-tres-clases.svg",
+          "alt": "Tres ángulos: agudo, recto y obtuso, con sus medidas.",
+          "descripcion": "Arriba dice Tres clases de ángulos. Hay tres filas, cada una con un ángulo y su texto: agudo, menor que 90°; recto, igual a 90°, con un cuadrito en la esquina; obtuso, mayor que 90° y menor que 180°."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un ángulo mide ciento cinco grados. ¿Cómo se clasifica?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Agudo, menos que noventa"
+          },
+          {
+            "id": "b",
+            "texto": "Recto, igual que noventa"
+          },
+          {
+            "id": "c",
+            "texto": "Obtuso, más que noventa"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Ciento cinco es mayor que noventa y menor que ciento ochenta, así que es obtuso.",
+        "pista": "Compara la medida con la esquina de la escuadra, que mide noventa grados."
+      }
+    }
   },
   {
     "clave": "mat.p5.diagonales-cuadrilateros",
@@ -2025,7 +2273,7 @@
           },
           {
             "id": "c",
-            "texto": "Trazar un rayo o lado inicial con la regla y señalar el vértice"
+            "texto": "Trazar un rayo con regla y marcar el vértice"
           },
           {
             "id": "d",
@@ -2258,7 +2506,130 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Ángulos con transportador",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a construir un ángulo con regla y transportador. Como idea principal, primero trazas un rayo con la regla y marcas su origen, que es el vértice. Luego apoyas el centro del transportador en el vértice, cuentas desde el cero que queda sobre tu rayo, marcas el número de grados y unes la marca con la regla."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "El ángulo de la rampa",
+          "narracion": "Observemos esta situación. Mateo debe dibujar un ángulo de setenta grados para el diseño de una rampa. Ya trazó un rayo hacia la derecha y apoyó el transportador con su centro en el vértice. Todavía no hizo ninguna marca.",
+          "recursoRef": "transportador-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: setenta grados",
+          "narracion": "La línea de cero grados del transportador está sobre el rayo. ¿Desde cuál cero contamos y hasta qué número llegamos? ¿Y con qué instrumento se une el vértice con la marca?",
+          "recursoRef": "transportador-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: la marca en setenta",
+          "narracion": "Contamos desde el cero que está sobre el rayo hasta llegar a setenta, y hacemos una marca fina con el lápiz. Quitamos el transportador y trazamos con la regla una línea desde el vértice hasta la marca. El ángulo mide setenta grados y es más pequeño que uno recto. En el dibujo se ven la marca y el segundo rayo.",
+          "recursoRef": "marca-setenta"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: un abanico",
+          "narracion": "Valeria quiere un ángulo de ciento treinta grados para un abanico de papel. En el dibujo hay una línea punteada en noventa grados, que es la de un ángulo recto. ¿La marca de ciento treinta se quedará antes de esa línea o la pasará?",
+          "recursoRef": "abanico-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: ciento treinta grados",
+          "narracion": "Seguimos la misma escala, la que empieza en cero sobre el rayo, y pasamos la línea de noventa hasta llegar a ciento treinta. Hacemos la marca y trazamos el segundo rayo con la regla. El ángulo queda más abierto que uno recto, como se ve en el dibujo.",
+          "recursoRef": "marca-ciento-treinta"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Leer el otro número",
+          "narracion": "Aquí se pedía un ángulo de cuarenta grados, pero se contó desde el cero del lado equivocado y la marca quedó en ciento cuarenta. El ángulo salió muy abierto, más que uno recto, cuando debía ser pequeño. Antes de marcar, piensa si el ángulo debe ser pequeño o muy abierto, y cuenta desde el cero que queda sobre tu rayo.",
+          "recursoRef": "escala-equivocada"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: traza el rayo",
+          "narracion": "Con la regla, traza un rayo recto y marca su origen. Ese punto será el vértice."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: pon el transportador",
+          "narracion": "Apoya el centro del transportador en el vértice. Haz que la línea de cero grados quede sobre el rayo."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: marca y une",
+          "narracion": "Busca la medida en la escala que empieza en cero sobre tu rayo y haz una marca fina. Quita el transportador y une el vértice con la marca usando la regla."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "transportador-pregunta",
+          "src": "/nudito/diagramas/matematica/construir-angulos-transportador-pregunta.svg",
+          "alt": "Un rayo hacia la derecha con un transportador apoyado en su vértice; se pregunta dónde se hace la marca.",
+          "descripcion": "Un transportador de media luna con su centro sobre el vértice, un punto amarillo al inicio de un rayo que va hacia la derecha. Tiene dos escalas: la exterior empieza con el cero a la derecha, sobre el rayo, y llega a ciento ochenta a la izquierda; la interior empieza con el cero a la izquierda. Noventa queda arriba. Arriba dice «Dibujar un ángulo de setenta grados» y abajo, «¿Dónde se hace la marca?»."
+        },
+        {
+          "id": "marca-setenta",
+          "src": "/nudito/diagramas/matematica/construir-angulos-marca-setenta.svg",
+          "alt": "Transportador con una marca amarilla en setenta grados y un segundo rayo turquesa desde el vértice.",
+          "descripcion": "El mismo transportador, con un segundo rayo turquesa que sale del vértice y pasa por una marca amarilla en setenta grados, contados desde el cero de la derecha. Un arco ámbar entre los dos rayos lleva el rótulo «setenta grados». Arriba dice «Marca en setenta grados y une con regla» y abajo, «El ángulo mide setenta grados»."
+        },
+        {
+          "id": "abanico-pregunta",
+          "src": "/nudito/diagramas/matematica/construir-angulos-abanico-pregunta.svg",
+          "alt": "Un rayo hacia la derecha, un transportador y una línea punteada vertical en noventa grados.",
+          "descripcion": "Un transportador de media luna con una línea punteada turquesa vertical en noventa grados, un rayo hacia la derecha y el vértice en un punto amarillo. Arriba dice «Dibujar un ángulo de ciento treinta grados» y abajo, «¿Pasa de la línea de noventa?»."
+        },
+        {
+          "id": "marca-ciento-treinta",
+          "src": "/nudito/diagramas/matematica/construir-angulos-marca-ciento-treinta.svg",
+          "alt": "Marca amarilla en ciento treinta grados y segundo rayo turquesa que pasa más allá de la línea punteada de noventa.",
+          "descripcion": "El transportador con la línea punteada de noventa y un segundo rayo turquesa que sale del vértice y pasa por una marca amarilla en ciento treinta grados, a la izquierda de la línea punteada. Un arco ámbar rotulado «ciento treinta grados» une los dos rayos. Abajo dice «Abre más que un ángulo recto»."
+        },
+        {
+          "id": "escala-equivocada",
+          "src": "/nudito/diagramas/matematica/construir-angulos-escala-equivocada.svg",
+          "alt": "Un rayo rojo que pasa por la marca en ciento cuarenta grados y otro rayo turquesa punteado en cuarenta grados.",
+          "descripcion": "El transportador con un rayo rojo que va del vértice a una marca roja en ciento cuarenta grados, rotulado «ciento cuarenta», y un rayo punteado turquesa en cuarenta grados, rotulado «cuarenta». Se ven las dos escalas, con un cero en cada extremo. Arriba dice «Se contó desde el otro cero» y abajo, en rojo, «Se pedía cuarenta: salió muy abierto»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "El rayo base apunta a la derecha y debes construir un ángulo de cincuenta grados. ¿Cómo haces la marca?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cincuenta, en la escala que parte de la izquierda"
+          },
+          {
+            "id": "b",
+            "texto": "Cuarenta, en la escala que parte de la derecha"
+          },
+          {
+            "id": "c",
+            "texto": "Cincuenta, en la escala que parte de la derecha"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. La marca se hace en cincuenta, en la escala que empieza en cero sobre el rayo base.",
+        "pista": "Primero ubica dónde queda el cero y cuenta desde ahí."
+      }
+    }
   },
   {
     "clave": "mat.p5.construir-cuadrilateros",
@@ -2582,7 +2953,132 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Construir cuadriláteros",
+          "narracion": "Bienvenida y bienvenido. Hoy construimos cuadriláteros con instrumentos. Como idea principal, para construir un cuadrilátero combinamos la medida de sus lados con la de sus ángulos. La regla mide los lados, la escuadra traza ángulos rectos y el transportador mide los demás ángulos."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Los instrumentos de Camila",
+          "narracion": "Observemos esta situación. Camila quiere construir un rectángulo de seis centímetros de largo y cuatro de ancho. Estos son sus instrumentos: una regla, una escuadra y un transportador.",
+          "recursoRef": "instrumentos-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la base y los lados",
+          "narracion": "Camila traza la base de seis centímetros con la regla. En cada extremo apoya la escuadra y levanta un segmento de cuatro centímetros. Los dos segmentos forman ángulos rectos con la base. Piensa: ¿cómo cierra la figura?",
+          "recursoRef": "rectangulo-base"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: cerrar el rectángulo",
+          "narracion": "Camila une los extremos de arriba con la regla. El lado de arriba también mide seis centímetros. Quedan cuatro ángulos rectos, y los lados opuestos son iguales. Es un rectángulo de seis por cuatro.",
+          "recursoRef": "rectangulo-listo"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un romboide",
+          "narracion": "Jorge quiere dibujar un romboide con lados de cinco y de tres centímetros, y un ángulo de sesenta grados. Piensa: para ese ángulo, ¿usa la escuadra o el transportador?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: trazar con transportador",
+          "narracion": "Jorge traza la base de cinco centímetros. En el extremo izquierdo marca sesenta grados con el transportador y traza un lado de tres centímetros. En el otro extremo marca ciento veinte grados y traza otro lado de tres. Mira el romboide terminado: los lados opuestos son iguales.",
+          "recursoRef": "romboide-listo"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Mira estas dos figuras con equis roja. La de la izquierda quería ser un rectángulo, pero está inclinada: sus esquinas no son rectas, porque no se revisaron con la escuadra. En la de la derecha, el lado de arriba mide cinco centímetros y el de abajo, seis: los lados opuestos de un rectángulo deben ser iguales.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: elige y traza la base",
+          "narracion": "Primero elige los instrumentos y traza la base con la regla, con la medida que te piden. Aquí están la regla, la escuadra y el transportador.",
+          "recursoRef": "instrumentos-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: marca los ángulos",
+          "narracion": "Luego, en cada extremo de la base, marca el ángulo: con la escuadra si es recto, o con el transportador si es otro. Aquí los lados salen en ángulo recto.",
+          "recursoRef": "rectangulo-base"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: cierra y revisa",
+          "narracion": "Por último, cierra la figura con la regla. Revisa que los lados opuestos sean iguales y que los ángulos sean los que pediste.",
+          "recursoRef": "rectangulo-listo"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "instrumentos-pregunta",
+          "src": "/nudito/diagramas/matematica/construir-cuadrilateros-instrumentos-pregunta.svg",
+          "alt": "Tres instrumentos de dibujo: una regla, una escuadra amarilla y un transportador, con su nombre.",
+          "descripcion": "Arriba hay una regla larga con marcas, y debajo la palabra regla. Abajo a la izquierda hay una escuadra amarilla con forma de triángulo, con una esquina marcada como ángulo recto, y la palabra escuadra. Abajo a la derecha hay un transportador en forma de medio círculo con marcas, y la palabra transportador."
+        },
+        {
+          "id": "rectangulo-base",
+          "src": "/nudito/diagramas/matematica/construir-cuadrilateros-rectangulo-base.svg",
+          "alt": "Base de seis centímetros con dos segmentos de cuatro centímetros que suben en ángulo recto desde sus extremos.",
+          "descripcion": "Una línea horizontal en la parte baja, con seis centímetros escritos debajo. De sus dos extremos suben dos segmentos verticales que terminan en un punto; a su izquierda y a su derecha se lee cuatro centímetros. En cada esquina de abajo hay una marca de ángulo recto. El lado de arriba aún no está trazado."
+        },
+        {
+          "id": "rectangulo-listo",
+          "src": "/nudito/diagramas/matematica/construir-cuadrilateros-rectangulo-listo.svg",
+          "alt": "Rectángulo con lados de seis y de cuatro centímetros y marcas de ángulo recto en sus cuatro esquinas.",
+          "descripcion": "Un rectángulo claro. Arriba y abajo se lee seis centímetros; a la izquierda y a la derecha, cuatro centímetros. Cada una de las cuatro esquinas tiene una pequeña marca de ángulo recto."
+        },
+        {
+          "id": "romboide-listo",
+          "src": "/nudito/diagramas/matematica/construir-cuadrilateros-romboide-listo.svg",
+          "alt": "Romboide con base de cinco centímetros, lados de tres, un ángulo de sesenta grados abajo a la izquierda y otro de ciento veinte abajo a la derecha.",
+          "descripcion": "Un romboide inclinado hacia la derecha. Arriba y abajo se lee cinco centímetros, y a los dos costados, tres. En la esquina de abajo a la izquierda hay un arco con sesenta grados, y en la de abajo a la derecha, otro arco con ciento veinte grados."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/construir-cuadrilateros-errores.svg",
+          "alt": "Dos figuras con equis roja: un cuadrilátero inclinado que quería ser rectángulo y una figura con lado de arriba de cinco centímetros y de abajo de seis.",
+          "descripcion": "A la izquierda, una figura que parece un rectángulo pero está inclinada hacia la derecha; debajo se lee inclinado y hay una equis roja. A la derecha, una figura con el lado de arriba más corto: arriba dice cinco centímetros y abajo, seis centímetros; debajo hay una equis roja."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Tomás trazó la base de nueve centímetros de un rectángulo y levantó dos lados de tres centímetros con la escuadra. ¿Cuánto debe medir el lado de arriba que cierra la figura?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuatro centímetros"
+          },
+          {
+            "id": "b",
+            "texto": "Nueve centímetros"
+          },
+          {
+            "id": "c",
+            "texto": "Tres centímetros"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. En un rectángulo, el lado de arriba es igual al de abajo: nueve centímetros.",
+        "pista": "Piensa qué lado está enfrente del lado de arriba."
+      }
+    }
   },
   {
     "clave": "mat.p5.relaciones-cuadrilateros",

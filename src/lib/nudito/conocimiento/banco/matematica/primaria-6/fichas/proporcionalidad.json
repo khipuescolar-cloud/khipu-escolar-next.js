@@ -1196,7 +1196,133 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Proporcionalidad directa y regla de tres",
+          "narracion": "Hola. Hoy resolverás problemas de proporcionalidad directa. Como idea principal, dos cantidades son directamente proporcionales cuando, al multiplicar una por un número, la otra se multiplica por el mismo número. Si conoces cuánto corresponde a una unidad, o usas la regla de tres, puedes hallar cualquier dato que falte."
+        },
+        {
+          "id": "situacion-arroz",
+          "tipo": "recurso",
+          "titulo": "Tres kilos de arroz y su precio",
+          "narracion": "Observemos esta situación. En una tienda, tres kilos de arroz cuestan doce soles. Queremos saber cuánto cuestan siete kilos. Primero buscaremos el precio de un solo kilo y después multiplicaremos; la tabla muestra el dato conocido y las dos operaciones que usaremos.",
+          "recursoRef": "arroz-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: siete kilos de arroz",
+          "narracion": "Tres kilos de arroz cuestan doce soles. ¿Cuánto cuestan siete kilos al mismo precio? Reducimos a la unidad: doce entre tres son cuatro, así que un kilo cuesta cuatro soles.",
+          "recursoRef": "arroz-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: pasamos de uno a siete kilos",
+          "narracion": "Ahora pasamos de un kilo a siete: siete por cuatro son veintiocho. Siete kilos cuestan veintiocho soles. Comprobamos: veintiocho es más que doce, como corresponde a una compra mayor, y veintiocho entre siete vuelve a dar cuatro soles por kilo.",
+          "recursoRef": "arroz"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una mototaxi y la regla de tres",
+          "narracion": "Una mototaxi recorre noventa kilómetros en tres horas a ritmo constante. ¿Cuántos kilómetros recorre en cinco horas? Escribimos los pares: tres horas con noventa kilómetros, y cinco horas con un valor que no conocemos.",
+          "recursoRef": "regla-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: productos cruzados",
+          "narracion": "Con productos cruzados, multiplicamos noventa por cinco, que da cuatrocientos cincuenta, y dividimos entre tres. Cuatrocientos cincuenta entre tres son ciento cincuenta. La mototaxi recorre ciento cincuenta kilómetros. Por el otro camino, treinta kilómetros por hora durante cinco horas también dan ciento cincuenta.",
+          "recursoRef": "regla"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuando no hay proporcionalidad",
+          "narracion": "Un error frecuente es aplicar la regla de tres cuando hay una tarifa fija. Un taxi cobra cinco soles de arranque y tres por kilómetro: un kilómetro cuesta ocho soles y dos kilómetros cuestan once, no dieciséis. Si el doble de la cantidad no da el doble del valor, la relación no es directamente proporcional.",
+          "recursoRef": "tarifa"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: comprueba que sea proporcional",
+          "narracion": "Antes de calcular, verifica que la relación conserve un valor por unidad, como el precio de un kilo. En la tarifa fija del taxi eso no ocurre, y por eso la regla de tres no sirve.",
+          "recursoRef": "tarifa"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: escribe el par conocido y el dato que falta",
+          "narracion": "Anota el par que conoces y, debajo, la cantidad nueva con la incógnita, cuidando que cada columna tenga la misma magnitud. En la mototaxi, horas con horas y kilómetros con kilómetros.",
+          "recursoRef": "regla"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: calcula y verifica",
+          "narracion": "Calcula el valor de una unidad o usa los productos cruzados, y multiplica. Con el arroz, doce entre tres son cuatro, y siete por cuatro son veintiocho. Luego verifica que el resultado tenga sentido: más kilos, más soles.",
+          "recursoRef": "arroz"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "arroz",
+          "src": "/nudito/diagramas/matematica/proporcionalidad-tabla-arroz.svg",
+          "alt": "Tabla de arroz: tres kilos doce soles, un kilo cuatro soles, siete kilos veintiocho soles.",
+          "descripcion": "Hay tres filas con un cuadro de kilos a la izquierda y uno de soles a la derecha: tres kilos y doce soles, un kilo y cuatro soles, siete kilos y veintiocho soles. Flechas hacia abajo muestran dividir entre tres de la primera a la segunda fila y multiplicar por siete de la segunda a la tercera."
+        },
+        {
+          "id": "regla",
+          "src": "/nudito/diagramas/matematica/proporcionalidad-regla-tres-mototaxi.svg",
+          "alt": "Regla de tres: tres horas con noventa kilómetros y cinco horas con x; el cálculo da ciento cincuenta.",
+          "descripcion": "Hay dos filas. En la primera, tres horas a la izquierda y noventa kilómetros a la derecha. En la segunda, cinco horas y x kilómetros. Una línea diagonal con una cruz une noventa con cinco horas. Abajo se lee cruzados, noventa por cinco igual a cuatrocientos cincuenta, y cuatrocientos cincuenta entre tres igual a ciento cincuenta kilómetros."
+        },
+        {
+          "id": "tarifa",
+          "src": "/nudito/diagramas/matematica/proporcionalidad-tarifa-fija.svg",
+          "alt": "Tarifa fija: un kilómetro cuesta ocho soles y dos kilómetros once soles, no el doble.",
+          "descripcion": "Hay dos filas con kilómetros a la izquierda y soles a la derecha: un kilómetro, ocho soles; dos kilómetros, once soles. A la izquierda una flecha dice por dos; a la derecha, una flecha gris dice por dos no. Abajo se lee ocho por dos es dieciséis, pero cuesta once, porque hay cinco soles fijos más tres por kilómetro."
+        },
+        {
+          "id": "arroz-pregunta",
+          "src": "/nudito/diagramas/matematica/proporcionalidad-arroz-pregunta.svg",
+          "alt": "Tabla de arroz: tres kilos cuestan doce soles; faltan los precios de un kilo y de siete kilos.",
+          "descripcion": "Hay tres filas con kilos a la izquierda y soles a la derecha. La primera dice tres kilos y doce soles. La segunda dice un kilo y la tercera siete kilos, y sus precios aparecen con un signo de pregunta. Flechas hacia abajo indican dividir entre tres y multiplicar por siete. Abajo se lee: cuánto cuestan siete kilos."
+        },
+        {
+          "id": "regla-pregunta",
+          "src": "/nudito/diagramas/matematica/proporcionalidad-regla-tres-pregunta.svg",
+          "alt": "Tres horas con noventa kilómetros y cinco horas con x kilómetros por hallar.",
+          "descripcion": "Hay dos filas. En la primera, tres horas a la izquierda y noventa kilómetros a la derecha. En la segunda, cinco horas y x kilómetros, el dato que falta. Abajo se lee: cuántos kilómetros en cinco horas."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un grupo de teatro pinta nueve afiches en tres horas a ritmo constante. ¿Cuántos afiches pinta en siete horas?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sesenta y tres afiches"
+          },
+          {
+            "id": "b",
+            "texto": "Trece afiches"
+          },
+          {
+            "id": "c",
+            "texto": "Veintiún afiches"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Nueve entre tres son tres afiches por hora, y tres por siete son veintiún afiches.",
+        "pista": "Halla cuántos afiches pinta en una hora y multiplica por siete."
+      }
+    }
   },
   {
     "clave": "mat.p6.grafica-proporcionalidad",
@@ -1496,7 +1622,123 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Gráfica de proporcionalidad directa",
+          "narracion": "Bienvenida y bienvenido. En una proporcionalidad directa, cada par de valores se representa con un punto. La primera cantidad se ubica en el eje horizontal y la segunda en el vertical. Los puntos quedan alineados en una recta que pasa por el origen, donde ambas cantidades valen cero."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "De la tabla a la gráfica",
+          "narracion": "Observemos esta situación. La tabla muestra kilos de fruta y su costo en soles. Sus pares son cero con cero, uno con tres, dos con seis y tres con nueve. A la derecha hay ejes vacíos. Queremos ubicar cada par.",
+          "recursoRef": "tabla-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ubica cada par",
+          "narracion": "Empieza con el par uno con tres. Avanza una unidad por el eje horizontal y luego sube tres por el vertical. Haz lo mismo con los otros pares. ¿Qué forma crees que tendrán al unirlos?",
+          "recursoRef": "tabla-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una recta desde el origen",
+          "narracion": "Los puntos uno con tres, dos con seis y tres con nueve quedan en la misma recta. También incluimos el origen. La recta pasa por ese cruce porque cero kilos cuestan cero soles.",
+          "recursoRef": "fruta-resuelta"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una tarifa inicial",
+          "narracion": "Ahora un servicio cobra cuatro soles aunque no recorra ningún kilómetro. La tabla empieza con cero kilómetros y cuatro soles. Después muestra uno con seis y dos con ocho. ¿Representará una proporcionalidad directa?",
+          "recursoRef": "tarifa-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: recta sin origen",
+          "narracion": "Los puntos forman una recta, pero el primer punto está en cero kilómetros y ya cuesta cuatro soles, o sea que no está en el origen. Como la recta no pasa por el origen, no representa proporcionalidad directa. La tarifa inicial cambia el comienzo."
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Respeta el orden del par",
+          "narracion": "Para ubicar el par dos con seis, primero avanzamos dos en horizontal y luego subimos seis. Colocarlo como seis con dos intercambia las cantidades y deja el punto en un lugar equivocado.",
+          "recursoRef": "error-coordenadas"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: define los ejes",
+          "narracion": "Primero, coloca la cantidad de entrada en el eje horizontal y la cantidad que depende de ella en el eje vertical."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: marca los pares",
+          "narracion": "Después, ubica cada par en el mismo orden: primero avanza en horizontal y luego sube en vertical."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: revisa la recta",
+          "narracion": "Por último, comprueba dos condiciones: todos los puntos deben quedar alineados y la recta debe pasar por el origen."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "tabla-pregunta",
+          "src": "/nudito/diagramas/matematica/grafica-proporcionalidad-tabla-pregunta.svg",
+          "alt": "Tabla de kilos y soles con pares cero-cero, uno-tres, dos-seis y tres-nueve, junto a ejes vacíos.",
+          "descripcion": "A la izquierda, una tabla muestra Kilos y Soles: cero con cero, uno con tres, dos con seis y tres con nueve. A la derecha hay dos ejes índigo y una cuadrícula vacía. Abajo se pregunta dónde van los puntos."
+        },
+        {
+          "id": "fruta-resuelta",
+          "src": "/nudito/diagramas/matematica/grafica-proporcionalidad-fruta-resuelta.svg",
+          "alt": "Gráfica con el origen y los puntos uno-tres, dos-seis y tres-nueve alineados.",
+          "descripcion": "Una recta turquesa parte del origen y atraviesa tres puntos amarillos rotulados uno con tres, dos con seis y tres con nueve en cifras. Los ejes están numerados: kilos de uno a cinco en horizontal y soles de tres en tres, hasta nueve, en vertical. Los cuatro puntos están alineados."
+        },
+        {
+          "id": "tarifa-pregunta",
+          "src": "/nudito/diagramas/matematica/grafica-proporcionalidad-tarifa-pregunta.svg",
+          "alt": "Tabla de servicio de entrega con cero-cuatro, uno-seis y dos-ocho, sin respuesta.",
+          "descripcion": "La tabla del servicio de entrega tiene las columnas Kilómetros y Costo. Sus filas muestran cero con cuatro, uno con seis y dos con ocho. Debajo se pregunta si es proporcionalidad directa."
+        },
+        {
+          "id": "error-coordenadas",
+          "src": "/nudito/diagramas/matematica/grafica-proporcionalidad-error-coordenadas.svg",
+          "alt": "El punto seis-dos está tachado y el punto dos-seis aparece como ubicación correcta.",
+          "descripcion": "En una cuadrícula con ejes numerados del uno al seis, un punto rojo en seis con dos está cubierto por una equis pequeña. Un punto turquesa en dos con seis aparece sin tachar. El título dice «Primero horizontal»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una tabla tiene los pares cero con dos, uno con cinco y dos con ocho. Al graficarlos forman una recta. ¿Es proporcionalidad directa?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sí, cruza justo el origen"
+          },
+          {
+            "id": "b",
+            "texto": "No, no pasa por el origen"
+          },
+          {
+            "id": "c",
+            "texto": "Sí, porque sube de a tres"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. La recta no pasa por el origen: empieza dos unidades sobre él, así que no representa proporcionalidad directa.",
+        "pista": "Una línea recta necesita cumplir otra condición en el punto donde ambos ejes se cruzan."
+      }
+    }
   },
   {
     "clave": "mat.p6.proporcional-o-no",

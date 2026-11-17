@@ -742,7 +742,123 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Una carta es un mensaje para alguien",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a escribir una carta, un mensaje escrito para una persona concreta. Como idea principal, una carta tiene cinco partes que siempre van en el mismo orden: lugar y fecha, saludo, cuerpo, despedida y firma. Además, el modo de saludar y de despedirte cambia según quién la reciba, porque a una tía le escribes distinto que a una persona a quien tratas con respeto."
+        },
+        {
+          "id": "situacion-partes",
+          "tipo": "recurso",
+          "titulo": "Las partes de una carta",
+          "narracion": "Observemos cómo se ordena una carta de arriba hacia abajo. Primero van el lugar y la fecha. Después, el saludo. En tercer lugar está el cuerpo, que es lo que quieres contar o pedir. Luego viene la despedida y, al final, tu firma, que es tu nombre.",
+          "recursoRef": "partes"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: Mateo escribe a su tía",
+          "narracion": "Mateo vive en Lima y quiere contarle a su tía Rosa, que vive en Tacna, que su equipo de vóley llegó a la final. Ya tiene escritos el lugar y la fecha, el cuerpo y su firma. Todavía le faltan dos partes: el saludo y la despedida."
+        },
+        {
+          "id": "ejemplo-1-faltan",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la carta con dos espacios",
+          "narracion": "Esta es la carta de Mateo. Empieza con «Lima, 12 de junio de 2026». El cuerpo dice: «Mi equipo de vóley llegó a la final. ¡Ven a verme jugar el sábado!». Al final aparece su firma, Mateo. Los dos recuadros amarillos marcan lo que falta: el saludo y la despedida. Para completarlos, pregúntate a quién le escribe y qué relación tiene con esa persona.",
+          "recursoRef": "mateo"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: elegimos según quién la recibe",
+          "narracion": "Mateo le escribe a su tía Rosa, una persona muy querida. Por eso su saludo puede ser cercano: «Querida tía Rosa:», con dos puntos al final. Su despedida también puede serlo: «Con cariño,», con coma. Así la carta queda completa y su tono combina con la persona que la va a leer."
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una carta a la bibliotecaria",
+          "narracion": "Ahora el curso de Mateo quiere visitar la biblioteca municipal de Huaraz. Escriben a la señora Paredes, la bibliotecaria, a quien no conocen, y le piden una visita guiada para el sábado. ¿Qué saludo y qué despedida conviene usar? Piensa en quién leerá la carta antes de escuchar la respuesta."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: comparamos las dos cartas",
+          "narracion": "Comparemos ambas cartas. Para la señora Paredes, una persona adulta a quien no conocen, el saludo es más respetuoso: «Estimada señora Paredes:». La despedida también cambia: en lugar de «Con cariño,», se escribe «Atentamente,». Lo que no cambia es la forma: el saludo termina en dos puntos, la despedida en coma y al final va la firma. Cambian las palabras, no el orden de las partes.",
+          "recursoRef": "tono"
+        },
+        {
+          "id": "error-mismo-tono",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: usar el mismo tono con todos",
+          "narracion": "Un error común es escribir con las mismas palabras a cualquier persona. Empezar con «Hola, bibliotecaria» y despedirte con «Chau» sería demasiado informal para alguien a quien no conoces. Otro descuido es cambiar los dos puntos del saludo por un punto o una coma. Antes de escribir, decide quién recibirá la carta y escoge el tono."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: ordena las partes",
+          "narracion": "Primero anota a quién va dirigida la carta y escribe arriba el lugar y la fecha. Ten presente el orden de las cinco partes: lugar y fecha, saludo, cuerpo, despedida y firma.",
+          "recursoRef": "partes"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: elige el tono",
+          "narracion": "Decide el saludo y la despedida según quién recibe la carta. Para un familiar o una amistad usa un tono cercano, como «Querida tía Rosa:» y «Con cariño,». Para una persona a quien tratas con respeto usa un tono formal, como «Estimada señora Paredes:» y «Atentamente,».",
+          "recursoRef": "tono"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: escribe el cuerpo y revisa",
+          "narracion": "Redacta el cuerpo en párrafos cortos, diciendo con claridad lo que quieres contar o pedir. Cierra con la despedida y tu firma. Por último, revisa que el saludo termine en dos puntos, que la despedida termine en coma y que tu nombre esté al final."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "partes",
+          "src": "/nudito/diagramas/comunicacion/carta-partes.svg",
+          "alt": "Cinco franjas ordenadas: lugar y fecha, saludo, cuerpo, despedida y firma.",
+          "descripcion": "Cinco franjas de arriba hacia abajo: 1 Lugar y fecha, 2 Saludo, 3 Cuerpo (lo que quieres decir), 4 Despedida y 5 Firma (tu nombre). Debajo, una nota dice que las partes van siempre en ese orden."
+        },
+        {
+          "id": "mateo",
+          "src": "/nudito/diagramas/comunicacion/carta-mateo-pregunta.svg",
+          "alt": "Carta de Mateo a su tía Rosa con el saludo y la despedida marcados con un signo de interrogación.",
+          "descripcion": "Una hoja de carta con la fecha «Lima, 12 de junio de 2026». Tiene un recuadro amarillo con «Saludo: ?», el cuerpo «Mi equipo de vóley llegó a la final. ¡Ven a verme jugar el sábado!», otro recuadro amarillo con «Despedida: ?» y la firma Mateo. Abajo dice: Para su tía Rosa, de Tacna."
+        },
+        {
+          "id": "tono",
+          "src": "/nudito/diagramas/comunicacion/carta-tono-comparar.svg",
+          "alt": "Dos cartas comparadas: a la tía Rosa, tono cercano; a la bibliotecaria, tono formal.",
+          "descripcion": "Dos recuadros. El primero, carta a la tía Rosa con tono cercano: saludo «Querida tía Rosa:» y despedida «Con cariño,». El segundo, carta a la bibliotecaria con tono formal: saludo «Estimada señora Paredes:» y despedida «Atentamente,»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee esta carta de Diego a su prima: «Trujillo, 8 de mayo de 2026. Querida prima Lucero; te cuento que ya aprendí a bailar marinera. Un abrazo grande, Diego». ¿Qué parte tiene un error?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La fecha, porque debería ir al final de la carta."
+          },
+          {
+            "id": "b",
+            "texto": "La despedida, porque «Un abrazo grande,» es muy cariñosa."
+          },
+          {
+            "id": "c",
+            "texto": "El saludo, porque debe terminar con dos puntos."
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "El saludo debe terminar con dos puntos y Diego puso punto y coma. La fecha va al comienzo de la carta y una despedida cariñosa sí combina con una prima.",
+        "pista": "Fíjate en el signo que Diego escribió justo después de «Querida prima Lucero»."
+      }
+    }
   },
   {
     "clave": "com.p5.escribo-un-texto-expositivo",

@@ -1020,7 +1020,130 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comparar masas",
+          "narracion": "Bienvenida y bienvenido. Hoy compararemos masas. La masa dice cuánto pesa un objeto, y la medimos en kilogramos. Como idea principal, el objeto con más kilogramos es el más pesado, y el que tiene menos kilogramos es el más liviano. Se compara con los números, no con el tamaño."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Dos cajas en el mercado",
+          "narracion": "Observemos esta situación. En el mercado hay dos cajas del mismo tamaño. Una tiene duraznos y pesa ocho kilogramos. La otra tiene tunas y pesa cinco kilogramos. Queremos saber cuál caja pesa más.",
+          "recursoRef": "cajas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dos cajas",
+          "narracion": "Para saber cuál pesa más, compara los números de kilogramos. ¿Cuál de los dos números es mayor?",
+          "recursoRef": "cajas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la más pesada",
+          "narracion": "Ocho es mayor que cinco. Entonces la caja de duraznos pesa más, y la caja de tunas es la más liviana.",
+          "recursoRef": "cajas-comparar"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ordenar tres cajas",
+          "narracion": "Ahora ordenemos tres cajas de la tienda, de la más liviana a la más pesada. La caja de lentejas pesa seis kilogramos. La de arroz pesa once. La de harina pesa ocho. Compara los números de dos en dos."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el orden",
+          "narracion": "Seis es el número menor, así que las lentejas son lo más liviano. Ocho va en medio: la harina. Once es el mayor, así que el arroz es lo más pesado. La fila queda así: lentejas, harina y arroz.",
+          "recursoRef": "bolsas-orden"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error frecuente es creer que lo más grande pesa más. Aquí una caja grande pesa dos kilogramos y una caja pequeña pesa siete. La caja pequeña pesa más. El tamaño engaña: hay que mirar los kilogramos.",
+          "recursoRef": "tamano-error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: escribe cada masa",
+          "narracion": "Escribe la masa de cada objeto con su unidad: kilogramos."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: compara los números",
+          "narracion": "Fíjate en los números de cada objeto. El mayor es el más pesado, y el menor es el más liviano."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: ordena y explica",
+          "narracion": "Ordena del menor al mayor, o al revés, según te pidan. Explica tu respuesta con los kilogramos. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cajas-pregunta",
+          "src": "/nudito/diagramas/matematica/comparar-masas-cajas-pregunta.svg",
+          "alt": "Dos cajas del mismo tamaño: duraznos con ocho kilogramos y tunas con cinco kilogramos.",
+          "descripcion": "Dos cajas iguales con asa. La de la izquierda, rotulada Duraznos, dice ocho kilogramos. La de la derecha, rotulada Tunas, dice cinco kilogramos. Abajo: ¿Cuál pesa más?"
+        },
+        {
+          "id": "cajas-comparar",
+          "src": "/nudito/diagramas/matematica/comparar-masas-cajas-comparar.svg",
+          "alt": "Las dos cajas: la de duraznos, de ocho kilogramos, con borde verde y rotulada más pesada.",
+          "descripcion": "Las mismas cajas. La de duraznos, con ocho kilogramos y borde verde grueso, tiene debajo la palabra Más pesada. La de tunas, con cinco kilogramos, dice Más liviana. Abajo: ocho es mayor que cinco."
+        },
+        {
+          "id": "bolsas-orden",
+          "src": "/nudito/diagramas/matematica/comparar-masas-bolsas-orden.svg",
+          "alt": "Tres cajas en fila: lentejas con seis kilogramos, harina con ocho y arroz con once, y una flecha de menor a mayor.",
+          "descripcion": "Tres cajas iguales en fila: Lentejas, seis kilogramos; Harina, ocho kilogramos; Arroz, once kilogramos. Arriba: De la más liviana a la más pesada. Abajo, una flecha verde de menor a mayor."
+        },
+        {
+          "id": "tamano-error",
+          "src": "/nudito/diagramas/matematica/comparar-masas-tamano-error.svg",
+          "alt": "Una caja grande con dos kilogramos y una caja pequeña con siete kilogramos.",
+          "descripcion": "Una caja grande, rotulada Caja grande, que dice dos kilogramos, y una caja pequeña, rotulada Caja pequeña, que dice siete kilogramos. Arriba, en rojo: El tamaño engaña. Abajo: Se comparan los kilogramos."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/comparar-masas-pasos.svg",
+          "alt": "Tarjeta con tres pasos para comparar masas: escribir cada masa, comparar los números y ordenar.",
+          "descripcion": "Tres tarjetas numeradas. La uno: escribe cada masa, con su unidad, ocho kilogramos. La dos: compara los números, más kilogramos, más pesado. La tres: ordena y explica, del número menor al mayor."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En la feria, el saco de chuño pesa diecisiete kilogramos. El de maíz pesa catorce. El de trigo pesa veinte. ¿Cuál es el más liviano?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Maíz"
+          },
+          {
+            "id": "b",
+            "texto": "Chuño"
+          },
+          {
+            "id": "c",
+            "texto": "Trigo"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Catorce es el número menor, así que el saco de maíz es el más liviano.",
+        "pista": "Fíjate solo en los kilogramos de cada saco."
+      }
+    }
   },
   {
     "clave": "mat.p3.balanza-masa",
@@ -1336,7 +1459,132 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Medición de masa con balanza",
+          "narracion": "Bienvenida y bienvenido. Hoy vas a descubrir cuánto pesan las cosas usando una balanza. Como idea principal, en una balanza de platillos el lado más pesado baja, y si los dos lados pesan lo mismo queda en equilibrio. Para hallar una masa, sumamos los kilogramos de las pesas. En la balanza de aguja del mercado, el número donde se detiene la aguja es la masa en kilogramos."
+        },
+        {
+          "id": "situacion-balanza",
+          "tipo": "recurso",
+          "titulo": "Una balanza de platillos",
+          "narracion": "Observemos esta situación. En el platillo izquierdo hay una sandía. En el platillo derecho hay una pesa de un kilogramo. El lado de la sandía está más abajo y el lado de la pesa está más arriba. El lado que baja es el que tiene más masa.",
+          "recursoRef": "sandia-pesa"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el saco de papa",
+          "narracion": "En un platillo hay un saco de papa y no sabemos cuánto pesa. En el otro platillo hay una pesa de cinco kilogramos y una pesa de dos kilogramos. La balanza está en equilibrio. Queremos saber la masa del saco. Primero sumamos las pesas del otro lado.",
+          "recursoRef": "saco-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: cuánto pesa el saco",
+          "narracion": "Cinco más dos son siete kilogramos. Como hay equilibrio, los dos lados pesan lo mismo. Entonces el saco de papa pesa siete kilogramos.",
+          "recursoRef": "saco-resuelto"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la balanza de aguja",
+          "narracion": "En el mercado, una vendedora pone una bolsa de harina sobre una balanza de aguja. La aguja se mueve y se detiene en un número de la escala. Queremos saber cuánto pesa la bolsa. En esta balanza, el número donde se detiene la aguja es la masa en kilogramos.",
+          "recursoRef": "aguja-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: leemos la aguja",
+          "narracion": "La aguja se detiene en el ocho. Eso quiere decir que la bolsa de harina pesa ocho kilogramos. Para estar seguros, miramos la escala: el ocho viene después del seis y antes del diez, y allí está la punta de la aguja.",
+          "recursoRef": "aguja-resuelto"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Dos errores frecuentes",
+          "narracion": "Un error frecuente es creer que el lado que sube es el más pesado. Es al revés: el lado más pesado baja. Otro error es contar las pesas en lugar de sumar sus kilogramos. Dos pesas de un kilogramo pesan dos kilogramos, y una sola pesa de tres kilogramos pesa más."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira cada platillo",
+          "narracion": "Mira qué hay en cada platillo y cuánto pesa cada cosa. En la balanza inclinada, a un lado está la sandía y al otro una pesa de un kilogramo.",
+          "recursoRef": "sandia-pesa"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: suma las pesas de cada lado",
+          "narracion": "Suma los kilogramos de las pesas de cada lado, no cuentes cuántas pesas hay. En el saco de papa, cinco más dos son siete kilogramos.",
+          "recursoRef": "saco-resuelto"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: compara o lee la aguja",
+          "narracion": "Si los lados pesan igual, hay equilibrio. Si no, baja el lado más pesado. Si usas una balanza de aguja, lee el número donde se detiene: esa es la masa en kilogramos.",
+          "recursoRef": "aguja-resuelto"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "sandia-pesa",
+          "src": "/nudito/diagramas/matematica/balanza-masa-sandia-pesa.svg",
+          "alt": "Balanza de platillos inclinada: la sandía del platillo izquierdo baja y la pesa de un kilogramo del derecho sube.",
+          "descripcion": "Una balanza de platillos inclinada. A la izquierda, más abajo, hay una sandía. A la derecha, más arriba, hay una pesa amarilla con el texto un kilogramo."
+        },
+        {
+          "id": "saco-pregunta",
+          "src": "/nudito/diagramas/matematica/balanza-masa-saco-papa-pregunta.svg",
+          "alt": "Balanza en equilibrio: un saco de papa de masa desconocida a la izquierda y dos pesas, de cinco y de dos kilogramos, a la derecha.",
+          "descripcion": "La barra está horizontal. A la izquierda hay un saco con un signo de interrogación. A la derecha hay dos pesas amarillas: una de cinco kilogramos y otra de dos kilogramos. Arriba se pregunta cuánto pesa el saco."
+        },
+        {
+          "id": "saco-resuelto",
+          "src": "/nudito/diagramas/matematica/balanza-masa-saco-papa-resuelto.svg",
+          "alt": "Balanza en equilibrio: el saco de papa pesa siete kilogramos porque cinco más dos kilogramos son siete.",
+          "descripcion": "La misma balanza horizontal. El saco ahora dice siete kilogramos y las pesas dicen cinco kilogramos y dos kilogramos. Arriba se lee la suma cinco más dos igual a siete kilogramos."
+        },
+        {
+          "id": "aguja-pregunta",
+          "src": "/nudito/diagramas/matematica/balanza-masa-aguja-pregunta.svg",
+          "alt": "Balanza de aguja del mercado con una bolsa de harina sobre el plato. La escala va de cero a diez kilogramos y la aguja todavía no se detiene.",
+          "descripcion": "Una balanza con esfera en forma de medio círculo, con números de cero a diez de dos en dos. Debajo hay un plato con una bolsa de harina. La esfera solo tiene el eje rojo en el centro; la aguja todavía no se detiene en ningún número. Abajo se lee eso mismo."
+        },
+        {
+          "id": "aguja-resuelto",
+          "src": "/nudito/diagramas/matematica/balanza-masa-aguja-resuelto.svg",
+          "alt": "Balanza de aguja: la aguja se detiene en el ocho, así que la bolsa de harina pesa ocho kilogramos.",
+          "descripcion": "La misma balanza, ahora con una aguja roja que apunta al número ocho de la escala. Abajo se lee que la bolsa pesa ocho kilogramos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En un platillo hay un saco de maíz. En el otro hay pesas de cuatro, tres y dos kilogramos, y la balanza está en equilibrio. ¿Cuánto pesa el saco?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tres kilogramos"
+          },
+          {
+            "id": "b",
+            "texto": "Nueve kilogramos"
+          },
+          {
+            "id": "c",
+            "texto": "Siete kilogramos"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Cuatro más tres más dos son nueve kilogramos, y con equilibrio el saco pesa lo mismo.",
+        "pista": "Suma los kilogramos de las tres pesas; no cuentes cuántas son."
+      }
+    }
   },
   {
     "clave": "mat.p3.duracion-horas",
@@ -2301,6 +2549,132 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Semanas y meses",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a usar el calendario para contar días. Como idea principal, cada semana tiene siete días. Si avanzas siete días, caes en el mismo día de la semana. Para saber cuántos días faltan, restamos las fechas. Y cuando el mes termina, seguimos con el uno del mes siguiente."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Un concurso en setiembre",
+          "narracion": "Observemos esta situación. Es el calendario de setiembre. Hoy es ocho y está marcado en amarillo. El concurso de dibujo es el diecinueve y está marcado en turquesa. Queremos saber cuántos días faltan.",
+          "recursoRef": "pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: por semanas",
+          "narracion": "Podemos avanzar por semanas y luego sumar los días que sobran. ¿Cuántos días avanzas en una semana? ¿A qué fecha llegas si avanzas una semana desde hoy? ¿Cuántos días faltan desde ahí hasta el concurso?",
+          "recursoRef": "pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: siete y cuatro",
+          "narracion": "Desde ocho, una semana nos lleva al quince. Del quince al diecinueve hay cuatro días. Sumamos siete y cuatro, y son once días. También sale restando: diecinueve menos ocho es once. Faltan once días.",
+          "recursoRef": "saltos"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el mismo día",
+          "narracion": "Ahora sabemos que el nueve de setiembre es miércoles. ¿Qué día de la semana es el treinta? Está señalado con un borde grueso. Prueba avanzando de siete en siete desde el nueve y fíjate qué fechas vas tocando.",
+          "recursoRef": "fecha-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: de siete en siete",
+          "narracion": "Desde el nueve sumamos siete y llegamos al dieciséis. Otra vez siete, y llegamos al veintitrés. Otra vez, y llegamos al treinta. Todas estas fechas están en la misma columna, la del miércoles. Por eso el treinta también es miércoles.",
+          "recursoRef": "semanas"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuando termina el mes",
+          "narracion": "Estamos a veintisiete de setiembre y avanzamos una semana. Si solo sumamos, sale treinta y cuatro, pero setiembre termina en el treinta, así que ese día no existe. Después del treinta viene el uno de octubre. Contando siete días, llegamos al cuatro de octubre.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: ubica las fechas",
+          "narracion": "Primero ubica la fecha de hoy y la fecha que te piden. Aquí, hoy está en amarillo y el concurso en turquesa.",
+          "recursoRef": "pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: avanza por semanas",
+          "narracion": "Segundo, avanza de siete en siete mientras puedas, porque así caes en el mismo día de la semana. Después cuenta los días que sobran, o resta una fecha de la otra.",
+          "recursoRef": "semanas"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: cuida el final del mes",
+          "narracion": "Tercero, si llegas al último día del mes, sigue con el uno del mes siguiente. Antes de avanzar, recuerda cuántos días tiene el mes.",
+          "recursoRef": "errores"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "pregunta",
+          "src": "/nudito/diagramas/matematica/calendario-setiembre-pregunta.svg",
+          "alt": "Calendario de setiembre con el ocho marcado en amarillo como hoy y el diecinueve en turquesa como el concurso.",
+          "descripcion": "Un calendario de setiembre con las siglas de los siete días arriba y cinco filas de números, del uno al treinta. El ocho, en amarillo con borde azul oscuro, es hoy. El diecinueve, en turquesa, es el concurso. Abajo, la leyenda: hoy y concurso."
+        },
+        {
+          "id": "saltos",
+          "src": "/nudito/diagramas/matematica/calendario-setiembre-saltos.svg",
+          "alt": "Recta con ocho, quince y diecinueve: un arco de una semana y otro de cuatro días; abajo, siete más cuatro igual once.",
+          "descripcion": "Una recta con tres puntos: ocho, en amarillo, rotulado hoy; quince, en turquesa; y diecinueve, en turquesa, rotulado concurso. Un arco turquesa va de ocho a quince y dice una semana. Un arco azul oscuro va de quince a diecinueve y dice cuatro días. Abajo: siete más cuatro igual once días."
+        },
+        {
+          "id": "fecha-pregunta",
+          "src": "/nudito/diagramas/matematica/calendario-setiembre-fecha-pregunta.svg",
+          "alt": "Calendario de setiembre con el nueve en amarillo y el treinta con un borde grueso azul oscuro.",
+          "descripcion": "El calendario de setiembre. El nueve está en amarillo, como dato conocido. El treinta, en la última fila, tiene un borde grueso azul oscuro, como pregunta. Abajo, la leyenda: se sabe, en amarillo, y se pregunta, con borde."
+        },
+        {
+          "id": "semanas",
+          "src": "/nudito/diagramas/matematica/calendario-setiembre-semanas.svg",
+          "alt": "Calendario de setiembre con la columna del miércoles pintada y cuatro fechas en turquesa fuerte.",
+          "descripcion": "El calendario de setiembre con la tercera columna, la del miércoles, pintada de turquesa claro y con el encabezado en turquesa. Cuatro fechas de esa columna están en turquesa fuerte: nueve, dieciséis, veintitrés y treinta. Abajo se leen esas fechas y la frase de siete en siete."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/calendario-setiembre-errores.svg",
+          "alt": "Ocho casillas del veintisiete de setiembre al cuatro de octubre con un arco de siete días: treinta y cuatro de setiembre mal, cuatro de octubre bien.",
+          "descripcion": "Arriba, la palabra setiembre sobre las casillas veintisiete, en amarillo, veintiocho, veintinueve y treinta, y la palabra octubre sobre uno, dos, tres y cuatro, este último en turquesa. Un arco azul oscuro va del primer día al último y dice más siete días. Abajo, una equis roja con Mal: treinta y cuatro de setiembre, y una marca verde con Bien: cuatro de octubre."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Hoy es veintiocho de abril. Abril tiene treinta días. ¿Qué fecha será dentro de cinco días?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Dos de mayo"
+          },
+          {
+            "id": "b",
+            "texto": "Cuatro de mayo"
+          },
+          {
+            "id": "c",
+            "texto": "Tres de mayo"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Después del treinta de abril viene el uno de mayo, y cinco días después llegamos al tres de mayo.",
+        "pista": "Piensa cuántos días le quedan a abril y sigue desde el uno."
+      }
+    }
   }
 ]

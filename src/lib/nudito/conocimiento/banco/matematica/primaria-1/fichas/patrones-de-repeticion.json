@@ -1214,15 +1214,15 @@
         "id": "e12",
         "dificultad": 3,
         "tipo": "verdadero_falso",
-        "enunciado": "Si el patrón dice «rojo, azul» y repites 5 veces el grupo, usas 10 colores.",
+        "enunciado": "Si el patrón de fichas dice «roja, azul» y repites 5 veces el grupo, usas 10 fichas.",
         "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "Cuenta cuántos colores tiene el grupo.",
-          "Tiene 2 colores.",
-          "5 vueltas de 2 colores hacen 5 veces 2."
+          "Cuenta cuántas fichas tiene el grupo.",
+          "Tiene 2 fichas: una roja y una azul.",
+          "5 vueltas de 2 fichas hacen 5 veces 2."
         ],
-        "retroalimentacion": "Es verdadero: 5 grupos de 2 son 10 colores."
+        "retroalimentacion": "Es verdadero: 5 grupos de 2 son 10 fichas. Se usan dos colores distintos."
       }
     ],
     "fuentes": [
@@ -1232,7 +1232,108 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Un grupo vuelve a aparecer en el mismo orden",
+          "narracion": "Hoy aprenderemos a describir patrones de repetición. Como idea principal de este tema, recuerda lo siguiente: un patrón de repetición tiene un grupo de figuras, colores o sonidos que vuelve a aparecer en el mismo orden. Para describirlo, necesitamos nombrar todo el grupo, desde donde empieza hasta antes de que vuelva a comenzar. Al final reconocerás la regla de un patrón."
+        },
+        {
+          "id": "situacion-circulo-triangulo",
+          "tipo": "recurso",
+          "titulo": "Un grupo de dos figuras que vuelve a empezar",
+          "narracion": "Observemos esta fila. Primero aparece un círculo turquesa y después un triángulo amarillo. Ese mismo grupo está dentro de cuatro recuadros: círculo, triángulo; círculo, triángulo; círculo, triángulo; círculo, triángulo. Los recuadros nos ayudan a notar dónde vuelve a comenzar el grupo.",
+          "recursoRef": "circulo-triangulo"
+        },
+        {
+          "id": "ejemplo-1-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: encuentra el grupo de dos",
+          "narracion": "Miremos el comienzo de la fila. La primera figura es un círculo y la segunda es un triángulo. Después vuelve a aparecer un círculo. Esa repetición nos avisa que el primer grupo ya terminó y comienza otra vez.",
+          "recursoRef": "circulo-triangulo"
+        },
+        {
+          "id": "ejemplo-1-explica",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: di círculo y triángulo",
+          "narracion": "Podemos describir la regla así: se repiten un círculo y un triángulo, en ese orden. No diríamos triángulo y círculo, porque cambiaríamos el orden en que empieza la fila.",
+          "recursoRef": "circulo-triangulo"
+        },
+        {
+          "id": "ejemplo-2-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: mira un grupo de tres",
+          "narracion": "Ahora observemos otra fila. En cada recuadro vemos primero dos estrellas rosadas y después un círculo azul. El mismo grupo aparece tres veces. ¿Cuántas figuras debemos nombrar para describirlo completo?",
+          "recursoRef": "estrellas-circulo"
+        },
+        {
+          "id": "ejemplo-2-explica",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: nombra las tres figuras",
+          "narracion": "Debemos nombrar tres figuras: estrella, estrella, círculo. Si dijéramos solo estrella y círculo, olvidaríamos la segunda estrella. La regla completa se repite sin cambiar el orden.",
+          "recursoRef": "estrellas-circulo"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira desde el comienzo",
+          "narracion": "Primero, mira la fila desde la primera figura. Nombra cada elemento en voz baja y busca el momento en que vuelve a aparecer la primera figura.",
+          "recursoRef": "circulo-triangulo"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: encierra el grupo que se repite",
+          "narracion": "Después, reúne las figuras que aparecen antes de que la fila vuelva a comenzar. Ese es el grupo que se repite. Puede tener dos, tres o más elementos.",
+          "recursoRef": "estrellas-circulo"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: comprueba toda la fila",
+          "narracion": "Por último, di la regla y comprueba cada vuelta. En la segunda imagen, estrella, estrella y círculo sirve para los tres recuadros. Si una vuelta cambia, esa regla no describe toda la fila.",
+          "recursoRef": "estrellas-circulo"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "circulo-triangulo",
+          "src": "/nudito/diagramas/matematica/patron-circulo-triangulo.svg",
+          "alt": "Círculo y triángulo repetidos cuatro veces en grupos separados.",
+          "descripcion": "Hay cuatro recuadros iguales. Cada uno contiene primero un círculo turquesa y después un triángulo amarillo."
+        },
+        {
+          "id": "estrellas-circulo",
+          "src": "/nudito/diagramas/matematica/patron-dos-estrellas-circulo.svg",
+          "alt": "Dos estrellas y un círculo repetidos tres veces en grupos separados.",
+          "descripcion": "Hay tres recuadros iguales. Cada uno contiene dos estrellas rosadas seguidas por un círculo azul."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En la fila triángulo, círculo, círculo, triángulo, círculo, círculo, ¿qué grupo se repite?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Triángulo, círculo, círculo"
+          },
+          {
+            "id": "b",
+            "texto": "Triángulo, círculo"
+          },
+          {
+            "id": "c",
+            "texto": "Círculo, triángulo, triángulo"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "El grupo completo es triángulo, círculo, círculo. Aparece dos veces y conserva el mismo orden.",
+        "pista": "Empieza en el primer triángulo y nombra las figuras hasta antes del siguiente triángulo."
+      }
+    }
   },
   {
     "clave": "mat.p1.nucleo-patron",
@@ -2171,7 +2272,130 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Completar un patrón",
+          "narracion": "Bienvenida y bienvenido. Hoy completaremos un patrón. Un patrón es una fila de cosas que se repite siempre igual. A veces falta una cosa. Como idea principal, buscamos el grupo que se repite y así descubrimos qué falta."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Fichas en fila",
+          "narracion": "Observemos esta situación. Lucía puso fichas en una fila. Hay círculos azules y cuadrados amarillos. La fila empieza con un círculo azul, un cuadrado amarillo, otro círculo azul, otro cuadrado amarillo y otro círculo azul. Luego viene un espacio vacío, y al final otro círculo azul. Queremos saber qué ficha va en el espacio.",
+          "recursoRef": "collar-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: un grupo de dos",
+          "narracion": "Busquemos el grupo que se repite. Lee la fila desde el principio. ¿Qué dos fichas vuelven a salir una y otra vez? Fíjate también en la ficha que está antes del espacio.",
+          "recursoRef": "collar-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la ficha que falta",
+          "narracion": "El grupo es un círculo azul y un cuadrado amarillo. Antes del espacio hay un círculo azul. Después de un círculo azul siempre va un cuadrado amarillo. Falta el cuadrado amarillo. Ahora la fila se lee completa, con tres grupos iguales.",
+          "recursoRef": "collar-grupo"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un grupo de tres",
+          "narracion": "Ahora Tomás pone fichas en fila: un cuadrado amarillo, un triángulo verde, un círculo azul, y otra vez un cuadrado amarillo y un triángulo verde. Luego deja un espacio vacío y sigue un cuadrado amarillo. ¿Cuántas fichas tiene el grupo? ¿Cuál es la que falta?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la ficha del espacio",
+          "narracion": "El grupo tiene tres fichas: cuadrado amarillo, triángulo verde y círculo azul. Antes del espacio hay un triángulo verde. Después del triángulo verde va el círculo azul. Falta el círculo azul. Después sigue otra vez el cuadrado amarillo.",
+          "recursoRef": "grupo-de-tres"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error muy común es copiar la ficha que viene después del espacio. Aquí, después del espacio hay un círculo azul. Si pones un círculo azul, quedan tres círculos azules juntos. Entonces el grupo ya no se repite igual. Mira siempre lo que va antes del espacio y el grupo completo.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca el grupo",
+          "narracion": "Lo primero es encontrar el grupo que se repite. Léelo en voz alta, ficha por ficha."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: mira antes del espacio",
+          "narracion": "Luego fíjate en la ficha que está antes del espacio. Después de ella viene la siguiente ficha del grupo."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: pon la ficha y revisa",
+          "narracion": "Pon esa ficha en el espacio y lee toda la fila otra vez. Si el grupo se repite igual, está bien. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "collar-pregunta",
+          "src": "/nudito/diagramas/matematica/completar-patron-collar-pregunta.svg",
+          "alt": "Fila de siete casilleros con círculos azules y cuadrados amarillos y un espacio vacío con signo de pregunta.",
+          "descripcion": "Siete casilleros en fila: círculo azul, cuadrado amarillo, círculo azul, cuadrado amarillo, círculo azul, un espacio vacío con signo de pregunta y otro círculo azul. Abajo: ¿Qué ficha va en el espacio?"
+        },
+        {
+          "id": "collar-grupo",
+          "src": "/nudito/diagramas/matematica/completar-patron-collar-grupo.svg",
+          "alt": "La fila completa: tres grupos de círculo azul y cuadrado amarillo, con el cuadrado del espacio resaltado.",
+          "descripcion": "La misma fila, completa. Tres corchetes verdes marcan tres grupos de círculo azul y cuadrado amarillo. El sexto casillero tiene un cuadrado amarillo con borde verde grueso. Abajo: Falta el cuadrado amarillo."
+        },
+        {
+          "id": "grupo-de-tres",
+          "src": "/nudito/diagramas/matematica/completar-patron-grupo-de-tres.svg",
+          "alt": "Fila de siete fichas con dos grupos de cuadrado amarillo, triángulo verde y círculo azul, y el círculo del espacio resaltado.",
+          "descripcion": "Siete casilleros: cuadrado amarillo, triángulo verde, círculo azul, cuadrado amarillo, triángulo verde, círculo azul con borde verde grueso y otro cuadrado amarillo. Dos corchetes marcan los grupos. Abajo: Falta el círculo azul."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/completar-patron-errores.svg",
+          "alt": "Fila con tres círculos azules seguidos al final, marcados en rojo como error.",
+          "descripcion": "Siete casilleros: círculo azul, cuadrado amarillo, círculo azul, cuadrado amarillo, y tres círculos azules seguidos. El sexto tiene borde rojo punteado. Un corchete rojo dice tres círculos juntos, el grupo se rompe. Abajo: Mira lo que va antes del espacio."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/completar-patron-pasos.svg",
+          "alt": "Tarjeta con tres pasos para completar un patrón: buscar el grupo, mirar antes del espacio y poner la ficha.",
+          "descripcion": "Tres tarjetas numeradas. La uno dice busca el grupo: lo que se repite igual. La dos dice mira antes del espacio: eso dice qué sigue. La tres dice pon la ficha y revisa: lee toda la fila otra vez."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "María teje una cinta con hojas y flores: hoja, hoja, flor, hoja, hoja, flor, hoja, espacio, flor. ¿Qué va en el espacio?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una flor"
+          },
+          {
+            "id": "b",
+            "texto": "Una hoja"
+          },
+          {
+            "id": "c",
+            "texto": "Un fruto"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. El grupo es hoja, hoja, flor. Antes del espacio hay una hoja, y después de esa hoja va otra hoja.",
+        "pista": "Busca el grupo que se repite y mira qué hay antes del espacio."
+      }
+    }
   },
   {
     "clave": "mat.p1.crear-patron",

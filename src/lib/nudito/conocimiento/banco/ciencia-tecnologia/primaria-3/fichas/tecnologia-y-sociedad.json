@@ -1378,7 +1378,7 @@
       {
         "dificultad": 3,
         "tipo": "texto_corto",
-        "enunciado": "Un niño toma gaseosas todos los días porque duran más en la despensa. ¿Qué cuidado de su salud olvida? Escribe una palabra: azúcar o fibra.",
+        "enunciado": "Un niño toma gaseosas todos los días porque duran más en la despensa. ¿Qué ingrediente en exceso olvida? Escribe una palabra.",
         "respuesta": "azúcar",
         "alternativasAceptadas": [
           "azucar",
@@ -1443,7 +1443,124 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Alimentos frescos y procesados",
+          "narracion": "Hola. Hoy veremos los alimentos frescos y los alimentos procesados. Como idea principal, un alimento fresco casi no cambia desde que se cosecha, como una fruta o una verdura. Un alimento procesado se transforma en una fábrica y casi siempre viene en un envase. Los procesados duran más tiempo, pero algunos tienen mucha azúcar, sal o grasa, y sus envases se vuelven basura."
+        },
+        {
+          "id": "situacion-mercado",
+          "tipo": "recurso",
+          "titulo": "En el mercado",
+          "narracion": "Observemos esta situación. En la imagen hay una mesa de mercado con canastas de mimbre. Hay manzanas rojas, naranjas, plátanos, lechuga y zanahorias. Nos preguntamos: ¿qué tienen en común estos alimentos?",
+          "recursoRef": "mercado"
+        },
+        {
+          "id": "ejemplo-1-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la despensa",
+          "narracion": "En la imagen hay un estante de cocina con latas plateadas lisas y un frasco de vidrio con arroz. Doña Elena guarda allí varias latas de atún. Nos preguntamos: ¿qué ventaja tiene guardar el atún en lata?",
+          "recursoRef": "despensa"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dura más tiempo",
+          "narracion": "Dura más tiempo sin echarse a perder. El atún en lata es un alimento procesado: lo preparan en una fábrica y lo cierran en una lata. Por eso se puede guardar muchos días y es práctico. Pero durar más no lo hace mejor para la salud.",
+          "recursoRef": "despensa"
+        },
+        {
+          "id": "ejemplo-2-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el octógono",
+          "narracion": "En la imagen hay un octógono negro, una señal de ocho lados, con las palabras alto en azúcar. Aparece en el envase de un jugo. Nos preguntamos: ¿qué conviene hacer con ese jugo?",
+          "recursoRef": "octogono"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: poco y con cuidado",
+          "narracion": "El octógono avisa que el jugo tiene demasiada azúcar. Conviene tomarlo pocas veces y elegir más seguido una fruta o agua. Además, el envase vacío queda como basura, así que lo separamos para reciclarlo.",
+          "recursoRef": "octogono"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: todo envasado daña",
+          "narracion": "Algunas personas creen que todo alimento envasado hace daño. No es así. Un alimento envasado útil, como el atún en lata, ayuda si no abusamos y si no tiene exceso de azúcar, sal o grasa. Tampoco hay que creer que lo procesado es mejor solo porque dura más."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira el alimento",
+          "narracion": "Primero observa si el alimento está como sale de la naturaleza o si fue transformado. Una naranja es fresca: casi no ha cambiado desde que se cosechó. Unas galletas son procesadas."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: lee la etiqueta",
+          "narracion": "Luego lee la etiqueta y busca los octógonos negros. Ellos avisan si hay mucha azúcar, sal o grasas. Si hay un octógono, conviene comer ese alimento poco."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: piensa en el envase",
+          "narracion": "Por último, piensa en el envase: ¿qué basura deja? Mira las tres tarjetas. La primera dice mira el alimento. La segunda dice lee la etiqueta. La tercera dice piensa en el envase. Con esos pasos das tu opinión y la apoyas con una razón.",
+          "recursoRef": "tres-pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "mercado",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-3/alimentos-mercado-frescos-zimage-v1.webp",
+          "alt": "Una mesa de mercado con canastas de mimbre llenas de manzanas, naranjas, plátanos, lechuga y zanahorias.",
+          "descripcion": "Varias canastas de mimbre sobre una mesa de madera. En ellas hay manzanas rojas, naranjas, plátanos amarillos, hojas de lechuga verde y zanahorias anaranjadas."
+        },
+        {
+          "id": "despensa",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-3/alimentos-despensa-latas-zimage-v1.webp",
+          "alt": "Un estante de cocina con latas plateadas lisas, sin etiqueta, y un frasco de vidrio con arroz a la derecha.",
+          "descripcion": "En un estante de madera clara hay varias latas plateadas lisas, sin dibujos ni letras. A la derecha hay un frasco de vidrio con tapa gris, lleno de granos de arroz, y detrás se ve otro frasco."
+        },
+        {
+          "id": "octogono",
+          "src": "/nudito/diagramas/ciencia-tecnologia/alimentos-procesados-octogono.svg",
+          "alt": "Octógono negro de un jugo envasado con las palabras alto en azúcar.",
+          "descripcion": "Sobre fondo crema hay un octógono negro, de ocho lados iguales. Dentro, en letras blancas y grandes, dice alto en azúcar. Abajo, en azul, una frase dice octógono de un jugo envasado."
+        },
+        {
+          "id": "tres-pasos",
+          "src": "/nudito/diagramas/ciencia-tecnologia/alimentos-procesados-tres-pasos.svg",
+          "alt": "Tres tarjetas: mira el alimento, lee la etiqueta y piensa en el envase.",
+          "descripcion": "Tres tarjetas una sobre otra. La primera, turquesa, dice mira el alimento: ¿es fresco o procesado? La segunda, amarilla, dice lee la etiqueta: busca azúcar, sal y grasas. La tercera, azul claro, dice piensa en el envase: ¿qué basura deja?"
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lucía tomó un yogur envasado y quedó el vasito de plástico vacío. ¿Qué debe hacer con él?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tirarlo en el río cercano"
+          },
+          {
+            "id": "b",
+            "texto": "Enterrarlo en el jardín"
+          },
+          {
+            "id": "c",
+            "texto": "Separarlo para reciclar"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Separarlo para reciclar es lo correcto: los envases se vuelven basura y deben ir a su tacho, no al río ni a la tierra.",
+        "pista": "Piensa en dónde debe ir un envase vacío para no ensuciar el ambiente."
+      }
+    }
   },
   {
     "clave": "cyt.p3.conservacion-ancestral",

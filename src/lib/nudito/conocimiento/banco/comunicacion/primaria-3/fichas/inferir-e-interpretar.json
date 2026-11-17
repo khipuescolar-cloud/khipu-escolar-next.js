@@ -369,7 +369,120 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Deduces cómo son con pistas del texto",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a deducir cómo son los personajes y los lugares. Como idea principal, muchas veces el texto no lo dice con una palabra, pero da pistas: lo que el personaje hace y dice, o lo que se ve y se oye en el lugar. Con esas pistas puedes deducirlo y comprobarlo."
+        },
+        {
+          "id": "situacion-joaquin",
+          "tipo": "recurso",
+          "titulo": "Una espera larga",
+          "narracion": "Observemos este texto: «Joaquín mira el reloj, golpea el piso con el pie y suspira cada minuto. Su abuela aún no llega». Abajo, una tarjeta amarilla pregunta cómo estará Joaquín. El texto no lo dice con una palabra.",
+          "recursoRef": "joaquin"
+        },
+        {
+          "id": "ejemplo-joaquin-pistas",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: junta las pistas",
+          "narracion": "Marquemos las pistas con la voz: mira el reloj, golpea el piso con el pie y suspira cada minuto. Son tres acciones que repite mientras espera.",
+          "recursoRef": "joaquin"
+        },
+        {
+          "id": "ejemplo-joaquin-deduce",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: deduce",
+          "narracion": "Preguntamos: ¿cómo estará alguien que hace eso? Alguien que mira el reloj y suspira quiere que el tiempo pase rápido y no soporta esperar. Deducimos que está impaciente."
+        },
+        {
+          "id": "ejemplo-orilla-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ahora un lugar",
+          "narracion": "Los lugares también dan pistas. Lee: «El agua del lago no se mueve. Solo se oye un pájaro lejano, y una barca avanza muy despacio».",
+          "recursoRef": "orilla"
+        },
+        {
+          "id": "ejemplo-orilla-deduce",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: deduce cómo es el lugar",
+          "narracion": "Las pistas son agua quieta, un solo sonido lejano y una barca lenta. No hay gritos ni movimiento rápido. Deducimos que el lugar es tranquilo y silencioso. Para comprobarlo, citamos una pista del texto: «solo se oye un pájaro lejano».",
+          "recursoRef": "orilla"
+        },
+        {
+          "id": "error-sin-pista",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: responder sin pistas",
+          "narracion": "En la imagen, arriba, alguien dice que Joaquín está feliz. El texto no da ninguna pista de eso: es lo que a esa persona le gustaría. Abajo se dice que está impaciente porque mira el reloj y suspira. Esa respuesta sí usa pistas. También es un error pensar que, si el texto no lo dice, no se puede saber.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee con calma",
+          "narracion": "Primero lee todo el texto con calma. En el de Joaquín, el texto cuenta qué hace mientras espera.",
+          "recursoRef": "joaquin"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca las pistas",
+          "narracion": "Después busca lo que hace o dice el personaje, o lo que se ve y se oye en el lugar, como el agua quieta de la orilla del lago.",
+          "recursoRef": "orilla"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: deduce y comprueba",
+          "narracion": "Por último, pregúntate cómo será alguien o algo que tiene esas pistas, y comprueba tu respuesta con «porque», como en la tarjeta verde de la imagen.",
+          "recursoRef": "error"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "joaquin",
+          "src": "/nudito/diagramas/comunicacion/inferir-joaquin-espera.svg",
+          "alt": "Texto sobre Joaquín, que mira el reloj, golpea el piso y suspira, y la pregunta cómo estará.",
+          "descripcion": "Un recuadro blanco con el texto: Joaquín mira el reloj, golpea el piso con el pie y suspira cada minuto. Su abuela aún no llega. Debajo, una tarjeta amarilla pregunta: ¿Cómo estará Joaquín?"
+        },
+        {
+          "id": "orilla",
+          "src": "/nudito/diagramas/comunicacion/inferir-orilla-lago.svg",
+          "alt": "Texto sobre la orilla de un lago al amanecer: agua quieta, un pájaro y una barca lenta.",
+          "descripcion": "Un recuadro blanco con el texto: El agua del lago no se mueve. Solo se oye un pájaro lejano, y una barca avanza muy despacio. Debajo, una tarjeta amarilla pregunta: ¿Cómo es este lugar?"
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/comunicacion/inferir-error-pistas.svg",
+          "alt": "Una respuesta sin pista, con cruz, y otra con pistas del texto, con palomita.",
+          "descripcion": "Arriba, una tarjeta roja con cruz dice «Joaquín está feliz» y que el texto no da ninguna pista. Abajo, una tarjeta verde con palomita dice «Joaquín está impaciente porque mira el reloj y suspira»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee: «Todas las noches, Nelly deja sus zapatos limpios, su mochila lista y su uniforme doblado antes de dormir». ¿Cómo es Nelly?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Impaciente, porque tiene prisa por dormir."
+          },
+          {
+            "id": "b",
+            "texto": "Ordenada, porque prepara sus cosas antes de dormir."
+          },
+          {
+            "id": "c",
+            "texto": "Distraída, porque olvida su mochila."
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Dejar todo limpio, listo y doblado son acciones de una persona ordenada. Esas pistas apoyan la respuesta.",
+        "pista": "Mira qué hace Nelly cada noche y piensa cómo es alguien que hace eso."
+      }
+    }
   },
   {
     "clave": "com.p3.significado-segun-el-contexto",
@@ -4020,7 +4133,127 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "El tema cuenta de qué trata; la enseñanza, qué aprendemos",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a diferenciar el tema de la enseñanza de un texto. Como idea principal, el tema dice de qué trata la historia, y la enseñanza es la lección que aprendemos de lo que les pasa a los personajes. Muchas veces la enseñanza no está escrita: la deduces."
+        },
+        {
+          "id": "situacion-mateo",
+          "tipo": "recurso",
+          "titulo": "Una historia corta sobre una tarea",
+          "narracion": "Observemos esta historia: «Mateo dejó su tarea para el último día. Cuando quiso hacerla, ya no tenía tiempo y llegó sin terminar». Abajo, una tarjeta amarilla pregunta qué nos enseña.",
+          "recursoRef": "mateo"
+        },
+        {
+          "id": "ejemplo-mateo-tema",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: primero el tema",
+          "narracion": "Primero averiguamos de qué trata. Trata de un niño que dejó su tarea para el último día y no la terminó. Eso es el tema: lo que ocurre, dicho en pocas palabras.",
+          "recursoRef": "mateo"
+        },
+        {
+          "id": "ejemplo-mateo-consecuencia",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: mira lo que le pasa",
+          "narracion": "Ahora miramos qué le pasa al personaje por lo que hizo. Mateo esperó hasta el último día y por eso no le alcanzó el tiempo. La consecuencia es que llegó sin terminar.",
+          "recursoRef": "mateo"
+        },
+        {
+          "id": "ejemplo-mateo-ensenanza",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: escribe la enseñanza",
+          "narracion": "De esa consecuencia sacamos la lección: conviene hacer las tareas con tiempo. La escribimos como un consejo para la vida real: «Debemos hacer nuestras tareas a tiempo». Fíjate que no nombra solo a Mateo."
+        },
+        {
+          "id": "ejemplo-hormigas-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: otra historia",
+          "narracion": "Veamos otra historia: «Una hoja era muy grande para una hormiga sola. Todas las hormigas de la fila la cargaron juntas y la llevaron al hormiguero». Abajo se pregunta de qué trata y qué enseña.",
+          "recursoRef": "hormigas"
+        },
+        {
+          "id": "ejemplo-hormigas-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ¿qué pista nos da?",
+          "narracion": "Una hormiga sola no podía con la hoja, pero todas juntas sí. Esa diferencia es la pista: cuando se ayudan, logran algo que solas no lograban. De ahí sale la lección.",
+          "recursoRef": "hormigas"
+        },
+        {
+          "id": "error-tema-ensenanza",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: confundir tema y enseñanza",
+          "narracion": "Un error común es responder el tema cuando preguntan la enseñanza. En la imagen, arriba está el tema, «Hormigas que cargan una hoja», que dice de qué trata. Abajo está la enseñanza, «Juntos logramos más que solos», que sirve para la vida real. Otro error es elegir un detalle suelto como enseñanza.",
+          "recursoRef": "comparar"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: di de qué trata",
+          "narracion": "Primero lee la historia y di de qué trata, como en la historia de Mateo.",
+          "recursoRef": "mateo"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: mira qué les pasa a los personajes",
+          "narracion": "Después mira qué hacen los personajes y qué les pasa por eso, como las hormigas que cargan juntas la hoja.",
+          "recursoRef": "hormigas"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: escribe la enseñanza",
+          "narracion": "Por último, escribe la enseñanza en una frase que sirva para la vida real, como la tarjeta rosada de abajo. Comprueba que se apoye en lo que les pasó a los personajes.",
+          "recursoRef": "comparar"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "mateo",
+          "src": "/nudito/diagramas/comunicacion/ensenanza-mateo-historia.svg",
+          "alt": "Historia corta de Mateo, que dejó su tarea para el último día, y la pregunta qué nos enseña.",
+          "descripcion": "Un recuadro blanco con el texto: Mateo dejó su tarea para el último día. Cuando quiso hacerla, ya no tenía tiempo y llegó sin terminar. Debajo, una tarjeta amarilla pregunta: ¿Qué nos enseña?"
+        },
+        {
+          "id": "hormigas",
+          "src": "/nudito/diagramas/comunicacion/ensenanza-hormigas-historia.svg",
+          "alt": "Historia corta de hormigas que cargan juntas una hoja grande.",
+          "descripcion": "Un recuadro blanco con el texto: Una hoja era muy grande para una hormiga sola. Todas las hormigas de la fila la cargaron juntas y la llevaron al hormiguero. Debajo, una tarjeta amarilla pregunta de qué trata y qué enseña."
+        },
+        {
+          "id": "comparar",
+          "src": "/nudito/diagramas/comunicacion/ensenanza-tema-vs-ensenanza.svg",
+          "alt": "Tema: hormigas que cargan una hoja. Enseñanza: juntos logramos más que solos.",
+          "descripcion": "Arriba, una tarjeta azul con Tema, de qué trata: Hormigas que cargan una hoja. Abajo, una tarjeta rosada con Enseñanza, lo que aprendemos: Juntos logramos más que solos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee: «Inés tocó la quena cada tarde, aunque al comienzo sonaba mal. Poco a poco, su música mejoró y tocó en la fiesta de su pueblo». ¿Qué enseñanza deja la historia?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Que Inés tocó en la fiesta de su pueblo."
+          },
+          {
+            "id": "b",
+            "texto": "Que la quena suena mal al comienzo."
+          },
+          {
+            "id": "c",
+            "texto": "Que practicar cada día ayuda a mejorar."
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Inés practicó cada tarde y por eso su música mejoró. La enseñanza es que practicar ayuda a mejorar; las otras opciones son solo datos de la historia.",
+        "pista": "Piensa qué hizo Inés para mejorar y qué lección sirve también para tu vida."
+      }
+    }
   },
   {
     "clave": "com.p3.adjetivaciones-al-leer",
@@ -4068,7 +4301,7 @@
       {
         "situacion": "«El mercado estaba lleno y ruidoso». ¿Cómo es el lugar?",
         "desarrollo": "«Lleno» y «ruidoso» describen el mercado.",
-        "respuesta": "El mercado es concurrido y bullicioso."
+        "respuesta": "El mercado está lleno y ruidoso."
       }
     ],
     "erroresFrecuentes": [
@@ -4244,7 +4477,7 @@
       {
         "dificultad": 2,
         "tipo": "texto_corto",
-        "enunciado": "En el texto, ¿qué adjetivo muestra que el camino da miedo?",
+        "enunciado": "En el texto, ¿qué adjetivo muestra que el camino no tiene luz y da miedo?",
         "respuesta": "oscuro",
         "alternativasAceptadas": [
           "el oscuro",
@@ -4374,7 +4607,7 @@
       {
         "dificultad": 3,
         "tipo": "texto_corto",
-        "enunciado": "En el texto hay un adjetivo que dice cómo está la abuela por la noticia. ¿Cuál es? (una palabra)",
+        "enunciado": "En el texto hay un adjetivo que dice cómo está la abuela al ver a su nieto. ¿Cuál es? (una palabra)",
         "respuesta": "emocionada",
         "alternativasAceptadas": [
           "la emocionada"
@@ -4396,7 +4629,129 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Los adjetivos te dicen cómo es",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a encontrar los adjetivos al leer. Como idea principal, los adjetivos dicen cómo son los personajes y los lugares. Si los subrayas mientras lees, descubres cómo es alguien o cómo se siente un lugar."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Dos niños leen un cuento",
+          "narracion": "Observemos esta escena: dos niños leen juntos un cuento bajo un árbol. En los cuentos, algunas palabras no cuentan lo que pasa: dicen cómo son los personajes y los lugares. Esas palabras son los adjetivos.",
+          "recursoRef": "cuento"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: un personaje",
+          "narracion": "Lee la tarjeta: «Nora, la niña tímida, saludó bajito y se escondió detrás de su mamá». Abajo, la pregunta amarilla quiere saber qué palabra dice cómo es Nora.",
+          "recursoRef": "nora"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: busca cómo es",
+          "narracion": "Buscamos la palabra que describe a Nora, no las que dicen lo que hace. «Saludó» y «se escondió» son acciones. «Tímida» dice cómo es Nora. Con ese adjetivo entendemos por qué habla bajito y se esconde."
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un lugar",
+          "narracion": "Ahora un lugar. Lee la tarjeta: «Bajo la lluvia, el patio vacío y silencioso parecía triste». La pregunta amarilla quiere saber qué palabras dicen cómo es el patio.",
+          "recursoRef": "patio"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: imagina el lugar",
+          "narracion": "En la imagen se ve un patio de escuela sin nadie, con una banca y el suelo mojado por la lluvia. Los adjetivos son «vacío», «silencioso» y «triste». Juntos nos hacen imaginar un lugar solo y callado.",
+          "recursoRef": "patio-ill"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: tomar una acción por adjetivo",
+          "narracion": "En la tarjeta, arriba, alguien dice que «saludó» cuenta cómo es Nora. «Saludó» es lo que hace. Abajo está la respuesta correcta: «tímida» dice cómo es.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee con atención",
+          "narracion": "Primero, lee el texto con atención."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: subraya",
+          "narracion": "Segundo, subraya las palabras que dicen cómo es alguien o algo. Pregúntate qué describe cada una."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: explica cómo es",
+          "narracion": "Tercero, usa esos adjetivos para explicar cómo es el personaje o el lugar."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cuento",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-3/adjetivos-leer-cuento-zimage-v1.webp",
+          "alt": "Dos niños sentados bajo un árbol leen juntos un libro abierto.",
+          "descripcion": "Dos niños con uniforme blanco se sientan en el pasto bajo un árbol grande. Sostienen juntos un libro abierto de tapa azul y verde. A su alrededor hay flores pequeñas de colores."
+        },
+        {
+          "id": "nora",
+          "src": "/nudito/diagramas/comunicacion/adjetivos-leer-nora-pregunta.svg",
+          "alt": "Tarjeta con el texto sobre Nora, la niña tímida, y la pregunta qué palabra dice cómo es Nora.",
+          "descripcion": "Un recuadro blanco con el texto: Nora, la niña tímida, saludó bajito y se escondió detrás de su mamá. Debajo, una tarjeta amarilla pregunta: ¿Qué palabra dice cómo es Nora?"
+        },
+        {
+          "id": "patio",
+          "src": "/nudito/diagramas/comunicacion/adjetivos-leer-patio-pregunta.svg",
+          "alt": "Tarjeta con el texto sobre un patio vacío y silencioso bajo la lluvia y la pregunta cómo es el patio.",
+          "descripcion": "Un recuadro blanco con el texto: Bajo la lluvia, el patio vacío y silencioso parecía triste. Debajo, una tarjeta amarilla pregunta: ¿Qué palabras dicen cómo es el patio?"
+        },
+        {
+          "id": "patio-ill",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-3/adjetivos-leer-patio-zimage-v1.webp",
+          "alt": "Patio de escuela sin nadie, con suelo mojado por la lluvia y una banca de madera.",
+          "descripcion": "Un patio de escuela con edificios de dos pisos, ventanas y una puerta marrón. El suelo gris está mojado y caen líneas finas de lluvia. A la izquierda hay una banca de madera vacía. No hay ninguna persona."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/comunicacion/adjetivos-leer-error.svg",
+          "alt": "Texto sobre Nora, una respuesta equivocada con cruz y otra correcta con palomita.",
+          "descripcion": "Un recuadro blanco con el texto: Nora saludó bajito. Debajo, una tarjeta roja con cruz dice: «Saludó» dice cómo es Nora. Luego, una tarjeta verde con palomita dice: «Saludó» es lo que hace. «Tímida» dice cómo es."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "La abuela, serena y amable, abrazó al niño triste. ¿Qué palabra dice cómo está el niño?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "triste"
+          },
+          {
+            "id": "b",
+            "texto": "serena"
+          },
+          {
+            "id": "c",
+            "texto": "amable"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "«Triste» describe al niño. «Serena» y «amable» describen a la abuela.",
+        "pista": "Busca la palabra que acompaña a «niño», no la que acompaña a «abuela»."
+      }
+    }
   },
   {
     "clave": "com.p3.motivaciones-al-leer",

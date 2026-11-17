@@ -373,7 +373,119 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Cómo continúa la vida",
+          "narracion": "Bienvenido a esta breve clase sobre las formas de reproducción de los seres vivos. Primero conocerás la idea principal; después compararemos dos formas de reproducirse, resolveremos dos ejemplos y practicarás un método de tres pasos. Al final responderás una pregunta. Como idea principal de este tema, piensa en esto: reproducirse es originar nuevos seres vivos parecidos a quienes los originan, y así la especie continúa. Puede ser asexual, cuando interviene un solo progenitor, o sexual, cuando intervienen dos que aportan células sexuales."
+        },
+        {
+          "id": "mapa",
+          "tipo": "recurso",
+          "titulo": "Uno o dos progenitores",
+          "narracion": "Observemos este esquema que compara dos formas de reproducción. A la izquierda, un círculo azul, un solo progenitor, origina dos círculos más pequeños, sus descendientes. A la derecha, dos progenitores, uno naranja y otro amarillo, originan un único descendiente. Contar cuántos progenitores participan es la clave para distinguir ambas formas.",
+          "recursoRef": "mapa"
+        },
+        {
+          "id": "ej1-situacion",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una cría de llama",
+          "narracion": "Observemos esta situación: en una pradera de los Andes, una llama hembra cuida a su cría pequeña. La cría se formó cuando una célula sexual de la madre se unió con una célula sexual de un macho de la manada. Pensemos en esta pregunta: ¿qué tipo de reproducción originó a la cría?",
+          "recursoRef": "llamas"
+        },
+        {
+          "id": "ej1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dos progenitores",
+          "narracion": "A la cría la originaron dos progenitores, la hembra que aparece en la ilustración y un macho, porque se unieron células sexuales de ambos. Por eso es reproducción sexual. La cría no es una copia de uno solo: recibe características de los dos.",
+          "recursoRef": "llamas"
+        },
+        {
+          "id": "ej2-situacion",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una papa con brotes",
+          "narracion": "Observemos otra situación: Elena guardó una papa en su cocina y le salieron brotes verdes en sus ojos. Si la siembra, de esos brotes crecerá una planta nueva. Pensemos en esta pregunta: ¿cuántos progenitores participan y qué tipo de reproducción es?",
+          "recursoRef": "papa"
+        },
+        {
+          "id": "ej2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una sola planta",
+          "narracion": "Participa una sola planta: la papa es una parte de ella y sus brotes darán origen a una planta nueva, sin semillas y sin otra planta. Con un solo progenitor, la reproducción es asexual. La planta nueva será muy parecida a la que la originó.",
+          "recursoRef": "papa"
+        },
+        {
+          "id": "error",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: no solo se reproducen los animales",
+          "narracion": "Se suele creer que solo los animales se reproducen, o que la reproducción sexual significa únicamente tener crías dentro del vientre. No es así: las plantas, los hongos y las bacterias también se reproducen, y una planta con flores se reproduce sexualmente mediante semillas. Lo importante es cuántos progenitores participan."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cuenta los progenitores",
+          "narracion": "Ahora practicaremos un método de tres pasos. Primero, cuenta cuántos progenitores participan: uno solo, como en el lado izquierdo del esquema, o dos, como en el lado derecho.",
+          "recursoRef": "mapa"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: mira cómo se origina el nuevo ser",
+          "narracion": "Segundo, fíjate en cómo se origina el nuevo ser vivo. Si surge de una parte o de una división del mismo progenitor, no se unen células sexuales. Si se unen células sexuales de dos progenitores, la descendencia nace de esa unión."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: concluye y justifica",
+          "narracion": "Tercero, concluye y explica tu razón. Con un progenitor, la reproducción es asexual; con dos que aportan células sexuales, es sexual. Por ejemplo, una papa con brotes que origina una planta nueva es asexual, porque participa una sola planta.",
+          "recursoRef": "papa"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "mapa",
+          "src": "/nudito/diagramas/ciencia-tecnologia/cyt-p5-reproduccion-seres-vivos-mapa.svg",
+          "alt": "Esquema: un progenitor origina dos descendientes, rotulado asexual; dos progenitores de distinto color originan un descendiente, rotulado sexual.",
+          "descripcion": "A la izquierda, rotulado asexual, un círculo azul grande con dos flechas hacia dos círculos pequeños, bajo la frase un progenitor. A la derecha, rotulado sexual, dos círculos de color distinto con flechas hacia un círculo pequeño, bajo la frase dos progenitores."
+        },
+        {
+          "id": "llamas",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-5/reproduccion-seres-vivos-llamas-zimage-v1.webp",
+          "alt": "Una llama adulta de lana clara y una cría pequeña de pie en una pradera verde, con montañas al fondo.",
+          "descripcion": "En una pradera verde con montañas al fondo, una llama adulta de lana clara está de pie. A su izquierda, mucho más pequeña, hay una cría de llama que mira hacia ella."
+        },
+        {
+          "id": "papa",
+          "src": "/nudito/diagramas/ciencia-tecnologia/cyt-p5-reproduccion-seres-vivos-papa.svg",
+          "alt": "Una papa marrón con tres brotes verdes con hojitas que salen de sus ojos.",
+          "descripcion": "Una papa grande de color marrón sobre una sombra suave. De sus ojos salen tres brotes verdes, cada uno con dos hojitas en la punta."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una gallina y un gallo producen un huevo fértil del que nace un pollito. ¿Qué tipo de reproducción es?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sexual, porque dos progenitores aportan células sexuales"
+          },
+          {
+            "id": "b",
+            "texto": "Asexual, porque de cada huevo nace un solo pollito pequeño"
+          },
+          {
+            "id": "c",
+            "texto": "Asexual, porque es la gallina quien pone todo el huevo"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Es reproducción sexual porque participan dos progenitores: la gallina y el gallo aportan células sexuales que se unen. El número de crías o quién pone el huevo no decide el tipo.",
+        "pista": "Cuenta cuántos progenitores aportan células para formar el huevo fértil."
+      }
+    }
   },
   {
     "clave": "cyt.p5.asexual-sexual",
@@ -748,7 +860,124 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Un progenitor o dos",
+          "narracion": "Hola. Hoy veremos la reproducción asexual y la reproducción sexual. Como idea principal, en la asexual hay un solo progenitor y las crías son casi idénticas a él. En la sexual hay dos progenitores y las crías se parecen a ambos, pero no son iguales entre sí. Un progenitor es el ser vivo que origina a otro."
+        },
+        {
+          "id": "situacion-fresa",
+          "tipo": "recurso",
+          "titulo": "Una fresa y su tallo",
+          "narracion": "Observemos esta situación. En la imagen hay una planta de fresa con hojas grandes y una fresa roja. De ella sale un tallo largo y delgado que se arrastra por la tierra, y al final brota una plantita pequeña con dos hojitas. Nos preguntamos: ¿cuántas plantas hicieron falta para que naciera la plantita nueva?",
+          "recursoRef": "fresa"
+        },
+        {
+          "id": "ejemplo-1-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una familia de alpacas",
+          "narracion": "En la imagen hay dos alpacas adultas, una marrón y una blanca, y tres crías entre ellas en un prado. Una cría es blanca, otra es marrón y la tercera es marrón con manchas. Nos preguntamos: ¿qué tipo de reproducción es esta?",
+          "recursoRef": "alpacas"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dos progenitores",
+          "narracion": "Es reproducción sexual. Hay dos progenitores, la madre y el padre. Cada cría hereda características de los dos, pero no es igual a ellos ni a sus hermanas. Por eso las crías salen diferentes.",
+          "recursoRef": "alpacas"
+        },
+        {
+          "id": "ejemplo-2-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: trozos de papa",
+          "narracion": "En la imagen hay un surco de tierra con tres trozos de papa sembrados en fila. De cada trozo sale un tallito verde con dos hojitas. Nos preguntamos: ¿de cuántas papas vienen estos tres trozos y cómo serán las plantas?",
+          "recursoRef": "papa"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: copias de la papa",
+          "narracion": "Vienen de una misma papa. Serán casi idénticas entre sí, porque las tres salen de una sola papa. Hay un solo progenitor, y por eso es reproducción asexual. Las plantas nuevas son copias, o clones, de la papa original.",
+          "recursoRef": "papa"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: la asexual pide pareja",
+          "narracion": "Algunas personas creen que toda planta nueva necesita pareja. No es así. La planta nueva de la situación nació de una sola planta de fresa, por medio de su tallo largo. Tuvo un solo progenitor y no necesitó pareja. Por eso será casi idéntica a la planta original."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cuenta los progenitores",
+          "narracion": "Primero cuenta cuántos progenitores participan: uno o dos."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: compara las crías",
+          "narracion": "Luego mira las crías. Si son casi copias de su progenitor, hubo uno solo. Si son diferentes entre sí, heredaron características de dos progenitores."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: concluye el tipo",
+          "narracion": "Por último, concluye el tipo de reproducción. Mira las dos tarjetas. La primera dice reproducción asexual: un progenitor y crías casi iguales. La segunda dice reproducción sexual: dos progenitores y crías distintas entre sí.",
+          "recursoRef": "comparar"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "fresa",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-5/asexual-fresa-estolon-zimage-v2.webp",
+          "alt": "Una planta de fresa grande con una fresa roja, de la que sale un tallo largo y delgado que corre sobre la tierra hasta una plantita pequeña con dos hojitas.",
+          "descripcion": "Sobre tierra marrón hay una planta de fresa grande, a la izquierda, con tres hojas anchas y una fresa roja. Un tallo delgado y largo sale de ella, corre por el suelo y termina a la derecha en una plantita muy pequeña, con dos hojitas verde claro y sin fruta."
+        },
+        {
+          "id": "alpacas",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-5/asexual-llamas-crias-zimage-v1.webp",
+          "alt": "Dos alpacas adultas, una marrón y una blanca, con tres crías: una blanca, una marrón y una marrón con manchas, en un prado verde.",
+          "descripcion": "En un prado verde están de pie dos alpacas adultas de lana espesa: la de la izquierda es marrón y la de la derecha es blanca. Entre ellas hay tres crías más pequeñas: una blanca con pocas manchas claras, una marrón y otra marrón con manchas más oscuras."
+        },
+        {
+          "id": "papa",
+          "src": "/nudito/diagramas/ciencia-tecnologia/asexual-sexual-trozos-de-papa.svg",
+          "alt": "Un surco de tierra con tres trozos de papa sembrados; de cada uno sale un tallito verde con dos hojitas.",
+          "descripcion": "Sobre un fondo crema, bajo el título un surco de la chacra, hay una franja de tierra marrón con tres trozos de papa beige en fila y separados. De cada uno sale un tallito verde con dos hojitas. Abajo, en crema, dice tres trozos de papa sembrados."
+        },
+        {
+          "id": "comparar",
+          "src": "/nudito/diagramas/ciencia-tecnologia/asexual-sexual-comparar.svg",
+          "alt": "Dos tarjetas: reproducción asexual, un progenitor y crías casi iguales; reproducción sexual, dos progenitores y crías distintas entre sí.",
+          "descripcion": "Dos tarjetas una sobre otra. La primera, turquesa, dice reproducción asexual: un progenitor, crías casi iguales. La segunda, amarilla, dice reproducción sexual: dos progenitores, crías distintas entre sí."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un jardinero corta una rama de un rosal, la entierra y nace otro rosal igual al primero. ¿Qué tipo de reproducción es?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sexual: nace de dos progenitores"
+          },
+          {
+            "id": "b",
+            "texto": "Asexual: nace de un progenitor"
+          },
+          {
+            "id": "c",
+            "texto": "Sexual: la rama busca su pareja"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Es asexual: la rama viene de un solo rosal, el único progenitor, y por eso el rosal nuevo es casi igual al original.",
+        "pista": "Cuenta cuántos rosales participan para formar el nuevo."
+      }
+    }
   },
   {
     "clave": "cyt.p5.biparticion-gemacion",

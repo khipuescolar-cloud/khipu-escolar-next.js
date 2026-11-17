@@ -390,7 +390,123 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Una respuesta con datos repartidos",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a ubicar información en un párrafo y en una tabla o un gráfico, y a combinarla. Como idea principal, muchos textos reparten sus datos: el párrafo cuenta la situación y la tabla ordena cantidades, horas o nombres. A veces ninguna de las dos partes tiene toda la respuesta, así que debes juntar los datos."
+        },
+        {
+          "id": "situacion-fuentes",
+          "tipo": "recurso",
+          "titulo": "El párrafo y la tabla se completan",
+          "narracion": "Observemos este esquema. Arriba está el párrafo, que cuenta la situación y da reglas, nombres o precios. Debajo está la tabla o el gráfico, que ordena cantidades, horas o nombres. La flecha lleva a la respuesta, que sale de juntar los datos de ambas partes que la pregunta necesita.",
+          "recursoRef": "fuentes"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el torneo de ajedrez",
+          "narracion": "Leamos el párrafo: «El sábado, el club de ajedrez de Huancayo hizo un torneo escolar. Cada jugador pagó S/ 5». La pregunta es: ¿cuánto dinero reunió el colegio Andino? Fíjate en que el párrafo no dice cuántos jugadores tuvo cada colegio."
+        },
+        {
+          "id": "ejemplo-1-tabla",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: buscamos el dato que falta",
+          "narracion": "La tabla ordena los jugadores por colegio: San Martín tuvo 14, Santa Rosa 9 y Andino 12. Para la pregunta necesitamos el dato del colegio Andino y también el precio que dice el párrafo. Cada parte aporta una pieza.",
+          "recursoRef": "pregunta"
+        },
+        {
+          "id": "ejemplo-1-une",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: juntamos los datos",
+          "narracion": "El párrafo aporta que cada jugador pagó S/ 5 y la tabla aporta que el colegio Andino tuvo 12 jugadores. Entonces multiplicamos: 12 por 5 es 60. El colegio Andino reunió S/ 60. Con un solo dato no habríamos podido responder."
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el taller de Mariana",
+          "narracion": "Ahora el párrafo pone condiciones: «Mariana sale de inglés a las 4:00. El taller debe empezar después de las 4:00 y antes de las 5:00». La tabla de talleres dice: Dibujo, 3:00 p. m.; Cerámica, 4:30 p. m.; Música, 5:00 p. m. ¿A qué taller puede ir? Prueba cada horario con las condiciones del párrafo."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: probamos cada taller",
+          "narracion": "Dibujo empieza a las 3:00, antes de las 4:00, así que no sirve. Música empieza a las 5:00, y debía empezar antes de las 5:00, así que tampoco. Cerámica empieza a las 4:30: es después de las 4:00 y antes de las 5:00. Mariana puede ir a Cerámica. Aquí la tabla da las horas y el párrafo da las condiciones para elegir.",
+          "recursoRef": "horario"
+        },
+        {
+          "id": "error-un-dato",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: responder con un solo dato",
+          "narracion": "Un error común es quedarse con el primer número que encuentras. En el torneo, alguien podría responder 12, que es el número de jugadores, o 5, que es el precio. Ambos son datos correctos, pero ninguno responde cuánto dinero se reunió. Vuelve a leer la pregunta y verifica que tu respuesta diga exactamente lo que se pide."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee la pregunta y decide qué dato necesitas",
+          "narracion": "Empieza por la pregunta y decide qué dato necesitas para responderla. Piensa en el esquema: ¿ese dato lo da el párrafo o lo da la tabla?",
+          "recursoRef": "fuentes"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: ubica cada dato donde esté",
+          "narracion": "Busca primero en el párrafo y luego en la tabla o el gráfico. Si falta algo, mira la otra parte del texto antes de suponer una cifra."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: junta y comprueba",
+          "narracion": "Une los datos con la operación o la condición que pide la pregunta. Después comprueba que tu respuesta diga exactamente lo preguntado, como al elegir el taller de Cerámica porque cumplía las dos condiciones del horario.",
+          "recursoRef": "horario"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "fuentes",
+          "src": "/nudito/diagramas/comunicacion/complementaria-dos-fuentes.svg",
+          "alt": "Esquema: el párrafo y la tabla o gráfico se juntan para dar la respuesta.",
+          "descripcion": "Dos recuadros apilados: El párrafo, que cuenta la situación y da reglas, nombres o precios; y La tabla o el gráfico, que ordena cantidades, horas o nombres. Una flecha baja hasta La respuesta: junta los datos de ambas partes que la pregunta necesita."
+        },
+        {
+          "id": "pregunta",
+          "src": "/nudito/diagramas/comunicacion/complementaria-pregunta.svg",
+          "alt": "Párrafo sobre un torneo de ajedrez, tabla de jugadores por colegio y la pregunta por el dinero del colegio Andino.",
+          "descripcion": "Arriba, el párrafo: «El sábado, el club de ajedrez de Huancayo hizo un torneo escolar. Cada jugador pagó S/ 5.» En medio, una tabla de colegio y jugadores: San Martín, 14; Santa Rosa, 9; Andino, 12. Abajo, la pregunta: ¿Cuánto dinero reunió el colegio Andino?"
+        },
+        {
+          "id": "horario",
+          "src": "/nudito/diagramas/comunicacion/complementaria-horario.svg",
+          "alt": "Condiciones de Mariana y tabla de talleres: solo Cerámica, a las 4:30, cumple.",
+          "descripcion": "Arriba, las condiciones: Mariana sale de inglés a las 4:00 y el taller debe empezar después de las 4:00 y antes de las 5:00. Tres filas: Dibujo, 3:00 p. m., empieza antes de las 4:00, No; Cerámica, 4:30 p. m., cumple las dos condiciones, Sí, resaltada; Música, 5:00 p. m., no empieza antes de las 5:00, No."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee el párrafo: «En la kermés, cada pastel costó S/ 3». La tabla dice: Ana, 14 pasteles; Beto, 9 pasteles. ¿Cuánto más dinero juntó Ana que Beto?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "S/ 27"
+          },
+          {
+            "id": "b",
+            "texto": "S/ 42"
+          },
+          {
+            "id": "c",
+            "texto": "S/ 15"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Ana vendió 5 pasteles más que Beto (14 − 9) y cada pastel costó S/ 3, así que juntó S/ 15 más. Los otros valores son lo que juntó solo Beto (27) o solo Ana (42).",
+        "pista": "El precio está en el párrafo y las cantidades en la tabla. Calcula cuántos pasteles más vendió Ana o cuánto juntó cada uno."
+      }
+    }
   },
   {
     "clave": "com.p5.toma-de-notas",

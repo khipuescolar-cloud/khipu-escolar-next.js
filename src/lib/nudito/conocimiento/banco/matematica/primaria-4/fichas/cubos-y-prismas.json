@@ -336,7 +336,133 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Cubos y prismas en los objetos",
+          "narracion": "Bienvenida y bienvenido. Hoy reconoceremos cubos y prismas en objetos de todos los días. Como idea principal, un cubo tiene seis caras cuadradas, todas iguales. Un prisma de base cuadrada tiene dos caras cuadradas y cuatro caras rectangulares. Si un objeto tiene partes redondas, no es ninguno de los dos."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "En la tienda de Lucía",
+          "narracion": "Observemos esta situación. En un estante de la tienda hay tres objetos: una caja de regalo, una caja de té y una lata de atún. Queremos saber qué forma tiene cada uno. ¿Es un cubo, un prisma de base cuadrada o ninguno de los dos?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la caja de regalo",
+          "narracion": "La caja de regalo mide diez centímetros de largo, diez de ancho y diez de alto. Compara las tres medidas. ¿Qué pasa con sus caras?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: medidas iguales",
+          "narracion": "Las tres medidas son iguales, así que todas las caras son cuadrados del mismo tamaño. La caja de regalo es un cubo. Cada medida marcada en el dibujo dice diez centímetros.",
+          "recursoRef": "ejemplo-uno"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la caja de té",
+          "narracion": "La caja de té mide ocho centímetros de ancho, ocho de largo y veinte de alto. Compara el largo y el ancho con el alto. ¿Cómo serán las caras de arriba y de abajo? ¿Y las de los lados?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: base cuadrada",
+          "narracion": "La base mide ocho por ocho, así que arriba y abajo hay cuadrados. Los lados miden ocho por veinte, así que son rectángulos. Es un prisma de base cuadrada. En el dibujo se ve la cara de arriba, que es un cuadrado, y los lados rectangulares.",
+          "recursoRef": "ejemplo-dos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Veamos dos errores. Alguien dice que la lata de leche es un prisma porque parece una caja. Pero su parte de arriba es redonda, y el prisma solo tiene caras planas. Otra persona dice que la caja de velas es un cubo porque su base es cuadrada. Pero su alto es mucho mayor que su ancho, y sus lados son rectángulos.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira las caras",
+          "narracion": "Mira el objeto y revisa si todas sus caras son planas. Si hay una parte redonda, no es cubo ni prisma."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca el cubo",
+          "narracion": "Mide o mira: si el largo, el ancho y el alto son iguales, las seis caras son cuadrados iguales. Es un cubo."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: busca el prisma",
+          "narracion": "Si dos caras son cuadrados y las otras cuatro son rectángulos, es un prisma de base cuadrada. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/cubo-prisma-entorno-situacion.svg",
+          "alt": "Sobre un estante, tres objetos con su nombre: una caja de regalo, una caja de té alta y una lata de atún.",
+          "descripcion": "Sobre una línea que hace de estante, de izquierda a derecha: una caja amarilla más pequeña, una caja turquesa más alta y una lata redonda de color lila, cada una con su nombre debajo. Abajo se lee la pregunta: qué forma tiene cada una."
+        },
+        {
+          "id": "ejemplo-uno",
+          "src": "/nudito/diagramas/matematica/cubo-prisma-entorno-ejemplo-uno.svg",
+          "alt": "Caja de regalo con sus tres medidas marcadas: diez centímetros de ancho, de alto y de fondo.",
+          "descripcion": "Una caja amarilla en perspectiva con tres etiquetas de diez centímetros: una junto al alto, otra bajo el ancho y otra junto al fondo. Debajo, dos frases: las tres medidas son iguales; seis caras: cuadrados iguales."
+        },
+        {
+          "id": "ejemplo-dos",
+          "src": "/nudito/diagramas/matematica/cubo-prisma-entorno-ejemplo-dos.svg",
+          "alt": "Caja de té alta y angosta, de ocho centímetros de ancho y de fondo y veinte de alto.",
+          "descripcion": "Una caja turquesa en perspectiva con tres etiquetas: veinte centímetros junto al alto, ocho bajo el ancho y ocho junto al fondo. A la derecha: arriba y abajo, dos cuadrados; en los lados, cuatro rectángulos."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/cubo-prisma-entorno-error.svg",
+          "alt": "Una lata de leche redonda y una caja de velas alta, cada una con una equis roja y el motivo del error debajo.",
+          "descripcion": "A la izquierda, una lata redonda lila; debajo, lata de leche y, en rojo, tiene parte redonda. A la derecha, una caja turquesa alta de base cuadrada; debajo, caja de velas y, en rojo, alto mayor que ancho. Cada objeto tiene una equis roja arriba."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/cubo-prisma-entorno-pasos.svg",
+          "alt": "Tarjeta con tres pasos: revisar si hay partes redondas, buscar seis cuadrados iguales y buscar dos cuadrados y cuatro rectángulos.",
+          "descripcion": "Tres tarjetas numeradas. La uno: hay partes redondas, entonces no es cubo ni prisma. La dos: seis cuadrados iguales, es un cubo. La tres: dos cuadrados y cuatro rectángulos, es un prisma de base cuadrada."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una caja de jabón mide seis centímetros de largo, seis de ancho y doce de alto. ¿Cómo es su forma?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cubo, porque todas sus caras son cuadradas"
+          },
+          {
+            "id": "b",
+            "texto": "Cubo, porque su base tiene forma de cuadrado"
+          },
+          {
+            "id": "c",
+            "texto": "Prisma con las seis caras cuadradas e iguales"
+          },
+          {
+            "id": "d",
+            "texto": "Prisma: dos cuadrados y cuatro rectángulos"
+          }
+        ],
+        "respuesta": "d",
+        "mensajeCorrecto": "Correcto. El largo y el ancho son iguales, pero el alto es distinto. Hay dos cuadrados, arriba y abajo, y cuatro rectángulos en los lados.",
+        "pista": "Compara las tres medidas de la caja: cuáles son iguales y cuál es distinta."
+      }
+    }
   },
   {
     "clave": "mat.p4.elementos-cubo-prisma",
@@ -936,7 +1062,132 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Desarrollo plano del cubo",
+          "narracion": "Bienvenida y bienvenido. Hoy armamos cubos con plantillas. Como idea principal, el desarrollo plano de un cubo es una plantilla de seis cuadrados iguales, unidos por sus lados. Al doblarla, los seis cuadrados forman las seis caras del cubo, sin que uno quede encima de otro y sin que falte ninguno."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Seis cuadrados para un cubo",
+          "narracion": "Observemos esta situación. Queremos armar un cubo de cartulina. Recortamos seis cuadrados iguales, que están separados en dos filas de tres. Falta decidir cómo pegarlos por sus lados para poder doblarlos.",
+          "recursoRef": "cuadrados-sueltos"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una plantilla en cruz",
+          "narracion": "Probemos esta plantilla. Hay una fila de cuatro cuadrados, con uno arriba del segundo y otro abajo del segundo. Todos están pegados por sus lados. Piensa: ¿al doblarla se arma un cubo?",
+          "recursoRef": "cruz-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: doblar la cruz",
+          "narracion": "Los cuatro cuadrados de la fila forman los lados del cubo. El cuadrado de arriba es la tapa y el de abajo es el fondo. Cada cuadrado queda en un lugar distinto, así que sí se arma el cubo.",
+          "recursoRef": "cruz-caras"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: seis cuadrados en fila",
+          "narracion": "Ahora imagina seis cuadrados en una fila recta, pegados por sus lados. Piensa: ¿esta plantilla se puede doblar para armar un cubo?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: doblar la fila",
+          "narracion": "Al doblar la fila, los cuadrados se amontonan. Mira los arcos: el primero y el quinto caen en el mismo lugar, y el segundo y el sexto también. Así quedan lugares sin tapar y no se arma el cubo.",
+          "recursoRef": "fila-error"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Mira estas dos plantillas con equis roja. La de la izquierda tiene un cuadrado más chico que los otros, pero todas las caras de un cubo deben ser iguales. La de la derecha solo tiene cinco cuadrados, y el sexto está marcado con líneas punteadas: falta una cara.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cuenta los cuadrados",
+          "narracion": "Primero cuenta los cuadrados. Deben ser seis, todos iguales y pegados por sus lados, no solo por una esquina.",
+          "recursoRef": "cruz-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: imagina el doblez",
+          "narracion": "Luego imagina que doblas la plantilla. Ninguna cara debe caer sobre otra. En la fila de seis, dos pares de cuadrados caen en el mismo lugar.",
+          "recursoRef": "fila-error"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: comprueba el cubo",
+          "narracion": "Por último, comprueba que al doblar quedan seis caras distintas: tapa, fondo y cuatro lados. Si el cubo se cierra, la plantilla sirve.",
+          "recursoRef": "cruz-caras"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cuadrados-sueltos",
+          "src": "/nudito/diagramas/matematica/desarrollo-cubo-cuadrados-sueltos.svg",
+          "alt": "Seis cuadrados amarillos iguales y separados, en dos filas de tres, con la pregunta de cómo se pegan.",
+          "descripcion": "Hay seis cuadrados amarillos iguales, separados entre sí, en dos filas de tres. Abajo se lee la pregunta: ¿Cómo se pegan?"
+        },
+        {
+          "id": "cruz-pregunta",
+          "src": "/nudito/diagramas/matematica/desarrollo-cubo-cruz-pregunta.svg",
+          "alt": "Plantilla de seis cuadrados: una fila de cuatro con uno arriba del segundo y uno abajo del segundo; pregunta si forma un cubo.",
+          "descripcion": "Seis cuadrados amarillos pegados por sus lados forman una cruz. Una fila horizontal de cuatro cuadrados tiene otro cuadrado encima del segundo y otro debajo del segundo. Abajo se lee la pregunta: ¿Forma un cubo?"
+        },
+        {
+          "id": "cruz-caras",
+          "src": "/nudito/diagramas/matematica/desarrollo-cubo-cruz-caras.svg",
+          "alt": "La misma cruz con sus cuadrados rotulados: arriba y abajo en turquesa, y cuatro lados en amarillo.",
+          "descripcion": "La cruz de seis cuadrados. El cuadrado de arriba, turquesa, dice arriba y el de abajo, turquesa, dice abajo. Los cuatro cuadrados amarillos de la fila central dicen lado. Debajo se lee: Doblada, cierra un cubo."
+        },
+        {
+          "id": "fila-error",
+          "src": "/nudito/diagramas/matematica/desarrollo-cubo-fila-error.svg",
+          "alt": "Fila de seis cuadrados numerados; arcos unen el primero con el quinto y el segundo con el sexto, con las palabras mismo lugar.",
+          "descripcion": "Seis cuadrados en una fila recta, numerados del uno al seis. El primero y el quinto son amarillos, el segundo y el sexto son turquesa, y el tercero y el cuarto son claros. Un arco marrón por arriba une el primero con el quinto, y un arco turquesa por abajo une el segundo con el sexto; cada uno dice mismo lugar. Abajo, en rojo: Doblada, se amontona."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/desarrollo-cubo-errores.svg",
+          "alt": "Dos plantillas con equis roja: una con un cuadrado más chico y otra con solo cinco cuadrados y el sexto punteado.",
+          "descripcion": "A la izquierda hay una plantilla en cruz cuyo cuadrado de abajo es más chico que los otros; debajo hay una equis roja y las palabras más chico. A la derecha hay una plantilla en cruz con cinco cuadrados amarillos y el de abajo dibujado con líneas punteadas; debajo, una equis roja y las palabras falta una."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Al doblar una plantilla de seis cuadrados, dos cuadrados caen en el mismo lugar. ¿Qué puedes decir de esa plantilla?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sirve: el cubo queda con dos tapas"
+          },
+          {
+            "id": "b",
+            "texto": "Sirve, pero el cubo queda más grande"
+          },
+          {
+            "id": "c",
+            "texto": "No sirve: queda una cara sin cubrir"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Si dos cuadrados caen en el mismo lugar, otra cara del cubo queda sin cubrir y la plantilla no sirve.",
+        "pista": "Piensa en las seis caras distintas que necesita un cubo."
+      }
+    }
   },
   {
     "clave": "mat.p4.desarrollo-prisma",

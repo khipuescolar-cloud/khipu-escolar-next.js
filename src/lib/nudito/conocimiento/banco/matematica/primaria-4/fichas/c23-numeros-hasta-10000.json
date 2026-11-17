@@ -1784,7 +1784,130 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Componer y descomponer números de cuatro cifras",
+          "narracion": "Bienvenida y bienvenido. Hoy trabajaremos con números de cuatro cifras. Como idea principal, cada cifra vale según el lugar que ocupa: unidades de millar, centenas, decenas y unidades. Para descomponer un número, escribimos lo que vale cada cifra. Para componerlo, sumamos esos valores. Un lugar vacío vale cero."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Un número en la tabla",
+          "narracion": "Observemos esta situación. Un número de cuatro cifras está en una tabla de valor posicional. Las columnas llevan siglas y, de izquierda a derecha, son unidades de millar, centenas, decenas y unidades. Las cifras son siete, dos, nueve y cuatro. ¿Cuánto vale cada una?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: descomponer",
+          "narracion": "Descompongamos el número de la tabla. Mira cada cifra y su columna. ¿Cuánto vale el siete? ¿Y el dos, el nueve y el cuatro?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el valor de cada cifra",
+          "narracion": "El siete está en las unidades de millar y vale siete mil. El dos está en las centenas y vale doscientos. El nueve está en las decenas y vale noventa. El cuatro está en las unidades y vale cuatro. Al sumar los valores, volvemos a formar el número.",
+          "recursoRef": "valores"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: componer",
+          "narracion": "Ahora compongamos un número con tres valores: seis mil, cuatrocientos y tres. Abajo hay una tabla vacía con cuatro columnas. ¿En qué columna va cada valor? ¿Qué pasa con la columna que queda sin valor?",
+          "recursoRef": "tarjetas-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el cero que falta",
+          "narracion": "Seis mil va en las unidades de millar, cuatrocientos en las centenas y tres en las unidades. Las decenas quedan vacías, así que llevan un cero. El número es seis mil cuatrocientos tres.",
+          "recursoRef": "cero"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Un error que cambia el número",
+          "narracion": "Mira estos dos números. Alguien compuso nueve mil más treinta más cinco y escribió novecientos treinta y cinco. Pero la columna de las centenas estaba vacía y necesita un cero. El número correcto es nueve mil treinta y cinco.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: ubica cada cifra",
+          "narracion": "Primero ubica en qué columna está cada cifra o cada valor: unidades de millar, centenas, decenas o unidades."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: escribe su valor",
+          "narracion": "Luego escribe cuánto vale cada cifra según su columna. Por ejemplo, un siete en las centenas vale setecientos."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: suma y cuida los ceros",
+          "narracion": "Por último, suma los valores para componer el número. Si una columna está vacía, escribe cero en ella."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/descomponer-cuatro-cifras-situacion.svg",
+          "alt": "Tabla de valor posicional de cuatro columnas con un número de cuatro cifras.",
+          "descripcion": "Tabla con cuatro columnas rotuladas con las siglas de unidades de millar, centenas, decenas y unidades. Las cifras, de izquierda a derecha, son siete, dos, nueve y cuatro. Debajo se explican las siglas y se pregunta: ¿Cuánto vale cada cifra?"
+        },
+        {
+          "id": "valores",
+          "src": "/nudito/diagramas/matematica/descomponer-cuatro-cifras-valores.svg",
+          "alt": "La misma tabla con una flecha desde cada cifra hacia su valor.",
+          "descripcion": "La tabla con siete, dos, nueve y cuatro. De cada columna baja una flecha hacia un recuadro: siete mil, doscientos, noventa, y el último, cuatro. Debajo, la suma de esos cuatro valores."
+        },
+        {
+          "id": "tarjetas-pregunta",
+          "src": "/nudito/diagramas/matematica/descomponer-cuatro-cifras-tarjetas-pregunta.svg",
+          "alt": "Tres tarjetas con valores y una tabla vacía de cuatro columnas.",
+          "descripcion": "Arriba, tres tarjetas: seis mil, cuatrocientos y tres. Debajo, una tabla con las cuatro columnas rotuladas con siglas y todas las celdas vacías. Abajo se lee: ¿Qué número se forma?"
+        },
+        {
+          "id": "cero",
+          "src": "/nudito/diagramas/matematica/descomponer-cuatro-cifras-cero.svg",
+          "alt": "Tabla con las cifras seis, cuatro, cero y tres; la celda del cero está resaltada.",
+          "descripcion": "Tabla con seis, cuatro, cero y tres en las cuatro columnas. La celda del cero, en las decenas, está en amarillo. Debajo: Decenas vacías: va un cero, y la suma seis mil más cuatrocientos más tres es igual a seis mil cuatrocientos tres."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/descomponer-cuatro-cifras-error.svg",
+          "alt": "Dos recuadros: el número novecientos treinta y cinco, marcado mal, y nueve mil treinta y cinco, marcado bien.",
+          "descripcion": "Dos recuadros. El de la izquierda, rojo, dice Mal y trae novecientos treinta y cinco. El de la derecha, turquesa, dice Bien y trae nueve mil treinta y cinco. Debajo, nueve mil más treinta más cinco y, en rojo: Faltó el cero de las centenas."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "¿Qué número se forma con cuatro mil, más seiscientos, más cinco?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuatro mil seiscientos cinco"
+          },
+          {
+            "id": "b",
+            "texto": "Cuatro mil sesenta y cinco"
+          },
+          {
+            "id": "c",
+            "texto": "Cuatrocientos sesenta y cinco"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Las decenas están vacías y llevan cero, por eso el número es cuatro mil seiscientos cinco.",
+        "pista": "Fíjate qué columna queda sin valor y qué cifra debe ocupar ese lugar."
+      }
+    }
   },
   {
     "clave": "mat.p4.comparar-cuatro-cifras",
@@ -2094,7 +2217,133 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comparar números de cuatro cifras",
+          "narracion": "Bienvenida y bienvenido. Hoy compararemos números de cuatro cifras. Como idea principal, empezamos por la cifra de mayor valor, las unidades de millar. Si son iguales, seguimos con las centenas, luego con las decenas y al final con las unidades. Donde aparece la primera cifra distinta, ahí se decide cuál número es mayor."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Libros en dos bibliotecas",
+          "narracion": "Observemos esta situación. La biblioteca de Puno tiene cinco mil ochocientos treinta y seis libros. La de Tacna tiene cinco mil ochocientos sesenta y tres libros. La tabla muestra las cifras de cada número. Arriba, las siglas dicen la posición de cada cifra: unidades de millar, centenas, decenas y unidades. Queremos saber cuál biblioteca tiene más libros.",
+          "recursoRef": "bibliotecas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: buscar la primera diferencia",
+          "narracion": "Compara las cifras de izquierda a derecha. Empieza por las unidades de millar. ¿Son iguales? Si lo son, pasa a las centenas, y sigue hasta encontrar una cifra distinta. ¿Cuál es el número mayor?",
+          "recursoRef": "bibliotecas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dónde se decide",
+          "narracion": "Las unidades de millar son iguales, y las centenas también, así que seguimos. En las decenas, Puno tiene tres y Tacna tiene seis. Tres es menor que seis, y la tabla marca esa columna. Por eso Puno tiene menos libros y Tacna tiene más. Las unidades ya no hacen falta.",
+          "recursoRef": "bibliotecas-decide"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ordenar tres números",
+          "narracion": "Ahora ordenamos tres números. Ana ahorró siete mil noventa y cuatro soles. Beto ahorró siete mil novecientos cuatro soles. Carla ahorró siete mil cuarenta y nueve soles. Mira la tabla y ordénalos de menor a mayor. Fíjate bien en los ceros, porque también cuentan.",
+          "recursoRef": "alcancias-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el orden de los ahorros",
+          "narracion": "Todos empiezan con siete unidades de millar. Con las centenas, Beto tiene nueve, y Ana y Carla tienen cero. Por eso Beto tiene el mayor. Entre Ana y Carla deciden las decenas: Carla tiene cuatro y Ana tiene nueve. El orden de menor a mayor es Carla, Ana y Beto.",
+          "recursoRef": "alcancias-orden"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con este error",
+          "narracion": "Compara cuatro mil trescientos dieciocho con cuatro mil quinientos siete. En el recuadro de arriba solo se miró la última cifra: ocho es mayor que siete, y eso llevaría a pensar que el primero es mayor. Es un error. En el de abajo se empieza por la izquierda: las unidades de millar son iguales y, en las centenas, tres es menor que cinco. Entonces cuatro mil quinientos siete es el mayor.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: alinea las cifras",
+          "narracion": "Primero escribe los números uno debajo del otro, con cada cifra en su columna. Así comparas unidades de millar con unidades de millar, centenas con centenas, y así hasta las unidades.",
+          "recursoRef": "bibliotecas-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca la primera diferencia",
+          "narracion": "Luego compara de izquierda a derecha. Cuando encuentres dos cifras distintas, detente. Esa pareja decide cuál número es mayor. Las cifras que siguen ya no cuentan.",
+          "recursoRef": "bibliotecas-decide"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: escribe el signo",
+          "narracion": "Por último pon el signo que corresponde: mayor que, menor que o igual. Si ordenas varios números, compáralos de dos en dos. Observa cómo quedaron los ahorros de los tres niños.",
+          "recursoRef": "alcancias-orden"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "bibliotecas-pregunta",
+          "src": "/nudito/diagramas/matematica/comparar-cuatro-cifras-bibliotecas-pregunta.svg",
+          "alt": "Tabla con las cifras de los libros de dos bibliotecas, Puno y Tacna, y la pregunta cuál tiene más libros.",
+          "descripcion": "Una tabla con cuatro columnas rotuladas con las siglas UM, C, D y U: unidades de millar, centenas, decenas y unidades. En la fila de Puno están las cifras cinco, ocho, tres y seis. En la fila de Tacna están las cifras cinco, ocho, seis y tres. Abajo se lee la pregunta cuál tiene más libros."
+        },
+        {
+          "id": "bibliotecas-decide",
+          "src": "/nudito/diagramas/matematica/comparar-cuatro-cifras-bibliotecas-decide.svg",
+          "alt": "La misma tabla con signos igual en las dos primeras columnas y menor que en la de decenas.",
+          "descripcion": "La misma tabla. Entre las dos filas hay un signo igual bajo la columna UM, otro bajo la columna C y un signo menor que bajo la columna D. En la columna D, las cifras tres y seis están resaltadas en amarillo. Abajo se lee cinco mil ochocientos treinta y seis es menor que cinco mil ochocientos sesenta y tres."
+        },
+        {
+          "id": "alcancias-pregunta",
+          "src": "/nudito/diagramas/matematica/comparar-cuatro-cifras-alcancias-pregunta.svg",
+          "alt": "Tabla con los ahorros de Ana, Beto y Carla en cuatro columnas de cifras.",
+          "descripcion": "Una tabla con las columnas UM, C, D y U y tres filas. Ana: siete, cero, nueve y cuatro. Beto: siete, nueve, cero y cuatro. Carla: siete, cero, cuatro y nueve. Abajo se lee la pregunta cuál es el orden."
+        },
+        {
+          "id": "alcancias-orden",
+          "src": "/nudito/diagramas/matematica/comparar-cuatro-cifras-alcancias-orden.svg",
+          "alt": "Los ahorros ordenados de menor a mayor: Carla, Ana y Beto, con las cifras que deciden resaltadas.",
+          "descripcion": "La tabla ordenada de arriba abajo: Carla con siete, cero, cuatro y nueve; Ana con siete, cero, nueve y cuatro; y Beto con siete, nueve, cero y cuatro. Entre las filas hay signos menor que. Están resaltadas en amarillo la cifra de las decenas de Carla, las de centenas y decenas de Ana y la de centenas de Beto. Abajo se lee la comparación de los tres números."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/comparar-cuatro-cifras-errores.svg",
+          "alt": "Dos formas de comparar cuatro mil trescientos dieciocho con cuatro mil quinientos siete: solo la última cifra y desde los millares.",
+          "descripcion": "Hay dos recuadros. En el de arriba, rojo, con las palabras solo la última cifra, hay dos filas de cifras, una por cada número, con la última cifra de cada una resaltada, el signo ocho mayor que siete y una equis roja. En el de abajo, verde, con las palabras desde los millares, están las mismas filas con la cifra de las centenas resaltada, el signo tres menor que cinco y una palomita."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un cine vendió cuatro mil noventa y seis entradas el sábado y cuatro mil novecientas seis el domingo. ¿Qué día vendió más entradas?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El sábado"
+          },
+          {
+            "id": "b",
+            "texto": "Vendió igual"
+          },
+          {
+            "id": "c",
+            "texto": "El domingo"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Las unidades de millar son iguales, y en las centenas hay cero el sábado y nueve el domingo, así que el domingo vendió más.",
+        "pista": "Compara primero las unidades de millar y sigue hacia la derecha."
+      }
+    }
   },
   {
     "clave": "mat.p4.ordenar-hasta-10000",

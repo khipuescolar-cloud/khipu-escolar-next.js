@@ -298,7 +298,132 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Barras dobles",
+          "narracion": "Bienvenida y bienvenido. Hoy estudiaremos los gráficos con dos barras por categoría. Como idea principal, sirven para comparar dos grupos en cada categoría: cada categoría lleva dos barras juntas, una por grupo. Las dos barras usan la misma escala, y la leyenda indica qué color corresponde a cada grupo."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Libros leídos por día",
+          "narracion": "Observemos esta situación. Una tabla muestra los libros que leyeron las niñas y los niños durante tres días. El lunes, las niñas leyeron ocho libros y los niños cuatro. El martes, doce y diez. El miércoles, seis y catorce. Queremos mostrar los dos grupos en un solo gráfico.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la escala y las barras",
+          "narracion": "Como los datos son pares y el mayor es catorce, elegimos una escala de dos en dos que llegue a catorce. La leyenda indica que turquesa es para las niñas y amarillo para los niños. Para el lunes necesitamos dos barras: una para las niñas, que leyeron ocho, y otra para los niños, que leyeron cuatro. Las columnas punteadas muestran dónde irán. ¿Hasta qué marca sube cada una?",
+          "recursoRef": "escala-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el gráfico completo",
+          "narracion": "Contamos las marcas de dos en dos. El lunes, las niñas llegan a ocho y los niños a cuatro. El martes, las barras llegan a doce y a diez, y el miércoles, a seis y a catorce. Cada día tiene dos barras juntas, todas con la misma escala, y la leyenda dice qué color es cada grupo.",
+          "recursoRef": "libros"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: leer y comparar",
+          "narracion": "Ahora leamos un gráfico ya hecho. Muestra los votos de los turnos mañana y tarde para tres excursiones. La escala sube de cuatro en cuatro. Queremos saber en cuál excursión el turno tarde superó más al turno mañana. Fíjate en la altura de las dos barras de cada pareja.",
+          "recursoRef": "excursiones-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la mayor diferencia",
+          "narracion": "Leemos cada barra en la escala. En el museo, la mañana tiene doce y la tarde ocho: gana la mañana por cuatro. En la granja, dieciocho y diez: gana la mañana por ocho. En el parque, la mañana tiene seis y la tarde veinte: la tarde gana por catorce, porque veinte menos seis son catorce. Entonces el parque es la excursión donde la tarde superó más.",
+          "recursoRef": "excursiones-parque"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es dibujar cada grupo con una escala distinta. Entonces dos barras igual de altas podrían valer cantidades diferentes y la comparación engaña. Otro error es olvidar la leyenda: sin ella, nadie sabe qué color corresponde a cada grupo."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: ordena los datos",
+          "narracion": "Ordena los datos por categoría y por grupo, como en la tabla de los libros leídos.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: elige una escala común",
+          "narracion": "Elige una sola escala que llegue al mayor de todos los valores. En el primer ejemplo, de dos en dos hasta catorce, como muestra el eje de la imagen.",
+          "recursoRef": "escala-pregunta"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: dibuja y rotula",
+          "narracion": "Dibuja dos barras por categoría con la misma escala, agrega la leyenda y revisa que cada barra coincida con su dato. Así quedó el gráfico de los libros.",
+          "recursoRef": "libros"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/barras-dobles-datos.svg",
+          "alt": "Tabla de libros leídos por día por niñas y niños, con la pregunta cómo mostrar los dos grupos en un solo gráfico.",
+          "descripcion": "Arriba dice Libros leídos por día. La tabla tiene tres columnas: Día, Niñas y Niños. Lunes: 8 y 4. Martes: 12 y 10. Miércoles: 6 y 14. Abajo se lee: ¿Cómo mostramos los dos grupos en un solo gráfico?"
+        },
+        {
+          "id": "escala-pregunta",
+          "src": "/nudito/diagramas/matematica/barras-dobles-escala-pregunta.svg",
+          "alt": "Eje de cero a catorce de dos en dos con leyenda y, para el lunes, dos columnas punteadas con signos de pregunta.",
+          "descripcion": "Arriba dice Escala de 2 en 2. La leyenda muestra un cuadro turquesa para Niñas y uno amarillo para Niños. El eje vertical muestra 0, 2, 4, 6, 8, 10, 12 y 14. Sobre Lunes hay dos columnas punteadas de toda la altura, una turquesa y una amarilla, cada una con un signo de pregunta."
+        },
+        {
+          "id": "libros",
+          "src": "/nudito/diagramas/matematica/barras-dobles-libros.svg",
+          "alt": "Gráfico de barras dobles de libros leídos: lunes ocho y cuatro, martes doce y diez, miércoles seis y catorce.",
+          "descripcion": "Arriba dice Libros leídos por día, con la leyenda: turquesa Niñas y amarillo Niños. El eje va de 0 a 14 de dos en dos. Cada día tiene dos barras juntas con su valor encima: Lunes 8 y 4, Martes 12 y 10, Miércoles 6 y 14."
+        },
+        {
+          "id": "excursiones-pregunta",
+          "src": "/nudito/diagramas/matematica/barras-dobles-excursiones-pregunta.svg",
+          "alt": "Barras dobles de votos por excursión, sin valores escritos, con eje de cuatro en cuatro hasta veinte.",
+          "descripcion": "Arriba dice Votos por excursión, con la leyenda: turquesa Mañana y amarillo Tarde. El eje va de 0 a 20 de cuatro en cuatro. Hay tres parejas de barras sin números encima: Museo, Granja y Parque."
+        },
+        {
+          "id": "excursiones-parque",
+          "src": "/nudito/diagramas/matematica/barras-dobles-excursiones-parque.svg",
+          "alt": "Votos por excursión con valores: en el parque, mañana seis y tarde veinte, diferencia catorce.",
+          "descripcion": "Es el mismo gráfico, ahora con los valores encima: Museo 12 y 8, Granja 18 y 10, Parque 6 y 20. A la derecha del parque, un corchete va de 6 a 20 y marca 14. Abajo se lee: Parque: 20 − 6 = 14 más en la tarde."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En un gráfico de barras dobles de libros leídos, cada marca sube cuatro libros. Un día, la barra de las niñas llega a la tercera marca y la de los niños a la quinta. ¿Cuántos libros más leyeron los niños?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ocho libros más"
+          },
+          {
+            "id": "b",
+            "texto": "Cuatro libros más"
+          },
+          {
+            "id": "c",
+            "texto": "Doce libros más"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Las niñas leyeron doce libros y los niños veinte, así que los niños leyeron ocho más.",
+        "pista": "Averigua cuánto vale cada barra antes de compararlas."
+      }
+    }
   },
   {
     "clave": "mat.p6.interpretar-barras-dobles",
@@ -888,6 +1013,7 @@
         "retroalimentacion": "Es verdadero: el descenso de 8 a 5 es de 3 unidades."
       }
     ],
+    "claseGuiada": {"version":1,"momentos":[{"id":"idea","tipo":"idea","titulo":"Cambios a lo largo del tiempo","narracion":"Bienvenida y bienvenido. Hoy aprenderemos a construir y leer gráficos de líneas. Como idea principal, el eje horizontal ordena los momentos y el eje vertical muestra la cantidad. Cada dato forma un punto. Unimos los puntos consecutivos para ver si la cantidad sube, baja o permanece."},{"id":"situacion","tipo":"recurso","titulo":"Agua almacenada durante la semana","narracion":"Observemos esta situación. Una tabla registra el agua almacenada de lunes a jueves. A la derecha aparecen dos ejes vacíos. Para transformar la tabla en un gráfico, debemos colocar cada día en orden y marcar su cantidad.","recursoRef":"situacion"},{"id":"ejemplo-1-guiado","tipo":"ejemplo","titulo":"Ejemplo 1: temperatura diaria","narracion":"La temperatura fue dieciocho grados el lunes, veinte el martes y diecinueve el miércoles. Los puntos ya están unidos en orden. Recorre la línea de izquierda a derecha. ¿Cómo cambia entre cada par de días?","recursoRef":"temperatura"},{"id":"ejemplo-1-razona","tipo":"ejemplo","titulo":"Ejemplo 1: sube y baja","narracion":"Del lunes al martes la línea sube, porque la temperatura pasa de dieciocho a veinte. Del martes al miércoles baja, porque pasa de veinte a diecinueve. Cada tramo compara momentos consecutivos.","recursoRef":"temperatura"},{"id":"ejemplo-2-guiado","tipo":"ejemplo","titulo":"Ejemplo 2: una altura estable","narracion":"Una planta mide cuatro centímetros la primera semana y seis centímetros en las dos semanas siguientes. Observa el último tramo. ¿Qué significa que quede horizontal?","recursoRef":"planta"},{"id":"ejemplo-2-razona","tipo":"ejemplo","titulo":"Ejemplo 2: no hubo cambio","narracion":"La línea sube de cuatro a seis centímetros. Después queda horizontal porque la segunda y la tercera semana tienen la misma altura. Un tramo horizontal indica que el valor permanece.","recursoRef":"planta"},{"id":"contraejemplo","tipo":"ejemplo","titulo":"Respeta el orden del tiempo","narracion":"Los puntos del gráfico corresponden a lunes, martes y miércoles, pero la línea roja salta del lunes al miércoles y regresa al martes. Ese recorrido deforma la historia. Debemos unir los momentos consecutivos de izquierda a derecha.","recursoRef":"error"},{"id":"paso-1","tipo":"paso","titulo":"Paso 1: prepara los ejes","narracion":"Ordena los momentos en el eje horizontal. En el eje vertical, elige una escala que incluya desde el valor menor hasta el mayor."},{"id":"paso-2","tipo":"paso","titulo":"Paso 2: ubica los puntos","narracion":"Para cada momento, busca su posición horizontal y su cantidad vertical. Marca el punto donde se encuentran."},{"id":"paso-3","tipo":"paso","titulo":"Paso 3: une y describe","narracion":"Une cada punto con el siguiente, sin saltar momentos. Luego describe cada tramo: sube, baja o permanece horizontal."}],"recursos":[{"id":"situacion","src":"/nudito/diagramas/matematica/grafico-lineas-situacion.svg","alt":"Tabla de agua almacenada de lunes a jueves junto a ejes vacíos.","descripcion":"La tabla registra diez litros el lunes, catorce el martes, once el miércoles y quince el jueves. A la derecha hay ejes vacíos, un signo de pregunta y la palabra Tiempo bajo el eje horizontal."},{"id":"temperatura","src":"/nudito/diagramas/matematica/grafico-lineas-temperatura.svg","alt":"Gráfico de líneas con temperaturas de dieciocho, veinte y diecinueve grados.","descripcion":"Un gráfico muestra dieciocho el lunes, veinte el martes y diecinueve el miércoles. Los tres puntos están unidos en orden por una línea turquesa."},{"id":"planta","src":"/nudito/diagramas/matematica/grafico-lineas-planta.svg","alt":"Gráfico con tres puntos de altura de una planta: cuatro, seis y seis centímetros.","descripcion":"Tres puntos representan la primera, segunda y tercera semana. Los puntos valen cuatro, seis y seis centímetros y están unidos por una línea turquesa."},{"id":"error","src":"/nudito/diagramas/matematica/grafico-lineas-error.svg","alt":"Línea roja que salta del lunes al miércoles y vuelve al martes.","descripcion":"Tres puntos se ordenan como lunes, martes y miércoles. Una línea roja une lunes con miércoles y después regresa a martes; una cruz roja marca el salto. Abajo dice No saltes de un día a otro."}],"comprobacion":{"pregunta":"Una línea registra cinco libros en abril, ocho en mayo y ocho en junio. ¿Cómo cambia?","opciones":[{"id":"a","texto":"Sube y luego baja"},{"id":"b","texto":"Baja y luego sube"},{"id":"c","texto":"Sube y queda igual"}],"respuesta":"c","mensajeCorrecto":"Correcto. De cinco a ocho la línea sube y, como mayo y junio tienen ocho, después queda horizontal.","pista":"Compara el primer valor con el segundo y luego los dos últimos."}},
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",

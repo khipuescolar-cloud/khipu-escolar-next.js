@@ -297,7 +297,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Décimos y centésimos",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos qué son los décimos y los centésimos. Como idea principal, una unidad se puede partir en diez partes iguales, que son décimos, o en cien partes iguales, que son centésimos. Un décimo es lo mismo que diez centésimos."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una cuadrícula pintada",
+          "narracion": "Observemos esta situación. Una hoja tiene una cuadrícula de cien cuadritos iguales, con algunos cuadritos pintados de verde. Queremos saber qué fracción de la hoja está pintada. En el dibujo se ve la cuadrícula completa.",
+          "recursoRef": "cuadricula-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: leer lo pintado",
+          "narracion": "Piensa en la cuadrícula de la situación. Una columna completa tiene diez cuadritos, y eso es un décimo. Hay dos columnas completas y tres cuadritos sueltos. ¿Cuántos décimos y cuántos centésimos son?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: décimos más centésimos",
+          "narracion": "Dos columnas completas son dos décimos. Los tres cuadritos sueltos son tres centésimos. Cada décimo son diez centésimos, así que dos décimos son veinte centésimos. Veinte más tres son veintitrés centésimos. En el dibujo, las columnas son verdes y los cuadritos sueltos son amarillos.",
+          "recursoRef": "cuadricula-veintitres"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: de décimos a centésimos",
+          "narracion": "Una tira se parte en diez partes iguales y se pintan cinco. Eso es cinco décimos. Ahora la misma tira se parte en cien partes iguales. ¿Cuántas partes hay que pintar para cubrir lo mismo?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la tira partida",
+          "narracion": "Cada décimo se parte en diez centésimos. Por eso multiplicamos por diez. Cinco décimos son cincuenta centésimos. En el dibujo, las dos tiras tienen el mismo largo y la misma parte pintada: cinco décimos arriba y cincuenta centésimos abajo.",
+          "recursoRef": "tiras-cinco-decimos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado: no son iguales",
+          "narracion": "Un niño dice que tres décimos y tres centésimos son lo mismo, porque los dos dicen tres. Es un error. En el dibujo, a la izquierda, tres décimos son tres columnas completas, es decir, treinta cuadritos. A la derecha, tres centésimos son solo tres cuadritos. Tres décimos son treinta centésimos.",
+          "recursoRef": "tres-decimos-error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: diez o cien partes",
+          "narracion": "Parte la unidad en diez partes iguales para tener décimos, o en cien partes iguales para tener centésimos."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: cuenta lo pintado",
+          "narracion": "Cuenta las partes tomadas y escribe la fracción: arriba, las partes tomadas; abajo, diez o cien."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: cambia de unidad",
+          "narracion": "Para pasar de décimos a centésimos, multiplica por diez la cantidad de partes y el total de partes. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "tres-pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cuadricula-pregunta",
+          "src": "/nudito/diagramas/matematica/decimos-centesimos-cuadricula-pregunta.svg",
+          "alt": "Una cuadrícula de cien cuadritos con algunos cuadritos pintados de verde y la pregunta de qué fracción está pintada.",
+          "descripcion": "Una cuadrícula cuadrada de cien cuadritos iguales, diez filas por diez columnas. Algunos cuadritos están pintados de verde y el resto está en blanco. Arriba: Cuadrícula de cien cuadritos. Abajo: ¿Qué fracción está pintada?"
+        },
+        {
+          "id": "cuadricula-veintitres",
+          "src": "/nudito/diagramas/matematica/decimos-centesimos-cuadricula-veintitres.svg",
+          "alt": "Cuadrícula de cien cuadritos con dos columnas verdes y tres cuadritos amarillos; a la derecha, dos décimos y tres centésimos.",
+          "descripcion": "La misma cuadrícula de diez por diez. Las dos primeras columnas están pintadas de verde y, en la tercera columna, los tres cuadritos de arriba están pintados de amarillo. A la derecha: dos columnas, igual a dos décimos; tres cuadritos, igual a tres centésimos. Abajo: Total: veintitrés centésimos."
+        },
+        {
+          "id": "tiras-cinco-decimos",
+          "src": "/nudito/diagramas/matematica/decimos-centesimos-tiras-cinco-decimos.svg",
+          "alt": "Dos tiras del mismo largo: una de diez partes con cinco pintadas y otra de cien partes con cincuenta pintadas.",
+          "descripcion": "Título: cinco décimos y cincuenta centésimos. Una tira dividida en diez partes iguales, con las cinco primeras pintadas de verde. Una flecha hacia abajo con por diez. Una tira del mismo largo, dividida en cien partes finas, con las cincuenta primeras pintadas de verde. Abajo: cinco décimos es igual a cincuenta centésimos."
+        },
+        {
+          "id": "tres-decimos-error",
+          "src": "/nudito/diagramas/matematica/decimos-centesimos-tres-decimos-error.svg",
+          "alt": "Dos cuadrículas: a la izquierda, tres columnas pintadas, treinta cuadritos; a la derecha, tres cuadritos pintados.",
+          "descripcion": "Arriba, en rojo: Error: dijo que son iguales. A la izquierda, tres décimos: una cuadrícula con las tres primeras columnas pintadas de verde y, debajo, treinta cuadritos. A la derecha, tres centésimos: otra cuadrícula con solo tres cuadritos pintados en la primera fila y, debajo, en rojo, tres cuadritos. Abajo: tres décimos es igual a treinta centésimos."
+        },
+        {
+          "id": "tres-pasos",
+          "src": "/nudito/diagramas/matematica/decimos-centesimos-tres-pasos.svg",
+          "alt": "Tarjeta con tres pasos para décimos y centésimos.",
+          "descripcion": "Tres tarjetas numeradas. Uno: parte la unidad en diez o en cien partes. Dos: cuenta las partes y escribe la fracción. Tres: de décimos a centésimos, multiplica por diez."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Tomás pinta un décimo y cuatro centésimos de una cuadrícula de cien cuadritos. ¿Cuántos cuadritos pintó?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Catorce cuadritos"
+          },
+          {
+            "id": "b",
+            "texto": "Cinco cuadritos"
+          },
+          {
+            "id": "c",
+            "texto": "Cuarenta cuadritos"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Un décimo son diez cuadritos y cuatro centésimos son cuatro cuadritos. Juntos son catorce.",
+        "pista": "Piensa cuántos cuadritos tiene un décimo."
+      }
+    }
   },
   {
     "clave": "mat.p6.valor-posicional-decimales",
@@ -1264,6 +1386,124 @@
         "retroalimentacion": "1,08 < 1,1 porque 8 centésimos < 10 centésimos; tener más cifras no hace mayor el número."
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comparar y ordenar decimales",
+          "narracion": "Bienvenida y bienvenido. Para comparar decimales, alineamos las comas y comparamos de izquierda a derecha: unidades, décimos y centésimos. Podemos agregar ceros a la derecha de la parte decimal sin cambiar el valor."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Dos precios por comparar",
+          "narracion": "Observemos dos precios. Mercado Sol ofrece un producto a dos coma seis soles. Mercado Río lo ofrece a dos coma cincuenta y seis soles. Aún no marcamos cuál es menor. ¿Cómo podemos comparar lugares del mismo valor?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: décimos y centésimos",
+          "narracion": "Comparemos cero coma siete y cero coma sesenta y ocho. El primero tiene una sola cifra decimal. Podemos agregar un cero final sin cambiar su valor. ¿Cuál será mayor?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: alineamos los lugares",
+          "narracion": "Escribimos cero coma siete como cero coma setenta. Las unidades empatan. En los décimos, siete supera a seis. Por eso cero coma siete es mayor que cero coma sesenta y ocho.",
+          "recursoRef": "ejemplo-uno"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ordenar tres números",
+          "narracion": "Ordenemos tres coma cero ocho, tres coma ocho y tres coma dieciocho. Primero podemos escribir tres coma ocho como tres coma ochenta. ¿Cuál irá primero y cuál irá al final?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: de menor a mayor",
+          "narracion": "Las unidades empatan. En los décimos, cero va antes que uno y uno va antes que ocho. El orden es: primero, tres coma cero ocho; segundo, tres coma dieciocho; tercero, tres coma ocho.",
+          "recursoRef": "ejemplo-dos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es creer que cero coma cuarenta y cinco supera a cero coma cinco porque tiene más cifras. Al escribir cero coma cinco como cero coma cincuenta, vemos que cincuenta centésimos superan a cuarenta y cinco.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: alinea las comas",
+          "narracion": "Escribe los números uno debajo del otro con las comas en la misma columna. En los precios, las unidades y los décimos quedan frente a sus iguales.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: completa con ceros",
+          "narracion": "Agrega ceros a la derecha cuando ayude. El valor no cambia. Así, cero coma siete puede verse como cero coma setenta.",
+          "recursoRef": "ejemplo-uno"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: compara de izquierda a derecha",
+          "narracion": "Compara unidades, luego décimos y después centésimos. La primera posición diferente decide. Para ordenar varios números, aplica la comparación hasta ubicarlos todos.",
+          "recursoRef": "ejemplo-dos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/comparar-ordenar-decimales-situacion.svg",
+          "alt": "Mercado Sol muestra dos coma seis soles y Mercado Río, dos coma cincuenta y seis soles.",
+          "descripcion": "Dos tarjetas blancas con borde índigo. Mercado Sol muestra el precio dos coma seis soles y Mercado Río, dos coma cincuenta y seis soles. Arriba se pregunta qué precio es menor."
+        },
+        {
+          "id": "ejemplo-uno",
+          "src": "/nudito/diagramas/matematica/comparar-ordenar-decimales-ejemplo-uno.svg",
+          "alt": "Tabla de unidades, décimos y centésimos: cero coma setenta es mayor que cero coma sesenta y ocho.",
+          "descripcion": "Una tabla blanca tiene columnas de unidades, décimos y centésimos. La primera fila muestra cero, siete, cero; la segunda, cero, seis, ocho. Abajo se indica cero coma setenta mayor que cero coma sesenta y ocho."
+        },
+        {
+          "id": "ejemplo-dos",
+          "src": "/nudito/diagramas/matematica/comparar-ordenar-decimales-ejemplo-dos.svg",
+          "alt": "Recta a escala con tres coma cero ocho y tres coma dieciocho muy juntos, y tres coma ochenta lejos.",
+          "descripcion": "Una recta horizontal a escala marca, de izquierda a derecha, tres coma cero ocho y tres coma dieciocho, muy cerca uno del otro, y tres coma ochenta mucho más lejos. Debajo aparece la cadena tres coma cero ocho menor que tres coma dieciocho menor que tres coma ochenta."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/comparar-ordenar-decimales-error.svg",
+          "alt": "La comparación cero coma cuarenta y cinco mayor que cero coma cinco aparece tachada.",
+          "descripcion": "Un recuadro blanco muestra cero coma cuarenta y cinco mayor que cero coma cinco, tachado con una raya roja. Debajo se indica escribir cero coma cinco como cero coma cincuenta y comparar lugares del mismo valor."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Loma registra cuatro coma cero nueve; Río, cuatro coma nueve; Sol, cuatro coma diecinueve. ¿Cuál es el orden de menor a mayor?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Río, Sol y Loma"
+          },
+          {
+            "id": "b",
+            "texto": "Loma, Sol y Río"
+          },
+          {
+            "id": "c",
+            "texto": "Sol, Loma y Río"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Cuatro coma cero nueve es menor que cuatro coma diecinueve, y este es menor que cuatro coma nueve.",
+        "pista": "Escribe cuatro coma nueve con un cero final y compara primero los décimos."
+      }
+    },
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
@@ -2830,7 +3070,118 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Multiplicar decimales y dividir entre un natural",
+          "narracion": "Hola. Hoy aprenderás a multiplicar decimales y a dividir un decimal entre un número natural. Como idea principal, al multiplicar calculas como si no hubiera comas y colocas en el resultado tantas cifras decimales como tienen los dos factores juntos; al dividir repartes primero las unidades y después los décimos, sin perder el valor de cada posición."
+        },
+        {
+          "id": "situacion-cuadricula",
+          "tipo": "recurso",
+          "titulo": "Un cuadrado dividido en cien",
+          "narracion": "Observemos esta situación. Un cuadrado grande está dividido en cien cuadritos y todo el cuadrado vale uno. Pintamos cuatro columnas de las diez, que son cero coma cuatro del ancho, y tres filas de las diez, que son cero coma tres del alto. La zona pintada tiene doce cuadritos de cien, es decir, cero coma doce.",
+          "recursoRef": "cuadricula"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: cero coma cuatro por cero coma tres",
+          "narracion": "Un terreno ocupa cero coma cuatro del ancho y cero coma tres del alto de un lote cuadrado. ¿Qué parte del lote ocupa? Multiplicamos como si fueran enteros: cuatro por tres son doce. Cada factor tiene una cifra decimal, así que el producto tendrá dos cifras decimales."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: leemos el resultado",
+          "narracion": "Con dos cifras decimales, doce se escribe cero coma doce. El terreno ocupa doce centésimos del lote, igual que los doce cuadritos pintados de cien. El resultado es menor que cada factor, porque tomar una parte de una parte da algo más pequeño.",
+          "recursoRef": "cuadricula"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: cinco coma dos litros entre cuatro",
+          "narracion": "Se reparten cinco coma dos litros de chicha morada en cuatro jarras iguales. ¿Cuánto recibe cada jarra? Primero repartimos las unidades: cinco unidades entre cuatro son una para cada jarra, y sobra una."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: repartimos los décimos",
+          "narracion": "La unidad que sobra equivale a diez décimos, y con los dos décimos que ya teníamos son doce décimos. Doce décimos entre cuatro son tres décimos para cada jarra. Cada una recibe uno coma tres litros. Comprobamos: uno coma tres por cuatro es cinco coma dos.",
+          "recursoRef": "jarras"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Dónde va la coma",
+          "narracion": "Un error frecuente es olvidar las cifras decimales y responder que cero coma tres por cero coma dos es cero coma seis. Como tres por dos es seis y cada factor tiene una cifra decimal, el producto tiene dos: cero coma cero seis. Otro error es dividir solo la parte entera. En uno coma cinco entre tres también hay que repartir los décimos, y el resultado es cero coma cinco."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: multiplica sin comas",
+          "narracion": "Si vas a multiplicar, calcula primero con los números como enteros, sin fijarte en las comas. En el cuadrado de cien, cuatro por tres son doce.",
+          "recursoRef": "cuadricula"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: cuenta las cifras decimales y coloca la coma",
+          "narracion": "Cuenta las cifras decimales de los dos factores y colócalas en el producto. Con uno coma cinco por cero coma dos, quince por dos son treinta. Hay una cifra decimal en cada factor, en total dos, así que el producto es cero coma treinta, que es lo mismo que cero coma tres.",
+          "recursoRef": "cifras"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: divide y comprueba",
+          "narracion": "Si vas a dividir un decimal entre un natural, reparte las unidades, cambia lo que sobre por décimos y sigue repartiendo. Luego comprueba multiplicando el cociente por el divisor: uno coma tres por cuatro vuelve a dar cinco coma dos.",
+          "recursoRef": "jarras"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cuadricula",
+          "src": "/nudito/diagramas/matematica/decimales-cuadricula-doce.svg",
+          "alt": "Cuadrado de cien cuadritos con cuatro columnas y tres filas pintadas: cero coma doce.",
+          "descripcion": "Hay un cuadrado de diez por diez cuadritos. En la esquina superior izquierda están pintadas cuatro columnas y tres filas, con doce cuadritos turquesa. Al lado se lee ancho cero coma cuatro, alto cero coma tres, doce de cien, igual a cero coma doce. Abajo está la multiplicación cero coma cuatro por cero coma tres igual a cero coma doce."
+        },
+        {
+          "id": "jarras",
+          "src": "/nudito/diagramas/matematica/decimales-reparto-cuatro-jarras.svg",
+          "alt": "Cuatro jarras con uno coma tres litros cada una suman cinco coma dos litros.",
+          "descripcion": "Se ven cuatro jarras iguales, cada una con uno coma tres litros. Debajo se explica el reparto: sobra una unidad, que son diez décimos; diez más dos son doce décimos, y doce décimos entre cuatro son tres décimos. Al final se comprueba que uno coma tres por cuatro es cinco coma dos."
+        },
+        {
+          "id": "cifras",
+          "src": "/nudito/diagramas/matematica/decimales-contar-cifras.svg",
+          "alt": "Uno coma cinco por cero coma dos en tres pasos: sin comas, contar cifras y colocar la coma.",
+          "descripcion": "Arriba se lee uno coma cinco por cero coma dos. Debajo hay tres tarjetas numeradas. La primera dice sin comas, quince por dos igual a treinta. La segunda dice cifras decimales, uno más uno igual a dos. La tercera dice dos lugares, cero coma treinta igual a cero coma tres."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Cada bolsa de quinua pesa cero coma setenta y cinco kilogramos. ¿Cuánto pesan seis bolsas?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuarenta y cinco kilogramos"
+          },
+          {
+            "id": "b",
+            "texto": "Cuatro coma cinco kilogramos"
+          },
+          {
+            "id": "c",
+            "texto": "Cero coma cuarenta y cinco kilogramos"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Setenta y cinco por seis son cuatrocientos cincuenta. Como los factores tienen dos cifras decimales, queda cuatro coma cincuenta, es decir, cuatro coma cinco kilogramos.",
+        "pista": "Multiplica sin comas y después coloca la coma contando las cifras decimales de los dos factores."
+      }
+    }
   },
   {
     "clave": "mat.p6.division-cociente-decimal",

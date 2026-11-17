@@ -607,6 +607,123 @@
     ],
     "version": 1,
     "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Nombres que forman grupos",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a organizar datos cualitativos. Como idea principal, estos datos cuentan cómo es algo o qué nombre recibe, por ejemplo un color o un plato favorito. Las respuestas iguales forman una categoría. Después podemos contar cuántas respuestas hay en cada categoría."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Respuestas de una encuesta",
+          "narracion": "Observemos esta situación. Seis estudiantes dijeron su plato favorito. Las tarjetas dicen ceviche, lomo saltado, ceviche, ají de gallina, ceviche y lomo saltado. Todavía están mezcladas. Pensemos qué grupos podríamos formar sin contar las tarjetas como si fueran categorías distintas.",
+          "recursoRef": "encuesta-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: buscar nombres distintos",
+          "narracion": "Leamos cada respuesta. Cuando un nombre vuelve a aparecer, lo colocamos con el mismo grupo. No creamos una categoría nueva por cada tarjeta. ¿Qué nombres diferentes aparecen en la encuesta?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: tres categorías",
+          "narracion": "Aparecen tres nombres distintos: ceviche, lomo saltado y ají de gallina. El ceviche reúne tres respuestas. El lomo saltado reúne dos. El ají de gallina reúne una. Así organizamos seis respuestas en tres categorías.",
+          "recursoRef": "platos-agrupados"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: colores de ojos",
+          "narracion": "Ahora cinco estudiantes dicen el color de sus ojos. Tres responden marrón y dos responden negro. Aunque hay cinco respuestas, piensa cuántos nombres distintos aparecen y qué tarjetas deben quedar juntas."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: dos categorías",
+          "narracion": "Solo aparecen los nombres marrón y negro. Por eso hay dos categorías. En la tarjeta de marrón vemos tres óvalos y en la de negro vemos dos. La cantidad de respuestas no cambia el nombre de la categoría.",
+          "recursoRef": "ojos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con mezclar respuestas distintas",
+          "narracion": "Aquí se colocaron mango y llama dentro del mismo grupo. Eso no funciona: el mango es una fruta y la llama es un animal. La cruz roja muestra la mezcla incorrecta. Antes de juntar respuestas, debemos pensar qué tienen en común.",
+          "recursoRef": "error-mezcla"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: lee todas las respuestas",
+          "narracion": "Primero escucha o lee cada respuesta. Busca nombres o cualidades, como ceviche, marrón o negro. No confundas una cualidad con una cantidad."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: junta las iguales",
+          "narracion": "Coloca juntas las respuestas con el mismo nombre. En la encuesta de platos, cada tarjeta de ceviche va en una sola categoría. Haz lo mismo con los otros nombres.",
+          "recursoRef": "platos-agrupados"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: nombra y cuenta",
+          "narracion": "Escribe el nombre de cada categoría y cuenta sus respuestas. En los colores de ojos, marrón tiene tres respuestas y negro tiene dos. Revisa que ninguna respuesta quede en un grupo que no le corresponde.",
+          "recursoRef": "ojos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "encuesta-pregunta",
+          "src": "/nudito/diagramas/matematica/datos-cualitativos-encuesta-pregunta.svg",
+          "alt": "Seis tarjetas de platos favoritos mezcladas y una pregunta sobre qué grupos formar.",
+          "descripcion": "Seis tarjetas muestran, por filas, ceviche, lomo saltado, ceviche, ají de gallina, ceviche y lomo saltado. Debajo hay una tarjeta amarilla que pregunta qué grupos se formarían."
+        },
+        {
+          "id": "platos-agrupados",
+          "src": "/nudito/diagramas/matematica/datos-cualitativos-platos-agrupados.svg",
+          "alt": "Tres columnas agrupan ceviche, lomo saltado y ají de gallina.",
+          "descripcion": "Tres columnas llevan los títulos Ceviche, Lomo saltado y Ají de gallina. La primera contiene tres respuestas, la segunda dos y la tercera una; al pie muestran los números tres, dos y uno."
+        },
+        {
+          "id": "ojos",
+          "src": "/nudito/diagramas/matematica/datos-cualitativos-ojos.svg",
+          "alt": "Dos tarjetas de color de ojos: marrón con tres respuestas y negro con dos.",
+          "descripcion": "La tarjeta Marrón contiene tres óvalos marrones. La tarjeta Negro contiene dos óvalos índigo. El texto inferior indica que hay cinco respuestas y dos nombres distintos."
+        },
+        {
+          "id": "error-mezcla",
+          "src": "/nudito/diagramas/matematica/datos-cualitativos-error-mezcla.svg",
+          "alt": "Un mango y una llama dentro del mismo recuadro, tachados con una cruz roja.",
+          "descripcion": "Un mango amarillo y una llama blanca aparecen dentro de un recuadro punteado. Una cruz roja grande separa las figuras. Al pie se aclara que una fruta y un animal necesitan grupos distintos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Ana anotó ceviche, tacu tacu y ceviche. ¿Qué tipo de dato recogió?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Colores preferidos"
+          },
+          {
+            "id": "b",
+            "texto": "Cantidades de libros"
+          },
+          {
+            "id": "c",
+            "texto": "Platos preferidos"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Las respuestas nombran platos preferidos.",
+        "pista": "Busca qué tienen en común los nombres de la lista."
+      }
+    },
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
@@ -698,15 +815,15 @@
         "opciones": [
           {
             "id": "a",
-            "texto": "Tengo 7 años"
+            "texto": "Tengo siete años cumplidos"
           },
           {
             "id": "b",
-            "texto": "Mi plato favorito es el ceviche"
+            "texto": "Mi plato favorito: ceviche"
           },
           {
             "id": "c",
-            "texto": "Tengo 2 hermanos"
+            "texto": "Tengo dos hermanos menores"
           }
         ],
         "alternativasAceptadas": [],
@@ -715,7 +832,7 @@
           "Dos de los datos tienen números.",
           "Solo uno nombra un plato."
         ],
-        "retroalimentacion": "«Mi plato favorito es el ceviche» es cualitativo porque es un nombre. «7 años» y «2 hermanos» son números."
+        "retroalimentacion": "«Mi plato favorito: ceviche» es cualitativo porque es un nombre. «Siete años» y «dos hermanos» son números."
       },
       {
         "id": "e02",
@@ -918,6 +1035,124 @@
         "retroalimentacion": "Es falso: rojo tiene 5 datos, que son más que azul (4) y verde (3)."
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Categorías para los datos",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a ordenar datos que son nombres. Un plato favorito o un color de ojos no es un número. Esos nombres se llaman categorías. Juntamos las respuestas iguales y contamos cuántas hay en cada grupo."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Respuestas mezcladas",
+          "narracion": "Observemos las tarjetas. Seis niños dijeron cuál es su plato favorito. Cada tarjeta tiene un plato escrito. Están mezcladas. Pensemos cómo ordenarlas para saber qué platos eligieron.",
+          "recursoRef": "encuesta-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: leer las respuestas",
+          "narracion": "Leamos las respuestas una por una. Los niños dijeron ceviche, lomo saltado, ceviche, ají de gallina, ceviche y lomo saltado. Fíjate en los nombres. ¿Cuántos platos distintos aparecen?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: juntar lo igual",
+          "narracion": "Aparecen tres platos distintos. Cada plato es una categoría. En la primera caja van las tarjetas de ceviche. En la segunda caja van las de lomo saltado. En la tercera caja va la de ají de gallina. Debajo de cada caja está su cantidad.",
+          "recursoRef": "platos-agrupados"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: color de ojos",
+          "narracion": "Ahora cinco niños dicen el color de sus ojos. Responden marrón, negro, marrón, marrón y negro. Escucha los nombres. ¿Cuántos colores distintos oyes?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: dos categorías",
+          "narracion": "Hay dos categorías: marrón y negro. En la caja de marrón van tres ojos. En la caja de negro van dos. Cinco respuestas quedaron ordenadas en dos nombres.",
+          "recursoRef": "ojos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con mezclar cosas distintas",
+          "narracion": "Alguien quiso poner un mango y una llama en el mismo grupo. Pero el mango es una fruta y la llama es un animal. No se parecen. Las dos tarjetas separadas y el signo rojo avisan que son distintos. Cada grupo reúne solo lo que se parece.",
+          "recursoRef": "error-mezcla"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: mira las respuestas",
+          "narracion": "Primero mira todas las respuestas que recogiste. Piensa qué nombre tiene cada una. Las tarjetas de los platos son un buen ejemplo.",
+          "recursoRef": "encuesta-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: junta las iguales",
+          "narracion": "Después junta las respuestas que se llaman igual en una misma caja. Escribe el nombre de cada categoría arriba de su caja.",
+          "recursoRef": "platos-agrupados"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: cuenta cada grupo",
+          "narracion": "Por último cuenta cuántas respuestas hay en cada caja. En las cajas de los ojos, hay tres en una y dos en la otra. Así sabes qué eligieron más niños.",
+          "recursoRef": "ojos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "encuesta-pregunta",
+          "src": "/nudito/diagramas/matematica/datos-cualitativos-encuesta-pregunta.svg",
+          "alt": "Seis tarjetas mezcladas con platos favoritos y un recuadro que pregunta qué grupos formarías.",
+          "descripcion": "Seis tarjetas blancas en dos filas de tres. Arriba dicen Ceviche, Lomo saltado y Ceviche. Abajo dicen Ají de gallina, Ceviche y Lomo saltado. Debajo, un recuadro amarillo dice ¿Qué grupos formarías?"
+        },
+        {
+          "id": "platos-agrupados",
+          "src": "/nudito/diagramas/matematica/datos-cualitativos-platos-agrupados.svg",
+          "alt": "Tres cajas de platos: Ceviche con tres tarjetas, Lomo saltado con dos y Ají de gallina con una.",
+          "descripcion": "Tres cajas blancas con título: Ceviche, Lomo saltado y Ají de gallina. La primera tiene tres tarjetas y abajo el número tres; la segunda, dos tarjetas y el número dos; la tercera, una tarjeta y el número uno. Al pie dice Junta lo que se llama igual."
+        },
+        {
+          "id": "ojos",
+          "src": "/nudito/diagramas/matematica/datos-cualitativos-ojos.svg",
+          "alt": "Dos cajas de color de ojos: Marrón con tres óvalos marrones y Negro con dos óvalos azul oscuro.",
+          "descripcion": "Dos cajas blancas tituladas Marrón y Negro. La de Marrón contiene tres óvalos marrones y la de Negro dos óvalos azul oscuro. Al pie dice Cinco respuestas, dos nombres."
+        },
+        {
+          "id": "error-mezcla",
+          "src": "/nudito/diagramas/matematica/datos-cualitativos-error-mezcla.svg",
+          "alt": "Tarjetas separadas con Mango y Llama y un signo rojo de distinto entre ellas.",
+          "descripcion": "Arriba dice ¿Pertenecen al mismo grupo? Hay dos tarjetas blancas: Mango a la izquierda y Llama a la derecha. Entre ellas hay un signo rojo de distinto. Al pie dice Un mango y una llama no son iguales."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Cinco niños dicen qué mascota prefieren: perro, gato, perro, conejo y perro. ¿Cuántas categorías hay?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tres categorías"
+          },
+          {
+            "id": "b",
+            "texto": "Cinco categorías"
+          },
+          {
+            "id": "c",
+            "texto": "Dos categorías"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Los nombres distintos son perro, gato y conejo.",
+        "pista": "Junta las respuestas que se llaman igual y cuenta los nombres distintos."
+      }
+    },
     "version": 1,
     "revisado": null,
     "fuentes": [

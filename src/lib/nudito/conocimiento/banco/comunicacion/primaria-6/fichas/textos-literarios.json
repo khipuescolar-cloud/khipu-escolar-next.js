@@ -1190,7 +1190,119 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comparación y personificación: qué imagen crean",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a explicar el efecto de dos figuras literarias. Como idea principal, la comparación une dos cosas distintas con una palabra como «como» para que imagines mejor la primera, y la personificación da acciones o sentimientos humanos a animales, cosas o paisajes. Reconocer la figura es solo el primer paso: lo importante es explicar qué imagen o sensación produce en quien lee."
+        },
+        {
+          "id": "situacion-poema",
+          "tipo": "recurso",
+          "titulo": "Tres versos de una mañana en la sierra",
+          "narracion": "Observemos estos versos de una mañana en la sierra. El primero dice: «El cerro se puso su poncho de neblina». El segundo: «la acequia, como una cinta de plata». El tercero: «corría brillando entre los maizales». Los poetas no describen el paisaje de forma directa: eligen palabras que nos hacen ver y sentir. Analizaremos dos de estos versos.",
+          "recursoRef": "poema"
+        },
+        {
+          "id": "ejemplo-acequia-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el segundo verso",
+          "narracion": "Tomemos el segundo verso: «la acequia, como una cinta de plata». Aquí buscamos dos cosas distintas y la palabra que las une. Pregúntate cuáles son y qué tienen en común.",
+          "recursoRef": "poema"
+        },
+        {
+          "id": "ejemplo-acequia-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una comparación",
+          "narracion": "Las dos cosas son la acequia y una cinta de plata, y la palabra «como» las une. Es una comparación. Una acequia y una cinta no son lo mismo, pero ambas son delgadas, alargadas y brillantes. El efecto es que imaginamos el agua fina y brillante bajo el sol, y la vemos con más viveza que si el verso solo dijera «el agua corría».",
+          "recursoRef": "comparacion"
+        },
+        {
+          "id": "ejemplo-cerro-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el primer verso",
+          "narracion": "Pasemos al primer verso: «El cerro se puso su poncho de neblina». Ahora no aparece «como». Fíjate en lo que hace el cerro y pregúntate si un cerro puede hacer eso.",
+          "recursoRef": "poema"
+        },
+        {
+          "id": "ejemplo-cerro-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una personificación",
+          "narracion": "Un cerro no se pone ropa, porque vestirse es una acción de las personas. Por eso hay una personificación: al cerro se le atribuye una conducta humana. El efecto es que la neblina parece un abrigo que lo cubre del frío y el paisaje se siente cercano y tranquilo. El poncho de neblina es además una imagen, pero lo que hace el cerro es lo que define la personificación. Notamos entonces que no hizo falta «como» para crear una imagen.",
+          "recursoRef": "personificacion"
+        },
+        {
+          "id": "error-como",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: creer que toda frase con «como» es una comparación",
+          "narracion": "En «Mi hermano es tan alto como yo» se comparan dos estaturas de personas parecidas y no se crea una imagen nueva. Y en «Yo como pan», «como» es el verbo comer. Para que haya comparación literaria, «como» debe unir dos cosas distintas que se parecen en algo, de modo que imagines una a través de la otra."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca el «como» y las acciones humanas",
+          "narracion": "Primero busca dos cosas distintas unidas por «como». Busca también animales, cosas o paisajes que hagan lo que hacen las personas: hablar, vestirse, dormir o mirar."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: decide cuál es la figura",
+          "narracion": "Si dos cosas distintas se unen con «como», es una comparación. Si algo que no es humano actúa como una persona, como el cerro que se pone un poncho, es una personificación.",
+          "recursoRef": "personificacion"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: explica el efecto",
+          "narracion": "Termina diciendo qué imagen o sensación produce: brillo, ternura, calma, miedo o fuerza. Con la acequia y la cinta de plata, el efecto es ver el agua fina y brillante bajo el sol.",
+          "recursoRef": "comparacion"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "poema",
+          "src": "/nudito/diagramas/comunicacion/figuras-poema-sierra.svg",
+          "alt": "Poema «Mañana en la sierra»: el cerro que se puso su poncho de neblina, la acequia como una cinta de plata y el agua que corría brillando entre maizales.",
+          "descripcion": "Un recuadro con el título Mañana en la sierra y tres versos: «El cerro se puso su poncho de neblina; la acequia, como una cinta de plata, corría brillando entre los maizales». Debajo, una barra pregunta qué imagen despierta cada verso en quien lo lee."
+        },
+        {
+          "id": "comparacion",
+          "src": "/nudito/diagramas/comunicacion/figuras-analisis-comparacion.svg",
+          "alt": "Esquema: «acequia» y «cinta de plata» unidas por «como»; se parecen porque brillan y se alargan; efecto: agua delgada, brillante y suave bajo el sol.",
+          "descripcion": "Arriba, el verso «la acequia, como una cinta de plata». En el centro, dos recuadros, acequia y cinta de plata, unidos por la palabra «como». Debajo, la nota: se parecen porque brillan y se alargan. Abajo, el efecto: imaginamos el agua delgada, brillante y suave bajo el sol."
+        },
+        {
+          "id": "personificacion",
+          "src": "/nudito/diagramas/comunicacion/figuras-analisis-personificacion.svg",
+          "alt": "Esquema: «el cerro» hace algo humano, «se puso su poncho»; un cerro no se viste; efecto: la neblina parece un abrigo y el paisaje se siente cercano y calmo.",
+          "descripcion": "Arriba, el verso «El cerro se puso su poncho de neblina». En el centro, dos recuadros, el cerro y se puso su poncho, unidos por la nota «hace algo humano». Debajo: un cerro no se viste, lo hacen las personas. Abajo, el efecto: la neblina parece un abrigo y el paisaje se siente cercano y calmo."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee este verso: «La lluvia tocó la puerta con dedos tímidos». ¿Qué figura literaria hay y qué efecto produce?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Comparación, porque une la lluvia con la puerta usando «con» y hace imaginar algo muy duro."
+          },
+          {
+            "id": "b",
+            "texto": "Ninguna figura, porque la lluvia solo cae y el verso solo cuenta cómo suena en el techo."
+          },
+          {
+            "id": "c",
+            "texto": "Personificación, porque la lluvia toca con dedos y deja sentir un golpeteo suave y tímido."
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Tocar la puerta con dedos tímidos son acciones y rasgos de una persona aplicados a la lluvia. Es una personificación, y su efecto es hacer sentir un golpeteo suave y delicado.",
+        "pista": "Pregúntate si la lluvia puede tener dedos y ser tímida, o si eso solo lo hacen las personas."
+      }
+    }
   },
   {
     "clave": "com.p6.la-metafora",

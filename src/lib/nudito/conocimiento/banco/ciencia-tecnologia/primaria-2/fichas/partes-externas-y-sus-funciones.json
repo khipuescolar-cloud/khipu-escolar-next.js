@@ -349,7 +349,119 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Cada parte externa cumple una función",
+          "narracion": "Hola. Hoy descubriremos para qué sirven las partes externas de los seres vivos. Como idea principal, las personas, los animales y las plantas tienen partes que se pueden ver por fuera, y cada una cumple una función. Los ojos sirven para ver, las orejas para oír y, en una planta, la raíz toma agua."
+        },
+        {
+          "id": "situacion-chacra",
+          "tipo": "recurso",
+          "titulo": "Una chacra con seres vivos",
+          "narracion": "Observemos esta situación. En una chacra, una niña y su perrito están junto a plantas de maíz altas, y cerca corre un arroyo. Todos son seres vivos y tienen partes por fuera: la niña y el perro tienen ojos y orejas, y las plantas de maíz tienen hojas largas. Vamos a pensar para qué sirve cada una.",
+          "recursoRef": "chacra"
+        },
+        {
+          "id": "ejemplo-oir-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: escuchar la música de la plaza",
+          "narracion": "Un niño de Piura se detiene en la plaza porque quiere escuchar la música de unos músicos que tocan al fondo. Nos preguntamos: ¿qué parte de su cuerpo usa para escuchar?"
+        },
+        {
+          "id": "ejemplo-oir-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la parte que capta el sonido",
+          "narracion": "En la imagen, el niño se ve de perfil, mira a los músicos y se le nota una parte a un lado de la cabeza. Los sonidos entran por unas partes que están a los lados de la cabeza. Esas partes son las orejas. Entonces el niño usa las orejas para oír la música.",
+          "recursoRef": "banda"
+        },
+        {
+          "id": "ejemplo-maiz-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la planta de maíz que no se cae",
+          "narracion": "En la chacra, una planta de maíz crece alta y el viento no la tumba. ¿Qué parte la sujeta? No está a la vista: se encuentra debajo de la tierra.",
+          "recursoRef": "chacra"
+        },
+        {
+          "id": "ejemplo-maiz-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la parte escondida bajo la tierra",
+          "narracion": "La parte que está bajo la tierra y agarra la planta al suelo es la raíz. La raíz sujeta la planta y también toma agua de la tierra. Así que lo que sostiene al maíz es su raíz.",
+          "recursoRef": "chacra"
+        },
+        {
+          "id": "error-hojas",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: creer que las hojas toman el agua de la tierra",
+          "narracion": "Algunas personas piensan que las hojas toman el agua del suelo. El agua la toma la raíz, que está bajo la tierra. Las hojas reciben la luz. En la ilustración, cada parte de la planta tiene su propia función.",
+          "recursoRef": "planta"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: observa y nombra una parte externa",
+          "narracion": "Primero mira un ser vivo y nombra una de sus partes que puedas ver: los ojos de la niña, las orejas del perro o las hojas del maíz.",
+          "recursoRef": "chacra"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: pregúntate qué hace esa parte",
+          "narracion": "Después pregúntate qué hace esa parte por el ser vivo. Si es un ojo, sirve para ver. Si es una nariz, sirve para oler. Si es una aleta, ayuda al pez a moverse en el agua."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: une la parte con su función y comprueba",
+          "narracion": "Por último, une la parte con su función en una frase, como «Las orejas sirven para oír». Comprueba con otro ejemplo, como la planta de la ilustración: las hojas reciben la luz, el tallo sostiene y la raíz sujeta y toma agua.",
+          "recursoRef": "planta"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "chacra",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-2/chacra-nina-perro-maiz-zimage-v1.webp",
+          "alt": "Niña y perrito junto a plantas de maíz altas y un arroyo de agua clara.",
+          "descripcion": "Un maizal alto con hojas largas verdes y espigas amarillas ocupa casi toda la imagen. Al frente, una niña de coleta está de pie junto a un arroyo de agua clara, y a su lado hay un perrito marrón."
+        },
+        {
+          "id": "banda",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-2/nino-escucha-banda-zimage-v1.webp",
+          "alt": "Niño de perfil, con la oreja visible, mira a un grupo de niños músicos con guitarras y violines al fondo de una plaza.",
+          "descripcion": "Un niño de pelo corto y oscuro se ve de perfil en primer plano, con la boca cerrada y los brazos abajo; se le nota la oreja. Mira a la izquierda, hacia el fondo de una plaza con casas de colores, donde cinco niños músicos tocan guitarras y violines delante de sus atriles."
+        },
+        {
+          "id": "planta",
+          "src": "/nudito/diagramas/ciencia-tecnologia/partes-planta-funciones.svg",
+          "alt": "Planta de maíz con hojas, tallo y raíz bajo la tierra, con la función de cada parte.",
+          "descripcion": "Una planta con hojas verdes y un tallo sobre el suelo; debajo, en la tierra, hay raíces. Al lado dice: hojas, reciben la luz; tallo, sostiene la planta; raíz, sujeta la planta y toma agua."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Marta ve un mango, huele su aroma y escucha cómo cae del árbol al suelo. ¿Qué partes usa en cada acción, en ese orden?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Orejas, nariz y ojos."
+          },
+          {
+            "id": "b",
+            "texto": "Ojos, nariz y orejas."
+          },
+          {
+            "id": "c",
+            "texto": "Nariz, ojos y orejas."
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Ve con los ojos, huele con la nariz y oye con las orejas: cada parte tiene su función.",
+        "pista": "Piensa para qué sirve cada parte: ver, oler y oír."
+      }
+    }
   },
   {
     "clave": "cyt.p2.manos-y-pies",

@@ -3342,7 +3342,7 @@
         "id": "e04",
         "dificultad": 1,
         "tipo": "opcion_multiple",
-        "enunciado": "Tabla «Bebida favorita»: chicha 3. Cada ■ vale 1. ¿Qué barra representa a la chicha?",
+        "enunciado": "Tabla «Bebida favorita»: chicha 3. Cada cuadradito vale 1. ¿Qué barra representa a la chicha?",
         "respuesta": "b",
         "alternativasAceptadas": [],
         "pistas": [
@@ -3350,19 +3350,19 @@
           "Cada cuadradito es un voto.",
           "Cuenta los cuadraditos de cada opción."
         ],
-        "retroalimentacion": "Es ■■■: tres cuadraditos para 3 votos.",
+        "retroalimentacion": "Son tres cuadraditos para 3 votos.",
         "opciones": [
           {
             "id": "a",
-            "texto": "■■"
+            "texto": "Dos cuadraditos"
           },
           {
             "id": "b",
-            "texto": "■■■"
+            "texto": "Tres cuadraditos"
           },
           {
             "id": "c",
-            "texto": "■■■■"
+            "texto": "Cuatro cuadraditos"
           }
         ]
       },
@@ -3370,7 +3370,7 @@
         "id": "e05",
         "dificultad": 2,
         "tipo": "opcion_multiple",
-        "enunciado": "Tabla «Plato favorito»: ceviche 5, causa 2, chupe 4. Cada ■ vale 1. ¿Qué barra está mal dibujada?",
+        "enunciado": "Tabla «Plato favorito»: ceviche 5, causa 2, chupe 4. Cada cuadradito vale 1. ¿Qué barra está mal dibujada?",
         "respuesta": "b",
         "alternativasAceptadas": [],
         "pistas": [
@@ -3378,19 +3378,19 @@
           "Ceviche debe tener 5 y causa 2.",
           "El chupe tiene 4 votos; cuenta sus cuadraditos."
         ],
-        "retroalimentacion": "Está mal la del chupe: tiene ■■■ (3) y debería tener 4 cuadraditos.",
+        "retroalimentacion": "Está mal la del chupe: tiene tres cuadraditos y debería tener cuatro.",
         "opciones": [
           {
             "id": "a",
-            "texto": "Causa ■■"
+            "texto": "Causa: dos cuadraditos"
           },
           {
             "id": "b",
-            "texto": "Chupe ■■■"
+            "texto": "Chupe: tres cuadraditos"
           },
           {
             "id": "c",
-            "texto": "Ceviche ■■■■■"
+            "texto": "Ceviche: cinco cuadraditos"
           }
         ]
       },
@@ -3446,7 +3446,7 @@
           },
           {
             "id": "c",
-            "texto": "A la izquierda, al lado de cada barra."
+            "texto": "A la izquierda de cada barra."
           }
         ]
       },
@@ -3482,7 +3482,7 @@
         "id": "e11",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Recuento de la cosecha: papa ||||/ ||, oca ||||, olluco ||||/ (||||/ es un grupo de 5). ¿Cuál es el gráfico de barras correcto (■ = 1)?",
+        "enunciado": "Recuento de la cosecha: papa ||||/ ||, oca ||||, olluco ||||/ (||||/ es un grupo de 5). ¿Cuál es el gráfico de barras correcto (un cuadradito vale 1)?",
         "respuesta": "b",
         "alternativasAceptadas": [],
         "pistas": [
@@ -3494,15 +3494,15 @@
         "opciones": [
           {
             "id": "a",
-            "texto": "Papa ■■■■■■  Oca ■■■■  Olluco ■■■■"
+            "texto": "Papa seis, oca cuatro, olluco cuatro"
           },
           {
             "id": "b",
-            "texto": "Papa ■■■■■■■  Oca ■■■■  Olluco ■■■■■"
+            "texto": "Papa siete, oca cuatro, olluco cinco"
           },
           {
             "id": "c",
-            "texto": "Papa ■■■■■■■  Oca ■■■■■  Olluco ■■■■■"
+            "texto": "Papa siete, oca cinco, olluco cinco"
           }
         ]
       },
@@ -3546,7 +3546,131 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Gráficos con barras acostadas",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a dibujar un gráfico de barras horizontales. Como idea principal, cada opción tiene una barra acostada que empieza en el cero y llega hasta su número. Todas las barras tienen el mismo grosor y están separadas un poquito."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "De la tabla al gráfico",
+          "narracion": "Observemos esta situación. A la izquierda hay una tabla con la fruta favorita de tercero B: mango, piña y uva, cada una con sus votos. A la derecha hay un gráfico vacío que espera sus barras. Cada cuadradito vale un voto. Queremos dibujar las barras.",
+          "recursoRef": "tabla-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la fruta favorita",
+          "narracion": "La tabla dice: mango, cinco votos; piña, tres votos; uva, cuatro votos. ¿Dónde empiezan todas las barras? ¿Hasta qué número llegará la barra del mango? Piénsalo antes de seguir."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: pintar las barras",
+          "narracion": "Mira el gráfico terminado. Los nombres están a la izquierda, uno debajo del otro. Abajo están los números, desde el cero. Todas las barras salen del cero. La del mango llega hasta el cinco, la de la piña hasta el tres y la de la uva hasta el cuatro. Todas tienen el mismo grosor.",
+          "recursoRef": "frutas-barras"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el mercado de Belén",
+          "narracion": "En el mercado de Belén, en Iquitos, se contaron las frutas vendidas. Mira la tabla: aguaje, seis; camu camu, dos. Imagina el gráfico. ¿Hasta qué número llegará el eje de abajo? ¿Cómo serán las dos barras?",
+          "recursoRef": "belen-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: aguaje y camu camu",
+          "narracion": "Aquí está el gráfico. El eje de abajo va del cero al seis. La barra del aguaje llega hasta el seis. La barra del camu camu llega hasta el dos. Las dos empiezan en el cero y tienen el mismo grosor.",
+          "recursoRef": "belen-barras"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Mira este gráfico mal hecho. Los datos son fútbol, seis, y vóley, cuatro. La barra del fútbol sale del cero y llega hasta el seis. Pero la del vóley empieza en el dos, y las dos terminan en el mismo lugar. Todas las barras deben nacer en el cero. Otro error es dibujar una barra más gruesa que otra: la cantidad la dice el largo, no el grosor.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: nombres y números",
+          "narracion": "Escribe el título del gráfico. A la izquierda escribe las opciones, una debajo de otra. Abajo escribe los números, empezando en el cero. Mira cómo quedó en el gráfico de las frutas.",
+          "recursoRef": "frutas-barras"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: pinta cada barra",
+          "narracion": "Para cada opción, pinta una barra desde el cero hasta su número de la tabla. En el gráfico de Belén, la barra del aguaje llega hasta el seis.",
+          "recursoRef": "belen-barras"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: revisa tu gráfico",
+          "narracion": "Usa el mismo grosor en todas las barras y deja un espacio entre ellas. Al final, compara cada barra con la tabla. Cuenta los cuadraditos: no deben sobrar ni faltar."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "tabla-pregunta",
+          "src": "/nudito/diagramas/matematica/barras-horizontales-tabla-pregunta.svg",
+          "alt": "Una tabla con mango cinco, piña tres y uva cuatro, y a su derecha un gráfico vacío con los nombres de las frutas; abajo dice que cada cuadradito vale un voto.",
+          "descripcion": "A la izquierda, una tabla con mango cinco, piña tres y uva cuatro. A la derecha, un cuadro punteado con los nombres mango, piña y uva y líneas vacías. Debajo de cada cuadro dicen tabla y gráfico por dibujar. Abajo dice cada cuadradito vale un voto."
+        },
+        {
+          "id": "frutas-barras",
+          "src": "/nudito/diagramas/matematica/barras-horizontales-frutas-barras.svg",
+          "alt": "Gráfico de barras horizontales: mango llega hasta el cinco, piña hasta el tres y uva hasta el cuatro, todas desde el cero.",
+          "descripcion": "Un gráfico titulado fruta favorita de tercero B. Tres barras turquesa del mismo grosor salen del cero: mango llega al cinco, piña al tres y uva al cuatro."
+        },
+        {
+          "id": "belen-pregunta",
+          "src": "/nudito/diagramas/matematica/barras-horizontales-belen-pregunta.svg",
+          "alt": "Una tabla de frutas vendidas en el mercado de Belén: aguaje seis y camu camu dos; abajo dice que cada cuadradito vale uno.",
+          "descripcion": "Un recuadro con dos filas: aguaje, seis, y camu camu, dos. Debajo dicen mercado de Belén, Iquitos, y cada cuadradito vale uno."
+        },
+        {
+          "id": "belen-barras",
+          "src": "/nudito/diagramas/matematica/barras-horizontales-belen-barras.svg",
+          "alt": "Gráfico de barras horizontales: aguaje llega hasta el seis y camu camu hasta el dos, las dos desde el cero.",
+          "descripcion": "Un gráfico con los nombres aguaje y camu camu a la izquierda y números del cero al seis abajo. La barra turquesa del aguaje llega al seis y la barra amarilla del camu camu llega al dos. Las dos salen del cero y tienen el mismo grosor. Abajo dice cada cuadradito vale uno."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/barras-horizontales-errores.svg",
+          "alt": "Gráfico con dos barras: fútbol va del cero al seis; vóley va del dos al seis, con un hueco rojo punteado entre el cero y el dos.",
+          "descripcion": "La barra turquesa del fútbol va del cero al seis. La barra amarilla del vóley va del dos al seis; entre el cero y el dos hay un hueco con borde rojo punteado. Abajo, en rojo, dice la barra del vóley no empieza en cero."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Votos de música: cumbia, siete; rock, cinco; salsa, tres. Dibujas el gráfico con un cuadradito por voto. ¿Cuántos cuadraditos tiene la barra más corta?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tres"
+          },
+          {
+            "id": "b",
+            "texto": "Cinco"
+          },
+          {
+            "id": "c",
+            "texto": "Siete"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. La barra más corta es la de la salsa y llega hasta el tres.",
+        "pista": "Piensa en cuál barra tendrá menos cuadraditos."
+      }
+    }
   },
   {
     "clave": "mat.p3.listar-resultados",
@@ -4204,7 +4328,124 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Escalas en barras",
+          "narracion": "Bienvenida y bienvenido. Hoy elegiremos la escala de un gráfico de barras. Como idea principal, cuando los números son grandes, el eje no sube de uno en uno. Puede subir de dos en dos, de cinco en cinco o de diez en diez. Elegimos la escala mirando el dato más grande, y los saltos son siempre iguales. Si una barra termina entre dos líneas, vale el número de en medio."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Ventas en la kermés",
+          "narracion": "Observemos esta situación. En la kermés se vendieron jugos de tres sabores: cuarenta de papaya, veinticinco de naranja y treinta y cinco de piña. Abajo hay un eje vertical vacío, sin números ni marcas. Todavía no sabemos de cuánto en cuánto subirá el eje.",
+          "recursoRef": "eje-vacio"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: votos para delegado",
+          "narracion": "Ana tiene catorce votos, Beto ocho y Carla once. El dato mayor es catorce. Usamos la escala de dos en dos: el eje va de cero a catorce, saltando de dos en dos. La barra de Ana llega al catorce y la de Beto al ocho. Falta la de Carla, marcada con un signo de pregunta.",
+          "recursoRef": "votos-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la barra de Carla",
+          "narracion": "El once no está escrito en el eje, porque el eje solo tiene números pares. Está justo en medio del diez y el doce, porque diez más uno es once. Entonces la barra de Carla, pintada de amarillo, termina en la mitad, entre la línea del diez y la del doce.",
+          "recursoRef": "votos-carla"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: jugos de la kermés",
+          "narracion": "Volvamos a los jugos: cuarenta, veinticinco y treinta y cinco. Si subiéramos de uno en uno, el eje tendría cuarenta líneas. Fíjate que todos los números terminan en cero o en cinco. Por eso conviene la escala de cinco en cinco."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el eje de cinco en cinco",
+          "narracion": "El eje queda con cero, cinco, diez, y sigue hasta cuarenta. La barra de papaya llega al cuarenta, la de naranja al veinticinco y la de piña al treinta y cinco. Todas terminan justo en una línea.",
+          "recursoRef": "jugos-cinco"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es escribir el eje con saltos distintos, como cero, dos, cinco, diez. Los saltos deben ser siempre iguales. Otro error es elegir de uno en uno para datos grandes, como ochenta o noventa: ahí conviene de diez en diez. Y hay que leer el número de la línea donde termina la barra, no contar cuadraditos."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca el dato mayor",
+          "narracion": "Mira la tabla y busca el número más grande. En el ejemplo uno era catorce y en el ejemplo dos, cuarenta."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: elige la escala y escribe el eje",
+          "narracion": "Elige la escala: de dos en dos para números pequeños, y de cinco en cinco o de diez en diez para números más grandes. Escribe el eje desde cero, con saltos siempre iguales. Mira el eje del gráfico de votos: sube de dos en dos hasta catorce.",
+          "recursoRef": "votos-carla"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: dibuja las barras",
+          "narracion": "Dibuja cada barra hasta su número. Si cae entre dos líneas, termina en el medio. Escribe siempre la escala para que todos sepan leer el gráfico. En el gráfico de jugos, todas las barras terminan justo en una línea.",
+          "recursoRef": "jugos-cinco"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "eje-vacio",
+          "src": "/nudito/diagramas/matematica/barras-escala-jugos-eje-vacio.svg",
+          "alt": "Tabla de jugos y un eje vertical sin marcas, solo con el cero.",
+          "descripcion": "Arriba hay tres cuadros con los datos: papaya cuarenta, naranja veinticinco y piña treinta y cinco. Debajo se lee la pregunta de cuánto en cuánto va el eje. Hay un eje vertical con flecha hacia arriba, solo marcado el cero, sin más números ni marcas, y los nombres de los tres jugos abajo."
+        },
+        {
+          "id": "votos-pregunta",
+          "src": "/nudito/diagramas/matematica/barras-escala-votos-pregunta.svg",
+          "alt": "Eje de dos en dos hasta catorce; barras de Ana catorce y Beto ocho; falta la de Carla.",
+          "descripcion": "Arriba están los votos: Ana catorce, Beto ocho y Carla once. El eje sube de dos en dos, de cero a catorce. La barra de Ana llega al catorce y la de Beto al ocho. La de Carla es un recuadro punteado de toda la altura del eje, con un signo de pregunta."
+        },
+        {
+          "id": "votos-carla",
+          "src": "/nudito/diagramas/matematica/barras-escala-votos-carla.svg",
+          "alt": "Barras de Ana catorce, Beto ocho y Carla once; la de Carla, amarilla, termina entre diez y doce.",
+          "descripcion": "El eje sube de dos en dos hasta catorce. Ana llega al catorce y Beto al ocho. La barra amarilla de Carla termina a mitad de camino entre la línea del diez y la del doce, y arriba dice que vale once."
+        },
+        {
+          "id": "jugos-cinco",
+          "src": "/nudito/diagramas/matematica/barras-escala-jugos-cinco.svg",
+          "alt": "Jugos con eje de cinco en cinco hasta cuarenta: papaya cuarenta, naranja veinticinco, piña treinta y cinco.",
+          "descripcion": "El eje tiene líneas de cinco en cinco y números de diez en diez, de cero a cuarenta. La barra de papaya llega al cuarenta, la de naranja al veinticinco y la de piña al treinta y cinco, todas justo en una línea."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un gráfico usa escala de diez en diez. La barra de tomates termina en medio de las líneas del treinta y del cuarenta. La barra de cebollas termina en la línea del sesenta. ¿Cuántos kilos más representa la barra de cebollas?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Treinta y cinco kilos"
+          },
+          {
+            "id": "b",
+            "texto": "Veinticinco kilos"
+          },
+          {
+            "id": "c",
+            "texto": "Cuarenta y cinco kilos"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Los tomates valen treinta y cinco, porque están en medio del treinta y el cuarenta. Sesenta menos treinta y cinco son veinticinco kilos.",
+        "pista": "Primero halla cuánto vale la barra de tomates, que está justo en medio de dos líneas."
+      }
+    }
   },
   {
     "clave": "mat.p3.interpretar-barras",
@@ -4862,7 +5103,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Sacar conclusiones de los datos",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a sacar conclusiones de una tabla o de un gráfico. Como idea principal, una conclusión es lo que aprendemos al mirar los datos. Para que sea buena, usa los números y habla solo del grupo que respondió. No uses tu opinión."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Votos para el taller",
+          "narracion": "Observemos esta situación. En tercero B se votó para elegir un instrumento del taller de música. El gráfico de barras muestra cuántos votos recibió cada instrumento: zampoña, quena y charango. Queremos sacar una conclusión que se apoye en estos datos.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el más votado",
+          "narracion": "Busquemos qué instrumento ganó. La zampoña tuvo ocho votos. La quena tuvo seis. El charango tuvo diez. ¿Cuál tiene más votos? Luego calcula cuántos votos de diferencia hay con el segundo lugar."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una conclusión con números",
+          "narracion": "El charango tiene la barra más larga: diez votos. La zampoña tiene ocho, así que el charango le gana por dos votos. La conclusión es: en tercero B ganó el charango, con dos votos más que la zampoña. En el gráfico, su barra está de color amarillo.",
+          "recursoRef": "ejemplo-uno"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: quién tiene razón",
+          "narracion": "Ahora miramos las visitas a la biblioteca en una semana. El lunes hubo doce visitas. El martes, nueve. El miércoles, quince. Luz dice: el miércoles tuvo más visitas, seis más que el martes. Beto dice: la biblioteca es lo mejor del colegio. ¿Quién apoya su frase en los datos?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: revisamos las frases",
+          "narracion": "La frase de Luz se puede comprobar: quince menos nueve son seis. Está apoyada en los datos y lleva una marca de aprobado. La frase de Beto es una opinión, y la tabla no la muestra. Lleva una equis roja. Por eso Luz tiene razón.",
+          "recursoRef": "ejemplo-dos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Veamos dos conclusiones que no sirven. La primera dice: el charango es el mejor instrumento. Eso es una opinión, y los votos no dicen quién es mejor. La segunda dice: a todos los niños del Perú les gusta el charango. Pero solo votó un salón. Habla únicamente de quienes respondieron.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee los datos",
+          "narracion": "Lee el título y todos los datos. Fíjate de quién son y qué se midió."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: compara",
+          "narracion": "Busca cuál tiene más, cuál tiene menos y cuánta diferencia hay entre ellos."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: escribe la conclusión",
+          "narracion": "Escribe tu conclusión con números y habla solo del grupo que respondió. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/conclusiones-datos-situacion.svg",
+          "alt": "Gráfico de barras de votos del taller de música: zampoña, ocho; quena, seis; charango, diez.",
+          "descripcion": "El título pregunta qué instrumento quieren aprender. Tres barras turquesa horizontales: zampoña con ocho, quena con seis y charango con diez, con cada número al final de su barra. Abajo se lee: votos de tercero B."
+        },
+        {
+          "id": "ejemplo-uno",
+          "src": "/nudito/diagramas/matematica/conclusiones-datos-ejemplo-uno.svg",
+          "alt": "El mismo gráfico con la barra del charango en amarillo. Debajo: ganó el charango con diez votos, dos más que la zampoña.",
+          "descripcion": "Tres barras: zampoña, ocho; quena, seis; charango, diez. La barra del charango es amarilla y las otras son turquesa. Debajo, dos líneas: ganó el charango, diez votos, y dos votos más que la zampoña."
+        },
+        {
+          "id": "ejemplo-dos",
+          "src": "/nudito/diagramas/matematica/conclusiones-datos-ejemplo-dos.svg",
+          "alt": "Tabla de visitas: lunes doce, martes nueve y miércoles quince. La frase de Luz tiene una marca de aprobado y la de Beto, una equis roja.",
+          "descripcion": "Arriba, tres casillas: lunes, doce; martes, nueve; miércoles, quince. Debajo, un recuadro turquesa con una marca de aprobado y la frase de Luz: el miércoles tuvo más visitas, seis más que el martes. Otro recuadro rojo con una equis y la frase de Beto: la biblioteca es lo mejor del colegio."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/conclusiones-datos-error.svg",
+          "alt": "Dos conclusiones con una equis roja: una opinión sobre el charango y una frase sobre todos los niños del Perú.",
+          "descripcion": "Dos recuadros de borde rojo punteado, cada uno con una equis roja. El primero dice: el charango es el mejor instrumento; debajo, es una opinión, no un dato. El segundo dice: a todos los niños del Perú les gusta el charango; debajo, solo votó un salón. Abajo: usa solo lo que muestran los datos."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/conclusiones-datos-pasos.svg",
+          "alt": "Tarjeta con tres pasos para sacar una conclusión: leer los datos, compararlos y escribirla con números.",
+          "descripcion": "Tres tarjetas numeradas. La uno dice lee el título y los datos. La dos dice compara: más, menos y la diferencia. La tres dice escribe con números, solo del grupo que votó."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En la función de títeres se vendieron entradas. El viernes se vendieron catorce. El sábado, veintiuna. El domingo, nueve. ¿Qué conclusión se apoya en los datos?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El domingo fue el día que más disfrutaron los niños"
+          },
+          {
+            "id": "b",
+            "texto": "El sábado vendió siete entradas más que el viernes"
+          },
+          {
+            "id": "c",
+            "texto": "Todos los niños de la ciudad aman ver los títeres"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Veintiuna menos catorce son siete, y ese dato sale directo de las ventas.",
+        "pista": "Elige la frase que puedas comprobar con los números, sin opiniones."
+      }
+    }
   },
   {
     "clave": "mat.p3.diagrama-resultados",

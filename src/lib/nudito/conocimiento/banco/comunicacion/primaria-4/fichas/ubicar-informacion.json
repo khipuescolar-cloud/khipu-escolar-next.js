@@ -380,7 +380,117 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Lo importante de un texto",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a encontrar la información relevante de un texto. Como idea principal, no todos los datos pesan lo mismo. La información relevante es la que necesitas para entender de qué trata el texto. Los detalles, en cambio, adornan y se pueden quitar sin cambiar la idea. Saber distinguirlos te ayuda a recordar y a resumir lo que lees."
+        },
+        {
+          "id": "situacion-relevante-detalle",
+          "tipo": "recurso",
+          "titulo": "Lo que necesito y lo que adorna",
+          "narracion": "Observemos este cuadro. Arriba está la información relevante: responde preguntas como qué pasó, quién, cuándo o dónde. En el medio, los detalles: adornan el texto y, si los quitas, la idea principal sigue igual. Abajo hay una pregunta que te sirve al leer: ¿lo necesito para entender el texto?",
+          "recursoRef": "relevante-detalle"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el cartel de la feria",
+          "narracion": "Leamos este cartel: «Feria del libro en Tarma. Será el viernes cinco de julio, de tres a seis de la tarde, en la plaza principal. Mi prima estrenó zapatillas». Hay cuatro datos. ¿Cuáles necesitaría una persona que quiere asistir?"
+        },
+        {
+          "id": "ejemplo-1-resalta",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: marcamos lo que sirve",
+          "narracion": "En el cartel, lo amarillo es lo relevante: el nombre de la feria, la fecha con su hora y el lugar. Con eso, alguien sabe a dónde ir y cuándo. La línea gris, que habla de las zapatillas de una prima, es un detalle: no ayuda a asistir.",
+          "recursoRef": "cartel-resaltado"
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la venta de Lupe",
+          "narracion": "Ahora razonemos con otro texto: «Lupe vendió mazamorra morada en la puerta del colegio y ganó treinta soles. Con ese dinero compró cuadernos para sus primos. Su gato duerme en el techo». ¿Qué es lo que realmente cuenta?"
+        },
+        {
+          "id": "ejemplo-2-preguntas",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: hacemos preguntas",
+          "narracion": "Hagamos preguntas, como en el cuadro. ¿Quién? Lupe. ¿Qué hizo? Vendió mazamorra morada. ¿Para qué? Para comprar cuadernos para sus primos. La última tarjeta, gris, dice que su gato duerme en el techo: es un dato curioso, pero no explica lo que hizo Lupe. Entonces la información relevante es que Lupe vendió mazamorra y compró cuadernos.",
+          "recursoRef": "cuatro-preguntas"
+        },
+        {
+          "id": "error-todo-o-curioso",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: subrayar todo o lo curioso",
+          "narracion": "Hay dos errores comunes. El primero es subrayar casi todo el texto porque todo parece importante: así no distingues nada. El segundo es elegir el dato más curioso. El gato de Lupe es simpático, pero no cambia lo que ella hizo. Escoge solo lo que responde a la idea principal."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee y piensa de qué trata",
+          "narracion": "Primero lee el texto completo y piensa de qué trata en general."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: hazte preguntas",
+          "narracion": "Luego pregúntate qué pasó, quién, dónde y cuándo, como hicimos con Lupe. Los datos que responden esas preguntas son los mejores candidatos a información relevante.",
+          "recursoRef": "cuatro-preguntas"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: quita lo que adorna y subraya lo que queda",
+          "narracion": "Después tacha mentalmente los datos que no cambian la idea principal. Por último, subraya solo lo que quedó, como en el cartel con lo amarillo, y comprueba que con eso se entiende el texto.",
+          "recursoRef": "cartel-resaltado"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "relevante-detalle",
+          "src": "/nudito/diagramas/comunicacion/relevante-o-detalle.svg",
+          "alt": "Tres recuadros: relevante, que responde qué, quién, cuándo o dónde; detalle, que adorna y se puede quitar; y la pregunta: ¿lo necesito para entender el texto?",
+          "descripcion": "Un recuadro verde azulado, «Relevante», dice que responde qué, quién, cuándo o dónde. Un recuadro gris de línea punteada, «Detalle», dice que adorna y que, si lo quitas, la idea principal sigue igual. Un recuadro amarillo pregunta: ¿lo necesito para entender el texto?"
+        },
+        {
+          "id": "cartel-resaltado",
+          "src": "/nudito/diagramas/comunicacion/relevante-cartel-resaltado.svg",
+          "alt": "Cartel: Feria del libro en Tarma, viernes 5 de julio de 3 a 6 p. m., en la plaza principal, resaltados en amarillo; Mi prima estrenó zapatillas, en gris.",
+          "descripcion": "Un cartel con cuatro líneas. Tres están resaltadas en amarillo: «Feria del libro en Tarma», «Viernes 5 de julio, de 3 a 6 p. m.» y «En la plaza principal». La cuarta, en gris, dice «Mi prima estrenó zapatillas». Una leyenda explica que el amarillo es lo relevante y el gris, el detalle."
+        },
+        {
+          "id": "cuatro-preguntas",
+          "src": "/nudito/diagramas/comunicacion/relevante-cuatro-preguntas.svg",
+          "alt": "Cuatro tarjetas: quién, Lupe; qué hizo, vendió mazamorra morada; para qué, comprar cuadernos para sus primos; detalle, su gato duerme en el techo.",
+          "descripcion": "Cuatro tarjetas una debajo de otra. «Quién»: Lupe. «Qué hizo»: vendió mazamorra morada. «Para qué»: comprar cuadernos para sus primos. La cuarta, gris y de borde punteado, «Detalle»: su gato duerme en el techo."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee: «Ayer, el club de lectura de Huancayo se reunió en la biblioteca para elegir el libro del mes. Eligieron una leyenda andina. Durante la reunión tomaron jugo de naranja». ¿Cuál es la información más relevante?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Durante la reunión también tomaron jugo de naranja."
+          },
+          {
+            "id": "b",
+            "texto": "El club de lectura eligió una leyenda andina como libro."
+          },
+          {
+            "id": "c",
+            "texto": "La reunión del club se hizo en la biblioteca de Huancayo."
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Lo relevante es lo que explica para qué se reunió el club: elegir el libro del mes, que fue una leyenda andina. El jugo es un detalle, y el lugar, aunque está escrito, no es lo que más importa para entender el texto.",
+        "pista": "Pregúntate qué hizo el club y para qué se reunió."
+      }
+    }
   },
   {
     "clave": "com.p4.subrayar-palabras-clave",

@@ -324,7 +324,120 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Grupos con la misma cantidad",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a contar objetos que están organizados en grupos iguales, es decir, grupos que tienen la misma cantidad. Como idea principal, ten presente que cuando todos los grupos son iguales no hace falta contar uno por uno: escribimos la cantidad de un grupo tantas veces como grupos haya y sumamos. Eso se llama suma repetida, y más adelante te llevará a la multiplicación."
+        },
+        {
+          "id": "situacion-cestas",
+          "tipo": "recurso",
+          "titulo": "Las cestas de choclos de doña Marta",
+          "narracion": "Observemos esta situación. En el mercado, doña Marta lleva tres cestas con choclos. Antes de sumar, comprobamos que todas las cestas tengan lo mismo: cada una tiene cinco choclos. Como los grupos son iguales, el cinco se repite tres veces: cinco más cinco más cinco, que son quince choclos.",
+          "recursoRef": "cestas-choclos"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: las bolsas de pan",
+          "narracion": "La señora Elena llena cuatro bolsas con tres panes en cada una. Primero comprobamos que todas las bolsas tengan tres panes: sí, son grupos iguales. Después contamos los grupos, que son cuatro. Entonces escribimos el tres cuatro veces: tres más tres más tres más tres.",
+          "recursoRef": "bolsas-pan"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: sumamos poco a poco",
+          "narracion": "Ahora sumamos de a poco. Tres más tres es seis. Seis más tres es nueve. Nueve más tres es doce. En total hay doce panes. Para comprobar, cuenta cuántos tres escribiste: son cuatro, igual que las bolsas. Cuidado con sumar el número de bolsas con los panes de una bolsa, cuatro más tres, que da siete: así no se cuentan los panes de todas las bolsas.",
+          "recursoRef": "bolsas-pan"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: las paltas del mercado",
+          "narracion": "En el mercado de Huancayo hay cinco montoncitos de paltas y cada montoncito tiene dos paltas. Comprobamos que todos tengan dos: son grupos iguales. Hay cinco grupos, así que escribimos el dos cinco veces: dos más dos más dos más dos más dos.",
+          "recursoRef": "paltas-recta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: saltamos de dos en dos",
+          "narracion": "También podemos contar saltando de dos en dos, como en la recta: dos, cuatro, seis, ocho, diez. Cada salto agrega un montoncito. Después de cinco saltos llegamos al diez, así que hay diez paltas. Contar los saltos nos ayuda a comprobar que no falta ni sobra ningún sumando.",
+          "recursoRef": "paltas-recta"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuando los grupos no son iguales",
+          "narracion": "Imagina un corral con tres ovejas, otro con cinco y otro con tres. Estos grupos no son iguales, porque sus cantidades son diferentes. En este caso no podemos escribir tres veces el mismo número. Por eso lo primero siempre es comprobar que todos los grupos tengan lo mismo."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: comprueba que los grupos sean iguales",
+          "narracion": "Primero compara los grupos uno por uno. Todos deben tener la misma cantidad de objetos. En las cestas de doña Marta, cada cesta tiene cinco choclos, así que podemos seguir.",
+          "recursoRef": "cestas-choclos"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: cuenta los grupos y repite la cantidad",
+          "narracion": "Cuenta cuántos grupos hay y cuántos objetos tiene uno. Escribe esa cantidad tantas veces como grupos haya, uniéndola con el signo más. Con las cestas, escribimos cinco tres veces. Al terminar, cuenta los sumandos: debe haber uno por cada grupo.",
+          "recursoRef": "cestas-choclos"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: suma y responde",
+          "narracion": "Suma de izquierda a derecha, poco a poco. En el ejemplo de las cestas, cinco más cinco es diez, y diez más cinco es quince. Luego responde con una oración completa: doña Marta tiene quince choclos en total.",
+          "recursoRef": "cestas-choclos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cestas-choclos",
+          "src": "/nudito/diagramas/matematica/grupos-iguales-cestas.svg",
+          "alt": "Tres cestas con cinco choclos amarillos cada una; la suma repetida da quince.",
+          "descripcion": "Se ven tres cestas del mismo tamaño. Dentro de cada una hay cinco choclos amarillos y debajo de cada cesta aparece el número cinco. En la parte baja se lee cinco más cinco más cinco igual a quince."
+        },
+        {
+          "id": "bolsas-pan",
+          "src": "/nudito/diagramas/matematica/grupos-iguales-bolsas.svg",
+          "alt": "Cuatro recuadros con tres círculos cada uno; doce en total.",
+          "descripcion": "Cada recuadro es una bolsa y cada círculo un pan. Las cuatro bolsas tienen tres panes cada una. Debajo se lee tres más tres más tres más tres igual a doce, y doce panes en total."
+        },
+        {
+          "id": "paltas-recta",
+          "src": "/nudito/diagramas/matematica/grupos-iguales-recta-dos.svg",
+          "alt": "Cinco montoncitos de dos paltas y una recta numérica con cinco saltos de dos hasta el diez.",
+          "descripcion": "Arriba hay cinco recuadros y cada uno tiene dos círculos verdes que representan paltas. Debajo, una recta numérica del cero al diez muestra cinco saltos de más dos que terminan en el diez. Al pie se lee dos más dos más dos más dos más dos igual a diez."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Doña Carmen arma cuatro canastas con seis mandarinas cada una. ¿Qué suma repetida muestra el total de mandarinas?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Seis más seis más seis"
+          },
+          {
+            "id": "b",
+            "texto": "Seis más seis más seis más seis"
+          },
+          {
+            "id": "c",
+            "texto": "Cuatro más seis"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Hay cuatro canastas, así que el seis se escribe cuatro veces. El total es veinticuatro mandarinas.",
+        "pista": "Cuenta las canastas: el seis debe repetirse una vez por cada canasta."
+      }
+    }
   },
   {
     "clave": "mat.p3.multiplicacion",
@@ -993,7 +1106,122 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Arreglos en filas y columnas",
+          "narracion": "Bienvenida y bienvenido. Hoy contarás objetos ordenados en filas y columnas. Como idea principal, en un arreglo cada fila tiene la misma cantidad. Entonces multiplicas el número de filas por la cantidad que hay en cada fila, y sabes el total sin contar uno por uno."
+        },
+        {
+          "id": "situacion-bandeja",
+          "tipo": "recurso",
+          "titulo": "La bandeja de alfajores",
+          "narracion": "Observemos esta situación. Don Lucho hornea alfajores y los ordena en una bandeja. Cada alfajor es un círculo. Hay cuatro filas, una debajo de otra, y en cada fila hay cinco alfajores. Queremos saber cuántos alfajores hay en total sin contarlos uno por uno.",
+          "recursoRef": "bandeja-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: alfajores de don Lucho",
+          "narracion": "Cada fila es un grupo con la misma cantidad: cinco alfajores. Hay cuatro grupos así. Una forma de hallar el total es sumar los grupos uno por uno. Otra forma, más corta, es multiplicar."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: suma repetida",
+          "narracion": "Miremos el arreglo fila por fila. Cada fila tiene cinco. Sumamos cinco más cinco más cinco más cinco, y el total es veinte. Esa suma repetida se escribe cuatro por cinco, que es veinte. Don Lucho tiene veinte alfajores.",
+          "recursoRef": "suma-repetida"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el mosaico de la escuela",
+          "narracion": "Un mosaico de la escuela tiene tres filas con ocho azulejos cada una. Si lo giramos un cuarto de vuelta, las filas pasan a ser columnas. ¿Cambia el total de azulejos? Piensa que no quitamos ni ponemos ninguno."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: girar no cambia el total",
+          "narracion": "Observemos los dos mosaicos. A la izquierda hay tres filas de ocho azulejos: tres por ocho son veinticuatro. A la derecha está el mismo mosaico girado, con ocho filas de tres azulejos, y ocho por tres también son veinticuatro. Al girar cambia el orden de los números, pero el total es el mismo.",
+          "recursoRef": "girar"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Errores al contar arreglos",
+          "narracion": "Un error frecuente es sumar las filas y las columnas. En un arreglo de cuatro filas con cinco objetos en cada una, cuatro más cinco son nueve, pero en realidad hay veinte. Otro error es contar dos veces el objeto de la esquina cuando se cuenta por los bordes. Para evitarlo, multiplica el número de filas por la cantidad que hay en cada fila."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cuenta las filas",
+          "narracion": "Primero cuenta las filas. Una fila es una línea de objetos de lado a lado. Cuenta solo las líneas, no los objetos."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: cuenta cada fila",
+          "narracion": "Segundo, cuenta cuántos objetos hay en una fila. Como todas las filas tienen la misma cantidad, basta contar una."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: multiplica",
+          "narracion": "Estas tres tarjetas resumen los pasos con la bandeja de alfajores. La primera dice cuatro filas. La segunda dice cinco en cada fila. La tercera dice que se multiplica: cuatro por cinco es veinte. Ese número es el total de objetos del arreglo.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "bandeja-pregunta",
+          "src": "/nudito/diagramas/matematica/arreglos-alfajores-pregunta.svg",
+          "alt": "Una bandeja con cuatro filas de cinco alfajores y la pregunta de cuántos hay.",
+          "descripcion": "Hay veinte círculos ordenados en cuatro filas de cinco. A la derecha, una llave señala cuatro filas. Debajo, otra llave dice cinco en cada fila. Al final se lee la pregunta: cuántos alfajores hay."
+        },
+        {
+          "id": "suma-repetida",
+          "src": "/nudito/diagramas/matematica/arreglos-suma-repetida.svg",
+          "alt": "Cuatro filas de cinco círculos: cinco más cinco más cinco más cinco es veinte, igual a cuatro por cinco.",
+          "descripcion": "Hay cuatro filas de cinco círculos. A la derecha de cada fila está el número cinco con un signo más, menos en la última. Debajo se lee cinco más cinco más cinco más cinco es igual a veinte, luego cuatro por cinco es igual a veinte, y hay veinte alfajores."
+        },
+        {
+          "id": "girar",
+          "src": "/nudito/diagramas/matematica/arreglos-girar-mosaico.svg",
+          "alt": "Un mosaico de tres filas de ocho y el mismo mosaico girado en ocho filas de tres; ambos tienen veinticuatro.",
+          "descripcion": "A la izquierda hay tres filas de ocho círculos: tres por ocho es igual a veinticuatro. Una flecha dice gira. A la derecha hay ocho filas de tres círculos: ocho por tres es igual a veinticuatro. Abajo se lee que el total es el mismo, veinticuatro."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/arreglos-tres-pasos.svg",
+          "alt": "Tres tarjetas: contar las filas, contar cada fila y multiplicar cuatro por cinco.",
+          "descripcion": "Hay tres tarjetas numeradas. La primera dice cuenta las filas: cuatro filas. La segunda dice cuenta cada fila: cinco en cada fila. La tercera dice multiplica: cuatro por cinco es igual a veinte."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una caja de bombones tiene seis filas con siete bombones en cada fila. ¿Cuántos bombones hay?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuarenta y dos bombones"
+          },
+          {
+            "id": "b",
+            "texto": "Trece bombones en total"
+          },
+          {
+            "id": "c",
+            "texto": "Treinta y seis bombones"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Hay seis filas y en cada fila hay siete: seis por siete son cuarenta y dos bombones.",
+        "pista": "Multiplica el número de filas por la cantidad que hay en cada fila."
+      }
+    }
   },
   {
     "clave": "mat.p3.doble-triple",
@@ -3674,7 +3902,130 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "División como reparto equitativo",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a dividir. Como idea principal, dividir es repartir en partes iguales, para que a cada uno le toque lo mismo. Si repartimos seis galletas entre dos niños, a cada uno le tocan tres. Se escribe: seis dividido entre dos es igual a tres."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Panes para las canastas",
+          "narracion": "Observemos esta situación. Una familia tiene doce panes y cuatro canastas. Quiere repartir los panes para que cada canasta tenga la misma cantidad. Los panes están arriba y las canastas, vacías, abajo.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: panes en cada canasta",
+          "narracion": "Reparte los panes de uno en uno, dando uno a cada canasta, y repite hasta que no quede ninguno. ¿Cuántos panes le toca a cada canasta?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el reparto terminado",
+          "narracion": "Cada canasta recibió tres panes y no sobró ninguno. Se escribe: doce dividido entre cuatro es igual a tres. Comprobamos multiplicando: cuatro canastas por tres panes dan doce.",
+          "recursoRef": "ej1-reparto"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: canicas para cinco niños",
+          "narracion": "Ahora hay veinte canicas para cinco niños, en partes iguales. Piensa qué número, repetido cinco veces, llega a veinte. ¿Cuántas canicas recibe cada niño?",
+          "recursoRef": "canicas-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: buscar con la multiplicación",
+          "narracion": "Cinco veces cuatro es veinte, así que cada niño recibe cuatro canicas. Se escribe: veinte dividido entre cinco es igual a cuatro. Y comprobamos: cinco por cuatro es veinte.",
+          "recursoRef": "canicas-reparto"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Un reparto que no es justo",
+          "narracion": "Mira este reparto. Una canasta tiene seis panes, otra tiene cuatro y otra tiene solo dos. Se usaron los doce panes, pero a cada canasta no le tocó lo mismo. Dividir exige partes iguales.",
+          "recursoRef": "desigual"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: revisa el total y las partes",
+          "narracion": "Primero revisa cuánto hay para repartir y entre cuántos se reparte."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: reparte en partes iguales",
+          "narracion": "Luego reparte uno a uno, o busca el número que, repetido tantas veces como partes, llega al total."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: comprueba multiplicando",
+          "narracion": "Por último, multiplica lo que recibe cada uno por el número de partes. Si da el total, el reparto está bien."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/repartir-igual-situacion.svg",
+          "alt": "Doce panes arriba, en dos filas, y cuatro canastas vacías abajo.",
+          "descripcion": "Doce panes dorados, seis en cada una de dos filas. Debajo, cuatro canastas vacías en fila. Abajo se lee: ¿Cuántos panes por canasta?"
+        },
+        {
+          "id": "ej1-reparto",
+          "src": "/nudito/diagramas/matematica/repartir-igual-ej1-reparto.svg",
+          "alt": "Cuatro canastas con tres panes cada una.",
+          "descripcion": "Cuatro canastas en fila, cada una con tres panes: dos arriba y uno abajo. Se lee: Todas tienen lo mismo. Doce dividido entre cuatro es igual a tres."
+        },
+        {
+          "id": "canicas-pregunta",
+          "src": "/nudito/diagramas/matematica/repartir-igual-canicas-pregunta.svg",
+          "alt": "Veinte canicas de tres colores arriba y cinco tarjetas de niños vacías abajo.",
+          "descripcion": "Veinte canicas de tres colores, azul oscuro, turquesa y amarillo, en dos filas de diez. Debajo, cinco tarjetas con la cabeza de un niño y sin canicas. Abajo se lee: ¿Cuántas canicas por niño?"
+        },
+        {
+          "id": "canicas-reparto",
+          "src": "/nudito/diagramas/matematica/repartir-igual-canicas-reparto.svg",
+          "alt": "Cinco tarjetas de niños con cuatro canicas cada una.",
+          "descripcion": "Cinco tarjetas con la cabeza de un niño. Cada una tiene cuatro canicas, en dos filas de dos. Debajo: veinte dividido entre cinco es igual a cuatro, y cinco por cuatro es igual a veinte."
+        },
+        {
+          "id": "desigual",
+          "src": "/nudito/diagramas/matematica/repartir-igual-desigual.svg",
+          "alt": "Tres canastas con distinta cantidad de panes: seis, cuatro y dos.",
+          "descripcion": "Tres canastas. La primera tiene seis panes, la segunda cuatro y la tercera dos. Abajo, en rojo: No tocó lo mismo a cada una. Seis, cuatro y dos panes."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Marta tiene treinta galletas y las reparte en seis bolsas, con la misma cantidad en cada bolsa. ¿Cuántas galletas pone en cada bolsa?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Seis galletas"
+          },
+          {
+            "id": "b",
+            "texto": "Cinco galletas"
+          },
+          {
+            "id": "c",
+            "texto": "Cuatro galletas"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Cinco galletas en cada una de las seis bolsas dan treinta.",
+        "pista": "Comprueba cada opción: seis bolsas con esa cantidad deben llegar al total."
+      }
+    }
   },
   {
     "clave": "mat.p3.division-agrupamiento",
@@ -4335,6 +4686,124 @@
   },
   {
     "clave": "mat.p3.dividir-por-10",
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Formar grupos de diez",
+          "narracion": "Bienvenida y bienvenido. Hoy dividirás cantidades exactas entre diez. Como idea principal, dividir entre diez es averiguar cuántos grupos completos de diez hay. Si una cantidad termina en cero, sus decenas indican el resultado."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Lápices para embolsar",
+          "narracion": "Observemos esta situación. Hay sesenta lápices y en cada bolsa caben diez. La bolsa de la derecha recuerda el tamaño de cada grupo, pero todavía no muestra cuántas bolsas se llenarán. Debemos averiguar cuántas decenas hay en sesenta.",
+          "recursoRef": "bolsas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo uno: sesenta lápices",
+          "narracion": "Agrupamos sesenta lápices de diez en diez. Cada bolsa recibe una decena. Contemos cuántos grupos completos se forman antes de decir el resultado.",
+          "recursoRef": "bolsas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo uno: seis grupos",
+          "narracion": "Se forman seis bolsas con diez lápices en cada una. Por eso sesenta entre diez son seis. Comprobamos: seis grupos de diez reúnen otra vez sesenta lápices.",
+          "recursoRef": "seis-bolsas"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo dos: ciento cincuenta caramelos",
+          "narracion": "Ahora repartimos ciento cincuenta caramelos en bolsas de diez. No basta mirar solo la cifra de las decenas. Primero convertimos la centena en decenas y después añadimos las otras cinco decenas."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo dos: todas las decenas",
+          "narracion": "Una centena contiene diez decenas. Al sumar las cinco decenas restantes obtenemos quince decenas. Entonces ciento cincuenta entre diez son quince. Quince por diez devuelve ciento cincuenta.",
+          "recursoRef": "quince-decenas"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Dividir no es restar",
+          "narracion": "Un error es quitar diez una sola vez. Ochenta menos diez son setenta, pero eso no responde cuántos grupos de diez hay. Otro error es contar solo cinco decenas en ciento cincuenta y olvidar que la centena contiene diez más.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: revisa la cantidad",
+          "narracion": "Primero verifica que la cantidad termine en cero si buscas grupos exactos de diez. Si no termina en cero, puede quedar un sobrante."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: cuenta las decenas",
+          "narracion": "Después expresa toda la cantidad en decenas. Recuerda incluir las decenas que están dentro de cada centena.",
+          "recursoRef": "quince-decenas"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: comprueba",
+          "narracion": "Por último multiplica el resultado por diez. Si recuperas la cantidad inicial, la división está bien hecha.",
+          "recursoRef": "errores"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "bolsas-pregunta",
+          "src": "/nudito/diagramas/matematica/dividir-diez-bolsas-pregunta.svg",
+          "alt": "Un recuadro con sesenta lápices y una bolsa rotulada diez en cada bolsa; se pregunta cuántas bolsas se llenan.",
+          "descripcion": "A la izquierda, un recuadro amarillo dice sesenta lápices. A la derecha, una bolsa turquesa lleva el número diez y debajo dice en cada bolsa. Abajo se pregunta cuántas bolsas se llenan."
+        },
+        {
+          "id": "seis-bolsas",
+          "src": "/nudito/diagramas/matematica/dividir-diez-lapices-seis-bolsas.svg",
+          "alt": "Seis bolsas turquesas, cada una rotulada con diez, representan sesenta entre diez.",
+          "descripcion": "Hay seis bolsas turquesas ordenadas en dos filas de tres. Dentro de cada una se lee diez. El título dice sesenta entre diez y abajo se lee seis grupos de diez."
+        },
+        {
+          "id": "quince-decenas",
+          "src": "/nudito/diagramas/matematica/dividir-diez-caramelos-quince.svg",
+          "alt": "Una centena como diez decenas junto a otras cinco decenas, para un total de quince decenas.",
+          "descripcion": "Un cuadro amarillo dice una centena y diez decenas. A su derecha, un cuadro turquesa dice cinco decenas. Abajo se lee quince decenas en total."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/dividir-diez-errores.svg",
+          "alt": "Dos recordatorios: dividir no es restar una vez y una centena también contiene decenas.",
+          "descripcion": "Dos tarjetas con borde ámbar. La primera dice dividir no es restar una vez y que ochenta entre diez no es setenta. La segunda dice cuenta todas las decenas y que una centena también tiene decenas. Abajo se lee comprueba multiplicando por diez."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Cuatrocientas veinte botellas se guardan en grupos de diez. ¿Cuántos grupos completos se forman?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuarenta y dos grupos"
+          },
+          {
+            "id": "b",
+            "texto": "Cuatrocientos grupos"
+          },
+          {
+            "id": "c",
+            "texto": "Cincuenta y dos grupos"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Cuatrocientas veinte tiene cuarenta y dos decenas. Por eso se forman cuarenta y dos grupos de diez.",
+        "pista": "Cuenta todas las decenas de la cantidad y comprueba con una multiplicación."
+      }
+    },
     "area": "matematica",
     "nivel": "primaria",
     "grado": 3,

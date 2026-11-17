@@ -617,7 +617,7 @@
       {
         "dificultad": 3,
         "tipo": "texto_corto",
-        "enunciado": "Un niño siente que tropieza y mueve los brazos para no caer sin pensar, pero luego decide caminar más despacio. ¿Qué parte respondió primero? Escribe «médula espinal» o «encéfalo».",
+        "enunciado": "El doctor toca con un martillito la rodilla de Luis y su pierna salta sola. Luego Luis decide reírse y contarlo. ¿Qué parte respondió primero? Escribe «médula espinal» o «encéfalo».",
         "respuesta": "médula espinal",
         "alternativasAceptadas": [
           "la médula espinal",
@@ -629,7 +629,7 @@
           "Lo segundo, la decisión, requiere pensar.",
           "La respuesta rápida sale de la columna, no de la cabeza."
         ],
-        "retroalimentacion": "La médula espinal respondió primero con el reflejo; el encéfalo decidió después caminar despacio.",
+        "retroalimentacion": "La médula espinal respondió primero con el reflejo; el encéfalo decidió después reírse.",
         "id": "e10"
       },
       {
@@ -686,7 +686,124 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Decidir o reaccionar",
+          "narracion": "Hola. Hoy veremos los actos voluntarios y los actos reflejos. Como idea principal, un acto voluntario lo decides tú con el encéfalo, como escribir o caminar. Un acto reflejo es una respuesta muy rápida, que no decides y que te protege. Cuando retiras la mano de algo caliente, la ordena la médula espinal."
+        },
+        {
+          "id": "situacion-cocina",
+          "tipo": "recurso",
+          "titulo": "Una cocina con una olla caliente",
+          "narracion": "Observemos esta situación. En la imagen hay una cocina de leña, una olla de metal con tapa, que echa vapor, y una mesa de madera. No hay nadie. Imaginemos que una niña toca la olla sin querer. Nos preguntamos: ¿qué hará su cuerpo y quién da la orden?",
+          "recursoRef": "cocina-olla"
+        },
+        {
+          "id": "ejemplo-1-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la olla caliente",
+          "narracion": "Hace un momento, la niña tocó la olla. En la imagen, está junto a la cocina de leña, con las manos pegadas al pecho y la boca abierta de sorpresa. La olla sigue echando vapor. Nos preguntamos: ¿lo que hizo con su mano fue un acto voluntario o un acto reflejo?",
+          "recursoRef": "reflejo-olla"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: es un reflejo",
+          "narracion": "Es un acto reflejo. La niña retiró la mano sin decidirlo, y lo hizo muy rápido para no quemarse. La orden salió de la médula espinal, y el encéfalo se enteró después.",
+          "recursoRef": "reflejo-olla"
+        },
+        {
+          "id": "ejemplo-2-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: en la clase",
+          "narracion": "En la imagen, una niña está sentada en su carpeta, levanta una mano y sonríe. Atrás hay otros estudiantes. Nos preguntamos: ¿qué tipo de acto es?",
+          "recursoRef": "voluntario-mano"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: es voluntario",
+          "narracion": "Es un acto voluntario. La niña pensó, quiso pedir la palabra y decidió levantar la mano. El encéfalo ordenó ese movimiento.",
+          "recursoRef": "voluntario-mano"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: rápido no siempre es reflejo",
+          "narracion": "Hay quien cree que en el reflejo el encéfalo decide primero. No es así: en un reflejo como retirar la mano, responde primero la médula espinal. Además, no todo lo que haces rápido es un reflejo. Saltar la soga es rápido, pero lo decides tú."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: pregúntate si lo decidiste",
+          "narracion": "Primero pregúntate: ¿quise hacerlo o pasó sin pensarlo? Si lo decidiste, es un acto voluntario."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: mira si te protege",
+          "narracion": "Luego mira si fue inmediato y te protege de un peligro, como alejarte de algo caliente o de un pinchazo. Entonces es un acto reflejo."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: piensa quién ordena",
+          "narracion": "Por último, piensa quién da la orden. Mira este esquema con tres cuadros: encéfalo, médula espinal y mano. Las flechas índigo bajan por el centro: la orden va del encéfalo a la médula espinal y luego a la mano, y es el acto voluntario. Una flecha turquesa corta sale de la médula espinal y va directo a la mano: es el reflejo.",
+          "recursoRef": "camino-orden"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cocina-olla",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-4/actos-cocina-olla-caliente-zimage-v1.webp",
+          "alt": "Una cocina de leña con una olla de metal con tapa que echa vapor, y una mesa de madera. No hay nadie.",
+          "descripcion": "En una cocina de paredes color crema hay una cocina de leña de madera y metal negro, con una chimenea oscura. Sobre ella hay una olla de metal con tapa, de la que sale vapor. A la derecha se ve parte de una mesa de madera. No hay personas."
+        },
+        {
+          "id": "reflejo-olla",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-4/actos-reflejo-olla-zimage-v1.webp",
+          "alt": "Una niña con cara de sorpresa, junto a una cocina de leña con una olla que echa vapor, se lleva las manos al pecho.",
+          "descripcion": "Una niña de cabello oscuro con dos colitas y vestido color teja está de pie junto a una cocina de leña negra. Abre la boca, sorprendida, y tiene las manos juntas sobre el pecho. Sobre la cocina hay una olla de metal con tapa, de la que sale vapor."
+        },
+        {
+          "id": "voluntario-mano",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-4/actos-voluntario-mano-zimage-v1.webp",
+          "alt": "Una niña de uniforme blanco, sentada en su carpeta, levanta una mano y sonríe; atrás hay otros estudiantes y una pizarra verde.",
+          "descripcion": "En un salón de clases, una niña de cabello oscuro y camisa blanca está sentada ante una carpeta con un cuaderno abierto. Sonríe y levanta una mano con los cinco dedos abiertos. Detrás, algo borrosos, hay varios estudiantes sentados y una pizarra verde."
+        },
+        {
+          "id": "camino-orden",
+          "src": "/nudito/diagramas/ciencia-tecnologia/actos-reflejo-y-voluntario-camino.svg",
+          "alt": "Tres cuadros en columna: encéfalo, médula espinal y mano. Flechas índigo bajan del encéfalo a la médula y a la mano; una flecha turquesa va de la médula a la mano.",
+          "descripcion": "Tres cuadros blancos en columna: encéfalo, médula espinal y mano. Dos flechas índigo bajan por el centro, del encéfalo a la médula y de la médula a la mano, junto a la palabra voluntario. Una flecha turquesa corta sale de la médula espinal y llega a la mano, junto a la palabra reflejo."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Mario dice: «Mi cuerpo se movió rápido, entonces fue un reflejo». ¿Cuál acción muestra que no siempre es así?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Patear la pelota cuando él quiere"
+          },
+          {
+            "id": "b",
+            "texto": "Retirar el pie al pisar una espina"
+          },
+          {
+            "id": "c",
+            "texto": "Cerrar los ojos si algo se acerca"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Patear la pelota puede ser muy rápido, pero Mario lo decide: es un acto voluntario.",
+        "pista": "Un reflejo te protege sin que lo decidas. Busca la acción que sí decide Mario."
+      }
+    }
   },
   {
     "clave": "cyt.p4.huesos-del-esqueleto",

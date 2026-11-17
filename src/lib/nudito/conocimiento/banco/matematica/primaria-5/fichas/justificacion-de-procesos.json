@@ -231,19 +231,19 @@
         "opciones": [
           {
             "id": "a",
-            "texto": "62 × 24 = 1488 latas, por lo que sobran 12 latas que requieren una caja adicional número 63"
+            "texto": "62 × 24 = 1488, sobran 12 latas: hace falta la caja 63"
           },
           {
             "id": "b",
-            "texto": "1500 ÷ 24 da exactamente 62 sin residuo alguno"
+            "texto": "1500 ÷ 24 da 62 exacto, por eso no sobra ninguna lata"
           },
           {
             "id": "c",
-            "texto": "63 × 24 = 1500 latas justas y completas"
+            "texto": "63 × 24 = 1500, por lo tanto alcanzan justo las cajas"
           },
           {
             "id": "d",
-            "texto": "Con 60 cajas era suficiente porque 60 × 24 supera 1500"
+            "texto": "60 × 24 supera a 1500, por eso con 60 cajas alcanza"
           }
         ],
         "pistas": [
@@ -262,19 +262,19 @@
         "opciones": [
           {
             "id": "a",
-            "texto": "Alberto: «Multipliqué 420 × 2 y le sumé 80 sacos»"
+            "texto": "Alberto: «Multipliqué 420 × 2 y luego le sumé 80 sacos más»"
           },
           {
             "id": "b",
-            "texto": "Carlos: «Dividí 420 entre 80 y luego le resté 2»"
+            "texto": "Carlos: «Dividí 420 entre 80 y después le resté 2 sacos»"
           },
           {
             "id": "c",
-            "texto": "Diana: «Sumé 210 + 80 = 290 sacos que le quedan»"
+            "texto": "Diana: «Sumé 210 + 80 y obtuve 290 sacos que le quedan»"
           },
           {
             "id": "d",
-            "texto": "Beatriz: «A la mitad que es 210 sacos le resté los 80 que descargó después: 210 - 80 = 130 sacos»"
+            "texto": "Beatriz: «Mitad: 210; luego 210 - 80 = 130 sacos quedan»"
           }
         ],
         "pistas": [
@@ -307,15 +307,15 @@
         "opciones": [
           {
             "id": "a",
-            "texto": "Beto ganó porque en velocidad gana quien tiene el mayor tiempo registrado"
+            "texto": "Beto ganó porque en velocidad gana quien tiene más tiempo"
           },
           {
             "id": "b",
-            "texto": "Hubo un empate general porque todos los tiempos tienen dos cifras enteras"
+            "texto": "Hubo empate general porque todos tienen dos cifras enteras"
           },
           {
             "id": "c",
-            "texto": "El ganador legítimo es Camilo porque en carreras de velocidad gana quien demora menos tiempo, y 14,2 es el menor"
+            "texto": "Camilo ganó: gana quien demora menos y 14,2 es el menor"
           },
           {
             "id": "d",
@@ -330,6 +330,128 @@
         "retroalimentacion": "En una carrera de velocidad gana quien emplea el menor tiempo posible: Camilo con 14,2 segundos es el legítimo ganador."
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Justificar una resolución",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a explicar por qué una resolución es correcta. Como idea principal, una buena justificación conecta los datos con una operación, muestra los cálculos en orden, nombra qué significa el resultado y lo comprueba en la situación."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Fichas guardadas en bolsas",
+          "narracion": "Observemos esta situación. Hay nueve bolsas y cada una guarda dieciséis fichas. Queremos saber cuántas fichas hay en total. No basta con dar un número: debemos explicar qué representan los datos y por qué elegimos una operación.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: cuadernos en cajas",
+          "narracion": "Una biblioteca recibe seis cajas con veinticuatro cuadernos en cada caja. Para hallar el total, piensa qué cantidad se repite y cuántas veces aparece. ¿Qué operación representa esos grupos iguales?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: explicar y comprobar",
+          "narracion": "Hay seis grupos de veinticuatro, por eso multiplicamos y obtenemos ciento cuarenta y cuatro cuadernos. Luego dividimos el total entre seis. Como recuperamos los veinticuatro cuadernos de cada caja, la comprobación coincide con los datos.",
+          "recursoRef": "cajas-resuelto"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: asientos para todos",
+          "narracion": "Ahora deben viajar ciento treinta y ocho estudiantes. Cada combi tiene treinta y dos asientos. La división indica cuántas combis se llenan y cuántos estudiantes quedan. ¿Cuántas combis se necesitan para que todos viajen sentados?",
+          "recursoRef": "combis-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: interpretar el residuo",
+          "narracion": "La división da cuatro combis completas y sobran diez estudiantes. Cuatro combis ofrecen ciento veintiocho asientos y no alcanzan. Por eso hace falta una quinta combi. Sus ciento sesenta asientos permiten que todos viajen sentados.",
+          "recursoRef": "combis-resuelto"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Entregar solo un número",
+          "narracion": "Alguien respondió ciento cuarenta y cuatro, sin decir qué contaba ni cómo lo obtuvo. La equis señala que ese número solo no justifica la resolución. Debía explicar los seis grupos de veinticuatro, escribir la unidad cuadernos y mostrar la comprobación.",
+          "recursoRef": "error-numero"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: relaciona datos y pregunta",
+          "narracion": "Identifica qué se conoce y qué se busca. Explica con palabras cómo se relacionan esas cantidades antes de calcular."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: ordena el cálculo",
+          "narracion": "Escribe cada operación en el orden en que responde al problema. Nombra la unidad del resultado para que el número tenga sentido."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: comprueba el sentido",
+          "narracion": "Usa una operación inversa, otra estrategia o una comparación con los datos. Finalmente, revisa si la respuesta resuelve la pregunta y es posible en la realidad."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/justificar-resolucion-situacion.svg",
+          "alt": "Nueve bolsas amarillas en dos filas; cada una tiene dieciséis fichas y se pregunta el total.",
+          "descripcion": "Nueve bolsas amarillas aparecen en dos filas: cinco arriba y cuatro abajo. El título indica que cada una contiene dieciséis fichas y una tarjeta pregunta el total."
+        },
+        {
+          "id": "cajas-resuelto",
+          "src": "/nudito/diagramas/matematica/justificar-resolucion-cajas-resuelto.svg",
+          "alt": "Seis cajas de veinticuatro cuadernos, multiplicación para el total y división para comprobar.",
+          "descripcion": "Seis cajas blancas llevan el número veinticuatro. Debajo se muestra que seis por veinticuatro son ciento cuarenta y cuatro cuadernos y se comprueba dividiendo entre seis."
+        },
+        {
+          "id": "combis-pregunta",
+          "src": "/nudito/diagramas/matematica/justificar-resolucion-combis-pregunta.svg",
+          "alt": "Ciento treinta y ocho estudiantes y dos combis de muestra, con treinta y dos asientos en cada una y una pregunta.",
+          "descripcion": "La tarjeta presenta ciento treinta y ocho estudiantes. Dos combis turquesa ilustran el transporte, se indica que cada una tiene treinta y dos asientos y abajo aparece un signo de pregunta."
+        },
+        {
+          "id": "combis-resuelto",
+          "src": "/nudito/diagramas/matematica/justificar-resolucion-combis-resuelto.svg",
+          "alt": "La división deja diez estudiantes; cuatro combis no alcanzan y cinco ofrecen asientos para todos.",
+          "descripcion": "Se muestra que ciento treinta y ocho entre treinta y dos da cuatro y sobran diez. El panel de cuatro combis y ciento veintiocho asientos tiene una equis; el de cinco combis y ciento sesenta asientos está resaltado."
+        },
+        {
+          "id": "error-numero",
+          "src": "/nudito/diagramas/matematica/justificar-resolucion-error-numero.svg",
+          "alt": "El número ciento cuarenta y cuatro solo tiene una equis; debajo aparecen grupos, unidad y comprobación.",
+          "descripcion": "El panel superior muestra el número ciento cuarenta y cuatro junto a una equis roja. El inferior explica seis grupos de veinticuatro, nombra ciento cuarenta y cuatro cuadernos y pide comprobar con la división."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Hay ocho paquetes con quince plumones en cada uno. ¿Qué operación justifica hallar el total de plumones?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sumar ocho con quince plumones"
+          },
+          {
+            "id": "b",
+            "texto": "Multiplicar ocho por quince"
+          },
+          {
+            "id": "c",
+            "texto": "Restar quince menos ocho veces"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Son ocho grupos de quince plumones, así que la multiplicación da ciento veinte plumones.",
+        "pista": "Piensa cómo representar una misma cantidad de plumones repetida en cada paquete."
+      }
+    },
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",

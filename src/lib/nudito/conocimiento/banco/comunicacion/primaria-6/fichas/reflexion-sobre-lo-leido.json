@@ -773,7 +773,118 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Qué quiere lograr un afiche y cómo lo consigue",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a analizar afiches y anuncios con mirada crítica. Como idea principal, un afiche busca lograr algo en quien lo mira: vender, invitar, informar o convencer de un hábito. Lo hace con pocas palabras, una imagen llamativa y frases fáciles de recordar. Para analizarlo preguntamos qué quiere lograr, qué recursos usa y si lo que afirma se puede comprobar."
+        },
+        {
+          "id": "situacion-afiche",
+          "tipo": "recurso",
+          "titulo": "Las tres partes de un afiche de salud",
+          "narracion": "Observemos un afiche de salud dividido en sus tres partes. La imagen muestra una jeringa y una gota. Las letras grandes dicen: «¡Vacúnate contra la influenza!». La letra pequeña dice: «Gratis en tu posta de salud. Hasta el 30 de mayo». Cada parte cumple una función distinta: la imagen atrae la mirada, las letras grandes dan el mensaje y la letra pequeña completa los datos.",
+          "recursoRef": "vacuna"
+        },
+        {
+          "id": "ejemplo-agua-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: un anuncio de agua",
+          "narracion": "Leamos un anuncio de agua. Se llama Agua Cielo Azul y su mensaje principal dice: «La mejor del mundo. Nadie la supera». La imagen muestra a una deportista sonriente que bebe de la botella, y la letra pequeña indica: agua mineral, botella de quinientos mililitros. Preguntamos qué quiere lograr este anuncio y con qué recursos lo intenta.",
+          "recursoRef": "agua-pregunta"
+        },
+        {
+          "id": "ejemplo-agua-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: intención y recursos",
+          "narracion": "Analicemos cada parte. «La mejor del mundo» y «nadie la supera» son exageraciones, porque ninguna prueba las respalda. La deportista sonriente busca que asocies la marca con energía y alegría. El único dato real, que es agua mineral de quinientos mililitros, casi no se nota. Un anuncio que exagera, emociona y casi no informa quiere que compres esa marca. Su intención es vender.",
+          "recursoRef": "agua-analisis"
+        },
+        {
+          "id": "ejemplo-vacuna-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un afiche de salud",
+          "narracion": "Volvamos al afiche de vacunación y analicémoslo con la misma mirada. Sus palabras dicen: «¡Vacúnate contra la influenza! Gratis en tu posta de salud. Hasta el 30 de mayo». Preguntamos qué quiere lograr y en qué se diferencia del anuncio de agua.",
+          "recursoRef": "vacuna"
+        },
+        {
+          "id": "ejemplo-vacuna-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: convencer con datos comprobables",
+          "narracion": "La orden «vacúnate» pide una acción concreta. Pero, a diferencia del anuncio de agua, aquí no hay exageraciones: dice que es gratis y da una fecha límite, datos que puedes verificar en tu posta. Su intención es convencer e informar a la vez, y sus razones se pueden comprobar. Al evaluar un afiche no basta saber qué quiere: conviene preguntarse si lo que afirma se sostiene."
+        },
+        {
+          "id": "error-frase-llamativa",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: creer que toda frase llamativa es cierta",
+          "narracion": "Muchas personas creen que si un anuncio dice «el mejor del mundo», debe ser verdad porque está impreso. Una frase llamativa no es una prueba. Distingue una exageración, que no se puede comprobar, de un dato, como un precio, una fecha o un lugar, que sí puedes verificar."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: observa el afiche completo",
+          "narracion": "Primero mira todo el afiche, como en este esquema: la imagen, las letras grandes y la letra pequeña. Anota qué dice cada parte antes de opinar.",
+          "recursoRef": "vacuna"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: descubre la intención",
+          "narracion": "Después pregúntate qué quiere lograr: vender, invitar, informar o cambiar un hábito. Fíjate en lo que te pide hacer, ya sea comprar, asistir, donar o cuidarte."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: identifica los recursos y evalúa",
+          "narracion": "Por último, busca los recursos, como las órdenes, las exageraciones o las imágenes que provocan emociones, y evalúa si el mensaje se puede comprobar. Así lo hicimos con el anuncio de agua: marcamos la exageración y el dato casi escondido.",
+          "recursoRef": "agua-analisis"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "vacuna",
+          "src": "/nudito/diagramas/comunicacion/afiche-vacuna-partes.svg",
+          "alt": "Afiche de vacunación en tres partes: imagen de una jeringa, letras grandes «¡Vacúnate contra la influenza!» y letra pequeña con gratuidad y fecha límite.",
+          "descripcion": "El afiche tiene tres franjas. La primera, Imagen, muestra una jeringa y una gota. La segunda, Letras grandes, dice: «¡Vacúnate contra la influenza!». La tercera, Letra pequeña, dice: «Gratis en tu posta de salud. Hasta el 30 de mayo»."
+        },
+        {
+          "id": "agua-pregunta",
+          "src": "/nudito/diagramas/comunicacion/anuncio-agua-pregunta.svg",
+          "alt": "Anuncio de Agua Cielo Azul: «La mejor del mundo. Nadie la supera.», una deportista sonriente con la botella y letra pequeña de agua mineral.",
+          "descripcion": "Un anuncio titulado Agua Cielo Azul dice: «La mejor del mundo. Nadie la supera». Debajo hay una imagen de una deportista sonriente que bebe de la botella y, en letra pequeña, agua mineral, botella de 500 mililitros. Abajo, una barra pregunta qué quiere lograr este anuncio."
+        },
+        {
+          "id": "agua-analisis",
+          "src": "/nudito/diagramas/comunicacion/anuncio-agua-analisis.svg",
+          "alt": "Cuatro recuadros: frase exagerada que no se comprueba, imagen que busca energía y alegría, dato real casi oculto y la intención: vender.",
+          "descripcion": "Cuatro recuadros analizan el anuncio. El primero señala que «La mejor del mundo. Nadie la supera» es una exageración que no se puede comprobar. El segundo, que la imagen de la deportista busca que sientas energía y alegría. El tercero, que la letra pequeña es un dato real pero casi no se nota. El cuarto concluye: intención, vender; quiere que compres esa marca."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee este afiche: «¡Cuida el agua! Cierra el caño mientras te cepillas los dientes. Con un minuto menos de caño abierto, ahorras litros». La imagen muestra un caño que gotea. ¿Qué intención y qué recurso tiene?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Busca vender un producto y usa una exageración sobre su calidad."
+          },
+          {
+            "id": "b",
+            "texto": "Busca informar sin pedir nada y solo muestra datos de consumo."
+          },
+          {
+            "id": "c",
+            "texto": "Busca convencer de ahorrar agua y usa una orden con una razón."
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "«Cierra el caño» es una orden y «ahorras litros» es la razón que la sostiene. No ofrece ningún producto ni exagera, así que su intención es convencer de ahorrar agua.",
+        "pista": "Busca qué le pide el afiche al lector y con qué razón respalda ese pedido."
+      }
+    }
   },
   {
     "clave": "com.p6.fiabilidad-de-fuentes",

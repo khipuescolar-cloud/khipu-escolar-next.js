@@ -354,7 +354,120 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Los personajes muestran cómo son con lo que hacen",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a descubrir cómo es un personaje. Como idea principal, casi nunca el cuento dice con una palabra que alguien es amable o egoísta. Tú lo descubres con pistas: lo que el personaje hace y lo que dice. Después usas «porque» para mostrar la pista."
+        },
+        {
+          "id": "situacion-tito",
+          "tipo": "recurso",
+          "titulo": "Un cuento corto sobre Tito",
+          "narracion": "Observemos este cuento corto. Dice: «Tito vio que el perro de Ana tenía sed. Fue a su casa y le trajo agua». Debajo, una tarjeta amarilla pregunta cómo es Tito. El cuento no lo dice con una palabra, así que buscaremos pistas.",
+          "recursoRef": "tito"
+        },
+        {
+          "id": "ejemplo-tito-pista",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: busca qué hace",
+          "narracion": "Primero miramos qué hace Tito. Vio que el perro tenía sed, fue a su casa y le trajo agua. Esa acción es la pista.",
+          "recursoRef": "tito"
+        },
+        {
+          "id": "ejemplo-tito-responde",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: di cómo es y por qué",
+          "narracion": "Ahora pensamos: ¿cómo es alguien que ayuda a un perro con sed? Es amable. Lo decimos así: «Tito es amable porque le trajo agua al perro». Primero va cómo es, y después «porque» con la pista."
+        },
+        {
+          "id": "ejemplo-luis-dice-hace",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: lo que dice y lo que hace",
+          "narracion": "Veamos otro caso. Luis dice: «Yo comparto mi lonche». Pero en el recreo se come todo su lonche solo. En la imagen, la tarjeta azul de la izquierda muestra lo que dice y la tarjeta rosada de la derecha muestra lo que hace.",
+          "recursoRef": "luis"
+        },
+        {
+          "id": "ejemplo-luis-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ¿a cuál pista le creemos?",
+          "narracion": "Las dos pistas no coinciden. Cuando alguien dice una cosa y hace otra, creemos más en lo que hace. Luis dice que comparte, pero no comparte. Por eso es egoísta. Lo decimos así: «Luis es egoísta porque se come todo su lonche solo».",
+          "recursoRef": "luis"
+        },
+        {
+          "id": "error-sin-pista",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: decir cómo es sin pista",
+          "narracion": "Mira estas dos respuestas. Arriba, con una cruz, dice «Tito es malo». El cuento no cuenta nada que lo muestre, así que esa respuesta no tiene pista. Abajo, con una palomita, dice «Tito es amable porque le trajo agua al perro»: nombra cómo es y usa una acción del cuento.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira qué hace",
+          "narracion": "Primero busca qué hace el personaje. En el cuento de Tito, la acción es traer agua al perro que tenía sed.",
+          "recursoRef": "tito"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: mira qué dice y compara",
+          "narracion": "Después mira también qué dice. Si lo que dice y lo que hace no coinciden, como en el caso de Luis, quédate con lo que hace.",
+          "recursoRef": "luis"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: di cómo es y escribe «porque»",
+          "narracion": "Por último, di cómo es el personaje y agrega «porque» con la pista. Si no encuentras una pista en el cuento, cambia tu respuesta, como en la tarjeta roja de la imagen. La tarjeta verde muestra una respuesta con pista.",
+          "recursoRef": "error"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "tito",
+          "src": "/nudito/diagramas/comunicacion/personajes-tito-escena.svg",
+          "alt": "Cuento corto: Tito le trae agua al perro de Ana. Debajo se pregunta cómo es Tito.",
+          "descripcion": "La imagen tiene un recuadro blanco con el cuento: Tito vio que el perro de Ana tenía sed, fue a su casa y le trajo agua. Debajo hay una tarjeta amarilla con la pregunta: ¿Cómo es Tito?"
+        },
+        {
+          "id": "luis",
+          "src": "/nudito/diagramas/comunicacion/personajes-luis-dice-hace.svg",
+          "alt": "Dos tarjetas: Luis dice que comparte su lonche, pero se lo come todo solo.",
+          "descripcion": "Arriba dice Luis, en el recreo. A la izquierda, una tarjeta azul con lo que dice: «Yo comparto mi lonche». A la derecha, una tarjeta rosada con lo que hace: se come todo su lonche solo. Abajo, una tarjeta amarilla pregunta a cuál pista le creemos."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/comunicacion/personajes-error-sin-pista.svg",
+          "alt": "Una respuesta con cruz sin pista y otra con palomita que usa una acción.",
+          "descripcion": "Arriba, una tarjeta roja con cruz dice «Tito es malo» y explica que el cuento no dice nada de eso. Abajo, una tarjeta verde con palomita dice «Tito es amable porque le trajo agua al perro»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee: «Lucía vio que una niña nueva estaba sola en el recreo. Se sentó a su lado y le dio la mitad de su pan». ¿Cómo es Lucía?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Es egoísta, porque guardó su pan para ella."
+          },
+          {
+            "id": "b",
+            "texto": "Es amable, porque acompañó a la niña y le dio pan."
+          },
+          {
+            "id": "c",
+            "texto": "Es tímida, porque se quedó sola en el recreo."
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Lucía se sentó con la niña nueva y compartió su pan. Esas acciones son la pista de que es amable.",
+        "pista": "Busca qué hace Lucía y piensa qué característica muestra esa acción."
+      }
+    }
   },
   {
     "clave": "com.p2.significado-por-el-contexto",
@@ -1069,7 +1182,129 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Descubres qué pasó y por qué",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a descubrir la causa y el efecto. Como idea principal, la causa es lo que hace que algo pase, y el efecto es lo que pasa como resultado. Palabras como «porque», «por eso» y «como» te ayudan a unirlos."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Un día de lluvia",
+          "narracion": "Observemos esta escena: tres niños con impermeable miran desde la puerta del colegio cómo llueve afuera. Las cosas pasan por algo: la lluvia moja el suelo. Eso es una causa y su efecto.",
+          "recursoRef": "lluvia"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: lee qué pasó",
+          "narracion": "Lee la tarjeta: «El gato tiró el vaso. Por eso el piso se mojó». La pregunta amarilla quiere saber cuál es la causa y cuál es el efecto.",
+          "recursoRef": "gato"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: pregunta por qué",
+          "narracion": "Preguntamos qué pasó: el piso se mojó. Luego preguntamos por qué: porque el gato tiró el vaso. La causa es que el gato tiró el vaso y el efecto es que el piso se mojó. «Por eso» los une, y la causa ocurrió primero."
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: otra oración",
+          "narracion": "Ahora otra tarjeta: «Lucía no fue al parque porque tenía fiebre». La pregunta amarilla quiere saber cuál es la causa y cuál es el efecto.",
+          "recursoRef": "fiebre"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la causa va al final",
+          "narracion": "En la imagen, una niña con un termómetro en la boca está en cama, y por la ventana se ve un parque con árboles. Lo que pasó es que Lucía no fue al parque. ¿Por qué? Porque tenía fiebre. La causa es la fiebre, aunque se dice al final, y el efecto es no ir al parque.",
+          "recursoRef": "fiebre-ill"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: creer que la causa va primero",
+          "narracion": "En la tarjeta, arriba, alguien cree que la causa es «no fue al parque», solo porque se nombra primero. El orden de las palabras no dice cuál es la causa. Abajo está la correcta: tenía fiebre, y lo que pasó después fue no ir al parque.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: ¿qué pasó?",
+          "narracion": "Primero, pregunta qué pasó."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: ¿por qué pasó?",
+          "narracion": "Segundo, pregunta por qué pasó. Esa respuesta es la causa. Busca palabras como «porque», «por eso» y «como»."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: comprueba el orden",
+          "narracion": "Tercero, comprueba que la causa ocurra antes que el efecto."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "lluvia",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-2/causa-lluvia-zimage-v1.webp",
+          "alt": "Tres niños con impermeables miran la lluvia desde la puerta de un colegio.",
+          "descripcion": "Tres niños vistos de espaldas, con impermeables verde, amarillo y azul, se paran en la puerta de un colegio. Afuera cae lluvia fina y el cielo está gris. El piso de la entrada tiene gotas."
+        },
+        {
+          "id": "gato",
+          "src": "/nudito/diagramas/comunicacion/causa-efecto-gato-pregunta.svg",
+          "alt": "Tarjeta con el texto sobre un gato que tiró un vaso y el piso mojado, y la pregunta por la causa y el efecto.",
+          "descripcion": "Un recuadro blanco con el texto: El gato tiró el vaso. Por eso el piso se mojó. Debajo, una tarjeta amarilla pregunta: ¿Cuál es la causa y cuál es el efecto?"
+        },
+        {
+          "id": "fiebre",
+          "src": "/nudito/diagramas/comunicacion/causa-efecto-fiebre-pregunta.svg",
+          "alt": "Tarjeta con el texto sobre Lucía y la fiebre, y la pregunta por la causa y el efecto.",
+          "descripcion": "Un recuadro blanco con el texto: Lucía no fue al parque porque tenía fiebre. Debajo, una tarjeta amarilla pregunta: ¿Cuál es la causa y cuál es el efecto?"
+        },
+        {
+          "id": "fiebre-ill",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-2/causa-fiebre-zimage-v1.webp",
+          "alt": "Una niña en cama con un termómetro en la boca; por la ventana se ve un parque.",
+          "descripcion": "Una niña de pelo largo está acostada en una cama, con una manta rosada, y tiene un termómetro en la boca. Su cara se ve cansada. A la izquierda, una ventana deja ver un parque con árboles y pasto."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/comunicacion/causa-efecto-error.svg",
+          "alt": "Oración sobre Lucía, una respuesta equivocada con cruz y otra correcta con palomita.",
+          "descripcion": "Un recuadro blanco con el texto: Lucía no fue al parque porque tenía fiebre. Debajo, una tarjeta roja con cruz dice: Causa: no fue al parque, porque se nombra primero. Luego, una tarjeta verde con palomita dice: Causa: tenía fiebre. Efecto: no fue al parque."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Como el pozo se secó, buscaron agua en el río. ¿Cuál fue la causa?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Buscaron agua"
+          },
+          {
+            "id": "b",
+            "texto": "Hizo mucho calor"
+          },
+          {
+            "id": "c",
+            "texto": "El pozo se secó"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "La causa es que el pozo se secó. Por eso buscaron agua en el río.",
+        "pista": "Pregunta por qué buscaron agua en otro lugar."
+      }
+    }
   },
   {
     "clave": "com.p2.comparar-en-el-texto",
@@ -1435,7 +1670,129 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Qué se parece y qué cambia",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a comparar en un texto. Como idea principal, comparar es ver en qué se parecen dos cosas, que son las semejanzas, y en qué se diferencian, que son las diferencias. Palabras como «los dos», «también» y «pero» ayudan a encontrarlas."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Dos mochilas sobre una banca",
+          "narracion": "Observemos esta escena: una mochila roja y otra azul, juntas en una banca. Si las miramos juntas, vemos cosas en que se parecen y cosas en que cambian. Mirar así dos cosas es comparar.",
+          "recursoRef": "mochilas"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dos verduras",
+          "narracion": "Lee la tarjeta: «El tomate es rojo y redondo. La zanahoria es anaranjada y larga. Los dos son verduras». La pregunta amarilla quiere saber en qué se parecen y en qué se diferencian.",
+          "recursoRef": "verduras"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: haz dos listas",
+          "narracion": "Primero, lo que tienen igual: «los dos» son verduras. Esa es la semejanza. Después, lo que cambia: el tomate es rojo y redondo, y la zanahoria es anaranjada y larga. Esas son las diferencias."
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: dos aves",
+          "narracion": "Ahora lee la tarjeta: «El loro y el gallo tienen plumas de colores. El loro imita voces, pero el gallo canta al amanecer». La pregunta amarilla es la misma.",
+          "recursoRef": "aves-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: busca la palabra pero",
+          "narracion": "Observemos esta escena: un loro y un gallo están juntos sobre una cerca. Se parecen en que los dos tienen plumas de colores. Se diferencian en lo que hacen: el loro imita voces, pero el gallo canta al amanecer. La palabra «pero» marca la diferencia.",
+          "recursoRef": "aves"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: ver solo lo distinto",
+          "narracion": "En la tarjeta, arriba, se lee un texto sobre dos gorros. Alguien dice solo en qué se diferencian. Abajo se agrega también lo que tienen igual.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee de cada uno",
+          "narracion": "Primero, lee qué dice el texto de cada uno."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca igual y distinto",
+          "narracion": "Segundo, busca lo que tienen igual y lo que cambia. Las palabras «los dos», «también» y «pero» ayudan."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: escribe tu comparación",
+          "narracion": "Tercero, escribe una semejanza y una diferencia con tus palabras."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "mochilas",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-2/comparar-mochilas-zimage-v1.webp",
+          "alt": "Dos mochilas sobre una banca: una roja y grande, y otra azul y más pequeña.",
+          "descripcion": "Sobre una banca de madera hay dos mochilas escolares. La de la izquierda es roja y más grande. La de la derecha es azul y más pequeña. Cada una tiene un bolsillo con cierre al frente y un asa arriba."
+        },
+        {
+          "id": "verduras",
+          "src": "/nudito/diagramas/comunicacion/comparar-verduras-pregunta.svg",
+          "alt": "Tarjeta con el texto sobre el tomate y la zanahoria, y la pregunta en qué se parecen y en qué se diferencian.",
+          "descripcion": "Un recuadro blanco con el texto: El tomate es rojo y redondo. La zanahoria es anaranjada y larga. Los dos son verduras. Debajo, una tarjeta amarilla pregunta: ¿En qué se parecen y en qué se diferencian?"
+        },
+        {
+          "id": "aves-pregunta",
+          "src": "/nudito/diagramas/comunicacion/comparar-aves-pregunta.svg",
+          "alt": "Tarjeta con el texto sobre el loro y el gallo, y la pregunta en qué se parecen y en qué se diferencian.",
+          "descripcion": "Un recuadro blanco con el texto: El loro y el gallo tienen plumas de colores. El loro imita voces, pero el gallo canta al amanecer. Debajo, una tarjeta amarilla pregunta: ¿En qué se parecen y en qué se diferencian?"
+        },
+        {
+          "id": "aves",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-2/comparar-aves-zimage-v1.webp",
+          "alt": "Un loro verde y un gallo de plumas anaranjadas, uno junto al otro sobre una cerca.",
+          "descripcion": "Sobre una cerca de madera, un loro de plumas verdes con pico rojizo mira de frente a un gallo. El gallo tiene cresta roja y plumas anaranjadas, con alas y cola de tonos azul verdoso. Detrás hay colinas y un cielo claro."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/comunicacion/comparar-error.svg",
+          "alt": "Texto sobre dos gorros, una respuesta roja con cruz y otra verde con palomita.",
+          "descripcion": "Un recuadro blanco con el texto: Beto tiene un gorro rojo. Lía tiene un gorro azul. Los dos gorros son de lana. Debajo, una tarjeta roja con cruz dice: Solo se diferencian: uno es rojo y el otro azul. Luego, una tarjeta verde con palomita dice: También se parecen: los dos gorros son de lana."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Nina y Teo tienen cuyes. El cuy de Nina es gris. El cuy de Teo es marrón. Los dos cuyes comen pasto. ¿En qué se parecen los dos cuyes?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "los dos comen pasto"
+          },
+          {
+            "id": "b",
+            "texto": "los dos son marrones"
+          },
+          {
+            "id": "c",
+            "texto": "los dos son grises"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Los dos cuyes comen pasto: esa es la semejanza. Que uno sea gris y el otro marrón es una diferencia.",
+        "pista": "Una semejanza es algo que tienen los dos, no solo uno."
+      }
+    }
   },
   {
     "clave": "com.p2.personajes-principales-y-secundarios",
@@ -2618,7 +2975,127 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "El tema es de lo que habla todo el texto",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a decir de qué trata un texto y para qué se escribió. Como idea principal, el tema es aquello de lo que se habla de principio a fin. El propósito es para qué lo escribió el autor: contar, informar, enseñar o invitar. Un dato suelto no es el tema."
+        },
+        {
+          "id": "situacion-cuy",
+          "tipo": "recurso",
+          "titulo": "Un texto sobre un animal",
+          "narracion": "Observemos este texto: «El cuy come pasto y hojas verdes. El cuy vive en jaulas o corrales. Al cuy le gusta estar con otros cuyes». Abajo, una tarjeta amarilla pregunta de qué trata.",
+          "recursoRef": "cuy"
+        },
+        {
+          "id": "ejemplo-cuy-repite",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: busca qué se repite",
+          "narracion": "Busca qué palabra se repite. En cada oración aparece el cuy: come, vive y le gusta estar con otros cuyes. Ese animal une todo el texto. El tema es el cuy.",
+          "recursoRef": "cuy"
+        },
+        {
+          "id": "ejemplo-cuy-proposito",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ¿para qué se escribió?",
+          "narracion": "Ahora pensamos para qué se escribió. El texto no cuenta una historia ni invita a nadie. Da datos sobre cómo es el cuy. Su propósito es informar."
+        },
+        {
+          "id": "ejemplo-limonada-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un texto con palabras de orden",
+          "narracion": "Veamos otro texto: «Primero pon agua en un vaso. Luego agrega el polvo de limonada. Al final, mueve con una cuchara». Las palabras «primero», «luego» y «al final» están resaltadas.",
+          "recursoRef": "limonada"
+        },
+        {
+          "id": "ejemplo-limonada-tema",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el tema",
+          "narracion": "Esas palabras ordenan lo que debes hacer. Todo el texto habla de lo mismo: cómo preparar una limonada. Ese es el tema.",
+          "recursoRef": "limonada"
+        },
+        {
+          "id": "ejemplo-limonada-proposito",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el propósito",
+          "narracion": "Como el texto dice qué hacer paso a paso, su propósito es enseñar. No cuenta un cuento ni da solo datos: enseña a preparar algo.",
+          "recursoRef": "limonada"
+        },
+        {
+          "id": "error-dato-suelto",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: elegir un dato suelto",
+          "narracion": "Mira esta imagen. El cuy aparece en las tres oraciones y por eso es el tema. El pasto aparece en una sola oración: es un dato suelto. Si respondes que el texto trata del pasto, eliges solo un pedacito.",
+          "recursoRef": "repite"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee todo el texto",
+          "narracion": "Primero lee todo el texto despacio, como el del cuy. No te quedes solo con la primera oración.",
+          "recursoRef": "cuy"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca qué se repite",
+          "narracion": "Después busca de qué se habla en todas las oraciones. Eso es el tema. Un dato que aparece una sola vez no lo es, como el pasto en la imagen.",
+          "recursoRef": "repite"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: pregunta qué hace el texto",
+          "narracion": "Por último pregúntate si el texto cuenta, informa, enseña o invita. Si da pasos con palabras como primero, luego y al final, como el de la limonada, enseña.",
+          "recursoRef": "limonada"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cuy",
+          "src": "/nudito/diagramas/comunicacion/tema-cuy-texto.svg",
+          "alt": "Texto de tres oraciones sobre el cuy y la pregunta de qué trata.",
+          "descripcion": "Un recuadro blanco con tres oraciones: El cuy come pasto y hojas verdes. El cuy vive en jaulas o corrales. Al cuy le gusta estar con otros cuyes. Debajo, una tarjeta amarilla pregunta: ¿De qué trata?"
+        },
+        {
+          "id": "limonada",
+          "src": "/nudito/diagramas/comunicacion/tema-limonada-orden.svg",
+          "alt": "Texto de tres pasos para preparar limonada con las palabras de orden resaltadas.",
+          "descripcion": "Un recuadro blanco con tres renglones: Primero pon agua en un vaso. Luego agrega el polvo de limonada. Al final, mueve con una cuchara. Las palabras Primero, Luego y Al final están en rojo oscuro. Abajo, una tarjeta amarilla pregunta para qué se escribió."
+        },
+        {
+          "id": "repite",
+          "src": "/nudito/diagramas/comunicacion/tema-se-repite-cuy.svg",
+          "alt": "El cuy aparece en las tres oraciones; el pasto, en una sola.",
+          "descripcion": "Arriba, una tarjeta verde con palomita dice Tema: el cuy, aparece en las tres oraciones. Abajo, una tarjeta roja de borde punteado con cruz dice Dato suelto: el pasto, aparece en una sola oración."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee: «La quinua crece en la sierra. Sus granos se cocinan en sopas. Con la quinua también se hace pan. Es un alimento muy nutritivo». ¿De qué trata el texto?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "De las sopas que se cocinan."
+          },
+          {
+            "id": "b",
+            "texto": "De la quinua y para qué sirve."
+          },
+          {
+            "id": "c",
+            "texto": "De la sierra y sus montañas."
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "La quinua aparece en todo el texto: dónde crece, cómo se cocina y qué aporta. Las sopas son solo un dato.",
+        "pista": "Busca de qué se habla en todas las oraciones, no en una sola."
+      }
+    }
   },
   {
     "clave": "com.p2.texto-e-ilustracion",

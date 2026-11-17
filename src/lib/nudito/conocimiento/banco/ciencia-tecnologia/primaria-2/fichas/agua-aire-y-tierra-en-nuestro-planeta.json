@@ -314,7 +314,121 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "El planeta tiene agua, aire y material sólido",
+          "narracion": "Hola. Hoy vamos a descubrir de qué está hecho el mundo que nos rodea. Como idea principal, la Tierra tiene tres partes que puedes encontrar a tu alrededor: el agua, que forma ríos, lagunas y mares; el aire, que no se ve, pero se siente y lo respiramos; y el material sólido, como la tierra, la arena y las rocas."
+        },
+        {
+          "id": "situacion-valle",
+          "tipo": "recurso",
+          "titulo": "Un valle con río, cerro y viento",
+          "narracion": "Observemos esta situación. Es un valle con un río de agua clara, un cerro de tierra y piedras, y un niño que hace volar una cometa. Vamos a buscar en este paisaje las tres partes de la Tierra.",
+          "recursoRef": "valle"
+        },
+        {
+          "id": "ejemplo-playa-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: un día en la playa",
+          "narracion": "Imagina que estás en una playa de la costa peruana, como la de Paracas. Ves el mar, sientes la brisa en la cara y pisas la arena. Fíjate en la imagen: un niño sostiene un molinete que gira y detrás hay olas pequeñas. Vamos a decidir a qué parte de la Tierra pertenece cada cosa.",
+          "recursoRef": "playa"
+        },
+        {
+          "id": "ejemplo-playa-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una cosa a la vez",
+          "narracion": "El mar es agua. La brisa que hace girar el molinete es aire en movimiento. La arena que pisas es material sólido. Por eso, en la playa encontraste las tres partes de la Tierra: agua, aire y material sólido.",
+          "recursoRef": "playa"
+        },
+        {
+          "id": "ejemplo-cerro-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un paseo por el cerro",
+          "narracion": "Don Julio sube a un cerro cerca de Huancayo. En el camino bebe agua de un río y respira el aire fresco. Pensemos en el valle de la primera imagen: allí también hay un cerro y un río. ¿Qué parte del paseo de don Julio es sólida?",
+          "recursoRef": "valle"
+        },
+        {
+          "id": "ejemplo-cerro-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: qué puedes pisar y tocar",
+          "narracion": "Para reconocer lo sólido, pregúntate qué puedes pisar y tocar, a diferencia del agua, que moja, y del aire, que no se ve. El río es agua y lo que respira don Julio es aire. El cerro está hecho de tierra y rocas, así que lo sólido en su paseo es el cerro.",
+          "recursoRef": "valle"
+        },
+        {
+          "id": "error-aire",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: pensar que el aire no existe porque no se ve",
+          "narracion": "Hay quien piensa que, si algo no se ve, no existe. Pero el aire sí existe: lo sientes cuando hay viento y llena un globo inflado. En la playa, el molinete gira porque el aire lo empuja, aunque no podamos verlo.",
+          "recursoRef": "playa"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: observa y nombra lo que ves",
+          "narracion": "Primero mira con calma el lugar y nombra lo que hay: un río, una piedra, un cerro, una cometa que vuela. Haz una lista corta con las cosas que reconoces.",
+          "recursoRef": "valle"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca una pista en cada cosa",
+          "narracion": "Después fíjate en las pistas. Si corre y moja, es agua. Si no se ve, pero se siente y lo respiras, es aire. Si puedes pisarlo y tocarlo, como la tierra, la arena o una roca, es material sólido. En la ilustración hay tres tarjetas, una para cada parte de la Tierra, con esas pistas.",
+          "recursoRef": "tres-partes"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: decide a qué parte pertenece y explícalo",
+          "narracion": "Por último, decide a cuál de las tres partes pertenece lo que observas y di la pista que usaste. Por ejemplo: «La arena es material sólido porque puedo pisarla y tocarla». Las tres tarjetas te ayudan a ordenar lo que encontraste.",
+          "recursoRef": "tres-partes"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "valle",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-2/paisaje-rio-cerro-cometa-zimage-v1.webp",
+          "alt": "Valle con un río de agua clara, un cerro de tierra y piedras, cielo azul y un niño con una cometa.",
+          "descripcion": "En un valle corre un río de agua clara entre orillas con pasto. A la derecha hay un cerro de tierra marrón con muchas piedras. Un niño con mochila sostiene el hilo de una cometa de colores que vuela alto en el cielo."
+        },
+        {
+          "id": "playa",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-2/playa-brisa-arena-zimage-v1.webp",
+          "alt": "Niño en una playa con un molinete, olas del mar a su espalda y arena con huellas.",
+          "descripcion": "Un niño sostiene un molinete de colores en la orilla de una playa. Detrás se ven olas con espuma que llegan a la orilla y, delante, la arena clara con huellas. El cielo es azul y a la derecha hay un cerro lejano."
+        },
+        {
+          "id": "tres-partes",
+          "src": "/nudito/diagramas/ciencia-tecnologia/tres-partes-tierra.svg",
+          "alt": "Tres tarjetas: agua con olas, aire con remolinos de viento y material sólido con rocas y arena.",
+          "descripcion": "Tres tarjetas de colores. La primera, azul, muestra olas y dice agua, con ríos, lagunas y mar. La segunda muestra remolinos de viento y dice aire, el viento se siente. La tercera muestra rocas sobre arena y dice sólido, con tierra, arena y rocas."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Daniel mira una laguna, siente la brisa y toca una roca de la orilla. ¿Qué lista une cada cosa con su parte de la Tierra?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Laguna: aire. Brisa: agua. Roca: material sólido."
+          },
+          {
+            "id": "b",
+            "texto": "Laguna: agua. Brisa: aire. Roca: material sólido."
+          },
+          {
+            "id": "c",
+            "texto": "Laguna: material sólido. Brisa: agua. Roca: aire."
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "La laguna es agua, la brisa es aire en movimiento y la roca es material sólido.",
+        "pista": "Piensa qué puedes pisar o tocar, qué moja y qué no se ve pero se siente."
+      }
+    }
   },
   {
     "clave": "cyt.p2.rios-lagunas-y-mar",
@@ -1146,7 +1260,7 @@
           },
           {
             "id": "b",
-            "texto": "Beber agua de una poza de la orilla"
+            "texto": "Beber el agua de una poza de mar entre las rocas"
           },
           {
             "id": "c",
@@ -1159,7 +1273,7 @@
         ],
         "pistas": [
           "Piensa qué agua no tiene sal.",
-          "Las pozas de la orilla traen agua del mar.",
+          "Las pozas de mar entre las rocas guardan agua salada.",
           "Lo mejor es el agua limpia que trae contigo."
         ],
         "retroalimentacion": "Le conviene el agua limpia de su botella: el agua del mar y de las pozas es salada y da más sed.",
@@ -1314,7 +1428,118 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Agua con poca sal y agua con mucha sal",
+          "narracion": "Hola. Hoy veremos el agua dulce y el agua salada. Como idea principal, el agua dulce casi no tiene sal y está en los ríos, las lagunas y la lluvia. El agua del mar es salada: tiene mucha sal. Por eso no se bebe, porque da más sed."
+        },
+        {
+          "id": "situacion-laguna",
+          "tipo": "recurso",
+          "titulo": "Una laguna bajo la lluvia",
+          "narracion": "Observemos esta situación en lo alto de los Andes. En la imagen hay una laguna de agua tranquila, rodeada de totoras amarillas. Detrás se ven montañas con nieve, y de las nubes grises cae lluvia. Dos niños miran la laguna desde la orilla. Nos preguntamos: ¿cómo podemos saber si un agua es dulce o salada?",
+          "recursoRef": "laguna-lluvia"
+        },
+        {
+          "id": "ejemplo-rio-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: un río de la sierra",
+          "narracion": "Pensemos en el río Mantaro, en Huancayo. En la imagen vemos un río de la sierra que baja entre cerros verdes y rocas redondas. Dos niños lo miran desde la orilla. Ese río recibe la lluvia y la nieve derretida de los cerros. Nos preguntamos: ¿es de agua dulce o salada?",
+          "recursoRef": "rio-sierra"
+        },
+        {
+          "id": "ejemplo-rio-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: casi sin sal",
+          "narracion": "Los ríos llevan agua de lluvia y de nieve derretida, con muy poca sal. Entonces el río es de agua dulce, igual que la laguna y la lluvia. Dulce no quiere decir con azúcar, sino con muy poca sal. Y no pruebes aguas desconocidas: un adulto debe decidir si están limpias.",
+          "recursoRef": "rio-sierra"
+        },
+        {
+          "id": "ejemplo-mar-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un pescador en el mar",
+          "narracion": "Ahora pensemos en un pescador de Paita. En la imagen, un pescador con sombrero de paja rema en un bote de madera cerca de la costa. Atrás se ven unas casitas sobre la orilla rocosa. Imaginemos que tiene sed. Nos preguntamos: ¿puede beber el agua que lo rodea?",
+          "recursoRef": "pescador-mar"
+        },
+        {
+          "id": "ejemplo-mar-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el mar tiene mucha sal",
+          "narracion": "El agua del mar tiene mucha sal. Si la bebe, tendrá más sed y le hará daño. Por eso un pescador lleva agua limpia para beber en una botella.",
+          "recursoRef": "pescador-mar"
+        },
+        {
+          "id": "error-dulce-bebible",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: toda el agua dulce se bebe",
+          "narracion": "Hay quien cree que toda el agua dulce se puede beber. Un río con basura o barro también es agua dulce, pero no se bebe sin que un adulto la limpie. Dulce solo habla de la sal."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: pregunta de dónde viene el agua",
+          "narracion": "Primero pregunta de dónde viene el agua. El mar es salado. Los ríos, las lagunas y la lluvia son dulces, como en la imagen de la laguna.",
+          "recursoRef": "laguna-lluvia"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: piensa en la sal",
+          "narracion": "Después piensa cuánta sal tiene. Si tiene mucha sal, es agua salada. Si casi no tiene sal, es agua dulce."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: decide si se puede beber",
+          "narracion": "Por último, decide. El agua salada del mar no se bebe. El agua dulce se bebe solo si está limpia y un adulto lo confirma."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "laguna-lluvia",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-2/laguna-lluvia-zimage-v1.webp",
+          "alt": "Laguna andina bajo la lluvia, con totoras amarillas, montañas nevadas al fondo y dos niños que la miran desde la orilla.",
+          "descripcion": "Una laguna de agua celeste y tranquila refleja las montañas con nieve. Las nubes grises dejan caer lluvia. En la orilla hay totoras amarillas y, de espaldas, una niña de trenzas y un niño miran el agua."
+        },
+        {
+          "id": "rio-sierra",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-2/rio-sierra-agua-clara-zimage-v1.webp",
+          "alt": "Río de agua clara que serpentea entre lomas verdes, con rocas redondas y dos niños mirando desde la orilla.",
+          "descripcion": "Un río celeste baja haciendo curvas entre lomas verdes. En el agua hay varias rocas redondas con espuma blanca. A la derecha, sobre el pasto, un niño de camisa blanca y una niña de blusa amarilla miran el río."
+        },
+        {
+          "id": "pescador-mar",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-2/pescador-mar-bote-zimage-v1.webp",
+          "alt": "Un pescador adulto con sombrero de paja rema en un bote de madera por el mar, cerca de una costa rocosa con casitas.",
+          "descripcion": "Un hombre de camisa clara y sombrero de paja, visto de espaldas, rema con dos remos en un bote de madera sobre un mar azul tranquilo. Atrás hay una costa de arena y rocas con casitas de colores y, junto a ellas, algunas personas muy pequeñas."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Tomás deja un balde limpio bajo la lluvia y se llena de agua. ¿Qué tipo de agua es el agua de lluvia?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Agua salada, como la del mar."
+          },
+          {
+            "id": "b",
+            "texto": "Agua dulce, con muy poca sal."
+          },
+          {
+            "id": "c",
+            "texto": "Agua con azúcar, por ser dulce."
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "La lluvia es agua dulce: casi no tiene sal. Dulce no significa con azúcar.",
+        "pista": "Piensa cuánta sal tiene el agua que cae de las nubes."
+      }
+    }
   },
   {
     "clave": "cyt.p2.nevados-y-glaciares",
@@ -3317,7 +3542,117 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Cerros, montañas y valles",
+          "narracion": "Hola. Hoy conoceremos las elevaciones y las zonas bajas del terreno. Como idea principal, el material sólido de la Tierra forma elevaciones y zonas bajas. Los cerros son elevaciones del terreno y las montañas son todavía más altas. El valle es una zona baja entre cerros, por donde suele correr un río."
+        },
+        {
+          "id": "situacion-cerros",
+          "tipo": "recurso",
+          "titulo": "Elevaciones del terreno",
+          "narracion": "Observemos esta situación en la sierra. En la imagen hay varios cerros de laderas verdes y marrones, de distintos tamaños. Un camino de tierra pasa entre ellos. Nos preguntamos: ¿qué zonas del terreno son altas y cuáles son bajas?",
+          "recursoRef": "cerros-pastizal"
+        },
+        {
+          "id": "ejemplo-valle-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el valle del Mantaro",
+          "narracion": "Rosa vive en el valle del Mantaro, en Huancayo. En la imagen, vista desde arriba, un río serpentea por la parte baja. A los lados se alzan cerros altos. Junto al río hay campos de cultivo y unas casitas. Nos preguntamos: ¿cómo se llama esa zona baja?",
+          "recursoRef": "valle-rio"
+        },
+        {
+          "id": "ejemplo-valle-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: zona baja entre cerros",
+          "narracion": "La zona baja entre los cerros, por donde corre el río, es un valle. El agua de la lluvia baja de los cerros hacia él. Por eso en los valles suele haber campos y casas.",
+          "recursoRef": "valle-rio"
+        },
+        {
+          "id": "ejemplo-montana-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una montaña con nieve",
+          "narracion": "Lalo mira desde Cusco. En la imagen, una montaña altísima, con la parte de arriba cubierta de nieve blanca, se levanta sobre cerros mucho más bajos. Delante hay una laguna y dos niños la miran. Nos preguntamos: ¿es un cerro o una montaña?",
+          "recursoRef": "montana-nevada"
+        },
+        {
+          "id": "ejemplo-montana-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: mucho más alta que los cerros",
+          "narracion": "Esa elevación es mucho más alta que los cerros que la rodean, y arriba tiene nieve. Entonces es una montaña. Las montañas son más altas que los cerros.",
+          "recursoRef": "montana-nevada"
+        },
+        {
+          "id": "contraejemplo-pampa",
+          "tipo": "ejemplo",
+          "titulo": "Un caso distinto: el terreno plano",
+          "narracion": "En la costa de Ica hay terrenos planos de arena, sin cerros ni zonas bajas entre ellos. Eso no es un cerro, una montaña ni un valle. Es una llanura o pampa."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira hacia arriba",
+          "narracion": "Primero mira hacia arriba. Si hay una elevación, es un cerro o una montaña. Compara: la montaña es más alta que el cerro."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: mira hacia abajo",
+          "narracion": "Luego mira la zona baja entre los cerros. Si por allí suele correr un río, es un valle."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: si es plano",
+          "narracion": "Por último, si el terreno es plano, sin cerros alrededor, es una llanura o pampa."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cerros-pastizal",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-2/cerros-pastizal-zimage-v1.webp",
+          "alt": "Varios cerros de laderas verdes y marrones, de distintos tamaños, con un camino de tierra que pasa entre ellos bajo un cielo azul.",
+          "descripcion": "Cinco cerros de formas irregulares, con pasto verde y zonas de tierra marrón, se ven bajo un cielo azul sin nubes. Un camino de tierra clara hace una curva entre ellos. No hay personas ni animales."
+        },
+        {
+          "id": "valle-rio",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-2/valle-rio-cerros-zimage-v1.webp",
+          "alt": "Vista de un valle: un río serpentea por la parte baja entre cerros verdes altos, con campos de cultivo y casitas junto al río.",
+          "descripcion": "Un río celeste hace curvas por el fondo de un valle. A ambos lados suben cerros verdes grandes. Junto al río hay campos de cultivo verdes y, a la derecha, un grupo de casitas con techos de colores. Arriba hay un cielo claro."
+        },
+        {
+          "id": "montana-nevada",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-2/montana-nevada-zimage-v1.webp",
+          "alt": "Una montaña andina muy alta, con nieve en la parte de arriba, sobre cerros más bajos; delante hay una laguna turquesa y dos niños.",
+          "descripcion": "En el centro se alza una montaña de laderas rocosas marrones y nieve blanca en la parte alta. Delante hay cerros verdes más bajos y una laguna turquesa. A la derecha, de espaldas, un niño de polo verde y una niña de polo rosado miran la laguna. El cielo es celeste con nubes."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Joaquín viaja por un terreno muy plano y extenso, sin cerros a su alrededor. ¿Cómo se llama esa forma del terreno?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un valle"
+          },
+          {
+            "id": "b",
+            "texto": "Una montaña"
+          },
+          {
+            "id": "c",
+            "texto": "Una llanura"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Es una llanura o pampa: un terreno plano, sin cerros ni zonas bajas entre ellos.",
+        "pista": "Piensa si hay elevaciones o zonas bajas."
+      }
+    }
   },
   {
     "clave": "cyt.p2.rocas-y-arena",

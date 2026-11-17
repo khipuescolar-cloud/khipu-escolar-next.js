@@ -1430,6 +1430,119 @@
         "respuesta": "Es un cambio reversible."
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Cambios que se pueden deshacer",
+          "narracion": "Bienvenido a esta clase sobre cambios reversibles e irreversibles. Primero conocerás la idea principal, luego analizarás dos situaciones con alimentos y al final responderás una pregunta. Como idea principal de este tema, un cambio es reversible cuando puedes recuperar el mismo material que había al comienzo, y es irreversible cuando se forma algo nuevo y ya no puedes volver al material original. Lo importante no es qué tan grande parece el cambio, sino si el material original puede volver."
+        },
+        {
+          "id": "situacion-mantequilla",
+          "tipo": "recurso",
+          "titulo": "Mantequilla en una sartén tibia",
+          "narracion": "Observemos esta situación en una cocina. Una niña pone un trozo de mantequilla en una sartén sobre fuego bajo, y el trozo empieza a volverse líquido. Pensemos en esta pregunta: si apagamos el fuego y dejamos enfriar la sartén, ¿recuperaremos la mantequilla sólida?",
+          "recursoRef": "mantequilla-sarten"
+        },
+        {
+          "id": "ejemplo-1-compara",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: qué cambió y qué no",
+          "narracion": "Antes del cambio, la mantequilla es sólida y blanda. Con el calor se derrite y pasa a líquido. Su forma y su estado cambiaron, pero sigue siendo mantequilla: no apareció un material nuevo.",
+          "recursoRef": "mantequilla-sarten"
+        },
+        {
+          "id": "ejemplo-1-vuelve",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: puede volver",
+          "narracion": "Si apagamos el fuego y dejamos enfriar la sartén, el líquido se endurece y vuelve a ser mantequilla sólida. Como se recupera el mismo material, derretir mantequilla es un cambio reversible.",
+          "recursoRef": "mantequilla-sarten"
+        },
+        {
+          "id": "ejemplo-2-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: observa la masa antes del horno",
+          "narracion": "Ahora observemos esta situación en una panadería. Un panadero coloca sobre una mesa una bandeja con bolitas de masa cruda, hecha de harina, agua y levadura, junto a un horno de ladrillo. Después de hornearlas saldrán panes. Pensemos en esta pregunta: ¿podremos volver a obtener masa cruda a partir de un pan horneado?",
+          "recursoRef": "masa-horno"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: razona sobre el pan",
+          "narracion": "Antes del cambio, la masa es blanda y húmeda. Con el calor del horno se endurece por fuera, cambia de color y de olor, y se forma pan. El pan ya no es una mezcla de harina, agua y levadura como al inicio: es un material nuevo. No hay forma de volver a dejarlo como masa cruda, así que hornear pan es un cambio irreversible.",
+          "recursoRef": "masa-horno"
+        },
+        {
+          "id": "error-frecuente",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: «el azúcar desapareció y no se recupera»",
+          "narracion": "Cuando disuelves azúcar en una taza de agua, el azúcar deja de verse y algunas personas piensan que desapareció para siempre. Pero el azúcar sigue allí, mezclada con el agua. Si el agua se evapora, el azúcar vuelve a aparecer. Que algo ya no se vea no significa que el cambio sea irreversible."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: observa cómo era antes",
+          "narracion": "Ahora aprenderemos una forma de razonar en tres pasos. Este esquema tiene un cuadro «Antes», un cuadro «Después» y una flecha punteada que intenta regresar. Primero, observa cómo es el material antes del cambio: su forma, su color y si es sólido o líquido.",
+          "recursoRef": "metodo-cambio"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: observa cómo queda después",
+          "narracion": "Después, observa cómo queda el material al final y pregúntate si sigue siendo el mismo o si se formó algo nuevo, con otro color, otro olor o una textura que antes no tenía.",
+          "recursoRef": "metodo-cambio"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: pregunta si puede volver",
+          "narracion": "Por último, sigue la flecha punteada del esquema y pregunta si puedes volver al inicio enfriando, calentando, mezclando o separando. Si recuperas el mismo material, el cambio es reversible. Si el material ya es otro y no puedes recuperarlo, es irreversible.",
+          "recursoRef": "metodo-cambio"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "mantequilla-sarten",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-4/cambios-mantequilla-sarten-zimage-v1.webp",
+          "alt": "Una niña sonriente mira un trozo de mantequilla que se derrite en una sartén roja sobre una hornilla encendida.",
+          "descripcion": "Una niña sostiene el mango de una sartén roja puesta sobre una hornilla con llama azul baja. En la sartén hay un trozo amarillo de mantequilla y a su alrededor se ve mantequilla ya derretida, líquida, con un poco de vapor."
+        },
+        {
+          "id": "masa-horno",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-4/cambios-masa-horno-zimage-v1.webp",
+          "alt": "Un panadero con gorro blanco acomoda una bandeja de bolitas de masa cruda sobre una mesa, junto a un horno de ladrillo.",
+          "descripcion": "Un panadero con uniforme y gorro blanco sostiene una bandeja metálica con bolitas de masa clara y cruda, apoyada sobre una mesa de madera con un montón de harina. Detrás hay un horno de ladrillo con brasas en su interior."
+        },
+        {
+          "id": "metodo-cambio",
+          "src": "/nudito/diagramas/ciencia-tecnologia/cambios-metodo.svg",
+          "alt": "Un cuadro Antes lleva con una flecha a un cuadro Después; una flecha punteada regresa y pregunta si puede volver al inicio.",
+          "descripcion": "A la izquierda hay un cuadro «Antes» y a la derecha un cuadro «Después», unidos por una flecha con la palabra «cambio». Desde el cuadro «Después» sale una flecha punteada que regresa al cuadro «Antes». Debajo se lee la pregunta «¿Puede volver al inicio?» y, en letra más pequeña, que si vuelve el mismo material, es reversible."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Camila hierve agua en una olla y el agua se convierte en vapor. Después, el vapor toca la tapa fría y vuelve a formar gotas de agua. ¿Cómo se clasifica el cambio de agua a vapor?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Es reversible, porque el vapor puede volver a ser agua cuando se enfría."
+          },
+          {
+            "id": "b",
+            "texto": "Es irreversible, porque el agua ya no se ve y desaparece para siempre."
+          },
+          {
+            "id": "c",
+            "texto": "Es irreversible, porque se forma una sustancia nueva distinta del agua."
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "El vapor sigue siendo agua. Al enfriarse en la tapa vuelve a formar gotas del mismo material, así que pasar de agua a vapor es un cambio reversible.",
+        "pista": "Pregunta si, al enfriar el vapor, recuperas el mismo material que había al comienzo."
+      }
+    },
     "erroresFrecuentes": [
       {
         "error": "Creer que si un cambio parece grande, es irreversible.",

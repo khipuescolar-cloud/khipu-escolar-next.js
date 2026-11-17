@@ -1278,7 +1278,133 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Caminos con flechas",
+          "narracion": "Bienvenida y bienvenido. Hoy leeremos caminos escritos con flechas. Como idea principal, un código de flechas dice cómo moverte. Cada flecha mueve un casillero. La flecha a la derecha va a la derecha. La flecha de arriba sube. La flecha de abajo baja. La flecha a la izquierda va a la izquierda. Las flechas se leen en orden, de izquierda a derecha."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Rosa en la chacra",
+          "narracion": "Observemos esta situación. Rosa está en un tablero de la chacra. Empieza en el casillero amarillo, abajo a la izquierda. Arriba está su código: una flecha a la derecha, otra flecha a la derecha y una flecha hacia arriba. Queremos saber a dónde llega Rosa.",
+          "recursoRef": "tablero-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: leer el código",
+          "narracion": "Mira el código de Rosa y toca cada flecha con el dedo, de izquierda a derecha. La primera flecha va a la derecha: Rosa se mueve un casillero. Ahora piensa: ¿qué hace la segunda flecha? ¿Y la tercera? Después busca dónde termina Rosa.",
+          "recursoRef": "tablero-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el camino de Rosa",
+          "narracion": "Aquí está el camino. Rosa avanza dos casilleros a la derecha, porque hay dos flechas a la derecha. Luego sube un casillero, por la flecha de arriba. Son tres flechas y tres casilleros. Rosa llega al casillero verde, donde está la bandera.",
+          "recursoRef": "rosa-camino"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: escribir el código",
+          "narracion": "Ahora hacemos lo contrario. Mira el tablero: el cuy está en el casillero amarillo de arriba a la izquierda. El maíz está dos casilleros a la derecha y un casillero más abajo. El código está escondido con un signo de pregunta. ¿Qué flechas escribes? Piensa en cada movimiento, uno por uno.",
+          "recursoRef": "cuy-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el código del cuy",
+          "narracion": "El cuy debe ir dos casilleros a la derecha y uno hacia abajo. Escribimos una flecha por cada casillero: derecha, derecha y abajo. Son tres flechas, porque son tres casilleros. La línea verde lleva al cuy hasta el maíz.",
+          "recursoRef": "cuy-codigo"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Mira los dos caminos para el código derecha y arriba. El camino verde cumple la regla: cada flecha mueve un casillero. Llega al casillero de la palomita. El camino rojo es un error: usa la primera flecha para saltar dos casilleros, y termina en otro lugar, con una equis. Otros errores son saltarse una flecha o leerlas sin orden. Por eso toca cada flecha, una por una.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca la salida",
+          "narracion": "Primero mira dónde empiezas. Ese es el casillero de salida, el amarillo. En el tablero de Rosa, la salida está abajo a la izquierda.",
+          "recursoRef": "tablero-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: una flecha, un casillero",
+          "narracion": "Lee las flechas de izquierda a derecha. Por cada flecha, muévete un casillero en esa dirección. En el camino de Rosa, la línea verde tiene tres tramos, uno por cada flecha.",
+          "recursoRef": "rosa-camino"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: mira dónde llegas",
+          "narracion": "Al terminar, mira en qué casillero quedaste. Esa es tu llegada. El cuy termina en el casillero verde, donde está el maíz. Así comprobamos el camino.",
+          "recursoRef": "cuy-codigo"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "tablero-pregunta",
+          "src": "/nudito/diagramas/matematica/codigos-de-flechas-tablero-pregunta.svg",
+          "alt": "Tablero de tres filas y cuatro columnas con Rosa en el casillero amarillo de abajo a la izquierda y un código de tres flechas.",
+          "descripcion": "Arriba, junto a la palabra código, hay tres cuadros con flechas: derecha, derecha y arriba. Debajo hay un tablero de tres filas y cuatro columnas. Rosa, una niña con ropa turquesa, está en el casillero amarillo de abajo a la izquierda. Debajo del tablero hay un cuadrito amarillo con la palabra salida."
+        },
+        {
+          "id": "rosa-camino",
+          "src": "/nudito/diagramas/matematica/codigos-de-flechas-rosa-camino.svg",
+          "alt": "El camino de Rosa en el tablero: derecha, derecha y arriba, hasta la bandera roja en el casillero verde.",
+          "descripcion": "Se ven el mismo código y el mismo tablero. Una línea verde sale de Rosa, avanza dos casilleros a la derecha y sube un casillero; cada tramo tiene una punta de flecha. Termina en un casillero verde claro con una bandera roja. Debajo hay dos cuadritos de color con las palabras salida y llegada."
+        },
+        {
+          "id": "cuy-pregunta",
+          "src": "/nudito/diagramas/matematica/codigos-de-flechas-cuy-pregunta.svg",
+          "alt": "Tablero con el cuy arriba a la izquierda y un maíz dos casilleros a la derecha y uno abajo; el código es un signo de pregunta.",
+          "descripcion": "Arriba se lee la palabra código con un signo de pregunta. En el tablero, el cuy, de color marrón, está en el casillero amarillo de arriba a la izquierda. El maíz, un óvalo amarillo con una raya, está en la segunda fila, tercera columna. Debajo hay un cuadrito amarillo con la palabra salida."
+        },
+        {
+          "id": "cuy-codigo",
+          "src": "/nudito/diagramas/matematica/codigos-de-flechas-cuy-codigo.svg",
+          "alt": "El cuy llega al maíz con el código derecha, derecha y abajo.",
+          "descripcion": "Arriba, el código muestra tres flechas: derecha, derecha y abajo. Una línea verde sale del cuy, avanza dos casilleros a la derecha y baja uno hasta el maíz, en un casillero verde claro. Debajo se leen las palabras salida y llegada."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/codigos-de-flechas-errores.svg",
+          "alt": "Dos caminos para el código derecha y arriba: uno verde correcto con palomita y uno rojo que salta dos casilleros, con equis.",
+          "descripcion": "Arriba hay un código de dos flechas: derecha y arriba. En el tablero, Rosa sale del casillero amarillo de abajo a la izquierda. La línea verde avanza un casillero a la derecha, sube uno y termina con una palomita verde. La línea roja punteada avanza dos casilleros a la derecha con una sola flecha, sube uno y termina con una equis roja."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un pollito debe subir dos casilleros y después ir un casillero a la derecha. ¿Qué código lo lleva?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Arriba, arriba, derecha"
+          },
+          {
+            "id": "b",
+            "texto": "Arriba, derecha, derecha"
+          },
+          {
+            "id": "c",
+            "texto": "Derecha, arriba, arriba"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Subir dos casilleros pide dos flechas hacia arriba, y después va una flecha a la derecha.",
+        "pista": "Escribe una flecha por cada casillero, en el mismo orden de la tarea."
+      }
+    }
   },
   {
     "clave": "mat.p2.ubicacion-cuadricula",
@@ -2558,6 +2684,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Leer el croquis",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a leer un croquis del aula. Como idea principal, un croquis es un plano sencillo, visto desde arriba, que muestra dónde está cada cosa. Usa símbolos para los objetos y una leyenda que dice qué significa cada símbolo."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "El aula vista desde arriba",
+          "narracion": "Observemos esta situación. Es el croquis de un aula, visto desde arriba. La pizarra está en la parte de arriba del dibujo. La leyenda de la derecha dice qué es cada símbolo. Queremos saber qué hay justo detrás de la planta.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: delante y detrás",
+          "narracion": "Detrás significa más lejos de la pizarra. En el dibujo, ubica el símbolo de la planta y baja un lugar. ¿Qué símbolo encuentras?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: la caja",
+          "narracion": "Justo detrás de la planta está el triángulo. Según la leyenda, el triángulo es la caja. En el dibujo están marcadas la casilla de la planta y la de la caja, una debajo de la otra.",
+          "recursoRef": "detras"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: izquierda y derecha",
+          "narracion": "Observa otro croquis, también con la pizarra arriba. La izquierda es el lado izquierdo del dibujo. La leyenda nombra tres tipos de objetos. ¿Qué hay a la izquierda del armario, en la misma fila?",
+          "recursoRef": "izquierda-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: el mochilero",
+          "narracion": "En la misma fila, a la izquierda del armario, está el rombo. Según la leyenda, el rombo es el mochilero. En el dibujo están marcados el armario y el mochilero, uno al lado del otro.",
+          "recursoRef": "izquierda"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Símbolos sin explicación",
+          "narracion": "En este croquis hay símbolos, pero el cuadro de la derecha está vacío. Así nadie sabe si el cuadrado es una mesa, una caja o un armario. Escribe siempre la leyenda al lado del dibujo.",
+          "recursoRef": "sin-leyenda"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: elige tu referencia",
+          "narracion": "Decide dónde está la pizarra. Será tu punto de referencia y siempre irá arriba."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: coloca los símbolos",
+          "narracion": "Elige un símbolo sencillo para cada objeto. Dibújalo en su lugar: delante, detrás, a la izquierda o a la derecha."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: escribe la leyenda",
+          "narracion": "Anota al lado qué significa cada símbolo. Revisa que nada quede al revés: lo que está a la izquierda se dibuja a la izquierda."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/croquis-aula-situacion.svg",
+          "alt": "Croquis del aula visto desde arriba con pizarra, mesas, una planta, una caja y una leyenda.",
+          "descripcion": "Bajo la palabra pizarra hay una cuadrícula de tres filas y tres columnas con cuadrados turquesa, un círculo amarillo y un triángulo azul. A la derecha, una leyenda: cuadrado, mesa; círculo, planta; triángulo, caja. Abajo se pregunta qué hay justo detrás de la planta."
+        },
+        {
+          "id": "detras",
+          "src": "/nudito/diagramas/matematica/croquis-aula-detras.svg",
+          "alt": "El mismo croquis con la casilla de la planta y la de la caja marcadas, una debajo de la otra.",
+          "descripcion": "El croquis repite los símbolos y la leyenda. La casilla del círculo, la planta, está en celeste claro, y la casilla del triángulo, la caja, justo debajo, en amarillo claro. Abajo se lee: detrás de la planta, la caja."
+        },
+        {
+          "id": "izquierda-pregunta",
+          "src": "/nudito/diagramas/matematica/croquis-aula-izquierda-pregunta.svg",
+          "alt": "Otro croquis con pizarra, armario, mochilero y mesas, y su leyenda.",
+          "descripcion": "Bajo la pizarra hay dos filas de tres casillas con un rombo, una estrella, dos cuadrados y dos casillas vacías. A la derecha, la leyenda: estrella, armario; rombo, mochilero; cuadrado, mesa. Abajo se pregunta qué hay a la izquierda del armario."
+        },
+        {
+          "id": "izquierda",
+          "src": "/nudito/diagramas/matematica/croquis-aula-izquierda.svg",
+          "alt": "El croquis con el armario y el mochilero marcados, uno junto al otro.",
+          "descripcion": "En la primera fila, la casilla de la estrella, el armario, está en celeste claro, y la casilla del rombo, a su izquierda, el mochilero, en amarillo claro. Abajo se lee: a la izquierda del armario, el mochilero."
+        },
+        {
+          "id": "sin-leyenda",
+          "src": "/nudito/diagramas/matematica/croquis-aula-sin-leyenda.svg",
+          "alt": "Croquis con símbolos y un cuadro de leyenda vacío, de borde rojo punteado.",
+          "descripcion": "La misma cuadrícula bajo la pizarra tiene cuadrados, un círculo y un triángulo. A la derecha, un recuadro de borde rojo punteado dice leyenda vacía. Arriba, un croquis incompleto. Abajo, en rojo: ¿qué significa cada símbolo?"
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En un croquis, la pizarra está arriba. La mochila está a la derecha de la mesa. ¿Dónde dibujas el símbolo de la mochila?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Al lado derecho de la mesa"
+          },
+          {
+            "id": "b",
+            "texto": "Al lado izquierdo de la mesa"
+          },
+          {
+            "id": "c",
+            "texto": "Arriba, junto a la pizarra"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. A la derecha de la mesa se dibuja del lado derecho del símbolo de la mesa.",
+        "pista": "Recuerda que el croquis se lee con la pizarra arriba y que la izquierda es la del dibujo."
+      }
+    }
   }
 ]

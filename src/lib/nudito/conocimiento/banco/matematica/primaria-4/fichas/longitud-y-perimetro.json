@@ -618,7 +618,130 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Convertir metros y centímetros",
+          "narracion": "Bienvenida y bienvenido. Hoy convertiremos metros y centímetros. Como idea principal, un metro tiene cien centímetros. Para pasar de metros a centímetros, multiplicamos por cien. Para pasar de centímetros a metros, dividimos entre cien."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una cinta larga",
+          "narracion": "Observemos esta situación. Una cinta mide seis metros. Está dibujada en dos filas de tres tramos iguales, y cada tramo mide un metro. Queremos saber cuántos centímetros mide toda la cinta.",
+          "recursoRef": "cinta-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: de metros a centímetros",
+          "narracion": "Piensa cuántos centímetros tiene un metro. Luego mira cuántos tramos de un metro hay en la cinta. ¿Qué operación conviene hacer?",
+          "recursoRef": "cinta-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: los seis tramos",
+          "narracion": "Un metro tiene cien centímetros, así que cada tramo mide cien centímetros. Son seis tramos. Seis veces cien son seiscientos. La cinta mide seiscientos centímetros.",
+          "recursoRef": "cinta-cien"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: de centímetros a metros",
+          "narracion": "Ahora vamos al revés. Una tela mide trescientos setenta centímetros. ¿Cuántos metros completos tiene? ¿Cuántos centímetros sobran?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: metros y lo que sobra",
+          "narracion": "Trescientos centímetros son tres metros, porque tres veces cien son trescientos. Sobran setenta centímetros. La tela mide tres metros y setenta centímetros.",
+          "recursoRef": "tela-trozos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error frecuente es pegar los números. Con dos metros y cinco centímetros, algunos escriben veinticinco centímetros. Pero falta convertir: dos metros son doscientos centímetros, y con los cinco son doscientos cinco.",
+          "recursoRef": "error-cero"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: recuerda la equivalencia",
+          "narracion": "Recuerda que un metro es igual a cien centímetros."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: de metros a centímetros",
+          "narracion": "Si tienes metros y quieres centímetros, multiplica por cien."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: de centímetros a metros",
+          "narracion": "Si tienes centímetros y quieres metros, divide entre cien. Si hay metros y centímetros juntos, convierte cada parte y suma. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cinta-pregunta",
+          "src": "/nudito/diagramas/matematica/convertir-m-cm-cinta-pregunta.svg",
+          "alt": "Cinta dibujada en dos filas de tres tramos iguales, cada tramo rotulado con un metro.",
+          "descripcion": "Seis rectángulos iguales en dos filas de tres. Cada uno dice un metro. Abajo: ¿Cuántos centímetros mide?"
+        },
+        {
+          "id": "cinta-cien",
+          "src": "/nudito/diagramas/matematica/convertir-m-cm-cinta-cien.svg",
+          "alt": "La misma cinta en seis tramos, cada uno de un metro y cien centímetros, y seis por cien igual a seiscientos centímetros.",
+          "descripcion": "Los mismos seis rectángulos, ahora con dos líneas: un metro y cien centímetros. Abajo: seis por cien es igual a seiscientos centímetros."
+        },
+        {
+          "id": "tela-trozos",
+          "src": "/nudito/diagramas/matematica/convertir-m-cm-tela-trozos.svg",
+          "alt": "Tela de trescientos setenta centímetros en tres tramos de cien centímetros y uno de setenta.",
+          "descripcion": "Cuatro rectángulos en fila: tres de cien centímetros, agrupados con un corchete que dice tres metros, y uno de setenta centímetros con la palabra sobran. Abajo: trescientos setenta es igual a trescientos más setenta; tres metros setenta centímetros."
+        },
+        {
+          "id": "error-cero",
+          "src": "/nudito/diagramas/matematica/convertir-m-cm-error-cero.svg",
+          "alt": "Dos tramos de cien centímetros y uno de cinco, con el error veinticinco en rojo y doscientos cinco correcto.",
+          "descripcion": "Arriba, en rojo: dos metros cinco centímetros. Tres rectángulos: dos de cien centímetros y uno de cinco centímetros. Debajo, en rojo: No es veinticinco centímetros. En verde: doscientos más cinco es igual a doscientos cinco centímetros. Abajo: Primero se convierten los metros."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/convertir-m-cm-pasos.svg",
+          "alt": "Tarjeta con tres pasos para convertir entre metros y centímetros.",
+          "descripcion": "Tres tarjetas numeradas. La uno: recuerda que un metro es cien centímetros. La dos: de metros a centímetros, multiplica por cien. La tres: de centímetros a metros, divide entre cien; si hay metros y centímetros, suma las partes."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Rosa tiene una cinta de dos metros. Luis tiene una cinta de ciento noventa centímetros. ¿Quién tiene la cinta más larga y por cuánto?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Luis, por diez centímetros"
+          },
+          {
+            "id": "b",
+            "texto": "Rosa, por diez centímetros"
+          },
+          {
+            "id": "c",
+            "texto": "Rosa, por cien centímetros"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Dos metros son doscientos centímetros, que es más que ciento noventa. La diferencia es de diez centímetros.",
+        "pista": "Escribe las dos longitudes en la misma unidad."
+      }
+    }
   },
   {
     "clave": "mat.p4.estimar-longitudes",
@@ -1239,7 +1362,113 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "El perímetro es el contorno",
+          "narracion": "Bienvenida y bienvenido. Hoy medirás el contorno de figuras. Como idea principal, el perímetro es la longitud del borde de una figura, y en un polígono se halla sumando la medida de todos sus lados."
+        },
+        {
+          "id": "situacion-chacra",
+          "tipo": "recurso",
+          "titulo": "La chacra de don Julián",
+          "narracion": "Observemos la chacra de don Julián, en Cusco. Tiene forma de triángulo y sus lados miden treinta metros, cuarenta metros y cincuenta metros. Don Julián quiere poner alambre por todo el borde.",
+          "recursoRef": "triangulo"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el alambre de la chacra",
+          "narracion": "¿Cuánto alambre necesita don Julián para dar una vuelta? Anotamos la medida de cada lado: cuarenta, cincuenta y treinta metros. Contamos los lados: son tres.",
+          "recursoRef": "triangulo"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: sumamos los tres lados",
+          "narracion": "Sumamos: cuarenta más cincuenta son noventa, y noventa más treinta son ciento veinte. Don Julián necesita ciento veinte metros de alambre. Escribimos el resultado con su unidad, metros.",
+          "recursoRef": "triangulo"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el patio de Iquitos",
+          "narracion": "El patio rectangular de un colegio de Iquitos mide doce metros de largo y siete metros de ancho. Un rectángulo tiene cuatro lados: dos largos y dos anchos. Queremos saber cuánto mide su borde.",
+          "recursoRef": "rectangulo"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: no olvides los lados repetidos",
+          "narracion": "Sumamos los cuatro lados: doce más siete son diecinueve, más doce son treinta y uno, más siete son treinta y ocho. El borde del patio mide treinta y ocho metros. Si sumaras solo doce y siete, te faltarían dos lados.",
+          "recursoRef": "rectangulo"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Sumar no es multiplicar",
+          "narracion": "Cuidado con multiplicar. Doce por siete es ochenta y cuatro, pero ese número no mide el borde del patio. Multiplicar el largo por el ancho da otra medida distinta. El perímetro se halla sumando todos los lados."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cuenta los lados",
+          "narracion": "Primero cuenta cuántos lados tiene el polígono y anota la medida de cada uno.",
+          "recursoRef": "triangulo"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: no olvides los lados repetidos",
+          "narracion": "Después fíjate si hay lados iguales, como en un rectángulo. Escribe cada lado tantas veces como aparece.",
+          "recursoRef": "rectangulo"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: suma y escribe la unidad",
+          "narracion": "Por último, suma todas las medidas y escribe el resultado con su unidad, centímetros o metros."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "triangulo",
+          "src": "/nudito/diagramas/matematica/perimetro-triangulo-chacra.svg",
+          "alt": "Chacra con forma de triángulo, con lados de treinta, cuarenta y cincuenta metros.",
+          "descripcion": "Se ve un triángulo con un ángulo recto en la esquina inferior izquierda. El lado vertical mide treinta metros, el lado de abajo mide cuarenta metros y el lado inclinado mide cincuenta metros. Abajo se lee cuarenta más cincuenta más treinta es igual a ciento veinte metros."
+        },
+        {
+          "id": "rectangulo",
+          "src": "/nudito/diagramas/matematica/perimetro-rectangulo-patio.svg",
+          "alt": "Patio rectangular con dos lados largos de doce metros y dos lados cortos de siete metros.",
+          "descripcion": "Se ve un rectángulo con el borde pintado. Los lados de arriba y de abajo, en turquesa, miden doce metros. Los lados de la izquierda y de la derecha, en amarillo, miden siete metros. Abajo se lee doce más siete más doce más siete es igual a treinta y ocho metros."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una cancha rectangular mide veinticinco metros de largo y catorce metros de ancho. ¿Cuántos metros mide su contorno?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Treinta y nueve metros"
+          },
+          {
+            "id": "b",
+            "texto": "Setenta y ocho metros"
+          },
+          {
+            "id": "c",
+            "texto": "Trescientos cincuenta metros"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. El rectángulo tiene dos largos y dos anchos: veinticinco más catorce más veinticinco más catorce son setenta y ocho metros.",
+        "pista": "Suma los cuatro lados: dos largos y dos anchos."
+      }
+    }
   },
   {
     "clave": "mat.p4.medio-cuarto-metro",

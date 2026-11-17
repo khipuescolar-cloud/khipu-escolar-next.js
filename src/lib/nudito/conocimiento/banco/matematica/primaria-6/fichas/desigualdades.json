@@ -185,7 +185,7 @@
           "«Menor que 7» excluye el 7.",
           "7 no es menor que sí mismo."
         ],
-        "retroalimentacion": "Es falso: 7 = 7; para x < 7 sirven valores inferiores.",
+        "retroalimentacion": "Es falso: 7 no es menor que 7; sirven valores como 6, 5, 4…",
         "alternativasAceptadas": []
       },
       {
@@ -327,6 +327,123 @@
         ]
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comparar cantidades con signos",
+          "narracion": "Bienvenida y bienvenido. Hoy representaremos comparaciones con los signos mayor que y menor que. Como idea principal, la abertura del signo queda junto a la cantidad mayor y la punta junto a la menor. Antes de elegir el signo, calculamos y comparamos ambos lados."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Tapitas de dos equipos",
+          "narracion": "Observemos esta situación. Un equipo reunió treinta y seis tapitas y otro reunió veintinueve. Las cantidades aparecen en tarjetas separadas y entre ellas hay un signo de pregunta. Todavía no se muestra la comparación. Pensemos cuál cantidad es mayor y hacia dónde debe mirar la abertura.",
+          "recursoRef": "tapitas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: comparar tapitas",
+          "narracion": "Comparamos treinta y seis con veintinueve. Treinta y seis tiene tres decenas y veintinueve tiene dos. Por eso la primera cantidad es mayor. Elige el signo que deja su abertura junto a treinta y seis."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: la abertura al mayor",
+          "narracion": "El signo mayor que tiene la abertura hacia treinta y seis y la punta hacia veintinueve. Leemos: treinta y seis es mayor que veintinueve. La tarjeta repite la comparación completa debajo de los dos números.",
+          "recursoRef": "tapitas-resuelto"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: una condición de edad",
+          "narracion": "Para entrar a un juego se debe tener menos de doce años. La frase menos de indica que la edad debe quedar por debajo del límite. Pensemos qué signo coloca la edad a la izquierda y doce a la derecha."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: menor que el límite",
+          "narracion": "La condición se escribe edad menor que doce. El signo apunta hacia la edad, que debe ser la cantidad menor, y se abre hacia doce. Como dice menos de, cumplir exactamente doce años no sirve.",
+          "recursoRef": "edad"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con seguir la punta",
+          "narracion": "Aquí se escribió ocho menor que tres como si la punta fuera una flecha. La cruz roja marca el error. En la tarjeta correcta, la abertura está junto a ocho porque ocho es mayor. Lee siempre la comparación completa para comprobar el sentido.",
+          "recursoRef": "error-signo"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: calcula cada lado",
+          "narracion": "Primero identifica las dos cantidades. Si hay operaciones, resuélvelas por separado. No elijas el signo mirando solo los números escritos antes de calcular."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: coloca el signo",
+          "narracion": "Compara los resultados. Deja la abertura junto al mayor y la punta junto al menor. En treinta y seis frente a veintinueve, la abertura queda del lado de treinta y seis.",
+          "recursoRef": "tapitas-resuelto"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: lee y comprueba",
+          "narracion": "Lee la desigualdad de izquierda a derecha con las palabras mayor que o menor que. Después revisa si la lectura coincide con la situación. En la condición del juego, edad menor que doce expresa exactamente el límite pedido.",
+          "recursoRef": "edad"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "tapitas-pregunta",
+          "src": "/nudito/diagramas/matematica/desigualdades-tapitas-pregunta.svg",
+          "alt": "Dos tarjetas muestran treinta y seis y veintinueve tapitas, separadas por un signo de pregunta.",
+          "descripcion": "La tarjeta izquierda contiene tres barras de diez y seis círculos sueltos amarillos, con el número treinta y seis. La derecha contiene dos barras de diez y nueve círculos sueltos turquesa, con el número veintinueve. Entre ambas aparece un signo de pregunta; no se muestra ningún signo de comparación."
+        },
+        {
+          "id": "tapitas-resuelto",
+          "src": "/nudito/diagramas/matematica/desigualdades-tapitas-resuelto.svg",
+          "alt": "Treinta y seis es mayor que veintinueve, con la abertura del signo hacia treinta y seis.",
+          "descripcion": "Dos tarjetas muestran treinta y seis y veintinueve. Entre ellas está el signo mayor que, abierto hacia treinta y seis. Debajo se repite la comparación y se lee que treinta y seis es mayor que veintinueve."
+        },
+        {
+          "id": "edad",
+          "src": "/nudito/diagramas/matematica/desigualdades-edad.svg",
+          "alt": "Condición para un juego: tener menos de doce años, escrita como edad menor que doce.",
+          "descripcion": "Una tarjeta blanca presenta la condición tener menos de doce años. Debajo, una tarjeta amarilla muestra edad menor que doce. El texto final aclara que el límite no está incluido."
+        },
+        {
+          "id": "error-signo",
+          "src": "/nudito/diagramas/matematica/desigualdades-error-signo.svg",
+          "alt": "Ocho menor que tres tachado y ocho mayor que tres marcado como correcto.",
+          "descripcion": "La tarjeta izquierda, con borde rojo, muestra ocho menor que tres y una cruz. La derecha, con borde turquesa, muestra ocho mayor que tres y una marca de verificación. Al pie se indica que la abertura queda junto al número mayor."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Compara cuarenta y dos menos siete con seis por seis. ¿Qué relación es correcta?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ambos lados son iguales"
+          },
+          {
+            "id": "b",
+            "texto": "El izquierdo es mayor"
+          },
+          {
+            "id": "c",
+            "texto": "El izquierdo es menor"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. El lado izquierdo vale treinta y cinco y el derecho vale treinta y seis; el izquierdo es menor.",
+        "pista": "Calcula cada lado por separado antes de escoger la dirección del signo."
+      }
+    },
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",

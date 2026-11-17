@@ -1768,7 +1768,122 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Elegir las palabras según quién escucha",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a elegir nuestras palabras. Como idea principal de este tema, recuerda esto: antes de hablar, piensa quién te escucha y qué quieres decirle. No hablamos igual con un amigo, con la abuela o con la profesora. Con palabras claras y amables, la otra persona nos entiende mejor."
+        },
+        {
+          "id": "situacion-profesora",
+          "tipo": "recurso",
+          "titulo": "Una niña y su profesora",
+          "narracion": "Observemos esta situación. Una niña de trenzas conversa con su profesora en una banca del patio. La niña mueve las manos y sonríe. La profesora la escucha con atención. Imaginemos que la niña quiere pedir un libro prestado. ¿Qué palabras elegirá para hablar con la profesora?",
+          "recursoRef": "profesora"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: pedir un libro",
+          "narracion": "Quieres que la profesora te preste un libro. En la pantalla hay dos frases. La primera dice: «Oye, dame eso». La segunda dice: «Profesora, ¿me presta el libro, por favor?». Piensa a quién le hablas y qué quieres pedir.",
+          "recursoRef": "frases"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: elige la frase adecuada",
+          "narracion": "Hablas con la profesora, una persona adulta del colegio, y quieres pedir un libro. La frase «Profesora, ¿me presta el libro, por favor?» la llama profesora, dice qué libro quieres y pide con por favor. La frase «Oye, dame eso» no dice a quién le hablas ni qué pides. Por eso eliges la que empieza con «Profesora»."
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: invitar a un compañero",
+          "narracion": "Veamos otra situación. Un niño sostiene una pelota y mira a una niña con una sonrisa. Son compañeros y están en el recreo. Él quiere invitarla a jugar. ¿Cómo se lo dirá a alguien de su edad?",
+          "recursoRef": "companero"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: palabras sencillas",
+          "narracion": "Observa la frase de la pantalla: «¿Jugamos juntos en el recreo?». Es una pregunta corta, con palabras fáciles y amables, que sirve para invitar a jugar. Con un compañero no hace falta hablar como con una persona mayor.",
+          "recursoRef": "invitacion"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Errores frecuentes al hablar",
+          "narracion": "Hay dos errores frecuentes. El primero es hablar a la profesora como a un compañero, por ejemplo con «Oye, dame eso». Mejor la llamas profesora y pides con por favor. El segundo es contar algo de ayer a alguien que no estuvo, diciendo solo «eso de ayer». Esa persona no entiende. Da el dato que necesita para comprenderte."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: piensa quién escucha",
+          "narracion": "Primero, reconoce a la persona con quien hablarás. Puede ser un amigo, un familiar o la profesora."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: piensa qué quieres",
+          "narracion": "Después, decide si quieres contar, pedir o preguntar algo. Eso es lo que quieres lograr al hablar."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: elige tus palabras",
+          "narracion": "Por último, escoge palabras que esa persona entienda y habla con respeto. Luego fíjate si te comprendió."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "profesora",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-1/hablo-profesora-gemini-v1.webp",
+          "alt": "Una niña de trenzas conversa con su profesora sentadas en una banca del patio del colegio.",
+          "descripcion": "Una niña de trenzas y suéter azul y su profesora, de cárdigan amarillo, están sentadas en una banca de madera en el patio. La niña gesticula con las manos y sonríe; la profesora la escucha. Al fondo, niños juegan entre árboles."
+        },
+        {
+          "id": "frases",
+          "src": "/nudito/diagramas/comunicacion/a-quien-le-hablo-frases.svg",
+          "alt": "Tarjetas con dos frases para pedir un libro a la profesora.",
+          "descripcion": "Arriba dice: «Quieres pedir un libro a la profesora». Debajo hay dos tarjetas blancas: «Oye, dame eso» y «Profesora, ¿me presta el libro, por favor?». Abajo, en amarillo: «¿Qué le dices a la profesora?»."
+        },
+        {
+          "id": "companero",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-1/hablo-companero-gemini-v1.webp",
+          "alt": "Un niño con una pelota de fútbol bajo el brazo invita con la mano a una niña, en el patio del colegio.",
+          "descripcion": "Un niño con camiseta de rayas y una pelota de fútbol bajo el brazo extiende la mano hacia una niña con vestido azul. Ambos sonríen en el patio del colegio. Al fondo, otros niños juegan bajo los árboles."
+        },
+        {
+          "id": "invitacion",
+          "src": "/nudito/diagramas/comunicacion/a-quien-le-hablo-invitacion.svg",
+          "alt": "Dos figuras sencillas, Tú y Tu amigo, y un globo de diálogo con una invitación a jugar.",
+          "descripcion": "Un globo de diálogo dice: «¿Jugamos juntos en el recreo?». Debajo hay dos figuras sencillas: una amarilla rotulada «Tú» y otra celeste rotulada «Tu amigo». Abajo, en verde: «Palabras sencillas y amables»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Tu abuela cocina y quieres saber qué habrá de almuerzo. ¿Qué le dices?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Oye, dime qué hay de comer."
+          },
+          {
+            "id": "b",
+            "texto": "Dime ya qué hay de comer."
+          },
+          {
+            "id": "c",
+            "texto": "Abuela, ¿qué hay de comer?"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "La llamas abuela y le preguntas con respeto, con palabras claras.",
+        "pista": "Piensa a quién le hablas y cómo la tratarías con cariño y respeto."
+      }
+    }
   },
   {
     "clave": "com.p1.dar-un-recado",

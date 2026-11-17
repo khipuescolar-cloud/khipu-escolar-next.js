@@ -1159,7 +1159,7 @@
         "opciones": [
           {
             "id": "a",
-            "texto": "En el último salto aumenta solo 1"
+            "texto": "El último salto aumenta solo 1"
           },
           {
             "id": "b",
@@ -1167,11 +1167,11 @@
           },
           {
             "id": "c",
-            "texto": "No hay ningún error"
+            "texto": "No hay ningún error en ella"
           },
           {
             "id": "d",
-            "texto": "La secuencia baja"
+            "texto": "La secuencia va hacia atrás"
           }
         ],
         "pistas": [
@@ -1214,6 +1214,123 @@
         "retroalimentacion": "Gabi tiene razón: 40, 41, 42, 43 aumenta de 1 en 1 y sigue el 44."
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Descubrir cómo crece",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a explicar cómo crece una secuencia. Como idea principal, miramos cuánto aumenta de un número al siguiente. Después comprobamos que ese mismo aumento se repita en todos los saltos. Con esa regla podemos hallar el número que sigue."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una fila que aumenta",
+          "narracion": "Observemos esta situación. La primera tarjeta tiene una ficha, la segunda tiene dos y la tercera tiene tres. La última tarjeta está vacía y lleva un signo de pregunta. Pensemos qué cambio se repite y cuántas fichas deberían venir después.",
+          "recursoRef": "fichas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: comparar los pasos",
+          "narracion": "Contemos con calma. Primero hay una ficha. Luego hay dos. Después hay tres. De una a dos aparece una ficha más. De dos a tres también aparece una ficha más. ¿Se repite el mismo cambio?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: la regla encontrada",
+          "narracion": "Sí. En cada paso aparece una ficha más. Por eso decimos que la secuencia crece de uno en uno. Después de tres colocamos cuatro fichas. Las cuatro tarjetas muestran una, dos, tres y cuatro fichas.",
+          "recursoRef": "fichas-uno"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: contar patitas",
+          "narracion": "Ahora una niña anota las patitas de varios pollitos. Primero escribe dos. Después escribe cuatro, luego seis y al final ocho. Compara cada número con el siguiente. Piensa cuánto aumenta cada vez."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: saltos iguales",
+          "narracion": "De dos a cuatro aumentan dos. De cuatro a seis aumentan dos. De seis a ocho también aumentan dos. Todos los arcos muestran el mismo salto. La regla es crecer de dos en dos y el siguiente número sería diez.",
+          "recursoRef": "pollitos-dos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con mirar un solo salto",
+          "narracion": "Aquí alguien miró solo el paso de doce a catorce y dijo que todo crecía de dos en dos. Pero el siguiente paso va de catorce a quince: aumenta solo uno. Los demás pasos tampoco repiten el primer aumento. Hay que revisar toda la secuencia antes de decir la regla.",
+          "recursoRef": "error-salto"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: compara dos números",
+          "narracion": "Primero elige dos números seguidos. Cuenta cuánto debes aumentar para pasar del primero al segundo. En la secuencia de pollitos, de dos a cuatro aumentamos dos."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: revisa todos los saltos",
+          "narracion": "Comprueba que el mismo aumento se repita entre cada par de números seguidos. Los tres arcos de las patitas muestran aumentos de dos. Si un salto cambia, todavía no puedes usar una sola regla.",
+          "recursoRef": "pollitos-dos"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: continúa la secuencia",
+          "narracion": "Di la regla con palabras. Luego aplica el aumento al último número. Si la regla es crecer de uno en uno, después de tres viene cuatro. Finalmente revisa que el nuevo paso también cumpla la regla.",
+          "recursoRef": "fichas-uno"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "fichas-pregunta",
+          "src": "/nudito/diagramas/matematica/explicar-crece-fichas-pregunta.svg",
+          "alt": "Cuatro tarjetas: una ficha, dos fichas, tres fichas y una tarjeta vacía con signo de pregunta.",
+          "descripcion": "Cuatro tarjetas en fila. Las tres primeras contienen una, dos y tres fichas amarillas; debajo dicen Uno, Dos y Tres. La cuarta tiene borde punteado y un signo de pregunta. Al pie se pide observar todos los cambios."
+        },
+        {
+          "id": "fichas-uno",
+          "src": "/nudito/diagramas/matematica/explicar-crece-fichas-uno.svg",
+          "alt": "Cuatro tarjetas con una, dos, tres y cuatro fichas, en ese orden.",
+          "descripcion": "Cuatro tarjetas numeradas del uno al cuatro contienen la misma cantidad de fichas amarillas que indica su número. El texto inferior señala que en cada paso aparece una ficha más."
+        },
+        {
+          "id": "pollitos-dos",
+          "src": "/nudito/diagramas/matematica/explicar-crece-pollitos-dos.svg",
+          "alt": "Los números dos, cuatro, seis y ocho unidos por tres arcos que indican aumentar dos.",
+          "descripcion": "Cuatro círculos amarillos muestran dos, cuatro, seis y ocho. Tres arcos turquesa unen los círculos consecutivos y cada arco está rotulado más dos. Al pie se indica que todos los saltos aumentan lo mismo."
+        },
+        {
+          "id": "error-salto",
+          "src": "/nudito/diagramas/matematica/explicar-crece-error-salto.svg",
+          "alt": "Secuencia doce, catorce, quince y dieciséis, con los cambios más dos, más uno y más uno, y una cruz bajo el segundo cambio.",
+          "descripcion": "Cuatro tarjetas muestran doce, catorce, quince y dieciséis. Debajo aparecen los cambios más dos, más uno y más uno. Una cruz roja bajo el segundo cambio destaca que el primer aumento no se repite en el salto siguiente."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una secuencia dice seis, ocho, diez y doce. ¿Cómo crece?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Crece de uno en uno"
+          },
+          {
+            "id": "b",
+            "texto": "Crece de dos en dos"
+          },
+          {
+            "id": "c",
+            "texto": "Crece de tres en tres"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Cada número aumenta dos respecto del anterior.",
+        "pista": "Compara dos números seguidos y confirma que el mismo cambio se repita."
+      }
+    },
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",

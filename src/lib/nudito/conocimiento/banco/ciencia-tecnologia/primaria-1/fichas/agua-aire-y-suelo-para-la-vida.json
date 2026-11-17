@@ -310,7 +310,111 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Tres recursos que ayudan a vivir",
+          "narracion": "Bienvenido a esta clase sobre el agua, el aire y el suelo. Como idea principal de este tema, recuerda lo siguiente: las personas y otros animales necesitamos agua y aire. Muchas plantas también necesitan agua y aire, y crecen sujetas al suelo. Hoy observaremos cómo ayuda cada recurso y, al final, responderás una pregunta."
+        },
+        {
+          "id": "situacion-aire",
+          "tipo": "recurso",
+          "titulo": "El aire está a nuestro alrededor",
+          "narracion": "Observemos esta situación. Una niña se detuvo después de correr en el patio. Tiene los ojos cerrados y respira con calma. Su cabello y varias hojas se mueven con una brisa suave. Aunque no vemos el aire, está a su alrededor y entra y sale de su cuerpo cuando respira.",
+          "recursoRef": "aire-patio"
+        },
+        {
+          "id": "ejemplo-nina-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una niña que respira",
+          "narracion": "Miremos de nuevo a la niña. Después de moverse, su cuerpo necesita seguir respirando. Pensemos en esta pregunta: ¿podría reemplazar el aire con una piedra o con un poco de suelo? No. Para respirar necesita el aire que está en el ambiente.",
+          "recursoRef": "aire-patio"
+        },
+        {
+          "id": "ejemplo-nina-idea",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: qué debemos recordar",
+          "narracion": "La niña toma agua cuando tiene sed, pero respira aire. El agua y el aire cumplen ayudas diferentes. Un recurso no reemplaza al otro: para vivir necesitamos varios recursos del ambiente."
+        },
+        {
+          "id": "ejemplo-papa-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una planta en la chacra",
+          "narracion": "Ahora observemos una chacra de la sierra. Un niño riega el suelo junto a una planta de papa. La planta se mantiene firme sobre el montículo de tierra y el agua cae cerca de su tallo. Pensemos en esta pregunta: ¿cómo ayudan el agua y el suelo a la planta?",
+          "recursoRef": "papa-riego"
+        },
+        {
+          "id": "ejemplo-papa-explica",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: agua, aire y suelo",
+          "narracion": "Bajo el suelo, las raíces sujetan la planta y toman agua y minerales. Sobre el suelo, las hojas están rodeadas de aire. La planta necesita estos recursos para vivir y crecer. No todos hacen lo mismo: el suelo la sostiene, el agua llega a sus partes y el aire está en contacto con sus hojas.",
+          "recursoRef": "papa-riego"
+        },
+        {
+          "id": "ejemplo-papa-idea",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: qué debemos recordar",
+          "narracion": "La planta de papa no vive solo con suelo. También necesita agua y aire. Cuando explicamos para qué sirve cada recurso, entendemos mejor cómo el ambiente ayuda a los seres vivos."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: reconoce al ser vivo",
+          "narracion": "Para resolver una situación, primero reconoce al ser vivo. Puede ser una persona, un animal o una planta. Pregúntate quién necesita ayuda del ambiente."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca el recurso",
+          "narracion": "Después, busca qué recurso aparece o hace falta. Recuerda las pistas: el agua se bebe o se usa para regar; el aire permite respirar y rodea a las hojas; el suelo sostiene las raíces de muchas plantas.",
+          "recursoRef": "papa-riego"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: explica la ayuda",
+          "narracion": "Por último, completa la idea con tus palabras: el ser vivo necesita este recurso porque le ayuda a respirar, beber, crecer o mantenerse sujeto. Así no solo nombras agua, aire o suelo; también explicas por qué es importante."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "aire-patio",
+          "src": "/nudito/ilustraciones/agua-aire-suelo/aire-patio-gemini-v1.webp",
+          "alt": "Niña de pie en un patio escolar mientras una brisa mueve su cabello y varias hojas.",
+          "descripcion": "Una niña permanece de pie con los ojos cerrados y la boca entreabierta mientras respira con calma. Su cabello y varias hojas se mueven suavemente en el patio."
+        },
+        {
+          "id": "papa-riego",
+          "src": "/nudito/ilustraciones/agua-aire-suelo/papa-riego-gemini-v1.webp",
+          "alt": "Niño riega el suelo junto a una planta de papa en una chacra andina.",
+          "descripcion": "Un niño vierte agua con una regadera sobre el suelo oscuro, junto al tallo de una planta de papa. La planta crece firme sobre un montículo, con montañas al fondo."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una planta de papa está firme en el suelo, recibe agua y tiene sus hojas al aire. ¿Qué explicación reúne mejor lo que necesita?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo necesita suelo; el agua y el aire no la ayudan."
+          },
+          {
+            "id": "b",
+            "texto": "El suelo la sostiene, el agua ayuda a que crezca y el aire rodea sus hojas."
+          },
+          {
+            "id": "c",
+            "texto": "El agua reemplaza al suelo y al aire."
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "El suelo sostiene las raíces de muchas plantas; el agua y el aire también son recursos que necesitan para vivir y crecer.",
+        "pista": "Piensa si un solo recurso puede reemplazar a los otros dos."
+      }
+    }
   },
   {
     "clave": "cyt.p1.el-suelo-nos-da-alimentos",

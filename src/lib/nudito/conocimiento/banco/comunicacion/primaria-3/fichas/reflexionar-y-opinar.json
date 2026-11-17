@@ -370,7 +370,120 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Una buena opinión tiene una razón del texto",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a opinar sobre un texto. Como idea principal, opinar es decir lo que piensas, y una buena opinión siempre tiene una razón que sale del texto. Para eso usas «Creo que» o «Me parece que» y después «porque»."
+        },
+        {
+          "id": "situacion-rio",
+          "tipo": "recurso",
+          "titulo": "Una noticia del colegio",
+          "narracion": "Observemos esta noticia: «Los alumnos de tercer grado limpiaron la orilla del río. Recogieron botellas y bolsas y dejaron el lugar limpio». Abajo, una tarjeta amarilla pregunta qué opinas.",
+          "recursoRef": "rio"
+        },
+        {
+          "id": "ejemplo-rio-piensa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: decide qué piensas",
+          "narracion": "Primero decide qué piensas. Los alumnos cuidaron un lugar que usan muchas personas, así que puedes pensar que hicieron bien.",
+          "recursoRef": "rio"
+        },
+        {
+          "id": "ejemplo-rio-opina",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: escribe tu opinión con razón",
+          "narracion": "Ahora la escribimos con razón: «Creo que hicieron bien porque dejaron limpio el río». La razón, dejaron limpio el río, está en el texto. Así otra persona puede comprobarla."
+        },
+        {
+          "id": "ejemplo-marta-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una opinión distinta",
+          "narracion": "Veamos otra situación: «Marta prometió ayudar a su hermano con la tarea. Pero se fue a jugar y él terminó solo». Aquí podemos opinar algo diferente.",
+          "recursoRef": "marta"
+        },
+        {
+          "id": "ejemplo-marta-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: separa el hecho de la opinión",
+          "narracion": "Primero separa el hecho de la opinión. El hecho es que Marta se fue a jugar. La opinión es lo que tú piensas de eso. Podemos decir: «Me parece que Marta no cumplió porque prometió ayudar y se fue a jugar». La razón repite lo que dice el texto.",
+          "recursoRef": "marta"
+        },
+        {
+          "id": "error-sin-razon",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: solo contar o no dar razón",
+          "narracion": "En la imagen hay tres respuestas. Las dos primeras tienen una cruz. «Recogieron botellas y bolsas» solo cuenta lo que pasa, no dice qué piensas. «Me gustó porque sí» opina, pero no da una razón del texto. La tercera tiene una palomita: «Creo que hicieron bien porque dejaron limpio el río». Da una opinión y una razón.",
+          "recursoRef": "razon"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: piensa qué te llamó la atención",
+          "narracion": "Primero lee y piensa qué te llamó la atención. En la noticia del río, lo que llama la atención es que limpiaron la orilla.",
+          "recursoRef": "rio"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: escribe «creo que» y «porque»",
+          "narracion": "Después escribe lo que piensas con «Creo que» o «Me parece que», y agrega «porque» con una razón, como en el caso de Marta.",
+          "recursoRef": "marta"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: revisa la razón",
+          "narracion": "Por último, relee y comprueba que tu razón diga algo del texto y no solo de ti. Una opinión así se parece a la tarjeta verde de la imagen.",
+          "recursoRef": "razon"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "rio",
+          "src": "/nudito/diagramas/comunicacion/opinar-rio-limpieza.svg",
+          "alt": "Noticia: alumnos de tercer grado limpian la orilla del río. Pregunta: ¿qué opinas?",
+          "descripcion": "Un recuadro blanco con el texto: Los alumnos de tercer grado limpiaron la orilla del río. Recogieron botellas y bolsas y dejaron el lugar limpio. Debajo, una tarjeta amarilla pregunta: ¿Qué opinas?"
+        },
+        {
+          "id": "marta",
+          "src": "/nudito/diagramas/comunicacion/opinar-marta-promesa.svg",
+          "alt": "Texto: Marta promete ayudar a su hermano y se va a jugar. Pregunta: ¿qué opinas de Marta?",
+          "descripcion": "Un recuadro blanco con el texto: Marta prometió ayudar a su hermano con la tarea. Pero se fue a jugar y él terminó solo. Debajo, una tarjeta amarilla pregunta: ¿Qué opinas de Marta?"
+        },
+        {
+          "id": "razon",
+          "src": "/nudito/diagramas/comunicacion/opinar-razon-del-texto.svg",
+          "alt": "Dos respuestas incorrectas con cruz y una opinión con razón y palomita.",
+          "descripcion": "Tres tarjetas. Primera, con cruz: Solo cuenta, «Recogieron botellas y bolsas». Segunda, con cruz: Sin razón, «Me gustó porque sí». Tercera, con palomita: Opinión con razón, «Creo que hicieron bien porque dejaron limpio el río»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee: «En la feria del colegio, Diego vendió sus dibujos y donó todo el dinero para comprar libros de la biblioteca». ¿Qué opción es una opinión con razón del texto?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Diego vendió sus dibujos en la feria."
+          },
+          {
+            "id": "b",
+            "texto": "Me gustó el texto porque sí."
+          },
+          {
+            "id": "c",
+            "texto": "Me parece generoso porque donó el dinero para libros."
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "La tercera opción dice lo que pienso, que Diego es generoso, y da una razón que está en el texto. La primera solo cuenta y la segunda no da razón.",
+        "pista": "Busca la opción que diga lo que piensas y tenga «porque» con algo que sí dice el texto."
+      }
+    }
   },
   {
     "clave": "com.p3.recursos-textuales",

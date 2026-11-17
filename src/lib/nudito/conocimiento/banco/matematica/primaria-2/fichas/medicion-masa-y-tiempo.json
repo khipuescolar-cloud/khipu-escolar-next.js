@@ -1009,6 +1009,121 @@
         "id": "e13"
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comparar con la balanza",
+          "narracion": "Bienvenida y bienvenido. Hoy compararemos cuánta masa tienen los objetos con una balanza. Como idea principal, el platillo que baja tiene el objeto con más masa. Si los dos platillos quedan a la misma altura, los objetos tienen la misma masa. El tamaño no basta para saberlo."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Sandía y naranja",
+          "narracion": "Observemos esta situación. Sobre la mesa hay una sandía y una naranja. A la derecha hay una balanza vacía, con sus dos platillos a la misma altura. Queremos saber cuál fruta tiene más masa. ¿Cómo podemos averiguarlo?",
+          "recursoRef": "frutas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Una fruta en cada platillo",
+          "narracion": "Pondremos la sandía en un platillo y la naranja en el otro. Antes de ver el resultado, piensa: ¿qué platillo bajará?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Resultado de la balanza",
+          "narracion": "Mira la balanza. El platillo de la sandía quedó más abajo y el de la naranja quedó más arriba. El platillo que baja tiene el objeto con más masa. Entonces la sandía tiene más masa que la naranja.",
+          "recursoRef": "sandia-naranja"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Tres frutas para ordenar",
+          "narracion": "Ahora tenemos una mandarina, una manzana y una sandía. La balanza compara solo dos objetos a la vez. Comparamos primero la mandarina con la manzana, y después la manzana con la sandía. Piensa: ¿cómo quedará el orden?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Del menor al mayor",
+          "narracion": "Mira el orden. En la primera comparación, la manzana baja frente a la mandarina. En la segunda, la sandía baja frente a la manzana. Entonces la mandarina tiene menos masa, luego va la manzana y al final la sandía.",
+          "recursoRef": "orden-frutas"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Más grande no es más masa",
+          "narracion": "Aquí hay una pelota de plástico muy grande y una piedra pequeña. Mucha gente piensa que lo más grande siempre tiene más masa. Pero la balanza muestra otra cosa: baja el platillo de la piedra. Entonces la piedra tiene más masa, aunque sea pequeña. Para comparar, usamos la balanza y no solo los ojos.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: coloca",
+          "narracion": "Pon un objeto en cada platillo. Compara solo dos objetos a la vez."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: observa",
+          "narracion": "Fíjate en los platillos. El que baja tiene el objeto con más masa. Si quedan a la misma altura, la masa es igual."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: ordena",
+          "narracion": "Si tienes más objetos, compáralos de dos en dos. Luego ordénalos de menos a más masa."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "frutas-pregunta",
+          "src": "/nudito/diagramas/matematica/comparar-masas-balanza-frutas-pregunta.svg",
+          "alt": "Una sandía y una naranja sobre una mesa, junto a una balanza vacía.",
+          "descripcion": "A la izquierda, una sandía turquesa con rayas y una naranja amarilla sobre una línea que hace de mesa, con sus nombres debajo. A la derecha, una balanza con dos platillos vacíos a la misma altura. Arriba se lee: ¿Cuál tiene más masa?"
+        },
+        {
+          "id": "sandia-naranja",
+          "src": "/nudito/diagramas/matematica/comparar-masas-balanza-sandia-naranja.svg",
+          "alt": "Balanza con una sandía en el platillo izquierdo, más bajo, y una naranja en el derecho, más alto.",
+          "descripcion": "Una balanza inclinada. En el platillo izquierdo, más bajo, hay una sandía; en el derecho, más alto, hay una naranja. Cada fruta tiene su nombre debajo. Arriba se lee: Una fruta en cada platillo. Abajo: La sandía baja."
+        },
+        {
+          "id": "orden-frutas",
+          "src": "/nudito/diagramas/matematica/comparar-masas-balanza-orden-frutas.svg",
+          "alt": "Una mandarina, una manzana y una sandía en fila, de menos a más masa.",
+          "descripcion": "Sobre una línea hay una mandarina pequeña, una manzana roja y una sandía grande, con sus nombres debajo. Abajo, una flecha turquesa va de izquierda a derecha entre las palabras menos masa y más masa. Arriba se lee: De menos a más masa."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/comparar-masas-balanza-errores.svg",
+          "alt": "Balanza con una pelota grande en el platillo izquierdo, más alto, y una piedra pequeña en el derecho, más bajo.",
+          "descripcion": "Una balanza inclinada. En el platillo izquierdo, más alto, hay una pelota blanca grande con rayas turquesa. En el derecho, más bajo, hay una piedra gris pequeña. Arriba se lee: Pelota de plástico y piedra. Abajo, en rojo: Grande no siempre pesa más."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En la balanza, el platillo del durazno queda más abajo que el de la papaya. ¿Qué es verdad?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El durazno tiene más masa"
+          },
+          {
+            "id": "b",
+            "texto": "La papaya tiene mayor masa"
+          },
+          {
+            "id": "c",
+            "texto": "Los dos tienen igual masa"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. El platillo que baja tiene el objeto con más masa.",
+        "pista": "Fíjate en cuál platillo está más abajo."
+      }
+    },
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
@@ -1636,7 +1751,124 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "El calendario",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a leer un calendario. Como idea principal de este tema, esta hoja muestra los días, las semanas y los meses. Una semana tiene siete días y un año tiene doce meses. Para hallar una fecha, avanzamos siete días por cada semana."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una semana en el calendario",
+          "narracion": "Observemos esta situación. En el calendario, cada columna es un día de la semana. La imagen muestra una sola fila, con los nombres abreviados de los días de lunes a domingo y debajo los números del cinco al once. Esa fila es una semana, de siete días. El ocho está pintado de amarillo y cae en la columna del jueves. Queremos saber qué día de la semana cae el quince.",
+          "recursoRef": "semana-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: otra semana después",
+          "narracion": "El ocho es jueves, y queremos saber el quince. Pensemos: ¿cuántos días hay del ocho al quince? Una semana tiene siete días. ¿Qué día de la semana será cuando pase una semana?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: cae jueves otra vez",
+          "narracion": "Del ocho al quince hay siete días, justo una semana, porque ocho más siete son quince. Después de una semana se vuelve al mismo día de la semana. En el calendario del mes, el ocho y el quince están en la misma columna, la del jueves. Entonces el quince también es jueves.",
+          "recursoRef": "mes-completo"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el mes de antes",
+          "narracion": "Las Fiestas Patrias son en julio. ¿Qué mes viene justo antes de julio? Recordemos que los meses siguen un orden, desde enero hasta diciembre. Piensa: mayo, y luego, ¿qué mes sigue?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: junio y julio",
+          "narracion": "Los meses van en orden: mayo, junio, julio. Antes de julio viene junio. En la imagen, los doce meses están en filas de tres. Junio está pintado de verde azulado y julio de amarillo, uno a continuación del otro.",
+          "recursoRef": "meses-orden"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es creer que todos los meses tienen treinta días. Algunos tienen treinta, otros treinta y uno, y febrero tiene menos. Revisa siempre el calendario. Otro error es contar el día de hoy cuando preguntan cuántos días faltan. Para eso, cuenta desde mañana hasta el día que buscas."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: ubica el día en su columna",
+          "narracion": "Mira el calendario del mes y busca el número del día. Luego fíjate en qué columna está, porque esa columna te dice el día de la semana. La imagen es el calendario de un mes de treinta días, el mismo que usarás en la práctica.",
+          "recursoRef": "mes-completo"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: avanza por semanas",
+          "narracion": "Si hay que avanzar semanas, suma siete por cada semana. Si hoy es seis, una semana después es trece, y dos semanas después es veinte. La imagen muestra esos tres números con más siete entre ellos.",
+          "recursoRef": "suma-semanas"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: recuerda el orden de los meses",
+          "narracion": "Para saber qué mes viene antes o después, usa el orden de los meses, de enero a diciembre, como en esta imagen.",
+          "recursoRef": "meses-orden"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "semana-pregunta",
+          "src": "/nudito/diagramas/matematica/calendario-semana-pregunta.svg",
+          "alt": "Una fila de calendario con los días de lunes a domingo y los números del cinco al once; el ocho está pintado.",
+          "descripcion": "Arriba dice «Una semana del calendario». Hay una fila de siete casillas con los números cinco, seis, siete, ocho, nueve, diez y once. Sobre ellas están las abreviaturas de los días, de lunes a domingo. El ocho está en amarillo, en la columna del jueves. Una llave debajo de la fila dice una semana. Abajo se lee: El 8 cae jueves. ¿Qué día cae el 15?"
+        },
+        {
+          "id": "mes-completo",
+          "src": "/nudito/diagramas/matematica/calendario-mes-completo.svg",
+          "alt": "Calendario de un mes de treinta días que empieza en jueves, con el ocho y el quince marcados en la columna del jueves.",
+          "descripcion": "Arriba dice «Un mes de treinta días». Hay un calendario con las abreviaturas de los días, de lunes a domingo, y los números del uno al treinta en cinco filas. El día uno cae en la columna del jueves. Esa columna tiene un fondo amarillo claro: uno, ocho, quince, veintidós y veintinueve. El ocho está en amarillo fuerte y el quince en verde azulado. Abajo se lee: 8 más 7 igual a 15, y Los dos caen jueves."
+        },
+        {
+          "id": "meses-orden",
+          "src": "/nudito/diagramas/matematica/calendario-meses-orden.svg",
+          "alt": "Los doce meses en orden, tres por fila; junio en verde azulado y julio en amarillo.",
+          "descripcion": "Hay doce casillas con los meses, de izquierda a derecha y de arriba abajo: enero, febrero, marzo; abril, mayo, junio; julio, agosto, septiembre; octubre, noviembre, diciembre. Junio, al final de la segunda fila, está en verde azulado, y julio, al inicio de la tercera, en amarillo. Abajo se lee: Antes de julio viene junio."
+        },
+        {
+          "id": "suma-semanas",
+          "src": "/nudito/diagramas/matematica/calendario-suma-semanas.svg",
+          "alt": "Tres cuadros con seis (hoy), trece (una semana) y veinte (dos semanas), con más siete entre ellos.",
+          "descripcion": "Arriba dice «Avanzar de semana en semana». Hay tres cuadros en fila: el seis, con la palabra hoy debajo; el trece, con una semana en dos líneas; y el veinte, en verde azulado, con dos semanas en dos líneas. Entre ellos hay flechas con más siete. Abajo se lee: Se suma siete por cada semana."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Hoy es el día cinco de un mes. El paseo del colegio es dentro de una semana. ¿Qué día del mes es el paseo?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Diez"
+          },
+          {
+            "id": "b",
+            "texto": "Doce"
+          },
+          {
+            "id": "c",
+            "texto": "Nueve"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Una semana tiene siete días, y cinco más siete son doce.",
+        "pista": "Recuerda cuántos días tiene una semana y cuenta desde el día de hoy."
+      }
+    }
   },
   {
     "clave": "mat.p2.cuantos-dias-faltan",
@@ -1819,9 +2051,9 @@
         "dificultad": 2,
         "tipo": "texto_corto",
         "enunciado": "Hoy es martes 12. El festival de danzas es dentro de 3 días. ¿Qué día de la semana será? Escribe solo el día.",
-        "respuesta": "jueves",
+        "respuesta": "viernes",
         "alternativasAceptadas": [
-          "el jueves"
+          "el viernes"
         ],
         "pistas": [
           "Cuenta 3 días hacia adelante empezando desde mañana.",
@@ -1922,6 +2154,128 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Días hasta un evento",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a saber cuántos días faltan para un evento. Como idea principal, empezamos a contar desde mañana, no desde hoy. Terminamos en el día del evento. El último número que decimos es la respuesta. Una semana tiene siete días."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Un paseo con calendario",
+          "narracion": "Observemos esta situación. Vemos el calendario de abril, de lunes a domingo. Hoy es martes cuatro de abril, marcado en amarillo. El paseo al río es el sábado ocho de abril, marcado con un aro verde. Queremos saber cuántos días faltan para el paseo.",
+          "recursoRef": "paseo-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: contar desde mañana",
+          "narracion": "Contamos desde mañana, no desde hoy. Mañana es miércoles cinco. Sigue diciendo los días, uno por uno, hasta llegar al sábado ocho. Anota cuántos números dijiste."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: los días que faltan",
+          "narracion": "El miércoles es uno, el jueves es dos, el viernes es tres y el sábado es cuatro. En el dibujo, esos números están en círculos verdes. Hoy es amarillo y no lleva número. Faltan cuatro días.",
+          "recursoRef": "contar-desde-manana"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una semana y más",
+          "narracion": "Hoy es lunes tres de abril. La obra de teatro es el jueves trece de abril. En el calendario, hoy está en amarillo y la obra tiene un aro verde. Del lunes tres al lunes siguiente pasa una semana. ¿Cuántos días son? Después piensa cuántos días más hay hasta el jueves trece.",
+          "recursoRef": "teatro-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: semanas y días",
+          "narracion": "Del lunes tres al lunes diez pasa una semana: son siete días. Del lunes diez al jueves trece hay tres días más: martes, miércoles y jueves. Siete más tres son diez. Faltan diez días. En el dibujo, el diez está en amarillo claro y abajo se ve la cuenta.",
+          "recursoRef": "semana-y-mas"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con hoy",
+          "narracion": "Hoy es lunes diez de abril. El cumpleaños de Sara es el viernes catorce. Una niña cuenta desde hoy y dice cinco días. Se equivocó, porque contó el día de hoy. En el dibujo, esa cuenta está en círculos rojos. Si empieza mañana, martes once, llega al viernes catorce con cuatro números. Esa cuenta, la correcta, está en círculos verdes.",
+          "recursoRef": "contar-hoy"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca las dos fechas",
+          "narracion": "Busca en el calendario la fecha de hoy y la fecha del evento."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: no cuentes hoy",
+          "narracion": "Hoy ya pasó. Empieza a contar desde mañana."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: cuenta hasta el evento",
+          "narracion": "Cuenta los días uno por uno hasta llegar al día del evento. El último número es la respuesta. Si falta una semana o más, usa que una semana tiene siete días."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "paseo-pregunta",
+          "src": "/nudito/diagramas/matematica/cuantos-dias-faltan-paseo-pregunta.svg",
+          "alt": "Calendario de abril con el cuatro en amarillo y el ocho con un aro verde.",
+          "descripcion": "Calendario del mes de abril, de lunes a domingo. El cuatro, martes, está en un círculo amarillo y abajo se lee Hoy. El ocho, sábado, tiene un aro verde y abajo se lee Paseo. Arriba: ¿Cuántos días faltan para el paseo?"
+        },
+        {
+          "id": "contar-desde-manana",
+          "src": "/nudito/diagramas/matematica/cuantos-dias-faltan-contar-desde-manana.svg",
+          "alt": "Una semana con el martes cuatro en amarillo y los números uno a cuatro de miércoles a sábado.",
+          "descripcion": "Siete casillas, de lunes tres a domingo nueve. El martes cuatro está en amarillo y debajo dice Hoy no. El sábado ocho tiene borde verde. Bajo miércoles, jueves, viernes y sábado hay círculos verdes con uno a cuatro. Abajo: Faltan cuatro días. Hoy es amarillo y no lleva número."
+        },
+        {
+          "id": "teatro-pregunta",
+          "src": "/nudito/diagramas/matematica/cuantos-dias-faltan-teatro-pregunta.svg",
+          "alt": "Calendario de abril con el tres en amarillo y el trece con un aro verde.",
+          "descripcion": "Calendario del mes de abril. El lunes tres está en un círculo amarillo y abajo se lee Hoy. El jueves trece tiene un aro verde y abajo se lee Obra. Arriba: ¿Cuántos días faltan para la obra?"
+        },
+        {
+          "id": "semana-y-mas",
+          "src": "/nudito/diagramas/matematica/cuantos-dias-faltan-semana-y-mas.svg",
+          "alt": "Calendario con el tres, el diez y el trece marcados, y la cuenta siete más tres, diez días.",
+          "descripcion": "Calendario de abril. El tres está en amarillo, el diez en amarillo claro y el trece con un aro verde. Abajo: Del tres al diez: una semana, siete días. Del diez al trece: tres días más. Siete más tres igual a diez días."
+        },
+        {
+          "id": "contar-hoy",
+          "src": "/nudito/diagramas/matematica/cuantos-dias-faltan-contar-hoy.svg",
+          "alt": "Una semana con dos cuentas: una empieza hoy y llega a cinco; la otra empieza mañana y llega a cuatro.",
+          "descripcion": "Siete casillas, de lunes diez a domingo dieciséis. El lunes diez está en amarillo y el viernes catorce tiene borde verde. Cinco círculos rojos, uno a cinco, de lunes a viernes, y el texto Mal: contó hoy y salen cinco. Cuatro círculos verdes, uno a cuatro, de martes a viernes, y Bien: empieza mañana y salen cuatro."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Hoy es jueves quince de junio. La función de títeres es el martes veinte de junio. ¿Cuántos días faltan?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuatro días"
+          },
+          {
+            "id": "b",
+            "texto": "Seis días"
+          },
+          {
+            "id": "c",
+            "texto": "Cinco días"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Contamos viernes, sábado, domingo, lunes y martes: son cinco días. Hoy no se cuenta.",
+        "pista": "Hoy no se cuenta: empieza con el viernes."
+      }
+    }
   }
 ]

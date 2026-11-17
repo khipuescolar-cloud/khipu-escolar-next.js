@@ -687,7 +687,128 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "El texto guarda datos que podemos encontrar",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a encontrar datos que están escritos en un texto corto. Como idea principal, recuerda que las preguntas quién, qué hizo y dónde piden datos diferentes. Para responder, no necesitamos adivinar: leemos la pregunta, volvemos al texto y señalamos las palabras que la comprueban."
+        },
+        {
+          "id": "situacion-preguntas",
+          "tipo": "recurso",
+          "titulo": "Tres preguntas para orientar la búsqueda",
+          "narracion": "Observemos este diagrama. La pregunta quién nos ayuda a buscar una persona o personaje. La pregunta qué hizo nos lleva a una acción. La pregunta dónde nos pide un lugar. Cada flecha une una pregunta con el dato correspondiente de la oración «Sara llevó semillas al huerto».",
+          "recursoRef": "diagrama"
+        },
+        {
+          "id": "ejemplo-huerto-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: Sara y Paco en el huerto",
+          "narracion": "Leamos esta parte: «Sara llevó una bolsa de semillas al huerto. Paco preparó la tierra con una pala pequeña». En la ilustración, Sara sostiene la bolsa y Paco trabaja la tierra. Los dos aparecen en la escena, así que debemos fijarnos bien en la acción que pregunta el texto.",
+          "recursoRef": "huerto"
+        },
+        {
+          "id": "ejemplo-huerto-quien",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: busca quién llevó las semillas",
+          "narracion": "La pregunta es «¿Quién llevó las semillas?». Busco en el texto la acción «llevó». Justo antes aparece el nombre Sara. Aunque Paco también está en el huerto, su acción fue preparar la tierra. Por eso la respuesta comprobada es Sara.",
+          "recursoRef": "huerto"
+        },
+        {
+          "id": "ejemplo-huerto-donde",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: busca dónde sembraron",
+          "narracion": "Ahora la pregunta pide un lugar: «¿Dónde sembraron los rabanitos?». Vuelvo a la oración que contiene «sembraron» y encuentro la frase «junto a la pared». Esa frase responde dónde. No elijo «huerto» solo porque también aparece en el texto; busco el lugar exacto unido a la acción.",
+          "recursoRef": "huerto"
+        },
+        {
+          "id": "ejemplo-biblioteca-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: Beto visita la biblioteca",
+          "narracion": "Veamos otro texto: «La bibliotecaria Elena mostró los cuentos. Beto escogió uno sobre peces y se sentó junto a una ventana». La ilustración muestra a Elena frente a los libros y a Beto con un cuento cerca de la ventana. Cada personaje realiza una acción diferente.",
+          "recursoRef": "biblioteca"
+        },
+        {
+          "id": "ejemplo-biblioteca-quien",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: relaciona persona y acción",
+          "narracion": "Si preguntamos «¿Quién mostró los cuentos?», buscamos el verbo «mostró» y encontramos a Elena. Si preguntamos «¿Quién escogió un cuento?», buscamos «escogió» y encontramos a Beto. Leer el nombre junto a la acción evita intercambiar a los personajes.",
+          "recursoRef": "biblioteca"
+        },
+        {
+          "id": "ejemplo-biblioteca-donde",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: localiza el lugar preciso",
+          "narracion": "La pregunta «¿Dónde se sentó Beto?» no pide dónde estaba todo el cuento, sino el lugar de esa acción. Después de «se sentó» leemos «junto a una ventana». Esa es la frase que debemos señalar para comprobar la respuesta.",
+          "recursoRef": "biblioteca"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: descubre qué dato pide la pregunta",
+          "narracion": "Primero escucha o lee la pregunta completa. Si comienza con quién, busca una persona o personaje. Si pregunta qué hizo, busca una acción. Si pregunta dónde, busca una palabra o frase de lugar.",
+          "recursoRef": "diagrama"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: vuelve a la oración relacionada",
+          "narracion": "Después busca en el texto la palabra importante de la pregunta, como «llevó», «mostró» o «se sentó». Lee la oración completa y une esa acción con la persona o el lugar que aparece a su lado.",
+          "recursoRef": "biblioteca"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: señala y comprueba",
+          "narracion": "Por último, responde con el dato exacto y señala las palabras que lo demuestran. Comprueba que no elegiste otro personaje o lugar que aparece en el texto, pero que participa en una acción diferente.",
+          "recursoRef": "huerto"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "diagrama",
+          "src": "/nudito/diagramas/comunicacion/datos-del-texto.svg",
+          "alt": "Quién → Sara; Qué hizo → llevó semillas; Dónde → al huerto",
+          "descripcion": "En el diagrama aparecen tres preguntas: quién, qué hizo y dónde. Cada una nos pide un dato diferente."
+        },
+        {
+          "id": "huerto",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-1/datos-huerto-gemini-v1.webp",
+          "alt": "Sara sostiene una bolsa de semillas mientras Paco prepara la tierra del huerto escolar con una pala pequeña.",
+          "descripcion": "En el huerto escolar, Sara sostiene una bolsa de semillas junto a una pared baja. Paco, a su lado, remueve la tierra con una pala pequeña. Las acciones de ambos se distinguen con claridad."
+        },
+        {
+          "id": "biblioteca",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-1/datos-biblioteca-gemini-v1.webp",
+          "alt": "La bibliotecaria Elena muestra cuentos y Beto sostiene uno cerca de una ventana.",
+          "descripcion": "En una biblioteca escolar, Elena señala una mesa con cuentos. Beto sostiene un libro ilustrado sobre peces y está sentado junto a una ventana."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En el texto «Elena mostró los cuentos y Beto escogió uno sobre peces», ¿quién mostró los cuentos?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Elena"
+          },
+          {
+            "id": "b",
+            "texto": "Beto"
+          },
+          {
+            "id": "c",
+            "texto": "Los peces"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Elena mostró los cuentos. El nombre aparece unido a la acción «mostró» en la primera parte del texto.",
+        "pista": "Busca el nombre que aparece justo antes de la palabra «mostró»."
+      }
+    }
   },
   {
     "clave": "com.p1.inicio-y-final-del-texto",

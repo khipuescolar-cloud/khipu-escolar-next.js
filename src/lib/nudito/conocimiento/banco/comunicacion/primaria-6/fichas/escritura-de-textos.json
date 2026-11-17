@@ -1130,7 +1130,119 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Una noticia cuenta un hecho con datos comprobables",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a escribir una noticia. Como idea principal, una noticia cuenta un hecho real y reciente con un titular breve y una entrada que responde qué pasó, quién, cuándo y dónde. Los datos más importantes van primero y los detalles después. Quien escribe cuenta los hechos y deja sus opiniones fuera, para que el lector pueda confiar en lo que lee."
+        },
+        {
+          "id": "situacion-apuntes",
+          "tipo": "recurso",
+          "titulo": "Apuntes de un reportero en una feria imaginaria",
+          "narracion": "Observemos los apuntes de un reportero en una feria de ciencias imaginaria, inventada para practicar. Tienen cinco anotaciones: qué ocurrió, una feria de ciencias con cuarenta proyectos; quién, el colegio Santa Rosa, sexto grado; cuándo, el jueves por la mañana; dónde, el patio del colegio, en Tacna; y un detalle, que ganó un filtro de agua con arena. Todavía no es una noticia: son datos sueltos que hay que ordenar.",
+          "recursoRef": "apuntes"
+        },
+        {
+          "id": "ejemplo-feria-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: del apunte a la noticia",
+          "narracion": "Con estos apuntes escribiremos el titular y la entrada. El titular debe ser breve y decir lo más importante. La entrada, que es el primer párrafo, debe responder a las cuatro preguntas. Piensa también qué dato no cambia el hecho principal y puede esperar para más adelante.",
+          "recursoRef": "apuntes"
+        },
+        {
+          "id": "ejemplo-feria-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: titular y entrada",
+          "narracion": "Esta noticia imaginaria queda así. El titular es: «Alumnos de Tacna presentan 40 proyectos en feria de ciencias». La entrada reúne los cuatro datos en una sola oración: «El jueves por la mañana, estudiantes de sexto grado del colegio Santa Rosa, de Tacna, presentaron 40 proyectos en su feria de ciencias». Cada dato aparece marcado con un color y su etiqueta abajo: cuándo, quién, dónde y qué. No hay opiniones. El filtro de agua con arena irá después, en el cuerpo de la noticia.",
+          "recursoRef": "resuelta"
+        },
+        {
+          "id": "ejemplo-biblioteca-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ¿qué sobra en este borrador?",
+          "narracion": "Ahora revisa el borrador de otra noticia imaginaria, con cuatro oraciones numeradas. Uno: «El lunes se inauguró la biblioteca del colegio San Juan, en Abancay». Dos: «Es la biblioteca más linda de todo el Perú». Tres: «Tiene 800 libros donados por las familias». Cuatro: «Los estudiantes la usarán desde esta semana». Una de ellas no debería estar en una noticia. ¿Cuál y por qué?",
+          "recursoRef": "borrador"
+        },
+        {
+          "id": "ejemplo-biblioteca-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: separar hechos de opiniones",
+          "narracion": "La oración dos es la que sobra. «Más linda de todo el Perú» es una opinión y además una exageración que nadie puede comprobar. En cambio, las oraciones uno, tres y cuatro dan hechos verificables: cuándo se inauguró, cuántos libros tiene y desde cuándo se usará. Para saber si una oración es un hecho, pregúntate si alguien podría comprobarla."
+        },
+        {
+          "id": "error-final",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: dejar lo más importante para el final",
+          "narracion": "Al contar un hecho, muchos empiezan por lo que pasó primero y dejan lo esencial para el último párrafo: «Desde temprano, los alumnos se reunieron en el patio…». Pero quien lee una noticia puede detenerse en cualquier momento. Por eso lo más importante va al inicio, y los detalles, de mayor a menor importancia, después."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: reúne los datos del hecho",
+          "narracion": "Empieza como el reportero: anota qué ocurrió, quién participó, cuándo y dónde. Comprueba que el hecho sea real y reciente.",
+          "recursoRef": "apuntes"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: escribe el titular y la entrada",
+          "narracion": "Redacta un titular breve con lo más importante y una entrada que responda las cuatro preguntas, como en el ejemplo de la feria de ciencias.",
+          "recursoRef": "resuelta"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: agrega detalles y revisa",
+          "narracion": "Añade detalles en orden de importancia y revisa cada oración con una pregunta: ¿es un hecho que se puede comprobar? Si es una opinión, como la de la biblioteca más linda del Perú, quítala.",
+          "recursoRef": "borrador"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "apuntes",
+          "src": "/nudito/diagramas/comunicacion/noticia-apuntes.svg",
+          "alt": "Apuntes de una feria imaginaria: Qué, feria de ciencias con 40 proyectos; Quién, colegio Santa Rosa; Cuándo, jueves por la mañana; Dónde, patio del colegio en Tacna; Detalle, ganó un filtro de agua.",
+          "descripcion": "Un recuadro titulado Apuntes: feria imaginaria con cinco filas: Qué, feria de ciencias con 40 proyectos; Quién, colegio Santa Rosa, sexto grado; Cuándo, jueves por la mañana; Dónde, patio del colegio, en Tacna; y, en una fila punteada, Detalle: ganó un filtro de agua con arena."
+        },
+        {
+          "id": "resuelta",
+          "src": "/nudito/diagramas/comunicacion/noticia-resuelta.svg",
+          "alt": "Noticia imaginaria. Titular «Alumnos de Tacna presentan 40 proyectos en feria de ciencias» y entrada con los datos cuándo, quién, dónde y qué marcados con colores distintos.",
+          "descripcion": "Con la etiqueta noticia imaginaria, arriba, el titular: «Alumnos de Tacna presentan 40 proyectos en feria de ciencias». Debajo, la entrada: «El jueves por la mañana, estudiantes de sexto grado del colegio Santa Rosa, de Tacna, presentaron 40 proyectos en su feria de ciencias». Cada dato tiene un color y abajo aparece la leyenda: Cuándo, Quién, Dónde y Qué."
+        },
+        {
+          "id": "borrador",
+          "src": "/nudito/diagramas/comunicacion/noticia-borrador.svg",
+          "alt": "Borrador de noticia imaginaria con cuatro oraciones numeradas sobre la inauguración de la biblioteca de un colegio de Abancay.",
+          "descripcion": "Bajo el título Borrador de noticia imaginaria, cuatro recuadros numerados forman el borrador. Uno: «El lunes se inauguró la biblioteca del colegio San Juan, en Abancay». Dos: «Es la biblioteca más linda de todo el Perú». Tres: «Tiene 800 libros donados por las familias». Cuatro: «Los estudiantes la usarán desde esta semana»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Estas opciones son entradas de una noticia imaginaria. ¿Cuál es la mejor entrada, o primer párrafo?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Me pareció genial lo que hicieron los estudiantes de Moquegua el fin de semana, un ejemplo para todos."
+          },
+          {
+            "id": "b",
+            "texto": "El sábado, estudiantes de sexto grado de Moquegua sembraron 120 plantones de molle a orillas del río."
+          },
+          {
+            "id": "c",
+            "texto": "Los árboles son muy importantes porque dan sombra, limpian el aire y adornan nuestras ciudades y pueblos."
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Responde cuándo (el sábado), quién (estudiantes de sexto grado), dónde (Moquegua) y qué (sembraron 120 plantones). Las otras dos opciones dan una opinión o una idea general, y no cuentan un hecho.",
+        "pista": "Busca la opción que cuente un hecho con sus datos y sin opiniones."
+      }
+    }
   },
   {
     "clave": "com.p6.escribo-un-informe-de-investigacion",

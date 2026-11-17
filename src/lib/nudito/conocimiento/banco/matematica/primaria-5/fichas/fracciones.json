@@ -1937,6 +1937,123 @@
         "retroalimentacion": "El menor denominador común es 10: 2/5 = 4/10 y 3/10 queda igual."
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Un denominador común",
+          "narracion": "Bienvenida y bienvenido. Para comparar o combinar fracciones, necesitamos partes del mismo tamaño. Buscamos un múltiplo común de los denominadores y reescribimos cada fracción. Multiplicamos numerador y denominador por el mismo factor para conservar su valor."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Tercios y cuartos",
+          "narracion": "Observemos dos barras del mismo tamaño. Una está dividida en tercios y representa dos tercios. La otra está dividida en cuartos y representa tres cuartos. Las partes no tienen el mismo tamaño. ¿Cómo podríamos nombrarlas con un mismo denominador?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: cuartos y sextos",
+          "narracion": "Queremos escribir tres cuartos y cinco sextos con un denominador común. Los múltiplos de cuatro empiezan con cuatro, ocho y doce. Los de seis empiezan con seis y doce. ¿Cuál es el primer múltiplo compartido?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ambas en doceavos",
+          "narracion": "El primer múltiplo compartido es doce. Para tres cuartos, multiplicamos arriba y abajo por tres y obtenemos nueve doceavos. Para cinco sextos, multiplicamos por dos y obtenemos diez doceavos.",
+          "recursoRef": "ejemplo-uno"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: quintos y medios",
+          "narracion": "Ahora convertiremos tres quintos y un medio. Diez es múltiplo de cinco y de dos. ¿Qué factor necesita cada fracción para llegar a décimos?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ambas en décimos",
+          "narracion": "A tres quintos lo multiplicamos arriba y abajo por dos: resulta seis décimos. A un medio lo multiplicamos arriba y abajo por cinco: resulta cinco décimos. Cada fracción conserva su valor.",
+          "recursoRef": "ejemplo-dos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es cambiar solo el denominador. Un medio no se convierte en un sexto. Si el dos de abajo se multiplica por tres, el uno de arriba también: el resultado correcto sería tres sextos.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca un múltiplo común",
+          "narracion": "Escribe algunos múltiplos de cada denominador y encuentra uno que aparezca en las dos listas. Para cuartos y sextos, doce funciona.",
+          "recursoRef": "ejemplo-uno"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: encuentra cada factor",
+          "narracion": "Pregunta por cuánto se multiplica cada denominador para llegar al común. Cada fracción puede necesitar un factor diferente."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: cambia arriba y abajo",
+          "narracion": "Aplica el mismo factor al numerador y al denominador de cada fracción. Luego revisa que las nuevas fracciones tengan el mismo denominador y conserven su valor.",
+          "recursoRef": "ejemplo-dos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/comun-denominador-situacion.svg",
+          "alt": "Dos tercios: una barra de tres partes con dos sombreadas. Tres cuartos: una barra de cuatro partes con tres sombreadas.",
+          "descripcion": "Dos tarjetas blancas con barras iguales. La primera, rotulada dos tercios, tiene tres partes y dos sombreadas en amarillo. La segunda, rotulada tres cuartos, tiene cuatro partes y tres sombreadas. Arriba se pregunta cómo igualar las partes."
+        },
+        {
+          "id": "ejemplo-uno",
+          "src": "/nudito/diagramas/matematica/comun-denominador-ejemplo-uno.svg",
+          "alt": "Múltiplos de cuatro y seis llegan a doce; tres cuartos son nueve doceavos y cinco sextos son diez doceavos.",
+          "descripcion": "Se muestran dos listas: múltiplos de cuatro, que son cuatro, ocho y doce; y múltiplos de seis, que son seis y doce. Un recuadro indica tres cuartos igual a nueve doceavos y cinco sextos igual a diez doceavos. Debajo se señala que el denominador común es doce."
+        },
+        {
+          "id": "ejemplo-dos",
+          "src": "/nudito/diagramas/matematica/comun-denominador-ejemplo-dos.svg",
+          "alt": "Tres quintos por dos sobre dos son seis décimos; un medio por cinco sobre cinco son cinco décimos.",
+          "descripcion": "Un recuadro muestra tres quintos multiplicado por una fracción con dos arriba y dos abajo, y su resultado, seis décimos. A la derecha muestra un medio multiplicado por una fracción con cinco arriba y cinco abajo, y su resultado, cinco décimos."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/comun-denominador-error.svg",
+          "alt": "El cambio de un medio a un sexto aparece tachado porque solo modificó el denominador.",
+          "descripcion": "Un recuadro muestra una flecha roja desde un medio hacia un sexto. Una raya roja tacha el un sexto, que sigue legible. Debajo se indica que, si el denominador se multiplica por tres, el numerador también."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Escribe un medio y un tercio con denominador seis. ¿Qué par obtienes?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Dos sextos y tres sextos"
+          },
+          {
+            "id": "b",
+            "texto": "Tres sextos y cuatro sextos"
+          },
+          {
+            "id": "c",
+            "texto": "Tres sextos y dos sextos"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Un medio son tres sextos y un tercio son dos sextos.",
+        "pista": "Busca el factor que lleva dos a seis y el que lleva tres a seis."
+      }
+    },
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
@@ -2282,7 +2399,118 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Partes iguales antes de sumar",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a sumar y restar fracciones con denominadores distintos. Como idea principal, no se pueden juntar partes de tamaños diferentes: primero las convertimos a partes iguales, es decir, a un denominador común. Después sumamos o restamos solo los numeradores, conservamos el denominador y, si se puede, simplificamos."
+        },
+        {
+          "id": "situacion-sextos",
+          "tipo": "recurso",
+          "titulo": "Medios y tercios en sextos",
+          "narracion": "Observemos esta situación con tres barras iguales divididas en sextos. En la primera, tres sextos están pintados, y eso es un medio. En la segunda, dos sextos, y eso es un tercio. En la tercera juntamos todo y quedan cinco sextos pintados. Un medio y un tercio no se pueden sumar directamente, pero al convertirlos a sextos sí.",
+          "recursoRef": "sextos"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la torta de maíz",
+          "narracion": "Carmen come un cuarto de una torta y Luis come un sexto de la misma torta. ¿Qué parte comieron entre los dos? Los cuartos y los sextos tienen tamaños distintos, así que buscamos partes iguales: doce sirve para los dos. Un cuarto son tres doceavos y un sexto son dos doceavos."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: sumamos los doceavos",
+          "narracion": "Ahora sumamos: tres doceavos más dos doceavos son cinco doceavos. Conservamos el doce y sumamos solo los numeradores. Entre los dos comieron cinco doceavos de la torta. No se puede simplificar, porque cinco y doce no tienen un divisor común.",
+          "recursoRef": "doceavos"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el tanque de agua",
+          "narracion": "Un tanque tiene siete décimos de su capacidad con agua y se usa un medio de la capacidad. Para restar, convertimos un medio en décimos: son cinco décimos. De los siete décimos, cinco son los que se usan."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: restamos y simplificamos",
+          "narracion": "Restamos solo los numeradores: siete décimos menos cinco décimos son dos décimos. Como dos y diez se pueden dividir entre dos, simplificamos: dos décimos son un quinto. Quedan un quinto de la capacidad del tanque.",
+          "recursoRef": "tanque"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "No se suman los denominadores",
+          "narracion": "Un error común es sumar arriba con arriba y abajo con abajo. Así, un cuarto más un sexto saldría dos décimos. Pero dos décimos es menos que un cuarto, y al sumar nunca puedes quedar con menos de lo que ya tenías. Eso muestra que ese resultado es imposible."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca un denominador común",
+          "narracion": "Primero busca un denominador común, un número de partes que sirva para las dos fracciones. Para cuartos y sextos sirve doce, porque doce se puede partir en cuartos y en sextos.",
+          "recursoRef": "doceavos"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: reescribe cada fracción",
+          "narracion": "Segundo, reescribe cada fracción con ese denominador, multiplicando arriba y abajo por el mismo número. Un cuarto, por tres, es tres doceavos, y un sexto, por dos, es dos doceavos.",
+          "recursoRef": "doceavos"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: opera los numeradores y simplifica",
+          "narracion": "Tercero, suma o resta los numeradores, conserva el denominador y simplifica. En el tanque, siete menos cinco es dos y el denominador sigue siendo diez; dos décimos se simplifican a un quinto.",
+          "recursoRef": "tanque"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "sextos",
+          "src": "/nudito/diagramas/matematica/fracciones-medio-y-tercio-sextos.svg",
+          "alt": "Tres barras de seis partes: un medio son tres sextos, un tercio son dos sextos y juntos son cinco sextos.",
+          "descripcion": "Hay tres barras del mismo largo, cada una dividida en seis partes iguales. En la primera, tres partes turquesa y el rótulo un medio igual a tres sextos. En la segunda, dos partes amarillas y el rótulo un tercio igual a dos sextos. En la tercera, cinco partes azules y el rótulo juntos, cinco sextos."
+        },
+        {
+          "id": "doceavos",
+          "src": "/nudito/diagramas/matematica/fracciones-torta-doceavos.svg",
+          "alt": "Tres barras de doce partes: un cuarto son tres doceavos, un sexto son dos doceavos y juntos son cinco doceavos.",
+          "descripcion": "Hay tres barras del mismo largo, cada una dividida en doce partes iguales. La primera tiene tres partes turquesa: un cuarto igual a tres doceavos. La segunda tiene dos amarillas: un sexto igual a dos doceavos. La tercera tiene cinco azules: juntos, cinco doceavos. Abajo se lee tres doceavos más dos doceavos igual a cinco doceavos."
+        },
+        {
+          "id": "tanque",
+          "src": "/nudito/diagramas/matematica/fracciones-tanque-diez.svg",
+          "alt": "Barra de diez partes: siete décimos del tanque; cinco décimos se usan y quedan dos décimos, que son un quinto.",
+          "descripcion": "Una barra de diez partes iguales. Las dos primeras son turquesa y las cinco siguientes son amarillas; las tres últimas están en blanco. Una leyenda dice que lo amarillo, cinco décimos, es la mitad que se usa y que lo turquesa, dos décimos, es lo que queda. Abajo se lee siete décimos menos cinco décimos igual a dos décimos, que es igual a un quinto."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Calcula un tercio más un cuarto.",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cinco doceavos"
+          },
+          {
+            "id": "b",
+            "texto": "Dos séptimos"
+          },
+          {
+            "id": "c",
+            "texto": "Siete doceavos"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Un tercio son cuatro doceavos y un cuarto son tres doceavos; juntos son siete doceavos.",
+        "pista": "Convierte las dos fracciones a doceavos antes de sumar los numeradores."
+      }
+    }
   },
   {
     "clave": "mat.p5.problemas-suma-resta-fracciones-5",
@@ -3609,7 +3837,124 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comparar fracciones con distinto denominador",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a comparar fracciones que tienen distinto denominador. Como idea principal de este tema, primero las convertimos en fracciones equivalentes con el mismo denominador, o usamos productos cruzados. Así sabemos con certeza cuál es mayor, cuál es menor o si son iguales."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Cacao en el mercado de Tarapoto",
+          "narracion": "Observemos esta situación. En el mercado de Tarapoto, Carmen compra tres cuartos de kilo de cacao, y Pedro compra cinco sextos de kilo del mismo grano. En la imagen hay una tarjeta para cada uno, con su fracción. Queremos saber quién compró más cacao.",
+          "recursoRef": "cacao-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: partes del mismo tamaño",
+          "narracion": "Para comparar, necesitamos partes del mismo tamaño. Los denominadores son cuatro y seis. Busquemos un número que esté en la tabla del cuatro, o múltiplos de cuatro, y también en la tabla del seis, o múltiplos de seis. Con ese número convertiremos cada fracción. ¿Cuál es el menor número que está en las dos tablas?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: comparar en doceavos",
+          "narracion": "El menor número común es doce. Para pasar de cuartos a doceavos multiplicamos arriba y abajo por tres: tres cuartos son nueve doceavos. Para pasar de sextos a doceavos multiplicamos por dos: cinco sextos son diez doceavos. Diez doceavos es mayor que nueve doceavos, así que Pedro compró más. En la imagen, las dos barras tienen doce partes: nueve pintadas la de Carmen y diez la de Pedro.",
+          "recursoRef": "doceavos"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: multiplicar en cruz",
+          "narracion": "Con dos fracciones hay otro camino rápido. Dos atletas de Puno recorren un circuito: David avanzó dos tercios y Sonia avanzó siete décimos. Calculamos los productos cruzados: el numerador de una fracción por el denominador de la otra, en los dos sentidos. Cada producto queda del lado de la fracción que aporta el numerador. ¿Qué dos productos salen, y de qué lado queda cada uno?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: quién está más cerca de la meta",
+          "narracion": "Dos por diez son veinte: el dos es de David, y por eso ese producto queda del lado de dos tercios. Tres por siete son veintiuno: el siete es de Sonia, y ese producto queda del lado de siete décimos. Es como pasar a treintavos: dos tercios son veinte treintavos y siete décimos son veintiuno treintavos. Por eso el mayor producto indica la fracción mayor. Como veintiuno es mayor que veinte, siete décimos es mayor que dos tercios. Sonia está más cerca de la meta. En la imagen, dos líneas se cruzan entre las fracciones, y debajo aparecen los dos productos.",
+          "recursoRef": "cruzados"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es creer que gana la fracción con mayor denominador. Con el mismo numerador, tres octavos es menor que tres cuartos, porque los octavos son partes más pequeñas. Otro error es comparar solo los numeradores: cinco novenos no es mayor que tres cuartos solo porque cinco es mayor que tres. Primero hay que igualar los denominadores."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: observa los denominadores",
+          "narracion": "Mira los denominadores de las fracciones que vas a comparar. En el caso de Carmen y Pedro eran cuatro y seis, distintos, por eso no se pueden comparar directamente. Las tarjetas muestran esas dos fracciones.",
+          "recursoRef": "cacao-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: halla el denominador común",
+          "narracion": "Halla un múltiplo común: un número que esté en la tabla de los dos denominadores. En la imagen se ven los múltiplos de cuatro y de seis, y el doce, que está en las dos filas, aparece en amarillo. Ese es el denominador común más pequeño.",
+          "recursoRef": "multiplos"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: amplifica y compara",
+          "narracion": "Amplifica cada fracción para que tenga ese denominador y compara los numeradores: el mayor numerador es la fracción mayor, como en estas barras. Como alternativa rápida, con dos fracciones puedes usar los productos cruzados.",
+          "recursoRef": "doceavos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cacao-pregunta",
+          "src": "/nudito/diagramas/matematica/comparar-fracciones-heterogeneas-cacao-pregunta.svg",
+          "alt": "Dos tarjetas: Carmen con tres cuartos de kilo de cacao y Pedro con cinco sextos de kilo; abajo, quién compró más.",
+          "descripcion": "Arriba dice «Cacao en el mercado». Hay dos tarjetas blancas. La de Carmen muestra la fracción tres cuartos, con el texto kilos de cacao. La de Pedro muestra cinco sextos, con el mismo texto. Abajo se lee: ¿Quién compró más cacao?"
+        },
+        {
+          "id": "doceavos",
+          "src": "/nudito/diagramas/matematica/comparar-fracciones-heterogeneas-doceavos.svg",
+          "alt": "Dos barras de doce partes: nueve pintadas para tres cuartos y diez pintadas para cinco sextos.",
+          "descripcion": "Arriba dice «Las dos con doce partes». Hay dos barras de doce casillas. Encima de la primera dice Carmen, tres cuartos igual a nueve doceavos, y tiene nueve casillas verde azuladas. Encima de la segunda dice Pedro, cinco sextos igual a diez doceavos, y tiene diez casillas amarillas. Abajo se lee: diez doceavos es mayor que nueve doceavos, y Pedro compró más."
+        },
+        {
+          "id": "cruzados",
+          "src": "/nudito/diagramas/matematica/comparar-fracciones-heterogeneas-cruzados.svg",
+          "alt": "Dos tercios y siete décimos con dos líneas cruzadas; debajo, dos por diez es veinte y tres por siete es veintiuno.",
+          "descripcion": "Arriba dice «Productos cruzados». A la izquierda está la fracción dos tercios y a la derecha siete décimos. Entre ellas se cruzan dos líneas: una verde azulada que va del dos al diez, y una amarilla que va del siete al tres. Debajo de dos tercios se lee dos por diez igual a veinte y, debajo de siete décimos, tres por siete igual a veintiuno; cada producto queda bajo la fracción cuyo numerador se usa. Abajo: veinte es menor que veintiuno, entonces dos tercios es menor que siete décimos."
+        },
+        {
+          "id": "multiplos",
+          "src": "/nudito/diagramas/matematica/comparar-fracciones-heterogeneas-multiplos.svg",
+          "alt": "Dos filas de múltiplos, los de cuatro y los de seis; el doce, en amarillo, está en las dos.",
+          "descripcion": "Arriba dice «Múltiplos de cuatro y de seis». Hay dos filas de casillas. En la primera, múltiplos de 4: 4, 8, 12, 16 y 20. En la segunda, múltiplos de 6: 6, 12, 18, 24 y 30. El 12 está en amarillo en las dos filas. Abajo se lee: El primero que está en las dos filas es 12."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En una chacra, Rosa cosechó dos tercios de un surco y Luis cosechó tres quintos del mismo surco. ¿Quién cosechó más?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Luis cosechó más"
+          },
+          {
+            "id": "b",
+            "texto": "Rosa cosechó más"
+          },
+          {
+            "id": "c",
+            "texto": "Cosecharon lo mismo"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Con denominador quince, dos tercios son diez quinceavos y tres quintos son nueve quinceavos.",
+        "pista": "Busca partes del mismo tamaño para tercios y para quintos antes de comparar."
+      }
+    }
   },
   {
     "clave": "mat.p5.multiplicacion-fracciones",

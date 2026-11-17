@@ -1197,7 +1197,130 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comprobar una cuenta",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a comprobar si una suma o una resta está bien hecha. Como idea principal, usa la operación contraria. En una suma, quita uno de los sumandos al total y debe quedar el otro. En una resta, suma la respuesta con el número que se quitó y debe volver el número del inicio."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "La cuenta de la tienda",
+          "narracion": "Observemos esta situación. En su tienda, doña Lucía anotó que vendió dos mil seiscientos soles el lunes y mil ochocientos soles el martes. En total, escribió cuatro mil cuatrocientos soles. Queremos saber si la cuenta está bien hecha.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: comprobar la suma",
+          "narracion": "Para comprobar una suma usamos la operación contraria. ¿Qué operación harías con el total y con uno de los sumandos? ¿Qué número debería salir?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: quitar un sumando",
+          "narracion": "Al total, cuatro mil cuatrocientos, le quitamos lo del martes, mil ochocientos. Queda dos mil seiscientos, que es lo del lunes. La suma está comprobada. Las barras muestran el total, las dos partes y lo que queda al quitar una.",
+          "recursoRef": "barra-suma"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: comprobar la resta",
+          "narracion": "Ahora una resta. Doña Lucía tenía seis mil soles en caja, gastó dos mil trescientos cincuenta y le quedaron tres mil seiscientos cincuenta. ¿Cómo comprobamos que la resta está bien?",
+          "recursoRef": "resta-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: volver al total",
+          "narracion": "Sumamos lo que gastó con lo que le quedó: dos mil trescientos cincuenta más tres mil seiscientos cincuenta son seis mil. Volvimos al número del inicio, así que la resta está comprobada.",
+          "recursoRef": "barra-resta"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Una comprobación que falla",
+          "narracion": "Con la misma resta, alguien sumó la respuesta con el número del inicio. Salió nueve mil seiscientos cincuenta, y no volvió a seis mil. Lo correcto es sumar la respuesta con el número que se quitó.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: mira qué cuenta es",
+          "narracion": "Mira si quieres comprobar una suma o una resta. Eso decide cuál operación contraria usarás."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: haz la operación contraria",
+          "narracion": "Si es una suma, resta un sumando al total. Si es una resta, suma la respuesta con el número que se quitó."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: compara",
+          "narracion": "Compara el resultado con el número que buscabas. Si coincide, la cuenta está bien. Si no coincide, revisa la cuenta."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/comprobar-suma-resta-situacion.svg",
+          "alt": "Tarjeta con la cuenta dos mil seiscientos más mil ochocientos igual cuatro mil cuatrocientos y un signo de pregunta.",
+          "descripcion": "Una tarjeta blanca con la cuenta de la tienda: dos mil seiscientos más mil ochocientos igual cuatro mil cuatrocientos. Debajo hay un círculo amarillo con un signo de pregunta y la frase «¿Está bien hecha?»."
+        },
+        {
+          "id": "barra-suma",
+          "src": "/nudito/diagramas/matematica/comprobar-suma-resta-barra-suma.svg",
+          "alt": "Barras con el total cuatro mil cuatrocientos, sus partes dos mil seiscientos y mil ochocientos, y lo que queda al quitar mil ochocientos.",
+          "descripcion": "Una barra blanca con el total, cuatro mil cuatrocientos. Debajo, otra barra con dos partes: dos mil seiscientos, turquesa, y mil ochocientos, amarilla. En la tercera fila, una barra turquesa rotulada «Queda» bajo la primera parte y un recuadro rojo punteado rotulado «Se quita» bajo la segunda. Abajo: cuatro mil cuatrocientos menos mil ochocientos igual dos mil seiscientos."
+        },
+        {
+          "id": "resta-pregunta",
+          "src": "/nudito/diagramas/matematica/comprobar-suma-resta-resta-pregunta.svg",
+          "alt": "Tarjeta con la cuenta seis mil menos dos mil trescientos cincuenta igual tres mil seiscientos cincuenta y un signo de pregunta.",
+          "descripcion": "Una tarjeta blanca con la cuenta de la caja: seis mil menos dos mil trescientos cincuenta igual tres mil seiscientos cincuenta. Debajo hay un círculo amarillo con un signo de pregunta y la frase «¿Cómo se comprueba?»."
+        },
+        {
+          "id": "barra-resta",
+          "src": "/nudito/diagramas/matematica/comprobar-suma-resta-barra-resta.svg",
+          "alt": "Dos barras: el total seis mil y sus partes dos mil trescientos cincuenta y tres mil seiscientos cincuenta, que lo vuelven a formar.",
+          "descripcion": "Una barra blanca con seis mil. Debajo, otra barra dividida en dos mil trescientos cincuenta, amarilla, y tres mil seiscientos cincuenta, turquesa. Abajo, la suma dos mil trescientos cincuenta más tres mil seiscientos cincuenta igual seis mil, con una marca de verificación y la frase «Vuelve el total»."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/comprobar-suma-resta-error.svg",
+          "alt": "Una resta con dos comprobaciones: la de arriba, en rojo con una cruz, da nueve mil seiscientos cincuenta; la de abajo, con marca verde, vuelve a seis mil.",
+          "descripcion": "Arriba, la resta seis mil menos dos mil trescientos cincuenta igual tres mil seiscientos cincuenta. Debajo, en rojo y con una cruz, tres mil seiscientos cincuenta más seis mil igual nueve mil seiscientos cincuenta, rotulado «No vuelve a seis mil». Más abajo, en turquesa y con una marca de verificación, tres mil seiscientos cincuenta más dos mil trescientos cincuenta igual seis mil, rotulado «Sí vuelve a seis mil»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En una tienda anotaron: dos mil quinientos más mil doscientos dan un total de tres mil setecientos. ¿Qué cuenta lo comprueba?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sumar los sumandos con el total"
+          },
+          {
+            "id": "b",
+            "texto": "Restar mil doscientos del total"
+          },
+          {
+            "id": "c",
+            "texto": "Sumar el total con mil doscientos"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Tres mil setecientos menos mil doscientos son dos mil quinientos, el otro sumando.",
+        "pista": "Busca una cuenta distinta que recupere uno de los números del inicio."
+      }
+    }
   },
   {
     "clave": "mat.p4.compensacion-suma-resta",
@@ -1493,6 +1616,132 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Calcular con números redondos",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a calcular mentalmente con compensación. Como idea principal, cambiamos un número por otro más fácil y redondo, calculamos, y después corregimos exactamente lo que cambiamos. Si agregamos de más, lo quitamos al final. Si quitamos de más, lo devolvemos."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Panes de la panadería",
+          "narracion": "Observemos esta situación. En una panadería se vendieron quinientos noventa y nueve panes por la mañana. Por la tarde se vendieron doscientos treinta y cinco. En la barra, la parte turquesa es la mañana y la azul oscuro es la tarde. Queremos saber cuántos panes se vendieron en total.",
+          "recursoRef": "panes-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: sumar con seiscientos",
+          "narracion": "Quinientos noventa y nueve está muy cerca de seiscientos, que es un número redondo. ¿Qué pasa si sumas seiscientos en lugar de quinientos noventa y nueve? ¿Agregaste de más o de menos? ¿Cuánto?",
+          "recursoRef": "panes-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: agregar de más y corregir",
+          "narracion": "Cambiamos quinientos noventa y nueve por seiscientos. Para eso agregamos un pan de más, que es la pieza amarilla. Seiscientos más doscientos treinta y cinco son ochocientos treinta y cinco. Como agregamos uno de más, lo quitamos: ochocientos treinta y cuatro. Se vendieron ochocientos treinta y cuatro panes.",
+          "recursoRef": "suma-compensada"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una resta",
+          "narracion": "Ahora una resta. Un almacén tiene seiscientos cuarenta kilos de arroz y vende doscientos noventa y siete. En la barra, la parte azul oscuro es lo que se vende. ¿Cuántos kilos quedan? Fíjate que doscientos noventa y siete está cerca de trescientos. ¿Qué pasa si quitas trescientos? ¿Quitas de más o de menos?",
+          "recursoRef": "resta-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: quitar de más y devolver",
+          "narracion": "Si quitamos trescientos, quedan trescientos cuarenta. Pero quitamos tres kilos de más, que son la pieza amarilla. Hay que devolverlos: trescientos cuarenta más tres son trescientos cuarenta y tres. Quedan trescientos cuarenta y tres kilos de arroz.",
+          "recursoRef": "resta-compensada"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado al corregir",
+          "narracion": "Veamos una resta parecida: quinientos treinta menos doscientos noventa y ocho. Si quitamos trescientos, quedan doscientos treinta. Un error frecuente es quitar otros dos y llegar a doscientos veintiocho. Pero ya habíamos quitado dos de más, así que se devuelven: doscientos treinta más dos son doscientos treinta y dos.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca un número redondo",
+          "narracion": "Primero busca un número que esté cerca de uno redondo. Quinientos noventa y nueve está cerca de seiscientos.",
+          "recursoRef": "panes-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: cambia y calcula",
+          "narracion": "Segundo, cambia el número y calcula con el redondo. Fíjate cuánto agregaste o quitaste de más.",
+          "recursoRef": "suma-compensada"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: corrige",
+          "narracion": "Tercero, corrige exactamente lo que cambiaste. Si en una resta quitaste de más, devuélvelo sumando. Si en una suma agregaste de más, quítalo al final.",
+          "recursoRef": "resta-compensada"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "panes-pregunta",
+          "src": "/nudito/diagramas/matematica/compensacion-suma-resta-panes-pregunta.svg",
+          "alt": "Barra con dos partes: quinientos noventa y nueve panes de la mañana y doscientos treinta y cinco de la tarde, y un signo de pregunta.",
+          "descripcion": "Una barra con dos partes. La izquierda, larga y turquesa, dice quinientos noventa y nueve, con la palabra mañana encima. La derecha, corta y azul oscuro, dice doscientos treinta y cinco, con la palabra tarde. Debajo, un corchete que abarca las dos partes y un signo de pregunta."
+        },
+        {
+          "id": "suma-compensada",
+          "src": "/nudito/diagramas/matematica/compensacion-suma-resta-suma-compensada.svg",
+          "alt": "Barra con quinientos noventa y nueve, una pieza amarilla de uno y doscientos treinta y cinco, y dos cuentas de suma y resta.",
+          "descripcion": "Una barra con tres piezas: una turquesa larga con quinientos noventa y nueve, una amarilla estrecha con uno y una azul oscuro con doscientos treinta y cinco. Bajo la amarilla dice uno de más. Debajo: seiscientos más doscientos treinta y cinco igual ochocientos treinta y cinco, y ochocientos treinta y cinco menos uno igual ochocientos treinta y cuatro."
+        },
+        {
+          "id": "resta-pregunta",
+          "src": "/nudito/diagramas/matematica/compensacion-suma-resta-resta-pregunta.svg",
+          "alt": "Barra de seiscientos cuarenta con una parte de doscientos noventa y siete y otra con un signo de pregunta.",
+          "descripcion": "Sobre una barra hay un corchete rotulado seiscientos cuarenta. La barra tiene a la izquierda una parte azul oscuro con doscientos noventa y siete, y a la derecha una parte con borde de rayas y un signo de pregunta. Abajo: seiscientos cuarenta menos doscientos noventa y siete igual a un signo de pregunta."
+        },
+        {
+          "id": "resta-compensada",
+          "src": "/nudito/diagramas/matematica/compensacion-suma-resta-resta-compensada.svg",
+          "alt": "Barra con trescientos cuarenta, una pieza amarilla de tres y doscientos noventa y siete; un corchete dice que se quitan trescientos.",
+          "descripcion": "Una barra de tres piezas: turquesa con trescientos cuarenta, amarilla estrecha con tres y gris con doscientos noventa y siete. Un corchete sobre las dos últimas dice se quitan trescientos. Debajo: seiscientos cuarenta menos trescientos igual trescientos cuarenta; tres de más; y trescientos cuarenta más tres igual trescientos cuarenta y tres."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/compensacion-suma-resta-errores.svg",
+          "alt": "Recta con doscientos veintiocho, doscientos treinta y doscientos treinta y dos; un arco hacia atrás es el error y uno hacia adelante es lo correcto.",
+          "descripcion": "Arriba, quinientos treinta menos trescientos igual doscientos treinta. Debajo, una recta con tres puntos: doscientos veintiocho, doscientos treinta, en amarillo, y doscientos treinta y dos. Desde doscientos treinta, un arco rojo de puntos va hacia doscientos veintiocho y dice menos dos, mal. Un arco turquesa va hacia doscientos treinta y dos y dice más dos, bien."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lía calcula cuatrocientos noventa y nueve más doscientos treinta y siete. Usa quinientos en lugar de cuatrocientos noventa y nueve. ¿Cuál es el resultado de la suma original?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Setecientos treinta y siete"
+          },
+          {
+            "id": "b",
+            "texto": "Setecientos treinta y seis"
+          },
+          {
+            "id": "c",
+            "texto": "Setecientos treinta y ocho"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Quinientos más doscientos treinta y siete son setecientos treinta y siete. Como se agregó uno de más, el resultado es setecientos treinta y seis.",
+        "pista": "Piensa si al usar quinientos pusiste de más o de menos."
+      }
+    }
   }
 ]

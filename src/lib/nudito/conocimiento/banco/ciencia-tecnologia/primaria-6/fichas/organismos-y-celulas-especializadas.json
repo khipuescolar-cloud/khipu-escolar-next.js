@@ -736,7 +736,120 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Una célula o muchas",
+          "narracion": "Hola, hoy aprenderemos a distinguir los seres vivos según su cantidad de células. Como idea principal, un ser unicelular está formado por una sola célula que realiza todas sus funciones: se alimenta, se mueve y se reproduce. Un ser pluricelular está formado por muchas células que se reparten el trabajo. Lo que decide es el número de células, no el tamaño."
+        },
+        {
+          "id": "situacion-suelo",
+          "tipo": "recurso",
+          "titulo": "El suelo de la selva después de la lluvia",
+          "narracion": "Observemos esta situación en el suelo de la Amazonía después de la lluvia. Hay una hormiga sobre una hoja, dos hongos con forma de seta y un charco pequeño. Algunos seres vivos de este lugar se ven a simple vista y otros solo con microscopio. Aprenderemos a clasificarlos según sus células.",
+          "recursoRef": "suelo"
+        },
+        {
+          "id": "ejemplo-ameba-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una ameba en un charco",
+          "narracion": "En el agua de un charco del río Rímac puede vivir una ameba, que solo se ve con microscopio. Al mirar la muestra aparece un único cuerpo transparente, con un núcleo visible y pequeñas burbujas, sin otras células pegadas a él.",
+          "recursoRef": "ameba"
+        },
+        {
+          "id": "ejemplo-ameba-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una célula que hace todo",
+          "narracion": "Esa única célula se alimenta, se mueve y se reproduce por sí sola; no necesita otras células. Por eso la ameba es un ser unicelular, y es un ser vivo completo.",
+          "recursoRef": "ameba"
+        },
+        {
+          "id": "ejemplo-cuy-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el cuy y sus tejidos",
+          "narracion": "Un cuy tiene piel, músculos y huesos. Si observamos pequeños trozos muy ampliados, vemos muchas células en cada tejido, y no todas son iguales: las de la piel, las del músculo y las del hueso tienen aspectos distintos.",
+          "recursoRef": "cuy"
+        },
+        {
+          "id": "ejemplo-cuy-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: muchas células que colaboran",
+          "narracion": "Las células de la piel protegen, las del músculo permiten el movimiento y las del hueso dan sostén. Cada tipo se especializa y todas colaboran para mantener vivo al cuy. Por eso el cuy es un ser pluricelular.",
+          "recursoRef": "cuy"
+        },
+        {
+          "id": "error-tamano",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: lo pequeño es unicelular",
+          "narracion": "Una hormiga es muy pequeña, pero es pluricelular: tiene millones de células. Y un ser unicelular no es menos vivo: una sola célula puede cumplir todas las funciones de la vida. Lo que decide es el número de células, no el tamaño ni cuánto cueste verlo.",
+          "recursoRef": "suelo"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: nombra al ser vivo y cómo lo observas",
+          "narracion": "Primero nombra el ser vivo y pregunta cómo lo ves: a simple vista o con microscopio. Esa pista ayuda, pero todavía no decide, porque hay organismos pluricelulares muy pequeños, como la hormiga de la escena.",
+          "recursoRef": "suelo"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: averigua cuántas células tiene",
+          "narracion": "Después averigua si está formado por una sola célula o por muchas. En la escena, la hormiga y los hongos con forma de seta están formados por muchas células. Una ameba, en cambio, es una sola.",
+          "recursoRef": "suelo"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: concluye con la división del trabajo",
+          "narracion": "Por último explica con razones. Si es unicelular, una sola célula hace todas las funciones. Si es pluricelular, hay células especializadas que se reparten el trabajo. Por ejemplo: «El cuy es pluricelular porque tiene muchas células especializadas, como las de la piel y las del músculo»."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "suelo",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/unicelulares-suelo-selva-zimage-v1.webp",
+          "alt": "Una hormiga camina sobre una hoja verde, junto a dos hongos con forma de seta y un charco de agua clara sobre la tierra.",
+          "descripcion": "Sobre el suelo húmedo de la selva hay una hoja verde con una hormiga roja encima. A la derecha crecen dos hongos con forma de seta, uno grande y uno pequeño, de sombrero marrón con manchas claras. Abajo a la derecha hay un charco de agua clara."
+        },
+        {
+          "id": "ameba",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/unicelulares-ameba-svg-v1.svg",
+          "alt": "Ameba vista con microscopio: un cuerpo transparente con núcleo violeta y burbujas, dentro de un círculo oscuro.",
+          "descripcion": "Dentro del círculo del microscopio se ve un solo cuerpo de contorno irregular, transparente, con un núcleo violeta en el centro y varias burbujas pequeñas. No hay otros cuerpos pegados a él."
+        },
+        {
+          "id": "cuy",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/unicelulares-tejidos-cuy-svg-v1.svg",
+          "alt": "Tres lupas muestran piel, músculo y hueso de un cuy; en cada una las células tienen forma distinta.",
+          "descripcion": "Tres círculos ampliados: el de la piel tiene células hexagonales juntas, el del músculo tiene bandas largas y el del hueso tiene células redondas con un punto central. Abajo hay un cuy."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Camila observa tres seres vivos. ¿Cuál está bien clasificado como unicelular?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una euglena de laguna: una sola célula realiza todas sus funciones."
+          },
+          {
+            "id": "b",
+            "texto": "Una hormiga cargando hojas: es tan pequeña que tiene una sola célula."
+          },
+          {
+            "id": "c",
+            "texto": "Una seta del bosque: no se mueve, así que tiene una sola célula."
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "La euglena es un organismo unicelular: una sola célula cumple todas sus funciones. La hormiga y la seta son pluricelulares, aunque una sea pequeña y la otra no se mueva.",
+        "pista": "Para clasificar cuenta las células, no midas el tamaño ni observes si se mueve."
+      }
+    }
   },
   {
     "clave": "cyt.p6.niveles-de-organizacion",

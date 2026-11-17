@@ -897,7 +897,120 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Porcentajes con fracciones conocidas",
+          "narracion": "Bienvenida y bienvenido. Hoy calcularás porcentajes usuales de una cantidad. Como idea principal, un porcentaje indica cuántas partes se toman de cada cien, y los más comunes equivalen a fracciones que ya conoces: diez por ciento es un décimo, veinticinco por ciento es un cuarto, cincuenta por ciento es la mitad y setenta y cinco por ciento son tres cuartos. Con esas fracciones puedes calcular sin fórmulas complicadas."
+        },
+        {
+          "id": "situacion-equivalencias",
+          "tipo": "recurso",
+          "titulo": "Cada porcentaje es una fracción",
+          "narracion": "Observemos esta situación. Cuatro barras iguales representan el total, que es el cien por ciento. En cada barra se pinta una parte distinta, y a su lado aparece la fracción equivalente. Los pares son estos: diez por ciento, un décimo; veinticinco por ciento, un cuarto; cincuenta por ciento, un medio; y setenta y cinco por ciento, tres cuartos. Esta tabla será nuestro mapa para convertir un porcentaje en una fracción antes de calcular.",
+          "recursoRef": "equivalencias"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: veinticinco por ciento de ochenta",
+          "narracion": "El colegio tiene ochenta cuadernos y dona el veinticinco por ciento. ¿Cuántos cuadernos son? Como veinticinco por ciento es un cuarto, dividimos ochenta entre cuatro. Ochenta entre cuatro son veinte, porque cuatro por veinte es ochenta. Se donan veinte cuadernos.",
+          "recursoRef": "cuartos-ochenta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: comprobamos y comparamos",
+          "narracion": "Comprobamos juntando las cuatro partes: veinte más veinte más veinte más veinte son ochenta, el total. Si en cambio pidieran el diez por ciento de ochenta, dividiríamos entre diez y obtendríamos ocho cuadernos. Cada porcentaje usa una fracción distinta, pero el método es el mismo: repartir el total en partes iguales.",
+          "recursoRef": "cuartos-ochenta"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: setenta y cinco por ciento de cuarenta",
+          "narracion": "En una feria hay cuarenta estudiantes y participa el setenta y cinco por ciento. Setenta y cinco por ciento son tres cuartos. Primero hallamos un cuarto: cuarenta entre cuatro son diez. El total queda dividido en cuatro grupos de diez estudiantes.",
+          "recursoRef": "tres-cuartos"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: tomamos tres cuartos",
+          "narracion": "Como queremos tres cuartos, tomamos tres de esos cuatro grupos: diez más diez más diez son treinta. Participan treinta estudiantes y no participan diez. Comprobamos: treinta más diez son cuarenta, el total.",
+          "recursoRef": "tres-cuartos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Un porcentaje no es la cantidad final",
+          "narracion": "Un error frecuente es pensar que el setenta y cinco por ciento de cuarenta es setenta y cinco estudiantes. Eso no puede ser, porque setenta y cinco es mayor que el total de cuarenta. Si el porcentaje es menor que cien por ciento, el resultado siempre es menor que el total. Otro error es multiplicar por veinticinco para hallar el veinticinco por ciento: lo correcto es dividir entre cuatro."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: identifica el total",
+          "narracion": "Primero reconoce de qué cantidad se pide el porcentaje. En el ejemplo uno el total es ochenta cuadernos y en el ejemplo dos, cuarenta estudiantes. Sin el total no hay una respuesta única.",
+          "recursoRef": "cuartos-ochenta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: cambia el porcentaje por su fracción",
+          "narracion": "Convierte el porcentaje en la fracción equivalente usando la tabla: diez por ciento es un décimo, veinticinco por ciento un cuarto, cincuenta por ciento un medio y setenta y cinco por ciento tres cuartos. Otro porcentaje usual, el veinte por ciento, no aparece en la tabla: equivale a un quinto, y se calcula dividiendo entre cinco.",
+          "recursoRef": "equivalencias"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: divide y toma las partes que piden",
+          "narracion": "Divide el total entre el denominador de la fracción y, si el numerador es mayor que uno, multiplica por él. Con tres cuartos de cuarenta, dividimos entre cuatro y multiplicamos por tres: diez por tres son treinta. Cierra con una oración que diga qué cantidad obtuviste.",
+          "recursoRef": "tres-cuartos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "equivalencias",
+          "src": "/nudito/diagramas/matematica/porcentajes-equivalencias.svg",
+          "alt": "Cuatro barras iguales: diez por ciento es un décimo, veinticinco por ciento un cuarto, cincuenta por ciento un medio y setenta y cinco por ciento tres cuartos.",
+          "descripcion": "Hay cuatro barras del mismo largo, una debajo de otra. A la izquierda de cada una se lee su porcentaje, que es diez, veinticinco, cincuenta y setenta y cinco por ciento. La parte coloreada de cada barra crece y a la derecha aparece su fracción: un décimo, un cuarto, un medio y tres cuartos."
+        },
+        {
+          "id": "cuartos-ochenta",
+          "src": "/nudito/diagramas/matematica/porcentajes-cuartos-ochenta.svg",
+          "alt": "Ochenta repartidos en cuatro grupos de veinte; uno sombreado es veinticinco por ciento.",
+          "descripcion": "Se ven cuatro recuadros con el número veinte. El primero está sombreado y representa un cuarto de ochenta. Debajo se lee un grupo de cuatro es igual a veinticinco por ciento, y ochenta entre cuatro es igual a veinte."
+        },
+        {
+          "id": "tres-cuartos",
+          "src": "/nudito/diagramas/matematica/porcentajes-tres-cuartos.svg",
+          "alt": "Cuarenta estudiantes en cuatro grupos de diez; tres grupos coloreados son el setenta y cinco por ciento.",
+          "descripcion": "Hay cuatro recuadros con el número diez. Los tres primeros están coloreados y el último está en blanco. Debajo se lee tres de cuatro grupos es igual a setenta y cinco por ciento, y diez más diez más diez es igual a treinta."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una chacra produce ciento sesenta kilos de papa y se vende el setenta y cinco por ciento. ¿Cuántos kilos de papa se venden?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuarenta kilos"
+          },
+          {
+            "id": "b",
+            "texto": "Ciento veinte kilos"
+          },
+          {
+            "id": "c",
+            "texto": "Ochenta y cinco kilos"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Setenta y cinco por ciento son tres cuartos. Ciento sesenta entre cuatro son cuarenta, y cuarenta por tres son ciento veinte kilos.",
+        "pista": "Divide ciento sesenta entre cuatro y luego toma tres de esas partes."
+      }
+    }
   },
   {
     "clave": "mat.p6.que-porcentaje-representa",
@@ -1502,6 +1615,121 @@
         ]
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Una sola forma",
+          "narracion": "Bienvenida y bienvenido. Hoy compararemos fracciones, decimales y porcentajes. Como idea principal, para comparar conviene escribir todo en la misma forma, y la más cómoda suele ser el porcentaje. Por ejemplo, un medio es cero coma cinco, y es cincuenta por ciento."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Tres avances",
+          "narracion": "Observemos esta situación. Tres amigos avanzan por un camino. Ana avanzó un cuarto del camino. Luis avanzó cero coma dos. Rosa avanzó treinta por ciento. Cada dato viene en una forma distinta. ¿Quién avanzó más?",
+          "recursoRef": "carrera-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Pasar a porcentaje",
+          "narracion": "Comparemos tres valores: tres cuartos, cero coma siete y sesenta y cinco por ciento. Vamos a escribirlos como porcentaje. Un cuarto es veinticinco por ciento, así que tres cuartos son tres veces esa cantidad. Piensa: ¿cuánto da?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ordenar los porcentajes",
+          "narracion": "Mira las filas. Tres cuartos son setenta y cinco por ciento. Cero coma siete es setenta por ciento. Sesenta y cinco por ciento ya está en porcentaje. El menor es sesenta y cinco por ciento y el mayor es tres cuartos. El del medio es cero coma siete.",
+          "recursoRef": "tres-valores"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Tres décimos contra un decimal",
+          "narracion": "Ahora comparemos tres décimos y cero coma veinticinco. Primero, escribe cada uno como porcentaje. Piensa: ¿cuánto es tres décimos como porcentaje?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Dos barras llenas",
+          "narracion": "Mira las barras. Tres décimos llegan a treinta por ciento. Cero coma veinticinco llega a veinticinco por ciento. La primera barra es más larga, entonces tres décimos es mayor que cero coma veinticinco.",
+          "recursoRef": "dos-avances"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Más cifras no es más",
+          "narracion": "Un error común con decimales es creer que cero coma veinticinco es mayor que cero coma cinco, porque veinticinco es más que cinco. Pero cero coma cinco es cincuenta por ciento, y cero coma veinticinco es veinticinco por ciento. El mayor es cero coma cinco. No basta mirar cuántas cifras tiene el número.",
+          "recursoRef": "error-formas"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: pasa a porcentaje",
+          "narracion": "Escribe cada cantidad como porcentaje. Un decimal se pasa a porcentaje corriendo la coma dos lugares. En una fracción, busca cuántos de cien son."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: compara",
+          "narracion": "Compara los porcentajes. El número más grande indica la cantidad mayor."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: responde",
+          "narracion": "Vuelve a la forma original para responder. Di cuál es la cantidad mayor como la dio el problema, no como la convertiste."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "carrera-pregunta",
+          "src": "/nudito/diagramas/matematica/comparar-fraccion-decimal-porcentaje-carrera-pregunta.svg",
+          "alt": "Tres tarjetas con los avances de Ana, Luis y Rosa: una fracción, un decimal y un porcentaje.",
+          "descripcion": "Tres tarjetas blancas en columna. La primera dice Ana y un cuarto escrito como uno sobre cuatro. La segunda dice Luis y cero coma dos. La tercera dice Rosa y treinta por ciento. Arriba se lee: ¿Quién avanzó más? Abajo: Tres formas distintas."
+        },
+        {
+          "id": "tres-valores",
+          "src": "/nudito/diagramas/matematica/comparar-fraccion-decimal-porcentaje-tres-valores.svg",
+          "alt": "Tres filas que pasan tres cuartos, cero coma siete y sesenta y cinco por ciento a porcentaje.",
+          "descripcion": "Tres filas con un signo igual. En la primera, tres cuartos es igual a setenta y cinco por ciento. En la segunda, cero coma siete es igual a setenta por ciento. En la tercera, sesenta y cinco por ciento es igual a sesenta y cinco por ciento. Abajo: El mayor es tres cuartos."
+        },
+        {
+          "id": "dos-avances",
+          "src": "/nudito/diagramas/matematica/comparar-fraccion-decimal-porcentaje-dos-avances.svg",
+          "alt": "Dos barras de cien por ciento: tres décimos llena treinta y cero coma veinticinco llena veinticinco.",
+          "descripcion": "Dos barras horizontales con escala de cero a cien por ciento y una línea punteada en cincuenta. La primera, de tres décimos, está llena en amarillo hasta treinta por ciento. La segunda, de cero coma veinticinco, está llena en turquesa hasta veinticinco por ciento. Cada barra muestra su porcentaje."
+        },
+        {
+          "id": "error-formas",
+          "src": "/nudito/diagramas/matematica/comparar-fraccion-decimal-porcentaje-error-formas.svg",
+          "alt": "Dos barras: cero coma cinco llena la mitad y cero coma veinticinco llena un cuarto.",
+          "descripcion": "Arriba, en rojo: Error: veinticinco es más que cinco. Debajo, dos barras: cero coma cinco, llena en amarillo hasta cincuenta por ciento, y cero coma veinticinco, llena en turquesa hasta veinticinco por ciento. Abajo: Mayor: cero coma cinco, que es cincuenta por ciento."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Rosa avanzó un medio del camino y Luis avanzó cero coma cuatro. ¿Quién avanzó más?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Luis avanzó más que Rosa"
+          },
+          {
+            "id": "b",
+            "texto": "Rosa avanzó más que Luis"
+          },
+          {
+            "id": "c",
+            "texto": "Los dos avanzaron lo mismo"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Un medio es cincuenta por ciento, y cero coma cuatro es cuarenta por ciento.",
+        "pista": "Escribe los dos avances en la misma forma antes de compararlos."
+      }
+    },
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",

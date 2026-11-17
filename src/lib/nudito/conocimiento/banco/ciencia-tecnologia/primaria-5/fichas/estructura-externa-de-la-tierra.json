@@ -368,7 +368,121 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Un paisaje que nunca deja de cambiar",
+          "narracion": "Bienvenido a esta clase sobre los cambios de la superficie de la Tierra. Primero conocerás la idea principal; después observarás un valle, resolverás dos ejemplos y al final responderás una pregunta. Como idea principal de este tema, la superficie de la Tierra cambia todo el tiempo. Algunos cambios son lentos, como la erosión causada por el agua y el viento, y tardan años o siglos. Otros son bruscos, como los sismos, las erupciones y los huaicos, y ocurren en minutos u horas. Estos cambios modelan el paisaje y pueden afectar a las personas."
+        },
+        {
+          "id": "valle",
+          "tipo": "recurso",
+          "titulo": "Un valle andino guarda huellas",
+          "narracion": "Observemos esta situación: un valle andino que parece quieto, pero que guarda huellas de cambios. Mientras escuchas, piensa en dos preguntas: ¿cómo pudo formarse el valle por donde corre el río? ¿Qué pudo hacer que haya rocas grandes sueltas en la ladera, junto al camino?",
+          "recursoRef": "valle"
+        },
+        {
+          "id": "ejemplo-1-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: las dunas de la costa",
+          "narracion": "En la costa de Lima, el viento arrastra granos de arena durante años y forma dunas. Pensemos en esta pregunta: ¿es un cambio lento o brusco, y qué agente natural lo produce?",
+          "recursoRef": "dunas"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: poco a poco, grano a grano",
+          "narracion": "En cada momento el viento mueve solo una pequeña cantidad de arena. Pero con el paso de los años, el conjunto de dunas cambia de forma y de lugar. Por eso es un cambio lento, producido por la erosión del viento.",
+          "recursoRef": "dunas"
+        },
+        {
+          "id": "ejemplo-2-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un huaico en la quebrada",
+          "narracion": "En Chosica, durante una lluvia intensa, un huaico baja por la quebrada y arrastra barro y rocas en una sola tarde. Pensemos en esta pregunta: ¿qué tipo de cambio es y qué te hace pensar eso?",
+          "recursoRef": "huaico"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: mucha fuerza en poco tiempo",
+          "narracion": "Un huaico ocurre en minutos u horas y con mucha fuerza, así que es un cambio brusco. En una sola tarde puede cambiar el cauce de una quebrada y afectar viviendas y caminos. Por eso es importante no construir dentro del cauce de las quebradas.",
+          "recursoRef": "huaico"
+        },
+        {
+          "id": "error-frecuente",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: «el paisaje siempre ha sido igual»",
+          "narracion": "Parece que los cerros y los valles nunca cambian, pero es porque la mayoría de los cambios son lentos y casi no los notamos. El río de un valle como este puede haber tardado miles de años en excavarlo, y las laderas pierden material poco a poco. Que un cambio sea lento no quiere decir que no exista.",
+          "recursoRef": "valle"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: observa el paisaje",
+          "narracion": "Ahora aprenderás una forma de razonar en tres pasos. Primero, observa el paisaje y busca señales de cambio: rocas desgastadas, valles excavados, grietas o zonas donde se derrumbó una ladera.",
+          "recursoRef": "valle"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: reconoce el agente",
+          "narracion": "Después, pregunta qué agente pudo producir el cambio: el agua, el viento, el hielo, los seres vivos o los movimientos de la Tierra, como los sismos y las erupciones. En un valle, el agua del río suele ser un agente muy importante.",
+          "recursoRef": "valle"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: clasifica por el tiempo",
+          "narracion": "Por último, clasifica el cambio según lo que tarda. Si ocurre en minutos u horas, es brusco, como un huaico, un sismo o una erupción. Si tarda años o siglos, es lento, como la erosión de un río. Luego explica su efecto: el paisaje se modela y las personas pueden verse afectadas.",
+          "recursoRef": "huaico"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "valle",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-5/superficie-valle-andino-zimage-v1.webp",
+          "alt": "Valle andino con un río que serpentea, un puente, campos y rocas grandes sueltas en la ladera; unos niños lo observan.",
+          "descripcion": "Un valle de laderas áridas por donde serpentea un río de agua celeste. Hay un puente, campos de cultivo junto a la orilla y rocas grandes sueltas en la ladera del primer plano. Un grupo de niños mira el valle desde un camino."
+        },
+        {
+          "id": "dunas",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-5/superficie-dunas-costa-zimage-v1.webp",
+          "alt": "Dunas de arena dorada con ondulaciones en la superficie, algunas plantas bajas y el mar al fondo bajo un cielo despejado.",
+          "descripcion": "Dunas de arena dorada cuyas laderas tienen pequeñas ondulaciones. A lo lejos crecen unas pocas plantas bajas y se ve el mar bajo un cielo despejado."
+        },
+        {
+          "id": "huaico",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-5/superficie-huaico-quebrada-zimage-v1.webp",
+          "alt": "Huaico de agua con barro y grandes rocas que baja por una quebrada seca bajo lluvia y nubes oscuras; a lo lejos hay dos casas.",
+          "descripcion": "Bajo nubes oscuras y lluvia, una corriente de agua marrón con barro arrastra grandes rocas por una quebrada de bordes cortados entre lomas secas. Muy lejos, en lo alto de una loma, se ven dos casas pequeñas."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una familia vive junto a una quebrada seca de la sierra. Dice: «Como nunca pasó nada, aquí el paisaje no cambia». ¿Qué respuesta es la más correcta?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tiene razón, porque en las quebradas secas el agua no puede desgastar el terreno."
+          },
+          {
+            "id": "b",
+            "texto": "No tiene razón: hay cambios lentos por erosión y cambios bruscos como los huaicos."
+          },
+          {
+            "id": "c",
+            "texto": "Tiene razón, porque todos los cambios del paisaje se notan en pocos días."
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "El paisaje cambia siempre: el agua y el viento producen cambios lentos y un huaico puede producir un cambio brusco en pocas horas.",
+        "pista": "Piensa en que existen cambios lentos que casi no notamos y cambios bruscos que ocurren de repente."
+      }
+    }
   },
   {
     "clave": "cyt.p5.atmosfera-hidrosfera-litosfera",
@@ -737,7 +851,124 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Aire, agua y roca",
+          "narracion": "Hola. Hoy veremos las capas externas de la Tierra. Como idea principal, la atmósfera es el aire que rodea la Tierra, la hidrosfera es toda el agua del planeta y la litosfera son las rocas y el suelo. Los seres vivos conviven en las tres y las capas se relacionan entre sí."
+        },
+        {
+          "id": "situacion-costa",
+          "tipo": "recurso",
+          "titulo": "Una costa del Perú",
+          "narracion": "Observemos esta situación. En la imagen hay una costa. Se ven olas azules, una playa de arena, un acantilado de roca y nubes blancas en el cielo. Nos preguntamos: ¿qué parte de este paisaje es aire, cuál es agua y cuál es roca?",
+          "recursoRef": "costa"
+        },
+        {
+          "id": "ejemplo-1-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: Arequipa",
+          "narracion": "En la imagen se ve un volcán con forma de cono, de color marrón grisáceo y sin nieve, bajo un cielo azul. Más abajo, un río azul serpentea entre campos verdes. Un niño de Arequipa mira el volcán Misti, el cielo y el río Chili. Nos preguntamos: ¿a qué capa pertenece cada uno: el volcán, el cielo y el río?",
+          "recursoRef": "misti"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: cada uno con su capa",
+          "narracion": "El volcán es roca, así que es litosfera. El cielo es aire, así que es atmósfera. El río es agua, así que es hidrosfera. Cada elemento va con la capa de su material.",
+          "recursoRef": "misti"
+        },
+        {
+          "id": "ejemplo-2-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la lluvia en la sierra",
+          "narracion": "En la imagen, una nube blanca deja caer lluvia sobre una ladera de roca gris. Un hilo de agua azul baja entre las rocas. Nos preguntamos: ¿qué capas participan en esta escena?",
+          "recursoRef": "lluvia"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: tres capas juntas",
+          "narracion": "Participan las tres. La lluvia viene de la atmósfera. El agua que corre es hidrosfera. La roca es litosfera. Así, un solo suceso une las tres capas.",
+          "recursoRef": "lluvia"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: solo el mar",
+          "narracion": "Algunas personas creen que la hidrosfera es únicamente el mar. No es así. También son hidrosfera los ríos, los lagos, el hielo de los glaciares y el agua que está bajo la tierra. Del mismo modo, la litosfera no es solo las montañas: incluye todas las rocas y el suelo, también bajo el mar."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: recuerda los nombres",
+          "narracion": "Primero recuerda qué significa cada nombre: atmósfera es aire, hidrosfera es agua y litosfera es roca y suelo."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: ubica y relaciona",
+          "narracion": "Luego ubica cada elemento con un ejemplo: la nube, el mar y la montaña. Después busca cómo se relacionan: el agua del mar se evapora y sube al aire."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: explica el cambio",
+          "narracion": "Por último, explica qué capas participan en un cambio. Mira las tres tarjetas. Atmósfera es el aire que rodea la Tierra. Hidrosfera es toda el agua del planeta. Litosfera son las rocas y el suelo. Elige las que aparecen en tu caso.",
+          "recursoRef": "capas"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "costa",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-5/atmosfera-costa-mar-roca-zimage-v1.webp",
+          "alt": "Una costa con olas azules, una playa de arena, un acantilado de roca con pasto y grandes nubes blancas en el cielo.",
+          "descripcion": "A la izquierda hay un acantilado de roca marrón con pasto verde arriba y algunas rocas sueltas al pie. Una playa de arena clara baja hacia un mar azul con olas de espuma blanca. El cielo es celeste, con grandes nubes blancas. No hay personas."
+        },
+        {
+          "id": "misti",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-5/atmosfera-misti-chili-zimage-v1.webp",
+          "alt": "Un volcán de forma cónica, marrón grisáceo y sin nieve, bajo un cielo azul, y un río azul que serpentea entre campos verdes.",
+          "descripcion": "Al fondo se alza un volcán grande de forma de cono, marrón grisáceo, con la cima chata y sin nieve. Delante hay una franja oscura de árboles y, más cerca, campos verdes con un río azul que serpentea de izquierda a derecha. El cielo es azul y despejado. No hay personas."
+        },
+        {
+          "id": "lluvia",
+          "src": "/nudito/diagramas/ciencia-tecnologia/atmosfera-hidrosfera-litosfera-lluvia-sobre-roca.svg",
+          "alt": "Una nube blanca deja caer lluvia sobre una ladera de roca gris, y un hilo de agua azul baja entre las rocas.",
+          "descripcion": "Sobre un fondo celeste claro hay una nube blanca grande. De ella caen dos filas de rayitas azules oscuras, que son la lluvia. Abajo hay una ladera de roca gris en dos tonos. Por el centro baja un hilo de agua turquesa, que serpentea entre las rocas hasta el borde inferior."
+        },
+        {
+          "id": "capas",
+          "src": "/nudito/diagramas/ciencia-tecnologia/atmosfera-hidrosfera-litosfera-tres-capas.svg",
+          "alt": "Tres tarjetas: atmósfera es el aire que rodea la Tierra, hidrosfera es toda el agua del planeta y litosfera son las rocas y el suelo.",
+          "descripcion": "Tres tarjetas una sobre otra. La primera, turquesa, dice atmósfera: el aire que rodea la Tierra. La segunda, amarilla, dice hidrosfera: toda el agua del planeta. La tercera, azul claro, dice litosfera: las rocas y el suelo."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un glaciar del nevado Huascarán se derrite poco a poco y forma una laguna. ¿A qué capa pertenece el hielo del glaciar?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Es litosfera, como la roca"
+          },
+          {
+            "id": "b",
+            "texto": "Es atmósfera, como el aire"
+          },
+          {
+            "id": "c",
+            "texto": "Es hidrosfera: agua helada"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "El hielo del glaciar es agua en estado sólido, así que es hidrosfera. La hidrosfera incluye toda el agua: mares, ríos, lagos y glaciares.",
+        "pista": "Piensa de qué está hecho el hielo del glaciar."
+      }
+    }
   },
   {
     "clave": "cyt.p5.capas-de-la-atmosfera",
@@ -1419,15 +1650,15 @@
       {
         "dificultad": 3,
         "tipo": "verdadero_falso",
-        "enunciado": "Si todos los glaciares se derritieran, el agua dulce líquida disponible aumentaría temporalmente.",
+        "enunciado": "Si todos los glaciares se derritieran, el nivel del mar subiría.",
         "respuesta": true,
         "alternativasAceptadas": [],
         "pistas": [
-          "El hielo se vuelve agua líquida.",
-          "Pero también sube el nivel del mar.",
-          "Aumenta el agua líquida, no siempre utilizable."
+          "El hielo derretido se vuelve agua líquida.",
+          "Esa agua correría hacia los ríos y los océanos.",
+          "Más agua en los océanos hace que suba su nivel."
         ],
-        "retroalimentacion": "Es verdadero, pero con problemas como inundaciones.",
+        "retroalimentacion": "Es verdadero: el agua del hielo llega a los océanos y sube el nivel del mar, además de perderse una reserva de agua dulce.",
         "id": "e10"
       },
       {
@@ -1484,7 +1715,129 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Cuánta agua dulce hay",
+          "narracion": "Hola, hoy vamos a descubrir qué cantidad de agua dulce existe en nuestro planeta. Como idea principal, casi toda el agua de la Tierra es salada y está en los mares y océanos. Solo unos tres de cada cien litros son de agua dulce, y la mayor parte de esa agua dulce está congelada en glaciares."
+        },
+        {
+          "id": "situacion-planeta",
+          "tipo": "recurso",
+          "titulo": "El planeta visto desde el espacio",
+          "narracion": "Observemos esta situación. Es nuestro planeta visto desde el espacio, con mucha agua cubriendo la superficie. Nos preguntamos si toda esa agua sirve para beber, regar los cultivos o cocinar. En este tema veremos cuánta es dulce y dónde está.",
+          "recursoRef": "planeta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: cien litros de agua",
+          "narracion": "Imaginemos que juntamos cien litros de toda el agua de la Tierra. Si noventa y siete litros son de agua salada, ¿cuántos faltan para completar los cien? Piénsalo antes de seguir."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: cuántos litros son dulces",
+          "narracion": "En los cien cuadros, cada uno vale un litro. Los de azul oscuro son el agua salada: noventa y siete litros. Los tres cuadros turquesa de la esquina son el agua dulce. Cien menos noventa y siete es igual a tres.",
+          "recursoRef": "cien"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: dónde está el agua dulce",
+          "narracion": "De esa pequeña cantidad de agua dulce, ¿dónde crees que está la mayor parte? Puede estar en los ríos y lagos, bajo la tierra o congelada en las montañas. Piénsalo antes de seguir."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el reparto del agua dulce",
+          "narracion": "En la barra, el tramo celeste es el agua dulce congelada, en glaciares y hielos, y ocupa más de la mitad. El tramo turquesa es agua subterránea, que está debajo del suelo. Los ríos y lagos son una franja amarilla muy delgada. Es decir, casi toda el agua dulce está congelada o bajo tierra, y la que vemos en ríos y lagos es muy poca.",
+          "recursoRef": "reparto"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: hay agua de sobra",
+          "narracion": "Alguien puede pensar: «hay un océano enorme, no hace falta ahorrar». Mira cuánta agua se ve a lo lejos y recuerda que es salada: no sirve para beber ni para regar. El agua dulce que podemos usar con facilidad es solo una parte pequeña del total.",
+          "recursoRef": "mar"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: recuerda y calcula",
+          "narracion": "Primero recuerda cuánta agua es salada: casi toda, noventa y siete de cada cien litros. Luego calcula la dulce restando: cien menos noventa y siete son tres."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: ubica el agua dulce",
+          "narracion": "Después ubica dónde está el agua dulce. Mira el glaciar: es un gran río de hielo que guarda agua dulce congelada, difícil de usar. Una parte está bajo la tierra y muy poca corre por ríos y lagos.",
+          "recursoRef": "glaciar"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: concluye y propón",
+          "narracion": "Por último concluye: el agua dulce que podemos usar fácilmente es muy poca, así que hay que cuidarla. Puedes cerrar el caño mientras te cepillas los dientes, avisar si hay una fuga y no botar basura a los ríos."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "planeta",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-5/agua-planeta-zimage-v1.webp",
+          "alt": "La Tierra como un globo sobre fondo crema, con el océano azul cubriendo la mayor parte y los continentes en verde claro.",
+          "descripcion": "El planeta Tierra dibujado como un globo sobre fondo crema. El océano azul ocupa la mayor parte y se ven América, Europa y África en verde claro. Hay zonas blancas de hielo arriba y abajo."
+        },
+        {
+          "id": "cien",
+          "src": "/nudito/diagramas/ciencia-tecnologia/agua-dulce-salada-cien.svg",
+          "alt": "Cien cuadros en diez filas: casi todos azul oscuro y tres turquesa en la esquina inferior derecha.",
+          "descripcion": "Una cuadrícula de diez filas por diez columnas, con el título cien litros de agua. Casi todos los cuadros son azul oscuro y se rotulan salada. Solo los tres últimos de la fila de abajo son turquesa y se rotulan dulce."
+        },
+        {
+          "id": "glaciar",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-5/agua-glaciar-zimage-v1.webp",
+          "alt": "Un glaciar de hielo blanco y azulado entre montañas nevadas, que termina junto a una laguna turquesa, bajo un cielo azul.",
+          "descripcion": "Un glaciar de hielo blanco y azulado baja entre montañas nevadas y termina junto a una laguna de agua turquesa. El cielo está azul y despejado. No hay personas."
+        },
+        {
+          "id": "reparto",
+          "src": "/nudito/diagramas/ciencia-tecnologia/agua-dulce-salada-reparto.svg",
+          "alt": "Barra con tres tramos: glaciares y hielos, más de la mitad; agua subterránea; y una franja muy delgada de ríos y lagos.",
+          "descripcion": "Una barra horizontal con el título el agua dulce de la Tierra. El tramo celeste, glaciares y hielos, ocupa más de la mitad. El turquesa, agua subterránea, casi un tercio. Una franja amarilla muy delgada al final se rotula ríos y lagos, muy poco."
+        },
+        {
+          "id": "mar",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-5/agua-mar-zimage-v1.webp",
+          "alt": "Un mar azul extenso hasta el horizonte, con olas suaves que llegan a una playa de arena clara, bajo un cielo despejado.",
+          "descripcion": "Un mar azul que se extiende hasta el horizonte. Olas suaves de espuma blanca llegan a una playa de arena clara. El cielo está despejado. No hay personas ni barcos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un grifo de la casa gotea todo el día. ¿Por qué conviene arreglarlo, aunque el mar sea enorme?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Porque el agua del mar se puede beber"
+          },
+          {
+            "id": "b",
+            "texto": "Porque el agua dulce nunca se acaba"
+          },
+          {
+            "id": "c",
+            "texto": "Porque casi no hay agua dulce útil"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Casi toda el agua del planeta es salada, así que el agua dulce que podemos usar es muy poca y conviene no desperdiciarla.",
+        "pista": "Recuerda qué parte del agua del planeta es dulce y sirve para beber."
+      }
+    }
   },
   {
     "clave": "cyt.p5.glaciares-andinos",

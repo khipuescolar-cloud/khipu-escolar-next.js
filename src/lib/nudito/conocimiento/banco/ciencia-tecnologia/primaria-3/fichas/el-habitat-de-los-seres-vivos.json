@@ -308,18 +308,18 @@
       {
         "dificultad": 3,
         "tipo": "texto_corto",
-        "enunciado": "Un pueblito de la costa pone mucha basura en la orilla del mar y los lobos marinos se van de allí. ¿Qué parte del hábitat se dañó: agua, alimento o refugio?",
+        "enunciado": "Unos residuos cubren la roca de la orilla donde descansaban los lobos marinos. ¿Qué parte de su hábitat se dañó: agua, alimento o refugio?",
         "respuesta": "refugio",
         "alternativasAceptadas": [
           "el refugio",
           "su refugio"
         ],
         "pistas": [
-          "Piensa dónde descansan los lobos marinos: en la orilla y las rocas.",
-          "La basura ocupa el espacio donde descansan.",
-          "Los lobos pierden su lugar para descansar y criar."
+          "Busca el lugar donde descansaban.",
+          "La roca les servía para protegerse y descansar.",
+          "El recurso afectado es el refugio."
         ],
-        "retroalimentacion": "Se dañó el refugio, porque la basura ocupa la orilla donde descansan los lobos marinos.",
+        "retroalimentacion": "Se dañó su refugio: la roca donde descansaban quedó cubierta de residuos.",
         "id": "e12"
       },
       {
@@ -358,7 +358,119 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "El hábitat es el lugar donde vive un ser vivo",
+          "narracion": "Hola. Hoy descubriremos dónde vive cada ser vivo y por qué ese lugar le sirve. Como idea principal, el hábitat es el lugar donde vive un ser vivo y donde encuentra lo que necesita: alimento, agua y un refugio para protegerse y criar a sus crías."
+        },
+        {
+          "id": "situacion-vicunas",
+          "tipo": "recurso",
+          "titulo": "Vicuñas en un pastizal andino",
+          "narracion": "Observemos esta situación. Un grupo de vicuñas pasta en un pastizal de los Andes, cerca de una laguna pequeña, con rocas y cerros alrededor. Vamos a pensar qué puede encontrar una vicuña en este lugar.",
+          "recursoRef": "vicunas"
+        },
+        {
+          "id": "ejemplo-vicuna-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la vicuña en el pastizal",
+          "narracion": "Miremos de nuevo el pastizal. Hay pasto bajo las patas de las vicuñas, una laguna al fondo y terreno abierto alrededor. Nos preguntamos: ¿qué le da este hábitat a la vicuña?",
+          "recursoRef": "vicunas"
+        },
+        {
+          "id": "ejemplo-vicuna-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: alimento, agua y refugio",
+          "narracion": "La vicuña encuentra pasto para alimentarse, agua para beber y espacios abiertos donde puede ver a lo lejos si se acerca un peligro. Entonces el pastizal le da alimento, agua y un lugar para protegerse.",
+          "recursoRef": "vicunas"
+        },
+        {
+          "id": "ejemplo-pez-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el pez en el río",
+          "narracion": "Ahora observemos un pez, una trucha, que nada cerca de la superficie de un río de agua clara; abajo hay piedras y plantas. Nos preguntamos: ¿por qué este pez no podría vivir en un desierto?",
+          "recursoRef": "pez"
+        },
+        {
+          "id": "ejemplo-pez-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: lo que el pez necesita",
+          "narracion": "El pez necesita agua para vivir y para respirar. En el río encuentra el agua que necesita, alimento y plantas donde esconderse. En un desierto seco no hay agua, así que ese lugar no es un hábitat para él.",
+          "recursoRef": "pez"
+        },
+        {
+          "id": "error-casa",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: creer que el hábitat es solo la casa del ser vivo",
+          "narracion": "Algunas personas piensan que el hábitat es solo el lugar donde un animal duerme. Pero el hábitat es todo el lugar donde el ser vivo encuentra alimento, agua y refugio. La vicuña, por ejemplo, no solo descansa en el pastizal: también come y bebe allí."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: elige un ser vivo y pregunta dónde vive",
+          "narracion": "Primero elige un ser vivo, como una vicuña, un pez o un mono. Después pregunta dónde vive: en el agua, sobre la tierra, entre las rocas o en lo alto de los árboles."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca qué le da su hábitat",
+          "narracion": "Después busca qué encuentra allí. En la ilustración hay tres filas: alimento, agua y refugio. Pregúntate cuál de ellas ofrece ese lugar y cómo la usa el ser vivo.",
+          "recursoRef": "necesidades"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: explica por qué ese lugar le sirve",
+          "narracion": "Por último, explica con una frase por qué el lugar le sirve: «El pez vive en el río porque allí encuentra agua, alimento y dónde esconderse». Si faltara alguna de las tres cosas, el hábitat dejaría de servirle.",
+          "recursoRef": "necesidades"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "vicunas",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-3/vicunas-pastizal-andino-zimage-v1.webp",
+          "alt": "Vicuñas pastando en un pastizal verde junto a una laguna pequeña, con rocas y cerros al fondo.",
+          "descripcion": "Varias vicuñas de lana color canela y pecho claro pastan en un pastizal verde. Al fondo hay una laguna azul pequeña, algunas rocas grandes y cerros de tierra seca bajo un cielo con nubes."
+        },
+        {
+          "id": "pez",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-3/pez-rio-claro-zimage-v1.webp",
+          "alt": "Una trucha plateada nada en un río de agua clara, entre plantas y piedras.",
+          "descripcion": "Un pez plateado con puntitos oscuros, una franja rosada y aletas, nada en un río de agua clara y tranquila. Abajo hay piedras y plantas acuáticas, y arriba, en la orilla, se ven pasto y piedras."
+        },
+        {
+          "id": "necesidades",
+          "src": "/nudito/diagramas/ciencia-tecnologia/habitat-necesidades.svg",
+          "alt": "Tres filas: alimento con una planta, agua con una gota y refugio con rocas y una cueva.",
+          "descripcion": "Tres filas de colores. La primera muestra una planta y dice alimento, plantas, frutos o presas. La segunda muestra una gota y dice agua, para beber o para vivir. La tercera muestra rocas con una cueva y dice refugio, para protegerse y criar."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lola quiere saber si una laguna andina con totoras y orillas con piedras sirve de hábitat a unas aves. ¿Qué debe revisar?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Si allí hay alimento, agua y un refugio para esas aves."
+          },
+          {
+            "id": "b",
+            "texto": "Si allí hay mucha luz y poco viento durante el día."
+          },
+          {
+            "id": "c",
+            "texto": "Si el lugar está cerca de un pueblo con muchas casas."
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Un lugar es buen hábitat si el ser vivo encuentra allí alimento, agua y refugio.",
+        "pista": "Piensa en lo que necesita un ser vivo para vivir y protegerse."
+      }
+    }
   },
   {
     "clave": "cyt.p3.habitat-de-mi-localidad",

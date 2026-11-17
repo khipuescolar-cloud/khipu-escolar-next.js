@@ -1004,7 +1004,121 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Los seres vivos necesitan condiciones para vivir",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos qué necesitan las plantas, los animales y las personas para vivir. Como idea principal, recuerda que los seres vivos necesitan agua, aire y condiciones adecuadas. También necesitan obtener alimento o nutrientes: los animales comen, mientras las plantas fabrican su alimento usando luz, agua y dióxido de carbono del aire, y toman minerales del suelo."
+        },
+        {
+          "id": "situacion-planta",
+          "tipo": "recurso",
+          "titulo": "Una planta de tomate con la tierra seca",
+          "narracion": "Observemos esta situación. Una planta de tomate está junto a una ventana iluminada, pero su tierra se ve seca y algunas hojas están decaídas. La luz y el aire están presentes; la tierra seca indica que necesita agua en una cantidad adecuada.",
+          "recursoRef": "planta"
+        },
+        {
+          "id": "ejemplo-planta-identifica",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: identifica qué recurso falta",
+          "narracion": "Antes de actuar, revisamos las pistas. La planta recibe luz por la ventana y el aire circula. La superficie de la tierra está seca. Por eso no decimos que necesita pintura, piedras o comida preparada; primero necesita agua para que sus raíces puedan absorberla.",
+          "recursoRef": "planta"
+        },
+        {
+          "id": "ejemplo-planta-explica",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: las plantas no comen tierra",
+          "narracion": "La planta toma agua y minerales mediante las raíces, pero no come tierra. Con la luz y el dióxido de carbono del aire fabrica azúcares que usa como alimento. Para primer grado basta recordar que necesita luz, aire, agua y minerales en condiciones adecuadas.",
+          "recursoRef": "planta"
+        },
+        {
+          "id": "ejemplo-planta-cuida",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: cuidado no significa exceso",
+          "narracion": "Regamos hasta humedecer la tierra sin inundarla. Demasiada agua también puede dañar algunas plantas. Observar la tierra y conocer la planta ayuda a darle una cantidad adecuada.",
+          "recursoRef": "planta"
+        },
+        {
+          "id": "ejemplo-cuy-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un cuy necesita más que una jaula",
+          "narracion": "Veamos ahora un cuy en un espacio limpio y ventilado. Tiene un recipiente con agua, alimento apropiado y una zona con sombra donde puede resguardarse. La jaula por sí sola no reemplaza el agua, la comida ni un ambiente seguro.",
+          "recursoRef": "cuy"
+        },
+        {
+          "id": "ejemplo-cuy-compara",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: compara las necesidades presentes",
+          "narracion": "Si el cuy tiene comida pero su bebedero está vacío, le falta agua. Si tiene agua y comida, pero queda bajo un sol fuerte sin sombra, necesita un lugar protegido y ventilado. Buscamos qué condición falta sin olvidar las demás.",
+          "recursoRef": "cuy"
+        },
+        {
+          "id": "ejemplo-cuy-distingue",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: plantas y animales obtienen alimento de modo distinto",
+          "narracion": "La planta y el cuy necesitan agua y aire, pero no obtienen alimento de la misma manera. El cuy come alimentos apropiados; la planta fabrica su alimento con luz, agua y aire. Comparar ayuda a reconocer necesidades comunes y diferencias.",
+          "recursoRef": "cuy"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: identifica al ser vivo",
+          "narracion": "Primero reconoce si observas una planta, un animal o una persona. Esto ayuda a pensar cómo obtiene alimento y qué condiciones necesita.",
+          "recursoRef": "planta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: revisa agua, aire, alimento y ambiente",
+          "narracion": "Después comprueba si tiene agua y aire, cómo obtiene alimento o nutrientes y si su ambiente ofrece luz, temperatura, espacio y protección adecuados para ese ser vivo.",
+          "recursoRef": "cuy"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: usa las pistas para decidir qué falta",
+          "narracion": "Por último, compara lo que ya está presente con lo que necesita. Explica tu respuesta con una pista observable, como tierra seca, bebedero vacío, falta de luz o demasiado calor."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "planta",
+          "src": "/nudito/ilustraciones/seres-vivos-necesidades/planta-tomate-gemini-v1.webp",
+          "alt": "Planta de tomate junto a una ventana con tierra seca y una regadera cercana.",
+          "descripcion": "Una planta joven de tomate recibe luz junto a una ventana. La superficie de la tierra está seca y algunas hojas se ven decaídas; una niña acerca una regadera sin haber vertido todavía el agua."
+        },
+        {
+          "id": "cuy",
+          "src": "/nudito/ilustraciones/seres-vivos-necesidades/cuy-cuidados-gemini-v1.webp",
+          "alt": "Cuy en un espacio limpio con agua, alimento, ventilación y sombra.",
+          "descripcion": "Un cuy está en un espacio amplio y limpio. Cerca tiene un bebedero con agua, alimento apropiado y una zona de sombra; el lugar permite que circule el aire."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un cuy tiene alimento y un lugar limpio, pero su bebedero está vacío. ¿Qué necesidad falta atender primero?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Darle agua limpia."
+          },
+          {
+            "id": "b",
+            "texto": "Pintar el recipiente."
+          },
+          {
+            "id": "c",
+            "texto": "Guardar el bebedero vacío."
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "El bebedero vacío muestra que falta agua. La comida y el lugar limpio no sustituyen esa necesidad.",
+        "pista": "Observa qué recipiente está vacío y qué debería contener."
+      }
+    }
   },
   {
     "clave": "cyt.p1.respiramos-aire",

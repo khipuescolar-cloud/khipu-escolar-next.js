@@ -887,7 +887,130 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Criterios de divisibilidad",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a saber si un número es divisible por otro sin hacer la división. Como idea principal, para dos, cinco y diez miramos la última cifra. Para tres y nueve sumamos todas las cifras y vemos si el resultado es múltiplo de ese número."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Un número de cuatro cifras",
+          "narracion": "Observemos esta situación. En cuatro casillas está escrito el número cuatro mil setecientos veinticinco. Queremos saber si es divisible por cinco y si es divisible por nueve.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: dos criterios",
+          "narracion": "Para cinco, ¿qué cifra conviene observar? Para nueve, ¿qué conviene hacer con todas las cifras? Pruébalo con el número del dibujo.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: cinco y nueve",
+          "narracion": "La última cifra es cinco, así que el número es divisible por cinco. Al sumar sus cifras se obtiene dieciocho, que es múltiplo de nueve. Por eso también es divisible por nueve. En el dibujo, la última casilla está marcada y debajo aparece la suma.",
+          "recursoRef": "cuatro-mil"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: un número que no cumple",
+          "narracion": "Ahora el número es tres mil cuatrocientos sesenta. Queremos saber si es divisible por dos, por tres y por diez. ¿Qué observas en cada caso?",
+          "recursoRef": "tres-mil-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: respuestas distintas",
+          "narracion": "La última cifra es cero, así que sí es divisible por dos y por diez. Al sumar las cifras da trece, que no es múltiplo de tres. Entonces no es divisible por tres. En el dibujo, dos cuadros turquesa dicen sí y uno rojo dice no.",
+          "recursoRef": "tres-mil"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Un error con el tres",
+          "narracion": "En este número, alguien miró solo la última cifra, que es tres, y dijo que era divisible por tres. Pero para el tres se suman todas las cifras. La suma es once, y once no es múltiplo de tres. Por eso este número no es divisible por tres.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: elige el criterio",
+          "narracion": "Identifica el divisor. Para dos, cinco o diez usa la última cifra. Para tres o nueve usa la suma de todas las cifras."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: aplica el criterio",
+          "narracion": "Para dos, la última cifra debe ser par. Para cinco, cero o cinco. Para diez, cero. Para tres o nueve, suma todas las cifras."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: concluye",
+          "narracion": "Si cumple el criterio, es divisible. Si la suma de cifras no es múltiplo de tres o de nueve, no lo es. Responde sin hacer la división."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/criterios-divis-situacion.svg",
+          "alt": "Cuatro casillas con las cifras cuatro, siete, dos y cinco; se pregunta si es divisible por cinco y por nueve.",
+          "descripcion": "El número cuatro mil setecientos veinticinco está escrito en cuatro casillas blancas, una cifra en cada una. Arriba se pregunta: ¿divisible por cinco? ¿Y por nueve?"
+        },
+        {
+          "id": "cuatro-mil",
+          "src": "/nudito/diagramas/matematica/criterios-divis-cuatro-mil.svg",
+          "alt": "El número con la última cifra marcada y la suma de sus cifras, dieciocho.",
+          "descripcion": "Las casillas cuatro, siete, dos y cinco, con la última en amarillo y el texto última cifra cinco. Debajo, cuatro más siete más dos más cinco es igual a dieciocho, múltiplo de nueve. Abajo: sí, por cinco y por nueve."
+        },
+        {
+          "id": "tres-mil-pregunta",
+          "src": "/nudito/diagramas/matematica/criterios-divis-tres-mil-pregunta.svg",
+          "alt": "Cuatro casillas con las cifras tres, cuatro, seis y cero; se pregunta si es divisible por dos, tres y diez.",
+          "descripcion": "El número tres mil cuatrocientos sesenta está escrito en cuatro casillas blancas, una cifra en cada una. Arriba se pregunta: ¿divisible por dos, tres y diez?"
+        },
+        {
+          "id": "tres-mil",
+          "src": "/nudito/diagramas/matematica/criterios-divis-tres-mil.svg",
+          "alt": "El número con la última cifra marcada y tres cuadros: sí por dos, sí por diez y no por tres.",
+          "descripcion": "Las casillas tres, cuatro, seis y cero, con la última en amarillo y el texto última cifra cero. Tres cuadros dicen por dos, sí; por diez, sí; por tres, no, este en rojo. Debajo, tres más cuatro más seis más cero es igual a trece, que no es múltiplo de tres."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/criterios-divis-error.svg",
+          "alt": "Las cifras uno, dos, cinco y tres con la última rodeada de rojo y la suma once.",
+          "descripcion": "Las casillas uno, dos, cinco y tres, con la última rodeada de rojo y el texto solo miró la última, tres. Debajo, uno más dos más cinco más tres es igual a once, que no es múltiplo de tres. Abajo, en rojo: la última cifra no basta."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "¿Cuál de estos números es divisible por nueve y por diez a la vez?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ciento cuarenta"
+          },
+          {
+            "id": "b",
+            "texto": "Ochocientos diez"
+          },
+          {
+            "id": "c",
+            "texto": "Quinientos cuatro"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Ochocientos diez termina en cero y sus cifras suman nueve.",
+        "pista": "Cada criterio usa algo distinto: la última cifra o la suma de todas las cifras."
+      }
+    }
   },
   {
     "clave": "mat.p6.primos-compuestos",

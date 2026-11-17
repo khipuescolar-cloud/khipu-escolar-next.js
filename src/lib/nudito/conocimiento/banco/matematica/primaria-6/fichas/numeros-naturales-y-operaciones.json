@@ -1231,7 +1231,124 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Cálculo mental con números naturales",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a calcular mentalmente con números naturales. Como idea principal de este tema, podemos separar números, compensar una cantidad con otra, o usar dobles y mitades. Elegimos un cambio que conserve el resultado y haga más fácil la cuenta."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una colecta de tapitas",
+          "narracion": "Observemos esta situación. En una colecta, un frasco tiene trescientas noventa y ocho tapitas y otro tiene doscientas cincuenta y siete. En la imagen están unidos por un signo más. Queremos saber cuántas tapitas hay en total, sin hacer una cuenta larga.",
+          "recursoRef": "colecta-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: compensar en una suma",
+          "narracion": "Trescientos noventa y ocho está muy cerca de cuatrocientos: le faltan dos para llegar. Esos dos se los quitamos al otro sumando, para que el total no cambie. ¿Qué dos números quedan para sumar?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el total no cambia",
+          "narracion": "Si sumamos dos al primer número y le quitamos dos al segundo, la suma se conserva. Trescientos noventa y ocho pasa a cuatrocientos, y doscientos cincuenta y siete pasa a doscientos cincuenta y cinco. Ahora la cuenta es cuatrocientos más doscientos cincuenta y cinco, que da seiscientos cincuenta y cinco. Hay seiscientas cincuenta y cinco tapitas. En la imagen, una flecha sube dos y otra baja dos.",
+          "recursoRef": "compensar"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: doble y mitad",
+          "narracion": "Calculemos veinticinco por dieciséis. Una idea es duplicar uno de los números y reducir el otro a la mitad, porque así el producto se conserva. Veinticinco se duplica y dieciséis se divide entre dos. ¿Qué multiplicación queda, y cuánto da?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una cuenta más fácil",
+          "narracion": "El doble de veinticinco es cincuenta, y la mitad de dieciséis es ocho. Entonces veinticinco por dieciséis es lo mismo que cincuenta por ocho. Cincuenta por ocho da cuatrocientos. En la imagen, una flecha dice doble y otra dice mitad.",
+          "recursoRef": "doble-mitad"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es sumar dos a trescientos noventa y ocho sin quitar dos al otro sumando. Para que la suma se conserve, lo que sube uno tiene que bajar el otro. Otro error es duplicar los dos factores y creer que el producto sigue igual. Si duplicas uno, debes dividir el otro entre dos."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca un número redondo cercano",
+          "narracion": "Busca números cercanos a decenas, centenas o millares completos. Trescientos noventa y ocho está cerca de cuatrocientos. En la imagen de las tapitas, ese es el primer frasco.",
+          "recursoRef": "colecta-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: cambia sin alterar el resultado",
+          "narracion": "En una suma, lo que sumas a un número se lo quitas al otro. En una resta, sumas o quitas lo mismo a los dos números. En la imagen, setecientos cuatro menos doscientos noventa y seis se transforma, sumando cuatro a cada uno, en setecientos ocho menos trescientos, que da cuatrocientos ocho.",
+          "recursoRef": "resta-igual"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: comprueba el resultado",
+          "narracion": "Comprueba que el cambio mantiene el resultado. Trescientos noventa y ocho más doscientos cincuenta y siete, y cuatrocientos más doscientos cincuenta y cinco, dan lo mismo: seiscientos cincuenta y cinco.",
+          "recursoRef": "compensar"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "colecta-pregunta",
+          "src": "/nudito/diagramas/matematica/calculo-mental-naturales-colecta-pregunta.svg",
+          "alt": "Dos frascos con tapa amarilla: trescientos noventa y ocho tapitas y doscientos cincuenta y siete tapitas, unidos por un signo más.",
+          "descripcion": "Arriba dice «Colecta de tapitas». Hay dos frascos blancos con tapa amarilla, unidos por un signo más. El de la izquierda dice 398 tapitas y el de la derecha 257 tapitas. Abajo se lee: ¿Cuántas tapitas hay en total?"
+        },
+        {
+          "id": "compensar",
+          "src": "/nudito/diagramas/matematica/calculo-mental-naturales-compensar.svg",
+          "alt": "Trescientos noventa y ocho más doscientos cincuenta y siete se cambia a cuatrocientos más doscientos cincuenta y cinco; da seiscientos cincuenta y cinco.",
+          "descripcion": "Arriba hay dos cuadros: 398 y 257, unidos por un signo más. Del 398 baja una flecha verde azulada con más 2 hasta un cuadro azul claro con 400. Del 257 baja una flecha azul oscura con menos 2 hasta un cuadro amarillo claro con 255. Entre los cuadros de abajo hay otro signo más. Abajo se lee: 400 más 255 igual a 655, y Lo que sube uno, baja el otro."
+        },
+        {
+          "id": "doble-mitad",
+          "src": "/nudito/diagramas/matematica/calculo-mental-naturales-doble-mitad.svg",
+          "alt": "Veinticinco por dieciséis pasa a cincuenta por ocho con las flechas doble y mitad; da cuatrocientos.",
+          "descripcion": "Arriba hay dos cuadros: 25 y 16, unidos por un signo de por. Del 25 baja una flecha con la palabra doble hasta un cuadro azul claro con 50. Del 16 baja una flecha con la palabra mitad hasta un cuadro amarillo claro con 8. Abajo se lee: 50 por 8 igual a 400, y El producto no cambia."
+        },
+        {
+          "id": "resta-igual",
+          "src": "/nudito/diagramas/matematica/calculo-mental-naturales-resta-igual.svg",
+          "alt": "Setecientos cuatro menos doscientos noventa y seis pasa a setecientos ocho menos trescientos, sumando cuatro a cada uno.",
+          "descripcion": "Arriba hay dos cuadros: 704 y 296, unidos por un signo menos. De cada uno baja una flecha verde azulada con más 4: el 704 llega a un cuadro azul claro con 708 y el 296 llega a un cuadro amarillo claro con 300. Abajo se lee: 708 menos 300 igual a 408, y En la resta, se suma lo mismo a los dos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Para calcular quince por doce, Marta duplica el primer número y reduce el segundo a la mitad para conservar el producto. ¿Qué multiplicación obtiene?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Treinta por seis"
+          },
+          {
+            "id": "b",
+            "texto": "Treinta por doce"
+          },
+          {
+            "id": "c",
+            "texto": "Quince por seis"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. El doble de quince es treinta, la mitad de doce es seis, y el producto se conserva.",
+        "pista": "Fíjate en qué número cambia cada vez que se duplica o se reduce."
+      }
+    }
   },
   {
     "clave": "mat.p6.propiedades-multiplicacion",
@@ -3057,7 +3174,7 @@
           },
           {
             "id": "d",
-            "texto": "Debió sumar 15 cuatro veces más y tener 75 soles"
+            "texto": "Debió multiplicar 4 por 4 y tener 16 soles"
           }
         ],
         "pistas": [
@@ -3103,7 +3220,133 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comparar con veces",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a comparar cantidades con veces más y veces menos. Como idea principal, cuando una cantidad es varias veces más que otra, la multiplicamos. Cuando es varias veces menos, la dividimos. Antes de calcular, hay que saber cuál es la cantidad de referencia, con la que se compara."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Las estampillas",
+          "narracion": "Observemos esta situación. Sara tiene nueve estampillas, y su bloque es una unidad. Pablo tiene seis veces más que Sara, y su barra es más larga y lleva un signo de pregunta. Queremos saber cuántas estampillas tiene Pablo.",
+          "recursoRef": "estampillas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: veces más",
+          "narracion": "La barra de Pablo es seis veces el bloque de Sara. ¿Cuántos bloques de nueve entran en ella? ¿Qué operación te sirve para juntarlos?",
+          "recursoRef": "estampillas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: seis bloques iguales",
+          "narracion": "Ahora la barra de Pablo está dividida en seis bloques iguales al de Sara. Cada bloque vale nueve. Seis veces nueve son cincuenta y cuatro. Pablo tiene cincuenta y cuatro estampillas.",
+          "recursoRef": "estampillas-bloques"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: veces menos",
+          "narracion": "Ahora lo contrario. En el mercado hay cincuenta y seis kilos de papa. En la bodega hay siete veces menos, y su barra es corta y lleva un signo de pregunta. ¿La bodega tiene más o menos papa que el mercado? ¿Qué operación usarías?",
+          "recursoRef": "papa-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una de siete partes",
+          "narracion": "La barra del mercado se divide en siete partes iguales, y la bodega es una de ellas. Cincuenta y seis dividido entre siete son ocho. La bodega tiene ocho kilos de papa.",
+          "recursoRef": "papa-bloques"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Sumar no es multiplicar",
+          "narracion": "Rita tiene ocho lápices y Hugo tiene cinco veces más. Un error frecuente es sumar cinco a ocho y obtener trece, que es una barra muy corta. Cinco veces más significa cinco bloques de ocho, que son cuarenta lápices.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: la cantidad de referencia",
+          "narracion": "Primero busca la cantidad de referencia, con la que se compara. Aquí es la de Sara: nueve estampillas.",
+          "recursoRef": "estampillas-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: veces más, multiplica",
+          "narracion": "Segundo, decide si es más o menos. Veces más se multiplica: seis veces más que nueve es seis veces nueve.",
+          "recursoRef": "estampillas-bloques"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: veces menos, divide",
+          "narracion": "Tercero, veces menos se divide. Y para comprobar, usa la operación inversa: siete veces ocho vuelve a dar cincuenta y seis.",
+          "recursoRef": "papa-bloques"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "estampillas-pregunta",
+          "src": "/nudito/diagramas/matematica/comparacion-multiplicativa-estampillas-pregunta.svg",
+          "alt": "Un bloque turquesa de nueve para Sara y una barra larga con un signo de pregunta para Pablo.",
+          "descripcion": "Dos filas. En la de Sara hay un solo bloque turquesa con el número nueve. En la de Pablo hay una barra larga, con borde de rayas y un signo de pregunta."
+        },
+        {
+          "id": "estampillas-bloques",
+          "src": "/nudito/diagramas/matematica/comparacion-multiplicativa-estampillas-bloques.svg",
+          "alt": "Un bloque de nueve para Sara y seis bloques de nueve para Pablo; abajo, seis por nueve igual cincuenta y cuatro.",
+          "descripcion": "Dos filas. Sara tiene un bloque turquesa con nueve. Pablo tiene seis bloques turquesa iguales, cada uno con nueve, en una fila. Abajo se lee seis por nueve igual cincuenta y cuatro."
+        },
+        {
+          "id": "papa-pregunta",
+          "src": "/nudito/diagramas/matematica/comparacion-multiplicativa-papa-pregunta.svg",
+          "alt": "Una barra larga de cincuenta y seis para el mercado y una barra corta con un signo de pregunta para la bodega.",
+          "descripcion": "Dos filas. En la del mercado hay una barra larga que dice cincuenta y seis. En la de la bodega hay una barra mucho más corta, con borde de rayas y un signo de pregunta."
+        },
+        {
+          "id": "papa-bloques",
+          "src": "/nudito/diagramas/matematica/comparacion-multiplicativa-papa-bloques.svg",
+          "alt": "La barra de cincuenta y seis dividida en siete partes de ocho, y la bodega igual a una parte; abajo, dos cuentas.",
+          "descripcion": "La fila del mercado está dividida en siete bloques iguales, cada uno con ocho; el primero es amarillo y los demás turquesa. La fila de la bodega tiene un solo bloque amarillo con ocho. Abajo: cincuenta y seis dividido entre siete igual ocho, y siete por ocho igual cincuenta y seis."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/comparacion-multiplicativa-errores.svg",
+          "alt": "Un bloque de ocho para Rita; mal: ocho más cinco, una barra corta; bien: cinco bloques de ocho, que dan cuarenta.",
+          "descripcion": "Arriba, la fila de Rita, con un bloque turquesa con ocho. Debajo, la fila Mal: un bloque de ocho y uno amarillo más pequeño con cinco, y al lado ocho más cinco igual trece, en rojo. Más abajo, la fila Bien: cinco bloques turquesa con ocho cada uno. Al pie, cinco por ocho igual cuarenta."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una tira de tela mide ochenta centímetros. Otra tira mide cuatro veces menos. ¿Cómo se calcula lo que mide la segunda?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Dividir entre cuatro"
+          },
+          {
+            "id": "b",
+            "texto": "Multiplicar por cuatro"
+          },
+          {
+            "id": "c",
+            "texto": "Restar cuatro unidades"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Cuatro veces menos significa dividir: ochenta dividido entre cuatro da veinte centímetros.",
+        "pista": "Piensa si la segunda tira será más larga o más corta que la primera."
+      }
+    }
   },
   {
     "clave": "mat.p6.problemas-varias-etapas",

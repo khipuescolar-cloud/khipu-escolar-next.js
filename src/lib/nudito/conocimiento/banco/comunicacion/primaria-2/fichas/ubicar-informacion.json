@@ -366,7 +366,138 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Los datos están en distintas partes del texto",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a buscar datos en un texto. Como idea principal, recuerda que un texto tiene inicio, medio y final, y que sus datos no están todos en el mismo lugar. Si primero piensas qué te preguntan, puedes ir a la parte correcta y leerla con atención, en vez de leer sin saber qué buscas."
+        },
+        {
+          "id": "situacion-feria",
+          "tipo": "recurso",
+          "titulo": "Una feria en el patio del colegio",
+          "narracion": "Observemos esta situación. Es sábado y hay una feria en el patio de un colegio. Algunos niños saltan la soga, otros juegan rayuela y una niña sostiene su botella de agua. Un cartel de esta feria da cada dato en un lugar distinto: el día, los juegos y lo que hay que traer.",
+          "recursoRef": "feria"
+        },
+        {
+          "id": "ejemplo-cartel-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: leamos el cartel completo",
+          "narracion": "Leamos el cartel de la feria: «La feria será el sábado. Habrá juegos en el patio. Trae tu botella con agua». Tiene tres oraciones y cada una da un dato diferente. La primera dice cuándo es, la segunda dice qué habrá y la tercera dice qué debes llevar."
+        },
+        {
+          "id": "ejemplo-cartel-busca",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: busca en la parte correcta",
+          "narracion": "Si preguntan qué debes traer, pensamos que esa información pide algo para llevar. La palabra «trae» está en la última oración, es decir, al final del cartel. No necesitamos responder con el sábado ni con los juegos, porque esos datos responden otras preguntas.",
+          "recursoRef": "cartel"
+        },
+        {
+          "id": "ejemplo-cartel-otra-pregunta",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: otra pregunta, otra parte",
+          "narracion": "Ahora preguntan dónde habrá juegos. Cambia la pregunta, así que cambia la parte del texto. La respuesta está en medio: «habrá juegos en el patio». Lo que buscas decide en qué parte del texto debes mirar.",
+          "recursoRef": "cartel"
+        },
+        {
+          "id": "situacion-pastor",
+          "tipo": "recurso",
+          "titulo": "Una tarde en el campo",
+          "narracion": "Observemos esta escena del campo. Hay un pastor joven, un corral de piedra, animales que pastan y un cielo con el sol bajando. En la vida del campo, las tareas cambian según el momento del día: unas se hacen al empezar, otras al terminar. Enseguida leeremos un texto sobre Pedro, que también vive en el campo.",
+          "recursoRef": "partes-pastor"
+        },
+        {
+          "id": "ejemplo-pedro-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el día de Pedro",
+          "narracion": "Veamos otro texto: «Al amanecer, Pedro ordeña las vacas. Al mediodía almuerza en el campo. Al atardecer guarda las ovejas». Preguntan qué hace Pedro al atardecer. Aquí los datos siguen el orden del día: primero la mañana, después el mediodía y al final la tarde.",
+          "recursoRef": "dia-de-pedro"
+        },
+        {
+          "id": "ejemplo-pedro-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: usa la palabra de tiempo",
+          "narracion": "La pregunta nombra un momento del día, el atardecer. El atardecer ocurre al final del día, así que también esperamos encontrarlo al final del texto. No elegimos la primera oración solo porque es la primera que leemos."
+        },
+        {
+          "id": "ejemplo-pedro-comprueba",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: confirma el dato",
+          "narracion": "Vamos a la última oración y leemos con calma: «Al atardecer guarda las ovejas». Responde justo lo que preguntaron. Ordeñar las vacas es un dato verdadero, pero pertenece al amanecer y no sirve para esta pregunta.",
+          "recursoRef": "dia-de-pedro"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee la pregunta y piensa qué buscas",
+          "narracion": "Primero lee la pregunta despacio y decide qué dato te piden: quién, qué, dónde o cuándo. Sin esa pista es fácil quedarse con cualquier dato del texto.",
+          "recursoRef": "cartel"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: elige la parte y lee con atención",
+          "narracion": "Después piensa si ese dato puede estar al inicio, en medio o al final, y ve a esa parte del texto. Lee despacio hasta encontrar las palabras que lo dicen.",
+          "recursoRef": "dia-de-pedro"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: comprueba que responde la pregunta",
+          "narracion": "Por último, vuelve a leer tu respuesta junto con la pregunta. Si responde exactamente lo que te pidieron, está lista. Si responde algo parecido, busca de nuevo en otra parte."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "feria",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-2/partes-feria-gemini-v1.webp",
+          "alt": "Niños juegan en el patio de un colegio con banderines mientras una niña sostiene una botella de agua.",
+          "descripcion": "En un patio de colegio con arcos y banderines de colores, una niña salta la soga mientras dos niños sostienen los extremos, otro niño corre sobre una rayuela dibujada con figuras de colores y dos puestos de feria se ven al fondo. En primer plano una niña trenzada sostiene una botella verde de agua."
+        },
+        {
+          "id": "cartel",
+          "src": "/nudito/diagramas/comunicacion/informacion-en-partes.svg",
+          "alt": "Tres franjas: inicio, sábado; medio, juegos en el patio; final, botella con agua.",
+          "descripcion": "El esquema divide el cartel de la feria en tres franjas, una debajo de otra. En el inicio aparece el sábado, en medio los juegos en el patio y al final la botella con agua."
+        },
+        {
+          "id": "dia-de-pedro",
+          "src": "/nudito/diagramas/comunicacion/informacion-en-partes-pedro.svg",
+          "alt": "Tres cuadros: inicio, al amanecer ordeña las vacas; medio, al mediodía almuerza; final, al atardecer guarda las ovejas.",
+          "descripcion": "Arriba está la pregunta sobre qué hace Pedro al atardecer. Debajo hay tres cuadros, uno bajo otro, del inicio al final: al amanecer ordeña las vacas, al mediodía almuerza y al atardecer guarda las ovejas. El último cuadro está resaltado."
+        },
+        {
+          "id": "partes-pastor",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-2/partes-pastor-zimage-v1.webp",
+          "alt": "Un pastor joven con poncho y sombrero guía ovejas hacia un corral de piedra al atardecer, con vacas a lo lejos.",
+          "descripcion": "Al atardecer, un niño pastor con poncho y sombrero de ala ancha camina junto a un grupo de ovejas blancas de cara negra que entran por la puerta de madera de un corral de piedra. Detrás, en un campo verde con cerros, pastan varias vacas mientras el sol baja en un cielo anaranjado."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En el taller de arte, la clase empieza a las diez. Los niños pintan un paisaje con témperas. Al final, guardan los pinceles en una caja. ¿Qué hacen los niños al final?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Pintan un paisaje con témperas."
+          },
+          {
+            "id": "b",
+            "texto": "Guardan los pinceles en una caja."
+          },
+          {
+            "id": "c",
+            "texto": "Empiezan la clase a las diez."
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "La pregunta pide lo que ocurre al final, y la última oración dice que guardan los pinceles en una caja.",
+        "pista": "Piensa en qué parte del texto está el final y lee solo esa oración."
+      }
+    }
   },
   {
     "clave": "com.p2.distinguir-datos-semejantes",

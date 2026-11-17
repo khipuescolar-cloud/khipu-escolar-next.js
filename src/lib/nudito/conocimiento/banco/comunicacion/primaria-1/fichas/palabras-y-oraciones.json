@@ -1737,7 +1737,118 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Una oración cuenta una idea",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a escribir oraciones cortas. Como idea principal de este tema, recuerda lo siguiente: una oración reúne palabras en orden para contar una idea completa. Puede decir de quién o de qué hablamos y qué hace o cómo es. La voz te acompañará, pero también mirarás y leerás cada oración escrita en la pantalla."
+        },
+        {
+          "id": "situacion-riego",
+          "tipo": "recurso",
+          "titulo": "Mira la escena y piensa una idea",
+          "narracion": "Observemos esta situación. En un huerto escolar, una niña sostiene una regadera azul. El agua cae sobre la tierra de una planta pequeña. Si queremos contar lo más importante, primero nombramos a la niña y luego decimos qué hace. Podemos formar la oración «La niña riega una planta».",
+          "recursoRef": "nina-riega"
+        },
+        {
+          "id": "ejemplo-riego-quien",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ¿de quién hablamos?",
+          "narracion": "Miremos de nuevo la ilustración. La persona principal es la niña. Por eso comenzamos la oración con las palabras «La niña». Estas palabras todavía no cuentan la idea completa, porque falta decir qué hace.",
+          "recursoRef": "nina-riega"
+        },
+        {
+          "id": "ejemplo-riego-accion",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: La niña riega una planta.",
+          "narracion": "Ahora agregamos la acción y lo que recibe esa acción: «riega una planta». La oración completa queda escrita así: «La niña riega una planta». Lee las palabras de izquierda a derecha. Primero aparece quién; después, lo que hace.",
+          "recursoRef": "nina-riega"
+        },
+        {
+          "id": "ejemplo-riego-comprueba",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: comprueba la idea",
+          "narracion": "Leamos la oración completa: «La niña riega una planta». Se entiende quién aparece y qué hace. La mayúscula de «La» señala el comienzo y el punto marca el final. La imagen ayuda a pensar la idea, pero la oración debe quedar escrita y ordenada para que otra persona pueda leerla."
+        },
+        {
+          "id": "ejemplo-perro-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: observa al perro",
+          "narracion": "Veamos una escena diferente. Un perro pequeño de manchas marrones duerme sobre una alfombra, debajo de una mesa. A su lado hay una pelota roja. ¿Qué idea sencilla podemos escribir sobre el perro?",
+          "recursoRef": "perro-duerme"
+        },
+        {
+          "id": "ejemplo-perro-construye",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: El perro duerme bajo la mesa.",
+          "narracion": "Primero nombramos a quien aparece: «El perro». Después decimos la acción: «duerme». También podemos agregar el lugar: «bajo la mesa». La oración completa queda así: «El perro duerme bajo la mesa».",
+          "recursoRef": "perro-duerme"
+        },
+        {
+          "id": "ejemplo-perro-comprueba",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ordena y lee",
+          "narracion": "Comparemos. «El perro bajo la mesa» nombra al perro y el lugar, pero no dice con claridad qué hace. «El perro duerme bajo la mesa» sí expresa la idea completa. Al leerla, podemos imaginar la misma escena que muestra la ilustración."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: elige de quién hablar",
+          "narracion": "Primero, elige una persona, un animal o una cosa. Puedes mirar una escena cercana y preguntarte: ¿de quién o de qué quiero escribir? En la segunda ilustración elegimos al perro.",
+          "recursoRef": "perro-duerme"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: añade una acción o característica",
+          "narracion": "Después, piensa qué hace o cómo es. Usa una palabra de acción, como «riega», «duerme» o «corre», o una característica, como «es amarilla». Esa parte completa lo que quieres contar."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: escribe en orden y vuelve a leer",
+          "narracion": "Por último, escribe las palabras en orden. Empieza con mayúscula y termina con punto. Luego señala cada palabra mientras lees la oración. Comprueba que diga quién aparece y qué hace o cómo es. Si falta una parte, agrégala antes de terminar."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "nina-riega",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-1/oracion-nina-riega-gemini-v1.webp",
+          "alt": "Niña riega una planta pequeña con una regadera azul en el huerto escolar.",
+          "descripcion": "Una niña arrodillada sostiene una regadera azul. El agua sale de la regadera y cae sobre la tierra alrededor de una planta pequeña en el huerto escolar."
+        },
+        {
+          "id": "perro-duerme",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-1/oracion-perro-duerme-gemini-v1.webp",
+          "alt": "Perro pequeño de manchas marrones duerme debajo de una mesa junto a una pelota roja.",
+          "descripcion": "Un perro pequeño, blanco y marrón, duerme sobre una alfombra circular debajo de una mesa de madera. Una pelota roja está junto a sus patas."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Al mirar al perro que duerme debajo de la mesa, ¿cuál oración expresa una idea completa y ordenada?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El perro duerme bajo la mesa."
+          },
+          {
+            "id": "b",
+            "texto": "El perro bajo la mesa."
+          },
+          {
+            "id": "c",
+            "texto": "Duerme mesa la perro el."
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "«El perro duerme bajo la mesa» nombra al perro, dice qué hace y agrega dónde está. Las palabras están en un orden que permite comprender la idea.",
+        "pista": "Busca la opción que diga quién aparece, qué hace y dónde está, con las palabras en orden."
+      }
+    }
   },
   {
     "clave": "com.p1.oraciones-sobre-una-imagen",
@@ -3920,7 +4031,7 @@
         "pistas": [
           "Busca algo que se puede comer.",
           "Debe venir de una planta.",
-          "Mango es una fruta."
+          "Descarta el animal y el mueble."
         ],
         "retroalimentacion": "«Mesa» es un mueble; «mango» pertenece a frutas.",
         "opciones": [
@@ -4045,14 +4156,14 @@
       {
         "dificultad": 2,
         "tipo": "texto_corto",
-        "enunciado": "Completa el grupo «plátano, manzana, ____» con la fruta piña.",
+        "enunciado": "Completa el grupo «plátano, manzana, ____» con una fruta de cáscara áspera y corona de hojas verdes que empieza con «pi».",
         "respuesta": "piña",
         "pistas": [
           "El grupo contiene frutas.",
           "Necesitas añadir otra fruta.",
-          "La palabra indicada es piña."
+          "Empieza con «pi» y tiene cuatro letras."
         ],
-        "retroalimentacion": "«Piedra» no pertenece al grupo; añade «piña».",
+        "retroalimentacion": "«Piña» es una fruta, igual que el plátano y la manzana; por eso completa el grupo.",
         "alternativasAceptadas": [
           "pina"
         ],
@@ -4171,14 +4282,14 @@
       {
         "dificultad": 3,
         "tipo": "texto_corto",
-        "enunciado": "Completa «gato, perro, ____» con el animal llama para mantener la categoría.",
+        "enunciado": "Completa «gato, perro, ____» con un animal de los Andes que da lana y empieza con «ll».",
         "respuesta": "llama",
         "pistas": [
           "Gato y perro son animales.",
           "El nuevo miembro también debe ser animal.",
-          "La palabra indicada es llama."
+          "Empieza con «ll» y tiene cinco letras."
         ],
-        "retroalimentacion": "«Lana» es un material; «llama» mantiene el grupo de animales.",
+        "retroalimentacion": "«Llama» es un animal, igual que el gato y el perro; por eso mantiene el grupo.",
         "alternativasAceptadas": [],
         "id": "e12"
       }
@@ -4190,7 +4301,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Juntar lo que es del mismo tipo",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a agrupar palabras. Como idea principal, las palabras que nombran cosas del mismo tipo forman un grupo. Para agruparlas, piensa qué tienen en común y revisa que ninguna sobre."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una mesa con cosas revueltas",
+          "narracion": "Observemos esta escena: una niña mira su mesa, donde hay cosas muy distintas, todas revueltas. Hay una manzana, un plátano, un lápiz, una regla, un autito y una media. Para ordenarlas, conviene juntar las que son del mismo tipo.",
+          "recursoRef": "mesa"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ropa y juego",
+          "narracion": "Lee la tarjeta: «polo, gorro, pelota y pantalón». La pregunta amarilla quiere saber qué palabra no va con las demás.",
+          "recursoRef": "ropa"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: busca lo que tienen igual",
+          "narracion": "Pensamos qué tienen en común. Polo, gorro y pantalón son ropa: nos los ponemos. La pelota sirve para jugar. Por eso la pelota no va con las demás."
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: música y cocina",
+          "narracion": "Ahora, otro grupo. Lee la tarjeta: «quena, tambor, zampoña y cuchara». La pregunta amarilla es la misma: qué palabra no va con las demás.",
+          "recursoRef": "instrumentos"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: piensa para qué sirve",
+          "narracion": "Observemos esta clase de música: dos niños tocan flautas de madera, como la quena, y otro golpea un tambor. Quena, tambor y zampoña son instrumentos musicales. La cuchara no sirve para hacer música, así que es la palabra que sobra.",
+          "recursoRef": "musica"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: mirar solo el principio",
+          "narracion": "En la tarjeta, arriba, alguien junta tres palabras solo por cómo suenan al empezar. Abajo se corrige: agrupamos por lo que las palabras nombran.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee las palabras",
+          "narracion": "Primero, lee todas las palabras."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: piensa qué tienen en común",
+          "narracion": "Segundo, piensa qué tienen en común algunas. Pregúntate qué es cada una o para qué sirve."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: junta y revisa",
+          "narracion": "Tercero, junta las que son del mismo tipo y revisa que no sobre ninguna."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "mesa",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-1/agrupar-mesa-zimage-v1.webp",
+          "alt": "Una niña apoya la cara en la mano frente a una mesa con una manzana, un plátano, una regla, un lápiz, un autito y una media.",
+          "descripcion": "Una niña de pelo oscuro y camisa blanca está sentada en un pupitre de madera, con la cabeza apoyada en una mano. Sobre la mesa hay, separados entre sí, una manzana roja, un plátano, una regla, un lápiz naranja, un autito azul y una media blanca."
+        },
+        {
+          "id": "ropa",
+          "src": "/nudito/diagramas/comunicacion/agrupar-palabras-ropa-pregunta.svg",
+          "alt": "Tarjeta con las palabras polo, gorro, pelota y pantalón, y la pregunta qué palabra no va con las demás.",
+          "descripcion": "Un recuadro blanco con las palabras: polo, gorro, pelota y pantalón. Debajo, una tarjeta amarilla pregunta: ¿Qué palabra no va con las demás?"
+        },
+        {
+          "id": "instrumentos",
+          "src": "/nudito/diagramas/comunicacion/agrupar-palabras-instrumentos-pregunta.svg",
+          "alt": "Tarjeta con las palabras quena, tambor, zampoña y cuchara, y la pregunta qué palabra no va con las demás.",
+          "descripcion": "Un recuadro blanco con las palabras: quena, tambor, zampoña y cuchara. Debajo, una tarjeta amarilla pregunta: ¿Qué palabra no va con las demás?"
+        },
+        {
+          "id": "musica",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-1/agrupar-musica-zimage-v1.webp",
+          "alt": "Tres niños en una sala: dos tocan flautas de madera y uno golpea un tambor.",
+          "descripcion": "Tres niños con camisa blanca están en una sala de clases. Una niña con falda azul sostiene una flauta de madera de lado. Un niño toca otra flauta de madera. El tercero sonríe y golpea con las manos un tambor grande de madera."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/comunicacion/agrupar-palabras-error.svg",
+          "alt": "Una tarjeta roja con cruz que junta mesa, mono y mango, y otra verde con palomita que lo corrige.",
+          "descripcion": "Una tarjeta roja con cruz dice: Mesa, mono y mango van juntas porque empiezan igual. Debajo, una tarjeta verde con palomita dice: No. Mesa es un mueble, mono es un animal y mango es una fruta."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Mira estas palabras: tomate, cebolla, lechuga y zapato. ¿Cuál no va con las demás?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "cebolla"
+          },
+          {
+            "id": "b",
+            "texto": "lechuga"
+          },
+          {
+            "id": "c",
+            "texto": "zapato"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Tomate, cebolla y lechuga son verduras. El zapato es de otro tipo, por eso no va con ellas.",
+        "pista": "Piensa qué es cada cosa: unas son del mismo tipo y una es distinta."
+      }
+    }
   },
   {
     "clave": "com.p1.agregar-detalles",
@@ -4521,6 +4754,128 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Una oración con más datos",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a agregar detalles a una oración. Como idea principal de este tema, recuerda esto: una oración puede contar más sin cambiar su idea. Tú agregas detalles que dicen cómo es algo, dónde ocurre o cuándo sucede."
+        },
+        {
+          "id": "situacion-huerto",
+          "tipo": "recurso",
+          "titulo": "Una niña en el huerto",
+          "narracion": "Observemos esta situación. Una niña riega con una regadera las plantas de un huerto. Es temprano y el sol está bajo. Hay hileras de lechugas y algunas flores. Podemos contar lo que pasa con una oración corta, pero con detalles se entiende mejor: cómo es, dónde ocurre o cuándo sucede.",
+          "recursoRef": "huerto"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una gata dormida",
+          "narracion": "Mira la oración de la pantalla: «La gata duerme». Debajo hay tres preguntas: cómo es, dónde y cuándo. Esta vez queremos decir dónde duerme la gata. ¿Qué palabras podemos agregar?",
+          "recursoRef": "gata-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dónde ocurre",
+          "narracion": "Agregamos «en la silla». Ahora la oración dice: «La gata duerme en la silla». La acción sigue siendo dormir. Solo sumamos un dato: el lugar donde duerme.",
+          "recursoRef": "gata-silla"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: llegada al colegio",
+          "narracion": "Veamos otra situación. Un autobús amarillo llega a la puerta del colegio. Los niños con mochila esperan en la vereda y sonríen. Queremos escribir que el bus llega y decir en qué momento del día. ¿Qué detalle falta?",
+          "recursoRef": "bus"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el momento",
+          "narracion": "Mira la oración: «El bus llega». Agregamos «por la mañana». Queda: «El bus llega por la mañana». El detalle dice cuándo. La acción sigue siendo llegar.",
+          "recursoRef": "bus-manana"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Errores al ampliar",
+          "narracion": "Un error frecuente es cambiar la acción. Si la oración dice «La gata duerme» y escribes «La gata corre en el patio», ya no es la misma idea. Otro error es dar un dato que no se pidió. Si piden un lugar, no pongas un color. Para decir dónde, escribe un sitio, como en el patio."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca quién hace qué",
+          "narracion": "Primero, lee la oración y encuentra quién hace qué. Esa parte no cambia."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: elige el dato",
+          "narracion": "Después, decide qué dato falta: cómo, dónde o cuándo. Agrega palabras que respondan esa pregunta."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: relee",
+          "narracion": "Por último, lee la oración completa. Comprueba que la idea siga igual y que el detalle sea el que querías."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "huerto",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-1/detalles-huerto-gemini-v1.webp",
+          "alt": "Una niña de trenzas riega con una regadera plantas de un huerto, con lechugas y flores, al amanecer.",
+          "descripcion": "Una niña sonriente, con chaleco bordado y trenzas, riega con una regadera metálica un huerto con hileras de lechugas, zanahorias y flores de colores. Al fondo, una casa de adobe y cerros verdes con la luz suave del amanecer."
+        },
+        {
+          "id": "gata-pregunta",
+          "src": "/nudito/diagramas/comunicacion/agregar-detalles-gata-pregunta.svg",
+          "alt": "La oración La gata duerme con tres tarjetas de preguntas: cómo es, dónde y cuándo.",
+          "descripcion": "Arriba, en una tarjeta blanca: «La gata duerme.». Debajo, tres tarjetas pequeñas: «¿Cómo es?», «¿Dónde?» y «¿Cuándo?». Abajo, en amarillo: «Quiero decir dónde duerme.»."
+        },
+        {
+          "id": "gata-silla",
+          "src": "/nudito/diagramas/comunicacion/agregar-detalles-gata-silla.svg",
+          "alt": "La oración La gata duerme con el detalle en la silla resaltado en amarillo.",
+          "descripcion": "Una tarjeta blanca dice «La gata duerme». Debajo, una tarjeta amarilla más oscura dice «en la silla.». Abajo: «El detalle dice dónde.» y «La idea sigue igual.»."
+        },
+        {
+          "id": "bus",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-1/detalles-bus-gemini-v1.webp",
+          "alt": "Un autobús escolar amarillo se detiene junto a la puerta del colegio mientras varios niños con mochila saludan en la vereda.",
+          "descripcion": "Un autobús escolar amarillo, con corazones pintados y una cara sonriente en el frente, llega junto a la puerta de un colegio. Un niño corre y otros niños con mochila y bolso saludan en la vereda. Hay cerros al fondo y un portón con banderines."
+        },
+        {
+          "id": "bus-manana",
+          "src": "/nudito/diagramas/comunicacion/agregar-detalles-bus-manana.svg",
+          "alt": "La oración El bus llega con el detalle por la mañana resaltado en amarillo.",
+          "descripcion": "Una tarjeta blanca dice «El bus llega.». Debajo, una tarjeta amarilla más oscura dice «por la mañana.». Abajo: «El detalle dice cuándo.» y «La acción sigue siendo llegar.»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "La oración dice «El perro ladra». ¿Cuál ampliación dice dónde ladra?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El perro ladra cada mañana."
+          },
+          {
+            "id": "b",
+            "texto": "El perro ladra en el jardín."
+          },
+          {
+            "id": "c",
+            "texto": "El perro ladra mucho y fuerte."
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "«En el jardín» dice dónde ladra el perro, y la acción sigue siendo ladrar.",
+        "pista": "Piensa en un sitio donde puede estar el perro."
+      }
+    }
   }
 ]

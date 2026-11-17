@@ -590,10 +590,11 @@
           "Cada botella de 2 litros trae el doble que una de 1 litro.",
           "Para llegar a 5 litros, necesitarás menos botellas de 2 litros que de 1 litro."
         ],
-        "retroalimentacion": "Es falso: cada botella de 2 litros aporta más, así que bastan 3 botellas (2 + 2 + 2 = 6 litros), no 5.",
+        "retroalimentacion": "Es falso: cada botella de 2 litros aporta más, así que con 2 botellas llegas a 4 litros y la tercera ya no cabe entera; hacen falta 3 botellas (o 2 y una de 1 litro), no 5.",
         "id": "e12"
       }
     ],
+    "claseGuiada": {"version":1,"momentos":[{"id":"idea","tipo":"idea","titulo":"El litro mide capacidad","narracion":"Bienvenida y bienvenido. Hoy aprenderemos a usar el litro. Como idea principal, el litro mide cuánto líquido cabe en un recipiente. Para reunir recipientes iguales, sumamos o multiplicamos sus litros. Para saber cuánto falta, comparamos la capacidad total con lo que ya hay."},{"id":"situacion","tipo":"recurso","titulo":"Medidas para llenar un balde","narracion":"Observemos esta situación. Hay tres jarras iguales. Cada una puede llevar un litro. A la derecha hay un balde vacío con una pregunta. Piensa cuántos litros recibiría el balde si vaciamos las tres jarras.","recursoRef":"situacion"},{"id":"ejemplo-1-guiado","tipo":"ejemplo","titulo":"Ejemplo 1: bidones iguales","narracion":"Don Mario compra tres bidones de agua. Cada bidón tiene capacidad para cinco litros. La tarjeta muestra los tres recipientes con la misma etiqueta. ¿Cómo hallamos los litros que lleva en total?","recursoRef":"bidones"},{"id":"ejemplo-1-razona","tipo":"ejemplo","titulo":"Ejemplo 1: suma o multiplica","narracion":"Sumamos cinco litros tres veces, o multiplicamos cinco por tres. Don Mario lleva quince litros. La etiqueta de cada bidón indica capacidad, es decir, cuánto líquido cabe, no su masa.","recursoRef":"bidones"},{"id":"ejemplo-2-guiado","tipo":"ejemplo","titulo":"Ejemplo 2: lo que falta","narracion":"Un balde puede contener diez litros y ya tiene seis litros de agua. La marca superior indica la capacidad total y la marca intermedia indica lo que hay. ¿Cuántos litros faltan para llenarlo?","recursoRef":"balde"},{"id":"ejemplo-2-razona","tipo":"ejemplo","titulo":"Ejemplo 2: compara con el total","narracion":"Comparamos diez litros con seis litros. Desde seis faltan cuatro para llegar a diez. Por eso aún caben cuatro litros en el balde.","recursoRef":"balde"},{"id":"contraejemplo","tipo":"ejemplo","titulo":"Unidades y cantidades","narracion":"En el panel izquierdo se tachó cinco kilos, porque aquí medimos cuánto líquido cabe y usamos litros. En el panel derecho hay tres recipientes de cinco litros. Decir solo cinco olvida que son tres recipientes iguales.","recursoRef":"errores"},{"id":"paso-1","tipo":"paso","titulo":"Paso 1: lee la capacidad","narracion":"Busca cuántos litros indica cada recipiente. Usa la misma unidad para todos los datos que vas a comparar."},{"id":"paso-2","tipo":"paso","titulo":"Paso 2: elige la acción","narracion":"Si reúnes recipientes iguales, suma sus litros o multiplica. Si preguntas cuánto falta, compara lo que hay con la capacidad total."},{"id":"paso-3","tipo":"paso","titulo":"Paso 3: revisa el sentido","narracion":"Nombra el resultado en litros y comprueba que tenga sentido. Varios recipientes iguales deben aportar más que uno solo."}],"recursos":[{"id":"situacion","src":"/nudito/diagramas/matematica/el-litro-situacion.svg","alt":"Tres jarras marcadas con un litro junto a un balde con signo de pregunta.","descripcion":"Cuatro recipientes altos. Los tres primeros están rotulados con un litro. El cuarto representa el balde y lleva un signo de pregunta. Arriba se pregunta cuántos litros recibe el balde."},{"id":"bidones","src":"/nudito/diagramas/matematica/el-litro-bidones.svg","alt":"Tres bidones iguales, cada uno rotulado con cinco litros.","descripcion":"Tres bidones rectangulares iguales, con agua turquesa en la parte baja. Cada uno lleva la etiqueta cinco litros. Debajo se pregunta cuántos litros hay en total."},{"id":"balde","src":"/nudito/diagramas/matematica/el-litro-balde.svg","alt":"Balde con capacidad de diez litros y agua hasta la marca de seis litros.","descripcion":"Un balde grande con marcas de cero, seis y diez litros. El agua turquesa llega a la marca de seis litros y la parte vacía, entre seis y diez, lleva un signo de pregunta."},{"id":"errores","src":"/nudito/diagramas/matematica/el-litro-errores.svg","alt":"Un recipiente con cinco kilos tachado y tres recipientes de cinco litros junto al error solo cinco.","descripcion":"Dos paneles con borde rojo. El izquierdo muestra un recipiente turquesa y el texto cinco kilos cruzado por una diagonal. El derecho muestra tres recipientes, cada uno rotulado cinco litros, y debajo dice Solo cinco."}],"comprobacion":{"pregunta":"En una campaña se reúnen cuatro bidones de tres litros cada uno. ¿Cuántos litros hay en total?","opciones":[{"id":"a","texto":"Once litros"},{"id":"b","texto":"Doce litros"},{"id":"c","texto":"Trece litros"}],"respuesta":"b","mensajeCorrecto":"Correcto. Son cuatro grupos de tres litros, que reúnen doce litros.","pista":"Piensa en la cantidad que aporta cada bidón y cuántos bidones hay."}},
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
@@ -1180,6 +1181,131 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Capacidad con cubitos",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a medir cuántos cubitos caben dentro de una caja. Como idea principal, la capacidad de una caja es la cantidad de cubitos iguales que entran en ella. La caja se llena por capas, como los pisos de un edificio. Contamos los cubitos de una capa y los multiplicamos por el número de capas."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una caja de quinua",
+          "narracion": "Observemos esta situación. Hay una caja para guardar quinua que mide cinco cubitos de largo, dos de ancho y tres de alto. Está vacía y se dibuja con líneas punteadas. Queremos saber cuántos cubitos iguales caben dentro de ella.",
+          "recursoRef": "caja-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la primera capa",
+          "narracion": "Empecemos por el piso de la caja. Mira la capa de abajo, de color turquesa. Tiene cubitos del largo y del ancho de la caja, ordenados en filas iguales. Las otras dos capas todavía están vacías, con línea punteada. ¿Cómo podemos saber cuántos cubitos hay en esa capa sin contarlos uno por uno?",
+          "recursoRef": "una-capa"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: las tres capas",
+          "narracion": "Una capa tiene cinco por dos, o sea diez cubitos. La caja tiene tres capas iguales: turquesa abajo, amarilla en medio y lila arriba. Entonces multiplicamos diez por tres. En total caben treinta cubitos.",
+          "recursoRef": "tres-capas"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una caja baja",
+          "narracion": "Ahora una caja baja y larga. Mide seis cubitos de largo, tres de ancho y solo dos de alto. ¿Cuántos cubitos tiene cada capa? ¿Cuántas capas hay? Piensa primero en una capa y luego en todas."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: dos capas grandes",
+          "narracion": "Una capa tiene seis por tres, o sea dieciocho cubitos. Hay dos capas: una turquesa y otra amarilla. Dieciocho por dos es treinta y seis. En esta caja baja caben treinta y seis cubitos.",
+          "recursoRef": "caja-plana"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Mira estas dos capas separadas, una sobre otra. Esta caja mide tres cubitos de largo, tres de ancho y dos de alto. Si cuentas solo la capa de arriba, dirías nueve cubitos, y es un error: falta la capa de abajo. Son dos capas de nueve, o sea dieciocho. Otro error es sumar el largo, el ancho y el alto: no se suman, se multiplican los cubitos de una capa por el número de capas.",
+          "recursoRef": "solo-arriba"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cubitos de una capa",
+          "narracion": "Cuenta los cubitos del largo y los del ancho. Multiplica el largo por el ancho para saber cuántos hay en una capa. En la primera capa de la caja de quinua hay diez cubitos.",
+          "recursoRef": "una-capa"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: cuántas capas hay",
+          "narracion": "Cuenta las capas: ese número es el alto de la caja. La caja de quinua tiene tres capas, de tres colores distintos.",
+          "recursoRef": "tres-capas"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: multiplica por las capas",
+          "narracion": "Multiplica los cubitos de una capa por el número de capas. En la caja baja, dieciocho por dos da treinta y seis cubitos.",
+          "recursoRef": "caja-plana"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "caja-pregunta",
+          "src": "/nudito/diagramas/matematica/capacidad-cubos-prismas-caja-pregunta.svg",
+          "alt": "Caja de quinua vacía, dibujada con líneas punteadas y con sus medidas: largo cinco, ancho dos y alto tres.",
+          "descripcion": "Una caja dibujada en perspectiva con línea punteada, sin cubitos adentro. Debajo se lee largo, cinco; a la izquierda, alto, tres; y arriba a la derecha, ancho, dos."
+        },
+        {
+          "id": "una-capa",
+          "src": "/nudito/diagramas/matematica/capacidad-cubos-prismas-una-capa.svg",
+          "alt": "La caja con solo la capa de abajo llena de cubitos turquesa; las otras capas, punteadas.",
+          "descripcion": "La misma caja, con las medidas largo cinco, alto tres y ancho dos. La capa de abajo está llena de cubitos turquesa, en filas iguales. El resto de la caja se dibuja con línea punteada gris, vacío."
+        },
+        {
+          "id": "tres-capas",
+          "src": "/nudito/diagramas/matematica/capacidad-cubos-prismas-tres-capas.svg",
+          "alt": "Caja llena con tres capas de cubitos: turquesa, amarilla y lila.",
+          "descripcion": "La caja llena de cubitos en tres capas de colores: turquesa abajo, amarilla en medio y lila arriba. A la derecha, de arriba abajo, se leen ancho, dos; capa tres; capa dos; y capa uno, cada capa con su color. Debajo dice largo, cinco, y a la izquierda, alto, tres."
+        },
+        {
+          "id": "caja-plana",
+          "src": "/nudito/diagramas/matematica/capacidad-cubos-prismas-caja-plana.svg",
+          "alt": "Caja baja y larga llena de cubitos en dos capas, de seis cubitos de largo y tres de ancho.",
+          "descripcion": "Una caja baja llena de cubitos en dos capas: turquesa abajo y amarilla arriba. A la derecha se leen ancho, tres; capa dos; y capa uno. Debajo dice largo, seis."
+        },
+        {
+          "id": "solo-arriba",
+          "src": "/nudito/diagramas/matematica/capacidad-cubos-prismas-solo-arriba.svg",
+          "alt": "Dos capas de cubitos separadas, la amarilla arriba y la turquesa abajo, cada una de tres por tres.",
+          "descripcion": "Dos capas planas de cubitos, una sobre otra con un espacio entre ellas; juntas forman una caja de dos de alto. Cada capa tiene tres cubitos de largo y tres de ancho. La de arriba es amarilla, con la etiqueta capa de arriba, y la de abajo es turquesa, con la etiqueta capa de abajo."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una caja mide cuatro cubitos de largo, seis de ancho y tres de alto. ¿Cuántos cubitos caben?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sesenta y ocho"
+          },
+          {
+            "id": "b",
+            "texto": "Ochenta y dos"
+          },
+          {
+            "id": "c",
+            "texto": "Setenta y dos"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Una capa tiene veinticuatro cubitos y hay tres capas: veinticuatro por tres es setenta y dos.",
+        "pista": "Calcula primero cuántos cubitos tiene el piso de la caja."
+      }
+    }
   }
 ]

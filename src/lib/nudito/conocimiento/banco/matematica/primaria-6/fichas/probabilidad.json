@@ -2062,14 +2062,14 @@
         "id": "e08",
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "Un gráfico registra 12 votos por A y 9 por B. ¿Cuántos votos sustentan que A fue más elegido? Escribe solo el número.",
+        "enunciado": "Un gráfico registra 12 votos por A y 9 por B. ¿Cuántos votos tuvo la opción más elegida? Escribe solo el número.",
         "respuesta": 12,
         "pistas": [
-          "La afirmación trata de los votos de A.",
+          "Busca la opción con más votos.",
           "Busca su barra o conteo.",
           "A tiene doce."
         ],
-        "retroalimentacion": "La conclusión sobre A se apoya en sus 12 votos; 3 es la diferencia.",
+        "retroalimentacion": "La opción más elegida, A, tuvo 12 votos; 3 es la diferencia con B.",
         "alternativasAceptadas": []
       },
       {
@@ -2172,6 +2172,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Sacar conclusiones de un estudio",
+          "narracion": "Bienvenida y bienvenido. Hoy sacaremos conclusiones de un estudio. Como idea principal, una conclusión debe apoyarse en los datos y responder la pregunta del estudio. Además, solo habla del grupo que participó: no podemos decir que todos piensan lo mismo."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "La fruta favorita",
+          "narracion": "Observemos esta situación. En un salón se preguntó a veinticuatro estudiantes cuál es su fruta favorita. El gráfico tiene tres barras. Mango recibió diez votos, plátano ocho y uva seis. Queremos escribir una conclusión que se apoye en esos datos.",
+          "recursoRef": "frutas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la fruta más elegida",
+          "narracion": "Recuerda la pregunta del estudio: ¿cuál es la fruta favorita? Compara las alturas de las barras. ¿Qué fruta recibió más votos? Piensa también a cuántos estudiantes se preguntó.",
+          "recursoRef": "frutas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la conclusión",
+          "narracion": "El mango recibió diez votos, más que el plátano y que la uva. Una conclusión que se apoya en los datos es: entre los veinticuatro encuestados, el mango fue la fruta más elegida.",
+          "recursoRef": "frutas-conclusion"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una encuesta de sí o no",
+          "narracion": "Ahora otra encuesta. Se preguntó a veinticinco estudiantes si quieren una feria de ciencias. Dieciocho dijeron que sí y siete dijeron que no. ¿Es correcto decir que la mayoría la quiere? Compara dieciocho con la mitad de veinticinco."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la afirmación correcta",
+          "narracion": "La mitad de veinticinco es doce y medio. Dieciocho es más que eso, así que más de la mitad respondió que sí. La conclusión es: la mayoría de los veinticinco estudiantes encuestados quiere una feria de ciencias.",
+          "recursoRef": "feria-barra"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error frecuente es hablar de más. Con la encuesta de las frutas, alguien dice: todos los estudiantes del país prefieren el mango. Eso no se apoya en los datos, porque solo se preguntó a veinticuatro. La conclusión debe hablar solo del grupo encuestado.",
+          "recursoRef": "alcance-error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: recuerda la pregunta",
+          "narracion": "Primero recuerda qué pregunta quería responder el estudio."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: lee los datos",
+          "narracion": "Lee los conteos, las tablas o las barras, y compara las cantidades."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: concluye con límites",
+          "narracion": "Escribe una afirmación que los datos respalden, y di a qué grupo se refiere. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "frutas-pregunta",
+          "src": "/nudito/diagramas/matematica/conclusiones-estudio-frutas-pregunta.svg",
+          "alt": "Gráfico de tres barras de la fruta favorita de veinticuatro estudiantes: mango diez votos, plátano ocho y uva seis.",
+          "descripcion": "Gráfico de barras titulado Fruta favorita de veinticuatro estudiantes, con la pregunta ¿Qué se puede concluir? Tres barras azul oscuro: Mango con diez votos, Plátano con ocho y Uva con seis."
+        },
+        {
+          "id": "frutas-conclusion",
+          "src": "/nudito/diagramas/matematica/conclusiones-estudio-frutas-conclusion.svg",
+          "alt": "El mismo gráfico con la barra del mango en verde y las otras en gris, y la conclusión escrita arriba.",
+          "descripcion": "El mismo gráfico: la barra de Mango, de diez votos, en verde; Plátano, ocho, y Uva, seis, en gris. Arriba se lee: Entre los veinticuatro encuestados, el mango fue la fruta más elegida."
+        },
+        {
+          "id": "feria-barra",
+          "src": "/nudito/diagramas/matematica/conclusiones-estudio-feria-barra.svg",
+          "alt": "Barra de veinticinco cuadros: dieciocho verdes para el sí y siete grises para el no, con una línea en la mitad.",
+          "descripcion": "Una barra de veinticinco cuadros. Los dieciocho primeros, verdes, dicen Sí: dieciocho. Los siete últimos, grises, dicen No: siete. Una línea punteada, rotulada mitad, cruza el cuadro trece. Abajo: Más de la mitad dijo que sí."
+        },
+        {
+          "id": "alcance-error",
+          "src": "/nudito/diagramas/matematica/conclusiones-estudio-alcance-error.svg",
+          "alt": "Un círculo grande punteado con todos los estudiantes y uno verde pequeño con los veinticuatro encuestados.",
+          "descripcion": "Un círculo grande de borde punteado que dice Todos los estudiantes. Dentro, un círculo verde pequeño que dice Los veinticuatro encuestados. Arriba, en rojo: Hablar de más. Abajo, en rojo: Solo se habla de los veinticuatro."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/conclusiones-estudio-pasos.svg",
+          "alt": "Tarjeta con tres pasos para sacar una conclusión de un estudio.",
+          "descripcion": "Tres tarjetas numeradas. La uno: recuerda la pregunta, ¿qué quería saber el estudio? La dos: lee los datos, conteos, tablas o gráficos. La tres: concluye con límites, di a qué grupo se refiere."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Se encuestó a veinte familias sobre si compran en el mercado. Quince dijeron que sí y cinco dijeron que no. ¿Qué conclusión se apoya en esos datos?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Entre las veinte, la mayoría compra en el mercado"
+          },
+          {
+            "id": "b",
+            "texto": "Todas las familias del país compran en el mercado"
+          },
+          {
+            "id": "c",
+            "texto": "Entre las veinte, casi nadie compra en el mercado"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Quince de veinte es más de la mitad, y la conclusión habla solo de las veinte familias encuestadas.",
+        "pista": "Fíjate a quiénes se encuestó y qué cantidad es mayor."
+      }
+    }
   }
 ]

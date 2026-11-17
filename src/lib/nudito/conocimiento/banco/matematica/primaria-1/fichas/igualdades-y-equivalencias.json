@@ -404,6 +404,121 @@
         "retroalimentacion": "Al contar o emparejar aparecen ocho en cada grupo, así que son iguales."
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Grupos que se ven distintos",
+          "narracion": "Bienvenida y bienvenido. Hoy veremos cuándo dos grupos tienen la misma cantidad. Como idea principal, los objetos pueden verse juntos o separados, grandes o pequeños. Aun así, la cantidad solo cambia si agregamos o quitamos objetos. Para comprobar, contamos cada grupo o formamos parejas."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Botones en dos platos",
+          "narracion": "Observemos esta situación. Hay dos platos con botones. En el plato izquierdo, los botones están juntos. En el plato derecho, están más separados. Cuenta cada botón una sola vez. ¿Los dos platos tienen la misma cantidad?",
+          "recursoRef": "platos-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Lápices y borradores",
+          "narracion": "Tenemos cuatro lápices y cuatro borradores. Vamos a darle un borrador a cada lápiz. Antes de decidir, piensa: ¿quedará algún objeto sin pareja?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Parejas completas",
+          "narracion": "Mira las parejas. Cada lápiz está unido a un borrador. No sobra ningún lápiz ni ningún borrador. Por eso hay la misma cantidad: cuatro y cuatro.",
+          "recursoRef": "lapices-borradores"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Fichas de dos tamaños",
+          "narracion": "Un grupo tiene seis fichas pequeñas. El otro tiene seis fichas grandes. El tamaño puede engañar. Piensa: ¿cuál grupo tiene más?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "El tamaño no suma",
+          "narracion": "Hay seis fichas pequeñas y seis fichas grandes. Las grandes ocupan más lugar, pero no son más fichas. Los dos grupos tienen seis. La cantidad es la misma.",
+          "recursoRef": "fichas-tamanos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con la separación",
+          "narracion": "Una fila tiene las fichas juntas. La otra tiene las fichas muy separadas. Parece que la de abajo tiene más, pero es un error. Al contar, hay cinco arriba y cinco abajo. Los espacios no agregan fichas.",
+          "recursoRef": "error-filas"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: cuenta",
+          "narracion": "Cuenta los objetos del primer grupo. Señala cada uno una sola vez."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: compara",
+          "narracion": "Cuenta el segundo grupo. También puedes formar parejas, un objeto de cada grupo. Compara los dos totales."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: decide",
+          "narracion": "Si los totales coinciden y no sobra nada, las cantidades son iguales. Si sobra un objeto, no son iguales."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "platos-pregunta",
+          "src": "/nudito/diagramas/matematica/colecciones-igual-cantidad-platos-pregunta.svg",
+          "alt": "Dos platos con botones amarillos: en el de la izquierda están juntos y en el de la derecha, separados.",
+          "descripcion": "Dos platos blancos con botones amarillos. En el plato de la izquierda los botones están juntos, en el centro. En el de la derecha están repartidos por todo el plato. Arriba se lee: ¿Tienen la misma cantidad? Abajo: Cuenta cada botón una vez."
+        },
+        {
+          "id": "lapices-borradores",
+          "src": "/nudito/diagramas/matematica/colecciones-igual-cantidad-lapices-borradores.svg",
+          "alt": "Cuatro lápices amarillos unidos por líneas a cuatro borradores rosados, uno con uno.",
+          "descripcion": "Cuatro lápices amarillos en una columna a la izquierda y cuatro borradores rosados en una columna a la derecha. Una línea turquesa une cada lápiz con un borrador. Arriba se lee: Una pareja para cada uno. Abajo: Cuatro y cuatro: no sobra ninguno."
+        },
+        {
+          "id": "fichas-tamanos",
+          "src": "/nudito/diagramas/matematica/colecciones-igual-cantidad-fichas-tamanos.svg",
+          "alt": "Seis fichas amarillas pequeñas a la izquierda y seis fichas turquesa grandes a la derecha.",
+          "descripcion": "A la izquierda, seis fichas amarillas pequeñas en dos filas de tres, con la palabra pequeñas debajo. A la derecha, seis fichas turquesa grandes en dos filas de tres, con la palabra grandes debajo. Abajo se lee: Seis fichas en cada grupo."
+        },
+        {
+          "id": "error-filas",
+          "src": "/nudito/diagramas/matematica/colecciones-igual-cantidad-error-filas.svg",
+          "alt": "Dos filas de cinco fichas: la de arriba junta y la de abajo muy separada.",
+          "descripcion": "Arriba, una fila de cinco fichas amarillas juntas. Abajo, una fila de cinco fichas turquesa muy separadas, que ocupa todo el ancho. Arriba se lee: Cinco arriba, cinco abajo. Abajo, en rojo: El largo de la fila no agrega fichas."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Dos cajas tienen cuatro lápices cada una. Los de la primera están parados y los de la segunda están acostados. ¿Qué es verdad?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La primera caja tiene más"
+          },
+          {
+            "id": "b",
+            "texto": "Tienen la misma cantidad"
+          },
+          {
+            "id": "c",
+            "texto": "La segunda caja tiene más"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Cada caja tiene cuatro lápices; la posición no cambia la cantidad.",
+        "pista": "Cuenta los lápices de cada caja. La posición no es un lápiz más."
+      }
+    },
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
@@ -561,15 +676,15 @@
       {
         "dificultad": 2,
         "tipo": "numerico",
-        "enunciado": "Una balanza queda en equilibrio. En un platillo hay 6 piedritas y 2 semillas. En el otro hay 5 piedritas y algunas semillas. ¿Cuántas semillas hay en el segundo platillo? Escribe solo el número.",
+        "enunciado": "Una balanza queda en equilibrio con fichas del mismo tamaño. En un platillo hay 6 fichas azules y 2 amarillas. En el otro hay 5 fichas azules y algunas amarillas. ¿Cuántas fichas amarillas hay en el segundo platillo? Escribe solo el número.",
         "respuesta": 3,
         "alternativasAceptadas": [],
         "pistas": [
           "Primero cuenta cuánto hay en el platillo que ya está completo.",
-          "En el primer platillo hay 6 + 2 = 8 cosas. El otro también debe tener 8.",
-          "El segundo platillo tiene 5 piedritas. ¿Cuántas faltan para llegar a 8?"
+          "En el primer platillo hay 6 + 2 = 8 fichas. El otro también debe tener 8.",
+          "El segundo platillo tiene 5 fichas azules. ¿Cuántas amarillas faltan para llegar a 8?"
         ],
-        "retroalimentacion": "Los dos platillos pesan lo mismo: 6 + 2 = 8. Con 5 piedritas, faltan 3 semillas, porque 5 + 3 = 8.",
+        "retroalimentacion": "Los dos platillos tienen la misma cantidad de fichas: 6 + 2 = 8. Con 5 fichas azules, faltan 3 amarillas, porque 5 + 3 = 8.",
         "id": "e05"
       },
       {
@@ -708,7 +823,108 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "El signo igual une cantidades que valen lo mismo",
+          "narracion": "Hoy aprenderemos qué dice el signo igual. Como idea principal de este tema, recuerda lo siguiente: el signo igual une dos lados que tienen el mismo valor. Los números pueden verse distintos, pero si contamos o resolvemos y obtenemos la misma cantidad en ambos lados, tenemos una igualdad. Al final elegirás una igualdad verdadera."
+        },
+        {
+          "id": "situacion-grupos",
+          "tipo": "recurso",
+          "titulo": "Dos grupos distintos con la misma cantidad",
+          "narracion": "Observemos la imagen. A la izquierda hay cinco fichas: dos turquesas y tres amarillas. A la derecha también hay cinco: cuatro rosadas y una azul. Entre los grupos aparecen dos líneas cortas, una sobre otra; forman el signo igual. Los colores y la forma de agrupar cambian, pero ambos lados tienen cinco fichas.",
+          "recursoRef": "grupos-cinco"
+        },
+        {
+          "id": "ejemplo-1-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: compara dos grupos de cinco",
+          "narracion": "Miremos el primer grupo. Dos fichas turquesas y tres amarillas forman cinco. En el otro grupo, cuatro fichas rosadas y una azul también forman cinco. ¿Podemos unir estos grupos con el signo igual?",
+          "recursoRef": "grupos-cinco"
+        },
+        {
+          "id": "ejemplo-1-explica",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dos más tres es igual a cuatro más uno",
+          "narracion": "Sí. Dos más tres da cinco, y cuatro más uno también da cinco. Por eso podemos decir: dos más tres es igual a cuatro más uno. El signo igual nos dice que los dos lados valen lo mismo.",
+          "recursoRef": "grupos-cinco"
+        },
+        {
+          "id": "ejemplo-2-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: completa el lado que falta",
+          "narracion": "Ahora observemos la balanza. Está derecha, sin inclinarse. En el platillo izquierdo hay seis fichas: cuatro turquesas y dos amarillas. En el derecho hay tres rosadas y tres azules; también son seis. Imagina que al principio solo viéramos las tres fichas rosadas. ¿Cuántas fichas faltarían para igualar las seis del otro lado?",
+          "recursoRef": "balanza-seis"
+        },
+        {
+          "id": "ejemplo-2-explica",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: encuentra tres fichas",
+          "narracion": "Faltarían tres fichas. A la izquierda hay seis. A la derecha empezamos con tres y agregamos otras tres para llegar a seis. Entonces podemos decir: seis es igual a tres más tres. La balanza queda equilibrada porque ambos lados tienen la misma cantidad.",
+          "recursoRef": "balanza-seis"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: averigua el valor de la izquierda",
+          "narracion": "Primero, cuenta o resuelve todo lo que está a la izquierda del signo igual. No compares solo el primer número. En dos más tres, juntamos ambos números y obtenemos cinco.",
+          "recursoRef": "grupos-cinco"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: averigua el valor de la derecha",
+          "narracion": "Después, cuenta o resuelve todo lo que está a la derecha. En cuatro más uno, obtenemos cinco. Ya conocemos el valor completo de cada lado.",
+          "recursoRef": "grupos-cinco"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: compara los dos resultados",
+          "narracion": "Por último, compara. Si los resultados son iguales, el signo igual está bien usado. Si falta una cantidad, busca cuántas unidades necesitas para que ambos lados lleguen al mismo valor.",
+          "recursoRef": "balanza-seis"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "grupos-cinco",
+          "src": "/nudito/diagramas/matematica/igualdad-dos-grupos-cinco.svg",
+          "alt": "Dos grupos de cinco fichas separados por un signo igual.",
+          "descripcion": "A la izquierda hay dos fichas turquesas y tres amarillas. A la derecha hay cuatro fichas rosadas y una azul. Cada lado reúne cinco fichas y el signo igual aparece en el centro."
+        },
+        {
+          "id": "balanza-seis",
+          "src": "/nudito/diagramas/matematica/igualdad-balanza-seis.svg",
+          "alt": "Balanza equilibrada con seis fichas en cada platillo.",
+          "descripcion": "La barra de la balanza está horizontal. El platillo izquierdo contiene cuatro fichas turquesas y dos amarillas. El derecho contiene tres fichas rosadas y tres azules."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "¿Cuál de estas igualdades es verdadera?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Dos más cuatro es igual a tres más tres"
+          },
+          {
+            "id": "b",
+            "texto": "Cinco más uno es igual a cuatro más uno"
+          },
+          {
+            "id": "c",
+            "texto": "Tres más dos es igual a cuatro más dos"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Dos más cuatro da seis y tres más tres también da seis. Los dos lados valen lo mismo.",
+        "pista": "Resuelve por separado los dos lados de cada opción y busca dos resultados iguales."
+      }
+    }
   },
   {
     "clave": "mat.p1.balanza-equilibrio",
@@ -1009,7 +1225,122 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "La balanza en equilibrio",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a usar una balanza. Como idea principal, una balanza está en equilibrio cuando los dos platillos tienen la misma cantidad. Entonces queda recta. Todos los objetos pesan lo mismo. Si un platillo tiene más, ese platillo baja."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Dos platillos con cubos",
+          "narracion": "Observemos esta situación. Hay dos platillos de una balanza. En el platillo de la izquierda hay cubos rojos. En el platillo de la derecha hay cubos amarillos. Los colores son distintos. Queremos saber cómo queda la balanza.",
+          "recursoRef": "platillos-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: cubos rojos y amarillos",
+          "narracion": "Para saber cómo queda la balanza, contamos. Primero contamos los cubos rojos. Luego contamos los cubos amarillos. Después comparamos los dos números."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: los números son iguales",
+          "narracion": "Hay cinco cubos rojos y cinco cubos amarillos. Los colores son distintos, pero los números son iguales. Por eso la barra de la balanza queda recta. Hay equilibrio.",
+          "recursoRef": "equilibrio"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: papas en los platillos",
+          "narracion": "Ahora hay papas. En un platillo hay siete papas. En el otro hay cuatro papas. Queremos saber qué platillo baja. Comparamos siete y cuatro. ¿Cuál número es más grande?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la balanza se inclina",
+          "narracion": "Siete es más que cuatro. El platillo con siete papas pesa más, y por eso baja. El platillo con cuatro papas sube. Si un lado tiene más, ese lado baja.",
+          "recursoRef": "inclinada"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es creer que baja el platillo que tiene menos cosas. Es al revés: baja el que tiene más. Otro error es mirar el color o el tamaño de las cosas en lugar de contarlas. Cinco cubos rojos y cinco cubos amarillos están en equilibrio, aunque los colores sean distintos."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cuenta un platillo",
+          "narracion": "Cuenta con cuidado lo que hay en un platillo. Puedes señalar cada cosa con el dedo mientras cuentas."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: cuenta el otro platillo",
+          "narracion": "Ahora cuenta lo que hay en el otro platillo, sin fijarte en el color ni en el tamaño."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: compara los números",
+          "narracion": "Aquí están los tres pasos juntos. Primero contamos un platillo. Luego contamos el otro. Al final comparamos: si los números son iguales, hay equilibrio; si no, baja el platillo que tiene más.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "platillos-pregunta",
+          "src": "/nudito/diagramas/matematica/balanza-equilibrio-platillos-pregunta.svg",
+          "alt": "Dos platillos de balanza sin barra: uno con cubos rojos y otro con cubos amarillos, con un signo de pregunta en medio.",
+          "descripcion": "Se ven dos platillos de balanza, uno junto al otro y a la misma altura, sin la barra. En el de la izquierda hay cubos rojos y en el de la derecha hay cubos amarillos, los rojos apilados en dos filas y los amarillos en una sola fila. Entre los dos hay un signo de pregunta. Debajo se lee: cubos rojos, cubos amarillos. Abajo está la pregunta de cómo queda la balanza. El título dice: dos platillos de una balanza."
+        },
+        {
+          "id": "equilibrio",
+          "src": "/nudito/diagramas/matematica/balanza-equilibrio-recta.svg",
+          "alt": "Balanza con la barra recta: cinco cubos rojos a la izquierda y cinco cubos amarillos a la derecha.",
+          "descripcion": "La barra de la balanza está recta, en horizontal. En el platillo de la izquierda hay cinco cubos rojos y en el de la derecha hay cinco cubos amarillos. Debajo de cada platillo está el número cinco. Abajo se lee: cinco y cinco son iguales, equilibrio. El título dice: la balanza queda recta."
+        },
+        {
+          "id": "inclinada",
+          "src": "/nudito/diagramas/matematica/balanza-equilibrio-inclinada.svg",
+          "alt": "Balanza inclinada: el platillo de la izquierda, con siete papas, está más bajo; el de la derecha, con cuatro papas, está más alto.",
+          "descripcion": "La barra está inclinada: el lado izquierdo está más abajo y el derecho más arriba. En el platillo de la izquierda hay siete papas, cuatro abajo y tres encima. En el de la derecha hay cuatro papas en una fila. Debajo se lee: siete papas, cuatro papas. El título dice: un platillo baja."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/balanza-equilibrio-tres-pasos.svg",
+          "alt": "Tres tarjetas numeradas con los pasos para usar la balanza.",
+          "descripcion": "Hay tres tarjetas numeradas. La uno dice: cuento un platillo. La dos dice: cuento el otro platillo. La tres dice: comparo los números; iguales, hay equilibrio; si no, baja el que tiene más. El título dice: tres pasos para usar la balanza."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "A la izquierda hay nueve cubos y a la derecha hay siete cubos. ¿Qué platillo baja?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ninguno de los dos"
+          },
+          {
+            "id": "b",
+            "texto": "El de la izquierda"
+          },
+          {
+            "id": "c",
+            "texto": "El de la derecha"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Nueve es más que siete, así que baja el platillo de la izquierda.",
+        "pista": "Compara los dos números y piensa qué lado pesa más."
+      }
+    }
   },
   {
     "clave": "mat.p1.sumas-que-valen-lo-mismo",
@@ -1600,6 +1931,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Equilibrar la balanza",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a equilibrar una balanza. Como idea principal, una balanza está equilibrada cuando los dos platillos tienen la misma cantidad. Si un lado tiene más, puedes agregar al lado que tiene menos, o quitar del lado que tiene más."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "La balanza inclinada",
+          "narracion": "Observemos esta situación. Es una balanza del mercado. En el platillo de la izquierda hay seis. En el de la derecha hay cuatro. El platillo de la izquierda está más bajo. Queremos saber cuántas faltan a la derecha.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: agregar",
+          "narracion": "En el dibujo, la izquierda tiene seis y la derecha tiene cuatro. Para llegar de cuatro a seis, cuenta hacia adelante. ¿Cuántos números cuentas?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: la balanza recta",
+          "narracion": "Se cuentan dos: cinco y seis. Por eso se agregan dos a la derecha. En el dibujo, las dos amarillas son las agregadas. La balanza queda recta, con seis de cada lado.",
+          "recursoRef": "agregar"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: quitar",
+          "narracion": "Ahora observa otra balanza. La izquierda tiene cuatro. La derecha tiene nueve y está más baja. Esta vez conviene quitar del lado que tiene más. ¿Cuántas sobran en la derecha?",
+          "recursoRef": "quitar-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: sobran cinco",
+          "narracion": "Entre nueve y cuatro hay cinco de diferencia. Se quitan cinco de la derecha. En el dibujo, los cinco círculos con línea punteada son los que se quitaron. Quedan cuatro de cada lado.",
+          "recursoRef": "quitar"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Agregar al lado equivocado",
+          "narracion": "En esta balanza había seis a la izquierda y cuatro a la derecha. Se agregaron dos a la izquierda, los que tienen borde rojo. Ahora son ocho contra cuatro y la balanza se inclina más. Agrega al platillo que tiene menos, o quita del que tiene más.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: cuenta cada lado",
+          "narracion": "Cuenta cuántos hay en cada platillo. Dilo en voz alta."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: compara",
+          "narracion": "Decide cuál platillo tiene más y cuántos más tiene."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: agrega o quita",
+          "narracion": "Agrega esa cantidad al lado que tiene menos, o quítala del lado que tiene más. Después cuenta otra vez: los dos lados deben quedar iguales."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/faltan-equilibrio-situacion.svg",
+          "alt": "Balanza inclinada: seis círculos a la izquierda, que baja, y cuatro a la derecha.",
+          "descripcion": "Una balanza con el platillo izquierdo más bajo. A la izquierda hay seis círculos verdes y el número seis. A la derecha hay cuatro círculos y el número cuatro. Arriba se pregunta cuántas faltan a la derecha."
+        },
+        {
+          "id": "agregar",
+          "src": "/nudito/diagramas/matematica/faltan-equilibrio-agregar.svg",
+          "alt": "Balanza recta: seis círculos a la izquierda y cuatro verdes más dos amarillos a la derecha.",
+          "descripcion": "La balanza queda recta. A la izquierda hay seis círculos verdes. A la derecha hay cuatro verdes y dos amarillos, los agregados, y debajo se lee cuatro más dos. Abajo dice que las dos agregadas son las amarillas."
+        },
+        {
+          "id": "quitar-pregunta",
+          "src": "/nudito/diagramas/matematica/faltan-equilibrio-quitar-pregunta.svg",
+          "alt": "Balanza inclinada: cuatro círculos a la izquierda y nueve a la derecha, que baja.",
+          "descripcion": "Una balanza con el platillo derecho más bajo. A la izquierda hay cuatro círculos y el número cuatro. A la derecha hay nueve círculos en dos filas y el número nueve. Arriba se pregunta cuántas quitas a la derecha."
+        },
+        {
+          "id": "quitar",
+          "src": "/nudito/diagramas/matematica/faltan-equilibrio-quitar.svg",
+          "alt": "Balanza recta con cuatro círculos en cada lado y cinco círculos punteados que se quitan.",
+          "descripcion": "La balanza queda recta, con cuatro círculos verdes en cada platillo y el número cuatro debajo de cada uno. Bajo el platillo derecho hay cinco círculos con borde punteado y la frase se quitan cinco."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/faltan-equilibrio-error.svg",
+          "alt": "Balanza más inclinada: a la izquierda seis círculos y dos agregados con borde rojo; a la derecha, cuatro.",
+          "descripcion": "El platillo izquierdo tiene seis círculos verdes y dos blancos con borde rojo, los agregados, y abajo se lee seis más dos. El derecho tiene cuatro. La balanza se inclina más. Arriba dice se agregó del lado equivocado."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una balanza tiene ocho en el platillo izquierdo y tres en el derecho. ¿Cuántas agregas al derecho para equilibrarla?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Once"
+          },
+          {
+            "id": "b",
+            "texto": "Cuatro"
+          },
+          {
+            "id": "c",
+            "texto": "Cinco"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. De tres a ocho faltan cinco, así que se agregan cinco a la derecha.",
+        "pista": "Cuenta desde el lado que tiene menos hasta llegar al otro lado."
+      }
+    }
   }
 ]

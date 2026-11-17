@@ -303,7 +303,132 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Amplificar una fracción",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a amplificar fracciones. Como idea principal, amplificar es multiplicar el numerador y el denominador de una fracción por el mismo número. La fracción se escribe con más partes, pero más pequeñas, y cubre la misma porción de la unidad. Por eso la nueva fracción vale lo mismo."
+        },
+        {
+          "id": "situacion-barra",
+          "tipo": "recurso",
+          "titulo": "Una barra de chocolate",
+          "narracion": "Observemos esta situación. La barra tiene cuatro partes iguales y tres están pintadas. Ahora cortamos cada parte por la mitad, siguiendo las líneas punteadas. Piensa cuántas partes tendrá la barra y cuántas quedarán pintadas.",
+          "recursoRef": "situacion-barra"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo uno: un medio por tres",
+          "narracion": "Queremos amplificar un medio por tres. Tenemos una barra de dos partes iguales y una está pintada. Cada parte se divide en tres partes iguales. ¿Cuántas partes tendrá la barra y cuántas estarán pintadas?",
+          "recursoRef": "medio-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo uno: arriba y abajo",
+          "narracion": "Multiplicamos arriba y abajo por tres: uno por tres es tres, y dos por tres es seis. Queda tres sextos. La barra ahora tiene seis partes y tres pintadas, pero el largo pintado es el mismo: un medio es igual a tres sextos.",
+          "recursoRef": "medio-solucion"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo dos: de quintos a veinteavos",
+          "narracion": "Ahora llevemos dos quintos a una fracción con denominador veinte. La barra tiene cinco partes y dos están pintadas. Primero preguntamos: ¿por qué número hay que multiplicar cinco para llegar a veinte?",
+          "recursoRef": "quintos-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo dos: el mismo factor",
+          "narracion": "Cinco por cuatro es veinte, así que el factor es cuatro. Multiplicamos también el numerador: dos por cuatro es ocho. Entonces dos quintos es igual a ocho veinteavos. Cada quinto se dividió en cuatro partes pequeñas.",
+          "recursoRef": "quintos-solucion"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Dos errores frecuentes",
+          "narracion": "Veamos qué suele salir mal. Uno: multiplicar solo el numerador. Si cambias un medio por tres medios, ya no es la misma fracción. Otro: sumar el mismo número arriba y abajo. Un medio, sumando tres arriba y abajo, daría cuatro quintos, que no vale lo mismo. Amplificar siempre es multiplicar por el mismo número arriba y abajo."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: elige el factor",
+          "narracion": "Primero elige por cuánto dividirás cada parte. En el ejemplo de los quintos, para llegar de cinco partes a veinte, hay que descubrir el número que, multiplicado por cinco, da veinte.",
+          "recursoRef": "quintos-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: multiplica arriba y abajo",
+          "narracion": "Multiplica el numerador por ese factor y también el denominador. Con dos quintos y factor cuatro, dos por cuatro es ocho y cinco por cuatro es veinte.",
+          "recursoRef": "quintos-solucion"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: comprueba la porción",
+          "narracion": "Comprueba que las dos fracciones cubran la misma porción. En la barra del primer ejemplo, el medio y los tres sextos llegan hasta el mismo lugar.",
+          "recursoRef": "medio-solucion"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion-barra",
+          "src": "/nudito/diagramas/matematica/amplificar-fracciones-barra-chocolate.svg",
+          "alt": "Barra de cuatro partes con tres pintadas. Líneas punteadas cortan cada parte por la mitad. Se pregunta cuántas partes habrá.",
+          "descripcion": "Hay una barra larga dividida en cuatro partes. Las tres primeras están pintadas de turquesa. En medio de cada parte hay una línea punteada amarilla. Debajo se lee: tres de cuatro partes pintadas; cortamos cada parte en dos; ¿cuántas partes habrá?"
+        },
+        {
+          "id": "medio-pregunta",
+          "src": "/nudito/diagramas/matematica/amplificar-fracciones-medio-pregunta.svg",
+          "alt": "Barra de dos partes con una pintada, rotulada un medio. Cada parte se dividirá en tres. Se pregunta cuántas partes habrá y cuántas pintadas.",
+          "descripcion": "Arriba se lee un medio, escrito uno barra dos. Hay una barra con dos partes grandes; la primera está pintada. Debajo se lee: cada parte se divide en tres; ¿cuántas partes habrá y cuántas pintadas?"
+        },
+        {
+          "id": "medio-solucion",
+          "src": "/nudito/diagramas/matematica/amplificar-fracciones-medio-solucion.svg",
+          "alt": "Barra de seis partes con las tres primeras pintadas: un medio es igual a tres sextos.",
+          "descripcion": "La barra tiene seis partes y las tres primeras están pintadas. Una raya gruesa marca la mitad. Debajo se lee: uno por tres sobre dos por tres igual tres sextos; en verde: un medio igual a tres sextos; y: se pinta el mismo largo."
+        },
+        {
+          "id": "quintos-pregunta",
+          "src": "/nudito/diagramas/matematica/amplificar-fracciones-quintos-pregunta.svg",
+          "alt": "Barra de cinco partes con dos pintadas, rotulada dos quintos. Se pide el factor para llegar a veinte partes.",
+          "descripcion": "Arriba se lee dos quintos. Hay una barra con cinco partes y las dos primeras están pintadas. Debajo se lee: queremos veinte partes; cinco por interrogación igual veinte; ¿cuál es el factor?"
+        },
+        {
+          "id": "quintos-solucion",
+          "src": "/nudito/diagramas/matematica/amplificar-fracciones-quintos-solucion.svg",
+          "alt": "Barra de veinte partes con ocho pintadas: dos quintos es igual a ocho veinteavos.",
+          "descripcion": "La barra tiene veinte partes pequeñas, con ocho pintadas. Rayas gruesas marcan cada cuatro partes, que son los quintos. Debajo se lee: cinco por cuatro igual veinte; dos por cuatro igual ocho; en verde: dos quintos igual a ocho veinteavos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una tira tiene pintados dos tercios. Se amplifica por cuatro. ¿Qué fracción equivalente se obtiene?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Seis séptimos"
+          },
+          {
+            "id": "b",
+            "texto": "Dos doceavos"
+          },
+          {
+            "id": "c",
+            "texto": "Ocho doceavos"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Dos por cuatro es ocho y tres por cuatro es doce. Dos tercios es igual a ocho doceavos.",
+        "pista": "Piensa qué debes hacer con el numerador y con el denominador para que la fracción valga lo mismo."
+      }
+    }
   },
   {
     "clave": "mat.p4.simplificar-fracciones",

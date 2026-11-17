@@ -1005,7 +1005,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Kilómetros, metros y centímetros",
+          "narracion": "Bienvenida y bienvenido. Hoy convertiremos longitudes sin cambiar la distancia real. Como idea principal, un kilómetro equivale a mil metros y un metro equivale a cien centímetros. Al pasar a una unidad más pequeña, la cantidad numérica aumenta; al pasar a una unidad más grande, disminuye."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una ruta entre pueblos",
+          "narracion": "Observemos esta situación. Una ruta entre dos pueblos mide dos kilómetros. La tarjeta marca el inicio, la llegada y la distancia en kilómetros, pero pregunta cuántos metros representa. Antes de calcular, identifica si pasamos a una unidad más pequeña o más grande.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: de kilómetros a metros",
+          "narracion": "El metro es una unidad más pequeña que el kilómetro. Por eso, al expresar la misma ruta en metros, la cantidad debe aumentar. Recuerda cuántos metros contiene cada kilómetro."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: dos mil metros",
+          "narracion": "Cada kilómetro contiene mil metros. Entonces, dos kilómetros equivalen a dos veces mil, es decir, dos mil metros. La tarjeta muestra la conversión y recuerda multiplicar por mil.",
+          "recursoRef": "km-m"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: una cinta",
+          "narracion": "Mira la cinta de la tarjeta. Mide cuatrocientos cincuenta centímetros y queremos expresarla en metros. Como el metro es una unidad más grande, la cantidad numérica debe disminuir. ¿Qué operación conviene usar?",
+          "recursoRef": "cm-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: cuatro coma cinco metros",
+          "narracion": "Un metro contiene cien centímetros. Dividimos cuatrocientos cincuenta entre cien y obtenemos cuatro coma cinco. La tarjeta muestra que cuatrocientos cincuenta centímetros equivalen a cuatro coma cinco metros.",
+          "recursoRef": "cm-m"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Una cantidad que cambia al revés",
+          "narracion": "La tarjeta muestra una conversión incorrecta: seis metros escritos como cero coma cero seis centímetros. Eso haría disminuir la cantidad al pasar a una unidad más pequeña. En realidad deben aparecer más centímetros: seis metros son seiscientos centímetros.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: compara las unidades",
+          "narracion": "Decide cuál unidad es más grande. El kilómetro es mayor que el metro, y el metro es mayor que el centímetro."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: elige la operación",
+          "narracion": "Si pasas a una unidad más pequeña, multiplica. Si pasas a una unidad más grande, divide. Usa mil entre kilómetros y metros, y cien entre metros y centímetros."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: revisa el sentido",
+          "narracion": "Comprueba si la cantidad numérica cambió en la dirección esperada. La distancia debe seguir siendo la misma, aunque el número y la unidad sean diferentes."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/convertir-longitud-situacion.svg",
+          "alt": "Camino curvo entre un punto de inicio y otro de llegada, con una tarjeta de dos kilómetros y una pregunta en metros.",
+          "descripcion": "Un camino turquesa curvo une un punto amarillo rotulado «Inicio» con otro rotulado «Llegada». Arriba, una tarjeta blanca dice dos kilómetros. Abajo se pregunta cuántos metros son."
+        },
+        {
+          "id": "km-m",
+          "src": "/nudito/diagramas/matematica/convertir-longitud-km-m.svg",
+          "alt": "Conversión de dos kilómetros a dos mil metros mediante una flecha.",
+          "descripcion": "Una tarjeta con el rótulo dos kilómetros apunta a otra con dos mil metros. Debajo se indica que al pasar a una unidad más pequeña la cantidad aumenta y se multiplica por mil."
+        },
+        {
+          "id": "cm-pregunta",
+          "src": "/nudito/diagramas/matematica/convertir-longitud-cm-pregunta.svg",
+          "alt": "Cinta amarilla ondulada rotulada con cuatrocientos cincuenta centímetros y una pregunta en metros.",
+          "descripcion": "Una cinta amarilla ondulada, con puntos oscuros, ocupa el centro. Debajo se lee cuatrocientos cincuenta centímetros y, más abajo, se pregunta cuántos metros mide."
+        },
+        {
+          "id": "cm-m",
+          "src": "/nudito/diagramas/matematica/convertir-longitud-cm-m.svg",
+          "alt": "Conversión de cuatrocientos cincuenta centímetros a cuatro coma cinco metros mediante una flecha.",
+          "descripcion": "Una tarjeta con cuatrocientos cincuenta centímetros apunta a otra con cuatro coma cinco metros. Debajo se indica que, al pasar a una unidad más grande, la cantidad disminuye, y se lee «Divide entre cien»."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/convertir-longitud-error.svg",
+          "alt": "Conversión incorrecta de seis metros a cero coma cero seis centímetros, con la tarjeta de llegada en rojo.",
+          "descripcion": "Una tarjeta con seis metros apunta a otra, con borde rojo, que dice cero coma cero seis centímetros. Debajo, en rojo, se lee que el número no puede bajar y, abajo, que seis metros son seiscientos centímetros."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una soga mide ochocientos centímetros. ¿Qué haces para saber cuántos metros mide?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Multiplicar por cien"
+          },
+          {
+            "id": "b",
+            "texto": "Dividir entre mil"
+          },
+          {
+            "id": "c",
+            "texto": "Dividir entre cien"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. El metro es más grande que el centímetro, así que se divide entre cien.",
+        "pista": "Compara el tamaño de las dos unidades y decide si el número debe subir o bajar."
+      }
+    }
   },
   {
     "clave": "mat.p5.estimar-distancias",

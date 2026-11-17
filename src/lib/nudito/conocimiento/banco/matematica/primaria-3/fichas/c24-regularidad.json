@@ -11,7 +11,7 @@
       "MAT-C24-P3-03"
     ],
     "bloque": "Igualdades y equivalencias",
-    "nombre": "Colecciones equivalentes hasta 20",
+    "nombre": "Colecciones equivalentes",
     "disciplina": "algebra",
     "descripcionCorta": "Relaciona dos colecciones que tienen la misma cantidad aunque se vean distintas.",
     "palabrasClave": [
@@ -306,7 +306,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Misma cantidad, aunque se vean distintas",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos qué son las colecciones equivalentes. Como idea principal, dos colecciones son equivalentes cuando tienen la misma cantidad de objetos, aunque los objetos sean grandes, pequeños o estén ordenados distinto. Para saberlo, basta contar. También veremos cómo igualar dos colecciones que no tienen la misma cantidad."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Dos canastas del mercado",
+          "narracion": "Observemos esta situación. En el mercado hay dos canastas. En una hay paltas grandes, ordenadas en filas. En la otra hay limones pequeños, repartidos por toda la canasta. Queremos saber si las dos canastas tienen la misma cantidad de frutas.",
+          "recursoRef": "canastas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: contar sin dejarse engañar",
+          "narracion": "Las paltas son grandes y los limones son pequeños, pero eso no importa. Lo que importa es cuántos hay. Contamos las paltas, contamos los limones y comparamos los dos números."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: las canastas son equivalentes",
+          "narracion": "Hay nueve paltas y nueve limones. Cada palta se junta con un limón, y no sobra ninguno. Los números son iguales, así que las canastas son equivalentes, aunque el tamaño y el orden sean distintos.",
+          "recursoRef": "pareadas"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: chapitas de Rosa y Andrés",
+          "narracion": "Rosa tiene doce chapitas y Andrés tiene ocho. Queremos que los dos tengan la misma cantidad. Para eso, Rosa le dará algunas chapitas a Andrés. ¿Cuántas debe darle?",
+          "recursoRef": "chapitas-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: quedan iguales",
+          "narracion": "Primero vemos cuánto más tiene Rosa: doce menos ocho son cuatro. Si Rosa pasara las cuatro, Andrés tendría doce y ella ocho, y seguirían desiguales. Por eso pasa la mitad de la diferencia: dos chapitas. Rosa queda con diez, Andrés queda con diez, y las dos colecciones ya son equivalentes.",
+          "recursoRef": "chapitas-resuelto"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es pensar que la colección con objetos más grandes o más separados tiene más. Cinco pelotas grandes y cinco canicas son la misma cantidad. Otro error es pasar toda la diferencia: así el que daba queda con menos y el que recibía queda con más."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cuenta cada colección",
+          "narracion": "Cuenta los objetos de cada colección, uno por uno, sin fijarte en el tamaño ni en cómo están puestos."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: compara los números",
+          "narracion": "Si los dos números son iguales, las colecciones son equivalentes. Si no, una tiene más que la otra."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: iguala si hace falta",
+          "narracion": "Aquí están los tres pasos juntos. Se cuenta cada colección y se comparan los números. Si no son iguales, se calcula la diferencia. Se puede agregar esa diferencia a la colección que tiene menos, o pasar la mitad de la diferencia desde la que tiene más.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "canastas-pregunta",
+          "src": "/nudito/diagramas/matematica/colecciones-equivalentes-canastas-pregunta.svg",
+          "alt": "Dos canastas: una con paltas grandes ordenadas en filas y otra con limones pequeños repartidos.",
+          "descripcion": "Hay dos canastas lado a lado. En la de la izquierda se ven paltas grandes de color verde oscuro, ordenadas en filas. En la de la derecha se ven limones amarillos pequeños, repartidos por toda la canasta. Debajo se lee: paltas grandes, limones pequeños. Abajo está la pregunta de si hay la misma cantidad. El título dice: dos canastas del mercado."
+        },
+        {
+          "id": "pareadas",
+          "src": "/nudito/diagramas/matematica/colecciones-equivalentes-pareadas.svg",
+          "alt": "Nueve paltas en una fila y nueve limones en otra, cada palta unida con su limón por una línea punteada.",
+          "descripcion": "Arriba hay una fila de nueve paltas grandes, y encima dice: nueve paltas. Abajo hay una fila de nueve limones pequeños, y debajo dice: nueve limones. Cada palta está unida con el limón que tiene debajo por una línea punteada, y no sobra ninguno. Al pie se lee: misma cantidad, nueve y nueve. El título dice: contamos las dos canastas."
+        },
+        {
+          "id": "chapitas-pregunta",
+          "src": "/nudito/diagramas/matematica/colecciones-equivalentes-chapitas-pregunta.svg",
+          "alt": "Rosa tiene doce chapitas en dos filas de seis y Andrés tiene ocho chapitas en dos filas de cuatro.",
+          "descripcion": "A la izquierda dice: Rosa, doce, y se ven doce chapitas amarillas en dos filas de seis. A la derecha dice: Andrés, ocho, y se ven ocho chapitas amarillas en dos filas de cuatro. Debajo se lee: quieren quedar con la misma cantidad, y la pregunta de cuántas debe darle Rosa. El título dice: chapitas de Rosa y Andrés."
+        },
+        {
+          "id": "chapitas-resuelto",
+          "src": "/nudito/diagramas/matematica/colecciones-equivalentes-chapitas-resuelto.svg",
+          "alt": "Rosa pasa dos chapitas a Andrés y los dos quedan con diez.",
+          "descripcion": "Bajo el nombre Rosa hay diez chapitas amarillas en dos filas de cinco. Bajo el nombre Andrés hay diez chapitas en dos filas de cinco: ocho amarillas y dos turquesa en la fila de abajo. Una flecha va de Rosa a Andrés con el rótulo: pasan dos. Debajo de cada grupo se lee: doce menos dos igual a diez, y ocho más dos igual a diez. Abajo dice: los dos quedan con diez; la diferencia era cuatro, pasó la mitad, que es dos. El título dice: Rosa pasa dos chapitas."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/colecciones-equivalentes-tres-pasos.svg",
+          "alt": "Tres tarjetas numeradas con los pasos para igualar colecciones.",
+          "descripcion": "Hay tres tarjetas numeradas. La uno dice: cuento cada colección, sin mirar tamaño ni orden. La dos dice: comparo los números, ¿son iguales? La tres dice: si no, igualo; agrego la diferencia o paso la mitad. El título dice: tres pasos para igualar."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Luis tiene doce figuritas y Nora tiene seis. ¿Cuántas figuritas debe pasar Luis a Nora para que tengan la misma cantidad?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tres figuritas"
+          },
+          {
+            "id": "b",
+            "texto": "Seis figuritas"
+          },
+          {
+            "id": "c",
+            "texto": "Cuatro figuritas"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Luis tiene seis más que Nora, y pasa la mitad: tres figuritas. Así los dos quedan con nueve.",
+        "pista": "Mira cuántas más tiene Luis y piensa qué pasaría si le diera todas esas a Nora."
+      }
+    }
   },
   {
     "clave": "mat.p3.igualdad-aditiva",
@@ -1245,7 +1367,130 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Seguir la repetición",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a continuar un patrón de repetición. Como idea principal, primero descubre el núcleo, que es el grupo de figuras que se repite. Luego sigue ese grupo en el mismo orden, sin saltar ni cambiar ninguna figura."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una fila que continúa",
+          "narracion": "Observemos esta situación. La fila muestra un círculo, un cuadrado y un triángulo. Luego aparecen otra vez un círculo, un cuadrado y un triángulo. Después vienen un círculo y un cuadrado, y al final hay un espacio vacío. Queremos descubrir qué figura continúa.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: terminar el núcleo",
+          "narracion": "El núcleo tiene tres figuras: círculo, cuadrado y triángulo. En el dibujo, la fila ya completó dos núcleos y va por el círculo y el cuadrado del tercero. ¿Qué figura falta para terminarlo?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: el triángulo cierra",
+          "narracion": "Después del cuadrado toca el triángulo. En el dibujo, cada línea turquesa agrupa un núcleo. El triángulo con el anillo amarillo completa el tercero.",
+          "recursoRef": "triangulo"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: un lugar lejano",
+          "narracion": "Observemos otro patrón, con los lugares numerados. Los nueve primeros ya tienen figura. Faltan los lugares diez, once y doce. ¿Qué figura va en el lugar doce?",
+          "recursoRef": "doce-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: el final del cuarto núcleo",
+          "narracion": "El núcleo es círculo, círculo y cuadrado, y ocupa tres lugares. Cuatro núcleos llegan justo al lugar doce. Cada núcleo termina en cuadrado, así que el lugar doce lleva un cuadrado. En el dibujo, ese cuadrado tiene un anillo amarillo.",
+          "recursoRef": "doce"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cambiar la figura para variar",
+          "narracion": "Aquí alguien miró solo el cuadrado y puso un círculo, rodeado de rojo, para que cambiara. Pero en este núcleo, después del cuadrado va el triángulo. No adivines. Ubica en qué lugar del núcleo vas y pon la figura que sigue.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: encuentra el núcleo",
+          "narracion": "Busca el grupo de figuras que se repite. Dilo en voz alta, en orden."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: ubica dónde vas",
+          "narracion": "Separa la fila en grupos del tamaño del núcleo. Observa en qué lugar del grupo terminaste, o dónde está el espacio."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: escribe y revisa",
+          "narracion": "Coloca la figura que toca en el núcleo. Lee toda la fila desde el comienzo para comprobar que el orden se conserve."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/continuar-repeticion-situacion.svg",
+          "alt": "Fila de círculo, cuadrado y triángulo repetidos, con una casilla vacía al final.",
+          "descripcion": "Arriba se pregunta qué figura sigue. La fila tiene ocho figuras: círculo, cuadrado y triángulo, dos veces, y luego círculo y cuadrado. Al final hay una casilla punteada con un signo de pregunta."
+        },
+        {
+          "id": "triangulo",
+          "src": "/nudito/diagramas/matematica/continuar-repeticion-triangulo.svg",
+          "alt": "Tres núcleos de círculo, cuadrado y triángulo; el último triángulo lleva un anillo amarillo.",
+          "descripcion": "La fila tiene nueve figuras: círculo, cuadrado y triángulo, tres veces. Bajo cada grupo de tres hay una línea turquesa con la palabra núcleo. El último triángulo tiene un anillo amarillo. Abajo: después del cuadrado va el triángulo."
+        },
+        {
+          "id": "doce-pregunta",
+          "src": "/nudito/diagramas/matematica/continuar-repeticion-doce-pregunta.svg",
+          "alt": "Doce lugares numerados: los nueve primeros con figuras y los lugares diez, once y doce vacíos.",
+          "descripcion": "Hay dos filas de seis lugares, numerados del uno al doce. Los lugares uno a nueve muestran círculo, círculo y cuadrado, tres veces. Los lugares diez, once y doce son casillas punteadas, y el doce lleva un signo de pregunta."
+        },
+        {
+          "id": "doce",
+          "src": "/nudito/diagramas/matematica/continuar-repeticion-doce.svg",
+          "alt": "Cuatro núcleos de círculo, círculo y cuadrado en doce lugares; el cuadrado del lugar doce lleva un anillo.",
+          "descripcion": "Los doce lugares muestran círculo, círculo y cuadrado, cuatro veces. Cada grupo tiene una línea turquesa con la palabra núcleo. El cuadrado del lugar doce tiene un anillo amarillo. Abajo: el lugar doce cierra el cuarto núcleo."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/continuar-repeticion-error.svg",
+          "alt": "Fila de círculo, cuadrado, triángulo, círculo, cuadrado y un círculo con anillo rojo.",
+          "descripcion": "La fila tiene seis figuras: círculo, cuadrado, triángulo, círculo, cuadrado y un círculo rodeado por un anillo rojo. Debajo, en rojo, dice que miró solo el cuadrado y puso un círculo. En turquesa dice que aquí tocaba el triángulo."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un patrón repite círculo, cuadrado, cuadrado. La fila ya tiene siete figuras: círculo, cuadrado, cuadrado, círculo, cuadrado, cuadrado y círculo. ¿Qué figura va en el octavo lugar?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un círculo"
+          },
+          {
+            "id": "b",
+            "texto": "Un cuadrado"
+          },
+          {
+            "id": "c",
+            "texto": "Un triángulo"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. El octavo lugar es el segundo del núcleo, y ahí va un cuadrado.",
+        "pista": "Separa las figuras en grupos de tres y ubica en qué lugar del grupo vas."
+      }
+    }
   },
   {
     "clave": "mat.p3.patron-varias-representaciones",
@@ -6300,6 +6545,124 @@
         "alternativasAceptadas": []
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comparar reglas de patrones",
+          "narracion": "Bienvenida y bienvenido. Para comparar patrones, no basta mirar dónde empiezan. Observamos cuánto cambia cada término y si el patrón aumenta o disminuye. Dos patrones pueden compartir una regla aunque comiencen con números distintos."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Los patrones Sol y Río",
+          "narracion": "Observemos dos patrones. Sol empieza en cuatro y luego muestra siete y diez. Río empieza en veinte y luego muestra veintitrés y veintiséis. Los dos terminan con una pregunta. ¿Qué cambio se repite en ambos?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: inicios diferentes",
+          "narracion": "Luna empieza en cinco. Después va nueve. Luego, trece. Bosque empieza en cuarenta. Después va cuarenta y cuatro. Luego, cuarenta y ocho. Aunque comienzan lejos, ¿qué cantidad suman en cada paso?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la misma regla",
+          "narracion": "En Luna, de cinco a nueve y de nueve a trece se suman cuatro. En Bosque también se suman cuatro en cada paso. Los inicios son diferentes, pero la regla es la misma.",
+          "recursoRef": "ejemplo-uno"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: sentidos opuestos",
+          "narracion": "Costa empieza en treinta. Después va veinticinco. Luego, veinte. Sierra empieza en diez. Después va quince. Luego, veinte. En ambos cambia la misma cantidad. ¿También cambian en el mismo sentido?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: igual tamaño, distinto sentido",
+          "narracion": "Costa resta cinco en cada paso, por eso disminuye. Sierra suma cinco, por eso aumenta. El tamaño del cambio es igual, pero las reglas no son iguales porque una resta y la otra suma.",
+          "recursoRef": "ejemplo-dos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Dos patrones pueden empezar en ocho y tener reglas distintas. Uno suma tres y el otro suma cinco. Comparar solo el primer término no alcanza; debemos revisar el cambio entre términos vecinos.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira términos vecinos",
+          "narracion": "Elige dos términos seguidos y calcula cuánto cambió. Repite con el siguiente par. En los patrones Sol y Río, el cambio se mantiene.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: nombra la regla",
+          "narracion": "Decide si se suma o se resta y por cuánto. Luna y Bosque suman cuatro; por eso comparten la regla.",
+          "recursoRef": "ejemplo-uno"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: compara por completo",
+          "narracion": "Compara el tamaño y el sentido del cambio. Restar cinco no es lo mismo que sumar cinco, aunque ambos cambios tengan tamaño cinco.",
+          "recursoRef": "ejemplo-dos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/comparar-reglas-patrones-situacion.svg",
+          "alt": "Patrón Sol: cuatro, siete, diez y pregunta; patrón Río: veinte, veintitrés, veintiséis y pregunta.",
+          "descripcion": "Dos franjas blancas muestran patrones. Sol presenta cuatro, siete, diez y una pregunta unidos por flechas. Río presenta veinte, veintitrés, veintiséis y una pregunta. Arriba se pregunta qué regla comparten."
+        },
+        {
+          "id": "ejemplo-uno",
+          "src": "/nudito/diagramas/matematica/comparar-reglas-patrones-ejemplo-uno.svg",
+          "alt": "Luna: cinco, nueve, trece; Bosque: cuarenta, cuarenta y cuatro, cuarenta y ocho. Ambos suman cuatro.",
+          "descripcion": "Dos franjas blancas. Luna muestra cinco, nueve y trece con el rótulo más cuatro. Bosque muestra cuarenta, cuarenta y cuatro y cuarenta y ocho con el mismo rótulo. Abajo dice que ambos suman cuatro."
+        },
+        {
+          "id": "ejemplo-dos",
+          "src": "/nudito/diagramas/matematica/comparar-reglas-patrones-ejemplo-dos.svg",
+          "alt": "Costa resta cinco en treinta, veinticinco, veinte; Sierra suma cinco en diez, quince, veinte.",
+          "descripcion": "Dos franjas blancas. Costa muestra treinta, veinticinco y veinte con el rótulo menos cinco. Sierra muestra diez, quince y veinte con el rótulo más cinco. Abajo dice que uno baja y el otro sube."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/comparar-reglas-patrones-error.svg",
+          "alt": "Dos patrones empiezan en ocho; uno suma tres y el otro suma cinco.",
+          "descripcion": "Un recuadro blanco muestra ocho, once y catorce con el rótulo más tres; debajo muestra ocho, trece y dieciocho con el rótulo más cinco. Abajo, el texto indica comparar el cambio entre términos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un patrón empieza en seis. Después va diez. Luego, catorce. Otro empieza en treinta. Después va treinta y cuatro. Luego, treinta y ocho. ¿Qué regla comparten?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Suman cinco"
+          },
+          {
+            "id": "b",
+            "texto": "Suman cuatro"
+          },
+          {
+            "id": "c",
+            "texto": "Restan cuatro"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. En los dos patrones, cada término se obtiene sumando cuatro al anterior.",
+        "pista": "Revisa la diferencia entre dos términos vecinos de cada patrón."
+      }
+    },
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",

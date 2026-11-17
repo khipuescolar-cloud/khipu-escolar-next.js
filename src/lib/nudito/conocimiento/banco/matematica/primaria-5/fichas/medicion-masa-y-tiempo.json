@@ -316,7 +316,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Medir el tiempo largo",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a medir el tiempo en décadas y siglos. Como idea principal, una década dura diez años y un siglo dura cien años, es decir, diez décadas. Para ubicar un año en su siglo, tomamos sus dos primeras cifras y sumamos uno, salvo que el año termine en dos ceros."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Un año de la historia",
+          "narracion": "Observemos esta situación. Una hoja de calendario muestra el año en que se proclamó la independencia del Perú: mil ochocientos veintiuno. Queremos saber a qué siglo pertenece ese año. En el dibujo se ve la hoja con el año y la pregunta.",
+          "recursoRef": "anio-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ubicar un año",
+          "narracion": "Toma el año mil ochocientos veintiuno. Fíjate en sus dos primeras cifras. ¿Qué número forman? ¿Qué número sale si le sumas uno?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: sumar uno",
+          "narracion": "Las dos primeras cifras de mil ochocientos veintiuno forman dieciocho. Sumamos uno y obtenemos diecinueve. El año pertenece al siglo diecinueve. En el dibujo, el punto del año está dentro del bloque de ese siglo, que va de mil ochocientos uno a mil novecientos.",
+          "recursoRef": "linea-siglo-diecinueve"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: años de antigüedad",
+          "narracion": "Una casona colonial tiene dos siglos y cinco décadas de antigüedad. ¿Cuántos años son dos siglos? ¿Y cuántos años son cinco décadas?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: pasar a años",
+          "narracion": "Un siglo son cien años, así que dos siglos son doscientos años. Una década son diez años, así que cinco décadas son cincuenta años. Juntamos doscientos más cincuenta: la casona tiene doscientos cincuenta años. En el dibujo, dos bloques grandes valen cien cada uno y cinco bloques pequeños valen diez cada uno.",
+          "recursoRef": "casona-siglos-decadas"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado: los años terminados en ceros",
+          "narracion": "Un niño dice que el año mil novecientos pertenece al siglo veinte, porque suma uno a diecinueve. Es un error. Un año que termina en dos ceros es el último de su siglo. Por eso mil novecientos es el último año del siglo diecinueve, y el siglo veinte empieza en mil novecientos uno. En el dibujo, el punto de mil novecientos está al final del primer bloque.",
+          "recursoRef": "limite-mil-novecientos"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: recuerda las equivalencias",
+          "narracion": "Una década son diez años y un siglo son cien años. Un siglo tiene diez décadas."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: convierte a años",
+          "narracion": "Para pasar décadas a años, multiplica por diez. Para pasar siglos a años, multiplica por cien."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: ubica el año",
+          "narracion": "Para ubicar un año en su siglo, toma sus dos primeras cifras y suma uno. Si el año termina en dos ceros, no sumes uno: el siglo es el que dicen sus dos primeras cifras. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "tres-pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "anio-pregunta",
+          "src": "/nudito/diagramas/matematica/decadas-siglos-anio-pregunta.svg",
+          "alt": "Una hoja de calendario con el año mil ochocientos veintiuno y la pregunta a qué siglo pertenece.",
+          "descripcion": "Una hoja de calendario con una franja verde arriba que dice Año y, debajo, en letras grandes, mil ochocientos veintiuno. Arriba: Independencia del Perú. Abajo: ¿A qué siglo pertenece?"
+        },
+        {
+          "id": "linea-siglo-diecinueve",
+          "src": "/nudito/diagramas/matematica/decadas-siglos-linea-siglo-diecinueve.svg",
+          "alt": "Tres bloques de siglos seguidos; el punto del año mil ochocientos veintiuno está en el siglo diecinueve.",
+          "descripcion": "Tres bloques seguidos: Siglo dieciocho, de mil setecientos uno a mil ochocientos; Siglo diecinueve, de mil ochocientos uno a mil novecientos, resaltado en amarillo; Siglo veinte, de mil novecientos uno a dos mil. Un punto verde sobre el segundo bloque marca mil ochocientos veintiuno. Arriba: Línea de siglos. Abajo: dieciocho más uno es diecinueve: siglo diecinueve."
+        },
+        {
+          "id": "casona-siglos-decadas",
+          "src": "/nudito/diagramas/matematica/decadas-siglos-casona-siglos-decadas.svg",
+          "alt": "Dos bloques de cien y cinco bloques de diez que suman doscientos cincuenta años.",
+          "descripcion": "Dos bloques amarillos grandes con la cifra cien cada uno y, debajo: dos siglos. A la derecha, cinco bloques pequeños con la cifra diez cada uno y, debajo: cinco décadas. Arriba: Casona colonial. Abajo: doscientos más cincuenta es igual a doscientos cincuenta años."
+        },
+        {
+          "id": "limite-mil-novecientos",
+          "src": "/nudito/diagramas/matematica/decadas-siglos-limite-mil-novecientos.svg",
+          "alt": "Dos bloques de siglos: mil novecientos queda al final del siglo diecinueve y el siglo veinte empieza en mil novecientos uno.",
+          "descripcion": "Arriba, en rojo: Error: mil novecientos es del siglo veinte. Dos bloques: el del siglo diecinueve, de mil ochocientos uno a mil novecientos, resaltado en amarillo, y el del siglo veinte, de mil novecientos uno a dos mil. Un punto verde en el borde derecho del primero marca mil novecientos. Abajo, en verde: Termina en dos ceros: es el último año del siglo diecinueve."
+        },
+        {
+          "id": "tres-pasos",
+          "src": "/nudito/diagramas/matematica/decadas-siglos-tres-pasos.svg",
+          "alt": "Tarjeta con tres pasos para décadas y siglos.",
+          "descripcion": "Tres tarjetas numeradas. Uno: una década son diez años y un siglo son cien años. Dos: para pasar a años, multiplica por diez o por cien. Tres: para ubicar un año en su siglo, toma las dos primeras cifras y suma uno."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un libro guardado en un museo fue impreso en el año mil cuatrocientos ochenta. ¿A qué siglo pertenece ese año?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Siglo catorce"
+          },
+          {
+            "id": "b",
+            "texto": "Siglo quince"
+          },
+          {
+            "id": "c",
+            "texto": "Siglo dieciséis"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Las dos primeras cifras forman catorce, y al sumar uno se obtiene quince.",
+        "pista": "Toma las dos primeras cifras del año y suma uno."
+      }
+    }
   },
   {
     "clave": "mat.p5.numeros-romanos-siglos",
@@ -1308,7 +1430,130 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Convertir horas, minutos y segundos",
+          "narracion": "Bienvenida y bienvenido. Hoy convertiremos horas, minutos y segundos. Como idea principal, una hora tiene sesenta minutos y un minuto tiene sesenta segundos. Para pasar a una unidad más pequeña, multiplicamos por sesenta. Para pasar a una unidad más grande, dividimos entre sesenta."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una tarde de cine",
+          "narracion": "Observemos esta situación. Una película dura dos horas y diez minutos. Hay un bloque para las horas y otro para los minutos. Queremos saber cuántos minutos dura en total.",
+          "recursoRef": "pelicula-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: de horas a minutos",
+          "narracion": "Primero convierte las horas a minutos. ¿Cuántos minutos tiene una hora? Después suma los minutos que quedan.",
+          "recursoRef": "pelicula-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la suma de minutos",
+          "narracion": "Cada hora tiene sesenta minutos. Dos horas son sesenta más sesenta: ciento veinte minutos. Sumamos los diez minutos que quedan: ciento treinta. La película dura ciento treinta minutos.",
+          "recursoRef": "pelicula-minutos"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: de minutos a segundos",
+          "narracion": "Un corredor tardó cinco minutos y veinte segundos en una carrera. ¿Cuántos segundos tardó en total? Convierte primero los minutos."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la suma de segundos",
+          "narracion": "Cada minuto tiene sesenta segundos. Cinco minutos son trescientos segundos. Sumamos los veinte segundos que quedan: trescientos veinte. El corredor tardó trescientos veinte segundos.",
+          "recursoRef": "carrera-segundos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error frecuente es pegar los números. Con una hora y quince minutos, algunos juntan el uno con el quince y escriben ciento quince minutos. Pero una hora son sesenta minutos. Sesenta más quince son setenta y cinco minutos.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira las unidades",
+          "narracion": "Primero mira de qué unidad partes y a cuál quieres llegar."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: a una unidad menor",
+          "narracion": "Si vas hacia una unidad más pequeña, multiplica por sesenta. Después suma lo que sobra."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: a una unidad mayor",
+          "narracion": "Si vas hacia una unidad más grande, divide entre sesenta. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "pelicula-pregunta",
+          "src": "/nudito/diagramas/matematica/convertir-unidades-tiempo-pelicula-pregunta.svg",
+          "alt": "Dos bloques en fila: uno de dos horas y otro de diez minutos, con la pregunta de cuántos minutos dura en total.",
+          "descripcion": "Dos bloques en fila. El grande, oscuro, dice dos horas. El pequeño, blanco, dice diez minutos. Abajo: ¿Cuántos minutos dura en total?"
+        },
+        {
+          "id": "pelicula-minutos",
+          "src": "/nudito/diagramas/matematica/convertir-unidades-tiempo-pelicula-minutos.svg",
+          "alt": "Dos bloques de una hora con sesenta minutos y uno de diez minutos, que suman ciento treinta minutos.",
+          "descripcion": "Tres bloques en fila: dos oscuros que dicen una hora, sesenta minutos, y uno blanco de diez minutos. Un corchete arriba dice dos horas son ciento veinte minutos. Abajo: sesenta más sesenta más diez es ciento treinta minutos."
+        },
+        {
+          "id": "carrera-segundos",
+          "src": "/nudito/diagramas/matematica/convertir-unidades-tiempo-carrera-segundos.svg",
+          "alt": "Cinco bloques de un minuto con sesenta segundos y uno de veinte segundos, que suman trescientos veinte segundos.",
+          "descripcion": "Seis bloques en fila: cinco oscuros que dicen un minuto, sesenta segundos, y uno blanco de veinte segundos. Un corchete sobre los cinco dice cinco minutos son trescientos segundos. Abajo: trescientos más veinte es trescientos veinte segundos."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/convertir-unidades-tiempo-errores.svg",
+          "alt": "Error en rojo, una hora quince minutos igual a ciento quince minutos, y debajo la suma correcta de setenta y cinco minutos.",
+          "descripcion": "Arriba, en rojo: una hora quince minutos es igual a ciento quince minutos. Dos bloques: uno oscuro que dice una hora, sesenta minutos, y uno blanco de quince minutos. Debajo: sesenta más quince es setenta y cinco minutos. Abajo: Una hora tiene sesenta minutos."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/convertir-unidades-tiempo-pasos.svg",
+          "alt": "Tarjeta con tres pasos para convertir unidades de tiempo.",
+          "descripcion": "Tres tarjetas numeradas. La uno: mira de dónde a dónde, horas, minutos o segundos. La dos: a una unidad menor, multiplica por sesenta y suma lo que sobra. La tres: a una unidad mayor, divide entre sesenta, de segundos a minutos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Ana corrió durante cuatrocientos veinte segundos. ¿Cuántos minutos corrió?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuatro minutos"
+          },
+          {
+            "id": "b",
+            "texto": "Setenta minutos"
+          },
+          {
+            "id": "c",
+            "texto": "Siete minutos"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Cada minuto tiene sesenta segundos, y en cuatrocientos veinte segundos caben siete grupos de sesenta.",
+        "pista": "Piensa cuántos minutos completos caben en esos segundos."
+      }
+    }
   },
   {
     "clave": "mat.p5.masa-fracciones-decimales",
@@ -1641,6 +1886,123 @@
   },
   {
     "clave": "mat.p5.convertir-kg-g",
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "La misma masa en dos unidades",
+          "narracion": "Bienvenida y bienvenido. Hoy convertirás entre kilogramos y gramos. Como idea principal, un kilogramo equivale a mil gramos. Para pasar de kilogramos a gramos multiplicamos por mil; para volver de gramos a kilogramos dividimos entre mil. La masa no cambia."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una balanza en equilibrio",
+          "narracion": "Observemos esta situación. La balanza tiene una pesa de un kilogramo en un platillo y una cantidad desconocida de gramos en el otro. La barra está horizontal. Debemos expresar la misma masa con otra unidad sin cambiar el equilibrio.",
+          "recursoRef": "balanza-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo uno: una caja de mangos",
+          "narracion": "Una caja de mangos pesa dos coma cinco kilogramos. Queremos escribir esa masa en gramos. Como avanzamos de kilogramos a una unidad más pequeña, el número de gramos será mayor."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo uno: multiplicar por mil",
+          "narracion": "Multiplicamos dos coma cinco por mil y obtenemos dos mil quinientos. Por eso la caja pesa dos mil quinientos gramos. Comprobamos separando: dos kilogramos son dos mil gramos y medio kilogramo son quinientos gramos.",
+          "recursoRef": "mangos"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo dos: un paquete de quinua",
+          "narracion": "Un paquete marca mil doscientos cincuenta gramos. Ahora queremos expresar la misma masa en kilogramos. Como pasamos a una unidad más grande, el número será menor."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo dos: dividir entre mil",
+          "narracion": "Dividimos mil doscientos cincuenta entre mil y obtenemos uno coma veinticinco. El paquete pesa uno coma veinticinco kilogramos. También puede verse como un kilogramo y doscientos cincuenta gramos.",
+          "recursoRef": "paquete"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Elegir la operación al revés",
+          "narracion": "Un error es multiplicar gramos por mil para obtener kilogramos. Eso hace crecer el número cuando debería disminuir. Otro error es pensar que medio kilogramo son cincuenta gramos. La mitad de mil gramos son quinientos gramos. Mira el esquema: de kilogramos a gramos se multiplica; de gramos a kilogramos se divide.",
+          "recursoRef": "sentido"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: identifica las unidades",
+          "narracion": "Primero reconoce la unidad de partida y la unidad pedida. Pregunta si vas hacia gramos o hacia kilogramos."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: convierte",
+          "narracion": "Si vas de kilogramos a gramos, multiplica por mil. Si vas de gramos a kilogramos, divide entre mil.",
+          "recursoRef": "sentido"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: comprueba el sentido",
+          "narracion": "Por último verifica que la masa sea la misma. En gramos suele aparecer un número mayor; en kilogramos, uno menor. La unidad escrita debe coincidir con lo pedido.",
+          "recursoRef": "balanza-pregunta"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "balanza-pregunta",
+          "src": "/nudito/diagramas/matematica/convertir-kg-g-balanza-pregunta.svg",
+          "alt": "Balanza horizontal: un platillo tiene una pesa de un kilogramo y el otro, un recuadro con signo de pregunta y gramos.",
+          "descripcion": "Una balanza índigo tiene la barra horizontal y dos platillos turquesas. En el izquierdo hay una pesa rotulada un kg. En el derecho hay un recuadro punteado con un signo de pregunta y gramos. Abajo se pregunta qué cantidad mantiene el equilibrio."
+        },
+        {
+          "id": "mangos",
+          "src": "/nudito/diagramas/matematica/convertir-kg-g-mangos.svg",
+          "alt": "Una caja de mangos pasa de dos coma cinco kilogramos a dos mil quinientos gramos.",
+          "descripcion": "Una caja amarilla con tres mangos turquesas tiene debajo el rótulo dos coma cinco kg. Una flecha índigo apunta a un cuadro turquesa que dice dos mil quinientos g. Abajo se lee que multiplicar por mil conserva la masa."
+        },
+        {
+          "id": "paquete",
+          "src": "/nudito/diagramas/matematica/convertir-kg-g-paquete.svg",
+          "alt": "Un paquete de mil doscientos cincuenta gramos pasa a uno coma veinticinco kilogramos.",
+          "descripcion": "Un paquete amarillo dice mil doscientos cincuenta g y debajo lleva la palabra quinua. Una flecha índigo apunta a un cuadro turquesa con uno coma veinticinco kg. Abajo se lee que dividir entre mil conserva la masa."
+        },
+        {
+          "id": "sentido",
+          "src": "/nudito/diagramas/matematica/convertir-kg-g-sentido.svg",
+          "alt": "Flecha de kg a g con por mil y flecha de g a kg con entre mil.",
+          "descripcion": "En la fila superior, un cuadro turquesa con kg se une por una flecha ámbar rotulada por mil con un cuadro amarillo con g. En la fila inferior, g va a kg con una flecha rotulada entre mil. Abajo se lee que la masa no cambia; cambia la unidad."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una bolsa pesa tres coma cinco kilogramos. ¿Cuál es su masa en gramos?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Trescientos cincuenta gramos"
+          },
+          {
+            "id": "b",
+            "texto": "Treinta y cinco mil gramos"
+          },
+          {
+            "id": "c",
+            "texto": "Tres mil quinientos gramos"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Al pasar de kilogramos a gramos multiplicamos por mil. Tres coma cinco kilogramos son tres mil quinientos gramos.",
+        "pista": "Decide si el número debe crecer o disminuir al expresar la masa en una unidad más pequeña."
+      }
+    },
     "area": "matematica",
     "nivel": "primaria",
     "grado": 5,

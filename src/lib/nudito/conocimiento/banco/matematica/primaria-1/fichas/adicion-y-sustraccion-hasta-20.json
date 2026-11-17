@@ -1314,7 +1314,7 @@
           "Da cuatro saltos hacia adelante: 11, 12, …",
           "El cuarto salto es el número final."
         ],
-        "retroalimentacion": "Tiene 14 ovejas: 10 + 4. Los números del 10 al 19 tienen siempre un 1 al comienzo."
+        "retroalimentacion": "Tiene 14 ovejas: las 10 que ya tenía y 4 más forman 14."
       },
       {
         "id": "e02",
@@ -1340,7 +1340,7 @@
         "pistas": [
           "El 10 y el 6 son los dos números que se juntan.",
           "Empieza en 10 y avanza 6 saltos.",
-          "10, 11, 12, 13, 14, 15 y …"
+          "Los seis saltos son 11, 12, 13, 14, 15 y 16."
         ],
         "retroalimentacion": "Es verdadero: 10 + 6 = 16. Es la forma más fácil: un diez y seis unidades."
       },
@@ -1523,7 +1523,108 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Sumar es juntar",
+          "narracion": "Hoy aprenderemos a sumar con números hasta veinte. Como idea principal de este tema, recuerda lo siguiente: sumar es juntar cantidades para encontrar el total. Podemos comenzar en un número y avanzar en la recta numérica, o formar diez y después agregar lo que sobra. Al final resolverás una suma usando uno de estos caminos."
+        },
+        {
+          "id": "situacion-recta",
+          "tipo": "recurso",
+          "titulo": "Cinco saltos desde ocho",
+          "narracion": "Observemos la recta numérica. Comenzamos en ocho y vemos cinco arcos hacia la derecha. El primer salto llega a nueve, el segundo a diez, el tercero a once, el cuarto a doce y el quinto a trece. El número de partida no cuenta como salto.",
+          "recursoRef": "recta-ocho-cinco"
+        },
+        {
+          "id": "ejemplo-1-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: avanza desde ocho",
+          "narracion": "Imagina que Rosa tiene ocho tarjetas y recibe cinco más. Para saber el total, empieza en ocho y avanza cinco saltos. ¿A qué número llega el último salto?",
+          "recursoRef": "recta-ocho-cinco"
+        },
+        {
+          "id": "ejemplo-1-explica",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: llega a trece",
+          "narracion": "El quinto salto llega a trece. También podemos separar el camino: desde ocho usamos dos de los cinco saltos para llegar a diez y todavía quedan tres. Diez más tres es trece. Por eso, ocho más cinco es trece.",
+          "recursoRef": "recta-ocho-cinco"
+        },
+        {
+          "id": "ejemplo-2-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: junta doce y tres",
+          "narracion": "Ahora observemos las fichas. El marco completo contiene diez fichas turquesas y, a su lado, hay otras dos turquesas. Esas doce fichas son la cantidad inicial. A la derecha aparecen tres fichas amarillas que vamos a agregar.",
+          "recursoRef": "doce-mas-tres"
+        },
+        {
+          "id": "ejemplo-2-explica",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: forma quince",
+          "narracion": "Ya tenemos diez fichas en el marco. Fuera del marco contamos cinco más: dos turquesas y tres amarillas. Diez y cinco forman quince. Entonces, doce más tres es quince.",
+          "recursoRef": "doce-mas-tres"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: representa la primera cantidad",
+          "narracion": "Primero, ubica el primer número en la recta o forma esa cantidad con objetos. Ese es el punto de partida y todavía no cuenta como un salto.",
+          "recursoRef": "recta-ocho-cinco"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: agrega la segunda cantidad",
+          "narracion": "Después, avanza un salto o agrega un objeto por cada unidad del segundo número. Cuenta cada salto una sola vez. Si puedes formar diez primero, será más fácil reconocer el total.",
+          "recursoRef": "doce-mas-tres"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: encuentra y comprueba el total",
+          "narracion": "Por último, lee el número donde llegaste o cuenta todas las fichas juntas. Comprueba con otro camino: en doce más tres, cuentas diez y cinco más, y vuelves a obtener quince.",
+          "recursoRef": "doce-mas-tres"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "recta-ocho-cinco",
+          "src": "/nudito/diagramas/matematica/suma-hasta-20.svg",
+          "alt": "Recta del ocho al trece con cinco saltos; el segundo llega a diez.",
+          "descripcion": "Se ven cinco saltos hacia adelante desde ocho hasta trece. Al completar diez quedan tres saltos más."
+        },
+        {
+          "id": "doce-mas-tres",
+          "src": "/nudito/diagramas/matematica/suma-doce-mas-tres.svg",
+          "alt": "Doce fichas turquesas y tres fichas amarillas forman quince.",
+          "descripcion": "Un marco completo contiene diez fichas turquesas. Fuera del marco hay otras dos fichas turquesas y, separadas por una línea, tres fichas amarillas que se agregan."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Diego tiene nueve semillas y recoge seis más. ¿Cuántas semillas tiene en total?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Quince"
+          },
+          {
+            "id": "b",
+            "texto": "Catorce"
+          },
+          {
+            "id": "c",
+            "texto": "Dieciséis"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Nueve más seis es quince. Puedes usar una semilla para completar diez y después agregar las cinco restantes.",
+        "pista": "De las seis semillas nuevas, usa una para pasar de nueve a diez. Luego agrega las cinco que quedan."
+      }
+    }
   },
   {
     "clave": "mat.p1.resta-hasta-10",
@@ -3313,7 +3414,108 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Restar es quitar o retroceder",
+          "narracion": "Hoy aprenderemos a restar con números hasta veinte. Como idea principal de este tema, recuerda lo siguiente: cuando restamos, partimos de una cantidad y quitamos una parte. Podemos representar la resta con objetos o retrocediendo en una recta numérica. El resultado debe ser menor que la cantidad inicial cuando quitamos algo. Al final resolverás una resta breve."
+        },
+        {
+          "id": "situacion-fichas",
+          "tipo": "recurso",
+          "titulo": "Catorce fichas y cuatro que se quitan",
+          "narracion": "Observemos la imagen. Al comienzo había catorce fichas. Cuatro fichas rosadas fueron apartadas y tienen una línea roja que indica que ya no se cuentan. Dentro de la bandeja permanecen diez fichas turquesas. Por eso, catorce menos cuatro es diez.",
+          "recursoRef": "catorce-quita-cuatro"
+        },
+        {
+          "id": "ejemplo-1-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: quita cuatro fichas",
+          "narracion": "Imagina que Elena tiene catorce fichas para jugar y guarda cuatro. ¿Cuántas quedan sobre la mesa? Podemos mirar todas las fichas, separar cuatro y contar solo las que permanecen.",
+          "recursoRef": "catorce-quita-cuatro"
+        },
+        {
+          "id": "ejemplo-1-explica",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: quedan diez",
+          "narracion": "En la bandeja quedan dos filas de cinco fichas. Cinco y cinco son diez. Entonces, catorce menos cuatro es diez. Podemos comprobarlo: si juntamos las diez que quedaron con las cuatro que se quitaron, volvemos a tener catorce.",
+          "recursoRef": "catorce-quita-cuatro"
+        },
+        {
+          "id": "ejemplo-2-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: retrocede desde quince",
+          "narracion": "Ahora miremos la recta numérica. El punto de partida está en quince. Necesitamos quitar tres, así que daremos tres saltos hacia la izquierda. No contamos el quince como salto.",
+          "recursoRef": "recta-quince-menos-tres"
+        },
+        {
+          "id": "ejemplo-2-explica",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: llega al doce",
+          "narracion": "Desde quince, el primer salto llega a catorce, el segundo a trece y el tercero a doce. El punto final está en doce. Por eso, quince menos tres es doce.",
+          "recursoRef": "recta-quince-menos-tres"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: empieza con la cantidad completa",
+          "narracion": "Primero, forma o ubica la cantidad inicial. Si la resta es quince menos tres, empieza en quince. Todavía no has quitado nada.",
+          "recursoRef": "recta-quince-menos-tres"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: quita la cantidad indicada",
+          "narracion": "Después, quita objetos o retrocede un salto por cada unidad. Cuenta los saltos, no el punto de partida. Para quitar tres, haces exactamente tres saltos hacia atrás.",
+          "recursoRef": "recta-quince-menos-tres"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: cuenta lo que queda y comprueba",
+          "narracion": "Por último, lee el número donde llegaste o cuenta los objetos que quedaron. Para comprobar, suma el resultado y lo que quitaste. Doce más tres vuelve a dar quince.",
+          "recursoRef": "catorce-quita-cuatro"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "catorce-quita-cuatro",
+          "src": "/nudito/diagramas/matematica/resta-catorce-quita-cuatro.svg",
+          "alt": "Diez fichas permanecen en una bandeja y cuatro fichas aparecen apartadas.",
+          "descripcion": "Dentro de la bandeja hay diez fichas turquesas, ordenadas en dos filas de cinco. A la derecha aparecen cuatro fichas rosadas apartadas, cada una marcada con una línea diagonal roja."
+        },
+        {
+          "id": "recta-quince-menos-tres",
+          "src": "/nudito/diagramas/matematica/resta-recta-quince-menos-tres.svg",
+          "alt": "Recta numérica con tres saltos hacia atrás desde quince hasta doce.",
+          "descripcion": "La recta muestra los números del diez al dieciséis. Tres arcos avanzan hacia la izquierda: de quince a catorce, de catorce a trece y de trece a doce."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lucía tiene dieciséis tarjetas y entrega siete. ¿Cuántas tarjetas le quedan?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Nueve"
+          },
+          {
+            "id": "b",
+            "texto": "Ocho"
+          },
+          {
+            "id": "c",
+            "texto": "Veintitrés"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Dieciséis menos siete es nueve. Puedes comprobarlo porque nueve más siete vuelve a dar dieciséis.",
+        "pista": "Quita primero seis para llegar a diez y luego quita una tarjeta más."
+      }
+    }
   },
   {
     "clave": "mat.p1.restar-contando-hacia-atras",
@@ -5373,7 +5575,124 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Más o menos",
+          "narracion": "Bienvenida y bienvenido. Hoy pensaremos antes de contar. Como idea principal, si llegan cosas, hay más. Si se van cosas, hay menos. Así revisamos si nuestra respuesta tiene sentido."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Galletas en la mesa",
+          "narracion": "Observemos esta situación. Hay dos recuadros, y en cada uno hay seis galletas. En el recuadro de la izquierda, tres galletas de borde punteado llegan, y una flecha apunta hacia abajo, hacia las seis. En el recuadro de la derecha, tres galletas de borde punteado se van, y una flecha apunta hacia arriba. Nos preguntamos dónde habrá más galletas y dónde habrá menos.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: los lápices de Ana",
+          "narracion": "Ana tiene cuatro lápices en un vaso. Su tía le regala tres lápices más. En la imagen, los lápices de borde punteado son los que le regalan. Pensemos antes de contar: ¿Ana tendrá más o menos de cuatro lápices?",
+          "recursoRef": "lapices-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: aumenta",
+          "narracion": "Le regalan lápices, así que llegan más. Por eso la cantidad aumenta. Ahora sí contamos: cuatro más tres son siete. En el vaso hay cuatro lápices amarillos y tres turquesa. Ana tiene siete lápices, y siete es más que cuatro.",
+          "recursoRef": "lapices-solucion"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: los globos",
+          "narracion": "Ahora hay nueve globos en una fiesta. Se revientan cuatro globos. Pensemos antes de contar: ¿habrá más o menos de nueve globos?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: disminuye",
+          "narracion": "Los globos reventados ya no están. Por eso la cantidad disminuye. En la imagen, los cuatro globos con una equis están reventados, y quedan cinco globos enteros. Nueve menos cuatro son cinco, y cinco es menos que nueve.",
+          "recursoRef": "globos-solucion"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "A veces restamos cuando llegan más cosas. Si a Ana le regalan lápices, no se resta, porque no se va ninguno. Otras veces damos un número más grande que el del inicio cuando se quitaron cosas. Si se van globos, el resultado debe ser más pequeño que nueve."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira qué pasa",
+          "narracion": "Lee con calma y fíjate qué ocurre. ¿Llegan cosas o se van? En los recuadros de las galletas, en uno llegan y en el otro se van.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: piensa si habrá más o menos",
+          "narracion": "Si llegan cosas, ganas o juntas: habrá más. Si se van, regalas o pierdes: habrá menos. Decídelo antes de calcular."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: calcula y revisa",
+          "narracion": "Ahora calcula con una suma o una resta. Luego revisa. Si pensaste que habría más, tu respuesta debe ser mayor que el número del inicio. En el vaso, siete es mayor que cuatro.",
+          "recursoRef": "lapices-solucion"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/aumenta-situacion.svg",
+          "alt": "Dos recuadros con seis galletas: en uno llegan tres galletas y en el otro se van tres.",
+          "descripcion": "Hay dos recuadros blancos. Cada uno muestra seis galletas amarillas con puntos, en dos filas de tres. Arriba de las galletas hay tres círculos punteados. En el recuadro de la izquierda, una flecha turquesa baja hacia las galletas y abajo dice Llegan 3 galletas. En el de la derecha, la flecha sube y abajo dice Se van 3 galletas. Al final se lee: ¿Dónde hay más? ¿Dónde hay menos?"
+        },
+        {
+          "id": "lapices-pregunta",
+          "src": "/nudito/diagramas/matematica/aumenta-lapices-pregunta.svg",
+          "alt": "Un vaso con cuatro lápices y tres lápices punteados que le regalan a Ana.",
+          "descripcion": "A la izquierda hay un vaso con cuatro lápices amarillos y debajo dice Ana tiene 4. A la derecha hay tres lápices de borde punteado y debajo dice Le regalan 3. Una flecha turquesa va de los lápices punteados hacia el vaso. Abajo se lee: ¿Tendrá más o menos de 4?"
+        },
+        {
+          "id": "lapices-solucion",
+          "src": "/nudito/diagramas/matematica/aumenta-lapices-solucion.svg",
+          "alt": "Un vaso con siete lápices, cuatro amarillos y tres turquesa: cuatro más tres igual a siete.",
+          "descripcion": "Arriba dice Ana tiene siete lápices. Hay un vaso con siete lápices: los cuatro primeros son amarillos y los tres últimos son turquesa. Debajo se lee 4 + 3 = 7 y abajo, Aumenta: hay más."
+        },
+        {
+          "id": "globos-solucion",
+          "src": "/nudito/diagramas/matematica/aumenta-globos-solucion.svg",
+          "alt": "Nueve globos: cinco enteros y cuatro punteados con una equis, nueve menos cuatro igual a cinco.",
+          "descripcion": "Arriba hay cinco globos enteros, amarillos y turquesa. Debajo hay cuatro globos de borde punteado, cada uno con una equis. Después se lee 9 − 4 = 5 y Disminuye: quedan menos. Al final dice: Los globos con una equis se reventaron."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Mateo tiene diez canicas y pierde cuatro en el juego. ¿Cuántas canicas tiene ahora?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Trece canicas"
+          },
+          {
+            "id": "b",
+            "texto": "Seis canicas"
+          },
+          {
+            "id": "c",
+            "texto": "Doce canicas"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Mateo pierde canicas, así que le quedan menos: diez menos cuatro son seis.",
+        "pista": "Piensa si pierde canicas: su cantidad, ¿crece o se achica?"
+      }
+    }
   },
   {
     "clave": "mat.p1.inventar-problemas",
@@ -6365,7 +6684,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Completar diez para sumar",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a sumar formando primero una decena. Como idea principal, mira cuánto le falta al número mayor para llegar a diez. Toma esa cantidad del otro número y luego suma lo que quedó. Así una suma difícil se vuelve una suma con diez."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Fichas en dos grupos",
+          "narracion": "Observemos esta situación. Hay ocho fichas dentro de un marco de diez y llegan cinco fichas más. Queremos saber cuántas fichas hay en total sin contar todo desde el inicio.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: ocho más cinco",
+          "narracion": "A ocho le faltan dos para llegar a diez. Toma esas dos fichas de las cinco que llegan. ¿Cuántas fichas quedan fuera del marco?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: una decena y tres",
+          "narracion": "El marco queda lleno con diez fichas y afuera quedan tres. Ahora sumamos diez más tres. El resultado es trece. La tarjeta muestra el marco completo y las tres fichas que sobraron.",
+          "recursoRef": "ocho-cinco"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: aves que llegan",
+          "narracion": "Mira los dos grupos de la tarjeta. Hay nueve aves en un grupo y seis en el otro. A nueve le falta una para llegar a diez. ¿Cómo separarías las seis aves para completar primero la decena?",
+          "recursoRef": "nueve-seis-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: diez y cinco",
+          "narracion": "Separamos las seis aves en una y cinco. La primera completa diez con las nueve; luego quedan cinco. Diez más cinco son quince. La tarjeta muestra el marco lleno y cinco fichas aparte.",
+          "recursoRef": "nueve-seis"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Una separación que no funciona",
+          "narracion": "La tarjeta muestra una separación incorrecta de siete más cinco. Para llegar a diez se usan tres fichas, pero después se dejan tres fuera. Eso no puede ser: del cinco, al usar tres, solo quedan dos. Siempre revisa que las dos partes vuelvan a formar el número que separaste.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: busca lo que falta",
+          "narracion": "Mira el número mayor y pregunta cuánto le falta para llegar a diez. Puedes contar los espacios vacíos de un marco de diez."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: separa el otro número",
+          "narracion": "Toma del otro número exactamente la cantidad que falta. Di las dos partes y comprueba que juntas forman el número original."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: suma lo que queda",
+          "narracion": "Forma la decena y añade la parte que sobró. Al final, revisa que no hayas perdido ni repetido ninguna unidad."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/completar-diez-situacion.svg",
+          "alt": "Marco de diez con ocho fichas y, al lado, cinco fichas que llegan; se pregunta cuántas hay en total.",
+          "descripcion": "Un marco de diez contiene ocho fichas turquesas y dos espacios vacíos. A la derecha hay cinco fichas amarillas. Arriba se pregunta cuántas fichas hay en total."
+        },
+        {
+          "id": "ocho-cinco",
+          "src": "/nudito/diagramas/matematica/completar-diez-ocho-cinco.svg",
+          "alt": "Marco completo con diez fichas y tres fichas amarillas aparte.",
+          "descripcion": "Un marco lleno muestra diez fichas turquesas. Una flecha apunta hacia tres fichas amarillas a la derecha. Debajo se lee que sobran tres y que diez más tres son trece."
+        },
+        {
+          "id": "nueve-seis-pregunta",
+          "src": "/nudito/diagramas/matematica/completar-diez-nueve-seis-pregunta.svg",
+          "alt": "Dos recuadros: uno con nueve aves representadas por círculos y otro con seis; se pregunta cuántas hay juntas.",
+          "descripcion": "Dos recuadros blancos presentan nueve círculos turquesa como aves y seis círculos amarillos como aves. Debajo se pregunta cuántas hay juntas."
+        },
+        {
+          "id": "nueve-seis",
+          "src": "/nudito/diagramas/matematica/completar-diez-nueve-seis.svg",
+          "alt": "Marco completo con diez fichas y cinco fichas amarillas aparte.",
+          "descripcion": "Un marco lleno contiene diez fichas turquesas. Una flecha apunta a cinco fichas amarillas aparte. Los rótulos dicen diez, quedan cinco y diez más cinco son quince."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/completar-diez-error.svg",
+          "alt": "Marco de diez con siete fichas turquesas y tres amarillas; a su lado, tres fichas amarillas con anillo rojo que se dejaron fuera por error.",
+          "descripcion": "Un marco de diez con siete fichas turquesas y tres amarillas, rotulado «Usó tres para diez». Una flecha apunta a tres fichas amarillas con anillo rojo, rotuladas «Dejó tres fuera». Debajo se lee que del cinco solo quedan dos y, en rojo, que tres y tres no suman cinco."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Hay ocho fichas y llegan siete más. Si primero completas diez, ¿cuántas fichas hay en total?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Catorce fichas"
+          },
+          {
+            "id": "b",
+            "texto": "Dieciséis fichas"
+          },
+          {
+            "id": "c",
+            "texto": "Quince fichas"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Ocho más dos forman diez y quedan cinco; diez más cinco son quince.",
+        "pista": "Mira cuántas fichas necesita el ocho para formar la decena y qué parte del siete queda."
+      }
+    }
   },
   {
     "clave": "mat.p1.suma-columna-sin-canje",

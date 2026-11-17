@@ -2861,11 +2861,11 @@
           },
           {
             "id": "b",
-            "texto": "Contó mal las caras"
+            "texto": "Contó mal todas las caras"
           },
           {
             "id": "c",
-            "texto": "Confundió las caras con las puntas"
+            "texto": "Confundió caras y puntas"
           }
         ],
         "pistas": [
@@ -2915,7 +2915,133 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Caras y puntas de los cuerpos",
+          "narracion": "Bienvenida y bienvenido. Hoy vamos a contar partes de los cuerpos. Como idea principal, las caras son las partes planas. Las puntas son los rincones donde se juntan las caras. Un cubo tiene seis caras planas y ocho puntas. Algunos cuerpos, como la pelota, no tienen ni caras planas ni puntas."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Un cubo como un dado",
+          "narracion": "Observemos esta situación. Aquí hay un cubo, como un dado de ludo. Queremos saber cuántas caras planas tiene y cuántas puntas. Abajo hay dos signos de pregunta que esperan el número.",
+          "recursoRef": "cubo-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: las caras del cubo",
+          "narracion": "Empezamos con las caras. Pasa la mano por las partes planas del cubo. Cuenta la de enfrente, la de arriba y las de los lados. Piensa cuántas serán antes de seguir.",
+          "recursoRef": "cubo-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: contamos las caras",
+          "narracion": "Ahora contamos juntos. Se ven tres caras: la de enfrente, la de arriba y la del lado derecho. Faltan tres que no se ven: la de atrás, la de abajo y la de la izquierda. Tres y tres son seis. El cubo tiene seis caras planas.",
+          "recursoRef": "cubo-caras"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una lata de leche",
+          "narracion": "Ahora miremos una lata de leche. Pasa la mano por la tapa, por el fondo y por el costado. Piensa: ¿qué partes son planas y qué partes son curvas? ¿Hay rincones que pinchen?",
+          "recursoRef": "lata-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: contamos en la lata",
+          "narracion": "La tapa de arriba es plana: es la primera cara. El fondo, que no se ve, también es plano: es la segunda cara. El costado es curvo, así que no es una cara plana. Tampoco hay rincones que pinchen. La lata tiene dos caras planas y cero puntas.",
+          "recursoRef": "lata-caras"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Mira estos dos casos. A la izquierda, el cubo lleva una equis roja: solo se contaron las tres caras que se ven. Hay que girar el cuerpo y contar también las de atrás y las de abajo. A la derecha, los puntos marcan los rincones del cubo, y esos son las puntas. Las caras son las partes planas, no los rincones.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira el cuerpo por todos lados",
+          "narracion": "Primero, elige un cuerpo y míralo por todos lados. Aquí el cuerpo es un cubo. Gíralo con tus manos para ver también la parte de atrás y la de abajo.",
+          "recursoRef": "cubo-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: cuenta las caras",
+          "narracion": "Segundo, pasa la mano por las partes planas y cuéntalas: son las caras. En el cubo, las caras que se ven llevan números, y las que no se ven están al lado.",
+          "recursoRef": "cubo-caras"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: cuenta las puntas",
+          "narracion": "Tercero, toca los rincones que pinchan y cuéntalos: son las puntas. En el cubo, los puntos marcan ocho puntas: siete se ven y una queda atrás. En la lata no hay ninguna, y por eso escribimos cero.",
+          "recursoRef": "errores"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cubo-pregunta",
+          "src": "/nudito/diagramas/matematica/caras-y-vertices-cubo-pregunta.svg",
+          "alt": "Un cubo liso y, debajo, los textos caras planas con signo de pregunta y puntas con signo de pregunta.",
+          "descripcion": "Un cubo de caras lisas: la de enfrente turquesa clara, la de arriba amarilla clara y la del lado azulada. Debajo hay dos líneas de texto: caras planas con un signo de pregunta, y puntas con un signo de pregunta."
+        },
+        {
+          "id": "cubo-caras",
+          "src": "/nudito/diagramas/matematica/caras-y-vertices-cubo-caras.svg",
+          "alt": "Un cubo con sus tres caras visibles numeradas uno, dos y tres, y tres cuadritos punteados numerados cuatro, cinco y seis: atrás, abajo e izquierda.",
+          "descripcion": "A la izquierda, un cubo con tres caras visibles: la de enfrente lleva el número uno, la de arriba el dos y la del lado derecho el tres. A la derecha, bajo el texto no se ven, hay tres cuadritos punteados con los números cuatro, cinco y seis, junto a las palabras atrás, abajo e izquierda."
+        },
+        {
+          "id": "lata-pregunta",
+          "src": "/nudito/diagramas/matematica/caras-y-vertices-lata-pregunta.svg",
+          "alt": "Una lata de leche con forma de cilindro y, debajo, los textos caras planas con signo de pregunta y puntas con signo de pregunta.",
+          "descripcion": "Un cilindro turquesa claro con la tapa de arriba amarilla clara. Debajo hay dos líneas de texto: caras planas con un signo de pregunta, y puntas con un signo de pregunta."
+        },
+        {
+          "id": "lata-caras",
+          "src": "/nudito/diagramas/matematica/caras-y-vertices-lata-caras.svg",
+          "alt": "Una lata con la tapa marcada uno, el costado curvo, un óvalo punteado marcado dos para el fondo y el texto puntas: cero.",
+          "descripcion": "A la izquierda, un cilindro con el número uno sobre la tapa y la palabra curvo en el costado. A la derecha, un óvalo punteado con el número dos y debajo el texto el fondo no se ve. Abajo, en turquesa, se lee puntas: cero."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/caras-y-vertices-errores.svg",
+          "alt": "A la izquierda, un cubo amarillo con una equis roja y el texto solo tres; a la derecha, un cubo con puntos en los rincones y una palomita.",
+          "descripcion": "Una línea punteada divide el dibujo. A la izquierda hay un cubo amarillo claro con una equis roja al lado, el texto solo tres en rojo y debajo faltan las de atrás. A la derecha hay un cubo turquesa claro con un punto en siete rincones y un círculo punteado en el rincón que no se ve, una palomita verde al lado y los textos puntas y los rincones."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Luna tiene un dado y una pelota. ¿Cuántas puntas hay entre los dos?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Seis puntas"
+          },
+          {
+            "id": "b",
+            "texto": "Cero puntas"
+          },
+          {
+            "id": "c",
+            "texto": "Ocho puntas"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. El dado tiene ocho puntas y la pelota no tiene ninguna, así que entre los dos hay ocho.",
+        "pista": "Piensa cuántas puntas tiene cada uno por separado."
+      }
+    }
   },
   {
     "clave": "mat.p1.lados-de-figuras",
@@ -3633,7 +3759,131 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Construir con bloques y cajas",
+          "narracion": "Bienvenida y bienvenido. Hoy construimos con bloques. Como idea principal, cada pieza sirve para algo. Los cubos y las cajas tienen caras planas, y con ellas se apilan. Los cilindros pueden ser ruedas o columnas. Las esferas ruedan, por eso no sirven de base."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Las piezas de la mesa",
+          "narracion": "Observemos esta situación. Sobre la mesa hay tres cubos, una esfera, una caja larga y dos cilindros cortos. El nombre de cada pieza está debajo. Con ellas vamos a construir una torre y un camión de juguete.",
+          "recursoRef": "bloques-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una torre",
+          "narracion": "Queremos una torre de tres piezas, una sobre otra. Piensa en la parte de abajo de cada pieza. ¿Cuáles se apoyan bien?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: los cubos",
+          "narracion": "Elegimos los cubos. Tienen caras planas, y una cara plana se apoya bien en otra. Ponemos un cubo sobre otro. Mira la torre amarilla: queda firme, con tres cubos.",
+          "recursoRef": "torre"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un camión",
+          "narracion": "Ahora armamos un camión de juguete. Necesita una caja para llevar la carga. También necesita piezas que giren como ruedas. Piensa: ¿qué pieza de la mesa gira en línea recta?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la caja y las ruedas",
+          "narracion": "La caja larga lleva la carga. Para las ruedas usamos cilindros cortos: giran en línea recta, y la esfera se iría para cualquier lado. Vistos de lado, los cilindros se ven como círculos. En el dibujo, los dos círculos turquesa son las ruedas, y la caja amarilla va encima.",
+          "recursoRef": "camion"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Mira estos dos intentos. A la izquierda hay un cubo sobre una esfera, con una equis roja: se inclina y se cae, porque la esfera rueda. A la derecha hay un cubo sobre una caja, con una palomita verde: la caja tiene una cara plana para apoyar. Para la base, elige piezas con cara plana.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: imagina qué construir",
+          "narracion": "Primero, imagina qué quieres construir. Luego mira las piezas de la mesa: tres cubos, una esfera, una caja larga y dos cilindros.",
+          "recursoRef": "bloques-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: elige las piezas",
+          "narracion": "Después, elige cada pieza según lo que necesita tu construcción. Para la carga, una caja. Para las ruedas, cilindros. Mira el camión.",
+          "recursoRef": "camion"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: une y explica",
+          "narracion": "Por último, une las piezas y di para qué sirve cada una. Aquí, dos cilindros de pie son las columnas y la caja larga es el techo. Una pieza con base plana se apoya firme.",
+          "recursoRef": "techo-columnas"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "bloques-pregunta",
+          "src": "/nudito/diagramas/matematica/construir-con-bloques-bloques-pregunta.svg",
+          "alt": "Sobre la mesa: tres cubos, una esfera, una caja larga y dos cilindros cortos, con el nombre de cada pieza debajo.",
+          "descripcion": "En una repisa de arriba hay tres cubos amarillos en fila y, a la derecha, una esfera turquesa; debajo se leen las palabras cubos y esfera. En la repisa de abajo hay una caja larga amarilla y, a la derecha, dos cilindros turquesa de pie; debajo se leen las palabras caja y cilindros."
+        },
+        {
+          "id": "torre",
+          "src": "/nudito/diagramas/matematica/construir-con-bloques-torre.svg",
+          "alt": "Torre de tres cubos amarillos apilados, con un corchete a la derecha y las palabras tres cubos.",
+          "descripcion": "Sobre una línea de suelo hay tres cubos amarillos apilados, uno sobre otro, que forman una torre recta. A la derecha, un corchete vertical abarca toda la torre y a su lado se leen las palabras tres cubos."
+        },
+        {
+          "id": "camion",
+          "src": "/nudito/diagramas/matematica/construir-con-bloques-camion.svg",
+          "alt": "Camión de juguete: una caja larga amarilla sobre dos ruedas turquesa, que son cilindros vistos de lado.",
+          "descripcion": "Sobre una línea de suelo hay un camión visto de lado. Una caja larga amarilla, con la palabra caja encima, va sobre dos círculos turquesa, las ruedas, que son cilindros vistos de lado. Debajo de cada rueda se lee la palabra cilindros."
+        },
+        {
+          "id": "techo-columnas",
+          "src": "/nudito/diagramas/matematica/construir-con-bloques-techo-columnas.svg",
+          "alt": "Dos cilindros turquesa de pie sostienen una caja larga amarilla que hace de techo.",
+          "descripcion": "Sobre una línea de suelo hay dos cilindros turquesa de pie, separados. Encima de los dos descansa una caja larga amarilla, con las palabras caja larga. Debajo de cada cilindro se lee la palabra cilindro."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/construir-con-bloques-errores.svg",
+          "alt": "A la izquierda, un cubo inclinado sobre una esfera, con equis roja. A la derecha, un cubo sobre una caja, con palomita verde.",
+          "descripcion": "A la izquierda hay una esfera turquesa con un cubo amarillo inclinado encima, como a punto de caer; arriba hay una equis roja y abajo se lee esfera. A la derecha hay una caja amarilla con un cubo amarillo bien apoyado encima; arriba hay una palomita verde y abajo se lee caja."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Quieres apilar tres latas, una sobre otra. ¿Cómo pones cada lata?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Acostada, sobre el lado curvo"
+          },
+          {
+            "id": "b",
+            "texto": "Inclinada, sobre un solo punto"
+          },
+          {
+            "id": "c",
+            "texto": "De pie, sobre su base plana"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. De pie, la lata se apoya en su base plana, y así las latas se apilan sin rodar.",
+        "pista": "Piensa qué parte de la lata toca el suelo y si esa parte es plana o curva."
+      }
+    }
   },
   {
     "clave": "mat.p1.clasificar-por-forma",
@@ -3952,7 +4202,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Juntar lo que se parece",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a clasificar objetos. Como idea principal, clasificar es juntar los objetos que se parecen. Primero elegimos una regla, por ejemplo, la forma o si ruedan. Después juntamos los que cumplen la regla. Al final, podemos explicar por qué los juntamos."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Seis objetos en la mesa",
+          "narracion": "Observemos esta situación. Sobre una mesa hay seis objetos: una pelota, un dado, una canica, una caja, una naranja y un libro. Queremos juntarlos en grupos. ¿Cómo podemos hacerlo?",
+          "recursoRef": "objetos-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: los que ruedan",
+          "narracion": "Pedro quiere hacer dos grupos con los seis objetos de la mesa. Su regla es: ruedan o no ruedan. Piensa en cada objeto. ¿Cuáles darían vueltas si los empujas?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dos grupos",
+          "narracion": "Aquí están los dos grupos. En el grupo que rueda hay una pelota, una canica y una naranja, que son redondas. En el otro grupo hay un dado, una caja y un libro. Tienen esquinas y no ruedan bien.",
+          "recursoRef": "ruedan"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: por su forma",
+          "narracion": "Ahora Rosa tiene una lata de atún, un tarro de miel y una pila. Quiere saber si pueden ir juntos. Fíjate en la tapa de arriba y en la de abajo. ¿Cómo son?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una forma en común",
+          "narracion": "Sí, van juntos. Los tres tienen una tapa plana y redonda arriba y otra abajo. Esa forma se llama cilindro. Así que forman un grupo de cilindros.",
+          "recursoRef": "cilindros"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con dos errores",
+          "narracion": "En el primer grupo, el dado no rueda, pero alguien lo puso con los que ruedan. Eso es un error. Cada objeto debe cumplir la regla. En el segundo grupo, alguien juntó la pelota y el dado porque son del mismo color. Pero la regla pedía la forma, no el color.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: elige una regla",
+          "narracion": "Primero mira todos los objetos y elige una regla. Puede ser la forma o si ruedan."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: junta los que cumplen",
+          "narracion": "Junta en un mismo grupo los objetos que cumplen la regla."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: revisa cada grupo",
+          "narracion": "Al final, revisa cada grupo. Todos los objetos deben cumplir la regla. Luego explica tu regla con tus palabras. Esta tarjeta muestra los tres pasos.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "objetos-pregunta",
+          "src": "/nudito/diagramas/matematica/clasificar-forma-objetos-pregunta.svg",
+          "alt": "Seis objetos sobre una mesa: pelota, dado, canica, caja, naranja y libro, con la pregunta de cómo juntarlos.",
+          "descripcion": "Dos filas de tres objetos, cada uno con su nombre: pelota turquesa, dado blanco con puntos y canica azul; caja amarilla clara, naranja amarilla y libro celeste con lomo azul. Abajo se lee: ¿Cómo los juntamos?"
+        },
+        {
+          "id": "ruedan",
+          "src": "/nudito/diagramas/matematica/clasificar-forma-ruedan.svg",
+          "alt": "Dos grupos: ruedan, con pelota, canica y naranja; no ruedan, con dado, caja y libro.",
+          "descripcion": "Dos recuadros. El de la izquierda, llamado Ruedan, tiene pelota, canica y naranja. El de la derecha, llamado No ruedan, tiene dado, caja y libro."
+        },
+        {
+          "id": "cilindros",
+          "src": "/nudito/diagramas/matematica/clasificar-forma-cilindros.svg",
+          "alt": "Una lata, un tarro y una pila: tres cilindros con tapa plana y redonda arriba y abajo.",
+          "descripcion": "Tres cilindros en fila, rotulados lata, tarro y pila. Debajo, un recuadro contiene dos líneas de texto: tapa plana y redonda, arriba y abajo."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/clasificar-forma-errores.svg",
+          "alt": "Dos errores: un dado con cruz en el grupo que rueda, y una pelota y un dado juntos solo por su color.",
+          "descripcion": "A la izquierda, el recuadro Ruedan con pelota, canica y dado; el dado lleva una cruz roja. A la derecha, el recuadro Mismo color con una pelota y un dado, ambos turquesa, una cruz roja al lado y el texto: pide forma, no color."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/clasificar-forma-pasos.svg",
+          "alt": "Tarjeta con tres pasos: elige una regla, junta los que la cumplen y revisa cada grupo.",
+          "descripcion": "Tres tarjetas numeradas. Uno, elige una regla, por ejemplo ruedan o no ruedan. Dos, junta los que la cumplen. Tres, revisa cada grupo: todos deben cumplir la regla."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Tito quiere un grupo donde todos los objetos tengan esquinas. ¿Qué grupo arma?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Pelota, dado y caja"
+          },
+          {
+            "id": "b",
+            "texto": "Canica, libro y caja"
+          },
+          {
+            "id": "c",
+            "texto": "Dado, caja y libro"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Muy bien. El dado, la caja y el libro tienen esquinas. En los otros grupos había un objeto redondo.",
+        "pista": "Busca en cada grupo el objeto que sea redondo por todos lados."
+      }
+    }
   },
   {
     "clave": "mat.p1.armar-figuras-con-piezas",
@@ -4365,7 +4737,124 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Armar figuras con piezas",
+          "narracion": "Bienvenida y bienvenido. Hoy armaremos figuras con piezas planas. Como idea principal, cuando juntamos piezas lado con lado, aparece una figura nueva. Para ponerle nombre, miramos el borde de afuera. Ese borde se llama contorno."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Piezas sobre una mesa",
+          "narracion": "Observemos esta situación. Hay cuatro piezas encima de la mesa: un cuadrado, un triángulo, un círculo y un rectángulo. Cada pieza tiene su forma. Podemos juntarlas para hacer dibujos. Nos preguntamos qué podemos armar con ellas.",
+          "recursoRef": "piezas-mesa"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dos cuadrados",
+          "narracion": "Tomamos dos cuadrados iguales. Están separados, uno a cada lado. Las flechas muestran que los vamos a acercar. Los juntamos por un lado completo. Nos preguntamos qué figura sale por fuera.",
+          "recursoRef": "dos-cuadrados-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: miramos el contorno",
+          "narracion": "Ya están juntos y sin huecos. Miramos el borde de afuera, que está marcado con una línea punteada. Tiene cuatro lados rectos: dos largos y dos cortos. Es más largo que alto. Es un rectángulo.",
+          "recursoRef": "dos-cuadrados-unidos"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: techo y pared",
+          "narracion": "Ahora tomamos un triángulo y un cuadrado. El cuadrado será la pared. El triángulo será el techo. Ponemos el triángulo encima del cuadrado. El lado de abajo del triángulo toca el lado de arriba del cuadrado."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: aparece una casa",
+          "narracion": "Ya está armada. El contorno tiene una punta arriba y esquinas abajo. Se parece a una casa sencilla. El triángulo amarillo es el techo y el cuadrado turquesa es la pared.",
+          "recursoRef": "casa"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es dejar espacios entre las piezas. Con huecos no hay una figura cerrada. Otro error es nombrar la figura mirando una sola pieza. Dos cuadrados juntos no son un cuadrado. Son un rectángulo."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira cada pieza",
+          "narracion": "Primero reconoce cada pieza. Di su nombre: cuadrado, triángulo, círculo o rectángulo. En el ejemplo uno había dos cuadrados. En el ejemplo dos había un triángulo y un cuadrado."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: junta lado con lado",
+          "narracion": "Después junta las piezas lado con lado, sin huecos. Mira los dos cuadrados de la imagen: sus lados se tocan por completo. Así queda una figura cerrada.",
+          "recursoRef": "dos-cuadrados-unidos"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: nombra el contorno",
+          "narracion": "Por último, mira el borde de afuera de todas las piezas juntas. Cuenta sus lados y fíjate si hay una punta. Así nombras la figura nueva, como la casa de la imagen.",
+          "recursoRef": "casa"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "piezas-mesa",
+          "src": "/nudito/diagramas/matematica/armar-figuras-piezas-mesa.svg",
+          "alt": "Sobre una mesa hay un cuadrado, un triángulo, un círculo y un rectángulo.",
+          "descripcion": "Hay cuatro piezas en fila sobre una línea punteada que hace de mesa: un cuadrado turquesa, un triángulo amarillo, un círculo celeste y un rectángulo claro. Cada una tiene su nombre debajo. Abajo se lee la pregunta: qué podemos armar con ellas."
+        },
+        {
+          "id": "dos-cuadrados-pregunta",
+          "src": "/nudito/diagramas/matematica/armar-figuras-dos-cuadrados-pregunta.svg",
+          "alt": "Dos cuadrados separados y dos flechas que los acercan.",
+          "descripcion": "Hay dos cuadrados turquesa iguales, uno a la izquierda y otro a la derecha, con espacio en el medio. Dos flechas apuntan una hacia la otra, señalando que se juntarán. Abajo se lee: ¿qué contorno sale? y juntamos sus lados completos."
+        },
+        {
+          "id": "dos-cuadrados-unidos",
+          "src": "/nudito/diagramas/matematica/armar-figuras-dos-cuadrados-unidos.svg",
+          "alt": "Dos cuadrados juntos dentro de una línea punteada forman un rectángulo.",
+          "descripcion": "Dos cuadrados turquesa están pegados por un lado completo, sin huecos. Una línea punteada amarilla rodea a los dos y marca el contorno. Abajo se lee: contorno rectángulo, cuatro lados rectos, sin huecos."
+        },
+        {
+          "id": "casa",
+          "src": "/nudito/diagramas/matematica/armar-figuras-casa.svg",
+          "alt": "Un triángulo amarillo sobre un cuadrado turquesa forma una casa sencilla.",
+          "descripcion": "Un cuadrado turquesa hace de pared y un triángulo amarillo encima hace de techo, y juntos parecen una casa. Abajo se lee: triángulo igual a techo, cuadrado igual a pared."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Luis junta tres cuadrados iguales en una fila, lado con lado y sin huecos. ¿Qué contorno forman?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un círculo redondo"
+          },
+          {
+            "id": "b",
+            "texto": "Un triángulo con punta"
+          },
+          {
+            "id": "c",
+            "texto": "Un rectángulo largo"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Los tres cuadrados juntos forman un rectángulo largo, con cuatro lados rectos.",
+        "pista": "Mira el borde de afuera de toda la fila de cuadrados."
+      }
+    }
   },
   {
     "clave": "mat.p1.misma-forma",

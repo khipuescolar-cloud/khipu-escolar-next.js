@@ -370,7 +370,123 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Lo que se comprueba y lo que se piensa",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a distinguir un hecho de una opinión en lo que lees. Como idea principal, un hecho es algo que se puede comprobar contándolo, midiéndolo o buscándolo en una fuente confiable. Una opinión es lo que alguien piensa o siente, y por eso cambia de una persona a otra. Reconocer la diferencia te ayuda a no creer algo solo porque suena muy seguro."
+        },
+        {
+          "id": "situacion-pruebas",
+          "tipo": "recurso",
+          "titulo": "Dos maneras de decir algo",
+          "narracion": "Observemos este cuadro. En el recuadro de arriba está el hecho: se puede comprobar contando, midiendo o buscando en una fuente confiable. Abajo está la opinión: depende de lo que alguien piensa. Como pistas de opinión aparecen expresiones como creo que, me parece, horrible, aburrido o el más lindo.",
+          "recursoRef": "pruebas"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una reseña de la feria",
+          "narracion": "Una revista escolar publicó esta reseña: «La feria del libro de Piura se realizó del 12 al 15 de junio. Fue la mejor feria de todas». Vamos a clasificar cada oración con una pregunta: ¿puedo comprobar esto?"
+        },
+        {
+          "id": "ejemplo-1-prueba",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: probamos cada oración",
+          "narracion": "Aquí están las dos oraciones, cada una con su pregunta. En la primera aparecen fechas: se pueden verificar mirando el programa o preguntando a los organizadores. En la segunda, «la mejor» ¿con qué se mide? Piensa qué datos harían falta para comprobarla.",
+          "recursoRef": "pregunta"
+        },
+        {
+          "id": "ejemplo-1-clasifica",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la clasificación",
+          "narracion": "La primera oración es un hecho, porque sus fechas se pueden verificar. La segunda es una opinión: para una persona pudo ser la mejor feria, pero otra podría preferir otra. «La mejor» es una valoración y no un dato."
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una oración que mezcla las dos",
+          "narracion": "A veces una sola oración contiene ambas cosas. Un estudiante escribió: «Pienso que deberíamos reciclar más, porque este mes el colegio juntó 120 kilos de papel». ¿Qué parte se puede comprobar y cuál expresa lo que él piensa? Intenta separarlas antes de seguir."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: separamos el hecho de la opinión",
+          "narracion": "La parte que empieza con «Pienso que» es la opinión: deberíamos reciclar más. Es lo que él cree. Después de «porque» aparece el hecho: el colegio juntó 120 kilos de papel este mes, algo que se comprueba pesando el papel. Una opinión puede apoyarse en un hecho, pero sigue siendo una opinión: el dato la respalda, no la convierte en dato.",
+          "recursoRef": "separar"
+        },
+        {
+          "id": "error-numero",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: creer que un número lo vuelve hecho",
+          "narracion": "Un error común es pensar que, si una oración tiene un número, toda ella es un hecho. Fíjate en esta: «Los treinta minutos de recreo son muy cortos». Treinta minutos se puede medir, pero «muy cortos» depende de quién lo diga. Revisa cada parte de la oración y no te quedes solo con el número."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: haz la pregunta clave",
+          "narracion": "Lee la oración y pregúntate si se puede comprobar contando, midiendo o buscando en una fuente confiable. Si la respuesta es sí, hay un hecho. Piensa en el cuadro de las dos maneras de decir algo.",
+          "recursoRef": "pruebas"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca palabras que delatan opiniones",
+          "narracion": "Si la oración depende de lo que alguien piensa o siente, es una opinión. Suele delatarse con expresiones como creo que, me parece, horrible, aburrido o el más lindo."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: separa las partes mezcladas",
+          "narracion": "Cuando una oración mezcle ambas cosas, sepáralas: primero el dato que se comprueba y luego lo que el autor piensa de él, como hicimos con los kilos de papel y la idea de reciclar más.",
+          "recursoRef": "separar"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "pruebas",
+          "src": "/nudito/diagramas/comunicacion/hecho-opinion-dos-pruebas.svg",
+          "alt": "Cuadro con hecho (se puede comprobar) y opinión (depende de lo que alguien piensa).",
+          "descripcion": "Dos recuadros. Hecho: se puede comprobar contando, midiendo o buscando en una fuente confiable. Opinión: depende de lo que alguien piensa; sus pistas son creo que, me parece, horrible, aburrido y el más lindo."
+        },
+        {
+          "id": "pregunta",
+          "src": "/nudito/diagramas/comunicacion/hecho-opinion-pregunta.svg",
+          "alt": "Dos oraciones de una reseña de feria, cada una con la pregunta ¿Hecho u opinión?",
+          "descripcion": "Dos recuadros. El primero dice «1. La feria del libro de Piura se realizó del 12 al 15 de junio.» y el segundo «2. Fue la mejor feria de todas.». Debajo de cada oración hay un botón amarillo con la pregunta ¿Hecho u opinión?"
+        },
+        {
+          "id": "separar",
+          "src": "/nudito/diagramas/comunicacion/hecho-opinion-separar.svg",
+          "alt": "Una oración dividida en opinión (reciclar más) y hecho (el colegio juntó 120 kg de papel).",
+          "descripcion": "Arriba, la oración completa: «Pienso que deberíamos reciclar más, porque este mes el colegio juntó 120 kg de papel». Debajo, un recuadro amarillo, Opinión: «Pienso que deberíamos reciclar más», que depende de lo que él piensa. Y un recuadro azul, Hecho: «El colegio juntó 120 kg de papel», que se comprueba pesando."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee: «La biblioteca del colegio tiene 1 200 libros. Para mí, es la mejor del distrito». ¿Qué parte es un hecho?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La biblioteca del colegio tiene 1 200 libros."
+          },
+          {
+            "id": "b",
+            "texto": "La biblioteca es la mejor del distrito."
+          },
+          {
+            "id": "c",
+            "texto": "Ninguna parte se puede comprobar con datos."
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Los libros se pueden contar, así que esa oración es un hecho. «La mejor del distrito» es una valoración que empieza con «Para mí»: depende de lo que piensa quien escribe.",
+        "pista": "Busca la oración que podrías comprobar contando, sin preguntarle a nadie qué piensa."
+      }
+    }
   },
   {
     "clave": "com.p5.predecir-por-resenas-y-fotos",

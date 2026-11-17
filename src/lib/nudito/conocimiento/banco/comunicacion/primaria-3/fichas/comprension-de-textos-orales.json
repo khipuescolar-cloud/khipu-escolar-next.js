@@ -1135,7 +1135,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Resuelves adivinanzas con todas las pistas",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a resolver adivinanzas. Como idea principal, una adivinanza describe algo sin decir su nombre. Junta todas las pistas y piensa qué quieren decir las expresiones con sentido figurado, que no se toman al pie de la letra."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Niños en ronda",
+          "narracion": "Observemos esta escena: unos niños se sientan en ronda en el patio del colegio. Una niña levanta la mano para proponer una adivinanza y los demás piensan con atención. Para adivinar hay que escuchar todas las pistas y pensar qué significan.",
+          "recursoRef": "ronda"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: lee la adivinanza",
+          "narracion": "Lee la adivinanza de esta tarjeta: «Tengo agujas y no coso; marco las horas y nunca me canso». Abajo, la tarjeta amarilla pregunta qué soy.",
+          "recursoRef": "reloj"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: piensa en el sentido figurado",
+          "narracion": "Las «agujas» no son para coser: es un sentido figurado. Hay objetos que tienen agujas largas y delgadas que señalan números. Además, «marco las horas» confirma la pista. Soy un reloj."
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: lee otra adivinanza",
+          "narracion": "Otra adivinanza: «Me abro como una flor y no tengo pétalos; cuando llueve, te protejo». La tarjeta amarilla vuelve a preguntar qué soy.",
+          "recursoRef": "paraguas"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: junta las pistas",
+          "narracion": "En la imagen, un niño camina bajo la lluvia con un paraguas amarillo abierto. «Me abro como una flor» no quiere decir que tenga pétalos: cuenta cómo se despliega. Y «te protejo» dice para qué sirve. Todas las pistas encajan con un paraguas.",
+          "recursoRef": "paraguas-ill"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: quedarse con una sola pista",
+          "narracion": "En la tarjeta, arriba, alguien mira solo la pista «me abro» y responde que es una puerta. Esa respuesta no encaja con las demás pistas. Abajo está la correcta: un paraguas, que encaja con todas.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: escucha completa",
+          "narracion": "Primero, escucha la adivinanza completa, sin adelantarte."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: junta las pistas",
+          "narracion": "Segundo, junta cada pista. Si una suena rara, piensa qué quiere decir de otra manera."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: prueba tu respuesta",
+          "narracion": "Tercero, prueba tu respuesta: debe encajar con todas las pistas, no solo con una."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "ronda",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-3/adivinanzas-ronda-zimage-v1.webp",
+          "alt": "Siete niños con uniforme sentados en ronda en un patio; una niña levanta la mano.",
+          "descripcion": "Siete niños con uniforme escolar blanco y azul se sientan en círculo en el patio del colegio. Al fondo del círculo, una niña levanta la mano y habla. Los demás la miran con atención y sonríen."
+        },
+        {
+          "id": "reloj",
+          "src": "/nudito/diagramas/comunicacion/adivinanza-reloj-pregunta.svg",
+          "alt": "Tarjeta con la adivinanza de las agujas que marcan las horas y la pregunta qué soy.",
+          "descripcion": "Un recuadro blanco con el texto: Tengo agujas y no coso; marco las horas y nunca me canso. Debajo, una tarjeta amarilla pregunta: ¿Qué soy?"
+        },
+        {
+          "id": "paraguas",
+          "src": "/nudito/diagramas/comunicacion/adivinanza-paraguas-pregunta.svg",
+          "alt": "Tarjeta con la adivinanza de la flor sin pétalos que te protege cuando llueve y la pregunta qué soy.",
+          "descripcion": "Un recuadro blanco con el texto: Me abro como una flor y no tengo pétalos; cuando llueve, te protejo. Debajo, una tarjeta amarilla pregunta: ¿Qué soy?"
+        },
+        {
+          "id": "paraguas-ill",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-3/adivinanzas-paraguas-zimage-v1.webp",
+          "alt": "Un niño camina bajo la lluvia sosteniendo un paraguas amarillo abierto.",
+          "descripcion": "Un niño con camisa blanca y short azul camina por una calle con casas bajo la lluvia. Sostiene con una mano un paraguas amarillo abierto con mango curvo. Caen gotas y el cielo es gris azulado."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/comunicacion/adivinanza-error.svg",
+          "alt": "Adivinanza, una respuesta equivocada con cruz y otra correcta con palomita.",
+          "descripcion": "Un recuadro blanco con la adivinanza: Me abro como una flor y no tengo pétalos; cuando llueve, te protejo. Debajo, una tarjeta roja con cruz dice: Una puerta, porque «me abro». Luego, una tarjeta verde con palomita dice: Un paraguas: encaja con todas las pistas."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Tengo corona y no soy rey; por fuera tengo espinas y por dentro soy dulce. ¿Qué soy?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un cactus"
+          },
+          {
+            "id": "b",
+            "texto": "El durazno"
+          },
+          {
+            "id": "c",
+            "texto": "La piña"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "La piña tiene hojas arriba como una corona, es áspera por fuera y dulce por dentro. Las tres pistas encajan.",
+        "pista": "Junta las tres pistas y piensa qué quiere decir «corona»."
+      }
+    }
   },
   {
     "clave": "com.p3.refranes",

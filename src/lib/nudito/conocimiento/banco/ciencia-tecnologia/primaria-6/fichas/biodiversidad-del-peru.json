@@ -1637,7 +1637,7 @@
         "id": "e03",
         "dificultad": 1,
         "tipo": "texto_corto",
-        "enunciado": "Una área donde se protege de manera estricta todo un ecosistema se llama parque… Completa con una palabra.",
+        "enunciado": "Un área donde se protege de manera estricta todo un ecosistema se llama parque… Completa con una palabra.",
         "respuesta": "nacional",
         "alternativasAceptadas": [
           "parque nacional",
@@ -1828,7 +1828,7 @@
         "id": "e11",
         "dificultad": 3,
         "tipo": "texto_corto",
-        "enunciado": "Un parque tiene 1 500 000 ha. Un incendio quema 150 000 ha. ¿Qué porcentaje del parque se quemó? Escribe solo el número.",
+        "enunciado": "Un parque tiene 1 500 000 hectáreas. Un incendio quema 150 000 hectáreas. ¿Qué porcentaje del parque se quemó? Escribe solo el número.",
         "respuesta": "10",
         "alternativasAceptadas": [
           "10 %",
@@ -1882,7 +1882,124 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Lugares que el Estado cuida",
+          "narracion": "Hola. Hoy veremos las áreas naturales protegidas. Como idea principal, son espacios que el Estado cuida para conservar la biodiversidad. En un parque nacional la protección es estricta. En una reserva nacional se permite un uso ordenado de los recursos. Un santuario nacional protege una especie o un lugar especial."
+        },
+        {
+          "id": "situacion-guardaparque",
+          "tipo": "recurso",
+          "titulo": "Un bosque vigilado",
+          "narracion": "Observemos esta situación. En la imagen, un guardaparque con uniforme verde y sombrero mira con binoculares desde una plataforma de madera. Debajo hay un bosque muy verde con un río. Nos preguntamos: ¿por qué hay personas que cuidan un lugar así?",
+          "recursoRef": "guardaparque"
+        },
+        {
+          "id": "ejemplo-1-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: pescar en el mar",
+          "narracion": "En la imagen, un pescador artesanal está de pie en un pequeño bote blanco, sobre un mar azul y tranquilo. Detrás hay acantilados rojizos de desierto y en el cielo vuelan aves marinas. Es el mar de Paracas. Nos preguntamos: ¿por qué se le permite pescar allí?",
+          "recursoRef": "pescador"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: pesca con reglas",
+          "narracion": "Se permite porque una reserva nacional acepta un uso ordenado y sostenible de los recursos. Los pescadores artesanales pescan con reglas para que los peces no se acaben. No pueden pescar sin límite.",
+          "recursoRef": "pescador"
+        },
+        {
+          "id": "ejemplo-2-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: los manglares",
+          "narracion": "En la imagen hay tres árboles verdes con muchas raíces marrones que se hunden en agua turquesa. Son manglares de la costa de Tumbes. Nos preguntamos: ¿qué tipo de área es?",
+          "recursoRef": "manglar"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un ecosistema especial",
+          "narracion": "Es el Santuario Nacional Los Manglares de Tumbes, porque protege un ecosistema especial: el manglar, un bosque de costa con raíces dentro del agua. No cuida un territorio enorme, sino un lugar concreto y único.",
+          "recursoRef": "manglar"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: todas son iguales",
+          "narracion": "Algunas personas creen que en toda área protegida se puede hacer cualquier actividad, o que un santuario es lo mismo que un parque. No es así. Cada categoría tiene sus reglas. El parque nacional protege grandes áreas con muchos ecosistemas. El santuario cuida algo más específico, como una especie o un ecosistema."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee la categoría",
+          "narracion": "Primero lee el nombre de la categoría: parque, reserva o santuario."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: pregunta qué se protege",
+          "narracion": "Luego pregunta qué se quiere cuidar: todo un ecosistema, un uso ordenado de los recursos, o una especie o un lugar concreto. Revisa también qué actividades se permiten."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: relaciona con la función",
+          "narracion": "Por último, relaciona la categoría con su función. Mira las tres tarjetas. El parque nacional protege ecosistemas completos. La reserva nacional permite un uso ordenado de los recursos. El santuario nacional protege una especie o un lugar especial.",
+          "recursoRef": "categorias"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "guardaparque",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/areas-guardaparque-bosque-zimage-v1.webp",
+          "alt": "Un guardaparque con uniforme verde y sombrero mira con binoculares desde una plataforma de madera sobre un bosque con un río.",
+          "descripcion": "Un guardaparque de uniforme y sombrero verde oscuro está de pie en una plataforma de madera y se lleva unos binoculares a los ojos. Debajo y detrás hay un bosque de muchos tonos de verde, cerros lejanos y un río claro que se curva. El cielo es celeste con nubes."
+        },
+        {
+          "id": "pescador",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/areas-pescador-paracas-zimage-v1.webp",
+          "alt": "Un pescador de pie en un pequeño bote blanco sobre un mar azul tranquilo, entre acantilados rojizos y aves marinas.",
+          "descripcion": "Un pescador con camisa clara está de pie en un bote blanco de madera, con una vara en la mano, sobre agua azul y quieta. Detrás se levantan grandes acantilados de color rojizo y, a la derecha, una playa de arena. Tres gaviotas blancas vuelan en el cielo celeste."
+        },
+        {
+          "id": "manglar",
+          "src": "/nudito/diagramas/ciencia-tecnologia/areas-naturales-protegidas-manglar-raices.svg",
+          "alt": "Tres árboles verdes con muchas raíces marrones que se hunden en agua turquesa.",
+          "descripcion": "Sobre un fondo celeste claro hay tres árboles de copa verde redonda. Cada uno tiene un tronco marrón del que salen muchas raíces curvas que se hunden en agua turquesa. Abajo, en crema, dice árboles con raíces en el agua."
+        },
+        {
+          "id": "categorias",
+          "src": "/nudito/diagramas/ciencia-tecnologia/areas-naturales-protegidas-tres-categorias.svg",
+          "alt": "Tres tarjetas: parque nacional protege ecosistemas completos, reserva nacional permite un uso ordenado de los recursos y santuario nacional protege una especie o un lugar especial.",
+          "descripcion": "Tres tarjetas una sobre otra. La primera, turquesa, dice parque nacional: protege ecosistemas completos. La segunda, amarilla, dice reserva nacional: permite un uso ordenado de los recursos. La tercera, azul claro, dice santuario nacional: protege una especie o un lugar especial."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una comunidad recoge frutos del bosque con reglas para que no se acaben. ¿Qué categoría permite mejor esa actividad?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Parque nacional"
+          },
+          {
+            "id": "b",
+            "texto": "Reserva nacional"
+          },
+          {
+            "id": "c",
+            "texto": "Santuario nacional"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "La reserva nacional permite un uso ordenado de los recursos, con reglas para que no se acaben. En un parque la protección es estricta.",
+        "pista": "Piensa en una categoría donde la gente puede usar el bosque, pero sin acabarlo."
+      }
+    }
   },
   {
     "clave": "cyt.p6.perdida-de-habitat",

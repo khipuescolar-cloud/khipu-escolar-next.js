@@ -1283,7 +1283,7 @@
         "alternativasAceptadas": [],
         "pistas": [
           "Un cubo tiene 6 caras, así que descarta el cubo.",
-          "El cono tiene 2 partes distintas: una base y una punta.",
+          "El cono tiene 1 cara plana y 1 punta, no 5 caras.",
           "Una caja de chocolates con 2 triángulos y 3 rectángulos tiene esas caras."
         ],
         "retroalimentacion": "Es el prisma triangular: 2 triángulos y 3 rectángulos son 5 caras, y tiene 6 puntas. El cubo tiene 6 caras y el cono, 1 cara.",
@@ -1329,7 +1329,122 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Caras y puntas",
+          "narracion": "Bienvenida y bienvenido. Hoy contaremos las caras y las puntas de algunos cuerpos. Como idea principal, las caras son las partes planas de un cuerpo. Las puntas son las esquinas, donde se juntan las caras. Aprenderemos a contarlas con orden para no equivocarnos."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Un dado de parchís",
+          "narracion": "Observemos esta situación. Sobre la mesa hay un dado con forma de cubo, de los que se usan en el parchís. Desde aquí se ven tres de sus partes planas. Queremos saber cuántas caras tiene en total y cuántas puntas.",
+          "recursoRef": "dado-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: contar con orden",
+          "narracion": "Contamos las caras una por una. Las que no se ven también cuentan, como la de abajo y la de atrás. Luego contamos las puntas, que son las esquinas. Hay puntas arriba y también abajo."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el resultado del dado",
+          "narracion": "El dado tiene seis caras: arriba, abajo y cuatro lados. En la imagen se ven tres, y las otras tres están por detrás. Tiene cuatro puntas arriba y cuatro puntas abajo, así que son ocho puntas.",
+          "recursoRef": "cubo-cuenta"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un cono de helado",
+          "narracion": "Ahora miremos un cono de helado. Tiene una base redonda y un costado que se va cerrando hasta terminar arriba. ¿Cuántas partes planas tiene? ¿Cuántas esquinas?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: lo plano y lo curvo",
+          "narracion": "La base redonda es plana, así que es una cara. El costado es curvo, y una cara debe ser plana, así que no cuenta. Arriba el cono termina en una sola esquina: es su punta. El cono tiene una cara plana y una punta.",
+          "recursoRef": "cono"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es olvidar las caras que no se ven, como la de abajo o la de atrás. Otro error es contar el costado curvo del cono como una cara, o contar un borde redondo como una punta. Las caras son planas y las puntas son esquinas."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira todo el cuerpo",
+          "narracion": "Da la vuelta al cuerpo con la mirada, o con las manos. Mira arriba, abajo y por los lados."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: cuenta las caras planas",
+          "narracion": "Cuenta cada cara plana una sola vez. Puedes marcar con el dedo las que ya contaste."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: cuenta las puntas",
+          "narracion": "Aquí están los tres pasos juntos. Primero se mira todo el cuerpo. Luego se cuentan las caras planas, una por una. Al final se cuentan las puntas, que son las esquinas.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "dado-pregunta",
+          "src": "/nudito/diagramas/matematica/caras-puntas-dado-pregunta.svg",
+          "alt": "Un dado de parchís amarillo con forma de cubo, dibujado en perspectiva con tres caras visibles y sin marcas.",
+          "descripcion": "Hay un cubo amarillo, un dado, dibujado en perspectiva: se ven la cara de enfrente, la de arriba y la del lado derecho. No tiene números ni marcas. Arriba dice: un dado de parchís. Abajo se lee la pregunta de cuántas caras y cuántas puntas tiene."
+        },
+        {
+          "id": "cubo-cuenta",
+          "src": "/nudito/diagramas/matematica/caras-puntas-cubo-cuenta.svg",
+          "alt": "Un dado con tres caras numeradas del uno al tres, ocho puntas marcadas y el resumen de seis caras y ocho puntas.",
+          "descripcion": "A la izquierda está el dado en perspectiva, con las tres caras que se ven numeradas: uno en la de enfrente, dos en la de arriba y tres en la del lado. Ocho puntos granate marcan las esquinas, y unas líneas punteadas muestran las aristas que quedan por detrás. A la derecha, un recuadro dice: seis caras, se ven tres y tres quedan atrás; ocho puntas, cuatro arriba y cuatro abajo. El título dice: contamos el dado."
+        },
+        {
+          "id": "cono",
+          "src": "/nudito/diagramas/matematica/caras-puntas-cono-resuelto.svg",
+          "alt": "Un cono de helado con tres rótulos: una punta arriba, el costado curvo y una cara plana en la base.",
+          "descripcion": "Se ve un cono de helado con la punta hacia arriba y la base redonda abajo, pintada de turquesa claro. Un punto granate marca la punta y una línea lleva al rótulo: una punta. Otra línea señala el costado con el rótulo: costado curvo. Otra señala la base con el rótulo: una cara plana, y bajo el cono dice: la base. Abajo se lee: una cara plana y una punta. El título dice: un cono de helado."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/caras-puntas-tres-pasos.svg",
+          "alt": "Tres tarjetas numeradas con los pasos para contar caras y puntas.",
+          "descripcion": "Hay tres tarjetas numeradas. La uno dice: miro todo el cuerpo, arriba, abajo y por los lados. La dos dice: cuento las caras planas, una por una. La tres dice: cuento las puntas, las esquinas del cuerpo. El título dice: tres pasos para contar."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Sobre una mesa hay tres cuerpos. ¿Cuál de ellos tiene una sola punta?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un dado de parchís"
+          },
+          {
+            "id": "b",
+            "texto": "Una caja de zapatos"
+          },
+          {
+            "id": "c",
+            "texto": "Un cono de helado"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. El cono de helado tiene una sola punta, arriba. El dado y la caja de zapatos tienen ocho puntas.",
+        "pista": "Imagina cada cuerpo y cuenta sus esquinas, una por una."
+      }
+    }
   },
   {
     "clave": "mat.p2.forma-de-las-caras",
@@ -1684,6 +1799,123 @@
   },
   {
     "clave": "mat.p2.construir-con-cuerpos",
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Construir con cuerpos",
+          "narracion": "Bienvenida y bienvenido. Hoy construirás objetos con cuerpos geométricos. Como idea principal, elige cada pieza por lo que debe hacer. Las caras planas dan apoyo; las partes curvas permiten rodar; una punta puede ir arriba como remate."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Piezas para un puente",
+          "narracion": "Observemos esta situación. Hay dos columnas separadas y tres piezas disponibles: un bloque largo, una esfera y un cono. Queremos completar un puente. Pensemos qué pieza puede apoyarse sobre las dos columnas sin rodar.",
+          "recursoRef": "puente-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo uno: una casita",
+          "narracion": "Ana quiere armar una casita. Necesita una parte de abajo que permanezca quieta y sostenga el techo. Una caja tiene caras planas. ¿Cómo conviene apoyarla?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo uno: una base firme",
+          "narracion": "La caja se apoya sobre una cara plana y forma una base firme. Encima se coloca la pieza del techo, también sobre una cara plana. Así las piezas se sostienen y la casita queda estable.",
+          "recursoRef": "casita-solucion"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo dos: un carrito",
+          "narracion": "Luis quiere que su carrito ruede. El cuerpo puede ser una caja, pero las ruedas necesitan una parte curva. Pensemos qué cuerpo sirve para esas ruedas."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo dos: ruedas que giran",
+          "narracion": "Los cilindros tienen una parte curva que puede rodar. Al colocarlos debajo de la caja, funcionan como ruedas. Sus caras planas quedan a los lados y la parte curva toca el suelo.",
+          "recursoRef": "carrito-solucion"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Una base que rueda",
+          "narracion": "Un error frecuente es poner una esfera debajo de una torre. La esfera rueda y las piezas de arriba se inclinan. Otro error es apoyar un cono sobre la punta. Para una base, usa una cara plana y comprueba que la construcción quede quieta.",
+          "recursoRef": "base-error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: imagina la función",
+          "narracion": "Primero piensa qué vas a construir y qué debe hacer cada parte: sostener, cubrir, rodar o terminar en punta."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: elige las piezas",
+          "narracion": "Después busca caras planas para apoyar y sostener. En el puente, el bloque largo se apoya sobre las dos columnas sin rodar. Usa partes curvas solo cuando necesites movimiento, como en las ruedas.",
+          "recursoRef": "puente-pregunta"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: prueba la construcción",
+          "narracion": "Por último arma el objeto y suéltalo con cuidado. Si se inclina o rueda cuando no debe, cambia la base o la posición de una pieza.",
+          "recursoRef": "base-error"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "puente-pregunta",
+          "src": "/nudito/diagramas/matematica/construir-cuerpos-puente-pregunta.svg",
+          "alt": "Dos columnas separadas y, a un lado, tres piezas: un bloque largo, una esfera y un cono.",
+          "descripcion": "Sobre fondo crema hay dos columnas turquesas separadas, de pie sobre una línea. A la derecha aparecen un bloque amarillo largo, una esfera roja y un cono amarillo. Abajo se pregunta qué pieza va sobre las columnas."
+        },
+        {
+          "id": "casita-solucion",
+          "src": "/nudito/diagramas/matematica/construir-cuerpos-casita-solucion.svg",
+          "alt": "Una casita estable con una caja turquesa sobre el suelo y un techo amarillo apoyado encima.",
+          "descripcion": "Una caja turquesa descansa sobre una línea horizontal. Encima se apoya un techo amarillo triangular. La casa tiene una puerta clara. Abajo se lee que las caras planas se apoyan."
+        },
+        {
+          "id": "carrito-solucion",
+          "src": "/nudito/diagramas/matematica/construir-cuerpos-carrito-solucion.svg",
+          "alt": "Un carrito con cuerpo de caja y dos ruedas circulares que representan cilindros vistos de lado.",
+          "descripcion": "El carrito tiene una caja amarilla grande y una cabina turquesa. Debajo se ven dos ruedas índigo, con centros crema, que representan cilindros vistos de lado. Abajo se lee que la parte curva permite rodar."
+        },
+        {
+          "id": "base-error",
+          "src": "/nudito/diagramas/matematica/construir-cuerpos-base-error.svg",
+          "alt": "Una torre inclinada sobre una esfera y una torre derecha apoyada sobre un bloque rectangular.",
+          "descripcion": "A la izquierda, bajo el rótulo Se cae, dos cajas inclinadas descansan sobre una esfera roja. A la derecha, bajo Se sostiene, una caja y un cono están derechos sobre un bloque turquesa."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Quieres terminar una torre con una punta arriba. ¿Qué cuerpo conviene usar?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un cono"
+          },
+          {
+            "id": "b",
+            "texto": "Un cubo"
+          },
+          {
+            "id": "c",
+            "texto": "Una esfera"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. El cono termina en una punta, así que sirve para rematar la torre por arriba.",
+        "pista": "Piensa en cómo termina arriba un sombrero de cumpleaños."
+      }
+    },
     "area": "matematica",
     "nivel": "primaria",
     "grado": 2,

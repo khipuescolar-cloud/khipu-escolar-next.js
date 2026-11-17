@@ -364,7 +364,118 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "La coma separa listas y el punto seguido separa oraciones",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a usar comas en listas y el punto seguido. Como idea principal, en una lista se pone coma entre los elementos, y antes del último se usa «y» sin coma. El punto seguido separa una oración de otra dentro del mismo párrafo, y la siguiente empieza con mayúscula."
+        },
+        {
+          "id": "situacion-mochila",
+          "tipo": "recurso",
+          "titulo": "Una lista con comas",
+          "narracion": "Observemos esta oración: «En mi mochila hay cuadernos, lápices, colores y tijeras». Las comas y la «y» están resaltadas en rojo oscuro. Abajo hay dos reglas: la coma separa cada elemento, y antes del último va «y», sin coma.",
+          "recursoRef": "mochila"
+        },
+        {
+          "id": "ejemplo-chacra-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ¿dónde van las comas?",
+          "narracion": "Veamos: «En la chacra crecen papas habas ollucos y maíz». Es una lista de cuatro elementos: papas, habas, ollucos y maíz. Está escrita sin comas, y por eso cuesta leerla."
+        },
+        {
+          "id": "ejemplo-chacra-corrige",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: pon las comas",
+          "narracion": "Ponemos coma entre papas y habas, y entre habas y ollucos. Entre ollucos y maíz va «y», sin coma. Queda así, en la tarjeta verde: «En la chacra crecen papas, habas, ollucos y maíz».",
+          "recursoRef": "chacra"
+        },
+        {
+          "id": "ejemplo-terminal-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ideas que se juntan",
+          "narracion": "Ahora otro texto: «Llegamos al terminal compramos pasajes el bus salió a las ocho». Tiene tres ideas seguidas: llegamos al terminal, compramos pasajes y el bus salió a las ocho."
+        },
+        {
+          "id": "ejemplo-terminal-puntos",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: separa con punto seguido",
+          "narracion": "Cada idea completa es una oración. Ponemos punto seguido después de «terminal» y después de «pasajes», y empezamos cada oración con mayúscula: «Llegamos al terminal. Compramos pasajes. El bus salió a las ocho». Siguen en el mismo párrafo, por eso es punto seguido y no punto aparte.",
+          "recursoRef": "terminal"
+        },
+        {
+          "id": "error-frecuente",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: coma antes de «y»",
+          "narracion": "Un error común es poner coma antes de la «y» en una lista: «peras, uvas, y duraznos» está mal y se escribe «peras, uvas y duraznos». Otro error es olvidar las comas: «peras uvas y duraznos» queda sin separar. Un tercero es seguir escribiendo sin punto cuando una idea ya terminó."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: reconoce los elementos",
+          "narracion": "Primero reconoce los elementos de la lista. En la mochila son cuadernos, lápices, colores y tijeras.",
+          "recursoRef": "mochila"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: pon comas y usa «y»",
+          "narracion": "Después pon una coma entre ellos y usa «y» antes del último, sin coma, como en papas, habas, ollucos y maíz.",
+          "recursoRef": "chacra"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: usa punto seguido",
+          "narracion": "Por último, cuando una idea termina y sigues en el mismo párrafo, usa punto seguido y empieza con mayúscula, como en el texto del terminal.",
+          "recursoRef": "terminal"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "mochila",
+          "src": "/nudito/diagramas/comunicacion/comas-lista-mochila.svg",
+          "alt": "Oración con una lista separada por comas y dos reglas: coma entre elementos y «y» antes del último.",
+          "descripcion": "Un recuadro blanco con la oración: En mi mochila hay cuadernos, lápices, colores y tijeras. Las comas y la y están resaltadas en rojo oscuro. Debajo, dos tarjetas azules: la coma separa cada elemento; antes del último va y, sin coma."
+        },
+        {
+          "id": "chacra",
+          "src": "/nudito/diagramas/comunicacion/comas-chacra-corregir.svg",
+          "alt": "Antes: lista sin comas. Después: la misma lista con comas.",
+          "descripcion": "Arriba, una tarjeta roja con cruz dice Antes: En la chacra crecen papas habas ollucos y maíz. Una flecha baja a una tarjeta verde con palomita que dice Después: En la chacra crecen papas, habas, ollucos y maíz."
+        },
+        {
+          "id": "terminal",
+          "src": "/nudito/diagramas/comunicacion/comas-terminal-puntos.svg",
+          "alt": "Antes: tres ideas juntas. Después: tres oraciones con punto seguido y mayúscula.",
+          "descripcion": "Arriba, una tarjeta roja con cruz dice Antes: Llegamos al terminal compramos pasajes el bus salió a las ocho. Abajo, una tarjeta verde con palomita dice Después, en tres renglones: Llegamos al terminal. Compramos pasajes. El bus salió a las ocho."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee las oraciones sobre las compras de una tía. ¿Cuál está bien escrita?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Mi tía trajo mangos, uvas, y plátanos."
+          },
+          {
+            "id": "b",
+            "texto": "Mi tía trajo mangos, uvas y plátanos."
+          },
+          {
+            "id": "c",
+            "texto": "Mi tía trajo mangos uvas y plátanos."
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Los elementos se separan con comas, pero antes de la «y» no va coma: mangos, uvas y plátanos.",
+        "pista": "Mira si hay coma antes de la «y» y si faltan comas entre los primeros elementos."
+      }
+    }
   },
   {
     "clave": "com.p3.punto-aparte",

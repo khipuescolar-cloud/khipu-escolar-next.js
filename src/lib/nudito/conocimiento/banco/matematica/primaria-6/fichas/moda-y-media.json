@@ -602,6 +602,128 @@
         "retroalimentacion": "La media final es 10 semillas; dividir entre 4 omite al quinto grupo."
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "La media como reparto equitativo",
+          "narracion": "Bienvenida y bienvenido. Hoy comprenderemos la media aritmética como un reparto por igual. Como idea principal, juntamos todas las cantidades y distribuimos el mismo total entre la cantidad de datos. El valor que recibe cada grupo es la media."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Libros en tres cajas",
+          "narracion": "Observemos esta situación. Tres cajas tienen cuatro, seis y ocho libros. Queremos redistribuirlos para que las tres queden con la misma cantidad. La cantidad total debe conservarse durante el reparto.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: igualar las cajas",
+          "narracion": "Sumamos los libros de las tres cajas para conocer el total. Después pensamos cuánto recibiría cada caja si repartimos ese total entre tres. ¿Qué cantidad igual conserva todos los libros?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: seis en cada caja",
+          "narracion": "Cuatro más seis más ocho suman dieciocho libros. Al repartir dieciocho entre tres cajas, cada una queda con seis. La tarjeta muestra seis libros en cada caja y confirma que el total sigue siendo dieciocho.",
+          "recursoRef": "libros-resuelto"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: ventas de cuatro días",
+          "narracion": "Ahora una tienda vendió nueve vasos el primer día. Luego vendió once, trece y quince vasos. Las barras muestran esas cuatro cantidades. ¿Cuál sería la venta diaria si el total se repartiera por igual entre los cuatro días?",
+          "recursoRef": "ventas-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: media de doce vasos",
+          "narracion": "Las cuatro ventas suman cuarenta y ocho vasos. Dividimos ese total entre cuatro días y obtenemos doce vasos. Esa es la media diaria, aunque ningún día haya registrado exactamente esa cantidad.",
+          "recursoRef": "ventas-resuelto"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Elegir el dato que se repite",
+          "narracion": "En los datos cuatro, cuatro y diez, alguien eligió cuatro como media porque se repite. La equis marca el error: ese valor es la moda, el dato que más se repite. Para hallar la media usamos los tres datos; su total es dieciocho y el reparto igual da seis.",
+          "recursoRef": "error-moda"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: cuenta los datos",
+          "narracion": "Identifica cuántas cantidades participan. Ese número indica entre cuántos grupos se hará el reparto."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: suma el total",
+          "narracion": "Suma todas las cantidades sin omitir ninguna. Puedes agrupar valores que formen sumas cómodas para comprobar el total."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: reparte y comprueba",
+          "narracion": "Divide el total entre la cantidad de datos. Después multiplica la media por esa cantidad y verifica que recuperas el total inicial."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/media-reparto-situacion.svg",
+          "alt": "Tres cajas contienen cuatro, seis y ocho libros; se pregunta cuántos quedarían en cada una al repartir.",
+          "descripcion": "Tres cajas blancas muestran pilas de cuatro, seis y ocho libros amarillos. Debajo se rotula cada cantidad y arriba se pregunta cuántos quedarían en cada caja."
+        },
+        {
+          "id": "libros-resuelto",
+          "src": "/nudito/diagramas/matematica/media-reparto-libros-resuelto.svg",
+          "alt": "Tres cajas con seis libros cada una; el total dieciocho se divide entre tres y da seis.",
+          "descripcion": "La suma de cuatro, seis y ocho aparece como dieciocho. Tres cajas contienen seis libros cada una y debajo se muestra que dieciocho entre tres da seis libros."
+        },
+        {
+          "id": "ventas-pregunta",
+          "src": "/nudito/diagramas/matematica/media-reparto-ventas-pregunta.svg",
+          "alt": "Cuatro barras muestran ventas de nueve, once, trece y quince vasos; se pregunta por la media diaria.",
+          "descripcion": "Cuatro barras turquesa, una por día, alcanzan los valores nueve, once, trece y quince. El título pregunta cuál es la media diaria."
+        },
+        {
+          "id": "ventas-resuelto",
+          "src": "/nudito/diagramas/matematica/media-reparto-ventas-resuelto.svg",
+          "alt": "La suma de las cuatro ventas es cuarenta y ocho y al dividir entre cuatro se obtiene una media de doce vasos.",
+          "descripcion": "La tarjeta suma nueve, once, trece y quince para obtener cuarenta y ocho. Luego divide entre cuatro y resalta en un recuadro que la media es doce vasos."
+        },
+        {
+          "id": "error-moda",
+          "src": "/nudito/diagramas/matematica/media-reparto-error-moda.svg",
+          "alt": "Con los datos cuatro, cuatro y diez, la frase «La media es cuatro» está tachada; el reparto da seis.",
+          "descripcion": "Arriba aparecen cuatro, cuatro y diez. A la izquierda, «La media es cuatro» tiene una equis roja debajo. A la derecha, dieciocho entre tres da seis como reparto igual; abajo se recuerda que la media usa todos los datos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Cuatro grupos tienen seis, ocho, diez y doce semillas. Si juntan todo y lo reparten por igual, ¿cuántas semillas recibe cada grupo?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ocho para cada grupo"
+          },
+          {
+            "id": "b",
+            "texto": "Doce para cada grupo"
+          },
+          {
+            "id": "c",
+            "texto": "Nueve en cada grupo"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. El total es treinta y seis semillas y, al repartirlo entre cuatro grupos, cada uno recibe nueve.",
+        "pista": "Primero reúne todas las semillas y luego considera cuántos grupos recibirán el reparto."
+      }
+    },
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",

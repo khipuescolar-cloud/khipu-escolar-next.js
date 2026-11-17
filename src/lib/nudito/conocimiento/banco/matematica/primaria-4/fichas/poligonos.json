@@ -908,7 +908,130 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Nombres de los polígonos",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a nombrar polígonos por su número de lados. Como idea principal, un polígono es una figura cerrada de lados rectos. Con tres lados es un triángulo. Con cuatro, un cuadrilátero. Con cinco, un pentágono. Y con seis, un hexágono."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Figuras de un mural",
+          "narracion": "Observemos esta situación. Un mural tiene cuatro figuras cerradas de lados rectos, cada una de un color. Todas tienen un número distinto de lados. Queremos saber cómo se llama cada una.",
+          "recursoRef": "figuras-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: un cartel",
+          "narracion": "Un cartel tiene forma de casita. Sus lados son rectos y la figura está cerrada. ¿Cuántos lados tiene? Recórrelos con el dedo, uno por uno, sin saltarte ninguno."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: casita con números",
+          "narracion": "Mira el cartel. Cada lado tiene un círculo con su número, del uno al cinco. El último número es cinco, así que tiene cinco lados. Una figura cerrada de cinco lados es un pentágono. Penta quiere decir cinco.",
+          "recursoRef": "casita-lados"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un patio",
+          "narracion": "Un patio tiene forma de ele. Tiene esquinas que salen y esquinas que entran, pero todos sus lados son rectos. ¿Cuántos lados tiene? Cuéntalos con cuidado: los lados de las esquinas que entran también cuentan."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el patio contado",
+          "narracion": "Mira el patio. Cada lado tiene su círculo, del uno al seis. Tiene seis lados, aunque tenga forma de ele. Una figura cerrada de seis lados es un hexágono. Hexa quiere decir seis. No hace falta que todos los lados sean iguales.",
+          "recursoRef": "patio-lados"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Mira estas tres figuras. Las tres tienen cuatro lados, así que las tres son cuadriláteros, aunque solo una sea cuadrada. No todo cuadrilátero es un cuadrado. Otro error es confundir pentágono con hexágono. Penta quiere decir cinco y hexa quiere decir seis.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cuenta los lados",
+          "narracion": "Cuenta los lados con el dedo, uno por uno, como en la casita. No te saltes ninguno ni cuentes dos veces el mismo.",
+          "recursoRef": "casita-lados"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca el nombre",
+          "narracion": "Busca el nombre que corresponde a ese número. Esta lista te ayuda: tres lados, triángulo; cuatro lados, cuadrilátero; cinco lados, pentágono; seis lados, hexágono.",
+          "recursoRef": "nombres"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: comprueba que sea cerrada",
+          "narracion": "Revisa que la figura esté cerrada: sus lados deben juntarse en las esquinas, sin huecos. Si hay un hueco, no es un polígono."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "figuras-pregunta",
+          "src": "/nudito/diagramas/matematica/clasificar-poligonos-lados-figuras-pregunta.svg",
+          "alt": "Cuatro figuras cerradas de lados rectos, en fila y de colores distintos, sin rótulos; debajo se lee: ¿Cómo se llama cada una?",
+          "descripcion": "Cuatro figuras cerradas de lados rectos, en fila: una celeste, una amarilla, una lila y una rosada, sin ningún rótulo. Debajo se lee: ¿Cómo se llama cada una?"
+        },
+        {
+          "id": "casita-lados",
+          "src": "/nudito/diagramas/matematica/clasificar-poligonos-lados-casita-lados.svg",
+          "alt": "Un cartel con forma de casita, de lados rectos, con un círculo turquesa numerado sobre cada lado: uno, dos, tres, cuatro y cinco.",
+          "descripcion": "Un cartel amarillo con forma de casita, de lados rectos. Sobre cada lado hay un círculo turquesa con un número: uno en el techo de la derecha, dos en la pared derecha, tres abajo, cuatro en la pared izquierda y cinco en el techo de la izquierda."
+        },
+        {
+          "id": "patio-lados",
+          "src": "/nudito/diagramas/matematica/clasificar-poligonos-lados-patio-lados.svg",
+          "alt": "Un patio con forma de ele, de lados rectos, con un círculo turquesa numerado sobre cada lado: del uno al seis.",
+          "descripcion": "Un patio celeste con forma de ele, de lados rectos. Sobre cada lado hay un círculo turquesa con un número, del uno al seis, en orden alrededor de la figura."
+        },
+        {
+          "id": "nombres",
+          "src": "/nudito/diagramas/matematica/clasificar-poligonos-lados-nombres.svg",
+          "alt": "Cuatro filas, cada una con una figura y su nombre: tres lados, triángulo; cuatro lados, cuadrilátero; cinco lados, pentágono; seis lados, hexágono.",
+          "descripcion": "Cuatro filas. Cada una tiene una figura a la izquierda y un rótulo a la derecha: tres lados, triángulo; cuatro lados, cuadrilátero; cinco lados, pentágono; seis lados, hexágono."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/clasificar-poligonos-lados-errores.svg",
+          "alt": "Tres figuras de cuatro lados: un cuadrado, un rectángulo y una figura irregular, cada una con el rótulo cuatro lados; abajo dice que las tres son cuadriláteros.",
+          "descripcion": "Tres figuras de cuatro lados: un cuadrado amarillo, un rectángulo turquesa y una figura irregular rosada. Bajo cada una dice cuatro lados. Abajo dice las tres son cuadriláteros."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una figura cerrada tiene el doble de lados que un triángulo. ¿Cómo se llama?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Pentágono"
+          },
+          {
+            "id": "b",
+            "texto": "Hexágono"
+          },
+          {
+            "id": "c",
+            "texto": "Triángulo"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Un triángulo tiene tres lados y el doble es seis: la figura es un hexágono.",
+        "pista": "Piensa primero cuántos lados tiene un triángulo."
+      }
+    }
   },
   {
     "clave": "mat.p4.angulo-recto",
@@ -1205,7 +1328,132 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "El ángulo recto",
+          "narracion": "Bienvenida y bienvenido. Hoy vas a estudiar un ángulo muy especial. Como idea principal, un ángulo se forma cuando dos lados se unen en un punto llamado vértice. Se llama recto al ángulo de la esquina de una hoja o de una escuadra, y mide noventa grados. Para comprobarlo, apoyamos la esquina de una hoja o de una escuadra sobre el ángulo: si encaja justo, es recto."
+        },
+        {
+          "id": "situacion-angulos",
+          "tipo": "recurso",
+          "titulo": "Tres esquinas para comparar",
+          "narracion": "Observemos esta situación. Hay tres ángulos, señalados con las letras A, B y C. Cada uno tiene dos lados que salen de un mismo punto, el vértice, marcado con un círculo. Los tres se ven distintos: unos están más abiertos y otros más cerrados. A simple vista no basta para decidir cuál es recto.",
+          "recursoRef": "tres-angulos"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la esquina de una ventana",
+          "narracion": "En el aula hay una ventana rectangular. Queremos saber si su esquina de arriba, a la izquierda, es un ángulo recto. No basta con mirar, hay que comprobar. Para eso apoyamos la esquina de una hoja de cuaderno sobre esa esquina: vértice sobre vértice y un borde sobre un lado.",
+          "recursoRef": "ventana-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la hoja encaja justo",
+          "narracion": "La hoja encaja justo: sus dos bordes cubren los dos lados de la ventana y no sobra ni falta espacio. Entonces la esquina de la ventana es un ángulo recto. Se suele marcar con un cuadradito en el vértice.",
+          "recursoRef": "ventana-resuelto"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la esquina de un triángulo",
+          "narracion": "Ahora tenemos un triángulo de cartulina. Queremos saber si la esquina marcada con un círculo es recta. Hacemos lo mismo: ponemos la esquina de la hoja sobre ese vértice y un borde de la hoja sobre uno de los lados del triángulo.",
+          "recursoRef": "triangulo-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: queda un hueco",
+          "narracion": "El otro borde de la hoja no llega al lado del triángulo. Queda un hueco entre los dos. Eso significa que el ángulo es más abierto que un ángulo recto. Entonces esa esquina no es recta.",
+          "recursoRef": "triangulo-resuelto"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error frecuente es creer que cualquier esquina es un ángulo recto. Hay esquinas más cerradas, como la punta de un lápiz, y otras más abiertas, como un abanico muy abierto. Otro error es pensar que el tamaño de los lados cambia el ángulo. Un ángulo recto es igual de abierto con lados cortos o con lados largos. Siempre se comprueba con la escuadra."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: ubica el vértice y los dos lados",
+          "narracion": "Primero reconoce el ángulo: el punto donde se unen los dos lados es el vértice. Los dos lados salen de él. En la imagen de las tres esquinas, el vértice está marcado con un círculo.",
+          "recursoRef": "tres-angulos"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: apoya la hoja o la escuadra",
+          "narracion": "Pon la esquina de la hoja o de la escuadra sobre el vértice, y un borde sobre uno de los lados. Así lo hicimos con la ventana.",
+          "recursoRef": "ventana-resuelto"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: observa el otro borde",
+          "narracion": "Mira el otro borde. Si cubre justo el otro lado, el ángulo es recto. Si queda un hueco, como en el triángulo, el ángulo es más abierto. Si el borde se pasa del lado, el ángulo es más cerrado.",
+          "recursoRef": "triangulo-resuelto"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "tres-angulos",
+          "src": "/nudito/diagramas/matematica/angulo-recto-tres-angulos.svg",
+          "alt": "Tres ángulos rotulados A, B y C, cada uno con su vértice marcado con un círculo; algunos más abiertos y otros más cerrados.",
+          "descripcion": "En una fila hay tres ángulos hechos con dos líneas cada uno, con un círculo amarillo en el vértice. Debajo se leen las letras A, B y C. El primero está muy cerrado, el segundo está inclinado y el tercero está muy abierto."
+        },
+        {
+          "id": "ventana-pregunta",
+          "src": "/nudito/diagramas/matematica/angulo-recto-ventana-pregunta.svg",
+          "alt": "Una ventana rectangular con un círculo en su esquina superior izquierda. Se pregunta si esa esquina es recta.",
+          "descripcion": "Una ventana con cuatro paneles celestes. En la esquina de arriba a la izquierda hay un círculo amarillo. Arriba se pregunta si la esquina es recta y debajo dice ventana del aula."
+        },
+        {
+          "id": "ventana-resuelto",
+          "src": "/nudito/diagramas/matematica/angulo-recto-ventana-resuelto.svg",
+          "alt": "La esquina de una hoja se apoya sobre la esquina de la ventana y sus bordes cubren justo los dos lados: es un ángulo recto.",
+          "descripcion": "La misma ventana, con una hoja verde apoyada en la esquina de arriba a la izquierda. Sus bordes coinciden con los dos lados de la ventana y en el vértice hay un cuadradito rojo. Abajo se lee ángulo recto."
+        },
+        {
+          "id": "triangulo-pregunta",
+          "src": "/nudito/diagramas/matematica/angulo-recto-triangulo-pregunta.svg",
+          "alt": "Un triángulo de cartulina con un círculo en una de sus esquinas. Se pregunta si es recta.",
+          "descripcion": "Un triángulo celeste con un círculo amarillo en la esquina de abajo, donde la línea inclinada se une con la base. Arriba se pregunta si la esquina es recta."
+        },
+        {
+          "id": "triangulo-resuelto",
+          "src": "/nudito/diagramas/matematica/angulo-recto-triangulo-resuelto.svg",
+          "alt": "Una hoja apoyada en la esquina del triángulo deja un hueco entre su borde y el otro lado: el ángulo es más abierto que uno recto.",
+          "descripcion": "El mismo triángulo, con una hoja verde apoyada en el vértice y un borde sobre la base. Su otro borde sube vertical y queda separado del lado inclinado: ese espacio amarillo se llama hueco. Abajo dice más abierto que un recto."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Dibujas un ángulo con lados muy largos y otro con lados cortos. Con la escuadra, los dos encajan justo. ¿Cuáles son ángulos rectos?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Solo el de los lados largos"
+          },
+          {
+            "id": "b",
+            "texto": "Solo el de los lados cortos"
+          },
+          {
+            "id": "c",
+            "texto": "Los dos son ángulos rectos"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. El tamaño de los lados no cambia el ángulo: si encaja justo con la escuadra, los dos son rectos.",
+        "pista": "Recuerda para qué sirve la escuadra: ¿qué compara?"
+      }
+    }
   },
   {
     "clave": "mat.p4.paralelas-perpendiculares",
@@ -1847,6 +2095,128 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comparar con el ángulo recto",
+          "narracion": "Bienvenida y bienvenido. Hoy compararemos ángulos con el ángulo recto. Como idea principal, el ángulo recto es la esquina de una hoja. Si un ángulo se abre menos que esa esquina, es menor que el recto. Si se abre igual, es igual al recto. Si se abre más, es mayor que el recto. Lo que importa es la abertura, no el largo de los lados."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Tres ángulos y una hoja",
+          "narracion": "Observemos esta situación. Hay tres ángulos, numerados del uno al tres. Cada uno se abre de manera distinta. Abajo está la esquina de una hoja. Queremos saber cómo se compara cada ángulo con esa esquina.",
+          "recursoRef": "angulos-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la esquina sobre el ángulo",
+          "narracion": "Para comparar, ponemos la esquina de la hoja sobre cada ángulo. El vértice va sobre el vértice, y un lado sobre un lado. Luego miramos el otro lado. ¿Queda dentro de la esquina, encima o fuera?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dentro, encima o fuera",
+          "narracion": "Aquí la esquina está en amarillo sobre cada ángulo. En el primero, el otro lado queda dentro de la esquina: se abre menos, así que es menor que el recto. En el segundo, queda justo encima del borde: es igual al recto. En el tercero, queda fuera: se abre más, así que es mayor que el recto.",
+          "recursoRef": "esquina-encima"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un libro abierto",
+          "narracion": "Ahora tenemos un libro abierto sobre la mesa. Sus dos tapas forman un ángulo en el lomo. Pon la esquina de una hoja con un lado sobre una tapa. ¿La otra tapa queda dentro de la esquina o se sale?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la tapa que se sale",
+          "narracion": "En el dibujo, la esquina amarilla se apoya en una tapa. La otra tapa se sale de la esquina, así que el libro se abre más que un recto. El ángulo del libro es mayor que el recto.",
+          "recursoRef": "libro-abierto"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Un error muy común",
+          "narracion": "Fíjate en estos dos ángulos. El primero tiene lados largos, pero se abre poco. El segundo tiene lados cortos, pero se abre mucho. Un ángulo es mayor cuando se abre más, aunque sus lados sean cortos.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: toma la esquina de una hoja",
+          "narracion": "Toma la esquina de una hoja. Ese será tu ángulo recto para comparar."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: ponla sobre el ángulo",
+          "narracion": "Pon la esquina sobre el ángulo. El vértice va sobre el vértice y un lado sobre uno de los lados."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: mira el otro lado",
+          "narracion": "Mira dónde queda el otro lado. Si queda dentro de la esquina, el ángulo es menor. Si queda encima, es igual. Si queda fuera, es mayor. Esta tarjeta resume los pasos.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "angulos-pregunta",
+          "src": "/nudito/diagramas/matematica/comparar-recto-angulos-pregunta.svg",
+          "alt": "Tres ángulos numerados del uno al tres y, abajo, la esquina de una hoja.",
+          "descripcion": "Tres ángulos dibujados con dos lados y un arco pequeño, numerados uno, dos y tres, cada uno con una abertura distinta. Abajo, un papel con una esquina marcada y el texto: esquina de una hoja."
+        },
+        {
+          "id": "esquina-encima",
+          "src": "/nudito/diagramas/matematica/comparar-recto-esquina-encima.svg",
+          "alt": "Los tres ángulos con la esquina de la hoja en amarillo encima: el primero queda dentro, el segundo coincide y el tercero se sale.",
+          "descripcion": "Los tres ángulos, numerados, con un cuadrado amarillo que representa la esquina de la hoja apoyado en cada vértice. En el uno, el lado cabe dentro del cuadrado; en el dos coincide con su borde; en el tres sale fuera. Debajo se lee menor, igual y mayor."
+        },
+        {
+          "id": "libro-abierto",
+          "src": "/nudito/diagramas/matematica/comparar-recto-libro-abierto.svg",
+          "alt": "Un libro abierto con dos tapas turquesa y la esquina de una hoja en amarillo; una tapa se sale de la esquina.",
+          "descripcion": "Dos tapas turquesa unidas en el lomo forman una V muy abierta. Un cuadrado amarillo, la esquina de una hoja, se apoya en la tapa derecha y la tapa izquierda queda fuera. Un arco marca el ángulo. Abajo: la tapa se sale de la esquina. Se abre más."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/comparar-recto-errores.svg",
+          "alt": "Dos ángulos: uno de lados largos que se abre menos y otro de lados cortos que se abre más.",
+          "descripcion": "A la izquierda, un ángulo con lados largos y poca abertura, con el texto lados largos, se abre menos. A la derecha, un ángulo con lados cortos y mucha abertura, con el texto lados cortos, se abre más."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/comparar-recto-pasos.svg",
+          "alt": "Tarjeta con tres pasos: toma la esquina de una hoja, ponla sobre el ángulo y mira el otro lado.",
+          "descripcion": "Tres tarjetas numeradas. Uno, toma la esquina de una hoja: es tu ángulo recto. Dos, pon la esquina sobre el ángulo, vértice con vértice y un lado sobre otro. Tres, mira el otro lado: dentro, encima o fuera de la esquina."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Elena pone la esquina de una hoja sobre un ángulo, con el vértice y un lado juntos. El otro lado del ángulo queda fuera de la esquina. ¿Cómo es el ángulo?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Igual al ángulo recto"
+          },
+          {
+            "id": "b",
+            "texto": "Menor que el recto"
+          },
+          {
+            "id": "c",
+            "texto": "Mayor que el recto"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Muy bien. Si el otro lado se sale de la esquina, el ángulo se abre más y es mayor que el recto.",
+        "pista": "Piensa qué pasa con la abertura cuando un lado se sale de la esquina de la hoja."
+      }
+    }
   }
 ]

@@ -1499,7 +1499,126 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Tres estados, tres comportamientos",
+          "narracion": "Hola, hoy aprenderemos a reconocer los estados de la materia. Como idea principal, la materia puede ser sólida, líquida o gaseosa según cómo se comportan sus partículas. En el sólido están muy juntas y solo vibran en su lugar. En el líquido siguen juntas, pero se deslizan. En el gas están muy separadas y se mueven por todo el espacio disponible."
+        },
+        {
+          "id": "situacion-mesa",
+          "tipo": "recurso",
+          "titulo": "Piedras, jugo y un globo",
+          "narracion": "Observemos esta situación. Sobre una mesa hay dos piedras lisas de río, una jarra de jugo de naranja con un vaso vacío y un globo inflado. Para clasificar cada uno no basta mirar su aspecto: preguntaremos si conserva su forma y si ocupa siempre el mismo espacio.",
+          "recursoRef": "mesa"
+        },
+        {
+          "id": "modelo-particulas",
+          "tipo": "recurso",
+          "titulo": "Cómo imaginamos las partículas",
+          "narracion": "Este modelo muestra cómo imaginamos las partículas en cada estado. En el sólido están muy juntas y ordenadas. En el líquido también están juntas, pero desordenadas y pueden deslizarse. En el gas están muy separadas y se mueven en todas direcciones. Es un dibujo para pensar: las partículas reales no son puntos azules.",
+          "recursoRef": "particulas"
+        },
+        {
+          "id": "ejemplo-piedra-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una piedra del río Urubamba",
+          "narracion": "Fíjate en una de las piedras de la mesa. Si la pasas a un vaso o a una caja, conserva su forma y ocupa el mismo espacio. Tiene forma y volumen propios, así que es un sólido.",
+          "recursoRef": "mesa"
+        },
+        {
+          "id": "ejemplo-piedra-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: por qué conserva su forma",
+          "narracion": "En un sólido, las partículas están muy juntas y ordenadas, y solo vibran en su lugar sin cambiar de posición. Por eso la piedra mantiene su forma. Vibrar no es lo mismo que desplazarse.",
+          "recursoRef": "particulas"
+        },
+        {
+          "id": "ejemplo-jugo-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el jugo de naranja",
+          "narracion": "Ahora vierte el jugo de la jarra al vaso. Toma la forma del vaso, pero la cantidad de jugo sigue siendo la misma. Cambia de forma y conserva su volumen.",
+          "recursoRef": "jarra-vaso"
+        },
+        {
+          "id": "ejemplo-jugo-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: qué estado es y por qué",
+          "narracion": "Si algo toma la forma del recipiente y conserva su volumen, es un líquido. Sus partículas están juntas, pero pueden deslizarse unas sobre otras, y por eso el jugo fluye. Si fuera sólido, no se adaptaría a la forma del vaso.",
+          "recursoRef": "particulas"
+        },
+        {
+          "id": "error-gas",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: el gas tiene forma propia",
+          "narracion": "A veces se piensa que el aire del globo conserva una forma propia. En realidad, el globo toma su forma por el aire que contiene: el gas se expande y ocupa todo el recipiente que lo guarda. Si el globo se abre, el aire se esparce por la habitación. El gas no tiene forma ni volumen fijos.",
+          "recursoRef": "mesa"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: observa la forma",
+          "narracion": "Primero pregunta si el material conserva su forma cuando cambia de recipiente. Si la conserva, es un sólido; si toma la forma del recipiente, puede ser un líquido o un gas."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: observa el volumen",
+          "narracion": "Después pregunta si ocupa siempre el mismo espacio. El sólido y el líquido sí; el gas se expande hasta llenar todo el recipiente que lo contiene."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: imagina las partículas",
+          "narracion": "Por último imagina las partículas y confirma la decisión: ordenadas y juntas, sólido; juntas y deslizando, líquido; muy separadas, gas. Explica usando las dos pistas, forma y volumen.",
+          "recursoRef": "particulas"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "mesa",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/estados-mesa-objetos-zimage-v1.webp",
+          "alt": "Mesa de madera con dos piedras lisas, una jarra de jugo de naranja, un vaso vacío y un globo rojo inflado.",
+          "descripcion": "Sobre una mesa de madera hay dos piedras grises y lisas, una jarra transparente con jugo de naranja, un vaso vacío a su izquierda y, a la derecha, un globo rojo inflado atado a un hilo."
+        },
+        {
+          "id": "jarra-vaso",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/estados-jugo-jarra-vaso-svg-v1.svg",
+          "alt": "Jugo de naranja en una jarra alta y, a la derecha, el mismo jugo en un vaso más ancho.",
+          "descripcion": "A la izquierda hay una jarra con jugo de naranja. Una flecha lleva a un vaso más ancho que contiene jugo. El jugo toma la forma de cada recipiente."
+        },
+        {
+          "id": "particulas",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/estados-particulas-svg-v1.svg",
+          "alt": "Tres recipientes con partículas: ordenadas y juntas en el sólido, juntas y desordenadas en el líquido, y muy separadas en el gas.",
+          "descripcion": "El primer recipiente tiene un bloque de partículas en filas ordenadas. El segundo tiene partículas juntas en la parte baja, con superficie ondulada. El tercero tiene pocas partículas muy separadas por todo el espacio."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un frasco tapado contiene un material cuyas partículas están muy separadas y se mueven por todo el frasco. Al destaparlo en un salón, el material se esparce por el espacio. ¿Qué estado es?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Gas: no tiene forma ni volumen fijos y se expande."
+          },
+          {
+            "id": "b",
+            "texto": "Líquido: conserva su volumen aunque cambie de forma."
+          },
+          {
+            "id": "c",
+            "texto": "Sólido: mantiene su forma sin importar el recipiente."
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Es un gas. Sus partículas están muy separadas y se mueven en todas direcciones, por eso no tiene forma ni volumen fijos y ocupa todo el espacio disponible.",
+        "pista": "Compara qué estado tiene partículas muy separadas y puede llenar todo un salón."
+      }
+    }
   },
   {
     "clave": "cyt.p6.cohesion-repulsion",

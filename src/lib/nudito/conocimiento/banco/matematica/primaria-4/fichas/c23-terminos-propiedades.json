@@ -589,7 +589,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Cambiar el orden de los factores",
+          "narracion": "Bienvenida y bienvenido. Hoy estudiaremos la propiedad conmutativa de la multiplicación. Como idea principal, podemos poner los factores en otro orden y el producto permanece igual. Cambia la forma de organizar los grupos, pero no la cantidad total."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Filas y columnas",
+          "narracion": "Observemos esta situación. Un arreglo tiene tres filas de cuatro puntos. El otro tiene cuatro filas de tres puntos. Las filas y las columnas intercambiaron su lugar. Queremos saber si ambos arreglos contienen la misma cantidad.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: tres por cuatro",
+          "narracion": "En el primer arreglo hay tres filas y cuatro puntos en cada fila. En el segundo hay cuatro filas y tres puntos en cada fila. Calcula cada producto y compara los resultados."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: el mismo producto",
+          "narracion": "Tres por cuatro son doce. Cuatro por tres también son doce. La tarjeta muestra ambos arreglos y el mismo total. Los factores cambiaron de orden, pero el producto no cambió.",
+          "recursoRef": "tres-cuatro"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: semillas organizadas",
+          "narracion": "Mira la tarjeta. A la izquierda hay seis bolsas con dos semillas en cada una. A la derecha hay dos bandejas con seis semillas en cada una. Antes de calcular, decide si las dos organizaciones reúnen la misma cantidad.",
+          "recursoRef": "bolsas-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: seis por dos",
+          "narracion": "Seis por dos son doce y dos por seis también son doce. La tarjeta organiza los mismos doce puntos en seis filas de dos y en dos filas de seis. El total se conserva.",
+          "recursoRef": "seis-dos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cambiar también la operación",
+          "narracion": "La tarjeta compara cinco por tres con cinco más tres. Quince y ocho no son iguales. La propiedad solo permite intercambiar los factores de una multiplicación; no permite convertirla en una suma ni cambiar un factor.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: identifica los factores",
+          "narracion": "Reconoce cuántos grupos hay y cuántos elementos tiene cada grupo. Esos dos números son los factores."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: intercambia el orden",
+          "narracion": "Escribe primero los grupos por los elementos de cada grupo. Luego intercambia sus lugares, sin cambiar ninguno de los dos factores."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: comprueba el producto",
+          "narracion": "Calcula las dos multiplicaciones. Si solo intercambiaste los factores, ambas deben tener el mismo producto."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/conmutativa-situacion.svg",
+          "alt": "Dos arreglos: tres filas de cuatro puntos y cuatro filas de tres puntos.",
+          "descripcion": "Dos tarjetas blancas muestran puntos, cada una con su rótulo. La izquierda tiene tres filas de cuatro puntos turquesa; la derecha, cuatro filas de tres puntos amarillos. Arriba se pregunta si tienen la misma cantidad."
+        },
+        {
+          "id": "tres-cuatro",
+          "src": "/nudito/diagramas/matematica/conmutativa-tres-cuatro.svg",
+          "alt": "Arreglos de tres por cuatro y cuatro por tres, ambos con total doce.",
+          "descripcion": "A la izquierda hay tres filas de cuatro puntos y el rótulo tres por cuatro, doce. A la derecha hay cuatro filas de tres y el rótulo cuatro por tres, doce. Abajo se indica que el producto no cambia."
+        },
+        {
+          "id": "bolsas-pregunta",
+          "src": "/nudito/diagramas/matematica/conmutativa-bolsas-pregunta.svg",
+          "alt": "Seis bolsas con dos semillas cada una y dos bandejas con seis semillas cada una.",
+          "descripcion": "A la izquierda, rotuladas «Seis bolsas», hay seis bolsas pequeñas en dos filas de tres, con dos semillas amarillas cada una. A la derecha, rotuladas «Dos bandejas», hay dos bandejas con seis semillas turquesas cada una. Abajo se pregunta si hay igual cantidad."
+        },
+        {
+          "id": "seis-dos",
+          "src": "/nudito/diagramas/matematica/conmutativa-seis-dos.svg",
+          "alt": "Seis filas de dos puntos y dos filas de seis puntos, ambos con total doce.",
+          "descripcion": "Dos tarjetas muestran arreglos de doce puntos. La izquierda tiene seis filas de dos puntos turquesa; la derecha, dos filas de seis puntos amarillos. Debajo, los rótulos dicen que seis por dos y dos por seis dan doce, y abajo se lee que intercambiar factores conserva el producto."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/conmutativa-error.svg",
+          "alt": "Cinco por tres da quince; cinco más tres da ocho y se marca como otra operación.",
+          "descripcion": "Dos tarjetas comparan operaciones. La izquierda, con borde turquesa, dice cinco por tres y quince. La derecha, con borde rojo, dice cinco más tres y ocho. Debajo se rotulan «Mismos factores» y «Otra operación», y abajo se lee que solo se intercambian los factores."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una caja tiene siete filas de cuatro botones. ¿Qué multiplicación usa la propiedad conmutativa y conserva el total?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Siete más cuatro"
+          },
+          {
+            "id": "b",
+            "texto": "Cuatro por siete"
+          },
+          {
+            "id": "c",
+            "texto": "Cuatro por ocho"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Cuatro por siete intercambia los dos factores y conserva el mismo producto.",
+        "pista": "Conserva los dos factores y cambia únicamente el lugar que ocupa cada uno."
+      }
+    }
   },
   {
     "clave": "mat.p4.asociativa-multiplicacion",
@@ -885,7 +1007,124 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Propiedad asociativa",
+          "narracion": "Bienvenida y bienvenido. Hoy estudiaremos cómo agrupar los factores al multiplicar tres números. Como idea principal, podemos poner paréntesis a dos factores vecinos y multiplicarlos primero, y el producto final no cambia. Así elegimos el grupo que haga más fácil la cuenta."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Un almacén de lápices",
+          "narracion": "Observemos esta situación. En un almacén hay cuatro estantes. En cada estante hay cinco cajas, y cada caja amarilla tiene tres lápices, como indica el número tres dentro de ella. Queremos saber cuántos lápices hay en total. Son tres factores: cuatro, cinco y tres.",
+          "recursoRef": "almacen"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dos agrupaciones",
+          "narracion": "El total se calcula con cuatro por cinco por tres. Podemos agrupar de dos formas. En la primera, los paréntesis rodean cuatro por cinco. En la segunda, rodean cinco por tres. Lo que está dentro del paréntesis se multiplica primero. Los resultados aparecen con signos de pregunta.",
+          "recursoRef": "agrupar-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el mismo producto",
+          "narracion": "En la primera forma, cuatro por cinco son veinte, y veinte por tres son sesenta. En la segunda, cinco por tres son quince, y cuatro por quince son sesenta. Salió lo mismo: hay sesenta lápices. Cambió la agrupación, pero no cambió el producto.",
+          "recursoRef": "sesenta"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: elegir el grupo fácil",
+          "narracion": "Calculemos siete por veinticinco por cuatro. Si agrupo primero siete por veinticinco, obtengo ciento setenta y cinco, y luego debo multiplicar por cuatro. Es una cuenta pesada. Pero veinticinco por cuatro es muy fácil, porque da cien. Entonces conviene agrupar esos dos."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el camino fácil",
+          "narracion": "Agrupamos veinticinco por cuatro, que son cien. Luego siete por cien son setecientos. Si lo hacemos del otro modo, ciento setenta y cinco por cuatro también son setecientos. El resultado es el mismo, pero uno de los caminos es mucho más fácil.",
+          "recursoRef": "setecientos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es cambiar un factor al poner los paréntesis, por ejemplo calcular cuatro por cinco por tres como si fuera cuatro por cinco más tres. La propiedad cambia la agrupación, pero conserva los tres factores. Otro error es sumar el resultado del primer grupo con el último factor. Después de agrupar, se sigue multiplicando."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: identifica los factores",
+          "narracion": "Reconoce los tres números que se multiplican. En el ejemplo uno eran cuatro, cinco y tres. En el ejemplo dos eran siete, veinticinco y cuatro."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: agrupa y calcula primero",
+          "narracion": "Pon paréntesis a dos números vecinos y multiplícalos primero. Busca un grupo que dé un número fácil, como diez, veinte o cien. En el ejemplo dos conviene el grupo de veinticinco por cuatro.",
+          "recursoRef": "setecientos"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: multiplica y compara",
+          "narracion": "Multiplica el resultado del grupo por el factor que quedó. Puedes comprobar con la otra agrupación. En el ejemplo uno, las dos formas dieron sesenta.",
+          "recursoRef": "sesenta"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "almacen",
+          "src": "/nudito/diagramas/matematica/asociativa-multiplicacion-almacen.svg",
+          "alt": "Cuatro estantes con cinco cajas cada uno; cada caja muestra el número tres.",
+          "descripcion": "Hay cuatro filas de cinco cajas amarillas, que representan cuatro estantes. Cada caja tiene el número tres adentro, los lápices que contiene. Abajo se lee: cuatro estantes con cinco cajas cada uno, tres lápices en cada caja, y la pregunta de cuántos lápices hay."
+        },
+        {
+          "id": "agrupar-pregunta",
+          "src": "/nudito/diagramas/matematica/asociativa-multiplicacion-agrupar-pregunta.svg",
+          "alt": "Cuatro por cinco por tres agrupado de dos formas, con los resultados por hallar.",
+          "descripcion": "Hay dos expresiones. En la primera, el paréntesis rodea cuatro por cinco y luego se multiplica por tres. En la segunda, el paréntesis rodea cinco por tres y se multiplica por cuatro. Ambas terminan en igual a signo de pregunta."
+        },
+        {
+          "id": "sesenta",
+          "src": "/nudito/diagramas/matematica/asociativa-multiplicacion-sesenta.svg",
+          "alt": "Cuatro por cinco por tres calculado de dos formas; las dos dan sesenta.",
+          "descripcion": "Se ven dos cálculos. Con el paréntesis en cuatro por cinco se obtiene veinte por tres, igual a sesenta. Con el paréntesis en cinco por tres se obtiene cuatro por quince, igual a sesenta. Un recuadro amarillo dice mismo producto, sesenta."
+        },
+        {
+          "id": "setecientos",
+          "src": "/nudito/diagramas/matematica/asociativa-multiplicacion-setecientos.svg",
+          "alt": "Siete por veinticinco por cuatro calculado de dos modos: el difícil y el fácil, ambos dan setecientos.",
+          "descripcion": "Arriba, con el paréntesis en siete por veinticinco, se obtiene ciento setenta y cinco por cuatro, igual a setecientos: una cuenta pesada. En un recuadro turquesa, con el paréntesis en veinticinco por cuatro, se obtiene siete por cien, igual a setecientos, y se anota que veinticinco por cuatro es cien, una cuenta fácil. Abajo dice que el producto es setecientos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Calcula cinco por dos por quince, agrupando primero cinco por dos. ¿Cuánto da?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuarenta y cinco"
+          },
+          {
+            "id": "b",
+            "texto": "Ciento veinte"
+          },
+          {
+            "id": "c",
+            "texto": "Ciento cincuenta"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Cinco por dos son diez, y diez por quince son ciento cincuenta.",
+        "pista": "Multiplica primero cinco por dos y luego el resultado por quince."
+      }
+    }
   },
   {
     "clave": "mat.p4.relacion-multiplicacion-division",

@@ -978,7 +978,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Del prisma a la plantilla",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a reconocer el desarrollo plano de un prisma. Como idea principal, un prisma recto tiene dos bases iguales y una cara lateral rectangular por cada lado de la base. Si una plantilla tiene todas esas caras bien unidas, al doblarla se cierra el cuerpo."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una caja que se abrió",
+          "narracion": "Observemos esta situación. Una caja de pañuelos se desarmó y quedó plana sobre la mesa. En el dibujo hay seis rectángulos unidos. Cuatro forman una tira horizontal. Otro está arriba del primero de la tira y otro está debajo. Queremos saber qué cuerpo se arma al doblarla.",
+          "recursoRef": "caja-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: mira las caras",
+          "narracion": "Imagina que doblas la plantilla de la caja. Hay caras que quedan arriba y abajo, y caras que dan la vuelta alrededor. ¿Cuáles son las dos bases iguales? ¿Cuántos rectángulos forman las paredes?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: bases y laterales",
+          "narracion": "Las dos bases son los rectángulos de arriba y de abajo, y son iguales. En el dibujo están en verde claro. Los cuatro rectángulos de la tira, en amarillo claro, forman las paredes. La base tiene cuatro lados, y hay cuatro caras laterales. Entonces la plantilla sí forma un prisma de base rectangular.",
+          "recursoRef": "caja-bases-laterales"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un prisma distinto",
+          "narracion": "Ahora imaginemos otra plantilla. Tiene dos hexágonos iguales y cinco rectángulos en una fila. Cuenta los lados de un hexágono y compáralos con los rectángulos. ¿Se puede cerrar el prisma?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: falta una cara",
+          "narracion": "Un hexágono tiene seis lados, así que hacen falta seis rectángulos laterales. La plantilla solo tiene cinco. En el dibujo, el sexto rectángulo aparece con un borde rojo de rayas. Falta uno, y por eso la plantilla no cierra el prisma.",
+          "recursoRef": "hexagonos-falta-uno"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con las bases",
+          "narracion": "Veamos una plantilla con un triángulo y tres rectángulos. Parece completa, porque los rectángulos cubren los tres lados del triángulo. Pero al doblarla queda una tapa abierta. En el dibujo, el triángulo que falta abajo tiene un borde rojo de rayas. Falta la segunda base, igual a la primera.",
+          "recursoRef": "una-sola-base"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca las bases",
+          "narracion": "Busca las dos figuras iguales que serán las bases."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: mira los lados",
+          "narracion": "Cuenta los lados de una base. Esa cantidad es la de rectángulos laterales que hacen falta."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: compara y dobla",
+          "narracion": "Comprueba que haya un rectángulo por cada lado. Luego imagina que doblas por las aristas y unes las bases sin huecos. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "tres-pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "caja-pregunta",
+          "src": "/nudito/diagramas/matematica/desarrollo-prismas-caja-pregunta.svg",
+          "alt": "Plantilla plana con seis rectángulos unidos: una tira de cuatro y uno arriba y otro abajo del primero.",
+          "descripcion": "Seis rectángulos blancos unidos. Cuatro forman una tira horizontal: ancho, angosto, ancho y angosto. Sobre el primero hay un rectángulo y debajo otro, del mismo ancho. Abajo: ¿Qué cuerpo se arma al doblarla?"
+        },
+        {
+          "id": "caja-bases-laterales",
+          "src": "/nudito/diagramas/matematica/desarrollo-prismas-caja-bases-laterales.svg",
+          "alt": "La misma plantilla: dos bases en verde claro y cuatro caras laterales en amarillo claro.",
+          "descripcion": "Los rectángulos de arriba y de abajo, en verde claro, son las bases. Los cuatro de la tira, en amarillo claro, son las caras laterales. Abajo, la leyenda: Bases: dos. Laterales: cuatro."
+        },
+        {
+          "id": "hexagonos-falta-uno",
+          "src": "/nudito/diagramas/matematica/desarrollo-prismas-hexagonos-falta-uno.svg",
+          "alt": "Plantilla con dos hexágonos, cinco rectángulos y un sexto rectángulo que falta, con borde rojo de rayas.",
+          "descripcion": "Una fila de cinco rectángulos amarillo claro. Sobre el tercero hay un hexágono verde claro y debajo otro igual. A la derecha, un sexto rectángulo con borde rojo de rayas y un signo de pregunta. Abajo: Falta un rectángulo."
+        },
+        {
+          "id": "una-sola-base",
+          "src": "/nudito/diagramas/matematica/desarrollo-prismas-una-sola-base.svg",
+          "alt": "Plantilla con un triángulo arriba, tres rectángulos y un triángulo que falta abajo, con borde rojo de rayas.",
+          "descripcion": "Tres rectángulos amarillo claro en fila. Sobre el del medio hay un triángulo verde claro. Debajo del mismo rectángulo hay un triángulo con borde rojo de rayas y un signo de pregunta. Abajo: Falta la otra base."
+        },
+        {
+          "id": "tres-pasos",
+          "src": "/nudito/diagramas/matematica/desarrollo-prismas-tres-pasos.svg",
+          "alt": "Tarjeta con tres pasos para revisar una plantilla de prisma.",
+          "descripcion": "Tres tarjetas numeradas. Uno: busca las dos bases iguales. Dos: cuenta los lados de una base. Tres: pon un rectángulo por cada lado."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una plantilla de prisma tiene dos pentágonos iguales como bases. ¿Cuántos rectángulos laterales necesita?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuatro rectángulos"
+          },
+          {
+            "id": "b",
+            "texto": "Seis rectángulos"
+          },
+          {
+            "id": "c",
+            "texto": "Cinco rectángulos"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Un pentágono tiene cinco lados, y cada lado necesita un rectángulo lateral.",
+        "pista": "Cuenta los lados de un pentágono."
+      }
+    }
   },
   {
     "clave": "mat.p5.caras-aristas-segun-base",
@@ -1005,7 +1127,7 @@
       "mat.p5.elementos-prismas"
     ],
     "ordenSugerido": 88,
-    "ideaCentral": "Si la base de un prisma tiene n lados, hay n caras laterales, dos bases, 3n aristas y 2n vértices. Puedes comprender estos conteos observando los dos contornos de las bases y las uniones entre sus esquinas.",
+    "ideaCentral": "Si la base de un prisma tiene cierta cantidad de lados, hay esa misma cantidad de caras laterales, más dos bases. Las aristas son el triple de los lados de la base y los vértices, el doble. Puedes comprender estos conteos observando los dos contornos de las bases y las uniones entre sus esquinas.",
     "pasos": [
       "Cuenta los lados de una base.",
       "Añade dos a ese número para obtener todas las caras.",
@@ -1279,7 +1401,133 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Caras, aristas y vértices del prisma",
+          "narracion": "Bienvenida y bienvenido. Hoy contaremos las partes de un prisma recto. Como idea principal, todo depende de la base. Hay una cara de costado por cada lado de la base, y además dos bases. Las aristas se reparten en tres grupos iguales: las de una base, las de la otra y las que las unen. Los vértices son las esquinas de las dos bases."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "El prisma de ocho lados",
+          "narracion": "Observemos esta situación. Tenemos un prisma recto. Sus dos bases son octógonos, figuras de ocho lados. Las líneas punteadas son aristas que no se ven de frente. Queremos contar cuántas caras y cuántos vértices tiene.",
+          "recursoRef": "octogono-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: caras y vértices",
+          "narracion": "Piensa primero en las caras. Cada lado de la base da una cara de costado. ¿Cuántas caras de costado hay? ¿Y cuántas bases? Luego piensa en las esquinas: ¿cuántas tiene cada base?",
+          "recursoRef": "octogono-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el conteo del octógono",
+          "narracion": "Hay ocho caras de costado, una por cada lado de la base, y hay dos bases. En total son diez caras. Los vértices están marcados con puntos. Cada base tiene ocho esquinas, y hay dos bases: son dieciséis vértices. Los puntos huecos son esquinas que no se ven de frente.",
+          "recursoRef": "octogono-conteo"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: las aristas",
+          "narracion": "Ahora contamos aristas en otro prisma recto. Su base tiene siete lados. Las aristas son los bordes. Piensa en tres grupos: los bordes de arriba, los de abajo y los que unen la base de arriba con la de abajo. ¿Cuántos hay en cada grupo?",
+          "recursoRef": "heptagono-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: tres grupos de aristas",
+          "narracion": "Las aristas de arriba son siete, y están en turquesa. Las de abajo también son siete, y están en anaranjado. Las que unen las dos bases son siete, y están en azul oscuro. Son tres grupos iguales: siete más siete más siete dan veintiuna aristas.",
+          "recursoRef": "heptagono-aristas"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Mira dos veces el mismo prisma de base triangular. En el primero solo se marcó la base de arriba, y se dijo que tenía tres aristas. Es un error, porque faltan las de abajo y las que unen las dos bases. En el segundo se marcaron las esquinas de las dos bases: tres arriba y tres abajo, seis vértices. Hay que contar las dos bases.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cuenta los lados de la base",
+          "narracion": "Primero cuenta los lados de una base. Ese número lo usarás para todo lo demás. En el prisma de la imagen son ocho.",
+          "recursoRef": "octogono-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: caras y aristas",
+          "narracion": "Las caras son los lados de la base más las dos bases. Las aristas son tres grupos iguales: una base, la otra base y las uniones. Mira el prisma de siete lados, con sus tres grupos de colores.",
+          "recursoRef": "heptagono-aristas"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: cuenta los vértices",
+          "narracion": "Los vértices son las esquinas de las dos bases, así que se duplica el número de lados de la base. Mira los puntos del prisma de ocho lados: ocho arriba y ocho abajo.",
+          "recursoRef": "octogono-conteo"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "octogono-pregunta",
+          "src": "/nudito/diagramas/matematica/caras-aristas-segun-base-octogono-pregunta.svg",
+          "alt": "Un prisma recto de bases octogonales con la frase base de ocho lados.",
+          "descripcion": "Un prisma recto visto desde arriba. Su base de arriba es un octógono turquesa claro y sus caras de costado son amarillo claro. Las aristas que quedan ocultas se dibujan punteadas. Arriba se lee un prisma recto y debajo, base de ocho lados."
+        },
+        {
+          "id": "octogono-conteo",
+          "src": "/nudito/diagramas/matematica/caras-aristas-segun-base-octogono-conteo.svg",
+          "alt": "El prisma de base octogonal con un punto en cada vértice y las cuentas de caras y de vértices.",
+          "descripcion": "El mismo prisma con un punto en cada vértice: ocho en la base de arriba y ocho en la de abajo. Los puntos de las esquinas que se ven son turquesa y los de las esquinas ocultas, en la base de abajo, son huecos. Debajo se lee: ocho más dos igual a diez caras, y ocho más ocho igual a dieciséis vértices."
+        },
+        {
+          "id": "heptagono-pregunta",
+          "src": "/nudito/diagramas/matematica/caras-aristas-segun-base-heptagono-pregunta.svg",
+          "alt": "Un prisma recto de bases heptagonales con la frase base de siete lados.",
+          "descripcion": "Otro prisma recto, con la base de arriba de siete lados en turquesa claro y las caras de costado en amarillo claro. Las aristas ocultas se dibujan punteadas. Arriba se lee otro prisma recto y debajo, base de siete lados."
+        },
+        {
+          "id": "heptagono-aristas",
+          "src": "/nudito/diagramas/matematica/caras-aristas-segun-base-heptagono-aristas.svg",
+          "alt": "El prisma de base de siete lados con tres grupos de aristas de colores y la cuenta siete más siete más siete.",
+          "descripcion": "El mismo prisma con tres grupos de aristas de colores: las siete de la base de arriba en turquesa, las siete de la base de abajo en anaranjado y las siete verticales que unen las bases en azul oscuro. Debajo se leen arriba siete, abajo siete, unen siete y la cuenta siete más siete más siete igual veintiuna aristas."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/caras-aristas-segun-base-errores.svg",
+          "alt": "Dos prismas triangulares: en el primero solo se marca la base de arriba, con una equis; en el segundo se marcan seis esquinas, con una palomita.",
+          "descripcion": "Hay dos recuadros con un prisma de base triangular. En el de la izquierda, rojo, el triángulo de arriba está resaltado con un trazo rojo grueso; debajo se lee solo una base, con una equis y la palabra error. En el de la derecha, verde, hay un punto en cada una de las seis esquinas, tres arriba y tres abajo; debajo se lee las dos bases, con una palomita y la palabra bien."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un prisma recto tiene una base de diez lados. ¿Cuántas aristas tiene en total?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Veinte"
+          },
+          {
+            "id": "b",
+            "texto": "Treinta"
+          },
+          {
+            "id": "c",
+            "texto": "Veintidós"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Hay diez aristas arriba, diez abajo y diez que unen las bases, así que son treinta.",
+        "pista": "Piensa en las aristas de arriba, las de abajo y las que unen las dos bases."
+      }
+    }
   },
   {
     "clave": "mat.p5.capacidad-prismas",
@@ -1581,6 +1829,124 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Capacidad de prismas",
+          "narracion": "Bienvenida y bienvenido. Hoy calcularemos la capacidad de una caja con forma de prisma. Como idea principal, la capacidad es la cantidad de cubos unidad que caben dentro de la caja, sin dejar huecos. Se cuentan los cubos de una capa, multiplicando los cubos de largo por los de ancho, y luego se multiplica por el número de capas."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una caja y su cubo unidad",
+          "narracion": "Observemos esta situación. A la izquierda hay una caja con forma de prisma, vacía. A la derecha hay un cubo unidad, un cubo pequeño que usamos como medida. Queremos llenar la caja con estos cubos, sin dejar huecos. La pregunta es cuántos cubos unidad caben.",
+          "recursoRef": "caja-cubo"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una caja de lápices",
+          "narracion": "La caja de lápices tiene cinco cubos de largo, dos cubos de ancho y tres capas de altura. En la imagen ya está llena la capa de abajo. Las líneas punteadas amarillas marcan el espacio de las dos capas que faltan. Primero hay que averiguar cuántos cubos tiene una capa.",
+          "recursoRef": "lapices-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: capa por capa",
+          "narracion": "Una capa tiene cinco por dos, es decir, diez cubos. Como hay tres capas iguales, multiplicamos diez por tres. Son treinta. En la caja caben treinta cubos unidad. Cada capa tiene su propio color.",
+          "recursoRef": "treinta"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una caja de bloques",
+          "narracion": "Otra caja tiene ocho cubos en cada capa y cinco capas. Aquí no hace falta contar largo y ancho, porque ya nos dan los cubos de una capa. Pensamos en cinco capas iguales, apiladas, con ocho cubos cada una."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: las cinco capas",
+          "narracion": "Aquí se ven las cinco capas separadas, cada una con ocho cubos. Sumar ocho cinco veces es lo mismo que multiplicar ocho por cinco. Son cuarenta cubos unidad.",
+          "recursoRef": "cuarenta"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es contar solo los cubos que se ven por arriba. Debajo hay más capas con cubos. Otro error es sumar largo, ancho y capas, como cinco más dos más tres, que da diez. La capacidad no se suma: primero se multiplica largo por ancho, y luego se multiplica por las capas."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cuenta largo y ancho",
+          "narracion": "Mira la base de la caja de lápices. Cuenta cinco cubos de largo y dos cubos de ancho. También cuenta cuántas capas tendrá la caja de abajo hacia arriba, en este caso tres.",
+          "recursoRef": "lapices-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: halla los cubos de una capa",
+          "narracion": "Multiplica largo por ancho para saber cuántos cubos tiene una capa. En la imagen, cinco por dos son diez cubos en cada capa.",
+          "recursoRef": "treinta"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: multiplica por las capas",
+          "narracion": "Multiplica los cubos de una capa por el número de capas. Con ocho cubos y cinco capas, ocho por cinco son cuarenta. Responde siempre con la unidad, cubos unidad.",
+          "recursoRef": "cuarenta"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "caja-cubo",
+          "src": "/nudito/diagramas/matematica/capacidad-prismas-caja-cubo.svg",
+          "alt": "Una caja con forma de prisma, vacía, y a su lado un cubo unidad.",
+          "descripcion": "A la izquierda hay un prisma dibujado solo con líneas, que representa una caja vacía. A la derecha hay un cubo pequeño de color turquesa con el texto un cubo unidad. Abajo se pregunta cuántos cubos caben."
+        },
+        {
+          "id": "lapices-pregunta",
+          "src": "/nudito/diagramas/matematica/capacidad-prismas-lapices-pregunta.svg",
+          "alt": "Caja con la capa de abajo llena, cinco cubos de largo y dos de ancho, y las otras dos capas marcadas con líneas punteadas.",
+          "descripcion": "Se ve una caja con una capa de cubos turquesa en el fondo: cinco de largo y dos de ancho. Encima, un prisma punteado amarillo marca el espacio de las otras dos capas. Abajo dice cinco cubos de largo, dos de ancho, tres capas de altura, y pregunta cuántos cubos caben."
+        },
+        {
+          "id": "treinta",
+          "src": "/nudito/diagramas/matematica/capacidad-prismas-treinta.svg",
+          "alt": "Caja de cinco por dos cubos con tres capas de colores: diez cubos por capa y treinta en total.",
+          "descripcion": "Un prisma lleno de cubos con tres capas de colores: turquesa abajo, amarilla en el medio y azul arriba. Cada capa tiene cinco cubos de largo y dos de ancho. Abajo se lee: una capa, cinco por dos, diez cubos; tres capas, diez por tres, treinta; caben treinta cubos unidad."
+        },
+        {
+          "id": "cuarenta",
+          "src": "/nudito/diagramas/matematica/capacidad-prismas-cuarenta.svg",
+          "alt": "Cinco capas separadas, con ocho cubos cada una; ocho por cinco son cuarenta cubos unidad.",
+          "descripcion": "Hay cinco filas de ocho cubos, rotuladas capa uno a capa cinco, con colores que se alternan. Abajo se lee: ocho cubos por capa, cinco capas, ocho por cinco igual a cuarenta cubos unidad."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una caja tiene en su base tres filas de cinco cubos unidad, y dos capas. ¿Cuántos cubos unidad caben?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Treinta cubos unidad"
+          },
+          {
+            "id": "b",
+            "texto": "Quince cubos unidad"
+          },
+          {
+            "id": "c",
+            "texto": "Diez cubos unidad"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Una capa tiene tres por cinco, es decir, quince cubos. Dos capas son quince por dos, treinta cubos unidad.",
+        "pista": "Calcula primero los cubos de una capa y luego multiplica por las capas."
+      }
+    }
   }
 ]

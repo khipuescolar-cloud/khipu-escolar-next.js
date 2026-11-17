@@ -285,7 +285,130 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Organizar datos por categorías",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a ordenar respuestas. Como idea principal, cuando muchos niños responden lo mismo, juntamos las respuestas iguales. Cada grupo se llama categoría. Así es fácil contar cuántos eligieron cada cosa."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Globos de la fiesta",
+          "narracion": "Observemos esta situación. En una fiesta, ocho niños eligieron un globo cada uno. Hay globos azules, rojos y amarillos, todos mezclados en dos filas. Queremos saber cuántos hay de cada color.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: juntar por color",
+          "narracion": "Vamos a juntar los globos del mismo color. Mira la fila de arriba y la fila de abajo. ¿Cuántas categorías de color hay? Después cuenta cuántos globos hay en cada una.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: cada color en su grupo",
+          "narracion": "Hay tres categorías: azul, rojo y amarillo. Cada globo va a la columna de su color. Contamos los globos de cada columna. Azul tiene cuatro, rojo tiene tres y amarillo tiene uno.",
+          "recursoRef": "grupos"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: stickers favoritos",
+          "narracion": "Ahora seis niños eligieron un sticker. Hay estrellas, corazones y lunas. Junta los que son iguales. ¿Qué sticker eligieron más niños?",
+          "recursoRef": "stickers-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la categoría más grande",
+          "narracion": "Hay tres categorías: estrella, corazón y luna. La estrella tiene tres stickers, el corazón tiene dos y la luna tiene uno. La categoría con más es la estrella.",
+          "recursoRef": "stickers-grupos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con separar lo igual",
+          "narracion": "Mira este error. Dos niños pusieron sus globos azules en cestas distintas, y ahora parece que hay dos grupos de azul. Los globos azules son iguales, así que van todos juntos en una sola cesta.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee las respuestas",
+          "narracion": "Primero lee todas las respuestas. Piensa de qué son: colores, frutas, animales. Todavía no hace falta contar."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: elige las categorías",
+          "narracion": "Luego elige una categoría por cada respuesta distinta. Si hay azul, rojo y amarillo, son tres categorías. Los niños no son categorías; las categorías son las respuestas."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: junta y cuenta",
+          "narracion": "Por último, junta en cada categoría las respuestas iguales y cuenta cuántas hay en cada una. La categoría con más respuestas es la más elegida."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/datos-categorias-situacion.svg",
+          "alt": "Ocho globos azules, rojos y amarillos mezclados en dos filas.",
+          "descripcion": "Dos filas de cuatro globos. Arriba: azul, rojo, azul, amarillo. Abajo: rojo, azul, azul, rojo. Debajo se lee la pregunta: ¿Cuántos hay de cada color?"
+        },
+        {
+          "id": "grupos",
+          "src": "/nudito/diagramas/matematica/datos-categorias-grupos.svg",
+          "alt": "Los globos agrupados en tres columnas por color, con la cantidad de cada una.",
+          "descripcion": "Tres columnas de globos: azul con cuatro, rojo con tres y amarillo con uno. Debajo de cada columna se lee su color y su cantidad, en la parte baja."
+        },
+        {
+          "id": "stickers-pregunta",
+          "src": "/nudito/diagramas/matematica/datos-categorias-stickers-pregunta.svg",
+          "alt": "Una fila de seis stickers de tres tipos mezclados.",
+          "descripcion": "Una fila de seis stickers: estrella, corazón, estrella, luna, corazón, estrella. Abajo se lee: Seis niños eligieron uno. ¿Cuál eligieron más?"
+        },
+        {
+          "id": "stickers-grupos",
+          "src": "/nudito/diagramas/matematica/datos-categorias-stickers-grupos.svg",
+          "alt": "Los stickers juntos en tres columnas, con su nombre y su cantidad.",
+          "descripcion": "Tres columnas. La primera, sobre fondo turquesa claro, tiene tres estrellas. La segunda tiene dos corazones y la tercera, una luna. Cada una dice su nombre y su cantidad."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/datos-categorias-error.svg",
+          "alt": "Dos cestas con dos globos azules cada una, rotuladas las dos como azul.",
+          "descripcion": "Dos cestas una al lado de la otra. Cada una tiene dos globos azules y debajo la palabra Azul. Abajo, en rojo: Mismo color, dos grupos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Ana dibujó el clima de seis días: sol, nube, sol, lluvia, nube, sol. Juntó los dibujos iguales. ¿Cuántos dibujos tiene el grupo más grande?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tres dibujos"
+          },
+          {
+            "id": "b",
+            "texto": "Cuatro dibujos"
+          },
+          {
+            "id": "c",
+            "texto": "Dos dibujos"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. El sol aparece tres veces, la nube dos y la lluvia una. El grupo más grande es el del sol.",
+        "pista": "Junta primero los dibujos iguales y cuenta cada grupo."
+      }
+    }
   },
   {
     "clave": "mat.p1.preguntas-sencillas",

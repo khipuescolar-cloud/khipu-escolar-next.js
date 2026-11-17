@@ -727,7 +727,123 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "La sílaba más fuerte decide la tilde",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a decidir cuándo una palabra lleva tilde. Como idea principal, primero ubicas la sílaba que se pronuncia con más fuerza, llamada sílaba tónica. Según su lugar, la palabra es aguda si la tónica es la última, grave si es la penúltima y esdrújula si es la antepenúltima. Después aplicas la regla que corresponde a cada clase."
+        },
+        {
+          "id": "situacion-tonica",
+          "tipo": "recurso",
+          "titulo": "Dónde suena más fuerte",
+          "narracion": "Observemos tres palabras separadas en sílabas, con la sílaba más fuerte resaltada en amarillo. En papel, la más fuerte es la última: es una palabra aguda. En ventana, es la penúltima: es grave. En teléfono, es la antepenúltima: es esdrújula.",
+          "recursoRef": "tonica"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la palabra balcon sin tilde",
+          "narracion": "Escribimos «balcon» sin tilde y queremos decidir si la necesita. Se separa en dos sílabas, bal y con. Para decidir, respondemos tres preguntas: dónde suena más fuerte, si es aguda, grave o esdrújula, y con qué letra termina.",
+          "recursoRef": "pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: balcón lleva tilde",
+          "narracion": "La sílaba más fuerte es la última, con, así que la palabra es aguda. Termina en n. Las palabras agudas llevan tilde cuando terminan en n, en s o en vocal. Como «balcon» termina en n, se escribe balcón, con tilde sobre la o."
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: difícil y examen",
+          "narracion": "Ahora comparemos dos palabras sin tilde: «dificil» y «examen». Sepáralas en sílabas: di-fi-cil y e-xa-men. Pronúncialas y ubica la sílaba más fuerte de cada una. ¿Cuál necesita tilde y por qué? Fíjate también en la letra con que termina cada palabra."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: dos graves con resultados distintos",
+          "narracion": "En «dificil» la sílaba más fuerte es fi, la penúltima; en «examen» es xa, también la penúltima. Las dos son graves. Las graves llevan tilde cuando no terminan en n, en s ni en vocal. «Dificil» termina en l, así que lleva tilde: difícil. «Examen» termina en n, así que no la lleva. Las dos son graves, pero la terminación decide.",
+          "recursoRef": "regla"
+        },
+        {
+          "id": "ejemplo-2-esdrujula",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: las esdrújulas no esperan a la terminación",
+          "narracion": "Una palabra esdrújula no necesita revisar su terminación: siempre lleva tilde. Tomemos «murcielago», separada en mur-cié-la-go. La sílaba más fuerte es cié, la antepenúltima, así que es esdrújula y se escribe murciélago, con tilde."
+        },
+        {
+          "id": "error-tildar-todo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: tildar lo que suena fuerte",
+          "narracion": "Un error común es poner tilde porque la palabra suena fuerte, como escribir «mésa» con tilde. En mesa, la sílaba más fuerte es la penúltima y la palabra termina en vocal: es grave y no lleva tilde. Todas las palabras tienen una sílaba más fuerte, pero solo se tilda cuando la regla lo pide, según la clase y la terminación."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: sepárala y ubica la sílaba fuerte",
+          "narracion": "Separa la palabra en sílabas, pronúnciala despacio y ubica la que suena más fuerte, como pa-PEL, ven-TA-na o te-LE-fo-no.",
+          "recursoRef": "tonica"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: clasifícala",
+          "narracion": "Cuenta desde el final: si la sílaba fuerte es la última, la palabra es aguda; si es la penúltima, es grave; si es la antepenúltima, es esdrújula."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: aplica la regla",
+          "narracion": "La aguda lleva tilde si termina en n, s o vocal. La grave lleva tilde si no termina en n, s ni vocal. La esdrújula siempre lleva tilde. Así decidimos balcón, difícil y examen.",
+          "recursoRef": "regla"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "tonica",
+          "src": "/nudito/diagramas/comunicacion/tildes-posicion-tonica.svg",
+          "alt": "Palabras separadas en sílabas con la sílaba fuerte resaltada: aguda, grave y esdrújula.",
+          "descripcion": "Tres recuadros. Aguda, fuerte en la última: pa y PEL, resaltada. Grave, fuerte en la penúltima: ven, TA resaltada y na. Esdrújula, fuerte en la antepenúltima: te, LE resaltada, fo y no."
+        },
+        {
+          "id": "pregunta",
+          "src": "/nudito/diagramas/comunicacion/tildes-pregunta.svg",
+          "alt": "La palabra sin tilde bal-con y tres preguntas por responder.",
+          "descripcion": "Título: Palabra sin tilde. Dos casillas con las sílabas bal y con. Debajo, tres preguntas, cada una con un recuadro amarillo con un signo de interrogación: 1. ¿Dónde suena más fuerte? 2. ¿Aguda, grave o esdrújula? 3. ¿Con qué letra termina?"
+        },
+        {
+          "id": "regla",
+          "src": "/nudito/diagramas/comunicacion/tildes-regla-terminacion.svg",
+          "alt": "Reglas de tilde para agudas, graves y esdrújulas, con balcón, difícil y examen como ejemplos.",
+          "descripcion": "Tres recuadros: Aguda, tilde si termina en n, s o vocal. Grave, tilde si NO termina en n, s ni vocal. Esdrújula, siempre lleva tilde. Abajo, tres ejemplos: balcón, aguda en n, con tilde; difícil, grave en l, con tilde; examen, grave en n, sin tilde."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Estas palabras están escritas sin tilde: «pared», «pajaro» y «reloj». ¿Cuál debe llevar tilde?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "pared"
+          },
+          {
+            "id": "b",
+            "texto": "pajaro"
+          },
+          {
+            "id": "c",
+            "texto": "reloj"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "«Pajaro» se pronuncia pá-ja-ro: la sílaba más fuerte es la antepenúltima, así que es esdrújula y siempre lleva tilde: pájaro. «Pared» y «reloj» son agudas y terminan en d y en j, no en n, s ni vocal, por eso no se tildan.",
+        "pista": "Ubica la sílaba más fuerte de cada palabra, contando desde el final."
+      }
+    }
   },
   {
     "clave": "com.p5.punto-aparte-y-parrafos",
@@ -1082,7 +1198,123 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Una idea en cada párrafo",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a organizar un texto en párrafos. Como idea principal, cada párrafo desarrolla una sola idea y termina con un punto aparte: después de él, el texto sigue en una línea nueva que empieza con mayúscula. Así quien lee encuentra con facilidad dónde termina una idea y dónde empieza otra."
+        },
+        {
+          "id": "situacion-bloque",
+          "tipo": "recurso",
+          "titulo": "Un bloque frente a párrafos",
+          "narracion": "Observemos dos formas de presentar un texto. A la izquierda, todo está en un solo bloque, sin pausas, y cuesta seguirlo. A la derecha, el texto está dividido en tres párrafos separados por un espacio, y cada grupo de líneas es una idea.",
+          "recursoRef": "bloque"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el huerto y la biblioteca",
+          "narracion": "Leamos este texto: «En mi escuela hay un huerto. Sembramos lechugas y zanahorias. Cada tarde las regamos. También tenemos una biblioteca. Allí hay cuentos y enciclopedias. Los viernes leemos en voz alta». Está escrito todo seguido y queremos dividirlo en párrafos."
+        },
+        {
+          "id": "ejemplo-1-oraciones",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: buscamos dónde cambia la idea",
+          "narracion": "Aquí están las seis oraciones numeradas. Pregúntate de qué habla cada una y busca la oración en la que cambia el tema.",
+          "recursoRef": "oraciones"
+        },
+        {
+          "id": "ejemplo-1-corta",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ponemos el punto aparte",
+          "narracion": "Las oraciones 1, 2 y 3 hablan del huerto: dónde está, qué sembramos y cuándo regamos. La oración 4 presenta otro tema, la biblioteca, y las oraciones 5 y 6 lo desarrollan. Entonces ponemos punto aparte después de «Cada tarde las regamos.» y escribimos «También tenemos una biblioteca» en una línea nueva, con mayúscula. Quedan dos párrafos, uno por cada idea."
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el fin de semana",
+          "narracion": "Veamos otro texto: «El sábado fuimos al río con mis primos. Armamos una carpa y jugamos en la orilla. Al día siguiente, mi papá nos llevó al mercado. Compramos frutas y pan para el desayuno». ¿Cuántos párrafos conviene escribir y dónde va el punto aparte? Busca una pista que anuncie un cambio."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el cambio de momento",
+          "narracion": "La expresión «Al día siguiente» anuncia que pasamos a otro momento y a otras actividades. Por eso el primer párrafo cuenta el sábado en el río y termina con punto aparte después de «jugamos en la orilla.»; el segundo empieza en una línea nueva, con mayúscula, en «Al día siguiente». Las palabras que marcan un tiempo o un tema nuevo suelen indicar el comienzo de otro párrafo.",
+          "recursoRef": "separado"
+        },
+        {
+          "id": "error-cortar",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: cortar una idea por la mitad",
+          "narracion": "Un error común es poner punto aparte en cualquier lugar, por ejemplo después de cada oración o justo cuando una oración cambia de acción. «Cada tarde las regamos» habla de regar, pero sigue la idea del huerto, así que no empieza un párrafo nuevo. Pregúntate si el tema cambió; si no cambió, no pongas punto aparte."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee y encuentra las ideas",
+          "narracion": "Lee todo el texto y pregúntate cuántas ideas distintas tiene. Cada idea será un párrafo, como cada grupo de líneas del texto ordenado.",
+          "recursoRef": "bloque"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: agrupa las oraciones",
+          "narracion": "Junta las oraciones que hablan de lo mismo y busca palabras que marcan un cambio, como «al día siguiente» o «por otro lado». Cada grupo formará un solo párrafo."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: cierra con punto aparte",
+          "narracion": "Termina cada grupo con punto aparte, empieza el siguiente en una línea nueva y con mayúscula, y revisa que cada párrafo trate una sola idea, como los dos párrafos del fin de semana.",
+          "recursoRef": "separado"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "bloque",
+          "src": "/nudito/diagramas/comunicacion/parrafos-bloque-vs-parrafos.svg",
+          "alt": "Dos columnas: un solo bloque de líneas y otro texto dividido en tres párrafos.",
+          "descripcion": "A la izquierda, un solo bloque de líneas seguidas, con la nota «Todo junto: cuesta seguirlo». A la derecha, un texto dividido en tres grupos de líneas separados por espacios, con la nota «Una idea en cada párrafo»."
+        },
+        {
+          "id": "oraciones",
+          "src": "/nudito/diagramas/comunicacion/parrafos-pregunta.svg",
+          "alt": "Seis oraciones numeradas sobre un huerto y una biblioteca; hay que decidir dónde cambia la idea.",
+          "descripcion": "Título: ¿Dónde cambia la idea? Seis oraciones numeradas: 1. En mi escuela hay un huerto. 2. Sembramos lechugas y zanahorias. 3. Cada tarde las regamos. 4. También tenemos una biblioteca. 5. Allí hay cuentos y enciclopedias. 6. Los viernes leemos en voz alta."
+        },
+        {
+          "id": "separado",
+          "src": "/nudito/diagramas/comunicacion/parrafos-separado.svg",
+          "alt": "Texto del fin de semana dividido en dos párrafos con un punto aparte entre ellos.",
+          "descripcion": "Dos recuadros. El primero: «El sábado fuimos al río con mis primos. Armamos una carpa y jugamos en la orilla.» Entre ambos, una flecha con la nota «Punto aparte y línea nueva». El segundo: «Al día siguiente, mi papá nos llevó al mercado. Compramos frutas y pan para el desayuno.» Abajo: Cambia el momento, «Al día siguiente»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee: «Mi tía Julia vende artesanías en Ayacucho. Talla figuras en piedra de Huamanga y las pule con paciencia. Los sábados, mi primo Beto toca el charango en la plaza. Reúne a muchos turistas con sus canciones». ¿Dónde conviene poner el punto aparte?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Después de «las pule con paciencia.»"
+          },
+          {
+            "id": "b",
+            "texto": "Después de «vende artesanías en Ayacucho.»"
+          },
+          {
+            "id": "c",
+            "texto": "Después de «toca el charango en la plaza.»"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Las dos primeras oraciones hablan de la tía Julia y las dos últimas, del primo Beto. El tema cambia después de «las pule con paciencia.», así que ahí termina el primer párrafo.",
+        "pista": "Fíjate de quién habla cada oración y busca dónde cambia la persona."
+      }
+    }
   },
   {
     "clave": "com.p5.tilde-sobresdrujulas",

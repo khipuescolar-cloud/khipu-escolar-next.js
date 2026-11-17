@@ -1281,6 +1281,122 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Tablas de doble entrada",
+          "narracion": "Bienvenida y bienvenido. Una tabla de doble entrada organiza dos características a la vez. Las filas muestran una característica y las columnas otra. Para leer un dato, sigue la fila y la columna hasta la casilla donde se cruzan. Suma casillas solo cuando se pida un total."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Cómo llegan al colegio",
+          "narracion": "Observemos esta situación. La tabla organiza los grados por filas y las formas de llegar por columnas. Queremos saber cuántos estudiantes de quinto B llegan en bus.",
+          "recursoRef": "movilidad-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: busca la casilla",
+          "narracion": "Sigue la fila de quinto B de izquierda a derecha. Luego baja por la columna Bus. ¿Qué cantidad aparece en el lugar donde se cruzan?",
+          "recursoRef": "movilidad-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: cruza fila y columna",
+          "narracion": "La franja azul marca la fila de quinto B y la franja amarilla marca la columna Bus. Se cruzan en la casilla con seis. Entonces, seis estudiantes de quinto B llegan en bus.",
+          "recursoRef": "movilidad-resuelta"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: total de una columna",
+          "narracion": "Ahora la tabla muestra libros de Arte y Ciencia elegidos por dos grados. La columna Ciencia contiene cinco para quinto A y siete para quinto B. ¿Cuántos libros de Ciencia hay en total?",
+          "recursoRef": "libros-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: suma solo lo pedido",
+          "narracion": "Como se pide el total de Ciencia, sumamos solo las dos casillas de esa columna. Cinco más siete son doce. No incluimos los libros de Arte."
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "No saltes a otra fila",
+          "narracion": "Aquí se pide el dato de quinto B en Teatro. Rodear el tres de quinto A es un error, aunque está en la columna correcta. Hay que seguir la fila indicada hasta el dos.",
+          "recursoRef": "error-fila"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: identifica las dos categorías",
+          "narracion": "Primero, decide qué categoría corresponde a la fila y cuál corresponde a la columna."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: encuentra el cruce",
+          "narracion": "Después, recorre la fila y la columna hasta la casilla donde ambas se encuentran."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: responde lo que se pide",
+          "narracion": "Si se pide una casilla, lee solo ese dato. Si se pide un total, suma únicamente las casillas de la fila o columna indicada."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "movilidad-pregunta",
+          "src": "/nudito/diagramas/matematica/doble-entrada-cinco-movilidad-pregunta.svg",
+          "alt": "Tabla de movilidad por grado, con la casilla de Quinto B y Bus resaltada y vacía, marcada con un signo de pregunta.",
+          "descripcion": "La tabla tiene filas Quinto A y Quinto B, y columnas A pie y Bus. Quinto A muestra siete y cuatro; Quinto B muestra cinco y un espacio con un signo de pregunta dentro. Esa casilla, la de Quinto B con Bus, está sombreada en amarillo."
+        },
+        {
+          "id": "movilidad-resuelta",
+          "src": "/nudito/diagramas/matematica/doble-entrada-cinco-movilidad-resuelta.svg",
+          "alt": "Fila Quinto B y columna Bus resaltadas; su cruce contiene seis.",
+          "descripcion": "La misma tabla muestra la fila Quinto B con una franja azul y la columna Bus con una franja amarilla. Ambas franjas se cruzan en la casilla amarilla con el número seis, rodeada en turquesa."
+        },
+        {
+          "id": "libros-pregunta",
+          "src": "/nudito/diagramas/matematica/doble-entrada-cinco-libros-pregunta.svg",
+          "alt": "Tabla de libros por grado con la columna Ciencia sombreada y un signo de pregunta.",
+          "descripcion": "La tabla tiene filas Quinto A y Quinto B, y columnas Arte y Ciencia. Quinto A muestra ocho y cinco; Quinto B muestra seis y siete. Toda la columna Ciencia está sombreada en amarillo y debajo de esa columna aparece un signo de pregunta."
+        },
+        {
+          "id": "error-fila",
+          "src": "/nudito/diagramas/matematica/doble-entrada-cinco-error-fila.svg",
+          "alt": "Tabla donde el tres de Quinto A está rodeado en rojo y una flecha lleva al dos de Quinto B.",
+          "descripcion": "Una tabla tiene las filas Quinto A y Quinto B y la columna Teatro. El tres de Quinto A está rodeado en rojo, todavía legible. Una flecha turquesa señala el dos de Quinto B. Abajo se lee «Sigue la fila indicada»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una tabla tiene dos filas. En la columna Música aparecen ocho estudiantes del grupo Sol y siete del grupo Luna. ¿Cuántos eligieron Música en total?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Dieciséis estudiantes"
+          },
+          {
+            "id": "b",
+            "texto": "Catorce estudiantes"
+          },
+          {
+            "id": "c",
+            "texto": "Quince estudiantes"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. La columna Música reúne ocho estudiantes del grupo Sol y siete del grupo Luna: en total, quince.",
+        "pista": "Suma solo las dos casillas que pertenecen a la columna Música."
+      }
+    }
   }
 ]

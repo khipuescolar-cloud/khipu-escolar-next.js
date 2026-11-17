@@ -1539,7 +1539,124 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Ecuaciones: deshacer en orden inverso",
+          "narracion": "Hola. Hoy resolverás ecuaciones que combinan varias operaciones. Como idea principal, una ecuación es como una balanza en equilibrio: para hallar la incógnita deshaces las operaciones en orden inverso, y siempre haces lo mismo en los dos lados. Al final sustituyes el valor para comprobar que la igualdad se cumple."
+        },
+        {
+          "id": "situacion-balanza",
+          "tipo": "recurso",
+          "titulo": "Una balanza en equilibrio",
+          "narracion": "Observemos esta situación. Una balanza está equilibrada. A la izquierda hay cuatro cajas iguales, con equis lápices cada una, y seis lápices sueltos; a la derecha hay treinta lápices. Se escribe cuatro equis más seis igual a treinta. Si quitamos lo mismo de ambos lados, la balanza sigue en equilibrio.",
+          "recursoRef": "balanza-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: cuatro cajas y seis lápices",
+          "narracion": "Cuatro cajas iguales y seis lápices sueltos suman treinta lápices. ¿Cuántos lápices tiene cada caja? Primero quitamos los seis lápices sueltos de los dos lados: treinta menos seis son veinticuatro. Queda cuatro equis igual a veinticuatro."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: repartimos entre las cajas",
+          "narracion": "Ahora repartimos los veinticuatro lápices entre las cuatro cajas: veinticuatro entre cuatro son seis. Cada caja tiene seis lápices. Comprobamos: cuatro por seis son veinticuatro, y con los seis sueltos dan treinta.",
+          "recursoRef": "balanza"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el dinero de la feria",
+          "narracion": "Un grupo reparte en partes iguales entre tres hermanos el dinero de una feria. Cada uno gasta dos soles y le quedan seis. Si la letra n es el dinero repartido, n entre tres menos dos es igual a seis. Deshacemos en orden inverso: lo último que se hizo fue restar dos, así que primero sumamos dos. Seis más dos son ocho."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: deshacemos la división",
+          "narracion": "Ahora deshacemos la división: se había dividido entre tres, así que multiplicamos por tres. Ocho por tres son veinticuatro. Se repartieron veinticuatro soles. Comprobamos: veinticuatro entre tres son ocho, y ocho menos dos son seis.",
+          "recursoRef": "inversas"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error: cambiar un solo lado",
+          "narracion": "Un error frecuente es cambiar solo un lado de la ecuación, por ejemplo, restar seis únicamente a la izquierda en cuatro equis más seis igual a treinta. La balanza se desequilibra. Otro error es dividir primero: en esa ecuación no se divide treinta entre cuatro, porque el seis también forma parte de la izquierda. Primero se quita lo que suma o resta y después se divide."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: observa qué rodea a la incógnita",
+          "narracion": "Mira qué operaciones se aplicaron a la incógnita y en qué orden. En la expresión n entre tres menos dos, primero se dividió entre tres y después se restó dos.",
+          "recursoRef": "inversas"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: deshaz en orden inverso",
+          "narracion": "Deshaz las operaciones desde la última hasta la primera, y cada cambio hazlo en los dos lados. Lo último fue restar dos, así que sumas dos; lo primero fue dividir entre tres, así que multiplicas por tres. Seis más dos son ocho, y ocho por tres son veinticuatro.",
+          "recursoRef": "inversas"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: sustituye y comprueba",
+          "narracion": "Reemplaza la incógnita por el valor que hallaste en la ecuación original. Con equis igual a seis, cuatro por seis más seis es treinta; con la letra n igual a veinticuatro, veinticuatro entre tres menos dos es seis. Si la igualdad se cumple, la solución es correcta.",
+          "recursoRef": "comprobar"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "balanza",
+          "src": "/nudito/diagramas/matematica/ecuaciones-balanza-cajas.svg",
+          "alt": "Balanza equilibrada: cuatro cajas con equis y seis lápices contra treinta lápices.",
+          "descripcion": "Una balanza está en equilibrio. A la izquierda hay seis puntos turquesa, los lápices sueltos, y cuatro cajas amarillas marcadas con equis; debajo se lee cuatro equis más seis. A la derecha hay un bloque con el treinta. Abajo se lee: quitamos seis a cada lado, cuatro equis igual a veinticuatro; dividimos entre cuatro, equis igual a seis."
+        },
+        {
+          "id": "inversas",
+          "src": "/nudito/diagramas/matematica/ecuaciones-operaciones-inversas.svg",
+          "alt": "Cadena n, n entre tres, seis y su recorrido inverso: veinticuatro, ocho, seis.",
+          "descripcion": "Arriba hay tres cuadros unidos por flechas hacia la derecha: n, n entre tres y seis, con las operaciones dividir entre tres y restar dos. Abajo hay otros tres cuadros con flechas hacia la izquierda: veinticuatro, ocho y seis, con las operaciones multiplicar por tres y sumar dos. Al final se lee n igual a veinticuatro."
+        },
+        {
+          "id": "comprobar",
+          "src": "/nudito/diagramas/matematica/ecuaciones-comprobacion.svg",
+          "alt": "Dos comprobaciones por sustitución: con equis igual a seis y con n igual a veinticuatro.",
+          "descripcion": "Hay dos tarjetas, cada una con una marca de verificación verde. La primera dice cuatro equis más seis igual a treinta con equis igual a seis, y debajo cuatro por seis más seis igual a veinticuatro más seis, igual a treinta. La segunda dice n entre tres menos dos igual a seis con n igual a veinticuatro, y debajo veinticuatro entre tres menos dos igual a ocho menos dos, igual a seis."
+        },
+        {
+          "id": "balanza-pregunta",
+          "src": "/nudito/diagramas/matematica/ecuaciones-balanza-pregunta.svg",
+          "alt": "Balanza equilibrada: cuatro cajas con equis y seis lápices contra treinta lápices.",
+          "descripcion": "Una balanza está en equilibrio. A la izquierda hay seis puntos turquesa, los lápices sueltos, y cuatro cajas amarillas marcadas con equis; debajo se lee cuatro equis más seis. A la derecha hay un bloque con el treinta. Abajo se lee la pregunta: cuánto vale equis."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En un puesto del mercado se cumple cinco equis menos cuatro igual a veintiuno. ¿Cuál es el valor de equis?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Diecisiete"
+          },
+          {
+            "id": "b",
+            "texto": "Veinticinco"
+          },
+          {
+            "id": "c",
+            "texto": "Cinco"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Sumamos cuatro a los dos lados: veintiuno más cuatro son veinticinco. Luego dividimos entre cinco y obtenemos cinco. Comprobamos: cinco por cinco menos cuatro son veintiuno.",
+        "pista": "Primero deshaz la resta de cuatro en los dos lados y después deshaz la multiplicación."
+      }
+    }
   },
   {
     "clave": "mat.p6.comprobar-solucion-ecuacion",
@@ -1851,6 +1968,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Probar una respuesta",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a comprobar si un valor es solución de una ecuación. Como idea principal, reemplaza la letra por ese valor y calcula los dos lados. Si dan lo mismo, el valor sirve. También revisa que tenga sentido en la situación."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "La compra de Ana",
+          "narracion": "Observemos esta situación. Ana compró cuadernos de cinco soles cada uno y pagó cuatro soles más por una bolsa. En total pagó veinticuatro soles. La ecuación dice cinco veces la cantidad de cuadernos, más cuatro, es igual a veinticuatro. Ana propone que fueron cuatro cuadernos. ¿Sirve esa respuesta?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: probar cuatro",
+          "narracion": "Reemplaza la letra por cuatro en el lado izquierdo y calcula. ¿Cuánto da? ¿Coincide con el lado derecho?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: los dos lados",
+          "narracion": "Cinco por cuatro, más cuatro, da veinticuatro. El lado derecho también vale veinticuatro. Los dos lados dan lo mismo, así que cuatro sirve. En el dibujo, las dos tarjetas muestran el mismo valor.",
+          "recursoRef": "cuadernos"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: el reparto de panes",
+          "narracion": "Ahora se reparten panes entre cuatro mesas y cada mesa recibe seis. La ecuación dice la cantidad de panes dividida entre cuatro es igual a seis. Un cocinero propone veinte panes. Reemplaza y calcula: ¿sirve?",
+          "recursoRef": "panes-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: no coinciden",
+          "narracion": "Veinte dividido entre cuatro es cinco. El lado derecho vale seis. Como cinco no es igual a seis, veinte no sirve. En el dibujo, las tarjetas muestran valores distintos.",
+          "recursoRef": "panes"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cumple, pero no puede ser",
+          "narracion": "Lucía paga quince soles por entradas de seis soles cada una. La ecuación dice seis veces la cantidad de entradas es igual a quince. Alguien propone dos coma cinco entradas. Seis por dos coma cinco es quince, así que los dos lados coinciden. Pero no se pueden comprar dos entradas y media. Por eso también hay que revisar el sentido de la respuesta.",
+          "recursoRef": "sentido"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: reemplaza",
+          "narracion": "Escribe la ecuación otra vez, pero pon el valor propuesto en lugar de la letra."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: calcula cada lado",
+          "narracion": "Calcula el lado izquierdo y el lado derecho por separado. Respeta el orden de las operaciones."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: compara y piensa",
+          "narracion": "Compara los dos resultados. Si son iguales, la igualdad se cumple. Luego pregunta si la respuesta tiene sentido en la historia."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/verificar-ecuacion-situacion.svg",
+          "alt": "Tarjeta con la ecuación cinco veces la cantidad de cuadernos, más cuatro, igual veinticuatro, y la propuesta cuatro.",
+          "descripcion": "Título «La compra de Ana». Una tarjeta blanca con la ecuación cinco veces la cantidad de cuadernos, más cuatro, igual veinticuatro. Debajo se explica que la letra es la cantidad de cuadernos, un recuadro amarillo propone que vale cuatro y se pregunta si sirve esa respuesta."
+        },
+        {
+          "id": "panes-pregunta",
+          "src": "/nudito/diagramas/matematica/verificar-ecuacion-panes-pregunta.svg",
+          "alt": "Tarjeta con la ecuación la cantidad de panes dividida entre cuatro igual seis, y la propuesta veinte.",
+          "descripcion": "Título «El reparto de panes». Una tarjeta blanca con la ecuación la cantidad de panes dividida entre cuatro igual seis. Debajo se explica que la letra es la cantidad de panes, un recuadro amarillo propone que vale veinte y se pregunta si sirve esa respuesta."
+        },
+        {
+          "id": "cuadernos",
+          "src": "/nudito/diagramas/matematica/verificar-ecuacion-cuadernos.svg",
+          "alt": "Dos tarjetas con un signo igual: el lado izquierdo da veinticuatro y el lado derecho vale veinticuatro.",
+          "descripcion": "Arriba dice que se reemplaza la letra por cuatro. Dos tarjetas separadas por un signo igual. La izquierda, «Lado izquierdo», muestra cinco por cuatro más cuatro, igual veinticuatro. La derecha, «Lado derecho», muestra veinticuatro. Debajo, con una marca de verificación, dice que los dos lados valen veinticuatro."
+        },
+        {
+          "id": "panes",
+          "src": "/nudito/diagramas/matematica/verificar-ecuacion-panes.svg",
+          "alt": "Dos tarjetas con un signo distinto en rojo: el lado izquierdo da cinco y el lado derecho vale seis.",
+          "descripcion": "Arriba dice que se reemplaza la letra por veinte. Dos tarjetas separadas por un signo de distinto, en rojo. La izquierda, «Lado izquierdo», muestra veinte dividido entre cuatro, igual cinco. La derecha, «Lado derecho», muestra seis. Debajo, con una cruz roja, dice que cinco no es igual a seis y que no sirve."
+        },
+        {
+          "id": "sentido",
+          "src": "/nudito/diagramas/matematica/verificar-ecuacion-sentido.svg",
+          "alt": "Ecuación seis veces la cantidad de entradas igual quince, con la propuesta dos coma cinco: los lados coinciden, pero no hay dos coma cinco entradas.",
+          "descripcion": "Título «Revisa también el sentido». Una tarjeta con la ecuación seis veces la cantidad de entradas igual quince; se explica que la letra es la cantidad de entradas y un recuadro amarillo propone dos coma cinco. Debajo, con una marca de verificación, seis por dos coma cinco es quince, los lados coinciden; y con una cruz roja, no hay dos coma cinco entradas."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Ana tiene una cantidad de caramelos. Si la triplica y regala dos, le quedan trece. La ecuación dice tres veces la cantidad, menos dos, es igual a trece. ¿Qué cantidad cumple la ecuación?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cinco caramelos"
+          },
+          {
+            "id": "b",
+            "texto": "Siete caramelos"
+          },
+          {
+            "id": "c",
+            "texto": "Tres caramelos"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Tres por cinco son quince, y quince menos dos son trece.",
+        "pista": "Prueba cada cantidad en la ecuación y mira cuál iguala los dos lados."
+      }
+    }
   }
 ]

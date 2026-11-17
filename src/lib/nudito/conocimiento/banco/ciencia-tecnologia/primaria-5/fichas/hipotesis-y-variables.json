@@ -703,6 +703,119 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Hacer justo un experimento",
+          "narracion": "Bienvenido a esta breve clase sobre las variables en un experimento. Primero conocerás la idea principal; después observarás un cuadro, resolveremos dos ejemplos y practicarás un método de tres pasos. Al final responderás una pregunta. Como idea principal de este tema, piensa en esto: un experimento es una prueba que se diseña para responder una pregunta. Para que su resultado sea confiable se identifican tres tipos de variables. La independiente es lo que tú decides cambiar; la dependiente es lo que mides u observas como resultado; y las controladas son las condiciones que mantienes iguales. Así sabes que el resultado se debe solo a lo que cambiaste."
+        },
+        {
+          "id": "organizador",
+          "tipo": "recurso",
+          "titulo": "Tres tipos de variables",
+          "narracion": "Observemos este cuadro con los tres tipos de variables. En el cuadro naranja está la variable independiente: lo que yo cambio. En el cuadro azul, la variable dependiente: lo que yo mido. Y en el cuadro verde, las variables controladas: lo que mantengo igual durante todo el experimento.",
+          "recursoRef": "organizador"
+        },
+        {
+          "id": "ej1-situacion",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el riego de los frejoles",
+          "narracion": "Observemos esta situación: Mario quiere saber si la cantidad de agua influye en el crecimiento de sus frejoles. Prepara tres macetas con la misma tierra, siembra frejoles del mismo tipo y las coloca en el mismo estante, junto a la ventana. A una le echa 50 mililitros de agua; a otra, 100; y a la tercera, 150. Cada semana mide la altura de las plantas con una regla y la anota en su cuaderno. Pensemos en esta pregunta: ¿qué cambia, qué se mide y qué se mantiene igual?",
+          "recursoRef": "macetas"
+        },
+        {
+          "id": "ej1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: qué cambia, qué se mide, qué se mantiene",
+          "narracion": "Lo que decide cambiar es la cantidad de agua: esa es la variable independiente. Lo que mide es la altura de las plantas, la variable dependiente, porque depende del agua que reciben. Para que la prueba sea justa mantiene igual el tipo de frejol, la tierra, el tamaño de las macetas y la luz: son las variables controladas.",
+          "recursoRef": "macetas"
+        },
+        {
+          "id": "ej2-situacion",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: hasta dónde llega el carrito",
+          "narracion": "Observemos otra situación: un grupo de estudiantes quiere saber si el tipo de superficie cambia la distancia que recorre un carrito. Sueltan el mismo carrito desde la misma altura de la rampa sobre cartón, madera y tela, y miden con una regla en el piso hasta dónde llega. Pensemos en esta pregunta: ¿cuál es la variable independiente, cuál la dependiente y qué variables conviene controlar?",
+          "recursoRef": "rampa"
+        },
+        {
+          "id": "ej2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la superficie cambia, la distancia se mide",
+          "narracion": "Cambian la superficie: cartón, madera o tela. Esa es la variable independiente. Miden la distancia que recorre el carrito: es la dependiente, porque depende de la superficie. Para que la prueba sea justa, controlan que sea el mismo carrito, que se suelte desde la misma altura y que parta del mismo punto. Si cambiaran también la altura, no sabrían si la distancia varió por la superficie o por la altura.",
+          "recursoRef": "rampa"
+        },
+        {
+          "id": "error",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: cambiar varias cosas a la vez",
+          "narracion": "Un error frecuente es cambiar dos cosas a la vez; por ejemplo, regar más a una planta y además ponerla al sol. Si crece más, no sabrás cuál de las dos causó el resultado. Cambia una sola variable independiente y mantén iguales las demás. Otra confusión es mezclar lo que se cambia, que es la independiente, con lo que se mide, que es la dependiente.",
+          "recursoRef": "organizador"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: escribe la pregunta",
+          "narracion": "Ahora practicaremos un método de tres pasos. Primero, escribe la pregunta o la hipótesis que quieres comprobar. Por ejemplo: ¿la cantidad de luz cambia la altura que alcanza una planta?"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: identifica lo que cambias y lo que mides",
+          "narracion": "Segundo, identifica en tu pregunta lo que cambiarás y lo que medirás. En el ejemplo de la luz, la cantidad de luz es la variable independiente, y la altura de la planta es la dependiente.",
+          "recursoRef": "organizador"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: haz la lista de lo que queda igual",
+          "narracion": "Tercero, haz una lista de lo que debe quedar igual: el tipo de semilla, la tierra, la maceta y la cantidad de agua. Esas son las variables controladas; si una cambia sin que lo notes, el resultado dejaría de ser confiable.",
+          "recursoRef": "organizador"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "organizador",
+          "src": "/nudito/diagramas/ciencia-tecnologia/cyt-p5-variables-experimento-organizador.svg",
+          "alt": "Tres cuadros: variable independiente, lo que yo cambio; variable dependiente, lo que yo mido; variables controladas, lo que mantengo igual.",
+          "descripcion": "Tres cuadros de colores, uno debajo de otro. El naranja dice variable independiente, lo que yo cambio. El azul dice variable dependiente, lo que yo mido. El verde dice variables controladas, lo que mantengo igual."
+        },
+        {
+          "id": "macetas",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-5/variables-experimento-macetas-zimage-v1.webp",
+          "alt": "Tres macetas iguales con plántulas de frejol sobre una repisa junto a una ventana, con una regla, un cuaderno y una regadera pequeña.",
+          "descripcion": "Sobre una repisa, junto a una ventana, hay tres macetas de barro iguales. En cada una crece una plántula con dos hojas. Una regla de madera asoma en la tercera maceta; delante hay un cuaderno abierto y una regadera azul."
+        },
+        {
+          "id": "rampa",
+          "src": "/nudito/diagramas/ciencia-tecnologia/cyt-p5-variables-experimento-rampa.svg",
+          "alt": "Un carrito rojo sobre una rampa, una regla en el piso con marcas en metros y tres superficies para probar: cartón, madera y tela.",
+          "descripcion": "Una rampa de madera con un carrito rojo en la parte alta. Al pie sale una regla marcada en metros. Abajo hay tres rectángulos de colores rotulados cartón, madera y tela."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un grupo prueba si la temperatura del agua cambia el tiempo que tarda en disolverse una cucharada de azúcar. Usa tres vasos con la misma cantidad de agua y mide el tiempo. ¿Cuál es la variable dependiente?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La temperatura del agua en cada vaso"
+          },
+          {
+            "id": "b",
+            "texto": "El tiempo que tarda en disolverse el azúcar"
+          },
+          {
+            "id": "c",
+            "texto": "La cantidad de agua que hay en cada vaso"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "La variable dependiente es lo que se mide como resultado: el tiempo de disolución. La temperatura es la independiente y la cantidad de agua es una variable controlada.",
+        "pista": "Busca lo que el grupo mide al final y que depende de lo que cambió."
+      }
+    }
   }
 ]

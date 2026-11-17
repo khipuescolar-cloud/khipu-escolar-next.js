@@ -333,7 +333,122 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comparar fracciones",
+          "narracion": "Bienvenida y bienvenido. Hoy compararás fracciones de un mismo entero. Como idea principal, la comparación depende del numerador y del denominador. Si los denominadores son iguales, es mayor la fracción con más partes, es decir, la de mayor numerador. Si los numeradores son iguales, es mayor la fracción de partes más grandes, es decir, la de menor denominador."
+        },
+        {
+          "id": "situacion-cintas",
+          "tipo": "recurso",
+          "titulo": "Dos cintas del mismo largo",
+          "narracion": "Observemos esta situación. Elena y Bruno tienen cintas del mismo largo. La de Elena está cortada en tres partes iguales y ella usó dos tercios. La de Bruno está cortada en cinco partes iguales y él usó dos quintos. Las dos cintas aparecen una debajo de otra, todavía sin pintar. Queremos saber quién usó más cinta.",
+          "recursoRef": "cintas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: mismo numerador",
+          "narracion": "Elena usó dos tercios y Bruno usó dos quintos. Los dos usaron dos partes, pero las partes no son del mismo tamaño. Si una cinta se corta en tres, cada parte es grande. Si se corta en cinco, cada parte es más pequeña. Entonces hay que pensar en cuál de los dos usó dos partes más grandes."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: partes más grandes",
+          "narracion": "Ahora pintamos lo que usó cada uno. Elena pinta dos tercios y Bruno pinta dos quintos. La parte pintada de Elena llega más lejos. Los dos usan dos partes, pero los tercios son más grandes que los quintos. Entonces dos tercios es mayor que dos quintos. Elena usó más cinta.",
+          "recursoRef": "cintas"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: mismo denominador",
+          "narracion": "Lola y Nico tienen botellas iguales de chicha morada. Lola tomó tres octavos de su botella y Nico tomó cinco octavos de la suya. Esta vez las dos botellas están divididas en ocho partes iguales, así que las partes son del mismo tamaño. Entonces hay que fijarse en cuántas partes tomó cada uno."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: más partes iguales",
+          "narracion": "Observemos las dos botellas dibujadas como barras. Las dos están divididas en ocho partes iguales. Lola pintó tres partes y Nico pintó cinco partes. Como las partes son iguales, gana quien tiene más partes. Cinco octavos es mayor que tres octavos. Nico tomó más.",
+          "recursoRef": "botellas"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Errores al comparar fracciones",
+          "narracion": "Un error frecuente es pensar que un octavo es mayor que un cuarto porque ocho es mayor que cuatro. Pero si repartes un entero en ocho partes, cada parte es más pequeña que si lo repartes en cuatro. Otro error, cuando los denominadores son iguales, es mirar el denominador y no el numerador: entre tres séptimos y seis séptimos, gana seis séptimos. Y solo se comparan fracciones del mismo entero."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira qué es igual",
+          "narracion": "Primero mira qué tienen igual las fracciones: el denominador o el numerador. Asegúrate también de que hablen del mismo entero."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: aplica la regla",
+          "narracion": "Segundo, aplica la regla que corresponde. Con el mismo denominador, las partes son iguales y gana el numerador mayor. Con el mismo numerador, se toma la misma cantidad de partes, y gana la fracción de partes más grandes, que es la de menor denominador."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: escribe el resultado",
+          "narracion": "Estas tres tarjetas resumen los pasos. La primera dice que mires qué es igual. La segunda dice que con el mismo denominador importan las partes, y con el mismo numerador importa el tamaño de las partes. La tercera muestra el resultado del ejemplo uno: dos tercios es mayor que dos quintos. Escribe siempre la comparación con palabras.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cintas-pregunta",
+          "src": "/nudito/diagramas/matematica/fracciones-cinta-pregunta.svg",
+          "alt": "Dos cintas del mismo largo sin pintar: una en tres partes para Elena y otra en cinco partes para Bruno.",
+          "descripcion": "Hay dos barras del mismo largo, una debajo de otra, sin pintar. La de arriba está dividida en tres partes y dice Elena usó dos tercios de su cinta. La de abajo está dividida en cinco partes y dice Bruno usó dos quintos de su cinta. Al final se lee la pregunta: quién usó más."
+        },
+        {
+          "id": "cintas",
+          "src": "/nudito/diagramas/matematica/fracciones-cinta-comparar.svg",
+          "alt": "Dos cintas iguales: dos tercios pintados en la de Elena llegan más lejos que dos quintos pintados en la de Bruno.",
+          "descripcion": "Hay dos barras del mismo largo. En la de arriba, dividida en tres, hay dos partes pintadas de verde. En la de abajo, dividida en cinco, hay dos partes pintadas de amarillo. Una línea punteada gruesa baja desde el final de las dos partes de Elena y cruza la barra de Bruno, donde las partes pintadas terminan antes. Debajo se lee que las dos usan dos partes, que los tercios son más grandes y que dos tercios es mayor que dos quintos."
+        },
+        {
+          "id": "botellas",
+          "src": "/nudito/diagramas/matematica/fracciones-botellas-octavos.svg",
+          "alt": "Dos barras iguales divididas en ocho partes: Lola pintó tres octavos y Nico pintó cinco octavos.",
+          "descripcion": "Hay dos barras del mismo largo, cada una dividida en ocho partes iguales. La de Lola tiene tres partes pintadas de verde y la de Nico tiene cinco partes pintadas de amarillo. Debajo se lee que las partes son iguales, que cinco partes son más que tres partes y que cinco octavos es mayor que tres octavos."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/fracciones-tres-pasos.svg",
+          "alt": "Tres tarjetas: mirar qué es igual, aplicar la regla del denominador o del numerador y escribir el resultado.",
+          "descripcion": "Hay tres tarjetas numeradas. La primera dice mira qué es igual: denominador o numerador. La segunda dice aplica la regla: mismo denominador, más partes; mismo numerador, partes grandes. La tercera dice escribe el resultado: dos tercios es mayor que dos quintos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Gloria usó tres quintos de una cinta y Hugo usó tres séptimos de otra cinta del mismo largo. ¿Quién usó más cinta?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Hugo, porque siete es mayor que cinco"
+          },
+          {
+            "id": "b",
+            "texto": "Igual, porque los dos usaron tres partes"
+          },
+          {
+            "id": "c",
+            "texto": "Gloria, porque cada quinto es más grande"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Los dos usaron tres partes, pero los quintos son partes más grandes que los séptimos. Por eso tres quintos es mayor que tres séptimos.",
+        "pista": "Compara cuántas partes usó cada uno y cómo es el tamaño de las partes."
+      }
+    }
   },
   {
     "clave": "mat.p4.ordenar-fracciones",

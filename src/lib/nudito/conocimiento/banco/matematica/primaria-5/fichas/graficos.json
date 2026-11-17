@@ -529,7 +529,7 @@
         "id": "e08",
         "dificultad": 2,
         "tipo": "texto_corto",
-        "enunciado": "Una heladería en Chimbote vende helados de lúcuma (90), maracuyá (120) y fresa (70). Si se diseña una escala de 30 en 30 iniciando en 0, ¿cuál es el número de la marca más baja del eje que permite contener a todas las barras? Escribe solo el número.",
+        "enunciado": "Una heladería en Chimbote vende helados de lúcuma (90), maracuyá (120) y fresa (70). Si se diseña una escala de 30 en 30 iniciando en 0, ¿hasta qué número debe llegar el eje como mínimo para contener todas las barras? Escribe solo el número.",
         "respuesta": "120",
         "alternativasAceptadas": [
           "120"
@@ -639,7 +639,132 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Gráfico de barras a partir de una tabla de frecuencias",
+          "narracion": "Bienvenida y bienvenido. Hoy vas a construir gráficos de barras desde una tabla de datos. Como idea principal, la tabla dice cuántas veces se repite cada categoría y el gráfico lo muestra con barras. Para dibujarlo, eliges una escala con saltos iguales, trazas los dos ejes y levantas cada barra hasta su frecuencia, todas con el mismo ancho."
+        },
+        {
+          "id": "situacion-tabla-ejes",
+          "tipo": "recurso",
+          "titulo": "De la tabla a los ejes",
+          "narracion": "Observemos esta situación. A la izquierda hay una tabla con tres deportes y sus votos: vóley, veinte; fútbol, cuarenta; y natación, treinta. A la derecha hay dos ejes todavía sin barras. En el eje horizontal irán las categorías y en el eje vertical, la escala de las frecuencias. La tabla da los datos y los ejes son el lugar donde se construyen las barras.",
+          "recursoRef": "tabla-ejes"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: elegir la escala",
+          "narracion": "En un salón de quinto grado se anotaron las frutas favoritas de la lonchera: uva, quince votos; pera, veinticinco; piña, treinta y cinco; y palta, veinte. Antes de dibujar hay que elegir la escala del eje vertical. Para eso miramos todos los datos y buscamos el mayor.",
+          "recursoRef": "frutas-tabla"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: escala de cinco en cinco",
+          "narracion": "Los cuatro datos son múltiplos de cinco y el mayor es treinta y cinco. Elegimos una escala de cinco en cinco, desde cero hasta cuarenta, para que quepa la barra más alta. Así cada barra termina justo en una marca: la uva en la tercera, la pera en la quinta, la piña en la séptima y la palta en la cuarta.",
+          "recursoRef": "frutas-barras"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: barras entre marcas",
+          "narracion": "En una feria agropecuaria se anotaron cuyes, cincuenta; gallinas, ochenta; y patos, treinta. Usamos una escala de veinte en veinte: cero, veinte, cuarenta, sesenta y ochenta. Pero cincuenta y treinta no están marcados en el eje. Nos preguntamos hasta dónde debe llegar la barra de cada categoría.",
+          "recursoRef": "granja-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ubicar el punto medio",
+          "narracion": "La barra de las gallinas llega justo a la marca ochenta. La de los cuyes queda en la mitad entre cuarenta y sesenta, porque diez es la mitad de veinte y cuarenta más diez son cincuenta. La de los patos queda en la mitad entre veinte y cuarenta, porque veinte más diez son treinta. Las tres barras tienen el mismo ancho y el mismo espacio entre ellas.",
+          "recursoRef": "granja-barras"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Dos errores frecuentes",
+          "narracion": "Un error es poner en el eje vertical números con saltos distintos, como cero, quince, treinta y setenta. Así las barras engañan, porque la misma distancia valdría cantidades diferentes. La escala siempre avanza con el mismo salto. Otro error es dibujar barras de distinto ancho o pegadas entre sí. Todas deben tener el mismo ancho y el mismo espacio, porque solo la altura indica la frecuencia."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: elige la escala",
+          "narracion": "Mira la tabla, busca la frecuencia mayor y elige un salto igual que sirva para todos los datos. En el primer ejemplo, el salto fue de cinco en cinco.",
+          "recursoRef": "frutas-barras"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: traza los ejes y las marcas",
+          "narracion": "Traza el eje horizontal para las categorías y el eje vertical para la escala. Las marcas deben estar a la misma distancia una de otra, como en los ejes vacíos que vimos al principio.",
+          "recursoRef": "tabla-ejes"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: levanta cada barra",
+          "narracion": "Dibuja cada barra hasta el valor de su frecuencia. Si el valor queda entre dos marcas, ubícalo en la mitad. Todas las barras tienen el mismo ancho.",
+          "recursoRef": "granja-barras"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "tabla-ejes",
+          "src": "/nudito/diagramas/matematica/barras-desde-tabla-tabla-a-ejes.svg",
+          "alt": "A la izquierda, una tabla con vóley 20, fútbol 40 y natación 30; a la derecha, dos ejes vacíos con la escala marcada de diez en diez.",
+          "descripcion": "A la izquierda hay una tabla con dos columnas, deporte y votos, y tres filas: vóley veinte, fútbol cuarenta y natación treinta. Una flecha apunta a la derecha, donde hay un eje vertical con escala de cero a cuarenta y un eje horizontal, sin barras. Se leen las palabras frecuencia y categorías."
+        },
+        {
+          "id": "frutas-tabla",
+          "src": "/nudito/diagramas/matematica/barras-desde-tabla-frutas-tabla.svg",
+          "alt": "Tabla de frutas favoritas: uva 15, pera 25, piña 35 y palta 20. Se pregunta qué escala usar.",
+          "descripcion": "Una tabla con las columnas fruta y votos y cuatro filas: uva quince, pera veinticinco, piña treinta y cinco y palta veinte. Abajo se pregunta qué escala usamos."
+        },
+        {
+          "id": "frutas-barras",
+          "src": "/nudito/diagramas/matematica/barras-desde-tabla-frutas-barras.svg",
+          "alt": "Gráfico de barras con escala de cinco en cinco hasta cuarenta: uva 15, pera 25, piña 35 y palta 20.",
+          "descripcion": "Un gráfico con cuatro barras verdes del mismo ancho. El eje vertical va de cero a cuarenta con marcas cada cinco. Las barras llegan a quince, veinticinco, treinta y cinco y veinte, con el número sobre cada una."
+        },
+        {
+          "id": "granja-pregunta",
+          "src": "/nudito/diagramas/matematica/barras-desde-tabla-granja-pregunta.svg",
+          "alt": "Ejes con escala de veinte en veinte hasta ochenta y tres categorías sin barras: cuyes 50, gallinas 80 y patos 30.",
+          "descripcion": "Un eje vertical con las marcas cero, veinte, cuarenta, sesenta y ochenta. Debajo del eje horizontal están las categorías cuyes, gallinas y patos y, más abajo, sus valores: cincuenta, ochenta y treinta. Aún no hay barras."
+        },
+        {
+          "id": "granja-barras",
+          "src": "/nudito/diagramas/matematica/barras-desde-tabla-granja-barras.svg",
+          "alt": "Gráfico de barras: gallinas llega a ochenta; cuyes, a cincuenta, en la mitad entre cuarenta y sesenta; patos, a treinta, entre veinte y cuarenta.",
+          "descripcion": "Tres barras verdes del mismo ancho sobre una escala de veinte en veinte. La de gallinas llega a ochenta. La de cuyes termina entre las marcas cuarenta y sesenta, con el valor cincuenta, y la de patos entre veinte y cuarenta, con el valor treinta."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una tabla tiene los valores veinticinco, cuarenta y cinco, treinta y cinco y quince. ¿Qué escala permite que cada barra termine exactamente en una marca?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "De cinco en cinco hasta cincuenta"
+          },
+          {
+            "id": "b",
+            "texto": "De diez en diez hasta cincuenta"
+          },
+          {
+            "id": "c",
+            "texto": "De siete en siete hasta cincuenta"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Todos los valores son múltiplos de cinco, así que con saltos de cinco cada barra termina justo en una marca.",
+        "pista": "Busca un salto que llegue exactamente a cada uno de los cuatro valores."
+      }
+    }
   },
   {
     "clave": "mat.p5.interpretar-representaciones",
@@ -955,6 +1080,7 @@
         "retroalimentacion": "Semana 1 = 270, Semana 2 = 360 y Semana 3 = 315. Total = 945. Promedio = 945 ÷ 3 = 315 espectadores."
       }
     ],
+    "claseGuiada": {"version":1,"momentos":[{"id":"idea","tipo":"idea","titulo":"Los mismos datos, otra forma","narracion":"Bienvenida y bienvenido. Hoy aprenderemos a interpretar y contrastar tablas, pictogramas y gráficos de barras. Como idea principal, dos representaciones coinciden cuando comunican los mismos valores. Hay que leer títulos, categorías, escala y clave antes de comparar."},{"id":"situacion","tipo":"recurso","titulo":"La cosecha en tabla y pictograma","narracion":"Observemos esta situación. La tabla registra sacos de cacao y de maíz. El pictograma usa círculos, y cada círculo representa veinte sacos. Cuenta los símbolos de cada fila y compáralos con la tabla. Decide si las dos formas comunican los mismos datos.","recursoRef":"situacion"},{"id":"ejemplo-1-guiado","tipo":"ejemplo","titulo":"Ejemplo 1: de tabla a pictograma","narracion":"Una tabla registra sesenta familias que siembran papa. En el pictograma, cada símbolo representa quince familias. El espacio de los símbolos está vacío. ¿Cuántos símbolos hacen falta para representar la frecuencia de la tabla?","recursoRef":"pictograma"},{"id":"ejemplo-1-razona","tipo":"ejemplo","titulo":"Ejemplo 1: usa la clave","narracion":"Buscamos cuántos grupos de quince forman sesenta. Son cuatro grupos. Por eso el pictograma necesita cuatro símbolos. La frecuencia no cambia; solo cambia la forma de mostrarla.","recursoRef":"pictograma"},{"id":"ejemplo-2-guiado","tipo":"ejemplo","titulo":"Ejemplo 2: tabla y barra","narracion":"La tabla del taller de tejido registra cincuenta participantes. A la derecha, una barra muestra el taller de tejido. Lee en la escala vertical hasta qué marca llega la barra y piensa si ambas representaciones coinciden.","recursoRef":"taller"},{"id":"ejemplo-2-razona","tipo":"ejemplo","titulo":"Ejemplo 2: contrasta el valor","narracion":"La tabla dice cincuenta y la barra llega a cincuenta. Las dos representaciones coinciden. Para comprobarlo, relacionamos la misma categoría y leemos la altura con la escala.","recursoRef":"taller"},{"id":"contraejemplo","tipo":"ejemplo","titulo":"No ignores la clave","narracion":"La tabla registra ciento ochenta personas en combi. Cada símbolo representa treinta personas, pero se dibujaron solo cinco. Cinco grupos de treinta representan ciento cincuenta, así que faltó un símbolo. Copiar símbolos sin usar la clave produce un dato incorrecto.","recursoRef":"error"},{"id":"paso-1","tipo":"paso","titulo":"Paso 1: identifica lo que se mide","narracion":"Lee el título, las categorías y la unidad. Asegúrate de comparar la misma categoría en las dos representaciones."},{"id":"paso-2","tipo":"paso","titulo":"Paso 2: traduce cada marca","narracion":"En una barra, usa la escala. En un pictograma, multiplica la cantidad de símbolos por el valor de la clave."},{"id":"paso-3","tipo":"paso","titulo":"Paso 3: contrasta y concluye","narracion":"Compara los valores obtenidos. Si son iguales, las representaciones coinciden. Si cambian, localiza la categoría donde aparece el error."}],"recursos":[{"id":"situacion","src":"/nudito/diagramas/matematica/interpretar-representaciones-situacion.svg","alt":"Tabla de cacao y maíz junto a un pictograma con círculos que valen veinte sacos.","descripcion":"La tabla registra cacao con cuarenta sacos y maíz con sesenta. El pictograma muestra dos círculos en la primera fila y tres en la segunda; su clave indica que cada círculo vale veinte sacos. Abajo se pregunta si comunican los mismos datos."},{"id":"pictograma","src":"/nudito/diagramas/matematica/interpretar-representaciones-pictograma.svg","alt":"Tabla con sesenta familias y pictograma vacío cuya clave vale quince familias por símbolo.","descripcion":"Dos tarjetas. La izquierda dice Tabla: sesenta familias y Cada símbolo vale quince familias. La derecha se titula Pictograma y contiene un signo de pregunta. Abajo se pregunta cuántos símbolos hacen falta."},{"id":"taller","src":"/nudito/diagramas/matematica/interpretar-representaciones-taller.svg","alt":"Tabla con cincuenta participantes y gráfico de barras del taller de tejido.","descripcion":"A la izquierda, una tarjeta dice Tabla y Tejido: cincuenta. A la derecha, un gráfico con escala de cero, veinticinco y cincuenta muestra una barra turquesa de Tejido."},{"id":"error","src":"/nudito/diagramas/matematica/interpretar-representaciones-error.svg","alt":"Cinco símbolos tachados para una frecuencia de ciento ochenta con clave de treinta personas.","descripcion":"Una tarjeta indica Combi, ciento ochenta personas, y que cada combi representa treinta. Debajo aparecen cinco símbolos amarillos cruzados por una diagonal roja y el texto Cinco símbolos no alcanzan."}],"comprobacion":{"pregunta":"Una tabla registra ochenta libros. Un pictograma muestra cuatro símbolos y cada símbolo vale veinte libros. ¿Las representaciones coinciden?","opciones":[{"id":"a","texto":"Sí, son iguales"},{"id":"b","texto":"No, faltan datos"},{"id":"c","texto":"No, no coinciden"}],"respuesta":"a","mensajeCorrecto":"Correcto. Cuatro grupos de veinte representan ochenta libros, igual que la tabla.","pista":"Usa la clave para hallar el valor total de los símbolos y luego compara."}},
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",

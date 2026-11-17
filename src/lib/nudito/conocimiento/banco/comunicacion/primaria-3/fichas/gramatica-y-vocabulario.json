@@ -737,7 +737,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "El adjetivo va con el sustantivo",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a usar adjetivos que concuerdan con el sustantivo. Como idea principal, el adjetivo dice cómo es algo y cambia para ir con lo que describe: si es femenino o masculino, y si es uno solo o son varios."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Un puesto del mercado",
+          "narracion": "Observemos este puesto del mercado: una vendedora sonríe detrás de una mesa. Hay un sombrero de paja y varias bufandas tejidas de colores. Para decir cómo son las cosas usamos adjetivos, y esas palabras cambian según lo que describen.",
+          "recursoRef": "puesto"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: sombrero y bufanda",
+          "narracion": "Lee la tarjeta. Ana tiene un sombrero y una bufanda, y en cada lugar falta escribir bien la palabra «nuevo». La pregunta amarilla quiere saber cómo se escribe para cada cosa.",
+          "recursoRef": "sombrero"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: mira cada sustantivo",
+          "narracion": "«Sombrero» es masculino y uno solo, entonces queda «nuevo». «Bufanda» es femenino y una sola, entonces el adjetivo cambia: «nueva». Un sombrero nuevo y una bufanda nueva."
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: papas y camotes",
+          "narracion": "Ahora, otra tarjeta. En la chacra hay papas y camotes. Falta escribir bien «amarillo» para las papas y «morado» para los camotes. La pregunta amarilla quiere saber cómo se escribe cada adjetivo.",
+          "recursoRef": "chacra-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: género y número",
+          "narracion": "Observemos esta chacra: hay dos canastas, una con papas y otra con camotes, de colores distintos. «Papas» es femenino y plural, entonces: «amarillas». «Camotes» es masculino y plural, entonces: «morados».",
+          "recursoRef": "chacra"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: adjetivo que no cambia",
+          "narracion": "En la tarjeta, arriba, alguien escribe una oración con un adjetivo que no va con el sustantivo. Abajo se corrige: el adjetivo se escribe con el mismo género y número que el sustantivo.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira el sustantivo",
+          "narracion": "Primero, busca el sustantivo y fíjate si es masculino o femenino."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: uno o varios",
+          "narracion": "Segundo, fíjate si es uno solo o son varios."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: iguala el adjetivo",
+          "narracion": "Tercero, escribe el adjetivo con el mismo género y el mismo número que el sustantivo."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "puesto",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-3/concordancia-puesto-zimage-v1.webp",
+          "alt": "Una vendedora sonriente detrás de una mesa con un sombrero de paja y varias bufandas tejidas de colores.",
+          "descripcion": "Una mujer de pelo oscuro recogido y blusa turquesa sonríe detrás de una mesa de madera. A la izquierda hay un sombrero de paja. A la derecha hay cuatro bufandas tejidas con flecos: turquesa, blanca, roja y anaranjada."
+        },
+        {
+          "id": "sombrero",
+          "src": "/nudito/diagramas/comunicacion/adjetivo-sombrero-pregunta.svg",
+          "alt": "Tarjeta con la oración sobre el sombrero y la bufanda de Ana, y la pregunta cómo se escribe nuevo para cada cosa.",
+          "descripcion": "Un recuadro blanco con el texto: Ana tiene un sombrero, nuevo entre paréntesis, y una bufanda, nuevo entre paréntesis. Debajo, una tarjeta amarilla pregunta: ¿Cómo escribes nuevo para cada cosa?"
+        },
+        {
+          "id": "chacra-pregunta",
+          "src": "/nudito/diagramas/comunicacion/adjetivo-chacra-pregunta.svg",
+          "alt": "Tarjeta con la oración sobre las papas y los camotes, y la pregunta cómo se escribe cada adjetivo.",
+          "descripcion": "Un recuadro blanco con el texto: Las papas son, amarillo entre paréntesis, y los camotes son, morado entre paréntesis. Debajo, una tarjeta amarilla pregunta: ¿Cómo escribes cada adjetivo?"
+        },
+        {
+          "id": "chacra",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-3/concordancia-chacra-zimage-v1.webp",
+          "alt": "Dos canastas en el campo: una con papas y otra con camotes, de distinto color.",
+          "descripcion": "Dos canastas de mimbre sobre el pasto, con colinas verdes y cielo azul detrás. La de la izquierda está llena de papas, de color amarillo. La de la derecha tiene camotes de color morado, alargados y de puntas finas."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/comunicacion/adjetivo-error.svg",
+          "alt": "Una tarjeta roja con cruz con una oración mal escrita y otra verde con palomita que la corrige.",
+          "descripcion": "Una tarjeta roja con cruz dice: Las ollas están limpio. Debajo, una tarjeta verde con palomita dice: No. Ollas es femenino y plural: las ollas están limpias."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Completa: «La ventana del salón está ___». ¿Qué palabra va?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "abiertas"
+          },
+          {
+            "id": "b",
+            "texto": "abierta"
+          },
+          {
+            "id": "c",
+            "texto": "abierto"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "«Ventana» es femenino y una sola, por eso se escribe «abierta».",
+        "pista": "Fíjate en «ventana»: ¿es masculina o femenina? ¿Es una o son varias?"
+      }
+    }
   },
   {
     "clave": "com.p3.pronombres-personales",

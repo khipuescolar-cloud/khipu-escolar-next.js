@@ -408,7 +408,117 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Inferir: deducir con pistas lo que el texto no dice",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a sacar conclusiones sobre un texto completo. Como idea principal, una inferencia es una idea que el texto no dice con palabras, pero que tú deduces al unir varias pistas. Una conclusión sólida se apoya en pistas de distintas partes y no es contradicha por ninguna. Una sola pista casi nunca basta, y una idea sin ninguna pista es solo una suposición."
+        },
+        {
+          "id": "situacion-bus",
+          "tipo": "recurso",
+          "titulo": "Un viaje que no sale como se esperaba",
+          "narracion": "Observemos este fragmento de un viaje. Dice: «Los pasajeros del bus miraban sus relojes. El chofer bajó, abrió el capó y negó con la cabeza. Un señor sacó su abrigo y se lo puso, porque la noche se acercaba». Fíjate en que nadie dice qué le pasó al bus. Aun así, las acciones de las personas dan información.",
+          "recursoRef": "bus"
+        },
+        {
+          "id": "ejemplo-bus-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ¿qué le pasó al bus?",
+          "narracion": "Resolvamos la pregunta con el mismo fragmento. Para inferir, no elijas una respuesta de inmediato. Primero identifica las acciones que sí aparecen y pregúntate qué indica cada una.",
+          "recursoRef": "bus"
+        },
+        {
+          "id": "ejemplo-bus-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: tres pistas, una conclusión",
+          "narracion": "Hay tres pistas. Los pasajeros miran sus relojes, así que llevan rato esperando. El chofer abre el capó y niega con la cabeza, lo que sugiere una falla del motor. Y llega la noche mientras sacan abrigo, de modo que seguirán detenidos al anochecer. Juntas indican que el bus se malogró y llegará tarde. Ninguna pista sola lo decía, pero las tres apoyan la misma conclusión.",
+          "recursoRef": "pistas"
+        },
+        {
+          "id": "ejemplo-camila-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ¿qué ocurrió en el aula?",
+          "narracion": "Leamos otro fragmento: «Camila repasó sus cuadernos toda la noche. Al día siguiente llegó temprano y no abrió la mochila en el recreo. Cuando la profesora repartió las hojas, Camila sonrió y empezó a escribir sin dudar». Esta vez buscaremos la conclusión que mejor encaje con todas las pistas.",
+          "recursoRef": "camila"
+        },
+        {
+          "id": "ejemplo-camila-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la conclusión que mejor encaja",
+          "narracion": "Repasar toda la noche y llegar temprano sugieren que Camila se preparó para algo. Cuando la profesora reparte hojas y Camila escribe sin dudar, lo más probable es que haya una prueba. No abrir la mochila en el recreo no contradice esa idea: indica que ya había estudiado. Una conclusión como «Camila copió» no tiene ninguna pista, así que se descarta. La mejor conclusión es que hubo una evaluación y Camila estaba preparada."
+        },
+        {
+          "id": "error-sin-pistas",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: concluir sin pistas o con una sola",
+          "narracion": "Alguien lee que el chofer negó con la cabeza y concluye que «el chofer estaba enojado con los pasajeros». Es una idea que ninguna pista del texto apoya. Otro se queda con una sola pista, por ejemplo los relojes, y llega a una conclusión incompleta. Una inferencia sólida cita al menos dos pistas y no choca con ninguna otra parte del texto."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee todo y subraya las pistas",
+          "narracion": "Lee el texto completo, sin saltarte el final, y subraya acciones, datos y gestos. Pregúntate qué pasa, quién actúa y por qué lo hace."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: junta dos o más pistas",
+          "narracion": "Une las pistas y pregúntate qué significan juntas, como hicimos con los relojes, el capó y la noche que llega. Una sola pista casi nunca alcanza.",
+          "recursoRef": "pistas"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: formula la conclusión y compruébala",
+          "narracion": "Escribe tu conclusión en una oración y comprueba que las pistas la apoyen y que ninguna parte del texto la contradiga. Si no puedes señalar dos pistas, todavía es una suposición."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "bus",
+          "src": "/nudito/diagramas/comunicacion/inferencia-texto-bus.svg",
+          "alt": "Fragmento «Viaje a Huaraz»: pasajeros que miran sus relojes, un chofer que abre el capó y niega con la cabeza y un señor que se pone el abrigo. Pregunta qué le pasó al bus.",
+          "descripcion": "Un recuadro titulado Viaje a Huaraz con el texto: «Los pasajeros del bus miraban sus relojes. El chofer bajó, abrió el capó y negó con la cabeza. Un señor sacó su abrigo y se lo puso, porque la noche se acercaba». Abajo, una barra pregunta qué le pasó al bus."
+        },
+        {
+          "id": "pistas",
+          "src": "/nudito/diagramas/comunicacion/inferencia-pistas-bus.svg",
+          "alt": "Tres pistas con su significado, relojes, capó y noche con abrigo, y la conclusión: el bus se malogró y llegará tarde a Huaraz.",
+          "descripcion": "Tres recuadros presentan una pista cada uno con su significado: los pasajeros miran sus relojes, llevan rato esperando; el chofer abre el capó y niega, el motor tiene una falla; llega la noche y sacan abrigo, seguirán detenidos al anochecer. Abajo, en verde, la conclusión: el bus se malogró y llegará tarde a Huaraz."
+        },
+        {
+          "id": "camila",
+          "src": "/nudito/diagramas/comunicacion/inferencia-texto-camila.svg",
+          "alt": "Fragmento sobre Camila: repasa toda la noche, llega temprano, no abre la mochila y empieza a escribir sin dudar cuando la profesora reparte hojas.",
+          "descripcion": "Un recuadro con el texto: «Camila repasó sus cuadernos toda la noche. Al día siguiente llegó temprano y no abrió la mochila en el recreo. Cuando la profesora repartió las hojas, Camila sonrió y empezó a escribir sin dudar». Abajo, una barra pregunta qué ocurrió ese día en el aula."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee: «Rodrigo corrió hasta el paradero con la lengua afuera, pero el micro ya doblaba la esquina. Se sentó en el sardinel, miró su reloj y marcó el número de su mamá. Ella contestó: Tranquilo, ya salgo a recogerte». ¿Qué conclusión apoyan las pistas del texto?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Rodrigo perdió el micro y su mamá irá a recogerlo."
+          },
+          {
+            "id": "b",
+            "texto": "Rodrigo se molestó con su mamá y por eso la llamó para reclamarle."
+          },
+          {
+            "id": "c",
+            "texto": "Rodrigo prefirió caminar y dejó pasar el micro a propósito."
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correr hasta el paradero, ver que el micro ya doblaba la esquina y llamar a su mamá, que responde que saldrá a recogerlo, apoyan la conclusión. Las otras opciones no tienen pistas: ella lo tranquiliza, no discuten y él corrió para alcanzar el micro.",
+        "pista": "Busca la conclusión que se apoye en varias pistas y que ninguna parte del texto contradiga."
+      }
+    }
   },
   {
     "clave": "com.p6.ideas-implicitas-intertextuales",

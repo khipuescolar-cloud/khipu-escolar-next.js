@@ -1299,12 +1299,14 @@
         "id": "e07",
         "dificultad": 2,
         "tipo": "texto_corto",
-        "enunciado": "El comedero de Pablo se mueve mucho con el viento de Puno. Para que esté firme, ¿qué debe hacer a la cuerda: ajustarla o aflojarla? Escribe «ajustar».",
-        "respuesta": "ajustar",
+        "enunciado": "El comedero de Pablo se mueve mucho con el viento de Puno. Para que esté firme, ¿qué debe hacer con la cuerda: apretarla o aflojarla? Escribe la palabra.",
+        "respuesta": "apretarla",
         "alternativasAceptadas": [
+          "apretar",
           "ajustarla",
-          "amarrar más",
+          "ajustar",
           "amarrarla",
+          "amarrar más",
           "ajustar la cuerda"
         ],
         "pistas": [
@@ -1312,7 +1314,7 @@
           "No se debe mover.",
           "Se aprieta, no se suelta."
         ],
-        "retroalimentacion": "Debe ajustar (apretar) la cuerda para que no se mueva con el viento."
+        "retroalimentacion": "Debe apretar la cuerda para que no se mueva con el viento."
       },
       {
         "id": "e08",
@@ -1382,13 +1384,18 @@
         "id": "e10",
         "dificultad": 3,
         "tipo": "texto_corto",
-        "enunciado": "Una botella sirve de regadera, pero echa agua solo por un agujero y moja una sola planta. ¿Qué ajuste puedes hacer? Escribe «más agujeros».",
+        "enunciado": "Una botella sirve de regadera, pero echa agua solo por un agujero y moja una sola planta. ¿Qué ajuste puedes hacer? Escribe una frase corta.",
         "respuesta": "más agujeros",
         "alternativasAceptadas": [
           "mas agujeros",
           "hacer más agujeros",
           "más hoyos",
-          "agregar agujeros"
+          "agregar agujeros",
+          "hacerle más agujeros",
+          "más huecos",
+          "hacer más huecos",
+          "perforar más agujeros",
+          "más agujeros en la botella"
         ],
         "pistas": [
           "El agua sale en un solo sitio.",
@@ -1451,7 +1458,122 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "No lo botes, ajústalo",
+          "narracion": "Hola. Hoy aprenderemos a ajustar una solución. Como idea principal, si tu invento no funciona del todo, no lo botas. Buscas qué parte falla, cambias solo esa parte y lo pruebas otra vez."
+        },
+        {
+          "id": "situacion-carrito",
+          "tipo": "recurso",
+          "titulo": "Un invento de cartón",
+          "narracion": "Observemos esta situación. En la imagen hay un carrito de cartón marrón con ruedas negras. Está sobre una mesa del colegio, junto a unas tijeras y un rollo de cinta. Rosa lo empuja, pero el carrito se detiene casi enseguida. Nos preguntamos: ¿qué puede hacer Rosa?",
+          "recursoRef": "carrito-carton"
+        },
+        {
+          "id": "ejemplo-1-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el roce",
+          "narracion": "Rosa vuelve a empujar su carrito y otra vez se detiene casi enseguida. Nos preguntamos: ¿qué parte debe cambiar y cómo?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ruedas separadas",
+          "narracion": "Rosa mira las ruedas y ve que rozan el cuerpo de cartón. Cambia solo esa parte. Pone un pedacito de cartón entre cada rueda y el cuerpo, para separarlas un poco. Lo prueba otra vez y el carrito rueda sin detenerse. Ajustó la parte que fallaba."
+        },
+        {
+          "id": "ejemplo-2-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: algo que se cae",
+          "narracion": "Luis prueba dos comederos de madera para pájaros en el árbol de su patio. En la imagen, uno cuelga de una rama con una cuerda blanca. Cuando Luis lo llena de semillas, el comedero se cae. Nos preguntamos: ¿qué parte falla y qué cambio ayuda?",
+          "recursoRef": "comedero-fino"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una cuerda más fuerte",
+          "narracion": "Luis mira la cuerda y ve que es muy delgada para el peso. Prueba con el otro comedero, que cuelga de una cuerda gruesa y fuerte. En la imagen, ese comedero cuelga derecho y firme. Con semillas, ya no se cae. La parte que fallaba era la cuerda.",
+          "recursoRef": "comedero-grueso"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: cambiar todo",
+          "narracion": "Algunas personas cambian todas las piezas cuando solo una falla. Así no se sabe qué ayudó. Otras no vuelven a probar después de ajustar. Sin probar de nuevo, no sabes si mejoró."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: prueba y mira",
+          "narracion": "Primero prueba tu solución y observa con cuidado qué falla. Después busca la parte que causa el problema."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: cambia una parte",
+          "narracion": "Ahora cambia solo esa parte: un tamaño, un material o una unión. Cambiar una sola cosa te muestra qué funcionó."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: prueba otra vez",
+          "narracion": "Vuelve a probar. Mira este dibujo: cuatro cuadros forman un círculo. Dicen probar la solución, mirar qué falla, cambiar una parte y probar otra vez. Si todavía falla, repites el recorrido.",
+          "recursoRef": "ciclo-ajuste"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "carrito-carton",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-3/ajustes-carrito-carton-zimage-v1.webp",
+          "alt": "Un carrito de cartón marrón con ruedas negras sobre una mesa del colegio, junto a unas tijeras y un rollo de cinta.",
+          "descripcion": "Sobre una mesa de madera de un salón hay un carrito hecho de cartón marrón, con ventanas y ruedas negras con centro marrón. Las ruedas están pegadas a los costados del cuerpo. A los lados hay unas tijeras de mango turquesa y un rollo de cinta."
+        },
+        {
+          "id": "comedero-fino",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-3/ajustes-comedero-cuerda-fina-zimage-v1.webp",
+          "alt": "Un comedero de madera con techo y semillas en la bandeja cuelga de una rama por una cuerda blanca muy delgada.",
+          "descripcion": "Un comedero de madera con techo a dos aguas y semillas en la bandeja cuelga de una rama gruesa. Lo sostiene una sola cuerda blanca muy delgada que pasa por el techo. A la derecha hay un tronco y atrás, un árbol verde."
+        },
+        {
+          "id": "comedero-grueso",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-3/ajustes-comedero-cuerda-gruesa-zimage-v1.webp",
+          "alt": "Otro comedero de madera cuelga derecho de una rama por una cuerda gruesa y trenzada; la bandeja tiene semillas.",
+          "descripcion": "Un comedero de madera con techo a dos aguas y semillas en la bandeja cuelga de una rama gruesa. Lo sostiene una sola cuerda gruesa y trenzada, atada a la rama y pasada por el techo. A la derecha hay un tronco y atrás, un árbol verde."
+        },
+        {
+          "id": "ciclo-ajuste",
+          "src": "/nudito/diagramas/ciencia-tecnologia/ajustes-ciclo-probar-cambiar.svg",
+          "alt": "Cuatro cuadros en círculo: probar la solución, mirar qué falla, cambiar una parte y probar otra vez, unidos por flechas.",
+          "descripcion": "Cuatro cuadros blancos unidos por flechas en círculo. Arriba a la izquierda dice probar la solución y arriba a la derecha, mirar qué falla. Abajo a la derecha dice cambiar una parte y abajo a la izquierda, probar otra vez."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Tomás hizo un parasol de cartón para su planta, pero el sol sigue dándole en las hojas. ¿Qué ajuste conviene probar primero?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Hacer más ancho el cartón"
+          },
+          {
+            "id": "b",
+            "texto": "Pintar de verde el cartón"
+          },
+          {
+            "id": "c",
+            "texto": "Dejar el cartón sin cambios"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Un cartón más ancho tapa más sol. Cambias solo la parte que falla y luego pruebas otra vez.",
+        "pista": "Piensa qué parte del parasol deja pasar el sol."
+      }
+    }
   },
   {
     "clave": "cyt.p3.probar-requerimientos",

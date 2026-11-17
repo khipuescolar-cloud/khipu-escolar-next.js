@@ -1251,7 +1251,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Convertir unidades de tiempo",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a pasar el tiempo de una unidad a otra. Como idea principal, una hora tiene sesenta minutos, y un minuto tiene sesenta segundos. Por eso una hora tiene tres mil seiscientos segundos. Al pasar a una unidad menor, multiplicamos. Al pasar a una unidad mayor, dividimos."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "El entrenamiento de Valeria",
+          "narracion": "Observemos esta situación. Valeria entrena natación. El cronómetro marcó una hora y cincuenta minutos. Su entrenador anota el tiempo solo en minutos. Queremos saber cuántos minutos entrenó.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: de horas a minutos",
+          "narracion": "Pasemos el entrenamiento de Valeria a minutos. Fueron una hora y cincuenta minutos. Primero cambia la hora a minutos. Después añade los cincuenta minutos que ya están en minutos."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el total en minutos",
+          "narracion": "Una hora tiene sesenta minutos. A esos sesenta minutos les sumamos los cincuenta que ya teníamos. Son ciento diez minutos. Valeria entrenó ciento diez minutos. La barra muestra la hora completa y los cincuenta minutos.",
+          "recursoRef": "ejemplo-uno"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: de segundos a horas",
+          "narracion": "Un video dura cuatro mil doscientos segundos. Queremos decirlo en horas y minutos. Primero pasa los segundos a minutos. Después mira cuántas horas completas caben en esos minutos."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el video en horas",
+          "narracion": "Pasamos de segundos a minutos, que es una unidad mayor, así que dividimos entre sesenta. Cuatro mil doscientos entre sesenta son setenta minutos. En setenta minutos cabe una hora completa, y sobran diez minutos. El video dura una hora y diez minutos.",
+          "recursoRef": "ejemplo-dos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con este error",
+          "narracion": "Veamos qué pasa si multiplicamos cuando hay que dividir. Alguien quiere pasar trescientos segundos a minutos y multiplica por sesenta. Obtiene dieciocho mil minutos, un número enorme que no tiene sentido. De segundos a minutos se va a una unidad mayor, así que se divide entre sesenta. Salen cinco minutos.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira de dónde partes",
+          "narracion": "Mira en qué unidad está el tiempo y a qué unidad quieres llegar."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: multiplica o divide",
+          "narracion": "Para pasar a una unidad menor, multiplica por sesenta. Para pasar a una unidad mayor, divide entre sesenta."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: ordena lo que sobra",
+          "narracion": "Si sobra tiempo, dilo con la unidad menor, por ejemplo horas y minutos. Revisa que el resultado tenga sentido. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/conversion-tiempo-situacion.svg",
+          "alt": "Cronómetro con la lectura una hora, cincuenta minutos, y la pregunta de cuántos minutos son en total.",
+          "descripcion": "Un cronómetro redondo con un botón arriba. En el centro dice una hora y, debajo, cincuenta minutos. Abajo se lee la pregunta: cuántos minutos son en total."
+        },
+        {
+          "id": "ejemplo-uno",
+          "src": "/nudito/diagramas/matematica/conversion-tiempo-ejemplo-uno.svg",
+          "alt": "Barra de una hora, igual a sesenta minutos, seguida de cincuenta minutos; suman ciento diez minutos.",
+          "descripcion": "Arriba: una hora cincuenta minutos. Una barra con dos tramos: uno turquesa claro que dice una hora igual sesenta minutos y otro amarillo que dice cincuenta minutos. Debajo, una línea con marcas en los extremos y la suma sesenta más cincuenta igual ciento diez minutos. Al final: Valeria entrenó ciento diez minutos."
+        },
+        {
+          "id": "ejemplo-dos",
+          "src": "/nudito/diagramas/matematica/conversion-tiempo-ejemplo-dos.svg",
+          "alt": "Cuatro mil doscientos segundos pasan a setenta minutos al dividir entre sesenta, y esos a una hora diez minutos.",
+          "descripcion": "Tres cajas unidas por flechas: cuatro mil doscientos segundos, setenta minutos y una hora diez minutos. Sobre cada flecha, dividir entre sesenta. Debajo: cuatro mil doscientos entre sesenta son setenta minutos; setenta minutos son una hora y sobran diez minutos."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/conversion-tiempo-error.svg",
+          "alt": "Dos tarjetas: multiplicar trescientos segundos por sesenta da dieciocho mil minutos, error; dividir entre sesenta da cinco minutos, correcto.",
+          "descripcion": "Una tarjeta roja punteada con una equis: trescientos segundos por sesenta igual dieciocho mil minutos, y debajo, error: sale un número enorme. Una tarjeta turquesa con una marca de aprobado: trescientos segundos entre sesenta igual cinco minutos, y debajo, a una unidad mayor se divide."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/conversion-tiempo-pasos.svg",
+          "alt": "Tarjeta con tres pasos para convertir tiempo: ver de dónde partes, multiplicar o dividir entre sesenta y ordenar lo que sobra.",
+          "descripcion": "Tres tarjetas numeradas. La uno dice mira de dónde partes y a dónde llegas. La dos dice unidad menor, por sesenta; unidad mayor, entre sesenta. La tres dice lo que sobra va en la unidad menor."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un cronómetro marcó nueve mil segundos. ¿Cuánto tiempo es, en horas y minutos?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Dos horas y cuarenta minutos"
+          },
+          {
+            "id": "b",
+            "texto": "Dos horas y treinta minutos"
+          },
+          {
+            "id": "c",
+            "texto": "Dos horas y quince minutos"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Nueve mil segundos son ciento cincuenta minutos, que son dos horas y treinta minutos.",
+        "pista": "Piensa cuántos segundos tiene un minuto y luego cuántos minutos forman una hora."
+      }
+    }
   },
   {
     "clave": "mat.p6.intervalos-tiempo",

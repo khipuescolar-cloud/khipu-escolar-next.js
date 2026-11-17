@@ -1291,7 +1291,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Pistas para descubrir",
+          "narracion": "Bienvenida y bienvenido. Hoy jugaremos con adivinanzas. Como idea principal de este tema, recuerda esto: una adivinanza es un juego de pistas. Tú escuchas todas las pistas, las unes y descubres una sola respuesta que encaje con todas."
+        },
+        {
+          "id": "situacion-circulo",
+          "tipo": "recurso",
+          "titulo": "Jugamos en círculo",
+          "narracion": "Observemos esta situación. Cinco niños están sentados en círculo sobre una alfombra, en su aula. En el centro hay una canasta tapada con una tela de colores. Una niña apoya la mano en la mejilla y piensa. Los demás sonríen. Están jugando a las adivinanzas, y cada pista ayuda a descubrir algo escondido.",
+          "recursoRef": "circulo"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: pistas escritas",
+          "narracion": "Escuchemos una adivinanza con tres pistas, escritas en la pantalla. La primera pista dice: soy amarillo. La segunda dice: soy largo. La tercera dice: me pelan para comer. Y la pregunta es: ¿qué soy? Antes de responder, junta todas las pistas.",
+          "recursoRef": "pistas-platano"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: une las pistas",
+          "narracion": "Mira a esta niña. Está pelando un plátano para comerlo. Veamos si encaja con cada pista: el plátano es amarillo, es largo y se pela para comer. Cumple las tres pistas, así que la respuesta es el plátano.",
+          "recursoRef": "platano"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: pistas de un objeto",
+          "narracion": "Ahora otra adivinanza, también escrita en la pantalla. Dice: tengo hojas de papel, pero no soy un árbol. Guardo cuentos. Y la pregunta es: ¿qué soy? Piensa en algo que tiene hojas de papel y que no es un árbol.",
+          "recursoRef": "pistas-libro"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: descarta y elige",
+          "narracion": "Un árbol tiene hojas, pero la pista dice que no soy un árbol. Entonces las hojas son de papel. Algo con hojas de papel que guarda cuentos es un libro: sus páginas son las hojas y dentro hay historias. El libro cumple las dos pistas."
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Qué pasa con una sola pista",
+          "narracion": "Mira lo que ocurre si respondes después de una sola pista. La primera pista dice: soy amarillo. El sol es amarillo, el plátano es amarillo y el limón también. Con esa pista sirven tres respuestas. Por eso no se responde enseguida: falta escuchar las demás pistas.",
+          "recursoRef": "una-pista"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: escucha todo",
+          "narracion": "Primero, escucha la adivinanza completa y quédate con cada pista."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: descarta",
+          "narracion": "Después, piensa en cosas que cumplan las pistas. Descarta las que no cumplan alguna."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: elige la que encaja",
+          "narracion": "Por último, elige la respuesta que cumple todas las pistas y compruébala pista por pista."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "circulo",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-1/adivinanza-circulo-gemini-v1.webp",
+          "alt": "Cinco niños sentados en círculo sobre una alfombra juegan a las adivinanzas con una canasta tapada en el centro.",
+          "descripcion": "Cinco niños sentados en círculo sobre una alfombra, en un aula. En el centro hay una canasta tapada con una tela de colores. Una niña con gorro rojo apoya la mano en la mejilla y piensa; los demás sonríen."
+        },
+        {
+          "id": "pistas-platano",
+          "src": "/nudito/diagramas/comunicacion/adivinanza-pistas-platano.svg",
+          "alt": "Tarjetas con las tres pistas de una adivinanza y la pregunta ¿Qué soy?",
+          "descripcion": "Arriba dice «Escucha las pistas:». Tres tarjetas blancas dicen: «Soy amarillo.», «Soy largo.» y «Me pelan para comer.». Abajo, en amarillo: «¿Qué soy?»."
+        },
+        {
+          "id": "platano",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-1/adivinanza-platano-gemini-v1.webp",
+          "alt": "Una niña con poncho de colores pela un plátano sentada a la mesa de la cocina.",
+          "descripcion": "Una niña sonriente, con poncho de colores, pela un plátano amarillo sentada a una mesa de madera. Sobre la mesa hay un vaso de leche y un cuenco con una cáscara. A un lado, un frutero con mango, manzanas y más plátanos."
+        },
+        {
+          "id": "pistas-libro",
+          "src": "/nudito/diagramas/comunicacion/adivinanza-pistas-libro.svg",
+          "alt": "Tarjetas con las pistas de una adivinanza sobre hojas de papel y cuentos.",
+          "descripcion": "Arriba dice «Escucha las pistas:». Tres tarjetas blancas dicen: «Tengo hojas de papel,», «pero no soy un árbol.» y «Guardo cuentos.». Abajo, en amarillo: «¿Qué soy?»."
+        },
+        {
+          "id": "una-pista",
+          "src": "/nudito/diagramas/comunicacion/adivinanza-una-pista.svg",
+          "alt": "La pista Soy amarillo y tres respuestas posibles: el sol, el plátano y el limón.",
+          "descripcion": "Arriba: «Primera pista: Soy amarillo». Debajo hay tres tarjetas con borde verde: «el sol», «el plátano» y «el limón»; cada una dice «sirve». Abajo, en amarillo: «Con una sola pista sirven tres respuestas distintas.»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Escucha: «Vivo en el agua, tengo aletas y escamas, y nado todo el día». ¿Qué soy?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un pez"
+          },
+          {
+            "id": "b",
+            "texto": "Un perro"
+          },
+          {
+            "id": "c",
+            "texto": "Un gato"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Un pez vive en el agua, tiene aletas y escamas y nada. Cumple todas las pistas.",
+        "pista": "Busca un animal que cumpla todas las pistas, no solo una."
+      }
+    }
   },
   {
     "clave": "com.p1.palabras-por-el-contexto-oral",

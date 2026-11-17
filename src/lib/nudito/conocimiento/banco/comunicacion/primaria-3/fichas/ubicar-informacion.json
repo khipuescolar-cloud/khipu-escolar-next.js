@@ -368,7 +368,145 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "La respuesta está escrita en el texto",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a ubicar información explícita. Como idea principal, recuerda que la información explícita es la que el texto dice con palabras escritas. Para encontrarla no necesitas adivinar: buscas la palabra clave de la pregunta, localizas la oración donde aparece y puedes mostrar con qué palabras la respondes."
+        },
+        {
+          "id": "situacion-evidencia",
+          "tipo": "recurso",
+          "titulo": "Pregunta, oración y evidencia",
+          "narracion": "Observemos este esquema. Arriba aparece una pregunta: qué vendió. En el centro está la oración del texto: Lucía vendió quesos en la feria. Abajo, la palabra quesos queda señalada como evidencia, porque es la que responde la pregunta.",
+          "recursoRef": "pregunta-evidencia"
+        },
+        {
+          "id": "ejemplo-quesos-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: Lucía en la feria de Cajamarca",
+          "narracion": "Leamos este texto: «Lucía vendió quesos en la feria de Cajamarca». Preguntan qué vendió Lucía. Primero leemos toda la oración para saber de qué trata y recién después buscamos el dato."
+        },
+        {
+          "id": "ejemplo-quesos-busca",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: busca la palabra clave",
+          "narracion": "La pregunta empieza con «qué», así que pide una cosa. La palabra clave es «vendió», porque nos dice qué acción buscar. Justo después de «vendió» el texto dice «quesos». Esa es la respuesta.",
+          "recursoRef": "pregunta-evidencia"
+        },
+        {
+          "id": "ejemplo-quesos-evidencia",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: muestra dónde está escrito",
+          "narracion": "Una respuesta explícita se puede señalar con el dedo en el texto. Aquí decimos: «Vendió quesos, porque el texto dice vendió quesos». Con otra pregunta sobre la misma oración, dónde lo vendió, la evidencia cambia: en la feria de Cajamarca."
+        },
+        {
+          "id": "escena-quesos",
+          "tipo": "recurso",
+          "titulo": "Ejemplo 1: imagina la escena",
+          "narracion": "Ahora imaginemos lo que cuenta la oración: Lucía en su puesto de la feria de Cajamarca. La imagen nos ayuda a ver la situación, pero para responder una pregunta no miramos el dibujo: volvemos a las palabras del texto y señalamos la frase que lo dice.",
+          "recursoRef": "explicita-feria-quesos"
+        },
+        {
+          "id": "ejemplo-pesca-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: don Raúl pesca en el Titicaca",
+          "narracion": "Veamos otro texto: «Don Raúl pesca en el lago Titicaca con su hijo». Preguntan con quién pesca. Esta vez la oración da varios datos: quién pesca, dónde y con quién. Debemos elegir solo el que pide la pregunta.",
+          "recursoRef": "texto-y-pregunta"
+        },
+        {
+          "id": "ejemplo-pesca-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: «con quién» pide una persona",
+          "narracion": "Las palabras «con quién» piden una compañía. Buscamos la palabra «con» y miramos qué viene después: «con su hijo». El lago Titicaca es un dato escrito, pero responde dónde, no con quién. Dos datos explícitos pueden convivir en una misma oración.",
+          "recursoRef": "texto-y-pregunta"
+        },
+        {
+          "id": "ejemplo-pesca-no-dice",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: no respondas con lo que supones",
+          "narracion": "Imagina que preguntan cuántos peces sacó don Raúl. Quizá pienses en una cifra, pero el texto no la menciona. Si algo no está escrito, no lo inventamos ni lo suponemos: respondemos solo con lo que el texto dice.",
+          "recursoRef": "texto-y-pregunta"
+        },
+        {
+          "id": "escena-pesca",
+          "tipo": "recurso",
+          "titulo": "Ejemplo 2: imagina la escena",
+          "narracion": "Mira esta escena del lago: un bote de totora, un padre, su hijo y una red. Una imagen puede mostrar más cosas que el texto, y el texto puede decir cosas que la imagen no muestra. Por eso, al responder, volvemos siempre a lo que está escrito en el texto sobre don Raúl.",
+          "recursoRef": "explicita-pesca-titicaca"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee el texto completo y la pregunta",
+          "narracion": "Primero lee el texto entero sin apuro. Después lee la pregunta y subraya la palabra clave: quién, qué, dónde, cuándo, cuántos o con quién."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca la palabra clave en el texto",
+          "narracion": "Luego busca en el texto esa palabra o una muy parecida, como «vendió» en el caso de Lucía. El dato que necesitas suele estar al lado.",
+          "recursoRef": "pregunta-evidencia"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: compara con lo escrito",
+          "narracion": "Por último, compara tu respuesta con las palabras del texto y no con lo que crees saber. Si puedes señalar la frase exacta que la sostiene, es información explícita.",
+          "recursoRef": "texto-y-pregunta"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "pregunta-evidencia",
+          "src": "/nudito/diagramas/comunicacion/informacion-explicita.svg",
+          "alt": "Pregunta: qué vendió. Texto: Lucía vendió quesos en la feria, con quesos resaltado. Evidencia: quesos.",
+          "descripcion": "El esquema muestra tres líneas: la pregunta sobre qué vendió, la oración «Lucía vendió quesos en la feria» con la palabra quesos entre corchetes y la evidencia, que repite la palabra quesos."
+        },
+        {
+          "id": "texto-y-pregunta",
+          "src": "/nudito/diagramas/comunicacion/informacion-explicita-evidencia.svg",
+          "alt": "Texto sobre don Raúl y su pesca. Está escrito: con su hijo. No está escrito: cuántos peces sacó.",
+          "descripcion": "En la parte superior se lee el texto «Don Raúl pesca en el lago Titicaca con su hijo» y la pregunta con quién pesca. Debajo hay dos cuadros: uno verde con lo que está escrito, con su hijo, y otro punteado con lo que no está escrito, cuántos peces sacó."
+        },
+        {
+          "id": "explicita-feria-quesos",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-3/explicita-feria-quesos-zimage-v1.webp",
+          "alt": "Lucía, con sombrero de paja y chalina, atiende su puesto de quesos en una feria de Cajamarca, con cerros verdes al fondo.",
+          "descripcion": "En una feria al aire libre con cerros verdes al fondo, una mujer con sombrero de paja, chalina blanca y falda azul atiende una mesa de madera. Sobre la mesa hay quesos redondos y cuñas de queso blanco, y ella sostiene un trozo con las dos manos. A la derecha, unos niños con uniforme miran."
+        },
+        {
+          "id": "explicita-pesca-titicaca",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-3/explicita-pesca-titicaca-zimage-v1.webp",
+          "alt": "Un hombre y su hijo pequeño pescan en un bote de totora en un lago azul, con una montaña nevada al fondo.",
+          "descripcion": "Sobre las aguas tranquilas de un lago azul, un hombre con sombrero de paja y su hijo pequeño van en un bote de totora dorado. Él sostiene una vara larga de la que cuelga una red, como una vela, y el niño una caña más corta. Al fondo se ve una montaña con la cumbre nevada."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee el texto: «Ana compró manzanas en el mercado de Arequipa y se las llevó a su abuela». Según el texto, ¿dónde compró Ana las manzanas?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "En la casa de su abuela."
+          },
+          {
+            "id": "b",
+            "texto": "En una tienda de Lima."
+          },
+          {
+            "id": "c",
+            "texto": "En el mercado de Arequipa."
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "El texto escribe «compró manzanas en el mercado de Arequipa». Esa frase es la evidencia explícita; las otras opciones no responden dónde las compró.",
+        "pista": "Busca la palabra «compró» y mira el lugar que aparece después."
+      }
+    }
   },
   {
     "clave": "com.p3.datos-especificos",
@@ -1941,6 +2079,128 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Descubres a quién reemplaza cada palabra",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a descubrir a quién o a qué se refieren palabras como «él», «ella», «ellos» y «estos». Como idea principal, esas palabras reemplazan un nombre para no repetirlo. Para saber de quién hablan, busca hacia atrás en el texto el nombre que encaja con ellas."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una feria con dos niños",
+          "narracion": "Observemos esta escena: una niña y un niño caminan por una feria, cada uno con algo en las manos. Quien cuenta lo que hacen no repite sus nombres todo el tiempo y usa palabras cortas como «él» y «ella». Para entender el texto, hay que saber a quién nombra cada una.",
+          "recursoRef": "feria"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: lee el texto",
+          "narracion": "Lee esta tarjeta: «Tomás y Elena van a la feria. Ella compró choclos». Abajo, la pregunta amarilla quiere saber a quién se refiere «ella».",
+          "recursoRef": "ej1"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: busca hacia atrás",
+          "narracion": "«Ella» habla de una sola persona, y es una mujer. Buscamos hacia atrás: Tomás es un varón y Elena es una mujer. Entonces «ella» se refiere a Elena. Para comprobar, cambiamos la palabra: «Elena compró choclos» tiene sentido."
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ahora con cosas",
+          "narracion": "Esta vez no se habla de personas. Lee la tarjeta: «Doña Aurora tejió dos mantas y tres gorros. Estas son de lana de alpaca». La pregunta amarilla quiere saber a qué se refiere «estas».",
+          "recursoRef": "ej2"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: mira cómo concuerda",
+          "narracion": "En la imagen, una mujer y una niña tejen lana frente a una mesa con tres gorros y dos mantas, como cuenta el texto. «Estas» es femenino y plural. «Mantas» es femenino y plural, pero «gorros» es masculino. Aunque «gorros» está más cerca, «estas» se refiere a las mantas.",
+          "recursoRef": "tejidos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: elegir el nombre más cercano",
+          "narracion": "Mira la tarjeta: «Inés abrazó a Mario. Ella sonrió». Arriba aparece una respuesta equivocada: decir que es Mario solo porque su nombre queda pegado a «ella». Abajo está la correcta: «ella» es Inés, porque «ella» habla de una mujer y Mario es un varón.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: encuentra la palabra",
+          "narracion": "Primero, encuentra la palabra que reemplaza un nombre, como «ella», «ellos» o «estos»."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: fíjate cómo es",
+          "narracion": "Segundo, fíjate si habla de una o de varias personas o cosas, y si son masculinas o femeninas."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: busca y comprueba",
+          "narracion": "Tercero, busca hacia atrás el nombre que encaja. Después cambia la palabra por ese nombre y escucha si la oración tiene sentido."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "feria",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-3/referentes-feria-zimage-v1.webp",
+          "alt": "Una niña con canasto y un niño con una caja de madera caminan por una calle de feria.",
+          "descripcion": "Una niña con sombrero, chaleco y falda azul lleva un canasto tejido con verduras. A su lado, un niño con mochila carga una caja de madera. Detrás hay un puesto de feria, casas con techo de tejas y otros niños."
+        },
+        {
+          "id": "ej1",
+          "src": "/nudito/diagramas/comunicacion/referentes-ej1-pregunta.svg",
+          "alt": "Tarjeta con el texto sobre Tomás y Elena en la feria y la pregunta a quién se refiere «ella».",
+          "descripcion": "Un recuadro blanco con el texto: Tomás y Elena van a la feria. Ella compró choclos. Debajo, una tarjeta amarilla pregunta: ¿A quién se refiere «ella»?"
+        },
+        {
+          "id": "ej2",
+          "src": "/nudito/diagramas/comunicacion/referentes-ej2-pregunta.svg",
+          "alt": "Tarjeta con el texto sobre doña Aurora, mantas y gorros, y la pregunta a qué se refiere «estas».",
+          "descripcion": "Un recuadro blanco con el texto: Doña Aurora tejió dos mantas y tres gorros. Estas son de lana de alpaca. Debajo, una tarjeta amarilla pregunta: ¿A qué se refiere «estas»?"
+        },
+        {
+          "id": "tejidos",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-3/referentes-tejidos-zimage-v1.webp",
+          "alt": "Una mujer y una niña tejen lana frente a una mesa con tres gorros y dos mantas dobladas.",
+          "descripcion": "Una mujer de suéter morado y una niña de suéter rosado tejen con palitos detrás de una mesa de madera. Sobre la mesa hay tres gorros con pompón, rosado, verde azulado y rojo oscuro, y dos mantas de rayas dobladas, una a cada lado."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/comunicacion/referentes-error.svg",
+          "alt": "Texto sobre Inés y Mario, una respuesta equivocada con cruz y otra correcta con palomita.",
+          "descripcion": "Un recuadro blanco con el texto: Inés abrazó a Mario. Ella sonrió. Debajo, una tarjeta roja con cruz dice: «Ella» es Mario, porque su nombre está más cerca. Luego, una tarjeta verde con palomita dice: «Ella» es Inés: es mujer."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Ana tiene tres gatos y dos tortugas. Ella las baña los sábados. ¿A quiénes se refiere «las»?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "A los tres gatos"
+          },
+          {
+            "id": "b",
+            "texto": "A sus tortugas"
+          },
+          {
+            "id": "c",
+            "texto": "A Ana, la dueña"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "«Las» es femenino y plural, y habla de varias cosas. Son las tortugas. Los gatos serían «los».",
+        "pista": "Fíjate si «las» es masculino o femenino y si habla de uno o de varios."
+      }
+    }
   }
 ]

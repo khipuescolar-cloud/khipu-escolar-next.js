@@ -1,6 +1,125 @@
 [
   {
     "clave": "mat.p4.conclusiones-graficos",
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Conclusiones que nacen de los datos",
+          "narracion": "Bienvenida y bienvenido. Hoy obtendrás conclusiones de tablas y gráficos. Como idea principal, una conclusión válida dice algo que los datos permiten comprobar. Lee el título, identifica las categorías, compara los valores y evita agregar gustos o causas que no aparecen."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Votos por fruta",
+          "narracion": "Observemos esta situación. El gráfico muestra cuatro barras, una para mango, otra para plátano, otra para naranja y otra para uva. Las alturas son diferentes. Antes de concluir, debemos reconocer qué representa cada barra y compararlas.",
+          "recursoRef": "frutas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo uno: mayor y menor",
+          "narracion": "En una votación, mango obtuvo ocho votos, plátano doce, naranja seis y uva diez. Busquemos primero el valor mayor y luego el menor. Así podremos formular una conclusión precisa.",
+          "recursoRef": "frutas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo uno: una comparación segura",
+          "narracion": "Doce es el valor mayor y corresponde al plátano. Seis es el menor y corresponde a la naranja. Podemos concluir que el plátano recibió más votos y la naranja recibió menos votos en esa votación.",
+          "recursoRef": "frutas-conclusion"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo dos: cómo llegan al colegio",
+          "narracion": "Una tabla registra cómo llegan los estudiantes: catorce a pie, nueve en combi, tres en bicicleta y seis en auto. Queremos comparar las cantidades sin inventar razones."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo dos: la cantidad menor",
+          "narracion": "Tres es la menor cantidad de la tabla y corresponde a bicicleta. Por eso podemos afirmar que la bicicleta es el medio menos registrado. No podemos decir si les gusta o no, porque la tabla solo informa cómo llegan.",
+          "recursoRef": "transporte"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Una idea que la tabla no demuestra",
+          "narracion": "Un error sería afirmar que los estudiantes prefieren caminar porque catorce llegan a pie. Ese dato muestra el medio que usan, no su preferencia. Otro error es comparar valores sin revisar su categoría. Cada conclusión debe quedarse dentro de lo observado.",
+          "recursoRef": "no-inventar"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: lee el contexto",
+          "narracion": "Primero lee el título y reconoce qué cuenta la tabla o el gráfico. Identifica cada categoría antes de mirar cuál valor destaca.",
+          "recursoRef": "frutas-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: compara valores",
+          "narracion": "Después localiza valores mayores, menores o iguales. Si la pregunta pide una diferencia o un total, realiza la operación necesaria.",
+          "recursoRef": "frutas-conclusion"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: revisa la afirmación",
+          "narracion": "Por último pregunta si cada palabra de tu conclusión está respaldada por los datos. Si menciona gustos, motivos o hechos no registrados, debes corregirla.",
+          "recursoRef": "no-inventar"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "frutas-pregunta",
+          "src": "/nudito/diagramas/matematica/conclusiones-graficos-frutas-pregunta.svg",
+          "alt": "Gráfico con cuatro barras turquesas de distintas alturas para mango, plátano, naranja y uva.",
+          "descripcion": "Un gráfico titulado Votos por fruta tiene cuatro barras turquesas sobre una línea base. De izquierda a derecha están rotuladas mango, plátano, naranja y uva. Las alturas son distintas y no hay números. Abajo se pregunta qué puedes afirmar."
+        },
+        {
+          "id": "frutas-conclusion",
+          "src": "/nudito/diagramas/matematica/conclusiones-graficos-frutas-conclusion.svg",
+          "alt": "Cuatro barras de votos; plátano tiene doce, el valor mayor, y naranja seis, el menor.",
+          "descripcion": "Cuatro barras rotuladas mango, plátano, naranja y uva, con los números ocho, doce, seis y diez encima. La barra amarilla del plátano lleva el rótulo mayor y la roja de la naranja, el rótulo menor. Abajo se lee Plátano: mayor, Naranja: menor."
+        },
+        {
+          "id": "transporte",
+          "src": "/nudito/diagramas/matematica/conclusiones-graficos-transporte.svg",
+          "alt": "Tabla: a pie catorce, combi nueve, bicicleta tres y auto seis; bicicleta tiene la menor cantidad.",
+          "descripcion": "La tabla titulada Cómo llegan al colegio tiene cuatro filas. A pie corresponde a catorce, combi a nueve, bicicleta a tres y auto a seis. Abajo se lee que bicicleta tiene la menor cantidad."
+        },
+        {
+          "id": "no-inventar",
+          "src": "/nudito/diagramas/matematica/conclusiones-graficos-no-inventar.svg",
+          "alt": "Una tarjeta indica el dato de catorce estudiantes a pie; otra señala que no se sabe si prefieren caminar.",
+          "descripcion": "La tarjeta izquierda, rotulada Dato, dice que catorce llegan a pie y muestra un punto turquesa. La derecha, rotulada No se sabe, dice si prefieren caminar y tiene una cruz ámbar. Abajo se pide no agregar gustos ni causas."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una tabla muestra los cuadernos vendidos: dieciocho el lunes y veinticinco el jueves. ¿Qué conclusión es correcta?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El lunes supera al jueves"
+          },
+          {
+            "id": "b",
+            "texto": "Ambos reúnen igual cantidad"
+          },
+          {
+            "id": "c",
+            "texto": "El jueves supera al lunes"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Veinticinco es mayor que dieciocho, así que el jueves registra más cuadernos que el lunes.",
+        "pista": "Compara las dos cantidades y revisa qué día corresponde a cada una."
+      }
+    },
     "area": "matematica",
     "nivel": "primaria",
     "grado": 4,
@@ -226,7 +345,7 @@
       {
         "dificultad": 2,
         "tipo": "texto_corto",
-        "enunciado": "Ventas de doña Carmen (● = 5 soles): lunes ●●●●, martes ●●●●●●●, miércoles ●●●, jueves ●●●●●●. ¿Qué día vendió más? Escribe el día.",
+        "enunciado": "Ventas de doña Carmen (cada punto vale 5 soles): lunes cuatro puntos, martes siete puntos, miércoles tres puntos, jueves seis puntos. ¿Qué día vendió más? Escribe el día.",
         "respuesta": "martes",
         "alternativasAceptadas": [
           "el martes"
@@ -242,7 +361,7 @@
       {
         "dificultad": 3,
         "tipo": "numerico",
-        "enunciado": "Ventas de doña Carmen (● = 5 soles): lunes ●●●●, martes ●●●●●●●, miércoles ●●●, jueves ●●●●●●. ¿Cuántos soles vendió en total de lunes a jueves? Escribe solo el número.",
+        "enunciado": "Ventas de doña Carmen (cada punto vale 5 soles): lunes cuatro puntos, martes siete puntos, miércoles tres puntos, jueves seis puntos. ¿Cuántos soles vendió en total de lunes a jueves? Escribe solo el número.",
         "respuesta": 100,
         "alternativasAceptadas": [],
         "pistas": [
@@ -256,12 +375,12 @@
       {
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "Ventas de doña Carmen (● = 5 soles): lunes ●●●●, martes ●●●●●●●, miércoles ●●●, jueves ●●●●●●. ¿Qué conclusión está respaldada por los datos?",
+        "enunciado": "Ventas de doña Carmen (cada punto vale 5 soles): lunes cuatro puntos, martes siete puntos, miércoles tres puntos, jueves seis puntos. ¿Qué conclusión está respaldada por los datos?",
         "respuesta": "a",
         "opciones": [
           {
             "id": "a",
-            "texto": "Martes y jueves fueron los días de más ventas, y ambos pasaron los 25 soles"
+            "texto": "Martes y jueves vendieron más de 25 soles"
           },
           {
             "id": "b",
@@ -618,6 +737,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Decidir con una encuesta",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a decidir usando los resultados de una encuesta. Como idea principal, compara los votos para ver qué opción tuvo más. Luego revisa si hay condiciones, como el dinero, el tiempo o el lugar, que permitan realizarla."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Votos para un taller",
+          "narracion": "Observemos esta situación. En el aula votaron por el taller del viernes. Hay cuatro barras: dibujo, teatro, música y danza. Mientras más votos recibió un taller, más larga es su barra. Queremos proponer uno.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: la opción con más votos",
+          "narracion": "En el dibujo, compara el largo de las cuatro barras. ¿Qué taller tiene la barra más larga? Después piensa cómo saber cuántos niños participaron.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: el taller elegido",
+          "narracion": "Teatro tiene trece votos, más que dibujo, música o danza. Por eso su barra amarilla es la más larga. Al sumar los votos de los cuatro talleres, participaron treinta y cinco niños.",
+          "recursoRef": "mayor"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: una condición",
+          "narracion": "Ahora votaron por una actividad del aniversario. Teatro es la más votada, pero hay un aviso: el salón está ocupado ese día. ¿Qué decidimos?",
+          "recursoRef": "condicion-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: la siguiente opción",
+          "narracion": "Teatro no se puede realizar. Entonces se elige la siguiente con más votos: música, con nueve, y el salón está libre. En el dibujo, el teatro aparece tachado y la música, en amarillo.",
+          "recursoRef": "condicion"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Elegir solo por gusto",
+          "narracion": "En otra votación, alguien dice que elige danza porque le gusta. Pero la barra de danza es la más corta, con solo cinco votos. Una decisión se apoya en los votos, que representan a todo el aula, y no solo en el gusto de una persona.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: ordena los votos",
+          "narracion": "Lee los resultados y ordena las opciones desde la que tiene más votos hasta la que tiene menos."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: revisa las condiciones",
+          "narracion": "Pregunta si la opción más votada se puede realizar. Piensa en el dinero, el tiempo y el lugar."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: decide y explica",
+          "narracion": "Elige la mejor opción que sí se pueda realizar. Explica tu decisión con los votos."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/encuesta-decisiones-situacion.svg",
+          "alt": "Barras de votos para el taller del viernes: dibujo, teatro, música y danza.",
+          "descripcion": "Cuatro barras horizontales turquesa. Dibujo tiene nueve votos, teatro trece, música seis y danza siete. Abajo se pregunta qué taller propone la mayoría."
+        },
+        {
+          "id": "mayor",
+          "src": "/nudito/diagramas/matematica/encuesta-decisiones-mayor.svg",
+          "alt": "Las mismas barras con la de teatro en amarillo y la suma de todos los votos.",
+          "descripcion": "La barra de teatro, la más larga, está en amarillo. Debajo dice: teatro tiene más votos. Después se lee la suma: nueve más trece más seis más siete es igual a treinta y cinco niños."
+        },
+        {
+          "id": "condicion-pregunta",
+          "src": "/nudito/diagramas/matematica/encuesta-decisiones-condicion-pregunta.svg",
+          "alt": "Barras de votos para el aniversario: teatro, música y ajedrez, con un aviso en rojo.",
+          "descripcion": "Tres barras: teatro tiene trece votos, música nueve y ajedrez cinco. Debajo hay un recuadro de borde rojo que dice: teatro, salón ocupado ese día."
+        },
+        {
+          "id": "condicion",
+          "src": "/nudito/diagramas/matematica/encuesta-decisiones-condicion.svg",
+          "alt": "Barras del aniversario con teatro tachado y música en amarillo.",
+          "descripcion": "La barra de teatro está en gris, con una marca roja de tachado junto al trece. La de música, nueve votos, está en amarillo, y la de ajedrez, cinco, en turquesa. Dos frases dicen: teatro no se puede, salón ocupado; música, segunda con más votos."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/encuesta-decisiones-error.svg",
+          "alt": "En otra votación, un globo dice «Elijo danza: me gusta» y danza tiene la barra más corta.",
+          "descripcion": "En otra votación, un globo con borde rojo dice: elijo danza, me gusta. Debajo hay tres barras: dibujo con ocho votos, teatro con doce y danza con cinco, esta última dentro de un recuadro rojo. Abajo, en rojo: danza tuvo solo cinco votos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "La clase votó por el color del mural: verde quince votos, azul once votos y rojo cuatro votos. La tienda ya no tiene pintura verde. ¿Qué decisión se apoya mejor en los datos?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Esperar la pintura verde nueva"
+          },
+          {
+            "id": "b",
+            "texto": "Elegir rojo, el último en votos"
+          },
+          {
+            "id": "c",
+            "texto": "Elegir azul, segundo en votos"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. El verde ganó, pero no se puede pintar. El azul es la siguiente opción con más votos.",
+        "pista": "Busca la opción que respeta los votos y que además se puede realizar."
+      }
+    }
   }
 ]

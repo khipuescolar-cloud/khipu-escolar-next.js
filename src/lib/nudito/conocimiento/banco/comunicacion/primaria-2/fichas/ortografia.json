@@ -405,7 +405,118 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Cada oración empieza con mayúscula y termina con punto",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a escribir oraciones con mayúscula y punto. Como idea principal, cada oración empieza con una letra mayúscula y termina con un punto. Después del punto, la siguiente oración vuelve a empezar con mayúscula."
+        },
+        {
+          "id": "situacion-regla",
+          "tipo": "recurso",
+          "titulo": "Una oración bien escrita",
+          "narracion": "Observemos esta oración en una tarjeta: «Mi abuelo siembra papas.». La primera letra, la eme, es mayúscula y está resaltada. Al final hay un punto, también resaltado. Abajo dicen dos cosas: la oración empieza con mayúscula y termina con punto.",
+          "recursoRef": "regla"
+        },
+        {
+          "id": "ejemplo-hoy-mira",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ¿qué falta?",
+          "narracion": "Veamos esta línea: «hoy llovió en el cerro». Mira la primera letra: es minúscula. Mira el final: no hay punto. Pensemos qué le falta."
+        },
+        {
+          "id": "ejemplo-hoy-corrige",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: corrígela",
+          "narracion": "Para corregirla, cambiamos la hache por mayúscula y ponemos un punto al final. Queda así, en la tarjeta verde: «Hoy llovió en el cerro.». Ahora empieza con mayúscula y termina con punto.",
+          "recursoRef": "hoy"
+        },
+        {
+          "id": "ejemplo-pedro-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: dos ideas juntas",
+          "narracion": "Ahora lee esto: «Pedro guardó su lápiz luego salió al patio». Hay dos ideas seguidas sin separar. La primera es que Pedro guardó su lápiz. La segunda es que salió al patio."
+        },
+        {
+          "id": "ejemplo-pedro-separa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: separa con punto",
+          "narracion": "Ponemos un punto donde termina la primera idea, después de «lápiz». La palabra que sigue, «luego», empieza otra oración, así que se escribe con mayúscula: «Pedro guardó su lápiz. Luego salió al patio.».",
+          "recursoRef": "pedro"
+        },
+        {
+          "id": "error-frecuente",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: punto y luego minúscula",
+          "narracion": "Un error común es poner el punto y seguir con minúscula: «Pedro guardó su lápiz. luego salió al patio». Después de un punto, la siguiente palabra siempre empieza con mayúscula. Otro error es olvidar el punto al final de la oración."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: decide dónde termina cada idea",
+          "narracion": "Primero lee y decide dónde termina cada idea. En la línea de Pedro, la primera idea termina después de «lápiz».",
+          "recursoRef": "pedro"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: pon el punto y la mayúscula",
+          "narracion": "Después escribe el punto donde termina la idea y empieza con mayúscula la oración siguiente. También la primera oración empieza con mayúscula, como «Hoy llovió en el cerro».",
+          "recursoRef": "hoy"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: revisa el inicio y el final",
+          "narracion": "Por último, revisa. Mira la primera letra y mira el final, como en la tarjeta de «Mi abuelo siembra papas.»: mayúscula al inicio y punto al final.",
+          "recursoRef": "regla"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "regla",
+          "src": "/nudito/diagramas/comunicacion/punto-final-regla.svg",
+          "alt": "La oración «Mi abuelo siembra papas.» con la mayúscula inicial y el punto señalados.",
+          "descripcion": "Una tarjeta blanca con la oración Mi abuelo siembra papas. La eme inicial y el punto final están resaltados en rojo oscuro. Dos flechas salen de dos tarjetas azules: una que dice Empieza con mayúscula y otra que dice Termina con punto."
+        },
+        {
+          "id": "hoy",
+          "src": "/nudito/diagramas/comunicacion/punto-final-hoy-corregir.svg",
+          "alt": "Antes: «hoy llovió en el cerro». Después: «Hoy llovió en el cerro.»",
+          "descripcion": "Arriba, una tarjeta roja con cruz dice Antes y muestra hoy llovió en el cerro, sin mayúscula ni punto. Una flecha baja a una tarjeta verde con palomita que dice Después: Hoy llovió en el cerro."
+        },
+        {
+          "id": "pedro",
+          "src": "/nudito/diagramas/comunicacion/punto-final-dos-oraciones.svg",
+          "alt": "Antes, una oración sin punto. Después, dos oraciones separadas con punto y mayúscula.",
+          "descripcion": "Arriba, una tarjeta roja con cruz dice Antes: Pedro guardó su lápiz luego salió al patio. Una flecha baja a una tarjeta verde con palomita que dice Después: Pedro guardó su lápiz. Luego salió al patio, en dos renglones."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee: «Mi tía vende mazorcas en el mercado luego me regala una». ¿Cuál es la forma correcta de escribirlo?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Mi tía vende mazorcas en el mercado. Luego me regala una."
+          },
+          {
+            "id": "b",
+            "texto": "Mi tía vende mazorcas en el mercado. luego me regala una."
+          },
+          {
+            "id": "c",
+            "texto": "Mi tía vende mazorcas en el mercado luego. Me regala una."
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Hay dos ideas: la tía vende mazorcas y luego me regala una. El punto las separa y «Luego» empieza con mayúscula.",
+        "pista": "Busca dónde termina la primera idea y cómo empieza la siguiente oración."
+      }
+    }
   },
   {
     "clave": "com.p2.orden-alfabetico",

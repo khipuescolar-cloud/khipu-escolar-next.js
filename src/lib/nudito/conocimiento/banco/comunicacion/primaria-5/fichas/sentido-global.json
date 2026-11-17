@@ -31,7 +31,7 @@
     ],
     "ejemplos": [
       {
-        "situacion": "Un párrafo dice: «El maíz es importante. Se come hervido. Se usa para chicha. Se hace tamales.»",
+        "situacion": "Un párrafo dice: «El maíz es importante. Se come hervido. Se usa para chicha. Se hacen tamales.»",
         "desarrollo": "La primera oración dice lo más importante; las otras dan usos.",
         "respuesta": "Idea principal: El maíz es importante."
       },
@@ -408,7 +408,142 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "La idea que reúne el párrafo",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a reconocer la idea principal de un párrafo y las ideas secundarias que la apoyan. Como idea principal de este tema, recuerda que la idea principal es lo más importante que dice el párrafo y reúne lo que cuentan las demás oraciones. Las ideas secundarias dan detalles, ejemplos o razones. Y no siempre está en la primera oración."
+        },
+        {
+          "id": "situacion-agua",
+          "tipo": "recurso",
+          "titulo": "Una idea y sus detalles",
+          "narracion": "Observemos este esquema. Arriba está una idea amplia: cuidamos el agua. Debajo hay dos acciones concretas: cerrar el caño y reutilizar agua. Cada acción es un detalle que apoya la idea de arriba, y la idea las reúne a todas.",
+          "recursoRef": "agua"
+        },
+        {
+          "id": "ejemplo-maiz-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el maíz",
+          "narracion": "Leamos este párrafo: «El maíz es importante. Se come hervido. Se usa para preparar chicha. Se hacen tamales». Primero buscamos el tema, de qué habla casi todo el párrafo. Todas las oraciones hablan del maíz."
+        },
+        {
+          "id": "ejemplo-maiz-idea",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la oración que reúne a las demás",
+          "narracion": "Ahora buscamos la oración que dice lo más importante sobre el maíz: «El maíz es importante». Las otras tres dan usos concretos: se come hervido, se prepara chicha y se hacen tamales. Esos usos son las ideas secundarias."
+        },
+        {
+          "id": "ejemplo-maiz-prueba",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: prueba tu elección",
+          "narracion": "Probemos con «Se hacen tamales». Esa oración solo cuenta una de las tres cosas, así que no puede reunir todo el párrafo. Una idea principal abarca casi todas las oraciones; un detalle solo explica una parte."
+        },
+        {
+          "id": "escena-maiz",
+          "tipo": "recurso",
+          "titulo": "Ejemplo 1: el maíz en la mesa",
+          "narracion": "Observa esta mesa: un choclo hervido, tamales y una jarra de chicha morada. Cada cosa sale del maíz y se parece a una oración del párrafo. Puedes imaginar que los usos son los platos de la mesa, y que el maíz es lo que los reúne a todos.",
+          "recursoRef": "idea-maiz-mesa"
+        },
+        {
+          "id": "ejemplo-huerto-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el huerto escolar",
+          "narracion": "Veamos otro párrafo: «Sembramos lechugas en cajones de madera. Las regamos cada tarde y quitamos las hierbas. Cosechamos en abril. Mi escuela tiene un huerto que cuidamos entre todos». Si lees solo la primera oración, tendrías un detalle y no la idea del párrafo."
+        },
+        {
+          "id": "ejemplo-huerto-final",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la idea está al final",
+          "narracion": "Las tres primeras oraciones cuentan sembrar, regar y cosechar. La última las reúne: el huerto de la escuela, cuidado entre todos. Ahí está la idea principal. Cuando la idea aparece al final, las oraciones anteriores preparan el camino hasta ella."
+        },
+        {
+          "id": "escena-huerto",
+          "tipo": "recurso",
+          "titulo": "Ejemplo 2: el huerto en acción",
+          "narracion": "Mira el huerto de esta escuela: una niña planta plantitas de lechuga en un cajón y un niño las riega, mientras al fondo crecen lechugas más grandes. Sembrar y regar son solo algunas de las tareas del párrafo, y todas sirven para lo mismo. Piensa qué oración reúne lo que hacen todos, en vez de quedarte con una sola tarea.",
+          "recursoRef": "idea-huerto-escolar"
+        },
+        {
+          "id": "ejemplo-huerto-posicion",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la posición no decide",
+          "narracion": "La idea principal puede estar al inicio, en medio o al final. Lo que la hace principal es que reúne las otras oraciones, no el lugar donde aparece. Mira este esquema de tres columnas: en la primera la oración resaltada es la primera, en la segunda es la tercera y en la tercera es la última.",
+          "recursoRef": "posiciones"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee todo el párrafo y encuentra el tema",
+          "narracion": "Primero lee el párrafo completo, sin quedarte con la primera oración. Pregúntate de qué habla casi todo el párrafo. Ese es el tema."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca la oración más amplia",
+          "narracion": "Después busca la oración que dice lo más importante sobre ese tema y que abarca a las demás. Piensa si las otras oraciones podrían ser ejemplos de ella, como cerrar el caño es un ejemplo de cuidar el agua.",
+          "recursoRef": "agua"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: revisa los detalles y exprésala breve",
+          "narracion": "Por último, comprueba que las demás oraciones dan detalles de esa idea. Luego dila con pocas palabras y con las tuyas, sin copiar todo el párrafo. Recuerda que la resaltada del esquema puede estar en cualquier lugar.",
+          "recursoRef": "posiciones"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "agua",
+          "src": "/nudito/diagramas/comunicacion/idea-principal.svg",
+          "alt": "Idea principal: cuidamos el agua. Debajo, dos detalles: cerrar el caño y reutilizar agua.",
+          "descripcion": "El esquema muestra arriba un cuadro con la idea principal «cuidamos el agua» y debajo dos cuadros de detalle: cerrar el caño y reutilizar agua."
+        },
+        {
+          "id": "posiciones",
+          "src": "/nudito/diagramas/comunicacion/idea-principal-posiciones.svg",
+          "alt": "Tres párrafos de cuatro oraciones; la oración resaltada está en el inicio, en medio o al final.",
+          "descripcion": "Tres columnas, inicio, medio y final, representan párrafos de cuatro oraciones. La oración resaltada con borde grueso es la idea principal: en la primera columna está en la primera posición, en la del medio en la tercera y en la última columna en la cuarta. Las otras oraciones, blancas, son ideas secundarias."
+        },
+        {
+          "id": "idea-maiz-mesa",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-5/idea-maiz-mesa-zimage-v1.webp",
+          "alt": "Una mesa de madera con un choclo hervido, tamales envueltos en hojas y una jarra de chicha morada.",
+          "descripcion": "En una cocina, sobre una mesa redonda de madera, hay un plato blanco con una mazorca de choclo hervido, otro plato con dos tamales envueltos en hojas verdes y atados, y en el centro una jarra de vidrio con chicha morada. Al fondo se ven sillas, una olla y estantes."
+        },
+        {
+          "id": "idea-huerto-escolar",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-5/idea-huerto-escolar-zimage-v1.webp",
+          "alt": "Una niña planta plantitas de lechuga en un cajón de madera mientras un niño las riega con una regadera.",
+          "descripcion": "En el patio de un colegio, con un muro y el cielo azul al fondo, una niña con uniforme blanco y azul oscuro, inclinada sobre un cajón de madera con tierra, planta plantitas de lechuga. Al otro lado, un niño con el mismo uniforme las riega con una regadera celeste. Al fondo se ve otro cajón con lechugas más grandes."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee el párrafo: «Las llamas cargan productos en los caminos de la sierra. Su lana sirve para hacer mantas y ponchos. Además, se aprovecha su carne. Por eso, las llamas son muy útiles para las familias andinas». ¿Cuál es la idea principal?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Su lana sirve para hacer mantas y ponchos."
+          },
+          {
+            "id": "b",
+            "texto": "Las llamas son muy útiles para las familias andinas."
+          },
+          {
+            "id": "c",
+            "texto": "Se aprovecha la carne de la llama."
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Cargar, dar lana y dar carne son tres maneras en que la llama es útil. La última oración las reúne todas; las otras opciones nombran solo un detalle.",
+        "pista": "Busca la oración que reúna el transporte, la lana y la carne, aunque no sea la primera."
+      }
+    }
   },
   {
     "clave": "com.p5.sintesis-en-organizadores",

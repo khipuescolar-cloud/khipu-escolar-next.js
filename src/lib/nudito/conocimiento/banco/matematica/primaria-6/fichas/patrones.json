@@ -539,7 +539,7 @@
         "id": "e10",
         "dificultad": 3,
         "tipo": "opcion_multiple",
-        "enunciado": "La sucesión 4, 7, 10, 13 pierde su cuarto término. ¿Qué valor debe reemplazar al 13 para que desde el tercero el salto sea de 3?",
+        "enunciado": "En la sucesión 4, 7, 10, __, ¿qué valor falta si el salto sigue siendo de 3?",
         "respuesta": "b",
         "alternativasAceptadas": [],
         "pistas": [
@@ -603,7 +603,130 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Patrones aditivos",
+          "narracion": "Bienvenida y bienvenido. Hoy descubriremos regularidades en secuencias de números. Como idea principal, en un patrón que se forma sumando o restando, el cambio entre cada término y el siguiente es siempre el mismo. Ese cambio se llama diferencia constante y sirve con números naturales y también con decimales. Si la conocemos, podemos continuar la secuencia o completar un término que falta."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Panes por hora",
+          "narracion": "Observemos esta situación. Una panadería hornea cada hora una cantidad de panes. En la primera hora hornea dieciocho, en la segunda veinticinco y en la tercera treinta y dos. La cuarta hora todavía no se conoce. Queremos saber cuántos panes hornea si sigue el mismo ritmo.",
+          "recursoRef": "pan-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: buscar el cambio",
+          "narracion": "Busquemos primero cuánto cambia de una hora a la siguiente. A los panes de la segunda hora réstales los de la primera. Luego haz lo mismo con la segunda y la tercera. Si el resultado es igual, tenemos la diferencia constante. ¿Cuánto es?",
+          "recursoRef": "pan-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el siguiente término",
+          "narracion": "Cada hora se suman siete panes, como muestran los arcos. Siete, siete y siete: el cambio se repite, así que el patrón es válido. Para la cuarta hora sumamos siete a treinta y dos. Hornea treinta y nueve panes.",
+          "recursoRef": "pan-saltos"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: con decimales",
+          "narracion": "Ahora una secuencia con decimales. Se mide el nivel de un río durante cuatro días. El primer día mide dos coma cuarenta metros; el segundo, dos coma quince; el tercero, uno coma noventa. El nivel baja cada día. Resta con cuidado, alineando las comas. ¿Cuánto baja de un día al siguiente?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: bajar con decimales",
+          "narracion": "Cada día el nivel baja cero coma veinticinco metros, como indican los arcos. Dos coma cuarenta menos cero coma veinticinco es dos coma quince, y dos coma quince menos cero coma veinticinco es uno coma noventa. El cambio se repite. Para el cuarto día restamos otra vez y resulta uno coma sesenta y cinco metros.",
+          "recursoRef": "rio-saltos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con el cambio",
+          "narracion": "Cuatro, siete, doce: los saltos son tres y cinco, no se repiten, así que no es un patrón de este tipo. Otro error es leer mal la coma: si el salto es cero coma tres, a tres coma dos se le suma cero coma tres y da tres coma cinco, no seis coma dos.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: halla el cambio",
+          "narracion": "Primero resta dos términos vecinos. Si la secuencia sube, ese cambio se suma; si baja, se resta."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: comprueba que se repite",
+          "narracion": "Luego haz lo mismo con otra pareja de términos vecinos. Si el cambio no es siempre el mismo, no es un patrón de este tipo."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: aplica el cambio",
+          "narracion": "Por último, suma o resta ese cambio al último término conocido. Verifica que el resultado encaje con los términos vecinos. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "tres-pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "pan-pregunta",
+          "src": "/nudito/diagramas/matematica/patrones-aditivos-p6-pan-pregunta.svg",
+          "alt": "Cuatro cuadros en fila con los panes de cuatro horas: dieciocho, veinticinco, treinta y dos y un signo de pregunta.",
+          "descripcion": "Cuatro cuadros en fila: hora uno, dieciocho; hora dos, veinticinco; hora tres, treinta y dos; hora cuatro, con signo de pregunta. Abajo: ¿Cuántos panes en la hora cuatro?"
+        },
+        {
+          "id": "pan-saltos",
+          "src": "/nudito/diagramas/matematica/patrones-aditivos-p6-pan-saltos.svg",
+          "alt": "Cuatro cuadros con dieciocho, veinticinco, treinta y dos y treinta y nueve, unidos por tres arcos que dicen más siete.",
+          "descripcion": "Cuatro cuadros: dieciocho, veinticinco, treinta y dos y treinta y nueve. Tres arcos ocres unen cada cuadro con el siguiente y dicen más siete. Abajo: treinta y dos más siete son treinta y nueve."
+        },
+        {
+          "id": "rio-saltos",
+          "src": "/nudito/diagramas/matematica/patrones-aditivos-p6-rio-saltos.svg",
+          "alt": "Cuatro cuadros con las medidas del río y tres arcos que dicen menos cero coma veinticinco.",
+          "descripcion": "Cuatro cuadros: dos coma cuarenta, dos coma quince, uno coma noventa y uno coma sesenta y cinco. Tres arcos ocres dicen menos cero coma veinticinco. Abajo: uno coma noventa menos cero coma veinticinco son uno coma sesenta y cinco metros."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/patrones-aditivos-p6-errores.svg",
+          "alt": "Tres tarjetas: cambios distintos y coma mal leída llevan cruz roja; sumar el mismo cambio con la coma bien leída lleva marca verde.",
+          "descripcion": "Tres tarjetas. Primera: cuatro, siete, doce, con saltos de tres y cinco, y cruz roja. Segunda: tres coma dos más tres da seis coma dos, con cruz roja. Tercera: tres coma dos más cero coma tres da tres coma cinco, con marca verde."
+        },
+        {
+          "id": "tres-pasos",
+          "src": "/nudito/diagramas/matematica/patrones-aditivos-p6-tres-pasos.svg",
+          "alt": "Tarjeta con tres pasos: restar dos términos vecinos, comprobar que el cambio se repite y sumar o restar ese cambio.",
+          "descripcion": "Tres tarjetas numeradas. La uno dice resta dos términos vecinos. La dos dice comprueba que el cambio se repite. La tres dice suma o resta ese cambio y verifica."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lupe entrena y corre un poco más cada día. El primer día corre dos coma cuatro kilómetros, el segundo día dos coma nueve y el tercero tres coma cuatro. Si sigue igual, ¿cuántos kilómetros correrá el cuarto día?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tres coma nueve"
+          },
+          {
+            "id": "b",
+            "texto": "Tres coma ocho"
+          },
+          {
+            "id": "c",
+            "texto": "Cuatro coma uno"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Cada día sube cero coma cinco kilómetros, porque dos coma nueve menos dos coma cuatro es cero coma cinco. Al tres coma cuatro le sumamos cero coma cinco y resulta tres coma nueve.",
+        "pista": "Compara el primer día con el segundo y luego con el tercero, para ver cuánto sube cada día."
+      }
+    }
   },
   {
     "clave": "mat.p6.patrones-multiplicativos",
@@ -1789,7 +1912,125 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Término general: la regla de cualquier posición",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a escribir el término general de un patrón. Como idea principal, la letra n representa cualquier posición, y una expresión como tres n más uno te da el valor de la posición que quieras sin escribir toda la secuencia."
+        },
+        {
+          "id": "situacion-palitos",
+          "tipo": "recurso",
+          "titulo": "Cuadrados formados con palitos",
+          "narracion": "Observemos esta situación. Con palitos formamos cuadrados en fila. Un cuadrado usa cuatro palitos, dos cuadrados unidos usan siete y tres cuadrados usan diez. Cada vez que agregamos un cuadrado, sumamos tres palitos, porque comparte un lado con el anterior. Buscaremos una regla que sirva para cualquier cantidad de cuadrados.",
+          "recursoRef": "palitos-figuras"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la fila de cuadrados",
+          "narracion": "La secuencia de palitos es cuatro, siete, diez. Crece de tres en tres, así que la expresión empieza con tres n. Para la posición uno, tres por uno es tres, pero la figura tiene cuatro palitos."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ajustamos y comprobamos",
+          "narracion": "Falta uno, y lo sumamos: el término general es tres n más uno. Comprobamos con la posición tres: tres por tres son nueve, más uno son diez, igual que los diez palitos del dibujo. Con veinte cuadrados se usarían sesenta y un palitos.",
+          "recursoRef": "palitos"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el ahorro de Rosa",
+          "narracion": "Rosa empieza con dos soles y ahorra cinco soles cada semana. Después de la semana uno tiene siete soles, después de la dos tiene doce, de la tres diecisiete y de la cuatro veintidós. Los valores suben de cinco en cinco, así que usamos cinco n."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la diferencia que falta",
+          "narracion": "Cinco por uno es cinco, y para llegar a siete faltan dos. Lo mismo pasa en las demás posiciones: la diferencia siempre es dos. El término general es cinco n más dos. En la semana diez, Rosa tendría cinco por diez más dos, que son cincuenta y dos soles.",
+          "recursoRef": "tabla"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error: olvidar el ajuste",
+          "narracion": "Un error frecuente es escribir solo tres n para la secuencia cuatro, siete, diez, porque crece de tres en tres. Pero tres n da tres, seis y nueve, y eso no coincide. Otro error es usar la letra n como si fuera el valor del término: la letra n solo indica la posición, y se reemplaza por uno, dos o tres para comprobar.",
+          "recursoRef": "comprobar"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: llama n a la posición",
+          "narracion": "Elige la letra n para la posición: uno, dos, tres. En la tabla del ahorro, la letra n es el número de la semana.",
+          "recursoRef": "tabla"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca cuánto crece y ajusta",
+          "narracion": "Mira cuánto sube el valor cuando la letra n aumenta en uno; ese número multiplica a la letra n. Luego compara con la primera posición y suma o resta lo que falte. En el ahorro sube cinco y faltan dos, así que es cinco n más dos.",
+          "recursoRef": "tabla"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: comprueba con dos posiciones",
+          "narracion": "Reemplaza la letra n por dos posiciones distintas. Con tres n más uno, la posición uno da cuatro y la posición tres da diez, igual que la secuencia. Si coincide en las dos, tu expresión sirve.",
+          "recursoRef": "comprobar"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "palitos",
+          "src": "/nudito/diagramas/matematica/patrones-palitos-cuadrados.svg",
+          "alt": "Tres figuras de cuadrados de palitos en fila, con cuatro, siete y diez palitos.",
+          "descripcion": "Se ven tres figuras. La primera tiene un cuadrado y cuatro palitos; la segunda, dos cuadrados unidos y siete palitos; la tercera, tres cuadrados unidos y diez palitos. Debajo se lee que cada cuadrado nuevo agrega tres palitos y que el término general es tres n más uno."
+        },
+        {
+          "id": "tabla",
+          "src": "/nudito/diagramas/matematica/patrones-tabla-cinco-n.svg",
+          "alt": "Tabla de posiciones uno a cuatro con cinco n, más dos y los valores siete, doce, diecisiete y veintidós.",
+          "descripcion": "Hay una tabla con cuatro columnas. La fila de n tiene uno, dos, tres y cuatro; la de cinco por n tiene cinco, diez, quince y veinte; la siguiente suma dos en cada columna. La fila final, en turquesa, muestra el valor: siete, doce, diecisiete y veintidós. Abajo se lee T de n igual a cinco n más dos."
+        },
+        {
+          "id": "comprobar",
+          "src": "/nudito/diagramas/matematica/patrones-comprobar-tres-n.svg",
+          "alt": "Comparación del patrón cuatro, siete, diez con tres n, que no coincide, y con tres n más uno, que sí.",
+          "descripcion": "Una tabla tiene cuatro filas y tres columnas. La fila n muestra uno, dos y tres; el patrón muestra cuatro, siete y diez. La fila de tres n muestra tres, seis y nueve y lleva una marca gris de que no coincide. La fila de tres n más uno muestra cuatro, siete y diez y lleva una marca verde de que coincide."
+        },
+        {
+          "id": "palitos-figuras",
+          "src": "/nudito/diagramas/matematica/patrones-palitos-pregunta.svg",
+          "alt": "Tres figuras de cuadrados de palitos en fila, con cuatro, siete y diez palitos.",
+          "descripcion": "Se ven tres figuras. La primera tiene un cuadrado y cuatro palitos; la segunda, dos cuadrados unidos y siete palitos; la tercera, tres cuadrados unidos y diez palitos. Debajo se lee que cada cuadrado nuevo agrega tres palitos, y la pregunta: cuántos palitos con n cuadrados."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Los azulejos de un mosaico forman filas con ocho, trece, dieciocho y veintitrés piezas en las posiciones uno, dos, tres y cuatro. ¿Qué expresión da las piezas de la posición n?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tres n más cinco"
+          },
+          {
+            "id": "b",
+            "texto": "Cinco n más tres"
+          },
+          {
+            "id": "c",
+            "texto": "Cinco n"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. El valor sube de cinco en cinco, así que empieza con cinco n. En la posición uno, cinco por uno es cinco, y faltan tres para llegar a ocho. Con la posición cuatro: veinte más tres son veintitrés.",
+        "pista": "Fíjate cuánto sube el valor en cada posición y cuánto falta en la posición uno."
+      }
+    }
   },
   {
     "clave": "mat.p6.terminos-no-inmediatos",

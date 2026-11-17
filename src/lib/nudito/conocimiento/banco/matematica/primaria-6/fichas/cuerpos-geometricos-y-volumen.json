@@ -1985,6 +1985,132 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Capacidad: litro y mililitro",
+          "narracion": "Bienvenida y bienvenido. Hoy compararemos capacidades. Como idea principal, la capacidad dice cuánto líquido cabe en un recipiente. Para comparar litros con mililitros, usamos que un litro tiene mil mililitros y escribimos las dos cantidades en la misma unidad."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Dos botellas grandes",
+          "narracion": "Observemos esta situación. Hay dos botellas del mismo tamaño en el dibujo. Una dice dos litros y la otra dice mil ochocientos mililitros. Queremos saber cuál tiene mayor capacidad y cuánto más.",
+          "recursoRef": "bidon-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: unidades distintas",
+          "narracion": "Las medidas están en unidades distintas, y por eso no podemos compararlas todavía. No basta mirar solo los números dos y mil ochocientos. Piensa cómo escribir los dos litros en mililitros.",
+          "recursoRef": "bidon-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: comparamos",
+          "narracion": "Como un litro tiene mil mililitros, dos litros son dos mil mililitros. Ahora comparamos en la misma unidad: dos mil es mayor que mil ochocientos. La botella de dos litros tiene mayor capacidad. Le caben doscientos mililitros más.",
+          "recursoRef": "bidon-convertido"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: decimales y mililitros",
+          "narracion": "Ahora comparamos cero coma nueve litros con ochocientos cincuenta mililitros. Piensa: cero coma nueve litros es casi un litro. ¿Cuántos mililitros serán?",
+          "recursoRef": "botellas-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: convertimos",
+          "narracion": "Cero coma nueve litros son novecientos mililitros, porque nueve décimos de mil es novecientos. Ahora comparamos novecientos con ochocientos cincuenta. Novecientos es mayor, así que la botella de cero coma nueve litros tiene mayor capacidad, por cincuenta mililitros.",
+          "recursoRef": "botellas-convertido"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Mira estas dos filas. En la primera se compararon los números sueltos, quinientos y dos, y se dijo que quinientos mililitros es mayor que dos litros. Eso lleva una equis roja. En la segunda fila se convirtieron los dos litros a dos mil mililitros y se comparó bien, con una palomita. Otro error es creer que un litro tiene cien mililitros: en verdad tiene mil.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee cantidad y unidad",
+          "narracion": "Primero lee la cantidad y la unidad de cada recipiente. Aquí vemos dos litros y mil ochocientos mililitros.",
+          "recursoRef": "bidon-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: convierte a una unidad",
+          "narracion": "Segundo, convierte para que las dos cantidades queden en la misma unidad. Cero coma nueve litros se escribe como novecientos mililitros.",
+          "recursoRef": "botellas-convertido"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: compara y comprueba",
+          "narracion": "Tercero, compara las cantidades ya expresadas en la misma unidad: dos mil es mayor que mil ochocientos. Después comprueba si el resultado concuerda con recipientes que conoces.",
+          "recursoRef": "bidon-convertido"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "bidon-pregunta",
+          "src": "/nudito/diagramas/matematica/comparar-capacidad-bidon-pregunta.svg",
+          "alt": "Dos botellas del mismo tamaño: la izquierda dice dos litros y la derecha mil ochocientos mililitros; abajo, la pregunta cuál cabe más.",
+          "descripcion": "Dos botellas iguales en forma y tamaño: la de la izquierda, turquesa clara, con el rótulo dos litros debajo, y la de la derecha, amarilla clara, con el rótulo mil ochocientos mililitros. Abajo se lee ¿cuál cabe más?"
+        },
+        {
+          "id": "bidon-convertido",
+          "src": "/nudito/diagramas/matematica/comparar-capacidad-bidon-convertido.svg",
+          "alt": "Las dos botellas con un signo mayor que entre ellas; dos litros igual a dos mil mililitros a la izquierda y mil ochocientos mililitros a la derecha.",
+          "descripcion": "Las mismas dos botellas, con un signo mayor que grande entre ellas, que se abre hacia la botella de la izquierda. Debajo de la izquierda se lee dos litros y, en turquesa, igual a dos mil mililitros. Debajo de la derecha se lee mil ochocientos mililitros."
+        },
+        {
+          "id": "botellas-pregunta",
+          "src": "/nudito/diagramas/matematica/comparar-capacidad-botellas-pregunta.svg",
+          "alt": "Dos botellas del mismo tamaño: una dice cero coma nueve litros y la otra ochocientos cincuenta mililitros; abajo, la pregunta cuál cabe más.",
+          "descripcion": "Dos botellas iguales: la de la izquierda, azulada, con el rótulo cero coma nueve litros, y la de la derecha, turquesa clara, con el rótulo ochocientos cincuenta mililitros. Abajo se lee ¿cuál cabe más?"
+        },
+        {
+          "id": "botellas-convertido",
+          "src": "/nudito/diagramas/matematica/comparar-capacidad-botellas-convertido.svg",
+          "alt": "Las dos botellas con un signo mayor que entre ellas; cero coma nueve litros igual a novecientos mililitros a la izquierda y ochocientos cincuenta mililitros a la derecha.",
+          "descripcion": "Las mismas dos botellas, con un signo mayor que grande entre ellas, que se abre hacia la botella de la izquierda. Debajo de la izquierda se lee cero coma nueve litros y, en turquesa, igual a novecientos mililitros. Debajo de la derecha se lee ochocientos cincuenta mililitros."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/comparar-capacidad-errores.svg",
+          "alt": "Fila de arriba: dos litros y quinientos mililitros, quinientos mayor que dos, con equis roja. Fila de abajo: dos mil y quinientos mililitros, con palomita.",
+          "descripcion": "En la fila de arriba hay dos cajitas, dos litros y quinientos mililitros, con una equis roja y debajo, en rojo, quinientos mayor que dos. En la fila de abajo hay dos cajitas, dos mil mililitros y quinientos mililitros, con una palomita y debajo, en turquesa, dos mil mayor que quinientos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Rita tiene una jarra de uno coma tres litros y una tetera de mil doscientos cincuenta mililitros. ¿Cuál tiene mayor capacidad?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La tetera"
+          },
+          {
+            "id": "b",
+            "texto": "La jarra"
+          },
+          {
+            "id": "c",
+            "texto": "Son iguales"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Uno coma tres litros son mil trescientos mililitros, que es más que mil doscientos cincuenta.",
+        "pista": "Antes de comparar, escribe las dos medidas en la misma unidad."
+      }
+    }
   }
 ]

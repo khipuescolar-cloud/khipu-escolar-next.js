@@ -297,7 +297,132 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Elevar al cuadrado",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a elevar un número al cuadrado. Como idea principal, elevar un número al cuadrado es multiplicarlo por sí mismo. El número que se repite se llama base, y el exponente dos indica que la base aparece dos veces. Si un cuadrado tiene ese número de unidades por lado, su área es el lado al cuadrado, medida en unidades cuadradas."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Un piso de baldosas",
+          "narracion": "Observemos esta situación. Un piso cuadrado está cubierto con baldosas del mismo tamaño. En cada lado caben ocho baldosas. Queremos saber cuántas baldosas cubren todo el piso.",
+          "recursoRef": "mosaico-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: filas y baldosas",
+          "narracion": "Piensa en el piso como filas de baldosas. ¿Cuántas filas hay y cuántas baldosas tiene cada fila? Con esos dos números, decide qué operación da el total."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la potencia del piso",
+          "narracion": "Ahora las filas están pintadas con colores alternados. Hay ocho filas y cada fila tiene ocho baldosas. Ocho por ocho son sesenta y cuatro. Se escribe ocho elevado a dos y se lee ocho al cuadrado: sesenta y cuatro baldosas.",
+          "recursoRef": "mosaico-filas"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un jardín cuadrado",
+          "narracion": "Ahora un jardín cuadrado que mide veinte metros por cada lado. Queremos saber su área. ¿Qué número es la base y cuántas veces hay que multiplicarla?",
+          "recursoRef": "jardin-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: metros cuadrados",
+          "narracion": "La base es veinte, porque es la medida del lado. Veinte por veinte son cuatrocientos. Como medimos una superficie, la unidad es el metro cuadrado: el jardín tiene cuatrocientos metros cuadrados.",
+          "recursoRef": "jardin-area"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "A la izquierda hay una cuadrícula de seis filas de seis baldosas; la fila de arriba, marcada en rojo, es solo un lado, no el área. A la derecha, seis al cuadrado no es seis por dos, que daría doce. Es seis por seis, que da treinta y seis.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: encuentra la base",
+          "narracion": "Primero identifica el número que se repite: es la base. En el piso, la base es ocho, porque cada lado tiene ocho baldosas.",
+          "recursoRef": "mosaico-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: escribe dos factores",
+          "narracion": "Segundo, escribe la base dos veces en una multiplicación. Ocho por ocho: ocho filas con ocho baldosas cada una.",
+          "recursoRef": "mosaico-filas"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: calcula y pon la unidad",
+          "narracion": "Tercero, calcula el producto. Si es un área, añade la unidad cuadrada. En el jardín, veinte por veinte da cuatrocientos metros cuadrados.",
+          "recursoRef": "jardin-area"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "mosaico-pregunta",
+          "src": "/nudito/diagramas/matematica/potencia-cuadrada-mosaico-pregunta.svg",
+          "alt": "Piso cuadrado de baldosas vacías, con ocho baldosas en cada lado; se marca ocho baldosas arriba y ocho a la izquierda.",
+          "descripcion": "Una cuadrícula cuadrada de ocho filas y ocho columnas de baldosas claras. Arriba dice ocho baldosas y a la izquierda hay un ocho. A la derecha se lee piso cuadrado y la pregunta cuántas baldosas."
+        },
+        {
+          "id": "mosaico-filas",
+          "src": "/nudito/diagramas/matematica/potencia-cuadrada-mosaico-filas.svg",
+          "alt": "La misma cuadrícula con ocho filas de colores alternados; ocho por ocho igual a sesenta y cuatro baldosas.",
+          "descripcion": "La misma cuadrícula de ocho por ocho, con las filas pintadas alternando verde azulado y amarillo. A la derecha se lee ocho filas, ocho por fila, ocho por ocho igual a sesenta y cuatro, ocho al cuadrado igual a sesenta y cuatro, baldosas."
+        },
+        {
+          "id": "jardin-pregunta",
+          "src": "/nudito/diagramas/matematica/potencia-cuadrada-jardin-pregunta.svg",
+          "alt": "Jardín cuadrado de veinte metros por lado, con un signo de pregunta en el lugar del área.",
+          "descripcion": "Un cuadrado grande de color amarillo claro. Arriba dice veinte metros y a la izquierda también veinte metros. Dentro se lee área con un signo de pregunta. Abajo dice jardín cuadrado."
+        },
+        {
+          "id": "jardin-area",
+          "src": "/nudito/diagramas/matematica/potencia-cuadrada-jardin-area.svg",
+          "alt": "El jardín cuadrado con veinte por veinte igual a cuatrocientos metros cuadrados.",
+          "descripcion": "El mismo cuadrado amarillo con veinte metros arriba y a la izquierda. Dentro se lee veinte por veinte igual a cuatrocientos metros cuadrados. Abajo, en verde azulado, veinte al cuadrado igual a cuatrocientos metros cuadrados."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/potencia-cuadrada-errores.svg",
+          "alt": "Cuadrícula de seis por seis con la fila de arriba en rojo; mal seis al cuadrado igual seis por dos igual doce; bien seis por seis igual treinta y seis.",
+          "descripcion": "A la izquierda, una cuadrícula de seis filas de seis; la fila de arriba está encerrada en rojo, con el letrero una fila, un lado. Debajo dice seis filas de seis. A la derecha, en rojo, mal: seis al cuadrado es seis por dos, doce; en verde azulado, bien: seis por seis, treinta y seis."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una loseta cuadrada mide once centímetros por lado. ¿Qué cálculo da su área?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Once por once"
+          },
+          {
+            "id": "b",
+            "texto": "Once por dos"
+          },
+          {
+            "id": "c",
+            "texto": "Once más once"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. El área de un cuadrado es lado por lado, es decir, once al cuadrado, que da ciento veintiuno centímetros cuadrados.",
+        "pista": "Piensa en cuántas baldosas de un centímetro caben en cada fila y cuántas filas hay."
+      }
+    }
   },
   {
     "clave": "mat.p6.potencia-cubica",

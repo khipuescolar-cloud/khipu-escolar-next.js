@@ -883,7 +883,114 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Multiplicar con llevadas",
+          "narracion": "Bienvenida y bienvenido. Hoy multiplicarás un número de varias cifras por un número de una cifra. Como idea principal, el número pequeño multiplica a cada cifra del número grande, empezando por las unidades. Si un resultado tiene dos cifras, escribes la de la derecha y llevas la de la izquierda a la columna siguiente."
+        },
+        {
+          "id": "situacion-vertical",
+          "tipo": "recurso",
+          "titulo": "Una multiplicación en vertical",
+          "narracion": "Observemos esta multiplicación en vertical. Arriba está el doscientos cuarenta y tres y debajo el tres. Un círculo amarillo sobre las centenas marca la llevada. A la derecha se anota cada cuenta, y abajo aparece el resultado.",
+          "recursoRef": "mult-243"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: doscientos cuarenta y tres por tres",
+          "narracion": "Calculamos doscientos cuarenta y tres por tres. Empezamos por las unidades: tres por tres son nueve, y escribimos nueve. Seguimos con las decenas: tres por cuatro son doce. Escribimos dos y llevamos uno.",
+          "recursoRef": "mult-243"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: sumamos la llevada",
+          "narracion": "Ahora las centenas: tres por dos son seis, y sumamos la llevada, uno. Seis más uno son siete. El resultado es setecientos veintinueve. Estimamos para comprobar: tres por doscientos cuarenta son setecientos veinte, un número muy cercano.",
+          "recursoRef": "mult-243"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: mil doscientos cincuenta y seis por cuatro",
+          "narracion": "Calculamos mil doscientos cincuenta y seis por cuatro. Unidades: cuatro por seis son veinticuatro. Escribimos cuatro y llevamos dos. Decenas: cuatro por cinco son veinte, y con las dos de la llevada son veintidós. Escribimos dos y llevamos dos.",
+          "recursoRef": "mult-1256"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: centenas y millares",
+          "narracion": "Centenas: cuatro por dos son ocho, y con la llevada son diez. Escribimos cero y llevamos uno. Millares: cuatro por uno son cuatro, y con la llevada son cinco. El resultado es cinco mil veinticuatro. Estimamos: cuatro por mil trescientos son cinco mil doscientos, un número cercano.",
+          "recursoRef": "mult-1256"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "No olvides la llevada",
+          "narracion": "Cuidado con la llevada. En doscientos cuarenta y tres por tres, si olvidas llevar el uno, en las centenas solo haces tres por dos y obtienes seis. Entonces el resultado sería seiscientos veintinueve, y es incorrecto. Anota cada llevada sobre la columna que la recibe. Otro error es multiplicar solo la última cifra: el número de una cifra multiplica todas las posiciones."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: escribe y alinea",
+          "narracion": "Primero escribe el número grande y, debajo, el número de una cifra. Alinea las columnas de modo que las unidades queden unas bajo otras.",
+          "recursoRef": "mult-243"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: multiplica de derecha a izquierda",
+          "narracion": "Después multiplica desde las unidades hacia la izquierda. Si el resultado de una columna tiene dos cifras, escribe la de la derecha y lleva la otra a la columna siguiente.",
+          "recursoRef": "mult-1256"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: suma las llevadas y estima",
+          "narracion": "Por último, suma cada llevada al resultado de la columna que sigue y continúa hasta el final. Comprueba con una estimación: redondea el número grande y multiplica.",
+          "recursoRef": "mult-243"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "mult-243",
+          "src": "/nudito/diagramas/matematica/multiplicacion-243-por-3.svg",
+          "alt": "Multiplicación vertical de doscientos cuarenta y tres por tres, con una llevada de uno sobre las centenas; el resultado es setecientos veintinueve.",
+          "descripcion": "Se ve la multiplicación en vertical. Arriba está el doscientos cuarenta y tres con un círculo amarillo con un uno sobre las centenas. Debajo está el tres, una raya y el resultado, setecientos veintinueve. A la derecha se anotan las cuentas: tres por tres, nueve; tres por cuatro, doce, llevo uno; tres por dos más uno, siete."
+        },
+        {
+          "id": "mult-1256",
+          "src": "/nudito/diagramas/matematica/multiplicacion-1256-por-4.svg",
+          "alt": "Multiplicación vertical de mil doscientos cincuenta y seis por cuatro, con tres llevadas; el resultado es cinco mil veinticuatro.",
+          "descripcion": "Se ve la multiplicación en vertical de mil doscientos cincuenta y seis por cuatro. Sobre las tres primeras columnas hay círculos amarillos con las llevadas uno, dos y dos. El resultado es cinco mil veinticuatro. A la derecha se anotan las cuatro cuentas, de cuatro por seis hasta cuatro por uno más uno."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un vivero tiene seis filas con doscientos treinta y ocho plantones cada una. ¿Cuántos plantones hay en total?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Mil trescientos cuarenta y ocho plantones"
+          },
+          {
+            "id": "b",
+            "texto": "Mil doscientos ochenta y ocho plantones"
+          },
+          {
+            "id": "c",
+            "texto": "Mil cuatrocientos veintiocho plantones"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Seis por ocho son cuarenta y ocho: escribo ocho y llevo cuatro. Seis por tres son dieciocho, más cuatro son veintidós: escribo dos y llevo dos. Seis por dos son doce, más dos son catorce. Hay mil cuatrocientos veintiocho plantones.",
+        "pista": "Multiplica desde las unidades y suma cada llevada en la columna siguiente."
+      }
+    }
   },
   {
     "clave": "mat.p4.distributiva-calculo",
@@ -1773,7 +1880,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Multiplicar por partes",
+          "narracion": "Bienvenida y bienvenido. Hoy calcularemos productos de cabeza, sin escribirlos. Como idea principal, un factor se puede escribir como producto de dos números pequeños. Después multiplicamos paso a paso, empezando por el par que da un producto fácil, como cien. Por ejemplo, doce se puede escribir como tres por cuatro."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Bolsas de caramelos",
+          "narracion": "Observemos esta situación. En una tienda, cada bolsa trae veinticinco caramelos. Hay dieciséis bolsas. En el dibujo se ve una bolsa de tela amarilla con veinticinco, el signo por, un recuadro con dieciséis bolsas y un signo de pregunta. Queremos saber cuántos caramelos hay en total, calculando de cabeza.",
+          "recursoRef": "bolsas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: busca factores",
+          "narracion": "Para calcular veinticinco por dieciséis, escribe dieciséis como un producto de dos números pequeños. Elige los que formen con veinticinco un producto redondo. ¿Qué factores sirven?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: paso a paso",
+          "narracion": "Dieciséis es cuatro por cuatro. Primero hacemos veinticinco por cuatro, que da cien. Luego multiplicamos cien por el otro cuatro y obtenemos cuatrocientos. En el dibujo, las flechas muestran los dos pasos. Entonces veinticinco por dieciséis es cuatrocientos.",
+          "recursoRef": "veinticinco-por-dieciseis"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: otro producto",
+          "narracion": "Ahora calculemos cincuenta por catorce. Escribe catorce como producto de dos números. Busca primero el factor que, multiplicado por cincuenta, dé cien. ¿Cuál es? Después piensa por cuánto falta multiplicar."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: siete al final",
+          "narracion": "Catorce es dos por siete. Primero hacemos cincuenta por dos, que da cien. Luego multiplicamos cien por siete y obtenemos setecientos. El siete, que es el factor que queda, se multiplica al final. En el dibujo se ven los dos pasos con flechas. Entonces cincuenta por catorce es setecientos.",
+          "recursoRef": "cincuenta-por-catorce"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con parar a la mitad",
+          "narracion": "Volvamos a veinticinco por dieciséis. Alguien llega a cien y dice que ese es el resultado. Es un error, porque cien es solo un paso. En el dibujo, la fila de arriba se detiene y muestra con rayas rojas el paso que falta. La fila de abajo sigue y multiplica por el otro cuatro. El resultado correcto es cuatrocientos.",
+          "recursoRef": "parar-a-la-mitad"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: parte un factor",
+          "narracion": "Escribe uno de los factores como producto de dos números pequeños."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: multiplica el par fácil",
+          "narracion": "Multiplica primero el par que da un producto redondo, como cien."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: multiplica por el que queda",
+          "narracion": "Multiplica ese resultado por el factor que sobró y comprueba. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "tres-pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "bolsas-pregunta",
+          "src": "/nudito/diagramas/matematica/descomposicion-multiplicativa-bolsas-pregunta.svg",
+          "alt": "Una bolsa de tela amarilla con veinticinco caramelos, por dieciséis bolsas, igual a un signo de pregunta.",
+          "descripcion": "Una bolsa de tela amarilla, atada en el cuello con un moño y con dos caramelos envueltos, y el número veinticinco; debajo, la palabra caramelos. Luego el signo por; un recuadro con el número dieciséis y debajo la palabra bolsas; el signo igual y un signo de pregunta. Abajo: ¿Cuántos caramelos hay en total?"
+        },
+        {
+          "id": "veinticinco-por-dieciseis",
+          "src": "/nudito/diagramas/matematica/descomposicion-multiplicativa-veinticinco-por-dieciseis.svg",
+          "alt": "Veinticinco por cuatro es cien, y cien por cuatro es cuatrocientos.",
+          "descripcion": "Arriba: dieciséis igual a cuatro por cuatro. Tres recuadros unidos por flechas: veinticinco, flecha por cuatro, cien, flecha por cuatro, cuatrocientos. Debajo: primero y después. Abajo: veinticinco por dieciséis igual a cuatrocientos."
+        },
+        {
+          "id": "cincuenta-por-catorce",
+          "src": "/nudito/diagramas/matematica/descomposicion-multiplicativa-cincuenta-por-catorce.svg",
+          "alt": "Cincuenta por dos es cien, y cien por siete es setecientos.",
+          "descripcion": "Arriba: catorce igual a dos por siete. Tres recuadros unidos por flechas: cincuenta, flecha por dos, cien, flecha por siete, setecientos. Debajo: primero y después. Abajo: cincuenta por catorce igual a setecientos."
+        },
+        {
+          "id": "parar-a-la-mitad",
+          "src": "/nudito/diagramas/matematica/descomposicion-multiplicativa-parar-a-la-mitad.svg",
+          "alt": "Dos filas: la primera se detiene en cien y la segunda sigue hasta cuatrocientos.",
+          "descripcion": "Arriba: veinticinco, flecha por cuatro, cien y un recuadro rojo de rayas con un signo de pregunta y la palabra falta; debajo, Mal: parar en cien. Abajo: veinticinco, cien y cuatrocientos con flechas por cuatro; debajo, Bien: multiplicar por el otro cuatro."
+        },
+        {
+          "id": "tres-pasos",
+          "src": "/nudito/diagramas/matematica/descomposicion-multiplicativa-tres-pasos.svg",
+          "alt": "Tarjeta con tres pasos para multiplicar de cabeza.",
+          "descripcion": "Tres tarjetas numeradas. Uno: parte un factor en dos números pequeños. Dos: multiplica el par que da un producto redondo. Tres: multiplica por el factor que queda."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Marta calcula veinticinco por veinticuatro. Escribe veinticuatro como cuatro por seis. ¿Cuál es el resultado?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuatrocientos"
+          },
+          {
+            "id": "b",
+            "texto": "Seiscientos"
+          },
+          {
+            "id": "c",
+            "texto": "Ciento seis"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Veinticinco por cuatro es cien, y cien por seis es seiscientos.",
+        "pista": "Después de formar el producto redondo, todavía falta multiplicar por el otro factor."
+      }
+    }
   },
   {
     "clave": "mat.p4.division-exacta-inexacta",
@@ -2678,7 +2907,114 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Dividir por posiciones",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a dividir un número grande entre una cifra. Como idea principal, dividir es repartir en grupos iguales, y lo haces por posiciones: primero las centenas, luego las decenas y al final las unidades. Lo que sobra en una posición se junta con la siguiente."
+        },
+        {
+          "id": "situacion-reparto",
+          "tipo": "recurso",
+          "titulo": "Un reparto en tres grupos",
+          "narracion": "Observemos esta situación. Hay seiscientas cuarenta y ocho fichas para repartir entre tres grupos iguales. En la imagen, cada grupo ya recibió dos centenas, una decena y seis unidades. Eso significa doscientas dieciséis fichas en cada grupo.",
+          "recursoRef": "reparto-648"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: seiscientos cuarenta y ocho entre tres",
+          "narracion": "Calculamos seiscientos cuarenta y ocho entre tres. Empezamos por las centenas: seis centenas entre tres son dos centenas para cada grupo. Después las decenas: cuatro decenas entre tres son una decena para cada grupo, y sobra una decena.",
+          "recursoRef": "reparto-648"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: lo que sobra se junta",
+          "narracion": "La decena que sobra se cambia por diez unidades y se junta con las ocho que ya había: son dieciocho unidades. Dieciocho entre tres son seis unidades para cada grupo. El cociente es doscientos dieciséis. Comprobamos: tres por doscientos dieciséis son seiscientos cuarenta y ocho.",
+          "recursoRef": "reparto-648"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: setecientos treinta y cinco entre cinco",
+          "narracion": "Calculamos setecientos treinta y cinco entre cinco. Siete centenas entre cinco: cabe una vez y sobran dos centenas. Esas dos centenas se vuelven veinte decenas, que se juntan con las tres decenas que ya había: son veintitrés decenas.",
+          "recursoRef": "pasos-735"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: seguimos hasta las unidades",
+          "narracion": "Veintitrés decenas entre cinco: cabe cuatro veces, porque cinco por cuatro es veinte, y sobran tres decenas. Esas tres decenas se vuelven treinta unidades y, con las cinco que había, son treinta y cinco unidades. Treinta y cinco entre cinco son siete. El cociente es ciento cuarenta y siete.",
+          "recursoRef": "pasos-735"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "No olvides el cero del cociente",
+          "narracion": "Cuidado con el cero. Si divides ochocientos cuatro entre cuatro, ocho centenas entre cuatro son dos. Cero decenas entre cuatro son cero decenas, y hay que escribir ese cero. Luego cuatro unidades entre cuatro es una. El cociente es doscientos uno y no veintiuno. Si olvidas el cero, el resultado cambia de tamaño."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: empieza por el mayor valor",
+          "narracion": "Primero mira la posición de mayor valor y decide cuántas veces cabe el divisor. Si no cabe, junta esa posición con la siguiente.",
+          "recursoRef": "reparto-648"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: multiplica, resta y junta",
+          "narracion": "Después multiplica el divisor por el cociente de esa posición, resta, y junta lo que sobra con la cifra siguiente, como en el ejemplo de setecientos treinta y cinco.",
+          "recursoRef": "pasos-735"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: sigue y comprueba",
+          "narracion": "Continúa hasta las unidades y comprueba: el divisor por el cociente, más lo que sobre, debe dar el número del inicio.",
+          "recursoRef": "reparto-648"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "reparto-648",
+          "src": "/nudito/diagramas/matematica/division-reparto-648.svg",
+          "alt": "Tres cuadros iguales; cada uno tiene dos cuadrados grandes de centena, una barra de decena y seis cubitos de unidad, y vale doscientos dieciséis.",
+          "descripcion": "Hay tres cuadros iguales. En cada uno se ven dos cuadrados grandes, que son las centenas, una barra amarilla, que es una decena, y seis cuadraditos, que son las unidades. Debajo de cada cuadro se lee doscientos dieciséis, y al final doscientos dieciséis tres veces suman seiscientos cuarenta y ocho."
+        },
+        {
+          "id": "pasos-735",
+          "src": "/nudito/diagramas/matematica/division-pasos-735.svg",
+          "alt": "Tres pasos de la división de setecientos treinta y cinco entre cinco: una centena y sobran dos, cuatro decenas y sobran tres, siete unidades.",
+          "descripcion": "Hay tres recuadros numerados, uno debajo del otro. El primero dice siete centenas entre cinco es uno y sobran dos. El segundo dice veintitrés decenas entre cinco es cuatro y sobran tres. El tercero dice treinta y cinco unidades entre cinco es siete. Abajo se lee el cociente, ciento cuarenta y siete."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Don Pablo reparte seiscientos doce kilos de maíz en seis sacos iguales. ¿Cuántos kilos lleva cada saco?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Ciento dos kilos"
+          },
+          {
+            "id": "b",
+            "texto": "Doce kilos"
+          },
+          {
+            "id": "c",
+            "texto": "Ciento doce kilos"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Seis centenas entre seis es una centena. Una decena entre seis no alcanza, por eso va un cero. Doce unidades entre seis son dos. Cada saco lleva ciento dos kilos, y seis por ciento dos son seiscientos doce.",
+        "pista": "Una decena entre seis no alcanza: ¿qué cifra debes escribir en el cociente?"
+      }
+    }
   },
   {
     "clave": "mat.p4.dividir-entre-10-100",
@@ -3278,6 +3614,124 @@
         "retroalimentacion": "Da 407; el residuo también es menor que 18."
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comprobar una división",
+          "narracion": "Bienvenida y bienvenido. Una división se comprueba multiplicando el divisor por el cociente y sumando el residuo. El resultado debe recuperar el dividendo. Además, el residuo debe ser menor que el divisor."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una división por revisar",
+          "narracion": "Observemos una tarjeta. Propone que cincuenta y tres entre cinco da diez y deja residuo tres. La tarjeta no dice si está bien. Usaremos la comprobación para decidir.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: cuarenta y siete entre seis",
+          "narracion": "Una división propone cociente siete y residuo cinco. Para revisarla, multiplicamos seis por siete y después agregamos cinco. ¿Recuperaremos cuarenta y siete?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: recuperamos el dividendo",
+          "narracion": "Seis por siete son cuarenta y dos. Al sumar cinco obtenemos cuarenta y siete. También verificamos que cinco es menor que seis. La división pasa las dos comprobaciones.",
+          "recursoRef": "ejemplo-uno"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: sesenta y ocho entre ocho",
+          "narracion": "Ahora se propone cociente ocho y residuo cuatro. Multiplicamos el divisor por el cociente y sumamos el residuo. ¿Qué total obtendremos?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: producto y residuo",
+          "narracion": "Ocho por ocho son sesenta y cuatro. Más cuatro son sesenta y ocho, que es el dividendo. Como cuatro también es menor que ocho, la división está bien comprobada.",
+          "recursoRef": "ejemplo-dos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "No basta recuperar el dividendo. En el recurso, una división deja residuo ocho al repartir entre seis. Ese residuo es demasiado grande: todavía permite formar otro grupo. Siempre revisa que sea menor que el divisor.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: identifica cada dato",
+          "narracion": "Ubica los cuatro datos. En la tarjeta, el dividendo es cincuenta y tres. El divisor es cinco. El cociente es diez. El residuo es tres.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: multiplica y suma",
+          "narracion": "Multiplica el divisor por el cociente. Luego suma el residuo. La cuenta debe dar exactamente el dividendo.",
+          "recursoRef": "ejemplo-uno"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: revisa el residuo",
+          "narracion": "Compara el residuo con el divisor. Debe ser menor. Cuando ambas condiciones se cumplen, la división está comprobada.",
+          "recursoRef": "ejemplo-dos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/comprobar-division-situacion.svg",
+          "alt": "Tarjeta: cincuenta y tres entre cinco igual a diez, residuo tres, con la pregunta si está bien.",
+          "descripcion": "Una tarjeta blanca con borde índigo muestra cincuenta y tres entre cinco igual a diez y, debajo, residuo tres. Arriba se pregunta si la división está bien; abajo se invita a comprobar antes de decidir."
+        },
+        {
+          "id": "ejemplo-uno",
+          "src": "/nudito/diagramas/matematica/comprobar-division-ejemplo-uno.svg",
+          "alt": "Seis por siete más cinco igual a cuarenta y siete, comprobación de una división.",
+          "descripcion": "Un recuadro blanco presenta la regla divisor por cociente más residuo. Debajo muestra seis por siete más cinco igual a cuarenta y siete y aclara que cuarenta y dos más cinco recupera cuarenta y siete."
+        },
+        {
+          "id": "ejemplo-dos",
+          "src": "/nudito/diagramas/matematica/comprobar-division-ejemplo-dos.svg",
+          "alt": "Ocho por ocho más cuatro; sesenta y cuatro más cuatro igual a sesenta y ocho.",
+          "descripcion": "Un recuadro blanco muestra ocho por ocho más cuatro, una línea amarilla y, debajo, sesenta y cuatro más cuatro igual a sesenta y ocho. Al pie se indica que la cuenta recupera el dividendo."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/comprobar-division-error.svg",
+          "alt": "Sesenta y ocho entre seis igual a diez, residuo ocho, con el residuo tachado.",
+          "descripcion": "Un recuadro blanco muestra sesenta y ocho entre seis igual a diez y residuo ocho. El ocho está cubierto por un círculo y una equis rojos. Debajo se indica que el residuo debe ser menor que el divisor."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Para comprobar setenta y cuatro entre nueve igual a ocho, residuo dos, ¿qué total debe dar nueve por ocho más dos?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Da setenta y cuatro"
+          },
+          {
+            "id": "b",
+            "texto": "Resulta setenta y dos"
+          },
+          {
+            "id": "c",
+            "texto": "Sale setenta y cinco"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Nueve por ocho son setenta y dos; al sumar dos recuperamos setenta y cuatro.",
+        "pista": "Primero multiplica el divisor por el cociente y después agrega el residuo."
+      }
+    },
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU (2016)",

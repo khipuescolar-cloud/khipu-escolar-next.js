@@ -620,7 +620,130 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Media aritmética",
+          "narracion": "Bienvenida y bienvenido. Hoy calcularemos la media, también llamada promedio. Como idea principal, la media es el valor que tendría cada dato si el total se repartiera por igual. Para hallarla, sumamos todos los datos y dividimos esa suma entre la cantidad de datos. Así obtenemos un número que representa a todo el grupo."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Chapitas de cuatro amigas",
+          "narracion": "Observemos esta situación. Cuatro amigas juntaron chapitas para un mural. Ana juntó tres, Bea cinco, Carla seis y Dora diez. Cada columna de cuadritos representa las chapitas de una amiga. Queremos saber cuántas chapitas tendría cada una si las repartieran por igual.",
+          "recursoRef": "torres-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: igualar las columnas",
+          "narracion": "Igualemos las columnas sin perder ninguna chapita. Dora tiene de sobra y Ana tiene de menos. Pasemos chapitas de las columnas altas a las bajas hasta que todas queden a la misma altura. ¿A qué altura quedarán?",
+          "recursoRef": "torres-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la altura final",
+          "narracion": "Las cuatro columnas quedaron con seis cuadritos. Dora cedió cuatro, que aparecen punteados, y Ana y Bea recibieron los cuadritos amarillos: tres y uno. En total no se ganó ni se perdió nada: veinticuatro chapitas repartidas entre cuatro amigas. Por eso la media es seis.",
+          "recursoRef": "nivelar"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: con números",
+          "narracion": "Ahora una panadería vendió panes durante tres días: doce el lunes, quince el martes y veintiuno el miércoles. Igualar con cuadritos sería largo, así que usamos las operaciones. ¿Cuánto suman los tres días y entre cuántos días repartimos?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: sumar y repartir",
+          "narracion": "Sumamos los tres días: doce más quince más veintiuno son cuarenta y ocho panes. Esos panes se reparten entre tres días, y cuarenta y ocho dividido entre tres da dieciséis. La media es dieciséis panes por día, un valor entre el menor y el mayor.",
+          "recursoRef": "suma-division"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Dos errores frecuentes",
+          "narracion": "Veamos tres cantidades: tres, nueve y doce. El primer error es dividir la suma entre el mayor valor, doce, y obtener dos. El segundo error es quedarse con la suma, veinticuatro, sin repartirla. Lo correcto es dividir entre la cantidad de datos, que son tres: así la media es ocho.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: reúne los datos",
+          "narracion": "Primero anota todos los datos del grupo, sin dejar ninguno. Cuenta cuántos son, porque ese número lo usaremos al final."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: suma",
+          "narracion": "Después suma todos los valores. Ese resultado es el total que se va a repartir."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: reparte y verifica",
+          "narracion": "Por último, divide el total entre la cantidad de datos. Comprueba que la media quede entre el menor y el mayor valor. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "tres-pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "torres-pregunta",
+          "src": "/nudito/diagramas/matematica/media-aritmetica-torres-pregunta.svg",
+          "alt": "Cuatro columnas de cuadritos para Ana, Bea, Carla y Dora, con tres, cinco, seis y diez cuadritos.",
+          "descripcion": "Cuatro columnas de cuadritos con los nombres Ana, Bea, Carla y Dora. Tienen tres, cinco, seis y diez cuadritos, y cada columna lleva su número arriba. Abajo: ¿Cuántas tendría cada una?"
+        },
+        {
+          "id": "nivelar",
+          "src": "/nudito/diagramas/matematica/media-aritmetica-nivelar.svg",
+          "alt": "Cuatro columnas de seis cuadritos: Ana y Bea recibieron cuadritos amarillos y Dora cedió cuatro, dibujados punteados.",
+          "descripcion": "Cuatro columnas de seis cuadritos. Son amarillos los que recibieron Ana y Bea, tres y uno; los cuatro punteados sobre Dora son los que cedió. Abajo: cada columna queda con seis."
+        },
+        {
+          "id": "suma-division",
+          "src": "/nudito/diagramas/matematica/media-aritmetica-suma-division.svg",
+          "alt": "Tres tarjetas con doce, quince y veintiuno panes, la suma cuarenta y ocho y la división entre tres que da dieciséis.",
+          "descripcion": "Tres tarjetas: lunes, doce; martes, quince; miércoles, veintiuno. Debajo, doce más quince más veintiuno son cuarenta y ocho; cuarenta y ocho entre tres es dieciséis. Abajo: dieciséis panes por día."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/media-aritmetica-errores.svg",
+          "alt": "Tres tarjetas con los datos tres, nueve y doce: dividir entre el mayor y quedarse con el total llevan cruz; dividir entre los datos lleva marca verde.",
+          "descripcion": "Datos: tres, nueve y doce. Tres tarjetas: dividir entre el mayor da dos, con cruz roja; quedarse con el total, veinticuatro, con cruz roja; dividir entre tres da ocho, con marca verde."
+        },
+        {
+          "id": "tres-pasos",
+          "src": "/nudito/diagramas/matematica/media-aritmetica-tres-pasos.svg",
+          "alt": "Tarjeta con tres pasos: reunir y contar los datos, sumar todos los valores y dividir el total entre los datos.",
+          "descripcion": "Tres tarjetas numeradas. La uno dice reúne y cuenta los datos. La dos dice suma todos los valores. La tres dice divide el total entre los datos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Cuatro amigos juntaron monedas para un regalo. Luz juntó cinco soles, Beto ocho, Inés once y Tito doce. Si reparten todo por igual, ¿cuántos soles aporta cada uno?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Once soles"
+          },
+          {
+            "id": "b",
+            "texto": "Doce soles"
+          },
+          {
+            "id": "c",
+            "texto": "Nueve soles"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Juntaron treinta y seis soles entre cuatro amigos, así que cada uno aporta nueve. Once y doce son datos del grupo, no el reparto igual.",
+        "pista": "Piensa en juntar todo y luego repartirlo en partes iguales."
+      }
+    }
   },
   {
     "clave": "mat.p5.moda-o-media",

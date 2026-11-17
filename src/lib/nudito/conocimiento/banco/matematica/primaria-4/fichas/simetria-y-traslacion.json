@@ -306,7 +306,130 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Figuras simétricas en cuadrícula",
+          "narracion": "Bienvenida y bienvenido. Hoy completaremos figuras simétricas en papel cuadriculado. Como idea principal, una figura simétrica tiene dos mitades que se ven como en un espejo, separadas por una línea llamada eje. Cada casilla pintada tiene su pareja al otro lado, a la misma distancia del eje. Por eso, para completar la figura, miramos cada fila desde el eje hacia afuera y repetimos esa distancia del otro lado."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Mitad de un tejido",
+          "narracion": "Observemos esta situación. Una tejedora diseñó solo la mitad izquierda de un tejido en una cuadrícula de cuatro filas. Un eje punteado vertical separa las dos mitades. A la izquierda hay casillas pintadas de color turquesa y la derecha está vacía. Queremos saber cómo completar la otra mitad para que el tejido sea simétrico.",
+          "recursoRef": "cuadricula-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: fila por fila",
+          "narracion": "Empecemos por la primera fila. Solo hay una casilla pintada, en el borde de la izquierda, lejos del eje. Su pareja también debe quedar lejos del eje. ¿En qué casilla de la derecha la pintamos?",
+          "recursoRef": "cuadricula-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el reflejo",
+          "narracion": "La pareja está en el borde de la derecha, igual de lejos del eje. En la figura completa, esas dos casillas de la primera fila están rodeadas de amarillo. Con las demás filas pasa lo mismo: leemos cada fila de la izquierda al revés y obtenemos la derecha. La cuarta fila, por ejemplo, tiene dos casillas pintadas en cada extremo.",
+          "recursoRef": "figura-completa"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: contar hasta el eje",
+          "narracion": "Ahora pensemos en una sola fila de diez casillas, cinco a cada lado del eje. Una casilla de la izquierda está pintada y se encuentra a tres casillas del eje. Contamos desde el eje hacia afuera: uno, dos, tres. ¿A cuántas casillas del eje irá su pareja, y de qué lado?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la pareja",
+          "narracion": "La pareja queda a tres casillas del eje, pero en el lado derecho. Los números debajo de cada lado cuentan las casillas desde el eje, y las dos casillas pintadas llevan el mismo número. Si doblamos la fila por el eje, una casilla cae justo sobre la otra.",
+          "recursoRef": "distancia-pareja"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con la copia",
+          "narracion": "El primer error es copiar la mitad en vez de reflejarla: la fila queda igual en los dos lados y las casillas pintadas no son parejas. El segundo error es contar mal y pintar a otra distancia: una casilla a dos del eje no puede tener su pareja a tres. En la última fila de la imagen está el reflejo correcto, con una marca verde.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: ubica el eje",
+          "narracion": "Primero busca el eje de simetría, la línea que separa las dos mitades. Todo se mide desde ahí."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: mide cada casilla",
+          "narracion": "Después, para cada casilla pintada, cuenta cuántas casillas hay desde el eje hasta ella. Hazlo fila por fila para no saltarte ninguna."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: pinta y comprueba",
+          "narracion": "Por último, pinta del otro lado la casilla que está a esa misma distancia. Para comprobar, imagina que doblas la figura por el eje: las dos mitades deben coincidir. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "tres-pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cuadricula-pregunta",
+          "src": "/nudito/diagramas/matematica/figuras-simetricas-cuadricula-cuadricula-pregunta.svg",
+          "alt": "Cuadrícula de cuatro filas y ocho columnas con un eje vertical al centro; a la izquierda hay casillas pintadas y la derecha está vacía.",
+          "descripcion": "Cuadrícula de cuatro filas con un eje punteado al centro. A la izquierda hay casillas turquesa: una en la primera fila, dos en la segunda, dos en la tercera, pegadas al eje, y dos en la cuarta. La derecha está vacía. Abajo: ¿Cómo queda la otra mitad?"
+        },
+        {
+          "id": "figura-completa",
+          "src": "/nudito/diagramas/matematica/figuras-simetricas-cuadricula-figura-completa.svg",
+          "alt": "La misma cuadrícula con la derecha completa: cada fila es el reflejo de la izquierda. En la primera fila, las dos casillas pintadas de los bordes están rodeadas de amarillo.",
+          "descripcion": "La cuadrícula con las dos mitades. Cada fila de la derecha es la de la izquierda leída al revés. Las dos casillas pintadas de los extremos de la primera fila tienen borde amarillo. Abajo: cada fila se lee al revés."
+        },
+        {
+          "id": "distancia-pareja",
+          "src": "/nudito/diagramas/matematica/figuras-simetricas-cuadricula-distancia-pareja.svg",
+          "alt": "Una fila de diez casillas con eje al centro y números del uno al cinco bajo cada lado; en cada lado está pintada la casilla marcada con tres.",
+          "descripcion": "Una fila de diez casillas con eje punteado al centro. Debajo, los números de uno a cinco cuentan desde el eje hacia afuera en cada lado. Están pintadas las casillas marcadas con tres, una a cada lado. Abajo: tres casillas desde el eje, en cada lado."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/figuras-simetricas-cuadricula-errores.svg",
+          "alt": "Tres filas de ocho casillas con eje al centro: dos con cruz roja por copiar y medir mal, y una con marca verde por reflejar bien.",
+          "descripcion": "Tres filas de ocho casillas con eje al centro. Primera: la mitad copiada igual, con cruz roja. Segunda: una casilla a dos del eje y su pareja a tres, con cruz roja. Tercera: reflejo correcto, con marca verde."
+        },
+        {
+          "id": "tres-pasos",
+          "src": "/nudito/diagramas/matematica/figuras-simetricas-cuadricula-tres-pasos.svg",
+          "alt": "Tarjeta con tres pasos: ubicar el eje, contar las casillas hasta el eje y pintar a la misma distancia.",
+          "descripcion": "Tres tarjetas numeradas. La uno dice ubica el eje. La dos dice cuenta cuántas casillas hay hasta el eje. La tres dice pinta a la misma distancia."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En cada lado del eje hay siete casillas. Tamara pintó una casilla del lado izquierdo que está a dos casillas del eje. ¿Dónde debe pintar su pareja?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "A tres del eje, a la derecha"
+          },
+          {
+            "id": "b",
+            "texto": "A dos del eje, a la derecha"
+          },
+          {
+            "id": "c",
+            "texto": "A dos del eje, a la izquierda"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Contando desde el eje, la casilla de Tamara es la segunda: uno, dos. Su pareja queda también a dos casillas del eje, pero del lado derecho.",
+        "pista": "Primero averigua a cuántas casillas del eje está la pintada; esa distancia se repite en el otro lado."
+      }
+    }
   },
   {
     "clave": "mat.p4.traslacion-cuadricula",

@@ -322,7 +322,133 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Clasificar triángulos",
+          "narracion": "Bienvenida y bienvenido. Hoy clasificaremos triángulos de dos maneras. Por sus lados: el equilátero tiene tres lados iguales, el isósceles tiene al menos dos lados iguales y el escaleno tiene tres lados distintos. Por sus ángulos: el acutángulo tiene tres ángulos agudos, el rectángulo tiene un ángulo recto y el obtusángulo tiene un ángulo obtuso. Un mismo triángulo recibe un nombre de cada manera."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "El triángulo del tejado",
+          "narracion": "Observemos esta situación. El tejado de una casa tiene forma de triángulo. Dos de sus lados miden ocho centímetros y el otro mide seis. Los ángulos están marcados en las esquinas. Queremos describirlo por sus lados y por sus ángulos.",
+          "recursoRef": "tejado-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: lados y ángulos",
+          "narracion": "Primero compara los tres lados. ¿Cuántos son iguales? Después mira los ángulos. ¿Alguno es recto o mayor que un recto? Con eso dirás dos nombres.",
+          "recursoRef": "tejado-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dos nombres",
+          "narracion": "Dos lados miden lo mismo, ocho centímetros, y están marcados con una rayita. Por eso es isósceles. Tiene dos ángulos de sesenta y ocho grados y uno de cuarenta y cuatro grados. Los tres son menores que un ángulo recto. Por eso es acutángulo. El tejado es un triángulo isósceles acutángulo.",
+          "recursoRef": "tejado-clasificado"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un ángulo especial",
+          "narracion": "Ahora mira otro triángulo, el de una rampa. Sus lados miden cinco, doce y trece centímetros. Uno de sus ángulos mide noventa grados. ¿Cómo lo clasificas por sus lados? ¿Y por sus ángulos?",
+          "recursoRef": "escuadra-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: los nombres de la rampa",
+          "narracion": "Los tres lados son distintos, así que es escaleno. Uno de sus ángulos mide noventa grados, y está marcado con un cuadradito. Es un ángulo recto, así que es rectángulo. Los otros dos ángulos son agudos. La rampa es un triángulo escaleno rectángulo.",
+          "recursoRef": "escuadra-clasificado"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con este error",
+          "narracion": "Mira estos dos triángulos. Los dos son isósceles, porque tienen dos lados iguales, marcados con rayitas. Pero el de la izquierda tiene un ángulo de cincuenta grados arriba y es acutángulo, y el de la derecha tiene un ángulo de ciento veinte grados y es obtusángulo. El nombre por los lados no dice cómo son los ángulos. Hay que mirar cada ángulo.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira los lados",
+          "narracion": "Primero compara el largo de los tres lados. Si los tres son iguales, es equilátero. Si dos son iguales, es isósceles. Si ninguno es igual, es escaleno. En el triángulo del tejado, dos lados miden ocho centímetros.",
+          "recursoRef": "tejado-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: mira los ángulos",
+          "narracion": "Después observa los ángulos. Si hay uno de noventa grados, es rectángulo. Si hay uno mayor que noventa grados, es obtusángulo. Si todos son menores que noventa grados, es acutángulo. Mira la rampa, que tiene un ángulo recto.",
+          "recursoRef": "escuadra-clasificado"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: junta los dos nombres",
+          "narracion": "Por último une los dos nombres. Primero va el de los lados y luego el de los ángulos. El tejado es isósceles acutángulo.",
+          "recursoRef": "tejado-clasificado"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "tejado-pregunta",
+          "src": "/nudito/diagramas/matematica/clasificar-triangulos-tejado-pregunta.svg",
+          "alt": "Un triángulo con la punta hacia arriba, dos lados de ocho centímetros, uno de seis, y ángulos marcados en sus esquinas.",
+          "descripcion": "Un triángulo con un lado horizontal abajo y la punta hacia arriba. Cada lado inclinado tiene la medida ocho centímetros y el de abajo, seis centímetros. En las esquinas se leen los ángulos: sesenta y ocho grados abajo a la izquierda, sesenta y ocho grados abajo a la derecha y cuarenta y cuatro grados arriba. Debajo se lee la pregunta cómo se llama."
+        },
+        {
+          "id": "tejado-clasificado",
+          "src": "/nudito/diagramas/matematica/clasificar-triangulos-tejado-clasificado.svg",
+          "alt": "El mismo triángulo con una rayita en cada lado igual y las etiquetas isósceles y acutángulo.",
+          "descripcion": "El mismo triángulo con una rayita pequeña en cada uno de los dos lados de ocho centímetros. Abajo hay dos etiquetas: isósceles y acutángulo."
+        },
+        {
+          "id": "escuadra-pregunta",
+          "src": "/nudito/diagramas/matematica/clasificar-triangulos-escuadra-pregunta.svg",
+          "alt": "Un triángulo con un lado vertical, uno horizontal y uno inclinado, con sus medidas y sus ángulos marcados.",
+          "descripcion": "Un triángulo con un lado vertical a la izquierda, uno horizontal abajo y uno inclinado. El vertical mide cinco centímetros, el horizontal doce y el inclinado trece. En las esquinas se leen noventa grados abajo a la izquierda, sesenta y siete grados arriba y veintitrés grados abajo a la derecha. Debajo se lee la pregunta cómo se llama."
+        },
+        {
+          "id": "escuadra-clasificado",
+          "src": "/nudito/diagramas/matematica/clasificar-triangulos-escuadra-clasificado.svg",
+          "alt": "El mismo triángulo con un cuadradito en la esquina de noventa grados y las etiquetas escaleno y rectángulo.",
+          "descripcion": "El mismo triángulo con un cuadradito turquesa en la esquina de abajo a la izquierda. Abajo hay dos etiquetas: escaleno y rectángulo."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/clasificar-triangulos-errores.svg",
+          "alt": "Dos triángulos isósceles: uno alto con cincuenta grados arriba, acutángulo, y uno bajo con ciento veinte grados arriba, obtusángulo.",
+          "descripcion": "Hay dos triángulos con una rayita en cada lado igual. El de la izquierda es alto, con un ángulo de cincuenta grados arriba, y debajo se lee isósceles, acutángulo. El de la derecha es bajo y ancho, con un ángulo de ciento veinte grados arriba, y debajo se lee isósceles, obtusángulo."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un triángulo tiene un ángulo de treinta y cinco grados, otro de setenta y cinco y otro de setenta. ¿Cómo se clasifica por sus ángulos?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Acutángulo"
+          },
+          {
+            "id": "b",
+            "texto": "Obtusángulo"
+          },
+          {
+            "id": "c",
+            "texto": "Rectángulo"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Los tres ángulos son menores que noventa grados, así que es acutángulo.",
+        "pista": "Compara cada ángulo con noventa grados."
+      }
+    }
   },
   {
     "clave": "mat.p6.suma-angulos-triangulo",
@@ -1225,15 +1351,15 @@
         "opciones": [
           {
             "id": "a",
-            "texto": "Traza 5 cm, marca 60° en un extremo, mide 5 cm sobre el nuevo rayo y une"
+            "texto": "Traza 5 cm, marca 60°, mide 5 cm y une"
           },
           {
             "id": "b",
-            "texto": "Traza 5 cm, marca 90° y une"
+            "texto": "Traza 5 cm, marca 90°, mide 5 cm y une"
           },
           {
             "id": "c",
-            "texto": "Dibuja tres lados de 5 cm a ojo"
+            "texto": "Dibuja los tres lados de 5 cm sin medir"
           }
         ],
         "alternativasAceptadas": [],
@@ -1268,7 +1394,133 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Construir triángulos y cuadriláteros",
+          "narracion": "Bienvenida y bienvenido. Hoy construimos figuras con medidas exactas. Como idea principal, empezamos por una base y usamos el instrumento que controla cada dato: la regla para las longitudes, el transportador para los ángulos, la escuadra para las esquinas rectas y el compás para marcar distancias desde un punto. Al final comprobamos todas las medidas."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Un triángulo con tres medidas",
+          "narracion": "Observemos esta situación. Queremos construir un triángulo cuyos lados midan cuatro, cinco y seis centímetros. Ya tenemos la base, de seis centímetros, con sus dos extremos marcados. Falta ubicar el tercer vértice, que es la punta de arriba.",
+          "recursoRef": "triangulo-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ubicar la punta",
+          "narracion": "El tercer vértice debe estar a cuatro centímetros del extremo izquierdo de la base y a cinco centímetros del extremo derecho. Piensa: ¿qué instrumento marca todos los puntos que están a una distancia dada de otro punto? ¿Cómo lo usarías desde cada extremo?",
+          "recursoRef": "triangulo-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dos arcos",
+          "narracion": "Con el compás abierto cuatro centímetros y apoyado en el extremo izquierdo, trazamos un arco. Luego lo abrimos cinco centímetros, lo apoyamos en el extremo derecho y trazamos otro arco. Donde los arcos se cortan está el tercer vértice. Lo unimos con los dos extremos y comprobamos con la regla: los lados miden cuatro, cinco y seis centímetros.",
+          "recursoRef": "triangulo-arcos"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un marco rectangular",
+          "narracion": "Ahora queremos un rectángulo para el marco de una foto. La base mide seis centímetros y la altura mide cuatro. Ya trazamos la base. Piensa: ¿qué instrumento te ayuda a levantar esquinas rectas? ¿Qué mides desde cada extremo, y cuánto?",
+          "recursoRef": "rectangulo-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la escuadra en acción",
+          "narracion": "Apoyamos la escuadra en cada extremo de la base y levantamos una línea perpendicular de cuatro centímetros. Después unimos con la regla los dos puntos de arriba. La figura tiene cuatro esquinas rectas, una en cada vértice, y los lados de abajo y de arriba miden seis centímetros. Es un rectángulo.",
+          "recursoRef": "rectangulo-pasos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Queremos un triángulo de lados tres, cuatro y ocho centímetros. Trazamos la base de ocho y desde sus extremos hacemos arcos de tres y de cuatro. Los arcos no se tocan, así que la figura no se cierra: los lados cortos no alcanzan para llegar de un extremo al otro. Por eso conviene revisar si las medidas permiten cerrar el triángulo. Otro error es medir los ángulos a ojo, en vez de usar el transportador o la escuadra.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: traza la base",
+          "narracion": "Primero dibuja un segmento con la regla, con la longitud pedida. Sus extremos serán dos vértices de la figura. Aquí, la base mide seis centímetros.",
+          "recursoRef": "triangulo-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: ubica los vértices",
+          "narracion": "Después marca los demás vértices con el instrumento adecuado: el compás para las distancias, el transportador para los ángulos y la escuadra para las esquinas rectas. En este triángulo usamos dos arcos de compás.",
+          "recursoRef": "triangulo-arcos"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: une y comprueba",
+          "narracion": "Al final une los vértices y verifica todas las medidas. En el rectángulo, revisa con la regla que los lados midan lo pedido y con la escuadra que las cuatro esquinas sean rectas.",
+          "recursoRef": "rectangulo-pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "triangulo-pregunta",
+          "src": "/nudito/diagramas/matematica/construir-figuras-triangulo-pregunta.svg",
+          "alt": "Un segmento de seis centímetros con las medidas de los tres lados anotadas arriba: cuatro, cinco y seis centímetros.",
+          "descripcion": "Arriba se lee que los lados miden cuatro centímetros, cinco centímetros y seis centímetros. Abajo hay un segmento horizontal con un punto en cada extremo, rotulado seis centímetros, y encima, en ámbar, la pregunta dónde va el tercer vértice."
+        },
+        {
+          "id": "triangulo-arcos",
+          "src": "/nudito/diagramas/matematica/construir-figuras-triangulo-arcos.svg",
+          "alt": "Triángulo sobre la base con dos arcos de compás que se cortan en el tercer vértice, y lados de cuatro, cinco y seis centímetros.",
+          "descripcion": "Un triángulo celeste sobre la base de seis centímetros. Dos arcos punteados, uno turquesa desde el extremo izquierdo y otro amarillo desde el derecho, se cortan en el vértice de arriba, marcado con un punto amarillo. El lado izquierdo dice cuatro centímetros, el derecho cinco centímetros y la base seis centímetros."
+        },
+        {
+          "id": "rectangulo-pregunta",
+          "src": "/nudito/diagramas/matematica/construir-figuras-rectangulo-pregunta.svg",
+          "alt": "Un segmento de seis centímetros, base de un rectángulo, con la altura de cuatro centímetros anotada arriba.",
+          "descripcion": "Arriba se lee base seis centímetros, altura cuatro centímetros. Abajo hay un segmento horizontal con un punto en cada extremo, rotulado seis centímetros."
+        },
+        {
+          "id": "rectangulo-pasos",
+          "src": "/nudito/diagramas/matematica/construir-figuras-rectangulo-pasos.svg",
+          "alt": "Rectángulo de seis por cuatro centímetros con un ángulo recto marcado en cada una de las cuatro esquinas.",
+          "descripcion": "Un rectángulo celeste sobre la base de seis centímetros, con la altura de cuatro centímetros anotada a la derecha. En cada esquina hay un cuadradito turquesa que marca un ángulo recto. Arriba, en turquesa, se lee cuatro ángulos rectos."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/construir-figuras-errores.svg",
+          "alt": "Base de ocho centímetros con dos arcos de tres y cuatro centímetros que no se tocan, y una equis roja entre ellos.",
+          "descripcion": "Un segmento horizontal con un punto en cada extremo, rotulado ocho centímetros. Desde el extremo izquierdo sale un arco rojo punteado de tres centímetros y desde el derecho otro de cuatro centímetros. Entre ellos queda un espacio con una equis roja. Abajo, en rojo, dice los arcos no se tocan."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Dibujaste un cuadrilátero con la regla. ¿Qué debes comprobar para asegurarte de que es un rectángulo?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sus cuatro ángulos son rectos"
+          },
+          {
+            "id": "b",
+            "texto": "Todos sus lados miden lo mismo"
+          },
+          {
+            "id": "c",
+            "texto": "Solo dos ángulos son rectos"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Un rectángulo tiene cuatro ángulos rectos. Con la escuadra puedes comprobarlos uno por uno.",
+        "pista": "Piensa qué instrumento revisa las esquinas y qué debe cumplir cada una."
+      }
+    }
   },
   {
     "clave": "mat.p6.circunferencia-circulo",
@@ -1586,6 +1838,128 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Circunferencia, círculo y sus segmentos",
+          "narracion": "Bienvenida y bienvenido. Hoy estudiaremos la circunferencia y el círculo. Como idea principal, la circunferencia es el borde, es decir, la línea curva cerrada. El círculo es la circunferencia junto con su interior. Además, el radio va del centro al borde, la cuerda une dos puntos del borde, y el diámetro es la cuerda que pasa por el centro y mide dos radios."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una moneda dibujada de dos modos",
+          "narracion": "Observemos esta situación. Una moneda vista de frente se dibuja de dos modos. A la izquierda solo se traza la línea del borde. A la derecha se pinta el borde y también todo el interior. Queremos identificar cuál es la circunferencia y cuál es el círculo.",
+          "recursoRef": "moneda-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: radio y diámetro de una moneda",
+          "narracion": "Una moneda tiene un radio de dos centímetros. El diámetro cruza el centro y está formado por dos radios puestos en línea recta. ¿Cuánto mide el diámetro?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el doble del radio",
+          "narracion": "El centro está en el medio de la moneda. Desde el centro, un radio llega hasta el borde por la izquierda y otro llega por la derecha, y cada uno mide dos centímetros. Juntos forman el diámetro: dos más dos son cuatro centímetros. El diámetro es el doble del radio.",
+          "recursoRef": "moneda-diametro"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: diámetro o cuerda",
+          "narracion": "Una tapa circular tiene dos puntos marcados en el borde, unidos por un segmento. Observemos dónde queda ese segmento respecto del centro. ¿Es un diámetro?",
+          "recursoRef": "cuerda-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: cuerda, radio y diámetro",
+          "narracion": "Los dos extremos del segmento están en el borde, así que es una cuerda. Pero no pasa por el centro, y por eso no es un diámetro. El diámetro sí cruza el centro, y el radio va del centro al borde. Todo diámetro es una cuerda, pero no toda cuerda es un diámetro.",
+          "recursoRef": "tres-segmentos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es llamar círculo solo a la línea exterior. Esa línea es la circunferencia, y el círculo también incluye el interior. Otro error es llamar diámetro a cualquier cuerda. Solo la cuerda que pasa por el centro es un diámetro, y mide el doble del radio."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira los extremos",
+          "narracion": "Observa dónde está cada extremo del segmento: en el centro o en el borde."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: identifica el radio",
+          "narracion": "Si un extremo está en el centro y el otro en el borde, el segmento es un radio."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: identifica cuerda y diámetro",
+          "narracion": "Aquí están los tres pasos juntos. Se miran los extremos. Si uno está en el centro, es un radio. Si los dos extremos están en el borde, es una cuerda, y si además pasa por el centro, es un diámetro, que mide dos radios.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "moneda-pregunta",
+          "src": "/nudito/diagramas/matematica/circunferencia-circulo-moneda-pregunta.svg",
+          "alt": "Dos dibujos de una moneda: uno solo con la línea del borde y otro con el borde y el interior pintados.",
+          "descripcion": "Hay dos círculos del mismo tamaño. El de la izquierda tiene solo la línea del borde y su interior está vacío. El de la derecha tiene el borde y todo el interior pintado de amarillo claro. Debajo del primero dice: solo el borde, y debajo del segundo: borde e interior. Abajo está la pregunta de cómo se llama cada una. El título dice: una moneda de dos modos."
+        },
+        {
+          "id": "moneda-diametro",
+          "src": "/nudito/diagramas/matematica/circunferencia-circulo-moneda-diametro.svg",
+          "alt": "Una moneda con una línea horizontal por el centro hecha de dos radios de dos centímetros; el diámetro mide cuatro centímetros.",
+          "descripcion": "Hay un círculo amarillo claro con un punto en el centro, rotulado: centro. Una línea horizontal cruza el círculo por el centro, de lado a lado: la mitad izquierda es turquesa, la mitad derecha es granate, y cada mitad dice: dos centímetros. Debajo del círculo hay una barra con rayitas en los extremos, tan larga como el ancho del círculo, que dice: diámetro, cuatro centímetros. El título dice: una moneda de radio dos centímetros."
+        },
+        {
+          "id": "cuerda-pregunta",
+          "src": "/nudito/diagramas/matematica/circunferencia-circulo-cuerda-pregunta.svg",
+          "alt": "Una tapa circular con el centro marcado y dos puntos en el borde de arriba, unidos por un segmento amarillo.",
+          "descripcion": "Hay un círculo amarillo claro con un punto en el centro, rotulado: centro. En la parte de arriba del borde hay dos puntos granate unidos por un segmento amarillo horizontal. Abajo está la pregunta de si es un diámetro. El título dice: una tapa circular."
+        },
+        {
+          "id": "tres-segmentos",
+          "src": "/nudito/diagramas/matematica/circunferencia-circulo-tres-segmentos.svg",
+          "alt": "La tapa con una cuerda amarilla arriba, un diámetro horizontal por el centro y un radio turquesa que baja del centro al borde.",
+          "descripcion": "Se ve el círculo con un punto granate en el centro. Cerca del borde de arriba hay una cuerda amarilla horizontal que no toca el centro. Una línea azul oscura horizontal cruza el círculo de lado a lado pasando por el centro: es el diámetro. Del centro baja una línea turquesa hasta el borde: es el radio. Abajo hay una leyenda: radio en turquesa, diámetro en azul oscuro, cuerda en amarillo, y una nota que dice: la cuerda no pasa por el centro. El título dice: tres segmentos en la tapa."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/circunferencia-circulo-tres-pasos.svg",
+          "alt": "Tres tarjetas numeradas con los pasos para nombrar radio, cuerda y diámetro.",
+          "descripcion": "Hay tres tarjetas numeradas. La uno dice: miro los extremos del segmento. La dos dice: un extremo en el centro y otro en el borde, radio. La tres dice: los dos en el borde, cuerda; si pasa por el centro, diámetro. El título dice: tres pasos para nombrar."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Tomás traza un radio desde el centro hasta el borde. Después traza otro radio en línea recta con el primero, hacia el lado contrario. ¿Qué forman juntos los dos radios?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un diámetro"
+          },
+          {
+            "id": "b",
+            "texto": "Un solo radio"
+          },
+          {
+            "id": "c",
+            "texto": "Un círculo"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Dos radios en línea recta que parten del centro forman un diámetro, que mide el doble del radio.",
+        "pista": "Fíjate dónde quedan los extremos de los dos segmentos juntos."
+      }
+    }
   }
 ]

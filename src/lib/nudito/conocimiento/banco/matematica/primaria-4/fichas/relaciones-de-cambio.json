@@ -598,7 +598,124 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Cambio en esquemas y gráficos",
+          "narracion": "Bienvenida y bienvenido. Hoy leeremos cómo cambia una cantidad en los esquemas y gráficos. Como idea principal de este tema, si cada figura o cada grupo vale lo mismo, podemos contar de a poco y descubrir el patrón. Ese cambio nos sirve para calcular el siguiente paso o el total."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Las canastas de la chacra",
+          "narracion": "Observemos esta situación. En una chacra se van juntando canastas, y cada canasta trae tres mazorcas. Cada punto es una mazorca. Con una canasta hay tres puntos. Con dos canastas hay seis, en dos grupos de tres. Con tres canastas aparece un recuadro punteado con un signo de pregunta. Queremos saber cuántas mazorcas habrá con tres canastas.",
+          "recursoRef": "canastas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: cuánto agrega cada canasta",
+          "narracion": "Pensemos en cuánto agrega cada paso. De una canasta a dos canastas se agrega un grupo de tres mazorcas. Si el cambio se repite, ¿cuántas mazorcas habrá con tres canastas?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el cambio se repite",
+          "narracion": "Con una canasta hay tres mazorcas. Con dos canastas se agregan otras tres y se llega a seis. Con tres canastas se agregan otras tres y se llega a nueve. Entonces, con tres canastas hay nueve mazorcas. En la imagen, el grupo nuevo de cada fila es amarillo, y entre los totales aparece más tres.",
+          "recursoRef": "canastas-resuelto"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el valor de cada estrella",
+          "narracion": "Ahora cada símbolo vale más de uno. En un pictograma, cada estrella vale dos cuyes. La jaula uno tiene tres estrellas. Antes de contar, hay que saber cuánto vale cada símbolo. ¿Cuántos cuyes hay en la jaula uno?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: estrellas que valen dos",
+          "narracion": "Cada estrella vale dos cuyes, y hay tres estrellas. Entonces sumamos dos, dos y dos, que es lo mismo que tres por dos: seis cuyes. La jaula uno tiene seis cuyes. En la imagen, debajo de cada estrella aparece un dos.",
+          "recursoRef": "cuyes-estrellas"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es contar solo los símbolos y olvidar cuánto vale cada uno: si cada estrella vale cinco soles, con tres estrellas hay quince soles, no tres. Otro error es agregar una cantidad equivocada al continuar el patrón. Antes de agregar, fíjate cuánto cambió el paso anterior y repite ese mismo cambio."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira qué vale cada símbolo",
+          "narracion": "Fíjate en lo que representa cada punto o cada estrella. Por ejemplo, la imagen indica que una estrella vale dos cuyes. Sin ese dato no se puede contar bien.",
+          "recursoRef": "cuyes-estrellas"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: cuenta lo que agrega cada paso",
+          "narracion": "Cuenta cuánto agrega cada paso y descríbelo con tus palabras: cada canasta nueva agrega tres mazorcas. En la imagen, eso se ve como más tres entre los totales.",
+          "recursoRef": "canastas-resuelto"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: usa el cambio",
+          "narracion": "Usa el cambio para calcular el siguiente paso o el total. Con cuatro canastas se agregan otras tres mazorcas a las nueve que había con tres canastas, y se llega a doce. La imagen muestra las cuatro filas.",
+          "recursoRef": "canastas-cuatro"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "canastas-pregunta",
+          "src": "/nudito/diagramas/matematica/cambio-dibujos-graficos-canastas-pregunta.svg",
+          "alt": "Tres filas: con una canasta, tres puntos; con dos canastas, seis; con tres canastas, un recuadro punteado con un signo de pregunta.",
+          "descripcion": "Arriba dice «Mazorcas y canastas». Hay tres filas. La fila 1 canasta tiene un grupo de tres puntos verde azulados. La fila 2 canastas tiene dos grupos de tres puntos. La fila 3 canastas es un recuadro punteado largo con un signo de pregunta. Abajo, la leyenda dice: un punto verde azulado es igual a una mazorca."
+        },
+        {
+          "id": "canastas-resuelto",
+          "src": "/nudito/diagramas/matematica/cambio-dibujos-graficos-canastas-resuelto.svg",
+          "alt": "Filas de una, dos y tres canastas con tres, seis y nueve puntos; entre los totales aparece más tres dos veces.",
+          "descripcion": "Arriba dice «Mazorcas y canastas». La fila 1 canasta tiene tres puntos y a la derecha el total 3. La fila 2 canastas tiene un grupo de tres verde azulado y otro amarillo, y el total 6. La fila 3 canastas tiene dos grupos verde azulados y uno amarillo, y el total 9. Entre los totales aparece más 3 dos veces. Abajo se lee: Cada canasta nueva agrega tres."
+        },
+        {
+          "id": "cuyes-estrellas",
+          "src": "/nudito/diagramas/matematica/cambio-dibujos-graficos-cuyes-estrellas.svg",
+          "alt": "Una estrella vale dos cuyes; la jaula 1 tiene tres estrellas, con un dos bajo cada una: tres por dos es seis cuyes.",
+          "descripcion": "Arriba dice «Cuyes en la jaula 1». Una estrella amarilla tiene al lado el texto igual a 2 cuyes. Debajo, Jaula 1 tiene tres estrellas amarillas y, bajo cada una, un 2 verde azulado, con signos más entre los números. Abajo se lee: 3 por 2 igual a 6 cuyes."
+        },
+        {
+          "id": "canastas-cuatro",
+          "src": "/nudito/diagramas/matematica/cambio-dibujos-graficos-canastas-cuatro.svg",
+          "alt": "Filas de una a cuatro canastas con tres, seis, nueve y doce puntos; la cuarta fila está resaltada.",
+          "descripcion": "Arriba dice «Una canasta más». Hay cuatro filas, 1 canasta, 2 canastas, 3 canastas y 4 canastas, con puntos y, a la derecha, los totales 3, 6, 9 y 12. Cada fila agrega un grupo de tres puntos amarillos; la primera es toda verde azulada. La cuarta fila tiene un fondo azul claro. Abajo se lee: Cada canasta nueva agrega tres."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En un pictograma, cada gota vale tres litros de agua y el tanque tiene cuatro gotas. ¿Cuántos litros representa el tanque?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuatro litros"
+          },
+          {
+            "id": "b",
+            "texto": "Siete litros"
+          },
+          {
+            "id": "c",
+            "texto": "Doce litros"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Cada gota vale tres litros, y cuatro gotas son doce litros.",
+        "pista": "Mira cuánto vale cada gota antes de contar cuántas hay."
+      }
+    }
   },
   {
     "clave": "mat.p4.valores-faltantes-cambio",

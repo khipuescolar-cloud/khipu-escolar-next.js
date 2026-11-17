@@ -371,7 +371,121 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Seres vivos y ambiente que se relacionan",
+          "narracion": "Bienvenido a esta clase sobre los ecosistemas. Primero conocerás la idea principal; después observarás una laguna, resolverás dos ejemplos y al final responderás una pregunta. Como idea principal de este tema, un ecosistema está formado por los seres vivos de un lugar, que son los factores bióticos, y por los elementos sin vida de su ambiente, que son los factores abióticos, como el agua, la luz, el aire, el suelo y la temperatura. Todos ellos se relacionan entre sí. Un ecosistema puede ser grande, como una selva, o pequeño, como un charco."
+        },
+        {
+          "id": "laguna",
+          "tipo": "recurso",
+          "titulo": "Una laguna alto andina",
+          "narracion": "Observemos esta situación: unos niños observan una laguna de los Andes. Para estudiarla, conviene hacer dos listas mentales: en una escribes lo que tiene vida y en la otra lo que no la tiene. Mientras escuchas lo que hay en la escena, decide en cuál lista va cada elemento.",
+          "recursoRef": "laguna"
+        },
+        {
+          "id": "ejemplo-1-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una chacra de maíz",
+          "narracion": "En una chacra de Cajamarca hay plantas de maíz, lombrices, tierra y lluvia. Pensemos en esta pregunta: ¿hay seres vivos y elementos sin vida que se relacionan entre sí? Si es así, ¿podemos decir que la chacra es un ecosistema?",
+          "recursoRef": "chacra"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: bióticos y abióticos se relacionan",
+          "narracion": "El maíz y las lombrices están vivos: son factores bióticos. La tierra y la lluvia no tienen vida: son factores abióticos. Además se relacionan: la lluvia humedece la tierra, las raíces del maíz absorben esa agua y las lombrices remueven el suelo. Hay seres vivos, elementos sin vida y relaciones entre ellos; por eso la chacra es un ecosistema.",
+          "recursoRef": "chacra"
+        },
+        {
+          "id": "ejemplo-2-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una pecera sin seres vivos",
+          "narracion": "Un compañero llena una pecera con agua y piedras y afirma que ya armó un ecosistema. Antes de opinar, piensa qué elementos hay en la pecera y cuál de las dos partes de un ecosistema podría faltar.",
+          "recursoRef": "pecera"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ¿qué le falta?",
+          "narracion": "El agua y las piedras son factores abióticos. Como no hay ningún ser vivo, no hay factores bióticos ni relaciones entre ellos y el ambiente, así que todavía no es un ecosistema. Si se añadieran plantas acuáticas y peces, empezarían a relacionarse con el agua, la luz y las piedras, y entonces sí tendríamos un ecosistema pequeño.",
+          "recursoRef": "pecera"
+        },
+        {
+          "id": "error-frecuente",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: «el sol y el agua están vivos porque ayudan a crecer»",
+          "narracion": "Ayudar a los seres vivos no convierte algo en ser vivo. El sol y el agua no nacen, no se alimentan ni se reproducen: son factores abióticos. Aun así son muy importantes, porque las totoras de la laguna necesitan luz y agua para crecer.",
+          "recursoRef": "laguna"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: haz dos listas",
+          "narracion": "Ahora aprenderás una forma de razonar en tres pasos. Primero, observa el lugar y haz dos listas: en una anota lo que tiene vida y en la otra lo que no la tiene. En la laguna, las totoras, los patos y los niños que observan van en la primera; el agua, las rocas y el sol, en la segunda.",
+          "recursoRef": "laguna"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: nombra los factores",
+          "narracion": "Después, da el nombre correcto a cada lista. Las plantas, los animales, los hongos y los microorganismos son factores bióticos. El agua, la luz, el aire, el suelo, las rocas y la temperatura son factores abióticos. En la chacra, el maíz y las lombrices serían bióticos; la tierra y la lluvia, abióticos.",
+          "recursoRef": "chacra"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: explica cómo se relacionan",
+          "narracion": "Por último, piensa cómo se relacionan. Las totoras usan la luz y el agua para crecer, y los patos nadan en la laguna y pueden refugiarse entre las totoras. Si falta alguna de las dos partes, ya no hay relaciones entre seres vivos y ambiente, y tampoco hay ecosistema.",
+          "recursoRef": "laguna"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "laguna",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-5/ecosistemas-laguna-andina-zimage-v1.webp",
+          "alt": "Laguna de montaña con totoras en las orillas, tres patos que nadan, rocas, un sol grande y tres niños que miran desde la orilla.",
+          "descripcion": "Una laguna de aguas tranquilas rodeada de totoras doradas. Tres patos nadan sobre el agua. En primer plano hay rocas en la orilla y tres niños sentados que observan. Arriba brilla un sol grande y al fondo se ven montañas con nieve."
+        },
+        {
+          "id": "chacra",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-5/ecosistemas-chacra-maiz-zimage-v1.webp",
+          "alt": "Chacra de maíz con lluvia fina, tierra oscura y una lombriz sobre el suelo en primer plano, con colinas verdes al fondo.",
+          "descripcion": "Hileras de plantas de maíz crecen en tierra oscura mientras cae lluvia desde nubes grises. En primer plano, sobre el suelo, se ve una lombriz. Al fondo hay colinas verdes."
+        },
+        {
+          "id": "pecera",
+          "src": "/nudito/diagramas/ciencia-tecnologia/ecosistemas-pecera-piedras.svg",
+          "alt": "Una pecera de vidrio llena de agua con solo seis piedras grises en el fondo, sin plantas ni animales.",
+          "descripcion": "Una pecera de vidrio llena de agua casi hasta arriba. En el fondo hay seis piedras grises de distintos tamaños. No se ve ninguna planta ni ningún animal."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En una laguna hay totoras, patos, peces, agua, rocas y luz solar. ¿Qué lista contiene solo factores bióticos?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Totoras, agua y patos."
+          },
+          {
+            "id": "b",
+            "texto": "Patos, rocas y peces."
+          },
+          {
+            "id": "c",
+            "texto": "Totoras, patos y peces."
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Las totoras, los patos y los peces son seres vivos: factores bióticos. El agua, las rocas y la luz solar son factores abióticos.",
+        "pista": "Un factor biótico tiene vida. Descarta de cada lista lo que no está vivo."
+      }
+    }
   },
   {
     "clave": "cyt.p5.componentes-abioticos",

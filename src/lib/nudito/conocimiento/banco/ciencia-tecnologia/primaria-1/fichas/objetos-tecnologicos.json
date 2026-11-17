@@ -319,7 +319,128 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Los objetos tecnológicos ayudan a resolver necesidades",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos por qué las personas crean y usan objetos tecnológicos. Como idea principal, recuerda que cada objeto fue pensado para cumplir una función y ayudar frente a una necesidad. Para explicar su utilidad, decimos qué necesitamos, qué objeto elegimos y cómo su función nos ayuda."
+        },
+        {
+          "id": "situacion-linterna",
+          "tipo": "recurso",
+          "titulo": "Una linterna cuando falta luz",
+          "narracion": "Observemos esta situación. En una habitación oscura, una niña enciende una linterna y el haz de luz ilumina el camino frente a ella. La necesidad es poder ver. El objeto es la linterna y su función es producir luz. Tener pilas no basta si la linterna no enciende: debe cumplir su función.",
+          "recursoRef": "linterna"
+        },
+        {
+          "id": "ejemplo-linterna-necesidad",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: relaciona necesidad, objeto y función",
+          "narracion": "Si se corta la electricidad y necesitamos caminar sin tropezar, elegimos una linterna. No la elegimos por su color ni porque tenga un botón, sino porque al encenderla ilumina. La función del objeto responde a la necesidad de ver.",
+          "recursoRef": "linterna"
+        },
+        {
+          "id": "ejemplo-linterna-descarta",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: descarta objetos que no cumplen la función",
+          "narracion": "Una cuchara y un peine también son objetos tecnológicos, pero no producen luz. La cuchara ayuda a tomar alimentos y el peine ordena el cabello. Para elegir bien, comparamos la función de cada objeto con la necesidad presente.",
+          "recursoRef": "diagrama"
+        },
+        {
+          "id": "ejemplo-linterna-comprueba",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: comprueba si el objeto funciona",
+          "narracion": "Si una linterna tiene pilas pero no enciende, en ese momento no cumple la función de iluminar. Podemos revisar las pilas o pedir ayuda para repararla. Un objeto es útil para esa necesidad cuando realmente realiza su función.",
+          "recursoRef": "linterna"
+        },
+        {
+          "id": "ejemplo-botella-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: llevar agua sin derramarla",
+          "narracion": "Veamos otra necesidad. Un niño quiere llevar agua durante una caminata escolar. Usa una botella resistente con tapa bien cerrada. La forma de la botella permite contener el agua y la tapa evita que se derrame mientras la transporta.",
+          "recursoRef": "botella"
+        },
+        {
+          "id": "ejemplo-botella-explica",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: explica la función con claridad",
+          "narracion": "Podemos decir: «Necesito transportar agua; elijo una botella con tapa porque contiene el agua y evita derrames». Una hoja de papel no sería una buena elección porque se moja y no puede guardar el líquido de la misma manera.",
+          "recursoRef": "botella"
+        },
+        {
+          "id": "ejemplo-botella-cuidado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: usa el objeto de forma segura",
+          "narracion": "La botella debe estar limpia y ser adecuada para beber. Elegir un objeto también implica usarlo para la función prevista y cuidarlo. No todos los recipientes sirven para guardar agua que vamos a consumir.",
+          "recursoRef": "botella"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: nombra la necesidad",
+          "narracion": "Primero pregunta qué necesitas resolver: ver en la oscuridad, transportar agua, escribir una idea o protegerte de la lluvia. Una necesidad clara permite comparar objetos.",
+          "recursoRef": "diagrama"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: identifica la función del objeto",
+          "narracion": "Después observa qué hace cada objeto. La linterna ilumina y la botella contiene líquidos. No te fijes solo en su apariencia; piensa en la acción que puede realizar.",
+          "recursoRef": "linterna"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: comprueba y explica la relación",
+          "narracion": "Por último, comprueba que el objeto funcione y explica la relación con una oración: «Elijo este objeto porque su función me ayuda a…». Si no cumple la función, busca otra opción o pide ayuda para repararlo.",
+          "recursoRef": "botella"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "diagrama",
+          "src": "/nudito/diagramas/ciencia-tecnologia/objetos-tecnologicos.svg",
+          "alt": "Necesidad: ver de noche; Objeto: linterna; Función: ilumina",
+          "descripcion": "En el diagrama, la necesidad es ver cuando está oscuro. La linterna es el objeto y alumbrar es su función."
+        },
+        {
+          "id": "linterna",
+          "src": "/nudito/ilustraciones/objetos-tecnologicos/linterna-oscuridad-gemini-v1.webp",
+          "alt": "Niña usa una linterna encendida para iluminar el piso de una habitación oscura.",
+          "descripcion": "Una niña sostiene una linterna encendida. El haz de luz ilumina el piso y permite reconocer por dónde caminar en una habitación sin electricidad."
+        },
+        {
+          "id": "botella",
+          "src": "/nudito/ilustraciones/objetos-tecnologicos/botella-agua-gemini-v1.webp",
+          "alt": "Niño guarda agua en una botella con tapa antes de una caminata escolar.",
+          "descripcion": "Un niño llena una botella reutilizable limpia y cierra su tapa. La botella está preparada para transportar agua sin derramarla."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Necesitas llevar agua sin derramarla durante una caminata. ¿Qué objeto cumple mejor esa función?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una botella limpia con tapa"
+          },
+          {
+            "id": "b",
+            "texto": "Una hoja de papel"
+          },
+          {
+            "id": "c",
+            "texto": "Un peine"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "La botella contiene el agua y la tapa ayuda a evitar derrames durante el transporte.",
+        "pista": "Busca un objeto que pueda contener un líquido y cerrarse."
+      }
+    }
   },
   {
     "clave": "cyt.p1.herramientas-del-hogar",

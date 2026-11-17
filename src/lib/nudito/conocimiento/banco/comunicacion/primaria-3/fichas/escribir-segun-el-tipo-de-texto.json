@@ -1553,7 +1553,127 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Un cuento tiene inicio, nudo y final",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a escribir un cuento corto con tres partes. Como idea principal, el inicio presenta a los personajes y el lugar, el nudo cuenta el problema y el final cuenta cómo se resuelve. Cada parte va en su propio párrafo."
+        },
+        {
+          "id": "situacion-kusi",
+          "tipo": "recurso",
+          "titulo": "Un cuento corto en tres párrafos",
+          "narracion": "Observemos este cuento sobre Kusi, una vicuña. Está dividido en tres tarjetas de colores, una debajo de otra. La primera se llama inicio, la segunda nudo y la tercera final. Las leeremos una por una.",
+          "recursoRef": "kusi"
+        },
+        {
+          "id": "ejemplo-kusi-inicio",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el inicio",
+          "narracion": "El inicio dice: «En la puna vivía Kusi, una vicuña pequeña». Presenta a la protagonista, que es Kusi, y el lugar, que es la puna. Todavía no ocurre ningún problema.",
+          "recursoRef": "kusi"
+        },
+        {
+          "id": "ejemplo-kusi-nudo",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el nudo",
+          "narracion": "El nudo dice: «Un día se alejó de su manada y empezó a nevar». Aquí aparece el problema: Kusi está lejos de los suyos y la nieve empieza a caer.",
+          "recursoRef": "kusi"
+        },
+        {
+          "id": "ejemplo-kusi-final",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el final",
+          "narracion": "El final dice: «Su mamá la encontró y juntas volvieron al abrigo». Resuelve el problema: Kusi vuelve con su familia y está a salvo. Si el cuento terminara en la nieve, el problema quedaría abierto.",
+          "recursoRef": "kusi"
+        },
+        {
+          "id": "ejemplo-tomas-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: elige un final",
+          "narracion": "Ahora tú razonas. Tomás cruzaba el cerro con su burro. De pronto, el burro no quiso avanzar. Eso son el inicio y el nudo. En la imagen hay dos finales posibles. El primero dice: Tomás le dio agua y el burro siguió caminando. El segundo dice: Tomás vio una nube en forma de montaña.",
+          "recursoRef": "tomas"
+        },
+        {
+          "id": "ejemplo-tomas-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el final debe resolver el problema",
+          "narracion": "Pregúntate cuál final resuelve el problema del nudo. El problema es que el burro no avanza. El primer final hace que avance: le dio agua y siguió. El segundo habla de una nube y deja al burro detenido. Por eso conviene el primer final.",
+          "recursoRef": "tomas"
+        },
+        {
+          "id": "error-frecuente",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: empezar con el problema o no resolverlo",
+          "narracion": "Hay dos errores comunes. Uno es empezar directamente con el problema, sin presentar a los personajes. Si cuentas que el burro no quiere avanzar, tu lector necesita saber antes quién es Tomás y dónde está. El otro error es terminar sin resolver el problema."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: piensa en el inicio",
+          "narracion": "Primero responde la pregunta uno del plan de la imagen: ¿quién y dónde? Escribe el inicio presentando a tus personajes y el lugar.",
+          "recursoRef": "plan"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: escribe el nudo",
+          "narracion": "Después escribe el nudo en otro párrafo. Cuenta qué problema o sorpresa ocurre, como cuando Kusi se alejó y empezó a nevar.",
+          "recursoRef": "kusi"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: escribe un final que resuelva",
+          "narracion": "Por último, escribe un final que resuelva ese problema, como el de Tomás, que le da agua al burro y el burro sigue caminando.",
+          "recursoRef": "tomas"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "kusi",
+          "src": "/nudito/diagramas/comunicacion/cuento-kusi-tres-partes.svg",
+          "alt": "Cuento de Kusi en tres tarjetas: inicio, nudo y final.",
+          "descripcion": "Tres tarjetas de colores, una debajo de otra. Inicio: En la puna vivía Kusi, una vicuña pequeña. Nudo: Un día se alejó de su manada y empezó a nevar. Final: Su mamá la encontró y juntas volvieron al abrigo."
+        },
+        {
+          "id": "tomas",
+          "src": "/nudito/diagramas/comunicacion/cuento-tomas-finales.svg",
+          "alt": "Inicio y nudo del cuento de Tomás y dos finales posibles.",
+          "descripcion": "Arriba, una tarjeta con inicio y nudo: Tomás cruzaba el cerro con su burro. De pronto, el burro no quiso avanzar. Abajo, a la izquierda, Final 1: Tomás le dio agua y el burro siguió caminando. A la derecha, Final 2: Tomás vio una nube en forma de montaña."
+        },
+        {
+          "id": "plan",
+          "src": "/nudito/diagramas/comunicacion/cuento-plan-tres-partes.svg",
+          "alt": "Plan numerado: inicio, quién y dónde; nudo, qué problema; final, cómo se resuelve.",
+          "descripcion": "Tres tarjetas numeradas. Uno, Inicio: ¿quién y dónde? Dos, Nudo: ¿qué problema pasa? Tres, Final: ¿cómo se resuelve?"
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "El nudo de un cuento dice: «Lucho perdió su gorro en el río y el viento lo llevó lejos». ¿Qué final resuelve el problema?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Lucho corrió por la orilla, alcanzó el gorro y se lo puso feliz."
+          },
+          {
+            "id": "b",
+            "texto": "Había una vez un niño llamado Lucho que vivía en Pucallpa."
+          },
+          {
+            "id": "c",
+            "texto": "El viento sopló más fuerte y empezó a llover."
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "El problema es que el gorro se perdió. El primer final lo recupera. La segunda opción presenta al personaje, como un inicio, y la tercera agrega más problema, como un nudo.",
+        "pista": "Busca la opción que arregle el problema del gorro."
+      }
+    }
   },
   {
     "clave": "com.p3.escribir-una-fabula",

@@ -1080,7 +1080,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Respondes a lo que dice otra persona",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a comentar lo que dice otra persona. Como idea principal, comentar es responder con algo que se relaciona con sus palabras: una pregunta para saber más o un comentario que muestre que lo escuchaste."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Dos compañeros conversan",
+          "narracion": "Observemos esta escena: dos compañeros charlan sentados en una banca del patio. El niño cuenta algo con gestos y la niña lo escucha sonriendo. Una buena conversación es como una pelota que va y viene: lo que dice uno se relaciona con lo que responde el otro.",
+          "recursoRef": "banca"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: escucha a Beto",
+          "narracion": "Lee la tarjeta: Beto dice «Hoy mi mamá me regaló un cuaderno de dibujo». La pregunta amarilla quiere saber qué le dirías a Beto.",
+          "recursoRef": "beto"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: habla de lo mismo",
+          "narracion": "Pensamos qué dijo Beto: le regalaron un cuaderno para colorear. Una buena respuesta habla de lo mismo. Por ejemplo: «¡Qué lindo! ¿Qué vas a dibujar primero?». Alegra a Beto y le pide contar más."
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: escucha a Carla",
+          "narracion": "Ahora otra tarjeta: Carla dice «Mi abuelo me enseñó a sembrar frijoles». La pregunta amarilla quiere saber qué le dirías a Carla.",
+          "recursoRef": "carla"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: muestra que escuchaste",
+          "narracion": "En la imagen, un abuelo y una niña cuidan plantitas recién sembradas en una huerta, algo parecido a lo que cuenta Carla. Una respuesta posible es: «A mí también me gusta sembrar. ¿Qué pasó con tus frijoles?». Muestra que escuchaste y habla de lo mismo.",
+          "recursoRef": "huerta"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: responder sin relación",
+          "narracion": "En la tarjeta, arriba, hay dos respuestas que no ayudan: una cambia de tema, «Hoy comí arroz», y otra solo dice «ajá». Abajo está una que sí sirve: «¿Cuántos frijoles sembraste?», porque pregunta sobre lo que Carla contó.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: escucha",
+          "narracion": "Primero, escucha con atención lo que dice tu compañero."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: piensa",
+          "narracion": "Segundo, piensa qué te llamó la atención o qué quieres saber."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: pregunta o comenta",
+          "narracion": "Tercero, haz una pregunta o un comentario sobre lo mismo. Puedes empezar con «A mí también» o con «¿Y qué pasó después?»."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "banca",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-2/comentar-banca-zimage-v1.webp",
+          "alt": "Un niño y una niña con uniforme conversan sentados en una banca del patio.",
+          "descripcion": "Un niño con camisa blanca y short azul habla con una mano en el pecho. A su lado, una niña con trenza y falda azul lo escucha sonriendo. Ambos están sentados en una banca de madera frente a una pared del colegio."
+        },
+        {
+          "id": "beto",
+          "src": "/nudito/diagramas/comunicacion/comentar-beto-pregunta.svg",
+          "alt": "Tarjeta donde Beto cuenta que le regalaron un cuaderno de dibujo y la pregunta qué le dirías.",
+          "descripcion": "Un recuadro blanco con el texto: Beto dice: «Hoy mi mamá me regaló un cuaderno de dibujo». Debajo, una tarjeta amarilla pregunta: ¿Qué le dirías a Beto?"
+        },
+        {
+          "id": "carla",
+          "src": "/nudito/diagramas/comunicacion/comentar-carla-pregunta.svg",
+          "alt": "Tarjeta donde Carla cuenta que su abuelo le enseñó a sembrar frijoles y la pregunta qué le dirías.",
+          "descripcion": "Un recuadro blanco con el texto: Carla dice: «Mi abuelo me enseñó a sembrar frijoles». Debajo, una tarjeta amarilla pregunta: ¿Qué le dirías a Carla?"
+        },
+        {
+          "id": "huerta",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-2/comentar-huerta-zimage-v1.webp",
+          "alt": "Un abuelo y una niña cuidan plantitas recién sembradas en una huerta.",
+          "descripcion": "Un abuelo de bigote blanco se arrodilla junto a una tierra con cinco plantitas verdes. Una niña con coletas riega con una regadera turquesa. Detrás hay pasto y un cielo con nubes."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/comunicacion/comentar-error.svg",
+          "alt": "Lo que dice Carla, dos respuestas equivocadas con cruz y una correcta con palomita.",
+          "descripcion": "Un recuadro blanco con el texto: Carla dice: «Mi abuelo me enseñó a sembrar frijoles». Debajo, una tarjeta roja con cruz dice: «Hoy comí arroz.» y «Ajá.». Luego, una tarjeta verde con palomita dice: «¿Cuántos frijoles sembraste?»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Dani dice: «Mi hermana aprendió a andar en bicicleta». ¿Qué respuesta se relaciona con lo que dijo?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "¿Se cayó al empezar?"
+          },
+          {
+            "id": "b",
+            "texto": "Hoy hay clase de arte"
+          },
+          {
+            "id": "c",
+            "texto": "Ayer comí lentejas"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Esa pregunta habla de lo mismo que Dani contó y muestra que lo escuchaste.",
+        "pista": "Elige la respuesta que habla de la hermana de Dani y la bicicleta."
+      }
+    }
   },
   {
     "clave": "com.p2.llegar-a-acuerdos",

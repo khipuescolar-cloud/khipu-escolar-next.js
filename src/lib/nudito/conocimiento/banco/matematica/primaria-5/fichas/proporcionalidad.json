@@ -302,7 +302,119 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Dos cantidades que van juntas",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a ordenar en una tabla dos cantidades que van juntas. Como idea principal, en una relación de proporcionalidad cada unidad de la primera cantidad corresponde siempre a la misma cantidad de la segunda. Por eso, si la primera se duplica, la segunda también se duplica, y todas las filas de la tabla usan el mismo factor."
+        },
+        {
+          "id": "situacion-canastas",
+          "tipo": "recurso",
+          "titulo": "Canastas con la misma cantidad",
+          "narracion": "Observemos esta situación. En un mercado de Huancayo, cada canasta lleva cinco duraznos. Con una canasta hay cinco duraznos, con dos canastas hay diez y con tres canastas hay quince. Cada vez que agregamos una canasta, agregamos otros cinco duraznos, porque la cantidad por canasta no cambia.",
+          "recursoRef": "canastas"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: las entradas al museo",
+          "narracion": "En un museo de Cusco, cada entrada de niño cuesta siete soles. Armamos una tabla con dos columnas: entradas a la izquierda y soles a la derecha. Una entrada cuesta siete soles, dos cuestan catorce y cuatro cuestan veintiocho. En cada fila multiplicamos por siete."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ¿y cinco entradas?",
+          "narracion": "Averigüemos cuánto cuestan cinco entradas. Usamos el mismo factor: cinco por siete son treinta y cinco soles. Esa fila aparece resaltada en la tabla. Si en alguna fila el factor fuera distinto, la tabla no sería de proporcionalidad.",
+          "recursoRef": "entradas"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la cinta para lazos",
+          "narracion": "Con tres metros de cinta, Mariela hace doce lazos. En esta tabla no tenemos la fila de un metro, así que la buscamos: dividimos entre tres los dos números. Tres metros entre tres es un metro, y doce lazos entre tres son cuatro lazos."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: cinco metros de cinta",
+          "narracion": "Ya sabemos que un metro de cinta da cuatro lazos. Para cinco metros multiplicamos los dos números por cinco: cinco metros y cinco por cuatro, que son veinte lazos. La fila de abajo, en amarillo, muestra ese resultado.",
+          "recursoRef": "cinta"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Sumar una sola vez no basta",
+          "narracion": "Un error común es sumar el precio solo una vez al pasar de dos a cuatro entradas. Si a catorce soles le agregas solo siete, resultarían veintiuno. Pero cuatro entradas son el doble de dos entradas, así que el precio también se duplica: veintiocho soles, como muestra la tabla.",
+          "recursoRef": "entradas"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: ordena las dos cantidades",
+          "narracion": "Primero escribe los nombres de las dos cantidades, cada una en su columna, con su unidad. En la tabla del museo, entradas y soles; cada fila es una compra completa.",
+          "recursoRef": "entradas"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: halla lo que corresponde a una unidad",
+          "narracion": "Segundo, halla cuánto corresponde a una unidad. Con la cinta, un metro corresponde a cuatro lazos, porque doce entre tres es cuatro.",
+          "recursoRef": "cinta"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: completa con el mismo factor",
+          "narracion": "Tercero, completa las otras filas con ese mismo factor y comprueba que no cambie. Para cinco metros, cinco por cuatro son veinte lazos.",
+          "recursoRef": "cinta"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "canastas",
+          "src": "/nudito/diagramas/matematica/proporcionalidad-canastas-duraznos.svg",
+          "alt": "Una canasta con cinco duraznos, dos canastas con diez y tres canastas con quince.",
+          "descripcion": "Hay tres filas. En la primera se ve una canasta con cinco duraznos y a su derecha dice una canasta, cinco. En la segunda hay dos canastas, cada una con cinco duraznos, y dice dos canastas, diez. En la tercera hay tres canastas y dice tres canastas, quince."
+        },
+        {
+          "id": "entradas",
+          "src": "/nudito/diagramas/matematica/proporcionalidad-tabla-entradas.svg",
+          "alt": "Tabla de entradas y soles: una entrada siete soles, dos catorce, cuatro veintiocho y cinco treinta y cinco, siempre por siete.",
+          "descripcion": "Una tabla con dos columnas, entradas y soles. Las filas son uno y siete, dos y catorce, cuatro y veintiocho, cinco y treinta y cinco. Entre las dos columnas, en cada fila, se lee por siete. La última casilla de soles, treinta y cinco, está en amarillo."
+        },
+        {
+          "id": "cinta",
+          "src": "/nudito/diagramas/matematica/proporcionalidad-tabla-cinta.svg",
+          "alt": "Tabla de metros de cinta y lazos: tres metros hacen doce lazos; entre tres da un metro y cuatro lazos; por cinco da cinco metros y veinte lazos.",
+          "descripcion": "Una tabla con dos columnas, metros y lazos, y tres filas. La primera fila es tres y doce. Bajo ella, flechas hacia abajo y entre tres. La segunda fila es uno y cuatro. Más abajo, flechas y por cinco. La tercera fila, en amarillo, es cinco y veinte."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Cinco kilos de papa cuestan quince soles. Si el precio por kilo es siempre el mismo, ¿cuánto cuestan ocho kilos?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Veintitrés soles"
+          },
+          {
+            "id": "b",
+            "texto": "Veinticuatro soles"
+          },
+          {
+            "id": "c",
+            "texto": "Dieciocho soles"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Muy bien. Quince entre cinco son tres soles por kilo, y ocho por tres son veinticuatro soles.",
+        "pista": "Primero halla cuánto cuesta un kilo y luego multiplica por ocho."
+      }
+    }
   },
   {
     "clave": "mat.p5.proporcionalidad-cambio-constante",
@@ -1188,7 +1300,7 @@
         "pistas": [
           "Cuatro panes son la mitad de ocho y usan dos tazas.",
           "De ocho a doce agregas cuatro panes.",
-          "Suma dos tazas a las cuatro iniciales."
+          "Añade a las cuatro tazas las dos que usan cuatro panes más."
         ],
         "retroalimentacion": "Sumar cuatro tazas por los cuatro panes adicionales da 8; se necesitan 6.",
         "alternativasAceptadas": [
@@ -1217,7 +1329,132 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Resolver problemas de recetas y precios",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a resolver problemas de recetas y de precios. Como idea principal, cuando cada unidad cuesta lo mismo o lleva la misma cantidad, las dos cantidades cambian juntas con el mismo factor. Para resolver, buscamos lo que corresponde a una sola unidad, o el factor que lleva de una cantidad a otra, y luego calculamos lo que piden."
+        },
+        {
+          "id": "situacion-limonada",
+          "tipo": "recurso",
+          "titulo": "Limonada para la feria",
+          "narracion": "Observemos esta situación. En una feria se prepara limonada. A la izquierda hay dos jarras y, debajo, seis limones. A la derecha hay cinco jarras y, debajo, un signo de interrogación. Cada jarra lleva la misma cantidad de limones. Queremos saber cuántos limones hacen falta para las cinco jarras.",
+          "recursoRef": "limonada"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: las entradas al museo",
+          "narracion": "En un museo, cuatro entradas cuestan veintiocho soles y cada entrada tiene el mismo precio. La tabla tiene dos columnas: entradas y costo. En la primera fila están cuatro entradas y veintiocho soles. En la segunda fila hay seis entradas y el costo todavía no se conoce. Para averiguarlo, primero buscamos el precio de una sola entrada.",
+          "recursoRef": "entradas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ¿cuánto cuestan seis?",
+          "narracion": "Veintiocho soles entre cuatro entradas son siete soles por entrada, como muestra el cuadro de la derecha. Ahora multiplicamos: seis entradas por siete soles son cuarenta y dos soles. Seis entradas cuestan cuarenta y dos soles.",
+          "recursoRef": "entradas-resuelto"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la avena del desayuno",
+          "narracion": "Una receta de avena rinde cuatro porciones y usa tres tazas. Queremos preparar doce porciones. A la izquierda, el tazón tiene tres círculos, uno por taza; a la derecha, doce porciones, y la cantidad de tazas todavía no se conoce. Aquí conviene pensar cuántas veces cabe cuatro porciones en doce.",
+          "recursoRef": "avena-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la receta crece",
+          "narracion": "Doce entre cuatro es tres, así que las porciones se triplican. Entonces las tazas también se triplican: tres tazas por tres son nueve tazas. Dos flechas unen cada cantidad inicial con la nueva, y las dos llevan el mismo factor. Para doce porciones hacen falta nueve tazas.",
+          "recursoRef": "avena-resuelto"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Sumar no mantiene la receta",
+          "narracion": "Un error común es sumar. De cuatro a doce porciones hay ocho porciones más, y alguien podría sumar ocho a las tres tazas y decir once tazas. Pero agregar ocho porciones no significa agregar ocho tazas: las porciones se triplicaron, así que las tazas también deben triplicarse."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: identifica las dos cantidades",
+          "narracion": "Primero, nombra las dos cantidades y busca un par que ya conoces. En la tabla del museo, las cantidades son entradas y costo, y el par conocido es cuatro entradas con veintiocho soles.",
+          "recursoRef": "entradas-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: halla el valor de una unidad",
+          "narracion": "Segundo, halla lo que corresponde a una unidad. Con las entradas, veintiocho entre cuatro son siete soles, y el cuadro muestra que una entrada cuesta siete soles. Con la limonada, seis limones entre dos jarras son tres limones por jarra.",
+          "recursoRef": "entradas-resuelto"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: calcula y revisa",
+          "narracion": "Tercero, calcula lo que piden y revisa que tenga sentido. Con la avena, las porciones se triplican y las tazas también: nueve tazas son más que tres, como debe ser si se prepara más comida. Con la limonada, cinco jarras por tres limones son quince limones.",
+          "recursoRef": "avena-resuelto"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "limonada",
+          "src": "/nudito/diagramas/matematica/problemas-proporcionalidad-situacion.svg",
+          "alt": "Dos jarras con seis limones debajo, y cinco jarras con un signo de interrogación.",
+          "descripcion": "Dos cuadros lado a lado. El de la izquierda dice dos jarras, muestra dos vasos turquesa y debajo seis círculos amarillos, los limones. El de la derecha dice cinco jarras, muestra cinco vasos turquesa más angostos y debajo un signo de interrogación. Abajo se pregunta cuántos limones se necesitan."
+        },
+        {
+          "id": "entradas-pregunta",
+          "src": "/nudito/diagramas/matematica/problemas-proporcionalidad-entradas-pregunta.svg",
+          "alt": "Tabla de entradas y costo: cuatro entradas cuestan veintiocho soles y seis entradas tienen costo desconocido.",
+          "descripcion": "Una tabla con dos columnas, entradas y costo. La primera fila dice cuatro y S/ 28. La segunda fila dice seis y S/ con un signo de interrogación. Abajo dice: el precio por entrada no cambia."
+        },
+        {
+          "id": "entradas-resuelto",
+          "src": "/nudito/diagramas/matematica/problemas-proporcionalidad-entradas-resuelto.svg",
+          "alt": "Cuatro entradas cuestan veintiocho soles; una entrada cuesta siete soles; seis entradas cuestan cuarenta y dos soles.",
+          "descripcion": "Un cuadro con dos recuadros unidos por una flecha: cuatro entradas, S/ 28, y una entrada, S/ 7. Debajo se lee S/ 28 entre 4 es igual a S/ 7, luego 6 por S/ 7 es igual a S/ 42. Al final dice: seis entradas cuestan S/ 42."
+        },
+        {
+          "id": "avena-pregunta",
+          "src": "/nudito/diagramas/matematica/problemas-proporcionalidad-avena-pregunta.svg",
+          "alt": "Cuatro porciones usan tres tazas de avena; doce porciones llevan una cantidad de tazas por descubrir.",
+          "descripcion": "Dos cuadros lado a lado. El de la izquierda dice cuatro porciones, tiene un tazón amarillo con tres círculos arriba y el rótulo tres tazas. El de la derecha dice doce porciones y tiene un tazón vacío con un signo de interrogación. Abajo se pregunta cuántas tazas hacen falta."
+        },
+        {
+          "id": "avena-resuelto",
+          "src": "/nudito/diagramas/matematica/problemas-proporcionalidad-avena-resuelto.svg",
+          "alt": "Cuatro porciones pasan a doce y tres tazas pasan a nueve: las dos cantidades se triplican.",
+          "descripcion": "Un cuadro con dos filas. En la primera, una flecha va de cuatro porciones a doce porciones. En la segunda, otra flecha va de tres tazas a nueve tazas. Dentro del cuadro dice que las dos cantidades se triplican. Abajo dice: cuatro por tres; tres por tres."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Cuatro paltas cuestan doce soles y todas tienen el mismo precio. ¿Cuánto cuestan nueve paltas?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Treinta y seis soles"
+          },
+          {
+            "id": "b",
+            "texto": "Veintisiete soles"
+          },
+          {
+            "id": "c",
+            "texto": "Veinticuatro soles"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Muy bien. Doce entre cuatro son tres soles por palta, y nueve por tres son veintisiete soles.",
+        "pista": "Primero averigua el precio de una sola palta."
+      }
+    }
   },
   {
     "clave": "mat.p5.proporcional-o-no",

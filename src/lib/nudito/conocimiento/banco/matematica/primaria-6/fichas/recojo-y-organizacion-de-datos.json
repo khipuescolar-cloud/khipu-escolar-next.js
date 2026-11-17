@@ -930,6 +930,128 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Recuperar datos en una tabla",
+          "narracion": "Bienvenida y bienvenido. Hoy completaremos tablas de doble entrada usando sus totales. Como idea principal, ubica la casilla vacía, suma los datos conocidos de su misma fila o columna y resta esa suma al total correspondiente. Después verifica el resultado en la otra dirección cuando sea posible."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Preferencias deportivas",
+          "narracion": "Observemos esta situación. La tabla organiza preferencias por grupo y deporte. En la fila de quinto hay ocho elecciones de fútbol, una casilla vacía de vóley y un total de quince. Queremos recuperar el dato que falta sin mezclar información de sexto.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: completar una fila",
+          "narracion": "Trabajamos solo con la fila de quinto. El total es quince y ya conocemos ocho elecciones de fútbol. Como el total incluye ambas categorías, quitamos del total la cantidad conocida. ¿Cuánto falta para completar quince?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: comprobar la fila",
+          "narracion": "Quince menos ocho son siete. La tarjeta coloca siete en vóley y comprueba que ocho más siete son quince. Así recuperamos la casilla sin alterar el total de la fila.",
+          "recursoRef": "fila"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: completar una columna",
+          "narracion": "Mira la tabla de transporte. En la columna A pie, el grupo rojo aporta cuatro, el grupo azul tiene una casilla vacía y el total es once. ¿Cuántos del grupo azul van a pie?",
+          "recursoRef": "columna-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: cruzar la comprobación",
+          "narracion": "Once menos cuatro son siete. La tarjeta coloca siete en el grupo azul. Luego confirma la columna con cuatro más siete, que da once, y la fila azul con ocho más siete, que da quince.",
+          "recursoRef": "columna"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Usar un total que no corresponde",
+          "narracion": "La tarjeta rodea con rojo un total que pertenece a otra fila y con turquesa el total de la misma columna que la casilla vacía. De los dos totales marcados, solo el segundo sirve para el cálculo. Restar datos de otra fila o columna produce un valor sin sentido. Sigue la línea que contiene el espacio y usa su propio total.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: sigue la línea del vacío",
+          "narracion": "Ubica la casilla vacía y recorre su fila o su columna hasta encontrar un total conocido. No cambies de línea durante el cálculo."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: resta lo conocido",
+          "narracion": "Suma los datos conocidos de esa misma línea. Después resta esa suma al total. El resultado completa la casilla."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: verifica en la otra dirección",
+          "narracion": "Cuando la tabla tenga ambos totales, suma la fila y la columna que cruzan la casilla. Las dos comprobaciones deben coincidir."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/tabla-doble-situacion.svg",
+          "alt": "Tabla de preferencias deportivas con una casilla vacía en vóley para el grupo de quinto.",
+          "descripcion": "Tabla con columnas Grupo, Fútbol, Vóley y Total. Quinto tiene ocho en fútbol, una pregunta en vóley y total quince. Sexto tiene seis, nueve y total quince. Abajo se pregunta qué dato completa la fila de quinto."
+        },
+        {
+          "id": "fila",
+          "src": "/nudito/diagramas/matematica/tabla-doble-fila.svg",
+          "alt": "Fila de quinto completada con ocho en fútbol, siete en vóley y total quince.",
+          "descripcion": "Una tabla muestra la fila Quinto con ocho en fútbol, siete en vóley y total quince. Debajo aparecen las comprobaciones: quince menos ocho es siete y ocho más siete confirma quince."
+        },
+        {
+          "id": "columna-pregunta",
+          "src": "/nudito/diagramas/matematica/tabla-doble-columna-pregunta.svg",
+          "alt": "Tabla de transporte con una pregunta en la casilla del grupo azul y la columna A pie.",
+          "descripcion": "Tabla con filas Rojo, Azul y Total; y columnas Bus, A pie y Total. Rojo tiene seis, cuatro y diez. Azul tiene ocho, una pregunta y quince. Los totales son catorce, once y veinticinco. Abajo se pregunta qué dato falta en el grupo azul."
+        },
+        {
+          "id": "columna",
+          "src": "/nudito/diagramas/matematica/tabla-doble-columna.svg",
+          "alt": "Tabla de transporte completada con siete en el grupo azul y la columna A pie.",
+          "descripcion": "La misma tabla muestra siete en el cruce del grupo Azul y A pie. Debajo se lee que once menos cuatro es siete, que cuatro más siete confirma once y que ocho más siete confirma quince."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/tabla-doble-error.svg",
+          "alt": "Tabla de transporte con un recuadro rojo en un total de otra fila y uno turquesa en el total de la misma columna.",
+          "descripcion": "Tabla con filas Rojo, Azul y Total; y columnas Bus, A pie y Total, con una pregunta en el cruce de Azul y A pie. Un recuadro rojo rodea el total diez de la fila roja y un recuadro turquesa rodea el total once de la columna A pie. Debajo, dos rótulos explican los colores."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En la fila del martes, doce estudiantes llegan en bus y el total es veinte. ¿Cuántos llegan a pie?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Siete estudiantes"
+          },
+          {
+            "id": "b",
+            "texto": "Ocho estudiantes"
+          },
+          {
+            "id": "c",
+            "texto": "Nueve estudiantes"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Veinte menos doce son ocho estudiantes que llegan a pie.",
+        "pista": "Usa el total de la fila y quita la cantidad que ya corresponde al bus."
+      }
+    }
   }
 ]

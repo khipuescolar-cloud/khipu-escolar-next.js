@@ -290,6 +290,107 @@
     ],
     "version": 1,
     "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Diez unidades forman una decena",
+          "narracion": "Hoy aprenderemos a formar una decena. Como idea principal de este tema, recuerda lo siguiente: una unidad es una cosa sola y una decena es un grupo de diez unidades. Si contamos diez objetos sueltos y los reunimos, seguimos teniendo diez objetos, pero ahora podemos nombrarlos como una decena. Al final comprobarás si reconoces un grupo de diez."
+        },
+        {
+          "id": "situacion-atado",
+          "tipo": "recurso",
+          "titulo": "Un grupo que se puede contar de una mirada",
+          "narracion": "Observemos estos palitos. Hay diez palitos de madera, colocados uno junto a otro y sujetos por una cinta azul. Ningún palito desaparece al amarrarlos: dentro del atado siguen estando las diez unidades. El atado completo representa una decena.",
+          "recursoRef": "palitos-atados"
+        },
+        {
+          "id": "ejemplo-1-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: reúne diez palitos",
+          "narracion": "Imagina que Milagros tiene diez palitos sueltos para una actividad. Los cuenta despacio, desde uno hasta diez. ¿Qué puede hacer para reconocer esa cantidad con facilidad? Puede juntarlos en un solo atado.",
+          "recursoRef": "palitos-atados"
+        },
+        {
+          "id": "ejemplo-1-explica",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: un atado es una decena",
+          "narracion": "Milagros no cuenta el atado como una sola unidad suelta. Dice que tiene una decena, porque el atado contiene exactamente diez palitos. Si desata la cinta, volverá a ver las diez unidades por separado.",
+          "recursoRef": "palitos-atados"
+        },
+        {
+          "id": "ejemplo-2-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: completa el marco",
+          "narracion": "Ahora miremos un marco con diez lugares. Los cinco lugares de arriba tienen fichas turquesas. Abajo hay dos fichas turquesas y tres amarillas. Contemos: cinco arriba y cinco abajo. ¿Cuántas fichas hay en total?",
+          "recursoRef": "marco-diez"
+        },
+        {
+          "id": "ejemplo-2-explica",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: siete y tres completan diez",
+          "narracion": "Las siete fichas turquesas y las tres fichas amarillas ocupan los diez lugares. Siete y tres forman diez. Aunque tengan colores distintos, juntas forman una decena de fichas.",
+          "recursoRef": "marco-diez"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cuenta cada unidad",
+          "narracion": "Para reconocer una decena, primero señala y cuenta cada objeto una sola vez. Detente cuando digas diez. Así sabrás cuántas unidades tienes.",
+          "recursoRef": "marco-diez"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: comprueba que sean diez",
+          "narracion": "Después, comprueba la cantidad. En el marco vemos dos filas de cinco lugares ocupados. Cinco y cinco son diez. Si falta un objeto, todavía no está completa la decena.",
+          "recursoRef": "marco-diez"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: reúne y nombra el grupo",
+          "narracion": "Por último, reúne las diez unidades y nombra el grupo. Puedes decir diez palitos o una decena de palitos. Recuerda: una decena es un grupo de diez unidades.",
+          "recursoRef": "palitos-atados"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "palitos-atados",
+          "src": "/nudito/diagramas/matematica/decena-palitos-atados.svg",
+          "alt": "Diez palitos de madera reunidos con una cinta azul.",
+          "descripcion": "Se ven diez palitos de madera colocados en paralelo. Una cinta azul rodea el centro del grupo y los mantiene juntos como un atado."
+        },
+        {
+          "id": "marco-diez",
+          "src": "/nudito/diagramas/matematica/decena-marco-diez.svg",
+          "alt": "Marco de diez completo con siete fichas turquesas y tres amarillas.",
+          "descripcion": "El marco tiene dos filas de cinco lugares. Siete lugares contienen fichas turquesas y los tres restantes contienen fichas amarillas; los diez lugares están ocupados."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Camila tiene ocho cuentas y agrega dos más. ¿Qué puede formar con todas las cuentas?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Una decena"
+          },
+          {
+            "id": "b",
+            "texto": "Ocho decenas"
+          },
+          {
+            "id": "c",
+            "texto": "Un grupo de nueve"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Ocho cuentas y dos más forman diez cuentas. Diez unidades reunidas forman una decena.",
+        "pista": "Cuenta desde ocho dos pasos más: nueve, diez."
+      }
+    },
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",
@@ -914,7 +1015,122 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comparar números hasta veinte",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a decidir cuál de dos números hasta veinte es mayor. Como idea principal, el número mayor tiene más cosas y el número menor tiene menos cosas. Si dos grupos tienen la misma cantidad, los números son iguales. Para comparar, mira qué grupo llega más lejos al contar."
+        },
+        {
+          "id": "situacion-lapices",
+          "tipo": "recurso",
+          "titulo": "Los lápices de Lucía y de Mateo",
+          "narracion": "Observemos esta situación. Lucía y Mateo tienen lápices. Cada lápiz es un círculo dentro de cuadros de diez. Lucía tiene siete y su cuadro no se llena. Mateo tiene doce: llena un cuadro de diez y pone dos más en otro cuadro. Queremos saber quién tiene más lápices.",
+          "recursoRef": "lapices-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: lápices de Lucía y de Mateo",
+          "narracion": "Lucía tiene siete lápices y Mateo tiene doce. Una buena forma de comparar es emparejar. Ponemos un lápiz de Lucía junto a un lápiz de Mateo. Cuando a Lucía se le acaban los lápices, miramos si a Mateo todavía le sobran."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: sobran lápices",
+          "narracion": "Miremos cómo quedó el emparejamiento. Cada lápiz de Lucía tiene su pareja. A Mateo le sobran cinco lápices. Entonces Mateo tiene más. Doce es mayor que siete, y siete es menor que doce.",
+          "recursoRef": "pareo"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: cuentas de Inés y de Omar",
+          "narracion": "Inés tiene catorce cuentas y Omar tiene dieciocho. Los dos números empiezan con una decena, es decir, diez. Cuando la decena es la misma, miramos las unidades sueltas: cuatro y ocho."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: misma decena",
+          "narracion": "Cada collar llena un cuadro de diez cuentas. Después, Inés pone cuatro cuentas más y Omar pone ocho cuentas más. Cuatro es menor que ocho, así que catorce es menor que dieciocho. Omar tiene más cuentas.",
+          "recursoRef": "decena"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Un número no es mayor por verse grande",
+          "narracion": "Un error frecuente es pensar que nueve es mayor que once porque el nueve se ve grande. Cuenta: nueve no llega a diez, y once tiene diez y uno más. Once tiene más cosas. Otro error es ordenar al revés. De menor a mayor se empieza por el número más pequeño, y de mayor a menor se empieza por el más grande."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira las decenas",
+          "narracion": "Primero mira las decenas. Un número con una decena, como catorce, es mayor que uno que no llega a diez, como nueve. Si un número tiene más decenas, ese es el mayor."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: compara las unidades si empatan",
+          "narracion": "Si las decenas son iguales, compara las unidades sueltas. El que tiene más unidades es el mayor. Si tienen las mismas decenas y las mismas unidades, los números son iguales."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: di cuál es mayor",
+          "narracion": "Estas tres tarjetas resumen los pasos con el ejemplo de catorce y dieciocho. La primera dice que las dos tienen una decena. La segunda dice que, como empatan, se miran las unidades: cuatro es menor que ocho. La tercera dice que dieciocho es mayor que catorce. Al final, di la respuesta con palabras completas.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "lapices-pregunta",
+          "src": "/nudito/diagramas/matematica/comparar-lapices-pregunta.svg",
+          "alt": "Cuadros de diez con círculos: Lucía tiene siete lápices y Mateo tiene doce.",
+          "descripcion": "Hay dos grupos. Arriba, el cuadro de Lucía tiene siete círculos. Abajo, Mateo tiene un cuadro lleno de diez círculos y otro cuadro con dos círculos. Al final se lee la pregunta: quién tiene más."
+        },
+        {
+          "id": "pareo",
+          "src": "/nudito/diagramas/matematica/comparar-pareo-lapices.svg",
+          "alt": "Siete lápices de Lucía emparejados con siete de Mateo; a Mateo le sobran cinco, así que doce es mayor que siete.",
+          "descripcion": "Hay dos filas de círculos. La fila de arriba tiene siete círculos y la de abajo tiene doce. Líneas punteadas unen cada círculo de arriba con uno de abajo. Los cinco últimos de abajo no tienen pareja y están marcados con una llave que dice cinco de más. Debajo se lee que doce es mayor que siete y que siete es menor que doce."
+        },
+        {
+          "id": "decena",
+          "src": "/nudito/diagramas/matematica/comparar-cuentas-decena.svg",
+          "alt": "Collares en cuadros de diez: ambos llenan una decena; Inés suma cuatro y Omar ocho, así que catorce es menor que dieciocho.",
+          "descripcion": "Hay cuatro cuadros de diez. Inés tiene un cuadro lleno y otro con cuatro cuentas. Omar tiene un cuadro lleno y otro con ocho cuentas. Los segundos cuadros están resaltados. Debajo se lee que las dos tienen una decena, que cuatro es menor que ocho y que catorce es menor que dieciocho."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/comparar-tres-pasos.svg",
+          "alt": "Tres tarjetas: mirar las decenas, comparar las unidades si empatan y decir cuál es mayor.",
+          "descripcion": "Hay tres tarjetas numeradas. La primera dice mira las decenas: catorce y dieciocho, una y una. La segunda dice si empatan, las unidades: cuatro es menor que ocho. La tercera dice di cuál es mayor: dieciocho es mayor que catorce."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Gema tiene doce piedritas y Hugo tiene quince. ¿Qué frase es correcta?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Gema tiene más piedritas que Hugo"
+          },
+          {
+            "id": "b",
+            "texto": "Hugo tiene más piedritas que Gema"
+          },
+          {
+            "id": "c",
+            "texto": "Los dos tienen la misma cantidad"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Los dos números tienen una decena. Gema tiene dos unidades sueltas y Hugo tiene cinco, así que Hugo tiene más piedritas.",
+        "pista": "Los dos números tienen una decena. Compara las unidades sueltas."
+      }
+    }
   },
   {
     "clave": "mat.p1.recta-numerica-20",
@@ -1808,7 +2024,7 @@
         "pistas": [
           "Cada grupo lleva 10 granos.",
           "Cuenta de diez en diez hasta llegar a 50.",
-          "Los números que dijiste son los grupos: 10, 20, 30, 40, 50."
+          "Cada número que dices cierra un grupo: cuenta cuántos números dijiste (10, 20, 30, 40, 50)."
         ],
         "retroalimentacion": "Al contar 10, 20, 30, 40, 50 dices cinco números: salen 5 grupos."
       }
@@ -1820,7 +2036,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Contar colecciones grandes",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a contar muchas cosas sin equivocarnos. Como idea principal, juntamos los objetos de diez en diez. Contamos los grupos de diez: diez, veinte, treinta. Después seguimos con los que quedaron sueltos, uno por uno. Así llegamos hasta cincuenta."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Las chapitas de Camila",
+          "narracion": "Observemos esta situación. Camila guarda sus chapitas en bandejas. Cada bandeja llena tiene diez chapitas. Algunas chapitas quedaron sueltas sobre la mesa. Hay tres bandejas llenas y cinco chapitas sueltas. Queremos saber cuántas chapitas tiene en total.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: bandejas y sueltas",
+          "narracion": "Contemos las chapitas de Camila. Primero van las bandejas, de diez en diez. Son tres bandejas llenas. ¿Hasta qué número llegas? Después sigue con las sueltas, una por una."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el total de Camila",
+          "narracion": "Contamos las bandejas de diez en diez: diez, veinte, treinta. Después seguimos con las chapitas sueltas, una por una, hasta llegar a treinta y cinco. Camila tiene treinta y cinco chapitas. Cada bandeja lleva su número debajo, y cada chapita suelta lleva el suyo.",
+          "recursoRef": "ejemplo-uno"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: cajas de tomates",
+          "narracion": "Ahora Don Luis vende tomates. Tiene cuatro cajas con diez tomates cada una. Además, ocho tomates están sueltos. Cuenta primero las cajas, de diez en diez. Luego sigue con los sueltos."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el total de Don Luis",
+          "narracion": "Las cuatro cajas llegan a cuarenta. Sigamos con los ocho tomates sueltos, uno por uno. Llegamos a cuarenta y ocho. Don Luis tiene cuarenta y ocho tomates. Aquí cada caja de diez está dibujada como una columna.",
+          "recursoRef": "ejemplo-dos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con este error",
+          "narracion": "Fíjate en lo que hizo Nina. Contó las bandejas de diez en diez y dijo treinta. Pero se quedó ahí. Las chapitas sueltas están dentro de un recuadro rojo y nadie las contó. Después de los grupos de diez, hay que seguir con las sueltas.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: reúne de diez en diez",
+          "narracion": "Reúne los objetos en grupos de diez. Un grupo puede ser una bandeja, una caja o un montón."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: cuenta los grupos",
+          "narracion": "Cuenta los grupos de diez con tu voz: diez, veinte, treinta. Cada grupo suma diez más. Detente en el último grupo completo."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: sigue con las sueltas",
+          "narracion": "Desde el número del último grupo, cuenta las sueltas una por una. El último número que digas es el total. Mira la tarjeta con los tres pasos.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/contar-hasta-cincuenta-situacion.svg",
+          "alt": "Tres bandejas llenas, con diez chapitas cada una, y cinco chapitas sueltas debajo. Pregunta cuántas hay en total.",
+          "descripcion": "Arriba, tres bandejas con diez chapitas amarillas cada una, en dos filas de cinco, rotuladas bandejas de diez. Debajo, la palabra sueltas y cinco chapitas amarillas en fila. Abajo se lee la pregunta: cuántas chapitas hay en total."
+        },
+        {
+          "id": "ejemplo-uno",
+          "src": "/nudito/diagramas/matematica/contar-hasta-cincuenta-ejemplo-uno.svg",
+          "alt": "Tres bandejas con los números diez, veinte y treinta, y cinco chapitas sueltas numeradas del treinta y uno al treinta y cinco.",
+          "descripcion": "Tres bandejas de diez chapitas; debajo de cada una, diez, veinte y treinta. Más abajo, cinco chapitas sueltas con los números treinta y uno, treinta y dos, treinta y tres, treinta y cuatro y treinta y cinco, y el texto sueltas, una por una. Al final: en total, treinta y cinco chapitas."
+        },
+        {
+          "id": "ejemplo-dos",
+          "src": "/nudito/diagramas/matematica/contar-hasta-cincuenta-ejemplo-dos.svg",
+          "alt": "Cuatro columnas de diez tomates, rotuladas diez, veinte, treinta y cuarenta, y ocho tomates sueltos numerados del cuarenta y uno al cuarenta y ocho.",
+          "descripcion": "A la izquierda, cuatro columnas de diez tomates rojos, con los números diez, veinte, treinta y cuarenta debajo. A la derecha, ocho tomates sueltos en dos filas de cuatro, numerados del cuarenta y uno al cuarenta y ocho. Abajo: en total, cuarenta y ocho tomates."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/contar-hasta-cincuenta-error.svg",
+          "alt": "Tres bandejas llenas y el texto Nina dijo treinta. Cuatro chapitas sueltas dentro de un recuadro rojo punteado, con las palabras sin contar.",
+          "descripcion": "Tres bandejas con diez chapitas cada una. Debajo, el texto Nina dijo treinta. Más abajo, cuatro chapitas sueltas dentro de un recuadro rojo de línea punteada y, debajo, en rojo, las palabras sin contar."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/contar-hasta-cincuenta-pasos.svg",
+          "alt": "Tarjeta con tres pasos para contar: reunir de diez en diez, contar los grupos y seguir con las sueltas.",
+          "descripcion": "Tres tarjetas numeradas. La uno dice reúne de diez en diez. La dos dice cuenta los grupos: diez, veinte, treinta. La tres dice sigue con las sueltas, una por una."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Marcos tiene cuatro cajas con diez lápices cada una. También tiene siete lápices sueltos. ¿Cuántos lápices tiene en total?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Treinta y siete"
+          },
+          {
+            "id": "b",
+            "texto": "Cuarenta y cuatro"
+          },
+          {
+            "id": "c",
+            "texto": "Cuarenta y siete"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Las cuatro cajas llegan a cuarenta y, con los siete sueltos, son cuarenta y siete lápices.",
+        "pista": "Cuenta primero las cajas, de diez en diez, y luego sigue con los lápices sueltos."
+      }
+    }
   },
   {
     "clave": "mat.p1.leer-escribir-hasta-50",
@@ -2737,6 +3075,124 @@
         "retroalimentacion": "Entre 36 y 41 están 37, 38, 39 y 40: son 4 números."
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comparar hasta cincuenta",
+          "narracion": "Bienvenida y bienvenido. Hoy compararemos números hasta cincuenta. Como idea principal, miramos primero cuántas decenas tiene cada número. Si las decenas son iguales, miramos las unidades."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Las fichas de Rosa y Luis",
+          "narracion": "Observemos esta situación. Rosa tiene tres barras de una decena y dos fichas sueltas. Luis tiene dos barras de una decena y cinco fichas sueltas. Todavía no diremos quién tiene más. Pensemos qué cantidad representa cada colección.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: dos cantidades distintas",
+          "narracion": "Comparemos veinticuatro y treinta y uno. Veinticuatro tiene dos decenas. Treinta y uno tiene tres decenas. ¿Cuál será mayor?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: deciden las decenas",
+          "narracion": "Tres decenas son más que dos decenas. Por eso treinta y uno es mayor que veinticuatro. Las unidades no cambian esa decisión: primero encontramos una diferencia en las decenas.",
+          "recursoRef": "ejemplo-uno"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: decenas iguales",
+          "narracion": "Ahora comparemos cuarenta y tres y cuarenta y seis. Los dos números tienen cuatro decenas. Como allí hay empate, ¿qué cifras debemos comparar?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: deciden las unidades",
+          "narracion": "Comparamos tres unidades con seis unidades. Seis unidades son más. Entonces cuarenta y seis es mayor que cuarenta y tres. Cuando las decenas empatan, las unidades deciden.",
+          "recursoRef": "ejemplo-dos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error frecuente es mirar solo la última cifra. En el recurso, alguien se fija en el nueve de diecinueve y olvida las decenas. Pero una decena es menos que dos decenas, así que diecinueve es menor que veintiuno.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: forma las cantidades",
+          "narracion": "Separa cada número en decenas y unidades. En la situación, Rosa tiene tres decenas y dos unidades; Luis tiene dos decenas y cinco unidades.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: compara las decenas",
+          "narracion": "Mira primero las decenas. Si una cantidad tiene más decenas, ya encontraste la mayor. Así decidimos que treinta y uno supera a veinticuatro.",
+          "recursoRef": "ejemplo-uno"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: resuelve el empate",
+          "narracion": "Si las decenas son iguales, compara las unidades. Luego di si el primer número es mayor, menor o igual. Cuarenta y tres es menor que cuarenta y seis.",
+          "recursoRef": "ejemplo-dos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/comparar-hasta-50-situacion.svg",
+          "alt": "Rosa tiene tres barras de decena y dos fichas; Luis, dos barras de decena y cinco fichas.",
+          "descripcion": "Dos tarjetas blancas. La de Rosa muestra tres barras amarillas de decena y dos fichas turquesa. La de Luis muestra dos barras amarillas de decena y cinco fichas turquesa. Arriba se pregunta quién tiene más."
+        },
+        {
+          "id": "ejemplo-uno",
+          "src": "/nudito/diagramas/matematica/comparar-hasta-50-ejemplo-uno.svg",
+          "alt": "Veinticuatro con dos decenas y cuatro unidades; treinta y uno con tres decenas y una unidad.",
+          "descripcion": "Dos tarjetas comparan veinticuatro y treinta y uno. La primera tiene dos barras amarillas y cuatro fichas turquesa; la segunda, tres barras amarillas y una ficha. Abajo dice que dos decenas son menos que tres."
+        },
+        {
+          "id": "ejemplo-dos",
+          "src": "/nudito/diagramas/matematica/comparar-hasta-50-ejemplo-dos.svg",
+          "alt": "Cuarenta y tres y cuarenta y seis tienen cuatro decenas; sus unidades son tres y seis.",
+          "descripcion": "Dos tarjetas muestran cuarenta y tres y cuarenta y seis. Ambas indican cuatro decenas. La primera tiene tres fichas turquesa y la segunda, seis. Abajo dice que las unidades deciden."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/comparar-hasta-50-error.svg",
+          "alt": "Diecinueve y veintiuno, con el nueve tachado para indicar que no se compara solo la última cifra.",
+          "descripcion": "Dos tarjetas muestran diecinueve y veintiuno. El nueve de diecinueve está rodeado y tachado en rojo. Debajo se indica mirar primero las decenas y se concluye que diecinueve es menor que veintiuno."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Inés tiene treinta y ocho semillas y Leo tiene cuarenta y una. ¿Quién tiene más?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Leo tiene más"
+          },
+          {
+            "id": "b",
+            "texto": "Tienen igual"
+          },
+          {
+            "id": "c",
+            "texto": "Inés tiene más"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Cuarenta y una tiene cuatro decenas y treinta y ocho tiene tres; Leo tiene más.",
+        "pista": "Compara primero cuántas decenas tiene cada cantidad."
+      }
+    },
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",

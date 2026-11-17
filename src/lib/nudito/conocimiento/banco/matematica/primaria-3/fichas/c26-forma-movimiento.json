@@ -3250,7 +3250,123 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Caras, aristas y vértices",
+          "narracion": "Bienvenida y bienvenido. Hoy conoceremos las partes de los cuerpos geométricos. Como idea principal de este tema, las caras son las superficies planas, las aristas son los bordes donde se juntan dos caras, y los vértices son las puntas donde se juntan varias aristas."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una caja de cartón",
+          "narracion": "Observemos esta situación. Luis tiene una caja con forma de cubo y quiere contar sus partes. En la imagen, la cara de arriba está pintada de azul claro. Una línea amarilla gruesa marca una arista, un borde donde se juntan dos caras. Un punto marca un vértice, una esquina de la caja. Queremos saber cuántas caras, aristas y vértices tiene.",
+          "recursoRef": "caja-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: contar en un cubo",
+          "narracion": "Contemos las partes del cubo de Luis, una por una. Para las caras, nombramos arriba, abajo, adelante, atrás, izquierda y derecha. Para las aristas, contamos por grupos: las de arriba, las de abajo y las que están paradas. Para los vértices, contamos las esquinas de arriba y las de abajo. ¿Cuántas salen en cada caso?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el resultado del cubo",
+          "narracion": "Hay seis caras: arriba, abajo, adelante, atrás, izquierda y derecha. Hay cuatro aristas arriba, cuatro abajo y cuatro paradas, doce en total. Hay cuatro vértices arriba y cuatro abajo, ocho en total. En la imagen, cada grupo de aristas tiene su color y cada una de las ocho esquinas tiene un punto.",
+          "recursoRef": "cubo-conteo"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una caja de chocolate",
+          "narracion": "En la feria de Puno venden chocolate en una caja con forma de prisma triangular, como una carpa. Contemos sus caras. Los extremos son triángulos y los costados son rectángulos. ¿Cuántas caras tiene de cada tipo, y cuántas en total?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: las caras del prisma",
+          "narracion": "Hay dos caras triangulares, una en cada extremo, y tres caras rectangulares en los costados. Dos más tres son cinco. En la imagen, las cinco caras aparecen separadas: dos triángulos de verde azulado y tres rectángulos amarillos.",
+          "recursoRef": "prisma-caras"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es contar solo las caras que se ven y olvidar la de abajo o la de atrás. Gira el cuerpo, o imagínalo, para contarlas todas. Otro error es confundir arista con vértice: la arista es una línea, un borde, y el vértice es un punto, una esquina. También se suele contar dos veces la misma arista. Para evitarlo, cuenta por grupos."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cuenta las caras",
+          "narracion": "Toma el cuerpo, o imagínalo, y cuenta sus caras planas. Marca cada una para no repetirla."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: cuenta aristas y vértices",
+          "narracion": "Recorre los bordes con el dedo para contar las aristas, por grupos. Luego cuenta las puntas, que son los vértices. En el cubo de la imagen, los grupos de aristas tienen colores distintos.",
+          "recursoRef": "cubo-conteo"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: anota y compara",
+          "narracion": "Anota los tres números y compáralos con los de otro cuerpo. La imagen muestra una pirámide de base cuadrada con sus vértices marcados: cuenta sus caras, sus aristas y sus vértices, y compáralos con los del cubo.",
+          "recursoRef": "piramide-conteo"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "caja-pregunta",
+          "src": "/nudito/diagramas/matematica/caras-aristas-vertices-caja-pregunta.svg",
+          "alt": "Un cubo de cartón con la cara de arriba azul claro, una arista amarilla y un vértice marcado con un punto, cada uno con su nombre.",
+          "descripcion": "Arriba dice «Las partes de una caja». Se ve una caja con forma de cubo. Su cara de arriba está pintada de azul claro; sobre ella dice una cara, con una línea corta que termina en un punto dentro de la cara. Una línea amarilla gruesa recorre el borde vertical de atrás a la derecha, y su rótulo dice una arista. Un punto oscuro, en la esquina de abajo adelante a la derecha, tiene el rótulo un vértice. Abajo se lee: Luis mira una caja."
+        },
+        {
+          "id": "cubo-conteo",
+          "src": "/nudito/diagramas/matematica/caras-aristas-vertices-cubo-conteo.svg",
+          "alt": "Un cubo con aristas de tres colores y un punto en cada esquina; a la derecha, 6 caras, 12 aristas y 8 vértices.",
+          "descripcion": "Arriba dice «Las partes de un cubo». A la izquierda hay un cubo dibujado solo con aristas: las cuatro de arriba en verde azulado, las cuatro de abajo en amarillo y las cuatro paradas en azul oscuro, con algunas punteadas por quedar atrás. Hay un punto en cada una de las ocho esquinas. A la derecha se lee: 6 caras; 12 aristas, con una raya de color por cada grupo, 4 arriba, 4 abajo y 4 paradas; y 8 vértices, 4 arriba más 4 abajo."
+        },
+        {
+          "id": "prisma-caras",
+          "src": "/nudito/diagramas/matematica/caras-aristas-vertices-prisma-caras.svg",
+          "alt": "Cinco figuras planas: un triángulo, tres rectángulos y otro triángulo. Abajo, 2 + 3 = 5 caras.",
+          "descripcion": "Arriba dice «Las caras del chocolate». Hay cinco figuras planas en fila: un triángulo verde azulado, tres rectángulos amarillos y otro triángulo verde azulado. Debajo, una leyenda dice 2 triángulos, junto a un triángulo verde azulado, y 3 rectángulos, junto a un rectángulo amarillo. Abajo se lee: 2 más 3 igual a 5 caras."
+        },
+        {
+          "id": "piramide-conteo",
+          "src": "/nudito/diagramas/matematica/caras-aristas-vertices-piramide-conteo.svg",
+          "alt": "Una pirámide de base cuadrada con un punto en cada vértice y la indicación de contar sus caras, aristas y vértices.",
+          "descripcion": "Arriba dice «Una pirámide de base cuadrada». A la izquierda hay una pirámide con un punto en cada vértice; las aristas de atrás son punteadas. A la derecha se lee: Otro cuerpo: cuenta sus caras, sus aristas y sus vértices."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un prisma triangular tiene dos triángulos en los extremos. ¿Cuántas aristas tiene en total?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Nueve aristas"
+          },
+          {
+            "id": "b",
+            "texto": "Seis aristas"
+          },
+          {
+            "id": "c",
+            "texto": "Quince aristas"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Tres aristas en cada triángulo y tres que los unen suman nueve aristas.",
+        "pista": "Piensa por grupos: las de cada extremo y las que unen un extremo con el otro."
+      }
+    }
   },
   {
     "clave": "mat.p3.cuerpos-redondos-planos",
@@ -4528,7 +4644,126 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comparar longitudes",
+          "narracion": "Bienvenida y bienvenido. Hoy comparamos longitudes. Como idea principal, para saber qué objeto es más largo los ponemos uno al lado del otro y alineamos sus puntas de inicio en el mismo lugar. El que termina más lejos es el más largo. Si son tres o más, los podemos ordenar desde el más corto hasta el más largo."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Dos cintas sobre la mesa",
+          "narracion": "Observemos esta situación. Sobre la mesa hay dos cintas, una amarilla y una turquesa. Cada una empieza en un lugar distinto, y dos líneas punteadas marcan dónde empieza cada una. Abajo se pregunta cuál es más larga.",
+          "recursoRef": "cintas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: alinear las cintas",
+          "narracion": "Así como están, la turquesa llega más lejos. Pero empezó más adelante, y eso confunde. Piensa: ¿cómo podemos comparar las cintas de forma justa?",
+          "recursoRef": "cintas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: empezar en el mismo lugar",
+          "narracion": "Movemos las cintas para que las dos empiecen en la línea de inicio. Ahora sí se pueden comparar. La amarilla llega más lejos que la turquesa, y el trozo que sobresale es lo que le sobra. Entonces la amarilla es la más larga.",
+          "recursoRef": "cintas-alineadas"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ordenar tres cintas",
+          "narracion": "Ahora tenemos tres cintas alineadas en el mismo inicio. La amarilla mide veinte centímetros. La azul mide doce centímetros. La turquesa mide dieciséis centímetros. Piensa: ¿cómo las ordenamos desde la más corta hasta la más larga?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: de corta a larga",
+          "narracion": "Primero va la más corta: la azul, de doce centímetros. Después, la turquesa, de dieciséis. Al final, la amarilla, de veinte. Así quedan ordenadas desde la más corta hasta la más larga.",
+          "recursoRef": "cintas-ordenadas"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con este error",
+          "narracion": "Mira esta cuerda. Arriba está estirada y abajo está enrollada. Enrollada parece más corta, pero es la misma cuerda y mide lo mismo. Para comparar, primero hay que estirarla.",
+          "recursoRef": "cuerda-error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: junta los objetos",
+          "narracion": "Primero pon los objetos uno al lado del otro. Las dos cintas están una al lado de la otra, pero todavía no empiezan en el mismo lugar.",
+          "recursoRef": "cintas-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: alinea los inicios",
+          "narracion": "Luego alinea las puntas de inicio en el mismo lugar. Aquí las dos cintas empiezan en la línea de inicio.",
+          "recursoRef": "cintas-alineadas"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: mira dónde terminan",
+          "narracion": "Por último, mira cuál termina más lejos: esa es la más larga. Si hay más de dos, ordénalas desde la más corta. Aquí van de la azul a la amarilla.",
+          "recursoRef": "cintas-ordenadas"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cintas-pregunta",
+          "src": "/nudito/diagramas/matematica/comparar-longitudes-alinear-cintas-pregunta.svg",
+          "alt": "Una cinta amarilla y una turquesa sobre la mesa, que empiezan en lugares distintos, con líneas punteadas en cada inicio.",
+          "descripcion": "Dos cintas horizontales. La amarilla, con la palabra amarilla, empieza más a la izquierda. La turquesa, con la palabra turquesa, empieza más a la derecha y termina más lejos. Dos líneas verticales punteadas marcan dónde empieza cada una. Abajo se lee la pregunta: ¿Cuál es más larga?"
+        },
+        {
+          "id": "cintas-alineadas",
+          "src": "/nudito/diagramas/matematica/comparar-longitudes-alinear-cintas-alineadas.svg",
+          "alt": "Las dos cintas empiezan en la misma línea de inicio; la amarilla llega más lejos y el trozo que sobresale está marcado.",
+          "descripcion": "Una línea vertical con la palabra inicio marca el comienzo. Desde ella salen dos cintas: la amarilla, más larga, y la turquesa, más corta. Una línea punteada vertical marca donde termina la turquesa. Debajo, un corchete marca el trozo que sobresale de la amarilla, con la palabra sobresale."
+        },
+        {
+          "id": "cintas-ordenadas",
+          "src": "/nudito/diagramas/matematica/comparar-longitudes-alinear-cintas-ordenadas.svg",
+          "alt": "Tres cintas alineadas, de corta a larga: azul de doce centímetros, turquesa de dieciséis y amarilla de veinte.",
+          "descripcion": "Desde una línea vertical salen tres cintas, una debajo de otra. La de arriba es la azul, la más corta, con doce centímetros escritos al final. La del medio es la turquesa, con dieciséis. La de abajo es la amarilla, la más larga, con veinte. Abajo se lee: de la más corta a la más larga."
+        },
+        {
+          "id": "cuerda-error",
+          "src": "/nudito/diagramas/matematica/comparar-longitudes-alinear-cuerda-error.svg",
+          "alt": "Una cuerda estirada arriba y la misma cuerda enrollada abajo, con las palabras mide lo mismo y más corta tachada.",
+          "descripcion": "Arriba hay una cuerda estirada, con la palabra estirada debajo. Abajo a la izquierda hay una cuerda enrollada en espiral, con la palabra enrollada. A la derecha se lee mide lo mismo y, más abajo, las palabras más corta, tachadas con una raya roja."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Tres listones están alineados en el mismo inicio. El listón de Sol mide sesenta centímetros. El de Tito mide cuarenta y cinco. El de Ana mide cincuenta y cinco. Al ordenarlos de menor a mayor, ¿cuál queda en el medio?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El de Ana"
+          },
+          {
+            "id": "b",
+            "texto": "El de Sol"
+          },
+          {
+            "id": "c",
+            "texto": "El de Tito"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. De menor a mayor van el de Tito, el de Ana y el de Sol, así que el de Ana queda en el medio.",
+        "pista": "Ordena los tres listones de menor a mayor y mira cuál queda en el centro."
+      }
+    }
   },
   {
     "clave": "mat.p3.misma-longitud-distintas-unidades",
@@ -5789,7 +6024,130 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comparar cuánto cabe",
+          "narracion": "Bienvenida y bienvenido. Hoy compararemos cuánto cabe en distintos recipientes. A eso se le llama capacidad. Como idea principal, llena uno de los recipientes hasta el borde y vacíalo en el otro. Si el segundo se rebalsa, el primero tiene mayor capacidad. También puedes llenar los dos con el mismo vaso y contar cuántos vasos caben."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una jarra y una botella",
+          "narracion": "Observemos esta situación. Doña Rosa tiene una jarra ancha y una botella alta. Las dos están vacías. Quiere saber en cuál cabe más chicha.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: pasar la chicha",
+          "narracion": "Doña Rosa llena la jarra hasta el borde y la vacía en la botella. La chicha sube hasta arriba y se sale: la botella se rebalsa. ¿Cuál tiene mayor capacidad?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: se rebalsa",
+          "narracion": "Si la botella se rebalsa, es porque en la jarra cabía más chicha. Por eso la jarra tiene mayor capacidad. En el dibujo, la jarra queda vacía y la botella está llena, con gotas que se salen por la boca.",
+          "recursoRef": "trasvase"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: dos ollas",
+          "narracion": "En el comedor popular hay una olla azul y una olla amarilla. Se llenaron con tazas iguales: la azul con diez tazas y la amarilla con seis. ¿Cuántas tazas más caben en la olla azul?",
+          "recursoRef": "tazas-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: comparar las tazas",
+          "narracion": "Como las tazas son iguales, podemos emparejarlas. Seis tazas de la olla azul se emparejan con las seis de la amarilla. Sobran cuatro tazas en la azul. Entonces caben cuatro tazas más en la olla azul.",
+          "recursoRef": "tazas"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Alto no quiere decir más",
+          "narracion": "Alguien cree que el recipiente más alto siempre contiene más. Mira estos dos, medidos con vasitos iguales. En el vaso alto y delgado caben tres vasitos. En el tazón bajo y ancho caben cinco. Para comparar capacidades no basta mirar la altura.",
+          "recursoRef": "alto-ancho"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: llena hasta el borde",
+          "narracion": "Llena por completo uno de los recipientes. Si no llegas al borde, la comparación no es justa."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: vacía en el otro",
+          "narracion": "Pasa su contenido al otro recipiente con cuidado. Si el segundo se rebalsa, el primero tiene mayor capacidad. Si no se llena, el segundo es el de mayor capacidad."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: cuenta con vasos iguales",
+          "narracion": "También puedes llenar los dos recipientes con el mismo vaso y contar cuántos vasos caben en cada uno. El vaso debe ser el mismo en los dos."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/comparar-capacidades-situacion.svg",
+          "alt": "Una jarra ancha con asa y una botella alta con tapa, las dos vacías.",
+          "descripcion": "Sobre una línea de piso hay una jarra blanca ancha, con asa a la derecha, rotulada «Jarra», y una botella blanca más alta, de cuello angosto y tapa amarilla, rotulada «Botella». Las dos están vacías. Arriba se pregunta cuál tiene más capacidad."
+        },
+        {
+          "id": "trasvase",
+          "src": "/nudito/diagramas/matematica/comparar-capacidades-trasvase.svg",
+          "alt": "Jarra vacía a la izquierda y botella llena a la derecha, con gotas que se salen; una flecha de puntos va de la jarra a la botella.",
+          "descripcion": "La jarra blanca está vacía. Una flecha de puntos turquesa sale de ella hacia la botella, que está llena de líquido naranja hasta la boca, sin tapa, y de la que caen tres gotas por los lados. Arriba dice «La botella se rebalsa»."
+        },
+        {
+          "id": "tazas-pregunta",
+          "src": "/nudito/diagramas/matematica/comparar-capacidades-tazas-pregunta.svg",
+          "alt": "Una olla azul ancha con diez tazas debajo y una olla amarilla más pequeña con seis tazas debajo.",
+          "descripcion": "Dos ollas rotuladas «Olla azul» y «Olla amarilla». Bajo la azul, que es más ancha, hay diez tazas blancas en dos filas de cinco. Bajo la amarilla hay seis tazas en dos filas de tres. Arriba se pregunta cuántas tazas más caben en la azul y abajo dice que todas las tazas son iguales."
+        },
+        {
+          "id": "tazas",
+          "src": "/nudito/diagramas/matematica/comparar-capacidades-tazas.svg",
+          "alt": "Seis tazas de cada olla en turquesa, emparejadas, y cuatro tazas amarillas que sobran en la olla azul.",
+          "descripcion": "Las mismas ollas. Bajo la azul hay seis tazas turquesa y cuatro amarillas, rotuladas «Sobran cuatro». Bajo la amarilla hay seis tazas turquesa. Abajo se lee diez menos seis igual cuatro."
+        },
+        {
+          "id": "alto-ancho",
+          "src": "/nudito/diagramas/matematica/comparar-capacidades-alto-ancho.svg",
+          "alt": "Un vaso alto y delgado rotulado con tres vasitos y un tazón bajo y ancho rotulado con cinco vasitos.",
+          "descripcion": "A la izquierda hay un vaso blanco alto y delgado, rotulado «Alto: tres vasitos». A la derecha, un tazón blanco bajo y ancho, rotulado «Ancho: cinco vasitos». Arriba dice «Medimos con vasitos iguales»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una jarra se llena con seis vasos iguales. Una botella se llena con cuatro de esos vasos. Si vacías la jarra llena en la botella vacía, ¿qué pasa?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La botella se rebalsa"
+          },
+          {
+            "id": "b",
+            "texto": "La botella queda justa"
+          },
+          {
+            "id": "c",
+            "texto": "Falta llenar la botella"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. La jarra tiene más capacidad que la botella, así que la botella se rebalsa.",
+        "pista": "Compara cuántos vasos caben en cada recipiente."
+      }
+    }
   },
   {
     "clave": "mat.p3.conservacion-capacidad",
@@ -8210,6 +8568,121 @@
         "retroalimentacion": "Es verdadero: 26 − 5 = 21 cm."
       }
     ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Medir con regla",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a medir con una regla en centímetros. Como idea principal, ponemos un extremo del objeto en el cero y leemos el número donde termina el otro extremo. Ese número, junto con la palabra centímetros, es la medida. Si el objeto no empieza en el cero, contamos los espacios."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Lápiz y regla",
+          "narracion": "Observemos esta situación. Arriba hay un lápiz y abajo hay una regla con los números del cero al doce. Queremos saber cuánto mide el lápiz. ¿Dónde debemos poner el lápiz para medirlo bien?",
+          "recursoRef": "lapiz-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Empezar en el cero",
+          "narracion": "Colocamos un extremo del lápiz en el cero de la regla. Luego nos fijamos en qué número queda la punta. Piensa: ¿cuántos centímetros crees que mide?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Leer el número final",
+          "narracion": "Mira cómo quedó. Un extremo toca el cero y la punta llega al nueve. Por eso el lápiz mide nueve centímetros.",
+          "recursoRef": "lapiz-nueve"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Una cinta lejos del cero",
+          "narracion": "Ahora medimos una cinta que no empieza en el cero. Un extremo está en el cuatro y el otro en el once. No leas solo el número final. Piensa: ¿cómo averiguamos cuántos centímetros hay entre las dos marcas?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Contar los espacios",
+          "narracion": "Contamos los saltos entre el cuatro y el once. Cada salto es un centímetro. Hay siete saltos, entonces la cinta mide siete centímetros. También se puede restar: once menos cuatro son siete.",
+          "recursoRef": "cinta-cuatro-once"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Rayas o espacios",
+          "narracion": "Este borrador va del cero al cuatro. Si contamos las rayas que toca, salen cinco, y eso es un error. Lo correcto es contar los espacios entre rayas: son cuatro. El borrador mide cuatro centímetros.",
+          "recursoRef": "error-marcas"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: alinea",
+          "narracion": "Pon un extremo del objeto en el cero de la regla. Si usas otra marca, recuerda cuál es."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: lee",
+          "narracion": "Fíjate dónde termina el otro extremo. Si empezaste en el cero, ese número es la medida."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: escribe",
+          "narracion": "Si empezaste en otra marca, cuenta los espacios o resta. Luego escribe el número con la palabra centímetros."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "lapiz-pregunta",
+          "src": "/nudito/diagramas/matematica/centimetro-regla-lapiz-pregunta.svg",
+          "alt": "Un lápiz amarillo encima de una regla en centímetros, sin tocarla.",
+          "descripcion": "Arriba, un lápiz amarillo con el borrador turquesa a la izquierda, sin tocar la regla. Debajo, una regla blanca con marcas y los números del cero al doce, y la abreviatura cm. Encima se lee: ¿Cuánto mide el lápiz?"
+        },
+        {
+          "id": "lapiz-nueve",
+          "src": "/nudito/diagramas/matematica/centimetro-regla-lapiz-nueve.svg",
+          "alt": "Un lápiz que va del cero al nueve de la regla; mide nueve centímetros.",
+          "descripcion": "Una regla con los números del cero al doce y, encima, un lápiz amarillo cuyo extremo izquierdo está en el cero y cuya punta llega al nueve. Líneas punteadas unen sus extremos con la regla. Una flecha de dos puntas marca todo el largo, con el texto: mide nueve centímetros."
+        },
+        {
+          "id": "cinta-cuatro-once",
+          "src": "/nudito/diagramas/matematica/centimetro-regla-cinta-cuatro-once.svg",
+          "alt": "Una cinta turquesa del cuatro al once de la regla, con siete saltos de un centímetro.",
+          "descripcion": "Una regla del cero al doce con una cinta turquesa encima, desde el cuatro hasta el once. Líneas punteadas unen sus extremos con la regla. Sobre la cinta hay siete arcos pequeños, uno por centímetro, y más arriba se lee: mide siete centímetros."
+        },
+        {
+          "id": "error-marcas",
+          "src": "/nudito/diagramas/matematica/centimetro-regla-error-marcas.svg",
+          "alt": "Un borrador del cero al cuatro con cinco puntos rojos en las rayas que toca.",
+          "descripcion": "Una regla del cero al doce con un borrador amarillo encima, del cero al cuatro. Cinco puntos rojos marcan las rayas del cero, uno, dos, tres y cuatro. Arriba, en rojo: Cinco rayas: error. Debajo, en turquesa: Cuatro espacios: cuatro cm."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una cinta empieza en el seis de la regla y termina en el catorce. ¿Cuánto mide?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Catorce centímetros"
+          },
+          {
+            "id": "b",
+            "texto": "Seis centímetros"
+          },
+          {
+            "id": "c",
+            "texto": "Ocho centímetros"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. De seis a catorce hay ocho centímetros.",
+        "pista": "Cuenta cuántos centímetros hay entre las dos marcas."
+      }
+    },
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",

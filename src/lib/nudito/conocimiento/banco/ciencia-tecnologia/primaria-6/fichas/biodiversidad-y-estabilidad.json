@@ -372,7 +372,126 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Más variedad, más respaldo",
+          "narracion": "Hola, hoy vamos a descubrir por qué un lugar con muchas clases de seres vivos aguanta mejor los problemas. Como idea principal, la biodiversidad es la variedad de especies que viven en un ecosistema. Cuando hay muchas especies, varias pueden cumplir una misma función, como polinizar flores o servir de alimento. Si una desaparece, otras sostienen ese trabajo y el ecosistema se recupera mejor."
+        },
+        {
+          "id": "situacion-selva",
+          "tipo": "recurso",
+          "titulo": "Visitantes de las flores en la selva",
+          "narracion": "Observemos esta situación en la selva de Madre de Dios. Un árbol florecido recibe visitas de distintos animales y cada uno lleva polen de una flor a otra. Esa tarea se llama polinización y ayuda a que las plantas produzcan frutos y semillas. Veamos qué pasaría si uno de esos visitantes faltara.",
+          "recursoRef": "selva"
+        },
+        {
+          "id": "modelo-respaldos",
+          "tipo": "recurso",
+          "titulo": "Un esquema con respaldos",
+          "narracion": "Para razonar con orden usaremos este esquema. Compara dos ecosistemas con la misma función, polinizar flores. En uno participa una sola especie y en el otro participan cuatro especies distintas. En los dos se pierde una especie. Observa qué queda para seguir cumpliendo la función en cada caso.",
+          "recursoRef": "respaldos"
+        },
+        {
+          "id": "ejemplo-selva-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una plaga elimina una especie",
+          "narracion": "Imagina que una plaga elimina a una especie de abeja del bosque de la escena. Preguntamos quién más poliniza las flores. El colibrí y otras especies polinizadoras del bosque siguen visitando flores y llevando polen. El trabajo se reduce un poco, pero no se detiene.",
+          "recursoRef": "selva"
+        },
+        {
+          "id": "ejemplo-selva-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: por qué el bosque resiste",
+          "narracion": "Esto ocurre porque en el bosque varias especies cumplen la misma función ecológica. Si una falta, las demás cubren parte de su trabajo. En cambio, si una sola especie polinizara todas las flores, la misma plaga dejaría a las plantas sin quien lleve su polen.",
+          "recursoRef": "selva"
+        },
+        {
+          "id": "ejemplo-chacra-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: dos chacras y una enfermedad",
+          "narracion": "Una familia de Puno extiende sobre una manta papas de muchas variedades: moradas, rojas, amarillas, redondas y alargadas. Su vecina siembra una sola variedad. Llega una enfermedad que ataca únicamente a esa variedad. Compararemos qué pierde cada chacra.",
+          "recursoRef": "papas"
+        },
+        {
+          "id": "ejemplo-chacra-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: qué cosecha se salva",
+          "narracion": "Donde hay una sola variedad, todas las plantas son vulnerables a la enfermedad y se pierde casi toda la cosecha. Donde hay muchas variedades, algunas no se enferman y la familia conserva alimento y semillas para sembrar. Aquí la diversidad es de variedades dentro de una misma especie, y funcionó como un seguro.",
+          "recursoRef": "papas"
+        },
+        {
+          "id": "error-individuos",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: contar solo individuos",
+          "narracion": "Un error común es pensar que, mientras haya muchos individuos, el ecosistema está seguro. Mil plantas de una misma variedad siguen siendo frágiles, porque una misma enfermedad puede afectarlas a todas. Lo que da estabilidad es la variedad, ya sea de especies o de variedades dentro de una especie, no solo la cantidad de seres vivos."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cuenta las especies que cumplen la función",
+          "narracion": "Primero identifica qué función estudias, por ejemplo, polinizar, y cuenta cuántas especies distintas la cumplen. No cuentes individuos: una abeja y cien abejas de la misma especie cuentan como una sola especie.",
+          "recursoRef": "respaldos"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: imagina un cambio",
+          "narracion": "Después imagina un cambio, como una sequía, una plaga o la pérdida de una especie. Pregúntate qué otras especies pueden seguir cumpliendo esa función. Si la respuesta es ninguna, el ecosistema es muy vulnerable; si hay varias, tiene respaldo.",
+          "recursoRef": "respaldos"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: concluye con una razón",
+          "narracion": "Por último concluye con una razón completa: «El ecosistema se recupera mejor porque hay más especies que pueden reemplazar la función de la que se perdió». Evita decir solo que hay más animales, porque lo que cuenta es la variedad de especies."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "selva",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/biodiversidad-selva-polinizadores-zimage-v1.webp",
+          "alt": "Una abeja y un colibrí visitan las flores rojas, amarillas, blancas y rosadas de una rama grande, en un bosque tropical verde.",
+          "descripcion": "Una rama florecida cruza la escena con flores rojas, amarillas, blancas y rosadas. Una abeja está sobre una de las flores y, a la derecha, un colibrí verde vuela con las alas abiertas cerca de otra flor. Al fondo se ven árboles y plantas de la selva."
+        },
+        {
+          "id": "respaldos",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/biodiversidad-respaldos-svg-v1.svg",
+          "alt": "Dos ecosistemas con la función de polinizar: uno con una especie que se pierde y otro con cuatro especies, de las cuales se pierde una.",
+          "descripcion": "Dos paneles comparan «pocas especies» y «muchas especies». A la izquierda hay una sola especie marcada con una cruz. A la derecha hay cuatro especies, con una cruz en solo una. Abajo, la cruz significa especie que se pierde."
+        },
+        {
+          "id": "papas",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-6/biodiversidad-chacra-papas-zimage-v1.webp",
+          "alt": "Una mujer arrodillada coloca papas moradas, rojas, amarillas y blancas sobre una manta; atrás hay tres niños, terrazas de cultivo y casas.",
+          "descripcion": "Una agricultora se arrodilla junto a una manta clara llena de papas en filas: moradas, rojas, amarillas, una blanca y una alargada rojiza, de distintos tamaños. Al fondo hay terrazas de cultivo, casas y tres niños."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En un bosque de la costa norte, una enfermedad elimina a una de las siete especies de aves que dispersan semillas. ¿Por qué el bosque puede seguir renovándose?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Porque las semillas se dispersan sin necesitar a ningún animal."
+          },
+          {
+            "id": "b",
+            "texto": "Porque las otras seis especies de aves pueden seguir dispersando semillas."
+          },
+          {
+            "id": "c",
+            "texto": "Porque las especies que se pierden nunca cumplen funciones importantes."
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Varias especies cumplen la misma función de dispersar semillas. Si una desaparece, las otras cubren gran parte de su trabajo y el bosque se recupera mejor.",
+        "pista": "Piensa en cuántas especies cumplen la misma función y qué ocurre cuando una de ellas falta."
+      }
+    }
   },
   {
     "clave": "cyt.p6.niveles-biodiversidad",

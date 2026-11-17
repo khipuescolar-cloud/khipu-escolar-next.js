@@ -56,7 +56,7 @@
     "vocabulario": [
       {
         "termino": "mayúscula",
-        "significado": "Letra grande como A, B o C."
+      "significado": "Forma de letra como A, B o C, que usamos al empezar una oración y un nombre propio."
       },
       {
         "termino": "oración",
@@ -378,7 +378,118 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "La mayúscula señala comienzos y nombres",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a usar mayúsculas. Como idea principal de este tema, recuerda lo siguiente: la primera letra de una oración se escribe con mayúscula. También empiezan con mayúscula los nombres propios, como Ana, Paco, Lima o Puno. La voz dirá cuándo una letra es mayúscula o minúscula, pero tú también mirarás las letras escritas para reconocer su forma."
+        },
+        {
+          "id": "situacion-ana",
+          "tipo": "recurso",
+          "titulo": "Una oración sobre Ana",
+          "narracion": "Observemos esta escena. Una niña dibuja un sol amarillo en una hoja. Imaginemos que su nombre es Ana. Queremos escribir la oración «ana dibuja un sol». Al verla en la pantalla, notamos que empieza con a minúscula. Como Ana es la primera palabra y también es un nombre propio, debemos escribir una A mayúscula.",
+          "recursoRef": "ana-dibuja"
+        },
+        {
+          "id": "ejemplo-ana-antes",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: ana dibuja un sol.",
+          "narracion": "Mira la oración escrita: «ana dibuja un sol». La primera letra de «ana» aparece como a minúscula. Esa forma no es correcta aquí, porque la oración comienza con el nombre de una persona.",
+          "recursoRef": "ana-dibuja"
+        },
+        {
+          "id": "ejemplo-ana-despues",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: Ana dibuja un sol.",
+          "narracion": "Ahora la escribimos correctamente: «Ana dibuja un sol». Observa la A mayúscula al comienzo de Ana. Las demás letras del nombre son minúsculas. La mayúscula cumple dos funciones al mismo tiempo: marca el inicio de la oración y el inicio del nombre propio.",
+          "recursoRef": "ana-dibuja"
+        },
+        {
+          "id": "ejemplo-ana-comprueba",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: encuentra la letra que cambió",
+          "narracion": "Comparemos las dos formas escritas. En «ana», la primera letra es a minúscula. En «Ana», la primera letra es A mayúscula. Solo cambiamos la forma de esa letra; las palabras siguen en el mismo orden y la oración conserva la misma idea."
+        },
+        {
+          "id": "ejemplo-paco-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un loro llamado Paco",
+          "narracion": "Veamos otra escena. Un loro verde come un trozo de mango sobre una percha. Imaginemos que el loro se llama Paco. Queremos escribir lo que ocurre y usar bien su nombre.",
+          "recursoRef": "paco-come"
+        },
+        {
+          "id": "ejemplo-paco-antes",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el loro paco come mango.",
+          "narracion": "Mira esta primera versión: «el loro paco come mango». Hay dos letras que debemos revisar. «el» comienza la oración y aparece con e minúscula. «paco» es el nombre particular del loro y aparece con p minúscula.",
+          "recursoRef": "paco-come"
+        },
+        {
+          "id": "ejemplo-paco-despues",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: El loro Paco come mango.",
+          "narracion": "La versión correcta es «El loro Paco come mango». «El» empieza con E mayúscula porque abre la oración. «Paco» empieza con P mayúscula porque es un nombre propio, aunque aparezca en medio de la oración. «loro», «come» y «mango» no necesitan mayúscula en este caso.",
+          "recursoRef": "paco-come"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: encuentra el comienzo",
+          "narracion": "Primero, busca la palabra con la que empieza la oración. Mira su primera letra y escríbela con forma mayúscula. Por ejemplo, si comienza con «el», debes escribir «El», con E mayúscula."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca los nombres propios",
+          "narracion": "Después, encuentra nombres particulares de personas, animales o lugares. Ana, Paco, Lima y Puno son nombres propios. Cada uno empieza con mayúscula, incluso si aparece en medio de la oración."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: revisa sin llenar de mayúsculas",
+          "narracion": "Por último, vuelve a leer. Comprueba la letra inicial y los nombres propios. No conviertas todas las palabras en mayúsculas. En «El loro Paco come mango», solo la E de «El» y la P de «Paco» necesitan mayúscula."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "ana-dibuja",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-1/mayuscula-ana-dibuja-gemini-v1.webp",
+          "alt": "Niña dibuja un sol amarillo en una hoja sobre una mesa escolar.",
+          "descripcion": "Una niña sentada en una mesa escolar dibuja un sol amarillo en una hoja blanca. Sostiene un lápiz amarillo y tiene otros dos lápices de colores a su lado."
+        },
+        {
+          "id": "paco-come",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-1/mayuscula-paco-come-gemini-v1.webp",
+          "alt": "Loro verde come un trozo de mango sobre una percha de madera.",
+          "descripcion": "Un loro verde con plumas azules sostiene un trozo de mango con una pata y lo come mientras está apoyado en una percha de madera."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "La oración está escrita así: «el loro paco come mango». ¿Qué cambio necesita para usar bien las mayúsculas?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Escribir El con E mayúscula y Paco con P mayúscula."
+          },
+          {
+            "id": "b",
+            "texto": "Dejar el y paco con sus letras minúsculas."
+          },
+          {
+            "id": "c",
+            "texto": "Escribir todas las palabras solo con mayúsculas."
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "«El» lleva E mayúscula porque comienza la oración. «Paco» lleva P mayúscula porque es el nombre propio del loro.",
+        "pista": "Busca una palabra al inicio de la oración y un nombre propio que aparece después."
+      }
+    }
   },
   {
     "clave": "com.p1.punto-al-final",

@@ -1492,7 +1492,113 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Cada cifra vale según su lugar",
+          "narracion": "Bienvenida y bienvenido. Hoy descubrirás que una cifra vale según el lugar donde está. Como idea principal, en un número de dos cifras la cifra de la izquierda cuenta decenas, de diez en diez, y la de la derecha cuenta unidades."
+        },
+        {
+          "id": "situacion-treinta-seis",
+          "tipo": "recurso",
+          "titulo": "El número treinta y seis",
+          "narracion": "Observemos el número treinta y seis. Hay dos cuadros. En el cuadro de las decenas hay tres barras largas. En el cuadro de las unidades hay seis cubitos. Tres decenas son treinta, y seis unidades son seis.",
+          "recursoRef": "treinta-seis"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: las cifras del treinta y seis",
+          "narracion": "Miramos el treinta y seis. El tres está a la izquierda, en las decenas, y vale treinta. El seis está a la derecha, en las unidades, y vale seis.",
+          "recursoRef": "treinta-seis"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: juntamos los valores",
+          "narracion": "Juntamos los dos valores: treinta más seis son treinta y seis. Cada cifra aporta lo suyo, según el lugar donde está.",
+          "recursoRef": "treinta-seis"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el precio de don Raúl",
+          "narracion": "Don Raúl ve un precio de cincuenta y cuatro soles. Lo paga con billetes de diez soles y monedas de un sol. Cinco billetes de diez son cincuenta soles, y cuatro monedas son cuatro soles.",
+          "recursoRef": "billetes-54"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el cinco y el cuatro",
+          "narracion": "Fíjate en la diferencia. El cinco está en las decenas y vale cincuenta, porque cuenta billetes de diez. El cuatro está en las unidades y solo vale cuatro.",
+          "recursoRef": "billetes-54"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Si cambias el orden, cambia el número",
+          "narracion": "Cuidado con el orden. Cuatro decenas y siete unidades se escribe cuarenta y siete, no setenta y cuatro. En cuarenta y siete, el cuatro vale cuarenta. En setenta y cuatro, ese mismo cuatro vale solo cuatro. Cambiar un número de lugar cambia su valor."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: separa las dos cifras",
+          "narracion": "Primero mira el número y separa sus dos cifras.",
+          "recursoRef": "treinta-seis"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: decenas a la izquierda, unidades a la derecha",
+          "narracion": "Después, la cifra de la izquierda son decenas: cuéntalas de diez en diez. La cifra de la derecha son unidades: valen lo que dice.",
+          "recursoRef": "billetes-54"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: junta los valores",
+          "narracion": "Por último, junta los dos valores para leer el número. Treinta más seis son treinta y seis."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "treinta-seis",
+          "src": "/nudito/diagramas/matematica/valor-posicional-treinta-seis.svg",
+          "alt": "Dos cuadros: en decenas tres barras largas y en unidades seis cubitos; tres decenas son treinta y seis unidades son seis.",
+          "descripcion": "Hay dos cuadros lado a lado. El de la izquierda se llama decenas y tiene tres barras largas. El de la derecha se llama unidades y tiene seis cubitos amarillos. Debajo se lee tres decenas son treinta, seis unidades son seis, y al final, treinta más seis son treinta y seis."
+        },
+        {
+          "id": "billetes-54",
+          "src": "/nudito/diagramas/matematica/valor-posicional-billetes.svg",
+          "alt": "Cinco billetes de diez soles y cuatro monedas de un sol forman cincuenta y cuatro soles.",
+          "descripcion": "A la izquierda hay un cuadro con cinco billetes de diez soles. A la derecha hay un cuadro con cuatro monedas de un sol. Debajo se lee cinco decenas son cincuenta, cuatro unidades son cuatro, y cincuenta más cuatro son cincuenta y cuatro soles."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Mamá pagó con cuatro billetes de diez soles y cinco monedas de un sol. ¿Cuántos soles pagó?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Nueve soles"
+          },
+          {
+            "id": "b",
+            "texto": "Cincuenta y cuatro soles"
+          },
+          {
+            "id": "c",
+            "texto": "Cuarenta y cinco soles"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Cuatro billetes de diez son cuarenta soles, y cinco monedas son cinco soles. Cuarenta más cinco son cuarenta y cinco soles.",
+        "pista": "Los billetes de diez van en las decenas y las monedas en las unidades."
+      }
+    }
   },
   {
     "clave": "mat.p2.antecesor-sucesor",
@@ -1798,7 +1904,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Antes y después de un número",
+          "narracion": "Bienvenida y bienvenido. Hoy buscaremos el antecesor y el sucesor de un número. Como idea principal, el sucesor es el número que va justo después, y se halla sumando uno. El antecesor es el número que va justo antes, y se halla restando uno. Con cuidado: después de una decena completa empieza otra, como del veintinueve al treinta."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Las cajas de Rosa",
+          "narracion": "Observemos esta situación. Rosa vende frutas y numera sus cajas. Tres cajas están en fila. La del medio tiene el número cuarenta y siete. En las otras dos aparece un signo de pregunta. Una caja va antes y la otra va después. ¿Qué números faltan?",
+          "recursoRef": "cajas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la caja de antes y la de después",
+          "narracion": "Busquemos primero el sucesor de cuarenta y siete. Es el que va justo después. Luego busquemos el antecesor, el que va justo antes. ¿Qué haces con el número en cada caso?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: sumar uno y restar uno",
+          "narracion": "Para el sucesor sumamos uno: son cuarenta y ocho. Para el antecesor restamos uno: son cuarenta y seis. Los arcos de arriba muestran más uno y menos uno. Así quedan tres cajas seguidas: antecesor, número y sucesor.",
+          "recursoRef": "cuarenta-y-siete"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: cuando cambia la decena",
+          "narracion": "Ahora Rosa tiene el saco número ochenta. ¿Qué número tiene el saco que va justo antes? Cuenta hacia atrás con cuidado."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un lugar hacia atrás",
+          "narracion": "El antecesor es el que va justo antes, así que restamos uno. Ochenta menos uno son setenta y nueve. En la fila, el antecesor está un lugar a la izquierda del ochenta, y el arco muestra menos uno.",
+          "recursoRef": "ochenta"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado al pasar de decena",
+          "narracion": "Mira este error frecuente. El sucesor de veintinueve no es veinte ni doscientos diez. Esas dos casillas rojas no son el número que sigue. Cuenta: veintiocho, veintinueve y ahora treinta. Después del veintinueve empieza una decena nueva.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: decide si va antes o después",
+          "narracion": "Primero decide qué te piden. Si piden el sucesor, busca el número que va después. Si piden el antecesor, busca el que va antes."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: suma uno o resta uno",
+          "narracion": "Para el sucesor suma uno. Para el antecesor resta uno. Cuando llegues al final de una decena, cuenta con cuidado."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: comprueba",
+          "narracion": "Comprueba contando. El antecesor, el número y el sucesor deben ser tres números seguidos. Esta tarjeta resume los pasos.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "cajas-pregunta",
+          "src": "/nudito/diagramas/matematica/antecesor-sucesor-cajas-pregunta.svg",
+          "alt": "Tres cajas en fila: la del medio dice cuarenta y siete y las otras dos llevan un signo de pregunta; bajo ellas, va antes y va después.",
+          "descripcion": "Tres cajas en fila. La del medio muestra cuarenta y siete. La de la izquierda y la de la derecha muestran un signo de pregunta. Bajo la izquierda se lee: va antes. Bajo la derecha: va después. Abajo: ¿Qué números faltan?"
+        },
+        {
+          "id": "cuarenta-y-siete",
+          "src": "/nudito/diagramas/matematica/antecesor-sucesor-cuarenta-y-siete.svg",
+          "alt": "Tres cajas seguidas con cuarenta y seis, cuarenta y siete y cuarenta y ocho, con arcos de menos uno y más uno.",
+          "descripcion": "Tres cajas seguidas: la primera con cuarenta y seis, la del medio con cuarenta y siete y la última con cuarenta y ocho. Bajo ellas se lee antecesor, número y sucesor. Encima, dos arcos: menos uno entre la primera y la segunda, y más uno entre la segunda y la tercera."
+        },
+        {
+          "id": "ochenta",
+          "src": "/nudito/diagramas/matematica/antecesor-sucesor-ochenta.svg",
+          "alt": "Cuatro casillas seguidas, de setenta y ocho a ochenta y uno, con un arco de menos uno entre setenta y nueve y ochenta.",
+          "descripcion": "Cuatro casillas seguidas, de setenta y ocho hasta ochenta y uno. Un arco con menos uno une la del setenta y nueve con la del ochenta. Bajo la del setenta y nueve se lee antecesor, y bajo la del ochenta, número."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/antecesor-sucesor-errores.svg",
+          "alt": "Casillas de veintiocho, veintinueve y treinta, con el treinta como el que sigue; abajo, veinte y doscientos diez con borde rojo.",
+          "descripcion": "Arriba, tres casillas: veintiocho, veintinueve y treinta; bajo el treinta se lee: el que sigue. Abajo, dos casillas con borde rojo punteado, veinte y doscientos diez, y el texto rojo: no son el que sigue."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/antecesor-sucesor-pasos.svg",
+          "alt": "Tarjeta con tres pasos: decide si va antes o después, resta o suma uno y comprueba con tres números.",
+          "descripcion": "Tres tarjetas numeradas. Uno, decide si va antes o después: antes es antecesor, después es sucesor. Dos, resta uno o suma uno. Tres, comprueba con tres números: antecesor, número y sucesor."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Doña Rosa cuelga el cartel con el número cincuenta y nueve. ¿Qué número tendrá el cartel que sigue?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Sesenta"
+          },
+          {
+            "id": "b",
+            "texto": "Cincuenta"
+          },
+          {
+            "id": "c",
+            "texto": "Cuarenta"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Muy bien. Después del cincuenta y nueve empieza una decena nueva, y el número que sigue es el sesenta.",
+        "pista": "Cuenta hacia adelante y fíjate qué pasa con la decena después del nueve."
+      }
+    }
   },
   {
     "clave": "mat.p2.base-diez-y-abaco",
@@ -2106,7 +2334,133 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Material base diez y ábaco",
+          "narracion": "Bienvenida y bienvenido. Hoy leemos números con barras, cubitos y un ábaco. Como idea principal, cada barra vale diez y se llama decena. Cada cubito suelto vale uno y se llama unidad. En el ábaco, las fichas de la varilla de la izquierda son decenas y las de la derecha son unidades."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Barras y cubitos en la mesa",
+          "narracion": "Observemos esta situación. Sobre la mesa hay dos barras y cinco cubitos sueltos. Las barras están a la izquierda y los cubitos a la derecha. Arriba hay una pregunta: ¿qué número es?",
+          "recursoRef": "material-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: contar las barras",
+          "narracion": "Primero contamos las barras de la mesa. Cada barra vale diez. Piensa: ¿cuánto valen las dos barras juntas? Cuenta de diez en diez.",
+          "recursoRef": "material-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el número formado",
+          "narracion": "Dos barras valen veinte. Cinco cubitos valen cinco. Juntamos veinte y cinco, y forman veinticinco. Abajo del dibujo está la suma.",
+          "recursoRef": "material-resuelto"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el ábaco",
+          "narracion": "Ahora miramos un ábaco con dos varillas. La de la izquierda es la de las decenas y la de la derecha es la de las unidades. Hay cuatro fichas en las decenas y una ficha en las unidades. Piensa: ¿qué número muestra?",
+          "recursoRef": "abaco-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: leer las fichas",
+          "narracion": "Cuatro decenas valen cuarenta. Una unidad vale uno. Juntos son cuarenta y uno. El ábaco muestra el cuarenta y uno.",
+          "recursoRef": "abaco-resuelto"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con este error",
+          "narracion": "Mira este ábaco: tiene tres fichas en las decenas y seis en las unidades. Alguien lo leyó sesenta y tres, y tiene una equis roja: leyó las varillas al revés. Se lee treinta y seis, con palomita: primero las decenas y después las unidades.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: cuenta las barras",
+          "narracion": "Primero cuenta las barras. Cada una vale diez, así que cuenta de diez en diez.",
+          "recursoRef": "material-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: suma los cubitos",
+          "narracion": "Después cuenta los cubitos sueltos. Cada uno vale uno. Se suman a las decenas que ya contaste.",
+          "recursoRef": "material-resuelto"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: escribe decenas y unidades",
+          "narracion": "Por último, escribe primero las decenas y después las unidades. En el ábaco, las decenas están a la izquierda y las unidades a la derecha. Cuarenta y uno es cuarenta más uno.",
+          "recursoRef": "abaco-resuelto"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "material-pregunta",
+          "src": "/nudito/diagramas/matematica/base-diez-y-abaco-material-pregunta.svg",
+          "alt": "Dos barras turquesa y cinco cubitos amarillos sobre la mesa, con la pregunta de qué número es.",
+          "descripcion": "Arriba se lee la pregunta: ¿Qué número es? A la izquierda hay dos barras turquesa altas, cada una dividida en diez cuadritos, con la palabra barras debajo. A la derecha hay cinco cubitos amarillos sueltos, en fila, con la palabra cubitos debajo."
+        },
+        {
+          "id": "material-resuelto",
+          "src": "/nudito/diagramas/matematica/base-diez-y-abaco-material-resuelto.svg",
+          "alt": "Dos barras y cinco cubitos con sus valores: veinte y cinco, y la suma veinte más cinco igual veinticinco.",
+          "descripcion": "Arriba se leen los rótulos dos barras igual veinte y cinco cubitos igual cinco. A la izquierda hay dos barras turquesa divididas en diez cuadritos, con la palabra barras. A la derecha hay cinco cubitos amarillos sueltos, con la palabra cubitos. Abajo se lee la suma: veinte más cinco igual veinticinco."
+        },
+        {
+          "id": "abaco-pregunta",
+          "src": "/nudito/diagramas/matematica/base-diez-y-abaco-abaco-pregunta.svg",
+          "alt": "Ábaco con cuatro fichas turquesa en la varilla de las decenas y una ficha amarilla en la de las unidades.",
+          "descripcion": "Un ábaco con dos varillas sobre una base. Sobre la varilla de la izquierda se lee decenas y tiene cuatro fichas turquesa. Sobre la de la derecha se lee unidades y tiene una ficha amarilla. Abajo se lee la pregunta: ¿Qué número muestra?"
+        },
+        {
+          "id": "abaco-resuelto",
+          "src": "/nudito/diagramas/matematica/base-diez-y-abaco-abaco-resuelto.svg",
+          "alt": "Ábaco con cuatro decenas, que valen cuarenta, y una unidad, que vale uno; la suma es cuarenta y uno.",
+          "descripcion": "El mismo ábaco: cuatro fichas turquesa en la varilla de las decenas y una ficha amarilla en la de las unidades. Debajo de las varillas se leen cuarenta, a la izquierda, y uno, a la derecha. Más abajo está la suma: cuarenta más uno igual cuarenta y uno."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/base-diez-y-abaco-errores.svg",
+          "alt": "Ábaco con tres fichas en las decenas y seis en las unidades; sesenta y tres con equis roja y treinta y seis con palomita.",
+          "descripcion": "A la izquierda hay un ábaco con tres fichas turquesa en la varilla de las decenas y seis fichas amarillas en la de las unidades. A la derecha, arriba, se lee sesenta y tres con una equis roja y las palabras al revés. Abajo se lee treinta y seis con una palomita verde."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Marta puso el treinta y cinco en un ábaco. ¿Cuántas fichas hay en la varilla de las decenas?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Treinta fichas"
+          },
+          {
+            "id": "b",
+            "texto": "Tres fichas"
+          },
+          {
+            "id": "c",
+            "texto": "Cinco fichas"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Treinta y cinco tiene tres decenas, así que la varilla de las decenas lleva tres fichas.",
+        "pista": "Las fichas de las decenas valen diez cada una. Piensa cuántas decenas tiene el número."
+      }
+    }
   },
   {
     "clave": "mat.p2.componer-descomponer",
@@ -2716,7 +3070,122 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Cambiar decenas y unidades",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a cambiar decenas por unidades y unidades por decenas. Como idea principal, diez unidades sueltas se cambian por una decena, y una decena se cambia por diez unidades sueltas. Cuando cambias, la cantidad total no cambia. Solo cambia cómo la guardas."
+        },
+        {
+          "id": "situacion-botones",
+          "tipo": "recurso",
+          "titulo": "Los botones de Rosa",
+          "narracion": "Observemos esta situación. Rosa guarda sus botones en bolsas de diez. Tiene tres bolsas llenas. Al lado tiene doce botones sueltos, en dos filas de seis. Son muchos botones sueltos. Pensemos qué puede hacer con ellos.",
+          "recursoRef": "botones-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: Rosa junta botones",
+          "narracion": "Rosa tiene tres decenas y doce botones sueltos. Tres decenas son treinta, y treinta más doce son cuarenta y dos. Pero doce sueltos son demasiados, porque hay diez o más. Con diez de ellos puede llenar otra bolsa."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: diez sueltos son una decena",
+          "narracion": "Miremos el cambio de Rosa. A la izquierda están sus tres decenas y doce sueltos, con diez de ellos encerrados. Esos diez se cambian por una decena. A la derecha, Rosa tiene cuatro decenas y dos sueltos. Sigue teniendo cuarenta y dos botones.",
+          "recursoRef": "juntar"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: Pablo regala lápices",
+          "narracion": "Pablo tiene cincuenta y dos lápices: cinco decenas y dos sueltos. Quiere regalar siete. Pero solo tiene dos lápices sueltos, y no alcanzan para quitar siete. ¿Qué puede hacer? Puede abrir una decena y cambiarla por diez lápices sueltos."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una decena se abre",
+          "narracion": "Veamos el dibujo. Arriba están las cinco decenas y los dos sueltos. Abajo, Pablo abre una decena y ahora tiene cuatro decenas y doce sueltos. De los doce sueltos regala siete, y quedan cinco. Le quedan cuatro decenas y cinco sueltos, que son cuarenta y cinco lápices.",
+          "recursoRef": "restar"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Errores al cambiar",
+          "narracion": "Un error frecuente es creer que una decena se cambia por una sola unidad. No es así: una decena vale diez unidades. Otro error es perder objetos al cambiar. Si Rosa cambia diez botones por una decena y dice que tiene cuarenta, perdió dos botones, porque tenía cuarenta y dos. Después de cambiar, cuenta de nuevo: el total debe ser el mismo."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira los sueltos",
+          "narracion": "Primero mira los sueltos. Si hay diez o más, puedes formar una decena. Si necesitas quitar más sueltos de los que tienes, necesitas abrir una decena."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: haz el cambio",
+          "narracion": "Segundo, haz el cambio de diez en diez. Diez sueltos se cambian por una decena. Una decena se cambia por diez sueltos. Nunca cambies cantidades que no sean de diez."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: revisa el total",
+          "narracion": "Estas tres tarjetas resumen los pasos. La primera dice que mires los sueltos y preguntes si hay diez o más. La segunda dice que diez sueltos son una decena. La tercera dice que el total no cambia. Cierra contando de nuevo: si el total es igual, no perdiste nada.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "botones-pregunta",
+          "src": "/nudito/diagramas/matematica/canje-botones-pregunta.svg",
+          "alt": "Tres bolsas de diez botones y doce botones sueltos; arriba se pregunta qué hacer con los sueltos.",
+          "descripcion": "Arriba hay tres bolsas, cada una con el número diez. Debajo hay doce círculos sueltos, en dos filas de seis. Al final se lee la pregunta: qué podemos hacer con los botones sueltos."
+        },
+        {
+          "id": "juntar",
+          "src": "/nudito/diagramas/matematica/canje-botones-juntar.svg",
+          "alt": "Rosa cambia diez botones sueltos por una decena: pasa de tres decenas y doce sueltos a cuatro decenas y dos sueltos.",
+          "descripcion": "A la izquierda hay tres bolsas de diez y doce círculos sueltos; diez de ellos están encerrados con una línea punteada. Una flecha dice cambia. A la derecha hay cuatro bolsas de diez y dos círculos sueltos. Abajo se lee tres decenas y doce sueltos, luego cuatro decenas y dos sueltos, y siempre cuarenta y dos botones."
+        },
+        {
+          "id": "restar",
+          "src": "/nudito/diagramas/matematica/canje-lapices-restar.svg",
+          "alt": "Pablo cambia una decena por diez sueltos, regala siete y le quedan cuatro decenas y cinco sueltos: cuarenta y cinco.",
+          "descripcion": "Arriba hay cinco bolsas de diez y dos círculos sueltos. Debajo hay cuatro bolsas de diez y doce círculos sueltos; siete de ellos están tachados. Abajo se lee regala siete sueltos, quedan cuatro decenas y cinco sueltos, y cincuenta y dos menos siete es igual a cuarenta y cinco."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/canje-tres-pasos.svg",
+          "alt": "Tres tarjetas: mirar si hay diez o más sueltos, cambiar diez sueltos por una decena y revisar que el total no cambie.",
+          "descripcion": "Hay tres tarjetas numeradas. La primera dice mira los sueltos: hay diez o más. La segunda dice haz el cambio: diez sueltos son una decena. La tercera dice revisa el total: el total no cambia."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Rita tiene cinco decenas y dieciséis semillas sueltas. Cambia diez sueltas por una decena. ¿Cómo queda?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Seis decenas y dieciséis sueltas"
+          },
+          {
+            "id": "b",
+            "texto": "Cinco decenas y seis sueltas"
+          },
+          {
+            "id": "c",
+            "texto": "Seis decenas y seis sueltas"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Diez sueltas se cambian por una decena: quedan seis decenas y seis sueltas. El total sigue siendo sesenta y seis.",
+        "pista": "Quita diez de las dieciséis sueltas, súmalas como una decena y cuenta cuántas decenas y cuántas sueltas quedan."
+      }
+    }
   },
   {
     "clave": "mat.p2.recta-numerica-100",
@@ -5883,11 +6352,11 @@
         "opciones": [
           {
             "id": "a",
-            "texto": "No, porque 3 es menor que 8"
+            "texto": "No, porque 3 unidades son menos que 8 unidades"
           },
           {
             "id": "b",
-            "texto": "No, porque 68 es más largo"
+            "texto": "No, porque el 68 tiene más cifras escritas"
           },
           {
             "id": "c",
@@ -5895,7 +6364,7 @@
           },
           {
             "id": "d",
-            "texto": "Sí, porque 3 es mayor que 8"
+            "texto": "Sí, porque 3 unidades son más que 8 unidades"
           }
         ],
         "pistas": [
@@ -5990,7 +6459,7 @@
         ],
         "pistas": [
           "Compara las decenas en cada una.",
-          "Una de ellas tiene un número menor a la izquierda con menos decenas.",
+          "El signo < pide que el primer número tenga menos decenas que el segundo.",
           "Revisa las opciones: ¿cuál tiene el número menor en el lado correcto?"
         ],
         "retroalimentacion": "61 < 70 es verdadera: 6 decenas son menos que 7. En las otras, las decenas no coinciden con el signo."
@@ -6005,15 +6474,15 @@
         "opciones": [
           {
             "id": "a",
-            "texto": "Falso: 79 es mayor que 80"
+            "texto": "Falso, porque el 79 es mayor que el 80 y no al revés"
           },
           {
             "id": "b",
-            "texto": "Falso: 71 es mayor que 89"
+            "texto": "Falso, porque el 71 es mayor que el 89 a veces"
           },
           {
             "id": "c",
-            "texto": "Verdadero porque las unidades mandan"
+            "texto": "Verdadero, porque las unidades mandan más"
           },
           {
             "id": "d",
@@ -6080,6 +6549,130 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comprobar afirmaciones",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a decidir si una afirmación sobre números es verdadera o falsa. Como idea principal, no basta con creer lo que alguien dice: comprobamos con las cifras. Primero miramos las decenas. Si empatan, miramos las unidades."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Ana compara dos números",
+          "narracion": "Observemos esta situación. Ana dice que sesenta y siete es mayor que cincuenta y nueve. Cada barra vale una decena y cada cubito vale una unidad. Sesenta y siete se arma con seis barras y siete cubitos. Cincuenta y nueve se arma con cinco barras y nueve cubitos. ¿Tendrá razón Ana?",
+          "recursoRef": "bloques-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: Luis y su razón",
+          "narracion": "Luis dice que cuarenta y cinco es mayor que cincuenta y cuatro, porque cinco es mayor que cuatro. ¿Qué cifras comparó Luis? ¿Cuáles debía comparar primero? Piénsalo antes de seguir."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: decenas primero",
+          "narracion": "Mira los bloques. Cuarenta y cinco tiene cuatro barras. Cincuenta y cuatro tiene cinco barras. Las barras con fondo amarillo son las decenas, y se comparan primero. Cuatro decenas son menos que cinco decenas. Entonces la afirmación de Luis es falsa: cuarenta y cinco es menor que cincuenta y cuatro.",
+          "recursoRef": "luis-decenas"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: Rosa y sus bloques",
+          "narracion": "Rosa dice que ochenta y tres es mayor que ochenta, porque tiene más unidades. Esta vez las decenas se parecen. ¿Qué haremos entonces? Piensa en la regla antes de seguir."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: decenas iguales",
+          "narracion": "Mira los bloques. Los dos números tienen ocho barras, así que las decenas empatan. Entonces miramos las unidades. Ochenta y tres tiene tres cubitos. Ochenta no tiene ninguno. Tres es más que cero, así que ochenta y tres es mayor. La afirmación de Rosa es verdadera.",
+          "recursoRef": "rosa-unidades"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error frecuente es mirar solo las unidades. Mira estos bloques: treinta y seis y cuarenta y uno. Si miras solo los cubitos, seis parece más que uno, y dirías que treinta y seis es mayor. Eso es falso. Las barras se miran primero: tres barras son menos que cuatro. Otro error es creer una afirmación sin comprobarla con las cifras.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee y mira las decenas",
+          "narracion": "Lee la afirmación con calma. Luego compara las decenas de los dos números, como en los bloques de Luis. El número con más barras es el mayor.",
+          "recursoRef": "luis-decenas"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: si empatan, las unidades",
+          "narracion": "Si las decenas son iguales, compara las unidades. Así lo hicimos con los bloques de Rosa.",
+          "recursoRef": "rosa-unidades"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: verdadero o falso",
+          "narracion": "Ahora di si la afirmación es verdadera o falsa, y explica el motivo con las cifras. Estas tres tarjetas resumen el camino.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "bloques-pregunta",
+          "src": "/nudito/diagramas/matematica/afirmaciones-comparacion-bloques-pregunta.svg",
+          "alt": "Ana dice que sesenta y siete es mayor que cincuenta y nueve; debajo, bloques de sesenta y siete y de cincuenta y nueve.",
+          "descripcion": "Un recuadro con lo que dice Ana: sesenta y siete es mayor que cincuenta y nueve. Debajo, a la izquierda, seis barras y siete cubitos amarillos, con el número sesenta y siete. A la derecha, cinco barras y nueve cubitos, con el número cincuenta y nueve."
+        },
+        {
+          "id": "luis-decenas",
+          "src": "/nudito/diagramas/matematica/afirmaciones-comparacion-luis-decenas.svg",
+          "alt": "Bloques de cuarenta y cinco y de cincuenta y cuatro, con las barras resaltadas en amarillo, y la frase cuarenta y cinco es menor que cincuenta y cuatro.",
+          "descripcion": "Arriba dice primero, las decenas. A la izquierda, cuatro barras con fondo amarillo y cinco cubitos, con el número cuarenta y cinco. A la derecha, cinco barras con fondo amarillo y cuatro cubitos, con el número cincuenta y cuatro. Abajo dice cuarenta y cinco es menor que cincuenta y cuatro."
+        },
+        {
+          "id": "rosa-unidades",
+          "src": "/nudito/diagramas/matematica/afirmaciones-comparacion-rosa-unidades.svg",
+          "alt": "Bloques de ochenta y tres, con ocho barras y tres cubitos en un recuadro turquesa punteado, y de ochenta, con ocho barras y ningún cubito.",
+          "descripcion": "Arriba dice las decenas son iguales. A la izquierda, ocho barras y tres cubitos amarillos dentro de un recuadro turquesa punteado, con el número ochenta y tres. A la derecha, ocho barras y ningún cubito, con el número ochenta. Abajo dice ochenta y tres es mayor que ochenta."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/afirmaciones-comparacion-errores.svg",
+          "alt": "Bloques de treinta y seis, con tres barras y seis cubitos, y de cuarenta y uno, con cuatro barras y un cubito; los cubitos están en recuadros rojos punteados.",
+          "descripcion": "A la izquierda, treinta y seis: tres barras con fondo amarillo y seis cubitos dentro de un recuadro rojo punteado. A la derecha, cuarenta y uno: cuatro barras con fondo amarillo y un cubito dentro de un recuadro rojo punteado. Abajo, en rojo, dice error: mirar solo las unidades."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/afirmaciones-comparacion-pasos.svg",
+          "alt": "Tres tarjetas numeradas: uno, mira las decenas; dos, si empatan, mira las unidades; tres, di verdadero o falso.",
+          "descripcion": "Tres tarjetas en columna, con los números uno, dos y tres. La primera dice mira las decenas; la segunda, si empatan, mira las unidades; la tercera, di verdadero o falso."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Tomás dice: «setenta y dos es menor que sesenta y nueve». ¿Qué respuesta es correcta?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Verdadero, porque dos es menor que nueve"
+          },
+          {
+            "id": "b",
+            "texto": "Verdadero, porque nueve es mayor que dos"
+          },
+          {
+            "id": "c",
+            "texto": "Falso: siete decenas son más que seis"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Setenta y dos tiene siete decenas y sesenta y nueve tiene seis, así que setenta y dos es el mayor y la afirmación es falsa.",
+        "pista": "Antes de mirar las unidades, compara las decenas."
+      }
+    }
   }
 ]

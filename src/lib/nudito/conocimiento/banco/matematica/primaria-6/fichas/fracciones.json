@@ -1243,10 +1243,244 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Amplificar y simplificar",
+          "narracion": "Bienvenida y bienvenido. Hoy amplificaremos y simplificaremos fracciones. Como idea principal, una fracción conserva su valor si multiplicas o divides su numerador y su denominador por el mismo número distinto de cero. Al multiplicar, amplificas. Al dividir, simplificas. Una fracción es irreductible cuando ya no tiene un divisor común mayor que uno."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una barra en partes",
+          "narracion": "Observemos esta situación. Una barra está dividida en cinco partes iguales, y tres de ellas están pintadas: es la fracción tres quintos. Ahora imaginemos que cada una de las cinco partes se corta en cuatro trozos iguales. Queremos escribir la misma porción pintada con la nueva división.",
+          "recursoRef": "barra-cinco"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: amplificar por cuatro",
+          "narracion": "Cortar cada parte en cuatro trozos equivale a multiplicar por cuatro. Aplicamos la misma operación a los dos términos de la fracción. Al numerador: tres por cuatro. Al denominador: cinco por cuatro. Los resultados aparecen con signos de pregunta.",
+          "recursoRef": "multiplicar-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: resultado y comprobación",
+          "narracion": "Tres por cuatro son doce, y cinco por cuatro son veinte. La fracción es doce sobre veinte. Las dos barras tienen el mismo largo y la misma zona pintada, así que tres quintos y doce sobre veinte valen lo mismo.",
+          "recursoRef": "doce-veinte"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: simplificar veinticuatro sobre treinta y seis",
+          "narracion": "Ahora simplifiquemos la fracción veinticuatro sobre treinta y seis. Buscamos un número que divida a veinticuatro y a treinta y seis. Los dos se dividen entre cuatro: veinticuatro entre cuatro son seis, y treinta y seis entre cuatro son nueve. Obtenemos seis novenos."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: hasta la irreductible",
+          "narracion": "Seis novenos todavía tiene un divisor común: el tres. Dividimos entre tres y queda dos tercios. Dos y tres no tienen un divisor común mayor que uno, así que la fracción es irreductible. También podíamos dividir directamente entre doce, el mayor divisor común, y llegar al mismo resultado.",
+          "recursoRef": "irreductible"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es cambiar solo el numerador, como pasar de tres quintos a doce quintos: eso cambia el valor. Siempre se aplica la misma operación a los dos términos. Otro error es detenerse antes del final. Seis novenos equivale a veinticuatro sobre treinta y seis, pero no es irreductible, porque aún se puede dividir entre tres."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca el número",
+          "narracion": "Si amplificas, elige el número por el que vas a multiplicar. Si simplificas, busca un divisor común del numerador y del denominador. En el ejemplo uno multiplicamos por cuatro. En el ejemplo dos buscamos divisores de veinticuatro y de treinta y seis."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: usa la misma operación en los dos términos",
+          "narracion": "Multiplica o divide el numerador y el denominador por ese mismo número. En la imagen, tres por cuatro y cinco por cuatro dan doce sobre veinte, y las dos barras muestran la misma zona pintada.",
+          "recursoRef": "doce-veinte"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: repite hasta que sea irreductible",
+          "narracion": "Al simplificar, repite el proceso hasta que ya no haya un divisor común mayor que uno. En la imagen, veinticuatro sobre treinta y seis pasa a seis novenos y luego a dos tercios. Ahí termina, porque el numerador y el denominador ya no se pueden dividir juntos.",
+          "recursoRef": "irreductible"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "barra-cinco",
+          "src": "/nudito/diagramas/matematica/amplificar-simplificar-barra-cinco.svg",
+          "alt": "Una barra de cinco partes con tres pintadas, tres quintos; cada parte se cortará en cuatro trozos.",
+          "descripcion": "Una barra del ancho de la pantalla está dividida en cinco partes iguales y tres están pintadas de turquesa; arriba dice tres quintos de la barra. Una flecha baja hacia el texto cada parte se corta en cuatro trozos iguales y abajo se pregunta cómo se escribe lo pintado."
+        },
+        {
+          "id": "multiplicar-pregunta",
+          "src": "/nudito/diagramas/matematica/amplificar-simplificar-multiplicar-pregunta.svg",
+          "alt": "Dos cuadros: tres por cuatro igual a signo de pregunta y cinco por cuatro igual a signo de pregunta.",
+          "descripcion": "Hay dos recuadros, uno encima del otro. El primero dice tres por cuatro igual a signo de pregunta y el segundo, cinco por cuatro igual a signo de pregunta. Abajo se lee: misma operación arriba y abajo, y la pregunta de qué fracción se obtiene."
+        },
+        {
+          "id": "doce-veinte",
+          "src": "/nudito/diagramas/matematica/amplificar-simplificar-doce-veinte.svg",
+          "alt": "Dos barras del mismo largo: tres de cinco partes pintadas y doce de veinte partes pintadas.",
+          "descripcion": "La barra de arriba tiene cinco partes con tres pintadas y se rotula tres quintos. Una flecha con por cuatro baja a la barra de abajo, que tiene veinte partes con doce pintadas y se rotula doce sobre veinte. Abajo se lee tres por cuatro es doce y cinco por cuatro es veinte, y que las dos tienen la misma zona pintada."
+        },
+        {
+          "id": "irreductible",
+          "src": "/nudito/diagramas/matematica/amplificar-simplificar-irreductible.svg",
+          "alt": "Veinticuatro sobre treinta y seis, entre cuatro es seis novenos, entre tres es dos tercios, irreductible.",
+          "descripcion": "Tres recuadros en fila con flechas: veinticuatro sobre treinta y seis, seis novenos y dos tercios, este último en amarillo. Sobre las flechas se lee dividir entre cuatro y dividir entre tres. Abajo dice que seis y nueve aún se dividen entre tres, que dos y tres ya no, y que veinticuatro sobre treinta y seis es igual a dos tercios."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Simplifica la fracción treinta sobre cuarenta y cinco hasta que sea irreductible. ¿Cuál es el resultado?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Seis sobre nueve"
+          },
+          {
+            "id": "b",
+            "texto": "Dos sobre tres"
+          },
+          {
+            "id": "c",
+            "texto": "Diez sobre quince"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Treinta y cuarenta y cinco se dividen entre quince: treinta entre quince son dos y cuarenta y cinco entre quince son tres. Dos tercios es irreductible.",
+        "pista": "Busca el mayor número que divide a treinta y a cuarenta y cinco. Si no lo ves, divide de a poco y repite."
+      }
+    }
   },
   {
     "clave": "mat.p6.comparar-ordenar-fracciones",
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comparar partes del mismo tamaño",
+          "narracion": "Bienvenida y bienvenido. Hoy compararás y ordenarás fracciones. Como idea principal, primero expresa las fracciones con partes del mismo tamaño. Puedes usar un denominador común. Después compara los numeradores y justifica el orden."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Dos tiras iguales",
+          "narracion": "Observemos esta situación. Dos tiras tienen la misma longitud total. La primera está dividida en tercios y tiene dos partes coloreadas. La segunda está dividida en cuartos y tiene tres partes coloreadas. Como las partes no miden igual, todavía debemos buscar una comparación común.",
+          "recursoRef": "tiras-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo uno: dos tercios y tres cuartos",
+          "narracion": "Comparemos dos tercios y tres cuartos. Buscamos un denominador común. Doce sirve porque puede dividirse entre tres y entre cuatro. Convertiremos ambas fracciones a doceavos."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo uno: ocho y nueve doceavos",
+          "narracion": "Dos tercios equivalen a ocho doceavos. Tres cuartos equivalen a nueve doceavos. Ahora las partes tienen el mismo tamaño y nueve es mayor que ocho. Por eso tres cuartos es mayor que dos tercios.",
+          "recursoRef": "doceavos"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo dos: ordenar tres fracciones",
+          "narracion": "Ordenemos dos quintos, un medio y tres cuartos de menor a mayor. Usaremos veinteavos porque veinte es múltiplo de cinco, de dos y de cuatro."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo dos: un solo denominador",
+          "narracion": "Dos quintos son ocho veinteavos. Un medio son diez veinteavos. Tres cuartos son quince veinteavos. Como ocho es menor que diez y diez es menor que quince, el orden es dos quintos, un medio y tres cuartos.",
+          "recursoRef": "veinteavos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Mirar solo los números de arriba",
+          "narracion": "Un error es comparar solo los numeradores cuando los denominadores son distintos. Tres quintos y dos tercios parecen ordenarse por el tres y el dos, pero esas partes no miden lo mismo. En quinceavos, tres quintos son nueve y dos tercios son diez. Por eso dos tercios es mayor.",
+          "recursoRef": "error-numeradores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: busca un denominador común",
+          "narracion": "Primero elige un número que sea múltiplo de todos los denominadores. Ese será el tamaño común de las partes."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: escribe equivalencias",
+          "narracion": "Después multiplica numerador y denominador por el mismo número hasta obtener el denominador común. Así la fracción conserva su valor.",
+          "recursoRef": "doceavos"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: compara y ordena",
+          "narracion": "Por último compara los numeradores de las fracciones equivalentes. Ordénalos según te pidan y revisa que la representación visual confirme el resultado.",
+          "recursoRef": "veinteavos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "tiras-pregunta",
+          "src": "/nudito/diagramas/matematica/comparar-fracciones-tiras-pregunta.svg",
+          "alt": "Dos tiras del mismo largo: dos tercios coloreados en turquesa y tres cuartos coloreados en amarillo.",
+          "descripcion": "Dos tiras horizontales tienen la misma longitud. La superior, rotulada dos tercios, está dividida en tres partes y dos están turquesas. La inferior, rotulada tres cuartos, está dividida en cuatro partes y tres están amarillas. Abajo se pregunta cuál porción es mayor."
+        },
+        {
+          "id": "doceavos",
+          "src": "/nudito/diagramas/matematica/comparar-fracciones-doceavos.svg",
+          "alt": "Ocho de doce partes turquesas frente a nueve de doce partes amarillas; nueve doceavos es mayor.",
+          "descripcion": "Dos barras iguales están divididas en doce partes. La superior colorea ocho y se rotula ocho doceavos. La inferior colorea nueve y se rotula nueve doceavos. Abajo se lee que nueve doceavos es mayor que ocho doceavos."
+        },
+        {
+          "id": "veinteavos",
+          "src": "/nudito/diagramas/matematica/comparar-fracciones-veinteavos.svg",
+          "alt": "Barras para ocho, diez y quince veinteavos ordenan dos quintos, un medio y tres cuartos.",
+          "descripcion": "Tres barras de longitudes crecientes. A la izquierda se leen dos quintos, un medio y tres cuartos, y a la derecha ocho, diez y quince veinteavos. Abajo se muestra el orden, de menor a mayor, con signos de menor que."
+        },
+        {
+          "id": "error-numeradores",
+          "src": "/nudito/diagramas/matematica/comparar-fracciones-error-numeradores.svg",
+          "alt": "Una tarjeta tacha comparar solo numeradores; otra aprueba usar un mismo denominador.",
+          "descripcion": "La tarjeta izquierda, rotulada Error, dice mirar solo los numeradores y tiene una cruz ámbar. La derecha, rotulada Corrección, dice usar un mismo denominador y muestra un visto bueno turquesa. Abajo se pide comparar y ordenar."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Compara cinco sextos y siete novenos. ¿Cuál fracción es mayor?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Siete novenos"
+          },
+          {
+            "id": "b",
+            "texto": "Cinco sextos"
+          },
+          {
+            "id": "c",
+            "texto": "Son iguales"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Cinco sextos son quince dieciochoavos y siete novenos son catorce dieciochoavos. Quince dieciochoavos es mayor.",
+        "pista": "Busca un denominador común para que ambas fracciones usen partes del mismo tamaño."
+      }
+    },
     "area": "matematica",
     "nivel": "primaria",
     "grado": 6,
@@ -2816,7 +3050,124 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Multiplicar fracciones: una parte de otra parte",
+          "narracion": "Bienvenida y bienvenido. Hoy multiplicarás fracciones. Como idea principal, multiplicar fracciones sirve para hallar una parte de otra parte: multiplicas los numeradores entre sí, multiplicas los denominadores entre sí y, si se puede, simplificas. Por ejemplo, la mitad de tres cuartos es tres octavos."
+        },
+        {
+          "id": "situacion-huerta",
+          "tipo": "recurso",
+          "titulo": "Una huerta dividida en ocho cuadros",
+          "narracion": "Observemos esta situación. Una huerta está dividida en cuatro columnas de dos cuadros cada una, ocho cuadros en total. Se siembran tres columnas, que son tres cuartos de la huerta, y la mitad de esa parte sembrada, la fila de arriba en turquesa, es de zanahorias. Queremos saber qué fracción de toda la huerta es de zanahorias.",
+          "recursoRef": "huerta-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la mitad de tres cuartos",
+          "narracion": "En una huerta se sembraron tres cuartos, y la mitad de lo sembrado es de zanahorias. ¿Qué fracción de toda la huerta es de zanahorias? Multiplicamos los numeradores: uno por tres es tres. Multiplicamos los denominadores: dos por cuatro son ocho. El resultado es tres octavos."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: lo comprobamos en el dibujo",
+          "narracion": "En el dibujo, la huerta tiene ocho cuadros y las zanahorias ocupan tres. Tres de ocho es tres octavos, igual que en el cálculo. Además, tres octavos es menos que tres cuartos, y eso tiene sentido, porque tomamos solo la mitad de la parte sembrada.",
+          "recursoRef": "huerta"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: seis tiras de dos tercios",
+          "narracion": "Para unos adornos, cada tira de cinta mide dos tercios de metro. ¿Cuántos metros se necesitan para seis tiras? Escribimos seis como seis sobre uno y multiplicamos: seis por dos son doce, y uno por tres es tres. Obtenemos doce tercios."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: simplificamos y comprobamos",
+          "narracion": "Doce tercios se simplifica dividiendo doce entre tres: son cuatro metros. En la recta, cada tres saltos de dos tercios completan dos metros, y los seis saltos llegan exactamente al cuatro.",
+          "recursoRef": "recta"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Multiplicar no es sumar",
+          "narracion": "Un error frecuente es sumar los numeradores y los denominadores. Con un medio por tres cuartos, eso daría cuatro sextos, que es dos tercios. Ese resultado no puede ser correcto, porque la mitad de tres cuartos debe ser menor que un medio, y dos tercios es mayor. Al multiplicar fracciones, los numeradores se multiplican entre sí y los denominadores también."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: identifica qué parte se toma de cuál",
+          "narracion": "Primero reconoce qué fracción se toma y de qué cantidad. En la huerta se toma un medio de tres cuartos. Si hay un número natural, escríbelo como una fracción con denominador uno, como seis sobre uno.",
+          "recursoRef": "huerta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: multiplica arriba y abajo",
+          "narracion": "Multiplica los numeradores entre sí y los denominadores entre sí. Un medio por tres cuartos es uno por tres sobre dos por cuatro, es decir, tres octavos.",
+          "recursoRef": "huerta"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: simplifica y revisa",
+          "narracion": "Si se puede, simplifica dividiendo el numerador y el denominador entre el mismo número. Por ejemplo, dos tercios de tres cuartos dan seis doceavos; dividimos arriba y abajo entre seis y queda un medio. Revisa siempre que el resultado tenga sentido.",
+          "recursoRef": "simplificar"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "huerta",
+          "src": "/nudito/diagramas/matematica/fracciones-huerta-tres-octavos.svg",
+          "alt": "Huerta de ocho cuadros: tres columnas sembradas y, en ellas, tres cuadros de zanahoria.",
+          "descripcion": "Se ve un rectángulo de cuatro columnas y dos filas. Las tres primeras columnas están pintadas, que son tres cuartos de la huerta sembrada; la fila de arriba es turquesa y la de abajo amarilla. La cuarta columna está en blanco. Abajo se lee uno sobre dos por tres sobre cuatro igual a tres sobre ocho."
+        },
+        {
+          "id": "recta",
+          "src": "/nudito/diagramas/matematica/fracciones-recta-dos-tercios.svg",
+          "alt": "Recta de cero a cuatro metros con seis saltos de dos tercios.",
+          "descripcion": "Una recta numérica va de cero a cuatro metros. Sobre ella hay seis arcos de colores alternados, cada uno marcado con dos tercios, que avanzan uno tras otro hasta llegar al cuatro. Abajo se lee seis por dos tercios igual a doce tercios, igual a cuatro metros."
+        },
+        {
+          "id": "simplificar",
+          "src": "/nudito/diagramas/matematica/fracciones-simplificar-doceavos.svg",
+          "alt": "Dos barras: seis de doce partes pintadas equivalen a una de dos partes.",
+          "descripcion": "Hay dos barras del mismo largo. La de arriba está dividida en doce partes y seis están pintadas: seis doceavos. La de abajo tiene dos partes y una pintada: un medio. Una flecha entre ellas dice dividir entre seis arriba y abajo, y abajo se lee seis doceavos igual a un medio."
+        },
+        {
+          "id": "huerta-pregunta",
+          "src": "/nudito/diagramas/matematica/fracciones-huerta-pregunta.svg",
+          "alt": "Huerta de ocho cuadros: tres columnas sembradas y la fila de arriba con zanahorias.",
+          "descripcion": "Se ve un rectángulo de cuatro columnas y dos filas. Las tres primeras columnas están pintadas, que son tres cuartos de la huerta sembrada; la fila de arriba es turquesa, de zanahorias, y la de abajo amarilla. La cuarta columna está en blanco. Abajo se lee la pregunta: qué fracción es de zanahorias."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En una comunidad, cinco octavos del terreno están sembrados, y dos quintos de esa parte sembrada tienen papa. ¿Qué fracción de todo el terreno tiene papa?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Un cuarto"
+          },
+          {
+            "id": "b",
+            "texto": "Siete treceavos"
+          },
+          {
+            "id": "c",
+            "texto": "Dos quintos"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Multiplicamos los numeradores: dos por cinco son diez. Multiplicamos los denominadores: cinco por ocho son cuarenta. Diez cuarentavos se simplifica a un cuarto.",
+        "pista": "Multiplica los numeradores, multiplica los denominadores y simplifica el resultado."
+      }
+    }
   },
   {
     "clave": "mat.p6.partes-y-resto-fracciones",

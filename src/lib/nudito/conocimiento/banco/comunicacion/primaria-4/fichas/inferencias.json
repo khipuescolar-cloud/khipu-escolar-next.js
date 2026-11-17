@@ -372,7 +372,123 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Las palabras vecinas dan pistas",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a descubrir el significado de una palabra nueva usando las pistas del texto. Como idea principal, no siempre necesitas el diccionario: las oraciones que rodean a la palabra, lo que está antes y después, te dan pistas para deducir lo que quiere decir."
+        },
+        {
+          "id": "situacion-pistas",
+          "tipo": "recurso",
+          "titulo": "Las pistas rodean la palabra",
+          "narracion": "Observemos este esquema. Arriba está la palabra nueva, con un signo de pregunta. Debajo hay cuatro tipos de pistas que puedes buscar: una acción que se cuenta, un ejemplo cercano, una explicación al lado y un opuesto, que suele venir con «pero» o «no como». Con esas pistas, deduces el significado.",
+          "recursoRef": "mapa-pistas"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el perro famélico",
+          "narracion": "Leamos esta oración: «El perro estaba famélico: no comía desde hacía días y se le veían las costillas». No conocemos «famélico». Vamos a buscar pistas cerca."
+        },
+        {
+          "id": "ejemplo-1-pistas",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: subrayamos las pistas",
+          "narracion": "En el cuadro, «famélico» está resaltado y debajo se subrayan dos pistas: «no comía desde hacía días» y «se le veían las costillas». Un perro que no come por días y está muy flaco tiene muchísima hambre. Entonces «famélico» significa muy hambriento.",
+          "recursoRef": "pistas-famelico"
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un vecino tacaño",
+          "narracion": "Ahora probemos con otra oración: «Mi vecino es tacaño: nunca presta nada». ¿Qué crees que significa «tacaño»? Piénsalo antes de seguir."
+        },
+        {
+          "id": "ejemplo-2-pista",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: encontramos la pista",
+          "narracion": "La pista está después de los dos puntos: «nunca presta nada». Quien nunca presta nada no quiere compartir. Ya tenemos una idea de lo que significa «tacaño»; falta probarla."
+        },
+        {
+          "id": "ejemplo-2-prueba",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: reemplazamos y probamos",
+          "narracion": "Probemos con el cuadro. Si ponemos «generoso», la oración dice «Mi vecino es generoso: nunca presta nada». Se contradice, así que no encaja. Si ponemos «no quiere compartir», dice «Mi vecino es una persona que no quiere compartir: nunca presta nada». Sí tiene sentido. Entonces «tacaño» significa que no quiere dar ni compartir.",
+          "recursoRef": "prueba-reemplazo"
+        },
+        {
+          "id": "error-adivinar",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: adivinar sin leer alrededor",
+          "narracion": "Un error común es elegir un significado sin leer lo que rodea a la palabra, o creer que significa lo mismo que otra que suena parecida. Por ejemplo, «tacaño» no tiene que ver con tacón. Las pistas casi siempre están cerca, y tu significado debe encajar cuando reemplazas la palabra."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: subraya la palabra y lee alrededor",
+          "narracion": "Primero subraya la palabra que no conoces y lee la oración completa, además de la anterior y la siguiente."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca pistas",
+          "narracion": "Después busca pistas: una acción, un ejemplo, una explicación o un opuesto, como en el esquema.",
+          "recursoRef": "mapa-pistas"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: reemplaza y prueba",
+          "narracion": "Por último, escribe tu significado en lugar de la palabra nueva. Si la oración sigue teniendo sentido, como cuando probamos con «no quiere compartir», vas por buen camino. Si se contradice, busca otra pista.",
+          "recursoRef": "prueba-reemplazo"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "mapa-pistas",
+          "src": "/nudito/diagramas/comunicacion/contexto-mapa-pistas.svg",
+          "alt": "Arriba, palabra nueva con signo de pregunta; debajo, cuatro pistas: una acción que se cuenta, un ejemplo cercano, una explicación al lado y un opuesto con pero o no como.",
+          "descripcion": "Un recuadro amarillo dice «Palabra nueva: ?». Debajo, una flecha larga a la izquierda sube hacia él desde cuatro recuadros: «Una acción que se cuenta», «Un ejemplo cercano», «Una explicación al lado» y «Un opuesto: pero, no como»."
+        },
+        {
+          "id": "pistas-famelico",
+          "src": "/nudito/diagramas/comunicacion/contexto-pistas-famelico.svg",
+          "alt": "La oración del perro con famélico resaltada y dos pistas subrayadas: no comía desde hacía días y se le veían las costillas.",
+          "descripcion": "En un recuadro superior, «El perro estaba» y la palabra «famélico» resaltada en un cuadro amarillo; debajo, subrayadas, las pistas «no comía desde hacía días» y «se le veían las costillas». Un recuadro amarillo inferior, «Pistas subrayadas», pregunta cómo está un perro que no come y se ve muy flaco."
+        },
+        {
+          "id": "prueba-reemplazo",
+          "src": "/nudito/diagramas/comunicacion/contexto-prueba-reemplazo.svg",
+          "alt": "Arriba, Mi vecino es tacaño: nunca presta nada. Pruebo generoso, con una equis: se contradice. Pruebo no quiere compartir, con marca de visto: sí encaja.",
+          "descripcion": "Arriba, la oración «Mi vecino es tacaño: nunca presta nada». Debajo, un recuadro rojo con equis: «Pruebo: generoso», «Mi vecino es generoso: nunca presta nada», «No encaja: se contradice». Y un recuadro verde con marca de visto: «Pruebo: no quiere compartir», «Mi vecino es una persona que no quiere compartir: nunca presta nada», «Sí encaja»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee: «El niño miraba el arcoíris asombrado: nunca había visto uno tan grande, y abrió los ojos y la boca sin poder decir nada». ¿Qué significa «asombrado»?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "muy sorprendido"
+          },
+          {
+            "id": "b",
+            "texto": "muy aburrido"
+          },
+          {
+            "id": "c",
+            "texto": "muy enojado"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "«Asombrado» significa muy sorprendido: nunca había visto un arcoíris tan grande y abrió los ojos y la boca sin poder hablar. Esas pistas no encajan con estar aburrido ni enojado.",
+        "pista": "Fíjate en lo que hace el niño después de los dos puntos."
+      }
+    }
   },
   {
     "clave": "com.p4.causa-y-efecto",
@@ -741,7 +857,143 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Un hecho puede provocar otro",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a reconocer la causa y el efecto en lo que lees. Como idea principal, recuerda que la causa es lo que hace que algo ocurra y el efecto es lo que sucede como resultado. Palabras como «porque», «como», «por eso» y «así que» ayudan a unirlos, pero en una oración la causa y el efecto pueden aparecer en cualquier orden."
+        },
+        {
+          "id": "situacion-lluvia",
+          "tipo": "recurso",
+          "titulo": "Una relación entre dos hechos",
+          "narracion": "Observemos este esquema. A la izquierda dice llovió y a la derecha, patio mojado, con una flecha que va de uno al otro. La lluvia es la causa porque ocurre primero y hace que pase lo siguiente. El patio mojado es el efecto, el resultado.",
+          "recursoRef": "lluvia-patio"
+        },
+        {
+          "id": "ejemplo-transito-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la clase de Sandra",
+          "narracion": "Leamos esta oración: «Como hubo mucho tráfico en la Vía Expresa, Sandra llegó tarde a su clase». Hay dos hechos: había mucho tráfico y Sandra llegó tarde. La palabra «como» al inicio nos avisa que viene una razón."
+        },
+        {
+          "id": "ejemplo-transito-busca",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: pregunta qué pasó y por qué",
+          "narracion": "Empezamos por el resultado: Sandra llegó tarde. Ahora preguntamos por qué. Porque hubo mucho tráfico en la Vía Expresa. Entonces el tráfico es la causa y llegar tarde es el efecto."
+        },
+        {
+          "id": "ejemplo-transito-orden",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el orden de la oración puede cambiar",
+          "narracion": "También podríamos decir: «Sandra llegó tarde porque hubo mucho tráfico». Ahora el efecto aparece primero, pero la relación es la misma. Lo que cuenta es qué ocurrió antes en la realidad y provocó lo otro, no cuál palabra aparece primero."
+        },
+        {
+          "id": "escena-transito",
+          "tipo": "recurso",
+          "titulo": "Ejemplo 1: la escena en la Vía Expresa",
+          "narracion": "Mira la escena desde un bus: una pasajera mira por la ventana y afuera hay una larga fila de autos, uno detrás de otro. Ver el tráfico nos ayuda a imaginar lo que hizo que las personas se demoraran. Cuando leas, pregúntate qué hecho de la oración se parece a lo que ves en la imagen.",
+          "recursoRef": "causa-trafico-via-expresa"
+        },
+        {
+          "id": "ejemplo-sombrero-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: Gael en la playa de Paracas",
+          "narracion": "Veamos otra oración: «Gael olvidó su sombrero y, por eso, se quemó la cara en la playa de Paracas». Preguntan cuál es el efecto. Fíjate en «por eso»: anuncia lo que sucedió como consecuencia de lo anterior."
+        },
+        {
+          "id": "ejemplo-sombrero-efecto",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: lo que sucedió después",
+          "narracion": "Antes de «por eso» está la causa: olvidó su sombrero. Después aparece el efecto: se quemó la cara. En el esquema, por ahora mira solo el primer cuadro y el último. Para comprobarlo usamos la frase: porque olvidó el sombrero, se quemó la cara. Tiene sentido, así que la relación está bien.",
+          "recursoRef": "cadena"
+        },
+        {
+          "id": "ejemplo-sombrero-cadena",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un efecto también puede ser causa",
+          "narracion": "Ahora mira el cuadro del medio. Podemos imaginar un paso intermedio: sin sombrero, Gael recibió mucho sol. Ese hecho fue efecto de olvidar el sombrero y, a la vez, causa de que se quemara la cara. Una misma historia puede tener una cadena. Para elegir, mira siempre qué te pide la pregunta.",
+          "recursoRef": "cadena"
+        },
+        {
+          "id": "escena-playa",
+          "tipo": "recurso",
+          "titulo": "Ejemplo 2: la escena en la playa",
+          "narracion": "Mira la playa de Paracas. Dos niños llevan sombrero y sonríen; el niño del centro no lleva sombrero y tiene la cara roja y gesto de molestia. Compara lo que protege a unos y lo que le faltó al otro: así se ve en la imagen que un hecho sucede a otro, igual que en la oración de Gael.",
+          "recursoRef": "causa-playa-paracas"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: identifica el hecho importante",
+          "narracion": "Primero pregúntate qué pasó. Busca el hecho que la pregunta menciona o el resultado más claro del texto. Ese hecho suele ser el efecto."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: pregunta por qué y busca palabras que unen",
+          "narracion": "Después pregunta por qué pasó eso. La respuesta es la causa. Ayúdate con las palabras que unen los hechos: porque, como, por eso y así que.",
+          "recursoRef": "cadena"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: comprueba que tiene sentido",
+          "narracion": "Por último, prueba la frase: porque ocurrió la causa, sucedió el efecto. Si al decirla en voz alta suena al revés, revisa de nuevo el orden de los hechos.",
+          "recursoRef": "lluvia-patio"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "lluvia-patio",
+          "src": "/nudito/diagramas/comunicacion/causa-y-efecto.svg",
+          "alt": "Causa: llovió. Una flecha lleva al efecto: patio mojado.",
+          "descripcion": "El esquema muestra a la izquierda el cuadro «Causa: llovió», una flecha en medio y a la derecha el cuadro «Efecto: patio mojado»."
+        },
+        {
+          "id": "cadena",
+          "src": "/nudito/diagramas/comunicacion/causa-y-efecto-cadena.svg",
+          "alt": "Cadena de arriba abajo: olvidó su sombrero, tomó mucho sol, se quemó la cara; debajo, porque, como, por eso, así que.",
+          "descripcion": "Tres cuadros uno debajo de otro, unidos por flechas hacia abajo: causa, olvidó su sombrero; efecto y causa, tomó mucho sol; efecto final, se quemó la cara. Al pie, un recuadro lista las palabras que unen: porque, como, por eso y así que."
+        },
+        {
+          "id": "causa-trafico-via-expresa",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-4/causa-trafico-via-expresa-zimage-v1.webp",
+          "alt": "Una niña mira por la ventana de un bus una fila de autos detenidos en una vía expresa.",
+          "descripcion": "Desde el interior de un bus, una niña con trenzas y casaca naranja, sentada junto a la ventana, apoya la mano en el marco y mira hacia afuera. Por la vía expresa se ve una larga fila de autos amarillos, rojos, blancos y azules casi pegados unos a otros, con árboles y edificios al fondo."
+        },
+        {
+          "id": "causa-playa-paracas",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-4/causa-playa-paracas-zimage-v1.webp",
+          "alt": "En una playa, un niño sin sombrero tiene la cara enrojecida por el sol junto a dos niños con sombrero de paja.",
+          "descripcion": "En una playa de arena clara frente al mar, un niño de pelo negro, sin sombrero, mira con gesto triste; tiene la frente, la nariz y las mejillas muy rojas y viste short azul. Detrás de él, a cada lado, hay un niño sonriente con sombrero de paja de ala ancha."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee: «El agua no llegaba a las chacras porque el canal estaba lleno de ramas». ¿Cuál es la causa?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "El canal estaba lleno de ramas."
+          },
+          {
+            "id": "b",
+            "texto": "El agua no llegaba a las chacras."
+          },
+          {
+            "id": "c",
+            "texto": "Las chacras eran muy grandes."
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "«Porque» introduce la razón: el canal lleno de ramas es la causa y que el agua no llegara a las chacras es el efecto, aunque aparezca primero.",
+        "pista": "Pregunta por qué el agua no llegaba y mira lo que sigue a la palabra «porque»."
+      }
+    }
   },
   {
     "clave": "com.p4.intencion-y-finalidad",

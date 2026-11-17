@@ -942,7 +942,131 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Barras verticales",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a dibujar gráficos con barras que suben. Como idea principal, un gráfico de barras muestra cuántos hay de cada cosa. Cada barra sube hacia arriba. Mientras más alta es la barra, más hay. Debajo de cada barra se escribe su nombre."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una tabla de la chacra",
+          "narracion": "Observemos esta situación. En una chacra anotaron cuántos sacos hay de cada cultivo. Papa tiene cinco y yuca tiene tres. Abajo hay una cuadrícula vacía, con una columna para cada cultivo. Queremos pasar los números de la tabla a barras.",
+          "recursoRef": "tabla-vacia"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la barra de la papa",
+          "narracion": "Empezamos con la papa. La tabla dice cinco. Entonces pintamos cinco cuadritos hacia arriba, uno encima del otro, desde el suelo. Así queda dibujada la papa. Falta la barra de la yuca, que tiene un signo de pregunta.",
+          "recursoRef": "papa-cinco"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la barra de la yuca",
+          "narracion": "Para la yuca, la tabla dice tres. Pintamos tres cuadritos. Ahora comparamos las dos barras. La barra de la papa es más alta que la de la yuca, porque cinco es mayor que tres. Cada barra tiene su nombre abajo.",
+          "recursoRef": "papa-yuca"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: mascotas del salón",
+          "narracion": "Ahora veamos las mascotas que hay en el aula. La tabla dice: gato cuatro, perro siete y loro dos. Queremos saber cuál barra será la más alta. Tenemos tres números: cuatro, siete y dos. Dibujemos cada barra y comparemos."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: tres barras",
+          "narracion": "Dibujamos la barra de cada mascota. Comparamos los números: cuatro, siete y dos. El mayor es siete. El gato llega a cuatro cuadritos, el perro a siete y el loro a dos. La barra del perro, pintada de amarillo, es la más alta. La del loro es la más baja.",
+          "recursoRef": "mascotas"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Tomás dibujó tres barras de distinta altura, pero no escribió nombres. Mira las barras con signos de pregunta abajo. No sabemos qué muestra cada una. Le falta el nombre de cada barra y un título. Otro error es dibujar una barra con otra altura que la de la tabla. Cuenta siempre los cuadritos.",
+          "recursoRef": "sin-nombres"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee la tabla",
+          "narracion": "Primero mira los datos de la tabla. Mira cuántos hay de cada categoría. En el ejemplo uno eran cinco papas y tres yucas."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: pinta una barra por categoría",
+          "narracion": "Dibuja una barra por cada categoría, una al lado de otra. Cada barra tiene tantos cuadritos como dice el número. Mira la barra de la papa y la de la yuca.",
+          "recursoRef": "papa-yuca"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: escribe los nombres",
+          "narracion": "Al final escribe el nombre de cada barra abajo y un título arriba. En las mascotas, abajo dice gato, perro y loro. Así cualquiera puede leer el gráfico.",
+          "recursoRef": "mascotas"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "tabla-vacia",
+          "src": "/nudito/diagramas/matematica/barras-verticales-tabla-vacia.svg",
+          "alt": "Tabla con papa cinco y yuca tres, y una cuadrícula vacía con una columna por cultivo.",
+          "descripcion": "Arriba hay dos cuadros con los datos: papa cinco y yuca tres. Abajo hay una cuadrícula con números del cero al cinco y dos columnas punteadas de toda la altura, con signo de pregunta, una para papa y otra para yuca. Debajo de cada columna está el nombre."
+        },
+        {
+          "id": "papa-cinco",
+          "src": "/nudito/diagramas/matematica/barras-verticales-papa-cinco.svg",
+          "alt": "La barra de la papa tiene cinco cuadritos y falta la de la yuca, marcada con un signo de pregunta.",
+          "descripcion": "Bajo la tabla hay una cuadrícula. La primera barra, la de la papa, sube cinco cuadritos de color turquesa. A su lado hay una columna punteada de toda la altura con un signo de pregunta: ahí irá la yuca."
+        },
+        {
+          "id": "papa-yuca",
+          "src": "/nudito/diagramas/matematica/barras-verticales-papa-yuca.svg",
+          "alt": "Gráfico de barras: papa de cinco cuadritos y yuca de tres.",
+          "descripcion": "La barra de la papa sube cinco cuadritos y la de la yuca sube tres. Encima de cada una se lee su número y debajo su nombre. La barra de la papa es más alta."
+        },
+        {
+          "id": "mascotas",
+          "src": "/nudito/diagramas/matematica/barras-verticales-mascotas.svg",
+          "alt": "Gráfico de mascotas: gato cuatro, perro siete en amarillo y loro dos.",
+          "descripcion": "Arriba están los datos: gato cuatro, perro siete y loro dos. En la cuadrícula, la barra del gato sube cuatro cuadritos, la del perro, de color amarillo, sube siete y la del loro sube dos. Los nombres están debajo de cada barra."
+        },
+        {
+          "id": "sin-nombres",
+          "src": "/nudito/diagramas/matematica/barras-verticales-sin-nombres.svg",
+          "alt": "Tres barras de tres, cinco y dos cuadritos, sin nombre, solo con signos de pregunta debajo.",
+          "descripcion": "Hay tres barras turquesa de distinta altura: tres, cinco y dos cuadritos. Debajo de cada una hay un signo de pregunta en lugar de un nombre, así que no se sabe qué muestra cada barra."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "La tabla dice: choclo seis, haba tres y olluco cinco. ¿Qué barra será la más baja?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "La del haba"
+          },
+          {
+            "id": "b",
+            "texto": "La del olluco"
+          },
+          {
+            "id": "c",
+            "texto": "La del choclo"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Tres es el número menor, así que la barra del haba es la más baja.",
+        "pista": "Compara los tres números y busca el menor."
+      }
+    }
   },
   {
     "clave": "mat.p2.leer-pictograma",
@@ -2024,7 +2148,7 @@
         "dificultad": 1,
         "tipo": "numerico",
         "enunciado": "En el gráfico de árboles, Molle llega a 7 y Tara llega a 3. ¿Cuántos árboles más plantaron de molle que de tara? Escribe solo el número.",
-        "lectura": "Árboles que plantaron los niños (cada ██ es 1 árbol)\n 7 |           ██           \n 6 |           ██           \n 5 |           ██      ██   \n 4 |           ██      ██   \n 3 |   ██      ██      ██   \n 2 |   ██      ██      ██   \n 1 |   ██      ██      ██   \n   +------------------------\n      Tara   Molle  Quinual ",
+        "lectura": "Árboles que plantaron los niños: Tara 3, Molle 7, Quinual 5",
         "respuesta": 4,
         "alternativasAceptadas": [],
         "pistas": [
@@ -2100,7 +2224,7 @@
         "dificultad": 2,
         "tipo": "numerico",
         "enunciado": "En el gráfico de árboles, ¿cuántos árboles más plantaron de molle que de quinual? Escribe solo el número.",
-        "lectura": "Árboles que plantaron los niños (cada ██ es 1 árbol)\n 7 |           ██           \n 6 |           ██           \n 5 |           ██      ██   \n 4 |           ██      ██   \n 3 |   ██      ██      ██   \n 2 |   ██      ██      ██   \n 1 |   ██      ██      ██   \n   +------------------------\n      Tara   Molle  Quinual ",
+        "lectura": "Árboles que plantaron los niños: Tara 3, Molle 7, Quinual 5",
         "respuesta": 2,
         "alternativasAceptadas": [],
         "pistas": [
@@ -2115,7 +2239,7 @@
         "dificultad": 2,
         "tipo": "opcion_multiple",
         "enunciado": "En el gráfico de árboles, ¿qué dos barras se llevan 4 de diferencia?",
-        "lectura": "Árboles que plantaron los niños (cada ██ es 1 árbol)\n 7 |           ██           \n 6 |           ██           \n 5 |           ██      ██   \n 4 |           ██      ██   \n 3 |   ██      ██      ██   \n 2 |   ██      ██      ██   \n 1 |   ██      ██      ██   \n   +------------------------\n      Tara   Molle  Quinual ",
+        "lectura": "Árboles que plantaron los niños: Tara 3, Molle 7, Quinual 5",
         "respuesta": "c",
         "alternativasAceptadas": [],
         "opciones": [
@@ -2213,19 +2337,19 @@
         "opciones": [
           {
             "id": "a",
-            "texto": "Contó 9 de más."
+            "texto": "Contó el nueve de más."
           },
           {
             "id": "b",
-            "texto": "Restó pero se equivocó al llevar."
+            "texto": "Restó mal al llevar."
           },
           {
             "id": "c",
-            "texto": "Comparó mal a Cusco con Iquitos."
+            "texto": "Se confundió de ciudad."
           },
           {
             "id": "d",
-            "texto": "Sumó 14 + 9 en vez de restar 14 − 9, que da 5."
+            "texto": "Sumó en vez de restar."
           }
         ],
         "pistas": [
@@ -2257,7 +2381,133 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comparación de datos: cuántos más y cuántos menos",
+          "narracion": "Bienvenida y bienvenido. Hoy vamos a comparar datos. Como idea principal, para saber cuántos más o cuántos menos hay entre dos opciones, restamos el número menor al número mayor. Ese resultado se llama diferencia."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Las mascotas de segundo",
+          "narracion": "Observemos esta situación. En el salón de segundo grado, siete niños tienen perro y cuatro niños tienen gato. Cada bloque del gráfico es un niño. Queremos saber cuántos niños más tienen perro que gato.",
+          "recursoRef": "mascotas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: leemos los números",
+          "narracion": "Empecemos leyendo el número de cada opción. La columna de los perros llega a siete y la de los gatos llega a cuatro. ¿Cuál es el número mayor y cuál es el menor? Piénsalo antes de seguir.",
+          "recursoRef": "mascotas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: restamos",
+          "narracion": "Restamos el menor al mayor: siete menos cuatro. Los bloques con borde amarillo son los que sobran en la columna de los perros. Son tres. Entonces tres niños más tienen perro que gato.",
+          "recursoRef": "mascotas-resta"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: niños que llegan en bus",
+          "narracion": "Ahora un pictograma. Cada círculo es un niño que llegó en bus. El lunes llegaron doce niños y el martes llegaron siete. Esta vez preguntamos cuántos niños menos llegaron el martes. Piensa cuál número es el mayor y cuál es el menor.",
+          "recursoRef": "bus-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: restamos otra vez",
+          "narracion": "Otra vez restamos el menor al mayor: doce menos siete. Los círculos del lunes con borde amarillo son los que el martes no tiene. Son cinco. Entonces el martes llegaron cinco niños menos.",
+          "recursoRef": "bus-resta"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Mira estos dos casos con nueve manzanas y cinco peras. A la izquierda se sumó y salió catorce. Esa suma da el total, no cuántas más, y por eso lleva una equis roja. A la derecha se restó nueve menos cinco y salió cuatro: esa sí es la diferencia. Otro error es restar al revés. Siempre se empieza por el número mayor.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee cada número",
+          "narracion": "Primero lee el número de cada opción. En las columnas hay siete perros y cuatro gatos.",
+          "recursoRef": "mascotas-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: decide cuál es mayor",
+          "narracion": "Segundo, decide cuál número es el mayor y cuál es el menor. En el pictograma, el lunes tiene doce y el martes tiene siete, así que doce es el mayor.",
+          "recursoRef": "bus-pregunta"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: resta y responde",
+          "narracion": "Tercero, resta el menor al mayor y responde con una frase. En las columnas, siete menos cuatro es tres, y decimos: tres niños más tienen perro.",
+          "recursoRef": "mascotas-resta"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "mascotas-pregunta",
+          "src": "/nudito/diagramas/matematica/comparar-datos-mascotas-pregunta.svg",
+          "alt": "Dos columnas de bloques: perros, con siete bloques turquesa, y gatos, con cuatro bloques amarillos; en medio, la pregunta cuántos más.",
+          "descripcion": "Dos columnas de bloques sobre una línea de suelo. La de la izquierda, turquesa, tiene siete bloques; sobre ella está el número siete y debajo la palabra perros. La de la derecha, amarilla, tiene cuatro bloques; sobre ella está el número cuatro y debajo la palabra gatos. Entre las dos se lee ¿cuántos más?"
+        },
+        {
+          "id": "mascotas-resta",
+          "src": "/nudito/diagramas/matematica/comparar-datos-mascotas-resta.svg",
+          "alt": "Las columnas de perros y gatos; los tres bloques de arriba de los perros tienen borde amarillo; en medio, siete menos cuatro igual tres.",
+          "descripcion": "Las mismas dos columnas: siete bloques turquesa de perros y cuatro amarillos de gatos. Los tres bloques de arriba de la columna de perros tienen un borde amarillo grueso. Entre las columnas se lee siete menos cuatro igual tres y, debajo, tres más."
+        },
+        {
+          "id": "bus-pregunta",
+          "src": "/nudito/diagramas/matematica/comparar-datos-bus-pregunta.svg",
+          "alt": "Dos filas de círculos: lunes, doce círculos turquesa, y martes, siete círculos amarillos, con la pregunta cuántos menos el martes.",
+          "descripcion": "Dos filas de círculos. En la de arriba, rotulada lunes: doce, hay doce círculos turquesa. En la de abajo, rotulada martes: siete, hay siete círculos amarillos. Abajo se lee ¿cuántos menos el martes?"
+        },
+        {
+          "id": "bus-resta",
+          "src": "/nudito/diagramas/matematica/comparar-datos-bus-resta.svg",
+          "alt": "Las filas de lunes y martes; los últimos cinco círculos del lunes tienen borde amarillo; abajo, doce menos siete igual cinco.",
+          "descripcion": "Las mismas dos filas: doce círculos turquesa el lunes y siete amarillos el martes. Los cinco últimos círculos del lunes, a la derecha, tienen borde amarillo grueso. Abajo se lee doce menos siete igual cinco y el martes: cinco menos."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/comparar-datos-errores.svg",
+          "alt": "Columnas de nueve manzanas y cinco peras. A la izquierda, nueve más cinco igual catorce con equis roja; a la derecha, nueve menos cinco igual cuatro con palomita.",
+          "descripcion": "Una línea punteada divide el dibujo. A cada lado hay una columna turquesa de nueve bloques, rotulada manzanas, y una amarilla de cinco bloques, rotulada peras. A la izquierda hay una equis roja y debajo, en rojo, nueve más cinco igual catorce. A la derecha, los cuatro bloques de arriba de las manzanas tienen borde amarillo, hay una palomita y debajo, en turquesa, nueve menos cinco igual cuatro."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En una tienda hay catorce panes y ocho bizcochos. ¿Cuántos bizcochos menos que panes hay?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Seis bizcochos"
+          },
+          {
+            "id": "b",
+            "texto": "Ocho bizcochos"
+          },
+          {
+            "id": "c",
+            "texto": "Siete bizcochos"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Catorce menos ocho es seis, así que hay seis bizcochos menos que panes.",
+        "pista": "Compara las dos cantidades y mira cuánto más tiene la mayor."
+      }
+    }
   },
   {
     "clave": "mat.p2.decisiones-con-datos",
@@ -2924,6 +3174,132 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "¿Qué nos dice el gráfico?",
+          "narracion": "Bienvenida y bienvenido. Hoy sacamos conclusiones de un gráfico. Como idea principal, una conclusión es algo que podemos asegurar al leer el gráfico. Por ejemplo, qué opción tiene más, cuál tiene menos o cuántos más hay. Siempre la comprobamos con los números, y la decimos con la palabra porque."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Las mascotas de la clase",
+          "narracion": "Observemos esta situación. En segundo grado, la clase contó sus mascotas y las anotó en un gráfico de barras. Hay tres barras: perros, cuyes y gatos. Cuanto más alta es la barra, más mascotas hay. A la izquierda están los números de la escala, y encima de cada barra está su número.",
+          "recursoRef": "mascotas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: perros y gatos",
+          "narracion": "Queremos comparar los perros con los gatos. Primero lee el número de cada barra. Luego compara: ¿cuál es mayor? Después piensa cuántos más tiene. ¿Qué conclusión puedes dar?",
+          "recursoRef": "mascotas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: comparar dos barras",
+          "narracion": "Los perros son ocho y los gatos son tres. Ocho es mayor que tres. Para saber cuántos más, restamos: ocho menos tres son cinco. Entonces podemos concluir que hay más perros que gatos, porque ocho es mayor que tres. Hay cinco perros más.",
+          "recursoRef": "mascotas-comparar"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la panadería",
+          "narracion": "Ahora vemos un pictograma. Cada figura de pan vale dos panes. El lunes hay tres figuras y el martes hay cinco figuras. Cuenta de dos en dos. ¿Cuántos panes se vendieron cada día? ¿Qué día se vendieron más?",
+          "recursoRef": "panes-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: panes de dos en dos",
+          "narracion": "El lunes, tres figuras de dos panes son seis panes. El martes, cinco figuras de dos panes son diez panes. Diez es mayor que seis, y la diferencia es cuatro. El martes se vendieron cuatro panes más que el lunes.",
+          "recursoRef": "panes-cuenta"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "En el cuadro rojo, alguien cuenta solo las figuras del martes y dice cinco panes. Es un error: no miró lo que vale cada figura. En el cuadro verde, cada figura vale dos, y cinco figuras son diez panes. Otro error es decir algo que el gráfico no muestra, como que a todos les gusta el pan.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee el título y los nombres",
+          "narracion": "Primero lee el título del gráfico y los nombres de cada barra. Así sabes de qué trata. En este gráfico se habla de las mascotas de la clase.",
+          "recursoRef": "mascotas-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: compara los números",
+          "narracion": "Luego lee el número de cada barra y compara. Pregúntate: ¿cuál es mayor, cuál es menor, o son iguales? Para saber cuántos más, resta. Aquí, ocho perros menos tres gatos son cinco.",
+          "recursoRef": "mascotas-comparar"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: escribe tu conclusión",
+          "narracion": "Al final di tu conclusión con la palabra porque y con los números. El martes se vendieron más panes porque diez es mayor que seis.",
+          "recursoRef": "panes-cuenta"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "mascotas-pregunta",
+          "src": "/nudito/diagramas/matematica/conclusiones-mascotas-pregunta.svg",
+          "alt": "Gráfico de barras de las mascotas de la clase: perros ocho, cuyes seis y gatos tres.",
+          "descripcion": "Un gráfico de barras turquesa. A la izquierda hay una escala de cero a ocho, de dos en dos. La barra de perros llega al ocho, la de cuyes al seis y la de gatos al tres. Cada barra tiene su número encima y su nombre debajo."
+        },
+        {
+          "id": "mascotas-comparar",
+          "src": "/nudito/diagramas/matematica/conclusiones-mascotas-comparar.svg",
+          "alt": "El mismo gráfico con perros y gatos marcados y un corchete que muestra cuántos perros más hay.",
+          "descripcion": "El mismo gráfico. Las barras de perros y de gatos son amarillas y la de cuyes es celeste. Una línea punteada sale de lo alto de la barra de perros hacia la derecha y baja con un corchete hasta lo alto de la barra de gatos. Junto al corchete dice cinco más."
+        },
+        {
+          "id": "panes-pregunta",
+          "src": "/nudito/diagramas/matematica/conclusiones-panes-pregunta.svg",
+          "alt": "Pictograma de panes vendidos: tres figuras el lunes y cinco el martes; cada figura vale dos panes.",
+          "descripcion": "Arriba, una figura de pan amarilla y las palabras cada figura vale dos panes. Debajo hay dos filas: lunes con tres figuras y martes con cinco figuras."
+        },
+        {
+          "id": "panes-cuenta",
+          "src": "/nudito/diagramas/matematica/conclusiones-panes-cuenta.svg",
+          "alt": "El mismo pictograma con seis panes el lunes, diez el martes y la diferencia de cuatro panes marcada.",
+          "descripcion": "El mismo pictograma. Al final de la fila del lunes dice seis panes y al final de la del martes dice diez panes. Las dos últimas figuras del martes están rodeadas con un recuadro punteado. Abajo, en letras ámbar, dice martes, cuatro panes más."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/conclusiones-errores.svg",
+          "alt": "Dos formas de leer cinco figuras de pan: la roja dice cinco panes y falla; la verde cuenta de dos en dos y dice diez.",
+          "descripcion": "Dos cuadros con cinco figuras de pan cada uno. El cuadro rojo, con una equis, dice solo cuenta figuras y dice cinco panes. El cuadro verde, con una palomita, dice cada figura vale dos y son diez panes."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "En un gráfico, la barra de las fresas llega a siete y la de las uvas llega a cuatro. ¿Qué conclusión es correcta?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Hay igual cantidad de cada una."
+          },
+          {
+            "id": "b",
+            "texto": "Hay tres uvas más que fresas."
+          },
+          {
+            "id": "c",
+            "texto": "Hay tres fresas más que uvas."
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Siete es mayor que cuatro, y la diferencia es tres. Por eso hay tres fresas más que uvas.",
+        "pista": "Fíjate cuál barra llega más alto y piensa cuánto le falta a la otra."
+      }
+    }
   }
 ]

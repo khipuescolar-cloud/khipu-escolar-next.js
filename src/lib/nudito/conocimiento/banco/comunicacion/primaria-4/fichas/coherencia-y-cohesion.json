@@ -779,6 +779,122 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Palabras que unen ideas",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a unir ideas con conectores. Como idea principal de este tema, un conector es una palabra que une oraciones y muestra cómo se relacionan. Algunos suman datos, como «y» y «además». Otros ordenan los hechos en el tiempo, como «primero», «luego» y «finalmente». Y «porque» explica la razón de algo."
+        },
+        {
+          "id": "situacion-tres-relaciones",
+          "tipo": "recurso",
+          "titulo": "Tres relaciones entre ideas",
+          "narracion": "Observemos este cuadro con tres filas. En la primera están los conectores que suman datos: «y», «además» y «también». En la segunda, los que ordenan en el tiempo: «primero», «luego» y «finalmente». En la tercera, el que explica la razón: «porque». Antes de elegir un conector, conviene saber qué relación hay entre las ideas.",
+          "recursoRef": "tres-relaciones"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: pan y jugo",
+          "narracion": "Leamos dos oraciones cortas: «Elena trajo pan». «Elena trajo jugo de maracuyá». Las dos cuentan algo que Elena trajo, y se repite mucho «Elena trajo». Veamos cómo unirlas."
+        },
+        {
+          "id": "ejemplo-1-une",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: las ideas se suman",
+          "narracion": "Como las dos oraciones dan datos sobre lo mismo, la relación es de suma. Entonces usamos «y» y quitamos lo que se repite. En el cuadro, arriba están las dos oraciones separadas y abajo, la oración unida: «Elena trajo pan y jugo de maracuyá». También podrías escribir «Elena trajo pan. Además, trajo jugo de maracuyá».",
+          "recursoRef": "uniones"
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: las plantas de Rita",
+          "narracion": "Ahora razonemos con otro caso. Lee: «Rita regó las plantas». «Las plantas estaban secas». Esta vez no basta con sumar. Pregúntate qué relación hay: ¿una ocurre después de la otra, o una explica a la otra?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una idea explica la otra",
+          "narracion": "Que las plantas estuvieran secas explica por qué Rita las regó. La segunda oración da la razón de la primera, así que la relación es de causa y el conector es «porque». Queda así: «Rita regó las plantas porque estaban secas». Si usáramos «y», sonaría a dos datos sueltos y se perdería la razón."
+        },
+        {
+          "id": "error-porque-al-reves",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: «porque» al revés",
+          "narracion": "Cuidado con este error. Mira las dos oraciones del cuadro. La de arriba dice «Hacía frío porque me abrigué», como si abrigarte hubiera causado el frío. La de abajo dice «Me abrigué porque hacía frío», y ahí sí tiene sentido. «Porque» se escribe justo antes de la razón, no antes del resultado.",
+          "recursoRef": "porque-al-reves"
+        },
+        {
+          "id": "error-repetir-y",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: unir todo con «y»",
+          "narracion": "Otro error es unir todo con «y», aunque las ideas tengan otra relación. Si escribes «Me lavé las manos y almorcé», no queda claro cuál fue primero. Mejor di «Primero me lavé las manos y luego almorcé». Elige el conector según lo que quieras mostrar: suma, orden o razón."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee las dos ideas",
+          "narracion": "Primero lee las dos ideas que quieres unir y piensa qué cuenta cada una."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: pregunta qué relación hay y elige",
+          "narracion": "Después pregúntate si las ideas suman datos, si ocurren una tras otra o si una explica a la otra. Según tu respuesta, elige el conector de suma, de tiempo o de causa, como en el cuadro de tres filas.",
+          "recursoRef": "tres-relaciones"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: lee la oración completa",
+          "narracion": "Por último, lee en voz alta la oración ya unida. Si dices «Me abrigué porque hacía frío», suena bien y tiene sentido. Si suena al revés, como «Hacía frío porque me abrigué», cambia de lugar la razón o escoge otro conector.",
+          "recursoRef": "porque-al-reves"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "tres-relaciones",
+          "src": "/nudito/diagramas/comunicacion/conectores-tres-relaciones.svg",
+          "alt": "Tres filas: suman datos, con y, además y también; ordenan en el tiempo, con primero, luego y finalmente; explican la razón, con porque.",
+          "descripcion": "El cuadro tiene tres filas. La primera, «Suman datos», muestra «y», «además» y «también». La segunda, «Ordenan en el tiempo», muestra «primero», «luego» y «finalmente». La tercera, resaltada, «Explican la razón», muestra «porque»."
+        },
+        {
+          "id": "uniones",
+          "src": "/nudito/diagramas/comunicacion/conectores-uniones.svg",
+          "alt": "Arriba, dos oraciones separadas: Elena trajo pan y Elena trajo jugo de maracuyá. Una flecha con la letra y baja a: Elena trajo pan y jugo de maracuyá.",
+          "descripcion": "Un recuadro superior con las oraciones «Elena trajo pan» y «Elena trajo jugo de maracuyá». Una flecha hacia abajo con una etiqueta «y» lleva a un recuadro amarillo con la oración unida: «Elena trajo pan y jugo de maracuyá»."
+        },
+        {
+          "id": "porque-al-reves",
+          "src": "/nudito/diagramas/comunicacion/conectores-porque-al-reves.svg",
+          "alt": "Dos recuadros: uno marcado con una equis, Hacía frío porque me abrigué; otro con una marca de visto, Me abrigué porque hacía frío.",
+          "descripcion": "Un recuadro rojo con una equis y la palabra «Al revés» muestra «Hacía frío porque me abrigué»; dice que la razón quedó después del resultado. Un recuadro verde con una marca de visto y la palabra «Bien» muestra «Me abrigué porque hacía frío» y recuerda que «porque» va antes de la razón."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee: «Daniel no pudo pintar su carrito ___ se acabó la pintura». ¿Qué conector completa la oración?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "y"
+          },
+          {
+            "id": "b",
+            "texto": "luego"
+          },
+          {
+            "id": "c",
+            "texto": "porque"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "«Porque» introduce la razón: se acabó la pintura explica por qué Daniel no pudo pintar su carrito. «Y» solo sumaría otro dato y «luego» ordenaría dos acciones.",
+        "pista": "Pregúntate si la segunda parte explica la primera."
+      }
+    }
   }
 ]

@@ -326,6 +326,130 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Litros con coma",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a leer y comparar capacidades con decimales. Como idea principal, un litro equivale a mil mililitros, y los números con coma expresan partes del litro. Cero coma cinco litros es medio litro, y cero coma veinticinco litros es un cuarto de litro. Para comparar o sumar, se alinean las comas y se trabaja cifra por cifra."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Dos jarras de chicha",
+          "narracion": "Observemos esta situación. Doña Rosa prepara chicha morada y llena dos jarras. La jarra alta tiene escrito uno coma veinticinco litros, y la más baja tiene escrito cero coma setenta y cinco litros. A la derecha aparece una pregunta: cuánto hay en total. Primero hay que entender qué dicen esos números con coma.",
+          "recursoRef": "jarras-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: leer la medida",
+          "narracion": "Empecemos por la jarra alta, que dice uno coma veinticinco litros. El uno, antes de la coma, cuenta litros enteros. Lo que viene después de la coma son partes de un litro. Piensa qué parte de litro son veinticinco centésimos y cuántos mililitros serán en total. Recuerda que un litro tiene mil mililitros."
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: un litro y algo más",
+          "narracion": "En el dibujo hay una jarra llena, que es un litro, mil mililitros, y otra jarra dividida en cuatro partes iguales con una sola parte llena. Esa parte es cero coma veinticinco litros: un cuarto de litro, doscientos cincuenta mililitros. Juntas, uno coma veinticinco litros son mil doscientos cincuenta mililitros.",
+          "recursoRef": "lectura-jarras"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: juntar las jarras",
+          "narracion": "Ahora juntemos el líquido de las dos jarras: cero coma setenta y cinco litros y uno coma veinticinco litros. Escribe una cantidad debajo de la otra con las comas en la misma línea vertical y suma las cifras desde la derecha. ¿Cuántos litros hay en total?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la suma alineada",
+          "narracion": "En el dibujo, una línea punteada, junto a las comas, las deja alineadas y cada cifra queda en su columna. En los centésimos, cinco más cinco son diez: se escribe cero y se lleva uno. En los décimos, siete más dos más uno son diez: se escribe cero y se lleva uno. En los litros, cero más uno más uno son dos. El total es dos litros.",
+          "recursoRef": "suma-alineada"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Dos errores frecuentes",
+          "narracion": "Primer error: alguien cree que uno coma veinticinco litros es más que uno coma tres litros porque veinticinco es mayor que tres. Pero uno coma tres es lo mismo que uno coma treinta, y treinta centésimos son más que veinticinco. Segundo error: cero coma cinco litros no son cinco mililitros: son quinientos mililitros, la mitad de mil.",
+          "recursoRef": "errores-decimales"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: lee la medida",
+          "narracion": "Primero lee la medida: lo que está antes de la coma son litros enteros, y lo que está después son partes de un litro. En el dibujo, la jarra llena es el litro entero y la jarra con una cuarta parte llena es lo que sigue a la coma. Si hace falta, recuerda que un litro tiene mil mililitros.",
+          "recursoRef": "lectura-jarras"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: alinea las comas",
+          "narracion": "Para sumar o restar, escribe un número debajo del otro con las comas en la misma línea y completa con ceros si hace falta. En el dibujo, la línea punteada, junto a la coma, separa los litros y cada cifra queda en su columna.",
+          "recursoRef": "suma-alineada"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: compara columna por columna",
+          "narracion": "Para comparar, mira primero los litros, luego los décimos y después los centésimos, y detente en la primera columna que sea distinta. En el dibujo, el número de arriba es uno coma sesenta y el de abajo, uno coma cuarenta y cinco. Tienen el mismo litro. En los décimos, seis es mayor que cuatro, así que el de arriba es mayor.",
+          "recursoRef": "comparar-columnas"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "jarras-pregunta",
+          "src": "/nudito/diagramas/matematica/litro-decimales-jarras-pregunta.svg",
+          "alt": "Dos jarras de chicha morada: la alta dice uno coma veinticinco litros y la baja, cero coma setenta y cinco; a la derecha, una pregunta.",
+          "descripcion": "Dos jarras de vidrio llenas de líquido lila, una al lado de la otra. La de la izquierda es más alta y debajo dice uno coma veinticinco litros; la siguiente es más baja y debajo dice cero coma setenta y cinco litros. A la derecha hay un signo de pregunta grande y el texto: cuánto hay en total."
+        },
+        {
+          "id": "lectura-jarras",
+          "src": "/nudito/diagramas/matematica/litro-decimales-lectura-jarras.svg",
+          "alt": "Una jarra llena de un litro y otra con una cuarta parte llena de cero coma veinticinco litros; abajo, uno coma veinticinco litros es mil doscientos cincuenta mililitros.",
+          "descripcion": "Dos jarras separadas por un signo más. La de la izquierda está llena y dice un litro, mil mililitros. La de la derecha tiene tres marcas que la dividen en cuatro partes y solo la parte de abajo está llena; dice cero coma veinticinco litros, doscientos cincuenta mililitros. Abajo se lee: uno coma veinticinco litros igual a mil doscientos cincuenta mililitros."
+        },
+        {
+          "id": "suma-alineada",
+          "src": "/nudito/diagramas/matematica/litro-decimales-suma-alineada.svg",
+          "alt": "Suma en columnas con comas alineadas: cero coma setenta y cinco más uno coma veinticinco da dos coma cero cero.",
+          "descripcion": "Una suma en columnas. Arriba dicen litros, décimos y centésimos. Una línea punteada, justo a la derecha de las comas, las deja alineadas. Se suma cero coma siete cinco más uno coma dos cinco. Sobre los litros y sobre los décimos hay un uno pequeño de llevada. Bajo una línea queda dos coma cero cero. Abajo se lee: cero coma setenta y cinco litros más uno coma veinticinco litros igual a dos litros."
+        },
+        {
+          "id": "errores-decimales",
+          "src": "/nudito/diagramas/matematica/litro-decimales-errores-decimales.svg",
+          "alt": "Arriba, uno coma veinticinco litros y uno coma tres litros con sus notas; abajo, cero coma cinco litros es quinientos mililitros y no cinco.",
+          "descripcion": "Arriba, dos tarjetas: una con borde rojo que dice uno coma veinticinco litros y la nota error, veinticinco mayor que tres; otra con borde turquesa que dice uno coma tres litros y la nota uno coma treinta mayor que uno coma veinticinco. Abajo, en rojo: error, cero coma cinco litros igual a cinco mililitros; en turquesa: bien, cero coma cinco litros igual a quinientos mililitros. Debajo, una nota dice la mitad de mil mililitros."
+        },
+        {
+          "id": "comparar-columnas",
+          "src": "/nudito/diagramas/matematica/litro-decimales-comparar-columnas.svg",
+          "alt": "Dos números en columnas, uno coma sesenta y uno coma cuarenta y cinco, con la columna de los décimos resaltada.",
+          "descripcion": "Dos números en columnas con los encabezados litros, décimos y centésimos y una línea punteada junto a la coma. Arriba está uno coma seis cero y abajo, uno coma cuatro cinco. La columna de los décimos está resaltada en amarillo, con el seis y el cuatro. Abajo se lee: los litros son iguales; seis décimos mayor que cuatro décimos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Mario tiene dos botellas de agua: una de cero coma ocho litros y otra de cero coma cinco litros. ¿Cuántos litros hay en total?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Uno coma tres litros"
+          },
+          {
+            "id": "b",
+            "texto": "Cero coma trece litros"
+          },
+          {
+            "id": "c",
+            "texto": "Uno coma dos litros"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Ocho décimos más cinco décimos son trece décimos, es decir, un litro y tres décimos.",
+        "pista": "Alinea las comas antes de sumar y recuerda que diez décimos forman un litro."
+      }
+    }
   }
 ]

@@ -1230,7 +1230,123 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Duración de actividades",
+          "narracion": "Bienvenida y bienvenido. La duración es el tiempo que transcurre desde el inicio hasta el final de una actividad. Para hallarla, avanza primero hasta una hora completa, cuenta las horas enteras y luego suma los minutos que faltan."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Del inicio al final",
+          "narracion": "Observemos esta situación. Una actividad comienza a las ocho y quince y termina a las nueve y cuarenta y cinco. La línea señala el inicio y el fin, pero todavía no muestra la duración.",
+          "recursoRef": "linea-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: divide el recorrido",
+          "narracion": "Desde las ocho y quince, avanza hasta la siguiente hora completa, las nueve. ¿Cuántos minutos pasan? Después piensa qué tramo falta para llegar a las nueve y cuarenta y cinco.",
+          "recursoRef": "linea-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: suma los tramos",
+          "narracion": "De las ocho y quince a las nueve pasan cuarenta y cinco minutos. De las nueve a las nueve y cuarenta y cinco pasan otros cuarenta y cinco. En total son noventa minutos, o una hora y media.",
+          "recursoRef": "linea-resuelta"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una feria",
+          "narracion": "La feria comienza a las diez y veinte y termina a las once y cinco. Los dos relojes muestran esos horarios. ¿Cuánto tiempo transcurre entre ellos?",
+          "recursoRef": "feria-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: llega a la hora completa",
+          "narracion": "De las diez y veinte a las once pasan cuarenta minutos. Desde las once hasta las once y cinco pasan cinco minutos más. La feria dura cuarenta y cinco minutos."
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Los minutos también cuentan",
+          "narracion": "Restar solo cinco menos tres y decir dos horas es un error. La actividad va de las tres y media a las cinco, y empieza a las tres y media, no a las tres en punto. De las tres y media a las cuatro pasa media hora, y de las cuatro a las cinco pasa una hora. Dura una hora y media.",
+          "recursoRef": "error-horas"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: anota los horarios",
+          "narracion": "Primero, identifica con claridad la hora de inicio y la hora de fin."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: avanza por tramos",
+          "narracion": "Luego, avanza hasta una hora completa, cuenta las horas enteras y completa los minutos finales."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: suma y comprueba",
+          "narracion": "Al final, suma todos los tramos. Comprueba que al añadir esa duración al inicio llegas exactamente a la hora de fin."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "linea-pregunta",
+          "src": "/nudito/diagramas/matematica/duracion-actividades-linea-pregunta.svg",
+          "alt": "Línea de tiempo desde las ocho y quince hasta las nueve y cuarenta y cinco, sin duración escrita.",
+          "descripcion": "Una línea índigo une dos marcas turquesas. La marca izquierda dice «Inicio» y ocho y quince en cifras; la derecha dice «Fin» y nueve y cuarenta y cinco en cifras. Debajo se pregunta cuánto dura."
+        },
+        {
+          "id": "linea-resuelta",
+          "src": "/nudito/diagramas/matematica/duracion-actividades-linea-resuelta.svg",
+          "alt": "Línea dividida en dos tramos de cuarenta y cinco minutos, con total de noventa minutos.",
+          "descripcion": "Una línea de tiempo tiene marcas en ocho y quince, nueve y nueve y cuarenta y cinco. Sobre cada uno de los dos tramos, de igual largo, se lee cuarenta y cinco minutos. Abajo aparece el total de noventa minutos."
+        },
+        {
+          "id": "feria-pregunta",
+          "src": "/nudito/diagramas/matematica/duracion-actividades-feria-pregunta.svg",
+          "alt": "Dos relojes analógicos rotulados diez y veinte y once y cinco, sin mostrar la duración.",
+          "descripcion": "Dos relojes blancos con marcas de hora aparecen lado a lado. En cada uno, la aguja corta e índigo señala la hora y la larga y turquesa los minutos. El primero marca las diez y veinte y el segundo las once y cinco; cada uno lleva su horario escrito debajo."
+        },
+        {
+          "id": "error-horas",
+          "src": "/nudito/diagramas/matematica/duracion-actividades-error-horas.svg",
+          "alt": "Cálculo cinco menos tres igual a dos horas subrayado en rojo para el intervalo de tres y media a cinco.",
+          "descripcion": "Una tarjeta muestra el intervalo de tres y media a cinco en cifras. Debajo aparece el cálculo cinco menos tres igual a dos horas, subrayado con una raya roja. Al pie se lee «Primero cuenta hasta la hora completa»."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una actividad empieza a las dos y diez y termina a las tres y veinticinco. ¿Cuántos minutos dura?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Setenta y cinco minutos"
+          },
+          {
+            "id": "b",
+            "texto": "Sesenta y cuatro minutos"
+          },
+          {
+            "id": "c",
+            "texto": "Ochenta y cinco minutos"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Hasta las tres pasan cincuenta minutos y luego pasan veinticinco más: en total, setenta y cinco minutos.",
+        "pista": "Avanza primero hasta la siguiente hora completa y después cuenta el tramo final."
+      }
+    }
   },
   {
     "clave": "mat.p4.medio-cuarto-kilo",

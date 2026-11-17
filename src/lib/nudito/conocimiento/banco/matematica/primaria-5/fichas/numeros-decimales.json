@@ -326,7 +326,120 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "El décimo, una de diez partes",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a escribir con coma las partes de una unidad. Como idea principal, cuando una unidad se divide en diez partes iguales, cada parte es un décimo y se escribe cero coma uno. La cifra que aparece después de la coma dice cuántos décimos tienes."
+        },
+        {
+          "id": "situacion-barra",
+          "tipo": "recurso",
+          "titulo": "Una barra dividida en diez casillas",
+          "narracion": "Observemos esta situación. La barra completa representa una unidad y está dividida en diez casillas iguales. Seis casillas están coloreadas y cuatro quedan sin colorear. La parte coloreada son seis décimos y se escribe cero coma seis. Como la unidad no está completa, antes de la coma va un cero.",
+          "recursoRef": "barra-diez"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el chocolate de Lía",
+          "narracion": "Un chocolate se divide en diez cuadritos iguales y Lía se come dos. Comprobamos que los diez cuadritos tengan el mismo tamaño: sí, la barra está bien dividida. Lía comió dos de diez partes, es decir, dos décimos del chocolate.",
+          "recursoRef": "chocolate-diez"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: lo escribimos con coma",
+          "narracion": "Para escribir dos décimos con coma ponemos un cero porque no hay unidades enteras, luego la coma y después el dos: cero coma dos. Cuidado con escribir dos coma cero, porque eso significa dos unidades enteras, es decir, dos chocolates completos. Lía comió cero coma dos del chocolate.",
+          "recursoRef": "chocolate-diez"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: las semillas de Marcos",
+          "narracion": "Marcos sembró diez semillas en una bandeja y ocho germinaron. El grupo de diez semillas es nuestra unidad, y cada semilla es un décimo. Ocho semillas de diez son ocho décimos, que se escriben cero coma ocho.",
+          "recursoRef": "semillas-diez"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ¿qué parte no germinó?",
+          "narracion": "Ahora averigüemos qué parte no germinó. Restamos: diez décimos forman una unidad, y diez décimos menos ocho décimos son dos décimos. Entonces cero coma dos de las semillas no germinaron. Ocho décimos más dos décimos completan la unidad.",
+          "recursoRef": "semillas-diez"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Las diez partes deben ser iguales",
+          "narracion": "Para hablar de décimos, la unidad debe estar partida en diez partes del mismo tamaño. Si una barra tiene diez partes, pero algunas son grandes y otras pequeñas, cada parte no vale cero coma uno. Por eso, antes de escribir un decimal, revisa que las diez partes sean iguales."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: comprueba la unidad",
+          "narracion": "Primero asegúrate de que la unidad esté dividida en diez partes iguales. En la barra, las diez casillas tienen el mismo tamaño.",
+          "recursoRef": "barra-diez"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: cuenta las partes tomadas",
+          "narracion": "Después cuenta cuántas de esas diez partes se tomaron o se colorearon. En el chocolate son dos y, en las semillas que germinaron, son ocho.",
+          "recursoRef": "semillas-diez"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: escribe cero, la coma y los décimos",
+          "narracion": "Escribe un cero para las unidades enteras, luego la coma y, después, la cantidad de décimos. Dos décimos se escriben cero coma dos, y ocho décimos se escriben cero coma ocho. Para leerlos, di la cifra y la palabra décimos.",
+          "recursoRef": "chocolate-diez"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "barra-diez",
+          "src": "/nudito/diagramas/matematica/decimales-barra-seis.svg",
+          "alt": "Barra de diez casillas iguales con seis coloreadas, equivalente a cero coma seis.",
+          "descripcion": "La barra tiene diez casillas iguales y las seis primeras están coloreadas. Debajo se lee seis de diez y, en grande, cero coma seis."
+        },
+        {
+          "id": "chocolate-diez",
+          "src": "/nudito/diagramas/matematica/decimales-chocolate.svg",
+          "alt": "Barra de diez cuadritos iguales con dos coloreados, que representan cero coma dos.",
+          "descripcion": "Hay dos filas de cinco cuadritos del mismo tamaño. Los dos primeros de la fila de arriba están coloreados. Debajo se lee comiste dos de diez y, en grande, cero coma dos."
+        },
+        {
+          "id": "semillas-diez",
+          "src": "/nudito/diagramas/matematica/decimales-semillas.svg",
+          "alt": "Diez semillas en dos filas: ocho coloreadas que germinaron y dos con borde punteado.",
+          "descripcion": "Hay dos filas de cinco círculos. Ocho están rellenos y representan las semillas que germinaron, y dos tienen borde punteado y representan las que no germinaron. Debajo se lee ocho de diez semillas y, en grande, cero coma ocho."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una cuerda de un metro se divide en diez tramos iguales y se pintan siete. ¿Cómo se escribe la parte pintada de la cuerda?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cero coma siete"
+          },
+          {
+            "id": "b",
+            "texto": "Siete coma cero"
+          },
+          {
+            "id": "c",
+            "texto": "Cero coma cero siete"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Muy bien. Siete de diez tramos son siete décimos, y se escriben cero coma siete porque no hay metros enteros.",
+        "pista": "Cuenta las partes pintadas y escribe un cero antes de la coma, porque la cuerda no está completa."
+      }
+    }
   },
   {
     "clave": "mat.p5.leer-escribir-decimales",
@@ -1643,7 +1756,7 @@
     ],
     "erroresFrecuentes": [
       {
-        "error": "Creer que 5,9 es menor que 6,1 porque 9 es menor que 1 al mirar cifras aisladas.",
+        "error": "Creer que 5,9 es mayor que 6,1 porque 9 es mayor que 1 al mirar cifras aisladas.",
         "correccion": "Compara primero las unidades: 6 supera 5."
       },
       {
@@ -1895,7 +2008,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Comparar y ordenar decimales",
+          "narracion": "Bienvenida y bienvenido. Hoy compararemos y ordenaremos números decimales con décimos. Como idea principal, primero comparamos las unidades. Si son iguales, comparamos los décimos. En la recta numérica, el número que está más a la derecha es el mayor."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Dos estantes de la biblioteca",
+          "narracion": "Observemos esta situación. La biblioteca midió dos estantes. El primero mide cuatro coma dos metros y el segundo mide cuatro coma siete metros. Queremos saber cuál estante es más largo.",
+          "recursoRef": "estantes-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: comparar dos medidas",
+          "narracion": "Primero miramos las unidades de cada número. Las dos medidas tienen cuatro unidades. Como están empatadas, miramos los décimos: dos décimos en una medida y siete décimos en la otra. ¿Cuál tiene más décimos?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: en la recta",
+          "narracion": "Entre cuatro y cinco hay diez espacios iguales, y cada espacio es un décimo. Cuatro coma dos está a dos espacios del cuatro. Cuatro coma siete está a siete espacios. Siete décimos es más que dos décimos, así que cuatro coma siete queda más a la derecha y es mayor. El estante más largo mide cuatro coma siete metros.",
+          "recursoRef": "recta-cuatro-cinco"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ordenar tres números",
+          "narracion": "Ahora ordenemos tres números de menor a mayor: tres coma ocho, dos coma nueve y tres coma uno. Primero comparamos las unidades. Después, entre los que empatan, comparamos los décimos. ¿Cuál es el menor de los tres?",
+          "recursoRef": "tarjetas-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el orden en la recta",
+          "narracion": "Dos coma nueve tiene dos unidades, y los otros tienen tres, así que es el menor. Entre tres coma uno y tres coma ocho, comparamos los décimos: un décimo es menor que ocho décimos. El orden de menor a mayor es dos coma nueve, tres coma uno y tres coma ocho. En la recta van de izquierda a derecha en ese mismo orden.",
+          "recursoRef": "recta-dos-cuatro"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es comparar solo las cifras de los décimos. Por ejemplo, entre cinco coma nueve y seis coma uno, nueve es mayor que uno, pero seis coma uno es el mayor porque tiene más unidades. Otro error es leer la recta al revés: el mayor siempre está más a la derecha."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: compara las unidades",
+          "narracion": "Mira las unidades de cada número, que forman su parte entera. El que tiene más unidades es el mayor."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: si empatan, compara los décimos",
+          "narracion": "Si las unidades son iguales, compara los décimos. Más décimos significa un número mayor."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: ordena con la recta",
+          "narracion": "Aquí están los tres pasos juntos. Se comparan las unidades y, si empatan, se comparan los décimos. Para ordenar, se piensa en la recta: de menor a mayor es de izquierda a derecha.",
+          "recursoRef": "pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "estantes-pregunta",
+          "src": "/nudito/diagramas/matematica/decimales-orden-estantes-pregunta.svg",
+          "alt": "Dos estantes con libros de colores iguales en tamaño; uno rotulado cuatro coma dos metros y el otro cuatro coma siete metros.",
+          "descripcion": "Hay dos recuadros, uno sobre otro, que representan estantes. En cada uno hay seis libros de colores sobre una línea, del mismo tamaño en los dos. El de arriba dice: cuatro coma dos metros. El de abajo dice: cuatro coma siete metros. Abajo está la pregunta de cuál estante mide más. El título dice: dos estantes de la biblioteca."
+        },
+        {
+          "id": "recta-cuatro-cinco",
+          "src": "/nudito/diagramas/matematica/decimales-orden-recta-cuatro-cinco.svg",
+          "alt": "Recta de cuatro a cinco con diez espacios; punto turquesa en cuatro coma dos y punto amarillo en cuatro coma siete.",
+          "descripcion": "Hay una recta horizontal que empieza en cuatro, a la izquierda, y termina en cinco, a la derecha, con diez espacios iguales marcados con rayitas. Un punto turquesa está a dos espacios del cuatro y lleva arriba el rótulo: cuatro coma dos. Un punto amarillo está a siete espacios del cuatro y lleva arriba el rótulo: cuatro coma siete. Abajo dice: cuatro coma siete está más a la derecha; entre cuatro y cinco hay diez décimos. El título dice: los dos números en la recta."
+        },
+        {
+          "id": "tarjetas-pregunta",
+          "src": "/nudito/diagramas/matematica/decimales-orden-tarjetas-pregunta.svg",
+          "alt": "Tres tarjetas con los números tres coma ocho, dos coma nueve y tres coma uno, sin ordenar.",
+          "descripcion": "Hay tres tarjetas en fila. La primera dice tres coma ocho, la segunda dice dos coma nueve y la tercera dice tres coma uno. Abajo se lee: ordénalos de menor a mayor. El título dice: tres números para ordenar."
+        },
+        {
+          "id": "recta-dos-cuatro",
+          "src": "/nudito/diagramas/matematica/decimales-orden-recta-dos-cuatro.svg",
+          "alt": "Recta de dos a cuatro con puntos en dos coma nueve, tres coma uno y tres coma ocho, ordenados de izquierda a derecha.",
+          "descripcion": "Hay una recta horizontal con rayitas cada décimo. A la izquierda está el dos, en el medio el tres y a la derecha el cuatro. Un punto turquesa marca dos coma nueve, justo antes del tres. Un punto amarillo marca tres coma uno, justo después del tres, con su rótulo más arriba, unido al punto por una línea fina. Un punto granate marca tres coma ocho, más cerca del cuatro. Abajo se lee: dos coma nueve, menor que, tres coma uno, menor que, tres coma ocho. El título dice: ordenados en la recta."
+        },
+        {
+          "id": "pasos",
+          "src": "/nudito/diagramas/matematica/decimales-orden-tres-pasos.svg",
+          "alt": "Tres tarjetas numeradas con los pasos para comparar y ordenar decimales.",
+          "descripcion": "Hay tres tarjetas numeradas. La uno dice: comparo las unidades, la parte entera. La dos dice: si empatan, comparo los décimos. La tres dice: para ordenar uso la recta, mayor, más a la derecha. El título dice: tres pasos para comparar."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Elena midió tres plantas: cinco coma seis centímetros, seis coma dos centímetros y cinco coma nueve centímetros. ¿Cuál mide más?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cinco coma nueve"
+          },
+          {
+            "id": "b",
+            "texto": "Seis coma dos"
+          },
+          {
+            "id": "c",
+            "texto": "Cinco coma seis"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Seis coma dos tiene seis unidades, y los otros dos tienen cinco, así que es el mayor.",
+        "pista": "Empieza mirando la parte entera de cada número."
+      }
+    }
   },
   {
     "clave": "mat.p5.decimales-con-dinero",
@@ -2182,7 +2417,130 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Soles y céntimos",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a leer precios con decimales. Como idea principal, un sol tiene cien céntimos. En un precio, las cifras antes de la coma son los soles, y las cifras después de la coma son los céntimos."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una etiqueta del mercado",
+          "narracion": "Observemos esta situación. En el mercado, una etiqueta tiene un precio escrito con una coma. Queremos averiguar cuántos soles y cuántos céntimos indica.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: leer la coma",
+          "narracion": "En el dibujo, el precio tiene una coma en el medio. Piensa qué significa lo que está antes de la coma y lo que está después. ¿Cuántos soles y cuántos céntimos hay?",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Primer ejemplo: soles y céntimos",
+          "narracion": "Antes de la coma están los soles: son tres, y se ven como tres monedas de un sol. Después de la coma están los céntimos: veinticinco, que se ven como una moneda de veinte céntimos y una de cinco. El precio se lee tres soles con veinticinco céntimos.",
+          "recursoRef": "lectura"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: de céntimos a soles",
+          "narracion": "Ahora un cartel dice que el pan cuesta doscientos ocho céntimos. Falta escribir el precio en soles. Piensa cuántos soles completos hay en esos céntimos y cuántos céntimos sobran.",
+          "recursoRef": "ciento-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Segundo ejemplo: el cero importa",
+          "narracion": "Doscientos ocho céntimos son dos monedas de cien céntimos y ocho céntimos más. Son dos soles con ocho céntimos. Los ocho céntimos se escriben con dos cifras: cero ocho. En el dibujo, el cero ocho de la etiqueta está subrayado en amarillo.",
+          "recursoRef": "ciento"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cinco céntimos mal escritos",
+          "narracion": "Aquí hay dos etiquetas para cinco céntimos. La de la izquierda dice cero, coma, cincuenta, y tiene una marca roja de error, porque eso son cincuenta céntimos. La de la derecha dice cero, coma, cero cinco, y es la correcta. Cinco céntimos llevan un cero antes.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso uno: separa en la coma",
+          "narracion": "Busca la coma. Los soles van antes de la coma y los céntimos, después."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso dos: cuida las dos cifras",
+          "narracion": "Escribe siempre los céntimos con dos cifras. Cinco céntimos llevan un cero delante del cinco."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso tres: lee en voz alta",
+          "narracion": "Lee primero los soles y luego los céntimos. Recuerda que cien céntimos forman un sol."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/decimales-dinero-situacion.svg",
+          "alt": "Etiqueta de precio con el signo de soles, el número tres, una coma y veinticinco.",
+          "descripcion": "Una etiqueta de precio con el signo de soles, el número tres, una coma y el número veinticinco. Arriba dice una etiqueta en el mercado. Abajo se pregunta cuántos soles y cuántos céntimos."
+        },
+        {
+          "id": "lectura",
+          "src": "/nudito/diagramas/matematica/decimales-dinero-lectura.svg",
+          "alt": "La etiqueta separada en tres monedas de un sol y dos monedas de céntimos.",
+          "descripcion": "Arriba, la etiqueta con el signo de soles, tres, coma, veinticinco. Un recuadro antes de la coma tiene tres monedas de un sol y dice tres soles. Otro, después de la coma, tiene una moneda de veinte y una de cinco y dice veinticinco céntimos."
+        },
+        {
+          "id": "ciento-pregunta",
+          "src": "/nudito/diagramas/matematica/decimales-dinero-ciento-pregunta.svg",
+          "alt": "Cartel de pan con doscientos ocho céntimos y una etiqueta de soles sin completar.",
+          "descripcion": "A la izquierda, un recuadro dice pan, doscientos ocho céntimos. Una flecha lleva a una etiqueta con el signo de soles y un signo de pregunta. Abajo se pregunta cuánto cuesta en soles."
+        },
+        {
+          "id": "ciento",
+          "src": "/nudito/diagramas/matematica/decimales-dinero-ciento.svg",
+          "alt": "Etiqueta con dos soles y ocho céntimos, dos monedas de un sol y ocho monedas pequeñas.",
+          "descripcion": "Arriba, la etiqueta con el signo de soles, dos, coma, cero ocho, con el cero ocho subrayado en amarillo. Debajo, dos monedas de un sol y ocho monedas pequeñas. Se lee doscientos ocho igual a cien más cien más ocho, y dos soles con ocho céntimos."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/decimales-dinero-error.svg",
+          "alt": "Dos etiquetas: cero coma cincuenta con marca de error y cero coma cero cinco con marca de visto.",
+          "descripcion": "A la izquierda, una etiqueta roja dice cero, coma, cincuenta, con una marca de error y la frase son cincuenta céntimos. A la derecha, una etiqueta dice cero, coma, cero cinco, con un visto y la frase son cinco céntimos. Abajo: cinco céntimos llevan un cero antes."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un cuaderno cuesta trescientos seis céntimos. ¿Cuánto cuesta en soles?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Tres soles con seis céntimos"
+          },
+          {
+            "id": "b",
+            "texto": "Tres soles con sesenta céntimos"
+          },
+          {
+            "id": "c",
+            "texto": "Treinta soles con seis céntimos"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Correcto. Trescientos seis céntimos son tres soles completos y seis céntimos, escritos con dos cifras.",
+        "pista": "Recuerda cuántos céntimos forman un sol."
+      }
+    }
   },
   {
     "clave": "mat.p5.redondear-decimales",

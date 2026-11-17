@@ -715,7 +715,120 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Los personajes participan en el cuento",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a reconocer a los personajes de un cuento y a descubrir cómo son. Como idea principal, recuerda que un personaje participa: hace algo, habla, siente o recibe una acción. Los lugares y los objetos pueden aparecer, pero no son personajes. Para explicar cómo es alguien, usamos una acción del cuento como pista."
+        },
+        {
+          "id": "situacion-pollito",
+          "tipo": "recurso",
+          "titulo": "Sara, Iván y la abuela ayudan a un pollito",
+          "narracion": "Observemos esta situación. Sara e Iván encontraron un pollito fuera del corral de la abuela. Sara camina despacio y sostiene al pollito con cuidado; Iván abre el paso y la abuela espera junto a la puerta. Las personas y el animal participan. El corral y la ciudad de Huancayo son lugares, no personajes.",
+          "recursoRef": "pollito"
+        },
+        {
+          "id": "ejemplo-pollito-identifica",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: identifica quiénes actúan",
+          "narracion": "Leamos: «Sara pidió caminar despacio para no asustar al pollito. La abuela abrió la puerta e Iván la cerró después». Sara, la abuela e Iván realizan acciones; por eso son personajes. El pollito también participa en lo que sucede. La puerta es un objeto y el corral es un lugar.",
+          "recursoRef": "pollito"
+        },
+        {
+          "id": "ejemplo-pollito-infiere",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una acción muestra cómo es Sara",
+          "narracion": "Sara pide ir despacio y lleva al pollito con cuidado. Esas acciones permiten decir que parece cuidadosa. No elegimos esa característica solo por su nombre ni por la ilustración; la comprobamos con lo que hace en el cuento.",
+          "recursoRef": "pollito"
+        },
+        {
+          "id": "ejemplo-pollito-comprueba",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: responde con personaje y pista",
+          "narracion": "Podemos responder así: «Sara es cuidadosa porque camina despacio y no quiere asustar al pollito». La primera parte dice cómo es el personaje y la segunda menciona la acción que sirve de prueba."
+        },
+        {
+          "id": "ejemplo-cuaderno-observa",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: Nico comparte su cuaderno",
+          "narracion": "Veamos otra escena. Sara olvidó su cuaderno y Nico le presta el suyo para que pueda copiar una indicación. Nico y Sara son personajes porque participan. El cuaderno y la mesa son objetos de la escena, pero no toman decisiones ni realizan acciones por sí solos.",
+          "recursoRef": "cuaderno"
+        },
+        {
+          "id": "ejemplo-cuaderno-infiere",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: descubre una característica",
+          "narracion": "La acción de prestar algo que otra persona necesita es una pista. Por eso podemos decir que Nico parece generoso o colaborador. Si el texto dijera que escondió el cuaderno para que Sara no lo usara, la característica sería diferente.",
+          "recursoRef": "cuaderno"
+        },
+        {
+          "id": "ejemplo-cuaderno-comprueba",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: no confundas personaje y objeto",
+          "narracion": "El cuaderno es importante para que ocurra la acción, pero sigue siendo un objeto. Nico es el personaje que decide prestarlo y Sara es quien lo recibe. Para reconocer personajes, preguntamos quién hace algo o a quién le sucede algo.",
+          "recursoRef": "cuaderno"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca quién participa",
+          "narracion": "Primero localiza los nombres o las palabras que nombran personas y animales. Pregunta quién habla, actúa, siente o recibe una acción. Separa esos participantes de los lugares y objetos.",
+          "recursoRef": "pollito"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: observa lo que hace o dice",
+          "narracion": "Después vuelve a la acción o a las palabras del personaje. Una ilustración puede ayudar a imaginar la escena, pero la pista principal debe estar en el cuento.",
+          "recursoRef": "cuaderno"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: explica cómo es usando una pista",
+          "narracion": "Por último, di una característica y completa la respuesta con «porque». Por ejemplo: «Nico es generoso porque presta su cuaderno». Así otra persona puede comprobar tu idea en el texto."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "pollito",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-1/personajes-pollito-gemini-v1.webp",
+          "alt": "Sara lleva con cuidado un pollito hacia el corral mientras Iván y la abuela ayudan.",
+          "descripcion": "En una chacra de Huancayo, Sara camina despacio con un pollito entre las manos. Iván está junto a ella y la abuela mantiene abierta la puerta del corral."
+        },
+        {
+          "id": "cuaderno",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-1/personajes-cuaderno-gemini-v1.webp",
+          "alt": "Nico presta su cuaderno a Sara en una mesa del aula.",
+          "descripcion": "En un aula, Nico acerca su cuaderno abierto a Sara para compartirlo. Sara lo recibe y ambos miran la misma página sobre la mesa."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Nico presta su cuaderno a Sara cuando ella lo necesita. ¿Qué opción explica cómo es Nico usando una pista del cuento?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Nico es generoso porque comparte su cuaderno."
+          },
+          {
+            "id": "b",
+            "texto": "El cuaderno es un personaje porque está sobre la mesa."
+          },
+          {
+            "id": "c",
+            "texto": "Nico es una ciudad porque aparece en el cuento."
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Prestar el cuaderno es una acción que muestra generosidad. La respuesta nombra al personaje y explica la pista.",
+        "pista": "Busca la opción que diga cómo es Nico y mencione la acción de compartir."
+      }
+    }
   },
   {
     "clave": "com.p1.como-son-lugares-y-objetos",
@@ -1062,7 +1175,7 @@
           },
           {
             "id": "c",
-            "texto": "La plaza era una manta."
+            "texto": "La plaza era angosta; la calle, amplia."
           }
         ],
         "lectura": "Marta visitó el mercado de Puno con su padre. En un puesto vio una manta gruesa y suave. La tocó y sintió calor en las manos. Más allá había una cesta ligera hecha de fibras. Su padre la levantó con una sola mano. Al salir, caminaron por una calle angosta: solo cabían dos personas juntas. Llegaron a una plaza amplia donde varios niños corrían sin chocarse."
@@ -1075,7 +1188,129 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Las palabras dan pistas",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a descubrir cómo son los lugares, los animales y los objetos de un texto. Como idea principal, las palabras del texto dan pistas. Si juntas varias pistas, puedes imaginar cómo es algo aunque el texto no lo diga con una sola palabra."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Una niña busca pistas",
+          "narracion": "Observemos esta escena: una niña mira a través de una lupa, con un libro abierto sobre la mesa. Ella busca pistas. En un texto también hay pistas escondidas: son las palabras que nos dicen cómo es un lugar o un objeto.",
+          "recursoRef": "lupa"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: un lugar",
+          "narracion": "Lee la tarjeta: «Pedro llegó a la playa. El sol brillaba fuerte y la arena quemaba sus pies». La pregunta amarilla quiere saber cómo está la arena.",
+          "recursoRef": "playa"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: junta las pistas",
+          "narracion": "Buscamos las pistas. Primera pista: el sol brillaba fuerte. Segunda pista: la arena quemaba los pies de Pedro. Juntas, las dos pistas nos dicen cómo está la arena: caliente."
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: un animal",
+          "narracion": "Ahora, un animal. Lee la tarjeta: «El burro del abuelo carga costales pesados todo el día. Camina por el cerro sin parar». La pregunta amarilla quiere saber cómo es el burro.",
+          "recursoRef": "burro-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: imagina al animal",
+          "narracion": "Observemos este dibujo: un burro camina por un sendero del cerro con dos costales atados en el lomo, y un hombre y una niña lo acompañan. Las pistas del texto son cargar costales pesados y no parar. Juntas nos dicen que el burro es fuerte.",
+          "recursoRef": "burro"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: agregar lo que no se lee",
+          "narracion": "En la tarjeta, arriba, se lee un texto sobre una caja. Alguien dice un color que el texto no menciona. Abajo se corrige: solo usamos las pistas que están escritas.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca de qué se habla",
+          "narracion": "Primero, busca de qué lugar, animal u objeto habla el texto."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: junta las pistas",
+          "narracion": "Segundo, encuentra las palabras que dicen cómo es o qué hace, y júntalas."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: comprueba con el texto",
+          "narracion": "Tercero, comprueba que tu respuesta no contradiga lo que dice el texto."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "lupa",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-1/pistas-lupa-zimage-v1.webp",
+          "alt": "Una niña mira a través de una lupa, con un libro abierto sobre la mesa.",
+          "descripcion": "Una niña de pelo largo castaño y vestido anaranjado sostiene con una mano una lupa frente a su ojo. Sobre la mesa de madera tiene un libro abierto con líneas de texto."
+        },
+        {
+          "id": "playa",
+          "src": "/nudito/diagramas/comunicacion/como-son-playa-pregunta.svg",
+          "alt": "Tarjeta con el texto de Pedro en la playa y la pregunta cómo está la arena.",
+          "descripcion": "Un recuadro blanco con el texto: Pedro llegó a la playa. El sol brillaba fuerte y la arena quemaba sus pies. Debajo, una tarjeta amarilla pregunta: ¿Cómo está la arena?"
+        },
+        {
+          "id": "burro-pregunta",
+          "src": "/nudito/diagramas/comunicacion/como-son-burro-pregunta.svg",
+          "alt": "Tarjeta con el texto sobre el burro del abuelo y la pregunta cómo es el burro.",
+          "descripcion": "Un recuadro blanco con el texto: El burro del abuelo carga costales pesados todo el día. Camina por el cerro sin parar. Debajo, una tarjeta amarilla pregunta: ¿Cómo es el burro?"
+        },
+        {
+          "id": "burro",
+          "src": "/nudito/ilustraciones/comunicacion/primaria-1/pistas-burro-zimage-v1.webp",
+          "alt": "Un burro con dos costales en el lomo camina por un sendero de cerro, acompañado por un hombre con sombrero y una niña.",
+          "descripcion": "Un burro marrón lleva dos costales claros atados sobre una montura. Camina por un sendero de tierra en la ladera de un cerro cubierto de pasto. A su lado van un hombre con sombrero de paja y una niña de falda verde. El cielo está azul."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/comunicacion/como-son-error.svg",
+          "alt": "Texto sobre una caja chiquita, una respuesta roja con cruz y una verde con palomita.",
+          "descripcion": "Un recuadro blanco con el texto: Pedro abrió una caja chiquita. La levantó con un dedo. Debajo, una tarjeta roja con cruz dice: La caja es roja. Luego, una tarjeta verde con palomita dice: El texto no dice el color. Dice que es chiquita y fácil de levantar."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "El cuarto de Ana tiene las cortinas cerradas y la luz apagada. No entra ni un rayo de sol. ¿Cómo está el cuarto?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "oscuro"
+          },
+          {
+            "id": "b",
+            "texto": "ruidoso"
+          },
+          {
+            "id": "c",
+            "texto": "mojado"
+          }
+        ],
+        "respuesta": "a",
+        "mensajeCorrecto": "Cortinas cerradas, luz apagada y ningún rayo de sol: juntas dicen que el cuarto está oscuro.",
+        "pista": "Junta las pistas y piensa qué tienen en común."
+      }
+    }
   },
   {
     "clave": "com.p1.por-que-paso",

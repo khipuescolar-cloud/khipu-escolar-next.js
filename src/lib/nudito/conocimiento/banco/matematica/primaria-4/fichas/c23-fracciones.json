@@ -144,13 +144,15 @@
         "tipo": "texto_corto",
         "enunciado": "Un camino se divide en 6 tramos iguales; recorriste 4. ¿Qué fracción del camino resta? Escribe a/b.",
         "respuesta": "2/6",
-        "alternativasAceptadas": [],
+        "alternativasAceptadas": [
+          "1/3"
+        ],
         "pistas": [
           "El camino completo tiene seis sextos.",
           "Cuatro sextos ya se recorrieron.",
           "Resta 6 − 4 tramos."
         ],
-        "retroalimentacion": "Resta 2/6 del camino; 4/6 es lo recorrido."
+        "retroalimentacion": "Resta 2/6 del camino, que también equivale a 1/3; 4/6 es lo recorrido."
       },
       {
         "id": "e06",
@@ -204,13 +206,15 @@
         "tipo": "texto_corto",
         "enunciado": "Una cometa tiene 9 de 12 espacios iguales decorados. ¿Qué fracción falta decorar? Escribe a/b.",
         "respuesta": "3/12",
-        "alternativasAceptadas": [],
+        "alternativasAceptadas": [
+          "1/4"
+        ],
         "pistas": [
           "Una cometa completa representa 12/12.",
           "Nueve espacios están decorados.",
           "12 − 9 = 3 espacios pendientes."
         ],
-        "retroalimentacion": "Faltan 3/12; también equivale a 1/4, pero aquí contamos los doce espacios de la cometa."
+        "retroalimentacion": "Faltan 3/12, que también se puede escribir 1/4."
       },
       {
         "id": "e09",
@@ -264,13 +268,15 @@
         "tipo": "texto_corto",
         "enunciado": "En un mural de 15 cuadros iguales, 6 están sin pintar. ¿Qué fracción del mural falta pintar? Escribe a/b.",
         "respuesta": "6/15",
-        "alternativasAceptadas": [],
+        "alternativasAceptadas": [
+          "2/5"
+        ],
         "pistas": [
           "La pregunta pide la parte pendiente.",
           "Seis cuadros están sin pintar.",
           "Pon 6 sobre el total de 15."
         ],
-        "retroalimentacion": "Falta 6/15; 9/15 sería la parte pintada."
+        "retroalimentacion": "Falta 6/15, que también equivale a 2/5; 9/15 sería la parte pintada."
       },
       {
         "id": "e12",
@@ -294,7 +300,133 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Cuánto falta para completar la unidad",
+          "narracion": "Bienvenida y bienvenido. Hoy veremos qué fracción falta para completar la unidad. Como idea principal, la unidad completa tiene tantas partes iguales como dice el denominador. Si ya usaste algunas, las restas al total, y lo que queda es la fracción que falta, con el mismo denominador."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "La tira de papel",
+          "narracion": "Observemos esta situación. Tenemos una tira de papel dividida en diez partes iguales. Cuatro partes están pintadas de amarillo y las demás están sin pintar. Queremos saber qué fracción de la tira falta por pintar.",
+          "recursoRef": "tira-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: contamos las partes",
+          "narracion": "Primero miramos en cuántas partes iguales se dividió la tira: en diez. Esa es la unidad completa, diez de diez. Ya están pintadas cuatro partes. Piensa cuántas partes faltan por pintar.",
+          "recursoRef": "tira-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: restamos",
+          "narracion": "Restamos las partes pintadas al total: diez menos cuatro es seis. Faltan seis partes de diez, o sea seis décimos. Fíjate que el denominador sigue siendo diez, porque las partes siguen siendo del mismo tamaño.",
+          "recursoRef": "tira-falta"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la pizza",
+          "narracion": "Ahora una pizza que se partió en seis porciones iguales. Los niños ya se comieron una porción, y esa quedó vacía. Queremos saber qué fracción de la pizza queda. Piensa cuántas porciones quedan.",
+          "recursoRef": "pizza-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: lo que queda",
+          "narracion": "La pizza entera es seis sextos. Restamos la porción que se comió: seis sextos menos un sexto son cinco sextos. Quedan cinco sextos de la pizza, que son las porciones con borde turquesa.",
+          "recursoRef": "pizza-falta"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Mira estas dos respuestas para una tira de cinco partes con dos pintadas. En la fila de arriba alguien cambió también el denominador y escribió tres tercios, y por eso lleva una equis roja. Las partes siguen siendo del mismo tamaño, así que el denominador no cambia. En la fila de abajo la respuesta es tres quintos, con una palomita. Otro error es responder con la fracción que ya se usó, dos quintos. La pregunta es por lo que falta.",
+          "recursoRef": "errores"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira la unidad",
+          "narracion": "Primero identifica en cuántas partes iguales se dividió la unidad. En la tira son diez partes iguales.",
+          "recursoRef": "tira-pregunta"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: cuenta las usadas",
+          "narracion": "Segundo, cuenta cuántas partes ya están ocupadas. En la pizza, una porción ya se comió.",
+          "recursoRef": "pizza-pregunta"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: resta y escribe",
+          "narracion": "Tercero, resta esas partes al total y escribe la fracción con el mismo denominador. En la tira, diez menos cuatro da seis, y se escribe seis décimos.",
+          "recursoRef": "tira-falta"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "tira-pregunta",
+          "src": "/nudito/diagramas/matematica/completar-la-unidad-tira-pregunta.svg",
+          "alt": "Una tira de diez partes iguales con las cuatro primeras amarillas y las demás vacías; abajo, pintadas cuatro de diez y falta pintar con signo de pregunta.",
+          "descripcion": "Una tira dividida en diez partes iguales. Las cuatro primeras, a la izquierda, son amarillas y las demás están vacías. Arriba se lee diez partes iguales; debajo, pintadas: cuatro de diez, y falta pintar: con un signo de pregunta."
+        },
+        {
+          "id": "tira-falta",
+          "src": "/nudito/diagramas/matematica/completar-la-unidad-tira-falta.svg",
+          "alt": "La tira de diez partes con cuatro amarillas y las demás en turquesa claro bajo una llave; abajo, falta seis décimos y diez décimos menos cuatro décimos igual seis décimos.",
+          "descripcion": "La misma tira de diez partes iguales: cuatro amarillas a la izquierda y seis con borde turquesa y relleno turquesa claro a la derecha. Una llave turquesa bajo esas seis partes lleva el texto falta: seis décimos. Más abajo se lee diez décimos menos cuatro décimos igual seis décimos."
+        },
+        {
+          "id": "pizza-pregunta",
+          "src": "/nudito/diagramas/matematica/completar-la-unidad-pizza-pregunta.svg",
+          "alt": "Una pizza de seis porciones iguales; la de arriba a la derecha está vacía y las demás son amarillas; abajo, la pregunta cuántas quedan.",
+          "descripcion": "Un círculo dividido en seis porciones iguales. La porción de arriba a la derecha está vacía, con borde punteado, y las demás son amarillas. Abajo se lee seis porciones iguales; se comió una, y quedan: con un signo de pregunta."
+        },
+        {
+          "id": "pizza-falta",
+          "src": "/nudito/diagramas/matematica/completar-la-unidad-pizza-falta.svg",
+          "alt": "La pizza con las cinco porciones amarillas que quedan marcadas con borde turquesa; abajo, seis sextos menos un sexto igual cinco sextos.",
+          "descripcion": "Un círculo de seis porciones: la de arriba a la derecha está vacía, con borde punteado, y las otras cinco son amarillas con borde turquesa grueso. Abajo se lee seis sextos menos un sexto igual cinco sextos y, en turquesa, quedan cinco sextos."
+        },
+        {
+          "id": "errores",
+          "src": "/nudito/diagramas/matematica/completar-la-unidad-errores.svg",
+          "alt": "Dos tiras de cinco partes con dos amarillas. La de arriba dice falta tres tercios, con equis roja; la de abajo dice falta tres quintos, con palomita.",
+          "descripcion": "Dos tiras iguales de cinco partes, cada una con las dos primeras partes amarillas. En la de arriba, las tres partes vacías tienen borde oscuro, hay una equis roja y debajo se lee en rojo falta tres tercios. En la de abajo, las tres partes vacías son turquesa claro con borde turquesa, hay una palomita y debajo se lee en turquesa falta tres quintos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una cinta está dividida en nueve partes iguales y Joel usó cuatro de ellas. ¿Qué fracción de la cinta falta usar?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Cuatro novenos"
+          },
+          {
+            "id": "b",
+            "texto": "Cinco cuartos"
+          },
+          {
+            "id": "c",
+            "texto": "Cinco novenos"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. La cinta entera es nueve novenos, y si Joel usó cuatro novenos, faltan cinco novenos.",
+        "pista": "Piensa cuántas partes tiene toda la cinta y cuántas ya se usaron."
+      }
+    }
   },
   {
     "clave": "mat.p4.problemas-suma-resta-fracciones",

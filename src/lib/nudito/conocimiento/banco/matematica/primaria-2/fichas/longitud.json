@@ -617,7 +617,114 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Medir es contar unidades",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a medir el largo de un objeto. Como idea principal, medir es contar cuántas veces cabe una unidad, como un clip, un palmo o un paso. Al final dices el número y también el nombre de la unidad."
+        },
+        {
+          "id": "situacion-lapiz",
+          "tipo": "recurso",
+          "titulo": "Un lápiz y seis clips",
+          "narracion": "Observemos este lápiz. Debajo hay seis clips iguales, uno al lado del otro. Los clips cubren todo el largo del lápiz, desde el inicio hasta la punta, sin dejar huecos.",
+          "recursoRef": "lapiz-clips"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: medimos el lápiz",
+          "narracion": "Vamos a medir el lápiz con clips. Ponemos el primer clip al inicio. Ponemos el segundo pegado al primero. Seguimos así hasta llegar al final del lápiz.",
+          "recursoRef": "lapiz-clips"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: contamos los clips",
+          "narracion": "Contamos: uno, dos, tres, cuatro, cinco, seis. El lápiz mide seis clips. Decimos el número y la unidad juntos: seis clips.",
+          "recursoRef": "lapiz-clips"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una puerta, dos medidas",
+          "narracion": "Luis midió una puerta con sus pies y le salieron nueve pies. Rosa midió la misma puerta con sus pasos y le salieron tres pasos.",
+          "recursoRef": "puerta-pies-pasos"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ¿por qué salen distintos?",
+          "narracion": "La puerta es la misma, pero los números son distintos. Un paso es más grande que un pie, así que Rosa necesita menos veces su unidad. Si cambias de unidad, cambia el número.",
+          "recursoRef": "puerta-pies-pasos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Dos errores al medir",
+          "narracion": "Cuidado con dos errores. El primero es dejar huecos entre los clips o poner un clip encima de otro: así la cuenta sale mal. El segundo es decir solo el número. Si dices seis, no sabemos si son clips, palmos o pasos. Debes decir seis clips."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: elige una unidad",
+          "narracion": "Primero elige una unidad para medir, como un clip, un palmo o un paso.",
+          "recursoRef": "lapiz-clips"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: coloca la unidad sin huecos",
+          "narracion": "Luego coloca la unidad al inicio del objeto. La siguiente va pegada a la anterior, sin huecos y sin encimarse.",
+          "recursoRef": "lapiz-clips"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: cuenta y di la unidad",
+          "narracion": "Por último, cuenta cuántas veces cabe la unidad y di el número con su nombre. Recuerda que si cambias la unidad, el número cambia.",
+          "recursoRef": "puerta-pies-pasos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "lapiz-clips",
+          "src": "/nudito/diagramas/matematica/longitud-clips-lapiz.svg",
+          "alt": "Un lápiz y debajo seis clips numerados del uno al seis, pegados uno tras otro, que cubren todo su largo.",
+          "descripcion": "Arriba hay un lápiz amarillo con la punta a la derecha. Debajo hay una fila de seis clips pegados, numerados del uno al seis. Dos rayitas marcan que la fila empieza donde empieza el lápiz y termina en la punta. Abajo dice que el lápiz mide seis clips."
+        },
+        {
+          "id": "puerta-pies-pasos",
+          "src": "/nudito/diagramas/matematica/longitud-pies-pasos.svg",
+          "alt": "La misma puerta medida con nueve pies pequeños de Luis y con tres pasos grandes de Rosa.",
+          "descripcion": "Hay dos filas del mismo largo, que representan la misma puerta. La de arriba tiene nueve cuadros pequeños numerados, los pies de Luis. La de abajo tiene tres cuadros grandes, los pasos de Rosa. Abajo dice que es la misma puerta con unidades distintas."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Mides la misma tabla con un palmo grande y con un palmo pequeño. ¿Con cuál sale un número mayor de palmos?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Con el palmo grande"
+          },
+          {
+            "id": "b",
+            "texto": "Con el palmo pequeño"
+          },
+          {
+            "id": "c",
+            "texto": "Sale el mismo número"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. Un palmo pequeño cabe más veces en la tabla, así que sale un número mayor. Con un palmo grande salen menos palmos.",
+        "pista": "Piensa en los pies y los pasos de la puerta: la unidad más pequeña necesita más veces."
+      }
+    }
   },
   {
     "clave": "mat.p2.cuantas-veces-mas-largo",
@@ -927,7 +1034,130 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "¿Cuántas veces más largo?",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a comparar largos. Como idea principal, para saber cuántas veces más largo es un objeto, vemos cuántas veces cabe el objeto pequeño dentro del grande. Si cabe dos veces, el grande es dos veces más largo."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Un crayón y un cordón",
+          "narracion": "Observemos esta situación. Tenemos un crayón corto y un cordón largo. Los dos están rectos. Queremos saber cuántas veces cabe el crayón en el cordón.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: poner el crayón en fila",
+          "narracion": "Imagina que pones el crayón sobre el cordón, uno tras otro. Empieza en un extremo, sin dejar huecos y sin pasarte. Después cuenta cuántos crayones usaste.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: contar los crayones",
+          "narracion": "Ahora los crayones están en fila sobre el cordón y llevan números. Llenan el cordón justo. El último lleva el número cuatro. El crayón cabe cuatro veces, así que el cordón es cuatro veces más largo.",
+          "recursoRef": "ej1-fila"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: dos cintas con cuadritos",
+          "narracion": "Ahora comparamos dos cintas. Todos los cuadritos miden lo mismo. Fíjate cuántos cuadritos tiene la cinta azul y cuántos tiene la roja. ¿Cuántas veces cabe la azul en la roja?",
+          "recursoRef": "cintas-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: tres cintas azules",
+          "narracion": "Ponemos cintas azules una tras otra debajo de la roja. Con tres cintas azules cubrimos justo la roja. La roja es tres veces más larga que la azul.",
+          "recursoRef": "cintas-razona"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con los espacios",
+          "narracion": "Mira este error. Los crayones están sobre el cordón, pero no quedan pegados: hay huecos entre ellos. Si contamos así, el número no sirve. El objeto pequeño se coloca una vez tras otra, sin dejar espacios ni pasarse.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: elige el objeto pequeño",
+          "narracion": "Primero elige el objeto más pequeño. Ese será tu medida."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: colócalo en fila",
+          "narracion": "Luego colócalo una vez tras otra sobre el objeto grande. No dejes huecos y no te pases del final."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: cuenta las veces",
+          "narracion": "Por último, cuenta cuántas veces cabe. Ese número dice cuántas veces más largo es el objeto grande."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/cuantas-veces-situacion.svg",
+          "alt": "Un crayón corto amarillo arriba y un cordón largo y liso debajo.",
+          "descripcion": "Arriba, un crayón amarillo con la punta a la derecha, rotulado Crayón. Debajo, un cordón largo y sin marcas, rotulado Cordón. Abajo se lee: ¿Cuántas veces cabe el crayón?"
+        },
+        {
+          "id": "ej1-fila",
+          "src": "/nudito/diagramas/matematica/cuantas-veces-ej1-fila.svg",
+          "alt": "Cuatro crayones numerados, uno tras otro, sobre el cordón.",
+          "descripcion": "Cuatro crayones amarillos, numerados del uno al cuatro, pegados en fila sobre el cordón, que llenan justo su largo. Se lee: Llenan el cordón justo y Cabe cuatro veces."
+        },
+        {
+          "id": "cintas-pregunta",
+          "src": "/nudito/diagramas/matematica/cuantas-veces-cintas-pregunta.svg",
+          "alt": "Una cinta azul corta y una cinta roja más larga, de cuadritos iguales.",
+          "descripcion": "Dos cintas de cuadritos iguales, alineadas a la izquierda. La cinta azul tiene tres cuadritos y la roja tiene nueve. Abajo se lee: ¿Cuántas veces cabe la azul?"
+        },
+        {
+          "id": "cintas-razona",
+          "src": "/nudito/diagramas/matematica/cuantas-veces-cintas-razona.svg",
+          "alt": "Tres cintas azules, una tras otra y numeradas, debajo de la cinta roja.",
+          "descripcion": "Arriba, la cinta roja de nueve cuadritos. Debajo, tres cintas azules de tres cuadritos cada una, una tras otra, que cubren el mismo largo. Llevan los números uno, dos y tres. Abajo: Cabe tres veces."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/cuantas-veces-error.svg",
+          "alt": "Tres crayones sobre el cordón con huecos entre ellos, marcados en rojo.",
+          "descripcion": "Tres crayones amarillos sobre el cordón, separados. Cada hueco entre ellos está rodeado por un recuadro rojo de rayas, y el último crayón deja libre parte del cordón. Abajo, en rojo: Hay huecos entre los crayones. Así no se cuenta bien."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Un tubo mide tres palmos. Otro tubo es cuatro veces más largo que ese. ¿Cuánto mide el tubo largo?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Siete palmos"
+          },
+          {
+            "id": "b",
+            "texto": "Cuatro palmos"
+          },
+          {
+            "id": "c",
+            "texto": "Doce palmos"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Cuatro tubos de tres palmos puestos en fila miden doce palmos.",
+        "pista": "Imagina el tubo corto repetido en fila, una vez tras otra."
+      }
+    }
   },
   {
     "clave": "mat.p2.conservacion-longitud",
@@ -1235,6 +1465,124 @@
     ],
     "version": 1,
     "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "La longitud se conserva",
+          "narracion": "Bienvenida y bienvenido. La longitud dice cuánto mide algo de largo. Doblar, enrollar o mover un objeto cambia su forma o su lugar, pero no su longitud. Solo cambia si cortamos o agregamos una parte."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "La cinta cambia de forma",
+          "narracion": "Observemos la misma cinta en dos momentos. Primero está recta. Después está enrollada como una espiral. No vemos cortes ni pedazos nuevos. Nos preguntamos si cambió cuánto mide.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una cinta enrollada",
+          "narracion": "Una cinta mide cuarenta centímetros cuando está recta. Luego la enrollamos sin cortarla. Cuando vuelva a estar recta, ¿cuánto medirá?"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: el recorrido completo",
+          "narracion": "La cinta sigue midiendo cuarenta centímetros. Enrollarla solo la acomoda en menos espacio. Si seguimos todo su recorrido, desde un extremo hasta el otro, la longitud es la misma.",
+          "recursoRef": "ejemplo-uno"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una cuerda doblada",
+          "narracion": "Una cuerda mide sesenta centímetros. La doblamos hasta formar una curva abierta, con los dos extremos hacia arriba. No la cortamos ni la estiramos. ¿Cambió su longitud?"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: otra forma, igual longitud",
+          "narracion": "No cambió. La cuerda sigue midiendo sesenta centímetros. Sus extremos quedaron más cerca, pero la longitud se mide siguiendo toda la cuerda, incluida la curva.",
+          "recursoRef": "ejemplo-dos"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con estos errores",
+          "narracion": "Un error es medir solo el espacio recto entre los extremos de una cuerda enrollada. Ese atajo es más corto, pero no sigue la cuerda. Para conocer la longitud, recorremos el objeto completo.",
+          "recursoRef": "error"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: identifica el objeto",
+          "narracion": "Comprueba que es el mismo objeto antes y después. En la situación aparece la misma cinta, primero recta y luego enrollada.",
+          "recursoRef": "situacion"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: busca cortes o añadidos",
+          "narracion": "Pregunta si cortaron una parte o agregaron otra. Si no ocurrió ninguna de esas acciones, doblar o enrollar no cambia la longitud.",
+          "recursoRef": "ejemplo-uno"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: sigue todo el recorrido",
+          "narracion": "Imagina que recorres el objeto desde un extremo hasta el otro. No midas un atajo entre los extremos. En la cuerda curvada, también debes seguir la parte redonda.",
+          "recursoRef": "ejemplo-dos"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "situacion",
+          "src": "/nudito/diagramas/matematica/conservacion-longitud-situacion.svg",
+          "alt": "La misma cinta aparece recta antes y enrollada en espiral después.",
+          "descripcion": "Dos recuadros blancos muestran la misma cinta amarilla. En el recuadro Antes está recta y horizontal. En el recuadro Después está enrollada en espiral. Abajo se pregunta si cambió cuánto mide."
+        },
+        {
+          "id": "ejemplo-uno",
+          "src": "/nudito/diagramas/matematica/conservacion-longitud-ejemplo-uno.svg",
+          "alt": "Una cinta recta y la misma cinta enrollada, ambas de cuarenta centímetros.",
+          "descripcion": "Una cinta amarilla recta aparece bajo una cota azul. Debajo está la misma cinta enrollada en espiral. El título indica que sigue midiendo cuarenta centímetros y el texto aclara que enrollar no corta ni agrega."
+        },
+        {
+          "id": "ejemplo-dos",
+          "src": "/nudito/diagramas/matematica/conservacion-longitud-ejemplo-dos.svg",
+          "alt": "Una cuerda turquesa doblada en curva abierta conserva sus sesenta centímetros.",
+          "descripcion": "Una cuerda turquesa forma una curva abierta con los extremos hacia arriba. El título indica que sigue midiendo sesenta centímetros y el texto dice que cambió la forma, no la longitud."
+        },
+        {
+          "id": "error",
+          "src": "/nudito/diagramas/matematica/conservacion-longitud-error.svg",
+          "alt": "Una cuerda recta y la misma cuerda enrollada; una línea roja punteada une sus extremos en recta.",
+          "descripcion": "Arriba hay una cuerda turquesa recta con una cota azul. Abajo, la misma cuerda forma una curva enrollada con sus dos extremos visibles. Una línea roja punteada une esos extremos en línea recta. El texto indica seguir todo el recorrido."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una soga mide treinta y cinco centímetros. La enrollas y luego la vuelves a estirar. ¿Qué ocurre con su longitud?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Queda un poco más larga"
+          },
+          {
+            "id": "b",
+            "texto": "Queda un poco más corta"
+          },
+          {
+            "id": "c",
+            "texto": "Mide igual que antes"
+          }
+        ],
+        "respuesta": "c",
+        "mensajeCorrecto": "Correcto. Enrollar y volver a estirar no cambia la longitud: mide igual que antes.",
+        "pista": "Piensa si la soga fue cortada o si recibió un pedazo nuevo."
+      }
+    },
     "fuentes": [
       {
         "documento": "Programa curricular de Educación Primaria, MINEDU",

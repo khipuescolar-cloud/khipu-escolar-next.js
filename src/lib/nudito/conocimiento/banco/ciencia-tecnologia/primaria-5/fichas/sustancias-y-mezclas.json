@@ -1861,7 +1861,130 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "El agua disuelve muchas sustancias",
+          "narracion": "Hola, hoy vamos a descubrir qué pasa cuando mezclamos distintas sustancias con agua. Como idea principal, el agua disuelve varias sustancias, como la sal, el azúcar y el jugo en polvo, y por eso a veces se le llama solvente universal. Pero no disuelve todo: el aceite y la arena no se disuelven en agua."
+        },
+        {
+          "id": "situacion-mesa",
+          "tipo": "recurso",
+          "titulo": "Tres sustancias y un vaso de agua",
+          "narracion": "Observemos esta situación. Sobre una mesa de cocina hay un vaso de agua limpia y tres tazones: uno con sal, otro con aceite y otro con arena. Nos preguntamos qué ocurrirá con cada sustancia si la echamos al agua y revolvemos. En este tema aprenderemos a decidirlo observando.",
+          "recursoRef": "mesa"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la sal en agua",
+          "narracion": "Fíjate en el tazón de la sal. Si echamos una cucharadita en el vaso y revolvemos bien, ¿qué crees que veremos: granos de sal en el fondo o un agua que sigue transparente? Piénsalo antes de seguir.",
+          "recursoRef": "mesa"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la sal desaparece de la vista",
+          "narracion": "Después de revolver, el vaso quedó transparente y no se ven granos en el fondo. La sal se disolvió: sus partículas se repartieron entre las del agua, por eso ya no se ven. La sal sigue allí; la mezcla es uniforme, es decir, en cualquier parte del vaso hay la misma cantidad de sal.",
+          "recursoRef": "sal"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el aceite en agua",
+          "narracion": "Ahora pensemos en el aceite. Imagina que vertemos una cucharada en otro vaso con agua y revolvemos con fuerza. ¿Se mezclará como la sal o veremos otra cosa? Piénsalo antes de seguir."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: el aceite forma una capa",
+          "narracion": "El aceite no desapareció. Flota como una capa dorada sobre el agua, con un límite claro entre las dos. Cuando una sustancia forma capas, no se disolvió: decimos que es insoluble en agua. Por eso el agua y el aceite no se mezclan, por más que se revuelvan.",
+          "recursoRef": "aceite"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: la arena y el agua",
+          "narracion": "Algunas personas creen que, como el agua se llama solvente universal, cualquier sustancia debería desaparecer en ella. Pero mira la arena: se hunde y se acumula en el fondo, y el agua de arriba sigue transparente. Que algo quede abajo no significa que se disolvió. Si se ven granos, la arena no es soluble. Otro error es pensar que lo disuelto se destruye: la sal sigue en el agua, solo que ya no se ve.",
+          "recursoRef": "arena"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: elige y mezcla",
+          "narracion": "Primero elige la sustancia que quieres probar y échala en agua limpia. Usa siempre la misma cantidad de agua y una cucharadita de la sustancia, y no pruebes nada con la boca."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: agita y observa",
+          "narracion": "Después agita bien y observa con calma. Fíjate si la sustancia desaparece, si se forman capas o si quedan granos en el fondo."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: decide qué ocurrió",
+          "narracion": "Por último decide con lo que observaste. Si la mezcla queda uniforme, la sustancia es soluble en agua. Si hay capas o granos, es insoluble. En la tabla, la sal y el azúcar están del lado de las que se disuelven, y el aceite y la arena, del lado de las que no.",
+          "recursoRef": "tabla"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "mesa",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-5/solvente-mesa-zimage-v1.webp",
+          "alt": "Sobre una mesa de cocina, un vaso de agua transparente y tres tazones blancos: uno con sal, otro con aceite y otro con arena.",
+          "descripcion": "Sobre una mesa de madera hay un vaso alto con agua transparente. Delante, tres tazones blancos en fila: uno con sal blanca, otro con aceite amarillo y otro con arena marrón claro. A la derecha hay una cuchara metálica."
+        },
+        {
+          "id": "sal",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-5/solvente-sal-vaso-zimage-v1.webp",
+          "alt": "Un vaso con agua limpia y una cuchara dentro, junto a un salero; el agua se ve transparente y sin granos en el fondo.",
+          "descripcion": "Un vaso transparente con agua limpia sobre una mesa de madera, con una cuchara metálica dentro. A la izquierda hay un salero blanco. El agua se ve clara y no hay granos en el fondo."
+        },
+        {
+          "id": "aceite",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-5/solvente-aceite-vaso-zimage-v1.webp",
+          "alt": "Un vaso con dos capas: arriba aceite amarillo y abajo agua clara, con un límite entre ambas.",
+          "descripcion": "Un vaso transparente sobre una mesa de madera con dos capas: arriba, una capa amarilla de aceite, y abajo, agua clara. Se ve un límite claro entre las dos. A la derecha hay una cuchara metálica."
+        },
+        {
+          "id": "arena",
+          "src": "/nudito/ilustraciones/ciencia-tecnologia/primaria-5/solvente-arena-vaso-zimage-v1.webp",
+          "alt": "Un vaso con agua clara y arena acumulada en el fondo, con una cuchara y un poco de arena sobre la mesa.",
+          "descripcion": "Un vaso transparente con agua clara sobre una mesa de madera. En el fondo del vaso se acumula una capa de arena marrón claro. A su izquierda hay un poco de arena derramada y, a la derecha, una cuchara metálica."
+        },
+        {
+          "id": "tabla",
+          "src": "/nudito/diagramas/ciencia-tecnologia/solvente-se-disuelve-o-no.svg",
+          "alt": "Tabla de dos columnas: se disuelve, con sal y azúcar, y no se disuelve, con aceite y arena.",
+          "descripcion": "Dos columnas. En «Se disuelve» están la sal y el azúcar, con el rótulo mezcla uniforme. En «No se disuelve» están el aceite y la arena, con el rótulo capas o granos."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Rosa echa jugo de naranja en polvo en un vaso con agua y revuelve bien. ¿Qué observa?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Se forman dos capas separadas"
+          },
+          {
+            "id": "b",
+            "texto": "La mezcla queda de un solo tono"
+          },
+          {
+            "id": "c",
+            "texto": "Los granos se hunden en el fondo"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. El jugo en polvo es soluble en agua: se disuelve y la mezcla queda uniforme, sin capas ni granos.",
+        "pista": "Recuerda cómo se ve la mezcla cuando una sustancia es soluble en agua."
+      }
+    }
   },
   {
     "clave": "cyt.p5.el-aire-mezcla",

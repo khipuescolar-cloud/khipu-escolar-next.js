@@ -309,7 +309,120 @@
       }
     ],
     "version": 1,
-    "revisado": null
+    "revisado": null,
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Los números también siguen una regla",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderás a seguir un patrón de números que crecen. Como idea principal, ten presente que en este tipo de patrón siempre se suma la misma cantidad para pasar de un número al siguiente. Si descubres cuánto se suma, puedes decir qué número viene después, aunque todavía no esté escrito."
+        },
+        {
+          "id": "situacion-ahorro",
+          "tipo": "recurso",
+          "titulo": "Mateo guarda monedas en su alcancía",
+          "narracion": "Observemos esta situación. Mateo ahorra y cada día agrega la misma cantidad de monedas. Fíjate en cuánto dinero hay cada día y en cuánto cambia de un día al siguiente: primero dos soles, luego cuatro, seis y ocho. Cada día sube dos, y ese cambio que se repite es la regla del patrón.",
+          "recursoRef": "ahorro-diario"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la serie de tres en tres",
+          "narracion": "Veamos otra serie: tres, seis, nueve, doce. Para hallar la regla comparamos números vecinos. De tres a seis hay que sumar tres. Comprobamos con los siguientes: de seis a nueve se suma tres, y de nueve a doce también. Como el salto siempre es tres, el número que sigue es doce más tres, es decir, quince.",
+          "recursoRef": "regla-mas-tres"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: seguimos la serie",
+          "narracion": "Ahora piensa tú. Si la serie sigue igual, después del quince viene el dieciocho, porque quince más tres es dieciocho. Y después viene el veintiuno. Cada número nuevo se encuentra sumando tres al anterior. No contamos de uno en uno: damos saltos del mismo tamaño.",
+          "recursoRef": "regla-mas-tres"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: los panes de doña Rosa",
+          "narracion": "Doña Rosa vende cinco panes el primer día, diez el segundo y quince el tercero. Si sigue igual, ¿cuántos vende el cuarto día? Buscamos el salto: de cinco a diez hay cinco más, y de diez a quince también. Entonces el cuarto día vende quince más cinco, veinte panes. En la recta los saltos de cinco llegan hasta el veinte.",
+          "recursoRef": "recta-panes"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: ¿y el quinto día?",
+          "narracion": "Averigua ahora el quinto día sin dibujar más saltos. El último número conocido es veinte y el salto es cinco. Veinte más cinco son veinticinco, así que doña Rosa vende veinticinco panes el quinto día. Se comprueba en la recta: del veinte al signo de pregunta hay otro salto de cinco, igual que los anteriores.",
+          "recursoRef": "recta-panes"
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Cuidado con las listas que cambian de salto",
+          "narracion": "Algunas listas crecen, pero no siguen un patrón. Mira cuatro, ocho, doce, quince. De cuatro a ocho se suma cuatro, de ocho a doce también se suma cuatro, pero de doce a quince solo se suma tres. Como el salto cambió, esta lista no es un patrón que crece siempre lo mismo. Para que lo sea, el salto debe ser igual en todos los pasos."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: busca el salto",
+          "narracion": "Primero toma los dos primeros números y averigua cuánto hay entre ellos. Puedes preguntarte cuánto le sumo al primero para llegar al segundo. En la serie tres, seis, nueve y doce, ese salto es tres.",
+          "recursoRef": "regla-mas-tres"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: comprueba cada salto",
+          "narracion": "Después comprueba que el mismo salto se repita entre todos los números vecinos. Si en algún paso el salto cambia, la lista no es un patrón que crece siempre lo mismo y conviene revisar los números.",
+          "recursoRef": "ahorro-diario"
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: suma el salto al último número",
+          "narracion": "Cuando estés seguro de la regla, suma el salto al último número y obtendrás el siguiente. Con saltos de cinco, después del veinte viene el veinticinco, después el treinta. Puedes repetir el paso tantas veces como necesites para seguir el patrón.",
+          "recursoRef": "recta-panes"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "ahorro-diario",
+          "src": "/nudito/diagramas/matematica/patrones-aditivos-ahorro.svg",
+          "alt": "Cuatro columnas de monedas que suben de dos en dos: S/ 2, S/ 4, S/ 6 y S/ 8.",
+          "descripcion": "Hay cuatro columnas de monedas, una por día, con dos monedas en cada piso. El día uno tiene dos soles, el día dos tiene cuatro, el día tres tiene seis y el día cuatro tiene ocho. Las monedas amarillas de arriba son las que llegan ese día, y entre las columnas aparece el signo más dos."
+        },
+        {
+          "id": "recta-panes",
+          "src": "/nudito/diagramas/matematica/patrones-aditivos-recta-cinco.svg",
+          "alt": "Recta numérica con saltos de cinco: cinco, diez, quince y veinte, y un signo de pregunta en el veinticinco.",
+          "descripcion": "Sobre una recta numérica hay puntos en el cinco, el diez, el quince y el veinte, que corresponden a los días uno al cuatro. Cada salto dice más cinco. Después del veinte aparece un círculo amarillo con signo de pregunta en el veinticinco, que es el día cinco."
+        },
+        {
+          "id": "regla-mas-tres",
+          "src": "/nudito/diagramas/matematica/patrones-aditivos-regla.svg",
+          "alt": "Cuatro casillas con tres, seis, nueve y doce, unidas por arcos de más tres.",
+          "descripcion": "Se ven cuatro casillas con los números tres, seis, nueve y doce. Entre una casilla y la siguiente hay un arco con más tres, porque cada número se obtiene sumando tres al anterior. Abajo se lee que cada número es el anterior más tres."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Mira la lista dos, cinco, ocho, once. Si sigue el mismo patrón, ¿qué número viene después?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Trece"
+          },
+          {
+            "id": "b",
+            "texto": "Catorce"
+          },
+          {
+            "id": "c",
+            "texto": "Quince"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Muy bien. La regla es sumar tres: dos más tres es cinco, cinco más tres es ocho, ocho más tres es once y once más tres es catorce.",
+        "pista": "Calcula cuánto hay entre dos y cinco, y comprueba si entre cinco y ocho es lo mismo."
+      }
+    }
   },
   {
     "clave": "mat.p2.patrones-decrecientes",
@@ -1861,6 +1974,122 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Explicar cómo cambia un patrón",
+          "narracion": "Bienvenida y bienvenido. Un patrón aditivo es una fila de números que cambia siempre por la misma cantidad. Puede crecer al sumar o disminuir al restar. Para explicar la regla, compara cada número con el siguiente y comprueba que el mismo salto se repita."
+        },
+        {
+          "id": "situacion",
+          "tipo": "recurso",
+          "titulo": "Montones que crecen",
+          "narracion": "Observemos esta situación. Los montones tienen cuatro, ocho, doce y dieciséis mandarinas. Hay un lugar vacío para el montón siguiente. Queremos descubrir cómo cambia la cantidad.",
+          "recursoRef": "mandarinas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: compara los saltos",
+          "narracion": "Compara el primer montón con el segundo. Luego compara el segundo con el tercero y el tercero con el cuarto. ¿Cuánto aumenta cada vez?",
+          "recursoRef": "mandarinas-pregunta"
+        },
+        {
+          "id": "ejemplo-1-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: una regla que se repite",
+          "narracion": "De cuatro a ocho se suman cuatro. El mismo salto lleva a doce, luego a dieciséis y después a veinte. La regla es sumar cuatro cada vez.",
+          "recursoRef": "mandarinas-resuelto"
+        },
+        {
+          "id": "ejemplo-2-guiado",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una fila que baja",
+          "narracion": "Ahora mira una escalera que baja. Sus peldaños dicen cuarenta y cinco, cuarenta, treinta y cinco y treinta. ¿Cuánto disminuye en cada salto y qué número va en el peldaño con el signo de pregunta?",
+          "recursoRef": "escalera-pregunta"
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: resta la misma cantidad",
+          "narracion": "Cada peldaño baja cinco. Después de treinta, restamos cinco y obtenemos veinticinco. La regla es restar cinco cada vez."
+        },
+        {
+          "id": "contraejemplo",
+          "tipo": "ejemplo",
+          "titulo": "Un salto distinto rompe la regla",
+          "narracion": "La fila empieza con siete, diez y trece. Los dos primeros saltos suman tres, pero el último llega a diecisiete y suma cuatro. Ese salto diferente rompe el patrón.",
+          "recursoRef": "error-salto"
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: mira dos números seguidos",
+          "narracion": "Primero, compara dos números seguidos y decide si la fila sube o baja."
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: halla el salto",
+          "narracion": "Después, averigua cuánto se suma o cuánto se resta de un número al siguiente."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: comprueba y explica",
+          "narracion": "Por último, revisa todos los saltos. Si son iguales, explica la regla con una frase corta y úsala para continuar."
+        }
+      ],
+      "recursos": [
+        {
+          "id": "mandarinas-pregunta",
+          "src": "/nudito/diagramas/matematica/explicar-patron-mandarinas-pregunta.svg",
+          "alt": "Cuatro montones con cuatro, ocho, doce y dieciséis mandarinas, seguidos por un signo de pregunta.",
+          "descripcion": "Cuatro montones crecen de izquierda a derecha. El primero tiene cuatro círculos amarillos; el segundo, ocho. El tercero tiene doce círculos turquesa y el cuarto, dieciséis. Debajo aparecen sus cantidades en palabras y al final hay un signo de pregunta."
+        },
+        {
+          "id": "mandarinas-resuelto",
+          "src": "/nudito/diagramas/matematica/explicar-patron-mandarinas-resuelto.svg",
+          "alt": "Fila de cuatro, ocho, doce, dieciséis y veinte, con saltos de cuatro.",
+          "descripcion": "Cinco tarjetas muestran cuatro, ocho, doce, dieciséis y veinte con cifras. Sobre cada espacio entre tarjetas aparece «más cuatro». Abajo se lee «Se suma cuatro cada vez»."
+        },
+        {
+          "id": "escalera-pregunta",
+          "src": "/nudito/diagramas/matematica/explicar-patron-escalera-pregunta.svg",
+          "alt": "Escalera con cuarenta y cinco, cuarenta, treinta y cinco, treinta y un peldaño con signo de pregunta.",
+          "descripcion": "Una escalera desciende hacia la derecha. Sus peldaños están rotulados con cuarenta y cinco, cuarenta, treinta y cinco y treinta en cifras. El último peldaño, el más bajo, muestra un signo de pregunta."
+        },
+        {
+          "id": "error-salto",
+          "src": "/nudito/diagramas/matematica/explicar-patron-error-salto.svg",
+          "alt": "Fila de siete, diez, trece y diecisiete: dos saltos de tres y un salto de cuatro subrayado en rojo.",
+          "descripcion": "Cuatro círculos contienen siete, diez, trece y diecisiete en cifras. Sobre los primeros espacios se lee «más tres» en turquesa; sobre el último, «más cuatro» en rojo. Una raya roja subraya ese salto diferente."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Una fila empieza en treinta. Después va veinte. Luego, diez. ¿Cómo cambia?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Aumenta cinco cada vez"
+          },
+          {
+            "id": "b",
+            "texto": "Disminuye diez cada vez"
+          },
+          {
+            "id": "c",
+            "texto": "Disminuye cinco cada vez"
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Correcto. De treinta a veinte y de veinte a diez se resta diez.",
+        "pista": "Compara dos números seguidos y decide primero si la fila sube o baja."
+      }
+    }
   }
 ]

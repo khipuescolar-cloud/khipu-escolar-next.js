@@ -385,7 +385,123 @@
         "documento": "Programa curricular de Educación Primaria, MINEDU",
         "url": "https://repositorio.minedu.gob.pe/handle/20.500.12799/4549"
       }
-    ]
+    ],
+    "claseGuiada": {
+      "version": 1,
+      "momentos": [
+        {
+          "id": "idea",
+          "tipo": "idea",
+          "titulo": "Descubrir lo que el texto no dice",
+          "narracion": "Bienvenida y bienvenido. Hoy aprenderemos a inferir, es decir, a descubrir lo que un texto no dice con todas las letras. Como idea principal, una inferencia se construye uniendo las pistas del texto con lo que ya sabes del mundo. Así puedes deducir por qué pasó algo, qué pasará después o qué quiere decir una expresión."
+        },
+        {
+          "id": "situacion-pistas",
+          "tipo": "recurso",
+          "titulo": "Pistas más lo que ya sé",
+          "narracion": "Observemos este esquema. Arriba están las pistas del texto, lo que sí está escrito. Debajo, lo que ya sabes por tu experiencia. Cuando las juntas, obtienes la inferencia: algo que el texto no dice con todas las letras, pero que se entiende.",
+          "recursoRef": "pistas"
+        },
+        {
+          "id": "ejemplo-1-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: la casa de Elena",
+          "narracion": "Leamos: «Cuando Elena abrió la puerta, el piso estaba mojado y había un balde bajo el techo. Afuera, el cielo estaba gris y había charcos en la calle». El texto no explica por qué había un balde. Esa causa es la que tenemos que inferir."
+        },
+        {
+          "id": "ejemplo-1-pistas",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: buscamos las pistas",
+          "narracion": "Aquí está el texto con la pregunta: ¿por qué había un balde? Busquemos pistas. El piso estaba mojado, el balde estaba justo bajo el techo, el cielo estaba gris y había charcos afuera. Ninguna dice que llovió, pero todas apuntan hacia lo mismo.",
+          "recursoRef": "pregunta"
+        },
+        {
+          "id": "ejemplo-1-infiere",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 1: unimos pistas y saberes",
+          "narracion": "Por experiencia sabemos que un balde bajo el techo sirve para recoger agua que gotea, y que los charcos aparecen cuando llueve. Entonces inferimos que llovió y que el techo tiene una gotera. Con las mismas pistas también podemos mirar hacia adelante: lo más probable es que Elena tenga que vaciar el balde cuando se llene."
+        },
+        {
+          "id": "ejemplo-2-lee",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: una expresión en la cocina",
+          "narracion": "Veamos otro texto: «Cuando Julio entró a la cocina y olió el ají de gallina de su abuela, dijo: “¡Se me hace agua la boca!”. Pidió un plato grande y se sentó a la mesa». ¿Qué quiere decir esa expresión? Piensa si de verdad sale agua de su boca y qué pistas te ayudan."
+        },
+        {
+          "id": "ejemplo-2-razona",
+          "tipo": "ejemplo",
+          "titulo": "Ejemplo 2: la expresión no va al pie de la letra",
+          "narracion": "No sale agua de verdad: la expresión es una manera de decir otra cosa. Las pistas lo muestran: Julio olió el ají de gallina y pidió un plato grande. Juntas indican que tiene muchas ganas de comer ese plato. Esa es la inferencia, y no contradice ninguna parte del texto.",
+          "recursoRef": "expresion"
+        },
+        {
+          "id": "error-exagerar",
+          "tipo": "ejemplo",
+          "titulo": "Error frecuente: elegir lo más espectacular",
+          "narracion": "Un error común es escoger la explicación más llamativa aunque el texto no la apoye. En la casa de Elena podrías decir que hubo una gran inundación. Pero un balde y unos charcos no alcanzan para eso. Una inferencia debe ser la explicación que mejor encaja con todas las pistas, no la más exagerada."
+        },
+        {
+          "id": "paso-1",
+          "tipo": "paso",
+          "titulo": "Paso 1: reúne las pistas",
+          "narracion": "Lee todo el texto y anota las pistas que te llaman la atención: objetos, gestos, lugares y palabras. Son una mitad de la inferencia, como en el cuadro de arriba.",
+          "recursoRef": "pistas"
+        },
+        {
+          "id": "paso-2",
+          "tipo": "paso",
+          "titulo": "Paso 2: únelas con lo que sabes",
+          "narracion": "Pregúntate qué pasó antes y qué podría pasar después. Une las pistas con lo que ya sabes del mundo, como que los charcos aparecen cuando llueve."
+        },
+        {
+          "id": "paso-3",
+          "tipo": "paso",
+          "titulo": "Paso 3: comprueba con el texto",
+          "narracion": "Verifica que tu respuesta se apoye en alguna pista y no contradiga ninguna parte del texto. Si es una expresión, pregúntate si tiene sentido tomada al pie de la letra; si no lo tiene, busca su significado en el contexto, como con el agua en la boca de Julio.",
+          "recursoRef": "expresion"
+        }
+      ],
+      "recursos": [
+        {
+          "id": "pistas",
+          "src": "/nudito/diagramas/comunicacion/inferencias-pistas-saber.svg",
+          "alt": "Pistas del texto más lo que ya sé dan como resultado una inferencia.",
+          "descripcion": "Tres recuadros unidos por los signos más e igual. Pistas del texto: lo que sí está escrito. Más lo que ya sé: mi experiencia del mundo. Igual a inferencia: lo que el texto no dice con todas las letras, pero se entiende."
+        },
+        {
+          "id": "pregunta",
+          "src": "/nudito/diagramas/comunicacion/inferencias-pregunta.svg",
+          "alt": "Texto sobre Elena y la pregunta ¿Por qué había un balde?, con un espacio para la inferencia.",
+          "descripcion": "Un recuadro con el texto: «Cuando Elena abrió la puerta, el piso estaba mojado y había un balde bajo el techo. Afuera, el cielo estaba gris y había charcos en la calle». Debajo, la pregunta «¿Por qué había un balde?» y un recuadro punteado que dice «Mi inferencia: ?»."
+        },
+        {
+          "id": "expresion",
+          "src": "/nudito/diagramas/comunicacion/inferencias-expresion.svg",
+          "alt": "La expresión «Se me hace agua la boca» con dos pistas y su significado: muchas ganas de comer.",
+          "descripcion": "Arriba, la frase «¡Se me hace agua la boca!». Luego dos pistas: olió el ají de gallina y pidió un plato grande. Abajo, en amarillo: quiere decir que tiene muchas ganas de comer ese plato; no sale agua de verdad."
+        }
+      ],
+      "comprobacion": {
+        "pregunta": "Lee: «Durante el recreo, Camila se sentó sola en la banca con la cabeza baja. Su amiga Rosa se acercó y le dijo: “Si quieres, repasamos juntas la lección de mañana”. Camila suspiró y sacó su cuaderno con una pequeña sonrisa». ¿Qué se puede deducir de Camila?",
+        "opciones": [
+          {
+            "id": "a",
+            "texto": "Que estaba enojada con Rosa y no quería hablar con ella."
+          },
+          {
+            "id": "b",
+            "texto": "Que estaba preocupada por la lección y se animó con la ayuda."
+          },
+          {
+            "id": "c",
+            "texto": "Que quería jugar un partido con todo el curso en el recreo."
+          }
+        ],
+        "respuesta": "b",
+        "mensajeCorrecto": "Estar sola con la cabeza baja muestra preocupación, y sacar el cuaderno con una sonrisa después de la oferta de Rosa muestra alivio. Ninguna pista indica enojo ni ganas de jugar.",
+        "pista": "Compara cómo estaba Camila al inicio con lo que hace después de que Rosa le habla."
+      }
+    }
   },
   {
     "clave": "com.p5.palabras-polisemicas",
