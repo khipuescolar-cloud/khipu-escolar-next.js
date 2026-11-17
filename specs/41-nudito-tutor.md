@@ -41,23 +41,36 @@ habilitados + consentimiento de IA vigente del apoderado (`consentimientoVigente
 
 ## Flujos
 1. **Bienvenida** animada y personalizada (mascota en estado `saludo`, nombre del alumno). Si hay una sesión activa de menos de
-   24 h: «¿Seguimos con <tema>?» (reanudar).
+   24 h y su tema sigue disponible en la última versión publicada del plan del alumno: «¿Seguimos con <tema>?» (reanudar).
 2. **Elegir curso**: solo cursos del salón del alumno con `cursos.area_cneb` en las áreas habilitadas (specs/42).
 3. **Elegir tema**: temas del grado (recomendados primero) u **«Otro tema»** con validación determinista (`validarTema`, specs/42):
    grado actual o anteriores → permitido; superior solo si está desbloqueado por la política de dominio; demasiado avanzado →
    alternativas amables; ambiguo → pregunta para aclarar; no reconocido → sugerencias.
-4. **Repaso breve**: idea + ejemplo revisados del tema; la IA puede ampliar si el alumno lo pide.
-5. **Práctica**: ejercicios por tema y dificultad (specs/43). El alumno responde por opción, texto, número/fracción,
-   procedimiento, pista (hasta 3, graduadas), pregunta libre o foto (si el colegio lo permite, specs/44).
+4. **Repaso guiado**: la lección muestra una idea por momento; el alumno puede avanzar o volver con controles explícitos, incluso desde la comprobación. Los botones «Anterior» y «Siguiente» están junto a iniciar, pausar o reanudar en la franja superior. Presenta la idea central, recurso visual con descripción, cada tramo de los ejemplos y cada paso de razonamiento antes de la comprobación. Al acabar el último paso, la pantalla pasa directamente a «Comprobemos lo aprendido» y muestra las alternativas interactivas, sin duplicar un bloque de texto. La comprobación se narra automáticamente con un cierre concreto conectado a los ejemplos, la pregunta y sus alternativas, y ofrece un control para volver a escucharla. En el modo de reproducción continua, el texto aparece al ritmo de la narración y, al terminar un momento, pasa automáticamente al siguiente; la barra superior siempre ofrece iniciar, pausar o reanudar. Los fragmentos nuevos de texto reciben una transición breve y suave, sin volver a animar las letras que ya aparecieron; la representación animada conserva una sola copia de cada palabra y una alternativa completa, atómica y no duplicada para ayudas técnicas. Cada momento anuncia por voz su título y explicación, pero no lee contadores como «parte 2 de 11». Si tiene una imagen, la voz narra también qué muestra; la interfaz presenta la misma descripción como pie visible. Un `recursoRef` puede acompañar ideas, recursos, ejemplos o pasos, no solo pantallas rotuladas como recurso; no se repite una imagen en la introducción si el momento siguiente está dedicado a explicarla. Cada momento puede repetirse o detenerse. Las ilustraciones acompañan situaciones que piden imaginar un objeto, proceso o escena. Título y narración se complementan: la voz no repite «Ejemplo 2: mira…» como «Pasamos al segundo ejemplo llamado…». Los textos narrados usan oraciones naturales, no rótulos seguidos de dos puntos. La voz es la predeterminada y disponible en el navegador; no se muestra un selector que no pueda garantizar una voz distinta. La IA puede ampliar si el alumno lo pide.
+5. **Práctica**: ejercicios por tema y dificultad (specs/43). La tarjeta agrupa progreso, lectura si existe, enunciado y respuesta en bloques visuales claros; puede narrar la lectura, instrucciones, pregunta y alternativas reales, y detener esa narración. Al cambiar de ejercicio, la tarjeta y su animación se reinician con el enunciado del nuevo ejercicio y se detiene el audio anterior. En verdadero/falso presenta una pregunta completa y contextualizada («Empecemos… ¿Es verdad que…?») y no repite el contenido. El enunciado entra con una animación breve por letras que se desactiva si el alumno prefiere reducir movimiento. El alumno responde por opción, texto, número/fracción,
+   procedimiento, pista (hasta 3, graduadas), pregunta libre o foto (si el colegio lo permite, specs/44). Puede elegir
+   «Volver a la teoría» en cualquier ejercicio: conserva el ejercicio abierto, carga el repaso si la sesión fue reanudada sin
+   tenerlo en memoria, y al pulsar «¡A practicar!» vuelve al mismo ejercicio sin generar otro.
 6. **Retroalimentación** explicativa por intento (`correcto | parcial | incorrecto | incierto`, error típico detectado).
 7. **Comprobación**: cuando la política lo pide, ejercicios de comprobación sin pistas.
 8. **Resultados**: aciertos, pistas, tiempo y cambios de dominio con su motivo; el progreso queda guardado.
+
+### Patrón de voz pedagógica de primaria (piloto)
+El piloto de «La tecnología avanza con la ciencia» prueba una voz escolar, cercana y activa antes de extenderla al banco completo. Cada explicación sigue este orden:
+
+1. **Conectar:** comienza con una escena de casa, escuela o comunidad que el alumno puede imaginar.
+2. **Invitar a pensar:** plantea una pregunta concreta antes de explicar la respuesta.
+3. **Acompañar:** explica una idea por momento con verbos de observación y razonamiento: mira, imagina, compara, pregúntate.
+4. **Cerrar:** termina con una idea breve para recordar, sin repetir toda la explicación.
+
+Los ejercicios conservan una pregunta evaluable y sus pistas progresivas; pueden usar una invitación breve, pero no adelantan la respuesta. La retroalimentación confirma el razonamiento y explica por qué, sin tono de calificación. La narración local prioriza una voz femenina en español si el dispositivo la ofrece y modula cada frase: más cálida al explicar, una subida suave en las preguntas y un cierre calmado en las ideas clave. Este patrón queda limitado al piloto hasta revisión y aprobación pedagógica.
 
 ## Reglas de negocio
 - La sesión, los ejercicios, los intentos y el dominio se escriben con `ctx.db` (aislamiento por colegio).
 - `responder` guarda intento + dominio + evento en **una transacción**; `(ejercicio, número)` único evita el doble envío.
 - La solución, las pistas y la explicación de un ejercicio (`nudito_ejercicios.solucion`) **nunca** se envían al cliente.
 - La IA recibe contexto mínimo (tema, ejercicio público, últimos turnos); el texto del alumno va marcado como **datos**.
+- Si el límite diario de sesiones, minutos o el horario impide iniciar Nudito, la ruta muestra un estado amable de descanso con el mensaje del límite; no lanza un error 500 ni el overlay de desarrollo.
 - Salida de IA inválida → un reintento → texto determinista (repaso o pista revisada) o `incierto`.
 - Límites: por minuto (como Nudito+), sesiones y minutos por día, tope mensual por alumno (`UsoNudito`) y por colegio.
 - Nudito nunca da malas noticias ni opina de notas.
@@ -220,3 +233,24 @@ Integración final de A, B, C y D en `dev`, con la BD local recién reconstruida
 
 ## Actualización — contenidos del plan anual (specs/49, 2026-11-08)
 Las referencias anteriores a «Otro tema», texto libre, catálogo completo, temas de grados anteriores o desbloqueo superior describen la versión previa y quedan sustituidas por esta regla: la selección del alumno acepta únicamente `temaClave` de la última versión publicada del plan de su grado y curso, siempre que exista lección publicada. No hay bloqueo semanal. El repaso inicial toma la idea, explicación, ejemplos y recursos de esa lección; «Explícame otra vez» conserva IA, caché y límites. Al dominar todos los temas visibles se felicita al alumno y puede repasarlos o profundizar en la dificultad máxima. La acción rechaza campos ajenos como `textoLibre`.
+
+## Refuerzo audiovisual de primaria — ejecución iniciada (2026-11-14)
+
+La lectura oral de ejercicios de verdadero/falso conserva el enunciado original y pronuncia todas las afirmaciones; no construye automáticamente una pregunta «¿Es verdad que…?». El repaso no añade un cierre fijo sobre lupa y microscopio a temas ajenos. Al finalizar la síntesis de voz se muestra completo el texto del momento. Estas correcciones son compatibles con el piloto existente.
+
+La generalización de la comprobación y de las imágenes del piloto usa una ruta de contenido versionado por clave: momentos y narración, recursos con referencia y descripción, y comprobación pública cuya solución se valide en el servidor. La fuente debe conservar la prioridad de lección publicada sobre ficha y catálogo. El contrato `src/lib/nudito/contratos.ts` permanece congelado; ningún lote nuevo debe depender de posiciones de recursos o del nombre visible del tema.
+
+## Clase guiada versionada (2026-11-14)
+
+`pedirClaseGuiadaAction` devuelve una clase opcional para la sesión autenticada. La ficha o lección declara momentos con narración y `recursoRef`; el cliente recibe rutas, textos y opciones, nunca la respuesta. `comprobarClaseGuiadaAction` vuelve a leer la fuente prioritaria en el servidor y devuelve resultado y retroalimentación. La lección publicada más reciente prevalece sobre el banco; si no declara clase guiada, se conserva el repaso clásico de esa lección. La clase del piloto se migró del tratamiento por nombre a datos de su ficha. El contrato congelado `contratos.ts` no cambia.
+
+Las alternativas de la comprobación crecen según la longitud de su texto y mantienen una zona táctil mínima de 44 px. En móvil no usan una altura fija: deben mostrar toda la opción sin superposición ni desborde horizontal.
+
+## Ajuste editorial de `cyt.p5.la-celula` (2026-11-15)
+
+La narración del mapa celular no repite su título y describe la disposición real del recurso. La explicación introduce el término «nutrición» antes de que aparezca en la práctica y el último paso relaciona expresamente la gemación observada con la colaboración de muchas células en organismos pluricelulares. La vista temporal localiza la ficha por su clave estable, no por su posición en el archivo. Las cuatro ilustraciones de la clase se produjeron mediante Antigravity/Gemini y se integran como WebP, sin texto ni flechas incrustadas; cada descripción oral corresponde a lo que realmente aparece en su imagen. Carlos aprobó expresamente esta versión el 2026-11-15 y su huella editorial se actualizó de forma individual en la BD local.
+
+## Correcciones del QA de navegador (2026-11-16)
+
+- Modo hijo: `temasPublicadosDelAlumno` exigía `requireLectorCurriculum` (profesor, dirección o alumno), por lo que `elegirCurso` y `elegirTema` devolvían 403 al apoderado aunque `evaluarAccesoTutor` ya lo había autorizado. Ahora el apoderado con `acceso.modo === "hijo"` solo necesita el plan Pro; `requireAlumnoVisible` sigue exigiendo que el alumno sea su hijo, y el consentimiento, el nivel y el grado del salón se validan antes en `evaluarAccesoNuditoPlus`. Los temas visibles siguen filtrados por estado editorial y huella.
+- Narración: `narracionAccesibleDeMomento` no añade punto si el título ya termina en `?`, `!` o `.`. La partición en frases habladas es `partirEnFrases` (`clase-guiada.ts`): no corta tras numeración inicial («1.»), abreviaturas («p. m.», «a. m.», Sr., Sra., Dr., S/.), decimales ni comillas de cierre, y pega a la frase anterior toda frase sin letras.

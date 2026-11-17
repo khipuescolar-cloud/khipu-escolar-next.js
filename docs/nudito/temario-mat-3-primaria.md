@@ -131,7 +131,7 @@ El Programa curricular define los desempeños; el [Cuaderno de trabajo Matemáti
 
 #### Igualdades y equivalencias (4)
 
-- **Colecciones equivalentes hasta 20** · `mat.p3.colecciones-equivalentes` · orden 17. Relaciona dos colecciones que tienen la misma cantidad aunque se vean distintas. Desempeños: `MAT-C24-P3-01`, `MAT-C24-P3-03`. Prerrequisitos: ninguno.
+- **Colecciones equivalentes** · `mat.p3.colecciones-equivalentes` · orden 17. Relaciona dos colecciones que tienen la misma cantidad aunque se vean distintas. Desempeños: `MAT-C24-P3-01`, `MAT-C24-P3-03`. Prerrequisitos: ninguno.
 - **Igualdades con sumas** · `mat.p3.igualdad-aditiva` · orden 18. Representa dos cantidades equivalentes mediante sumas en ambos lados del signo igual. Desempeños: `MAT-C24-P3-01`, `MAT-C24-P3-03`. Prerrequisitos: `mat.p3.colecciones-equivalentes`.
 - **Igualdades con restas** · `mat.p3.igualdad-restas` · orden 59. Representa una equivalencia mediante sustracciones y explica el equilibrio. Desempeños: `MAT-C24-P3-01`, `MAT-C24-P3-03`. Prerrequisitos: `mat.p3.igualdad-aditiva`.
 - **Igualdades con multiplicaciones** · `mat.p3.igualdad-multiplicaciones` · orden 60. Relaciona grupos iguales mediante productos equivalentes hasta 20. Desempeños: `MAT-C24-P3-01`, `MAT-C24-P3-03`. Prerrequisitos: `mat.p3.igualdad-aditiva`, `mat.p3.multiplicacion`.
