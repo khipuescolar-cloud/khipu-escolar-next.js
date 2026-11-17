@@ -12,6 +12,10 @@ function contarPalabras(t: string): number {
   return t.trim() ? t.trim().split(/\s+/).length : 0;
 }
 
+function normalizarTexto(t: string): string {
+  return t.toLocaleLowerCase("es-PE").replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+}
+
 /** Opción grande y accesible (radio nativo, visible al foco). */
 function Opcion({ name, value, checked, disabled, onChange, children }: { name: string; value: string; checked: boolean; disabled: boolean; onChange: () => void; children: ReactNode }) {
   return (
@@ -60,6 +64,9 @@ export function EntradaRespuesta({
   const [pares, setPares] = useState<Record<string, string>>({});
   const [vf, setVf] = useState<Record<string, boolean>>({});
   const bloqueado = deshabilitado || ocupado || subiendo;
+  const afirmacionPrincipalRepetida = ejercicio.tipo === "verdadero_falso"
+    && ejercicio.afirmaciones.length === 1
+    && normalizarTexto(ejercicio.enunciado).includes(normalizarTexto(ejercicio.afirmaciones[0]?.texto ?? ""));
 
   async function alElegirFoto(archivo: File | undefined) {
     if (!archivo || !subirFoto) return;
@@ -228,11 +235,11 @@ export function EntradaRespuesta({
       const completo = ejercicio.afirmaciones.every((a) => a.id in vf);
       respuesta = completo ? { tipo: "vf", valores: vf } : null;
       cuerpo = (
-        <ul className="flex flex-col gap-3">
+        <ul className="flex flex-col gap-3" aria-label="Elige verdadero o falso">
           {ejercicio.afirmaciones.map((a) => (
-            <li key={a.id} className="flex flex-col gap-2 rounded-[var(--radio-md)] border border-borde-sutil bg-superficie p-3">
-              <span id={`${base}-vf-${a.id}`}>{a.texto}</span>
-              <div className="flex gap-2" role="group" aria-labelledby={`${base}-vf-${a.id}`}>
+            <li key={a.id} className={`flex flex-col gap-2 ${afirmacionPrincipalRepetida ? "" : "rounded-[var(--radio-md)] border border-borde-sutil bg-superficie p-3"}`}>
+              {!afirmacionPrincipalRepetida && <span id={`${base}-vf-${a.id}`}>{a.texto}</span>}
+              <div className="flex gap-2" role="group" aria-label={afirmacionPrincipalRepetida ? "¿Esta afirmación es verdadera o falsa?" : undefined} aria-labelledby={afirmacionPrincipalRepetida ? undefined : `${base}-vf-${a.id}`}>
                 {([true, false] as const).map((valor) => (
                   <Button
                     key={String(valor)}

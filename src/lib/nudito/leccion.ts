@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { z } from "zod";
+import { esquemaClaseGuiada } from "./conocimiento/clase-guiada";
 import type { EstadoDominioNudito, EstadoLeccionNudito, OrigenLeccionNudito } from "@/generated/prisma/enums";
 
 const texto = z.string().trim().min(1);
@@ -20,6 +21,7 @@ export const esquemaLeccion = z.object({
     valor: texto.max(3000),
   })).max(10),
   ejerciciosMuestra: z.array(muestra).min(1).max(5),
+  claseGuiada: esquemaClaseGuiada.optional(),
 });
 export type Leccion = z.infer<typeof esquemaLeccion>;
 const datoPersonal = /[\w.+-]+@[\w.-]+\.[a-z]{2,}|\b\d{8,9}\b|\b(?:me llamo|mi dni|vivo en|mi teléfono)\b/i;

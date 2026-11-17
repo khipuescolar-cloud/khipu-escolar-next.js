@@ -25,6 +25,7 @@ import {
   type TemaVista,
 } from "@/lib/nudito/contratos";
 import { ejercicioDelBanco, fichaPorClave } from "@/lib/nudito/conocimiento/servidor";
+import { clasePublica } from "@/lib/nudito/conocimiento/clase-guiada";
 import { primerNombre } from "@/lib/nombres";
 import { ErrorDeNegocio } from "../contexto-accion";
 import { conversar, MENSAJE_PROVEEDOR_CAIDO } from "../nudito-plus/conversar";
@@ -140,13 +141,15 @@ export async function iniciarSesion(ctx: TenantContext, acceso: AccesoNudito, en
   const anterior = await ctx.db.nuditoSesion.findFirst({
     where: { ...propias, estado: "activa", temaClave: { not: null }, ultimaActividadAt: { gte: limite } },
     orderBy: { ultimaActividadAt: "desc" },
-    select: { id: true, temaClave: true, area: true },
+    select: { id: true, temaClave: true, area: true, cursoId: true },
   });
   let reanudable: { sesionId: string; tema: string } | undefined;
   if (anterior?.temaClave && anterior.area) {
     const { nivel } = await datosDelSalon(ctx, acceso);
     const tema = await temaDelArea(ctx.db, anterior.area as AreaNudito, nivel, anterior.temaClave);
-    if (tema) reanudable = { sesionId: anterior.id, tema: tema.nombre };
+    const disponible = tema && await temaTienePractica(tema.clave)
+      && (await temasPublicadosDelAlumno(ctx, acceso, anterior.cursoId ?? anterior.area)).some(t => t.clave === tema.clave);
+    if (tema && disponible) reanudable = { sesionId: anterior.id, tema: tema.nombre };
   }
 
   // Una sesión vacía (aún sin tema) se reutiliza: recargar la página no crea sesiones.
@@ -214,10 +217,15 @@ export async function pedirRepaso(ctx: TenantContext, acceso: AccesoNudito, entr
   const ficha = leccion ? null : await fichaPorClave(tema.clave);
   // Sin lección publicada ni ficha del banco: repaso del catálogo (specs/48).
   if (!leccion && !ficha) return { idea: tema.repaso.idea, ejemplo: tema.repaso.ejemplo, explicacion: tema.repaso.errorFrecuente ? "Cuidado: " + tema.repaso.errorFrecuente : "", recursos: tema.recursos.map(r => ({ tipo: "enlace" as const, titulo: r.titulo, valor: r.url })) };
-  if (ficha) return { idea: ficha.ideaCentral, ejemplo: ficha.ejemplos.map(e => e.situacion + " " + e.desarrollo).join("\n"), explicacion: ficha.pasos.join("\n"), recursos: [] };
+  if (ficha) return {
+    idea: ficha.ideaCentral,
+    ejemplo: ficha.ejemplos.map(e => `Situación: ${e.situacion}\n${e.desarrollo}\nIdea clave: ${e.respuesta}`).join("\n\n"),
+    explicacion: ficha.pasos.join("\n"),
+    recursos: ficha.recursos ?? [],
+  };
   if (!leccion) throw new ErrorDeNegocio("Tu colegio está preparando este tema.");
   const contenido = esquemaLeccion.parse(leccion.contenido);
-  const base = { idea: contenido.idea, ejemplo: contenido.ejemplos.map(e => `${e.enunciado} ${e.desarrollo}`).join("\n"), explicacion: contenido.explicacion, recursos: contenido.recursos };
+  const base = { idea: contenido.idea, ejemplo: contenido.ejemplos.map(e => `Situación: ${e.enunciado}\n${e.desarrollo}`).join("\n\n"), explicacion: contenido.explicacion, recursos: contenido.recursos };
   if (!opciones.otraVez) return base;
 
   const datos = { tenantId: ctx.tenant.id, alumnoId: acceso.alumno.id, sesionId: sesion.id, operacion: "explicar" as const };
@@ -555,4 +563,27 @@ export async function finalizar(ctx: TenantContext, acceso: AccesoNudito, entrad
     });
   }
   return resultados;
+}
+
+/** Clase guiada opcional: la fuente publicada prevalece sobre la ficha. Nunca entrega la solución. */
+async function claseDeSesion(ctx: TenantContext, acceso: AccesoNudito, sesionId: string) {
+  const sesion = await sesionPropia(ctx, acceso, sesionId);
+  const { nivel } = await datosDelSalon(ctx, acceso);
+  const tema = await temaDeSesion(ctx, sesion, nivel, acceso);
+  const leccion = await ctx.db.nuditoLeccion.findFirst({ where: { temaClave: tema.clave, estado: "publicada" }, orderBy: { version: "desc" }, select: { contenido: true } });
+  if (leccion) return esquemaLeccion.parse(leccion.contenido).claseGuiada ?? null;
+  return (await fichaPorClave(tema.clave))?.claseGuiada ?? null;
+}
+
+export async function pedirClaseGuiada(ctx: TenantContext, acceso: AccesoNudito, sesionId: string) {
+  const clase = await claseDeSesion(ctx, acceso, sesionId);
+  return clase ? clasePublica(clase) : null;
+}
+
+export async function comprobarClaseGuiada(ctx: TenantContext, acceso: AccesoNudito, sesionId: string, opcionId: string) {
+  const clase = await claseDeSesion(ctx, acceso, sesionId);
+  if (!clase) throw new ErrorDeNegocio("Esta clase todavía no tiene comprobación.");
+  if (!clase.comprobacion.opciones.some(opcion => opcion.id === opcionId)) throw new ErrorDeNegocio("Elige una opción de la clase.");
+  const correcto = opcionId === clase.comprobacion.respuesta;
+  return { correcto, mensaje: correcto ? clase.comprobacion.mensajeCorrecto : clase.comprobacion.pista };
 }

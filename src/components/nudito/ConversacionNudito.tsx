@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { ArrowRight, Flag, Lightbulb, MessageCircleQuestion, RotateCcw, Send, X } from "lucide-react";
+import { ArrowRight, BookOpen, Flag, Lightbulb, MessageCircleQuestion, RotateCcw, Send, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   elegirCursoAction,
@@ -9,6 +9,8 @@ import {
   finalizarAction,
   iniciarSesionAction,
   pedirPistaAction,
+  pedirClaseGuiadaAction,
+  comprobarClaseGuiadaAction,
   pedirRepasoAction,
   preguntarAction,
   responderAction,
@@ -17,6 +19,7 @@ import {
   type ResultadoNudito,
 } from "@/app/colegio/[slug]/nudito/actions";
 import type { CursoNuditoVista, Respuesta, ResultadosSesion, SalidaApi, TemaVista, ValidacionTema } from "@/lib/nudito/contratos";
+import type { ClaseGuiadaPublica } from "@/lib/nudito/conocimiento/clase-guiada";
 import { Bienvenida } from "./Bienvenida";
 import { EntradaRespuesta } from "./EntradaRespuesta";
 import { NuditoMascota } from "./NuditoMascota";
@@ -47,6 +50,7 @@ export function ConversacionNudito({ alumnoId, nivel, inicial, permitirFotos = f
   const [aviso, setAviso] = useState<AvisoTema | null>(null);
   const [tema, setTema] = useState("");
   const [repaso, setRepaso] = useState<SalidaApi<"pedirRepaso"> | null>(null);
+  const [claseGuiada, setClaseGuiada] = useState<ClaseGuiadaPublica | null>(null);
   const [ejercicio, setEjercicio] = useState<EjercicioActual | null>(null);
   const [retro, setRetro] = useState<SalidaApi<"responder"> | null>(null);
   const [pistas, setPistas] = useState<SalidaApi<"pedirPista">[]>([]);
@@ -140,6 +144,8 @@ export function ConversacionNudito({ alumnoId, nivel, inicial, permitirFotos = f
     const r = await llamar(() => pedirRepasoAction({ alumnoId, sesionId }));
     if (r) {
       setRepaso(r);
+      const clase = await llamar(() => pedirClaseGuiadaAction({ alumnoId, sesionId }));
+      setClaseGuiada(clase ?? null);
       setPaso("repaso");
     }
   }
@@ -147,6 +153,20 @@ export function ConversacionNudito({ alumnoId, nivel, inicial, permitirFotos = f
   async function otraVez() {
     const r = await llamar(() => pedirRepasoAction({ alumnoId, sesionId, otraVez: true }));
     if (r) setRepaso(r);
+  }
+
+  async function volverATeoria() {
+    if (repaso) {
+      setPaso("repaso");
+      return;
+    }
+    const r = await llamar(() => pedirRepasoAction({ alumnoId, sesionId }));
+    if (r) {
+      setRepaso(r);
+      const clase = await llamar(() => pedirClaseGuiadaAction({ alumnoId, sesionId }));
+      setClaseGuiada(clase ?? null);
+      setPaso("repaso");
+    }
   }
 
   async function responder(respuesta: Respuesta, extra?: { fotoArchivoId?: string }) {
@@ -196,7 +216,8 @@ export function ConversacionNudito({ alumnoId, nivel, inicial, permitirFotos = f
 
   const quedanPistas = pistas.length === 0 ? 3 : pistas[pistas.length - 1].quedan;
   const respondido = retro !== null;
-  const mostrarPreguntar = paso === "repaso" || paso === "practica";
+  // Temporalmente oculto durante la evaluación de la clase guiada.
+  const mostrarPreguntar = false;
 
   return (
     <div className="mx-auto flex w-full max-w-2xl flex-col gap-5 pb-8">
@@ -240,17 +261,27 @@ export function ConversacionNudito({ alumnoId, nivel, inicial, permitirFotos = f
       )}
 
       {paso === "repaso" && repaso && (
-        <Repaso tema={tema} idea={repaso.idea} ejemplo={repaso.ejemplo} explicacion={repaso.explicacion} recursos={repaso.recursos} explicacionIa={repaso.explicacionIa} ocupado={ocupado} onOtraVez={otraVez} onPracticar={() => siguiente()} />
+        <Repaso tema={tema} idea={repaso.idea} ejemplo={repaso.ejemplo} explicacion={repaso.explicacion} recursos={repaso.recursos} explicacionIa={repaso.explicacionIa} ocupado={ocupado} onOtraVez={otraVez} onPracticar={() => siguiente()}
+          claseGuiada={claseGuiada}
+          onComprobar={async (opcionId) => {
+            const resultado = await llamar(() => comprobarClaseGuiadaAction({ alumnoId, sesionId, opcionId }));
+            return resultado ?? null;
+          }}
+          comprobacion={claseGuiada?.comprobacion} />
       )}
 
       {paso === "practica" && ejercicio && (
-        <TarjetaEjercicio ejercicio={ejercicio.ejercicio} numero={ejercicio.numero} total={ejercicio.total} comprobacion={ejercicio.comprobacion}>
+        <TarjetaEjercicio key={ejercicio.ejercicioId} ejercicio={ejercicio.ejercicio} numero={ejercicio.numero} total={ejercicio.total} comprobacion={ejercicio.comprobacion}>
           <EntradaRespuesta key={ejercicio.ejercicioId} ejercicio={ejercicio.ejercicio} deshabilitado={respondido} ocupado={ocupado} onEnviar={responder} subirFoto={permitirFotos ? subirFoto : undefined} />
           {pistas.map((p) => (
             <Pista key={p.nivel} nivel={p.nivel} texto={p.texto} quedan={p.quedan} />
           ))}
           {retro && <Retro evaluacion={retro.evaluacion} cambioDominio={retro.cambioDominio} />}
           <div className="flex flex-col gap-2 border-t border-border pt-4 sm:flex-row sm:flex-wrap">
+            <Button size="lg" variant="outline" className="min-h-11" onClick={volverATeoria} disabled={ocupado}>
+              <BookOpen strokeWidth={2} aria-hidden />
+              Volver a la teoría
+            </Button>
             {retro?.puedeReintentar && retro.evaluacion.resultado !== "correcto" && (
               <Button size="lg" className="min-h-11" onClick={() => setRetro(null)} disabled={ocupado}>
                 <RotateCcw strokeWidth={2} aria-hidden />

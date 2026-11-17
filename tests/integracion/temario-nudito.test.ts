@@ -54,6 +54,11 @@ describe("temario compartido",()=>{
     await aceptarTemario(a.ctxDe("otroProfesor"),planId);
     expect((await temasPublicadosDelAlumno(ctx,acceso,"matematica")).map(t=>t.clave)).toEqual([claves[1]]);
   });
+  it("modo hijo: el apoderado del alumno ve los temas publicados; un apoderado ajeno no",async()=>{
+    const hijo={alumno:a.alumnos.mateo,modo:"hijo" as const};
+    expect((await temasPublicadosDelAlumno(a.ctxDe("madre"),hijo,"matematica")).map(t=>t.clave)).toEqual([claves[1]]);
+    await expect(temasPublicadosDelAlumno(a.ctxDe("padreSinConsentimiento"),hijo,"matematica")).rejects.toThrow(/403/);
+  });
   it("oculta borradores y huellas vencidas y los publica con aprobar-todo",async()=>{
     const ctx=a.ctxDe("direccion"),acceso={alumno:a.alumnos.mateo,modo:"alumno" as const};
     await db.temaCurricular.update({where:{clave:claves[1]},data:{estado:"revisado",huellaContenidoRevisado:"0".repeat(64)}});

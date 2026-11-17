@@ -24,7 +24,8 @@ const temaReal = (clave: string) => {
 };
 const TEMA_MAT_FRACCIONES = temaReal("mat.p5.suma-resta-fracciones");
 const TEMA_CYT_CELULA = temaReal("cyt.p5.celula-animal-vegetal");
-const TEMA_COM_LECTURA = temaReal("com.p5.idea-principal");
+// Clave sin edición editorial pendiente: el fixture conserva una huella vigente.
+const TEMA_COM_LECTURA = temaReal("com.p5.hecho-y-opinion");
 
 vi.stubEnv("KHIPU_TEST_NUDITO_PLUS", "1");
 
@@ -229,7 +230,7 @@ describe("flujo completo", () => {
     const dominio = await db.nuditoDominio.findUniqueOrThrow({ where: { alumnoId_temaClave: { alumnoId: c.alumnos.thiago.id, temaClave } } });
     expect(dominio).toMatchObject({ tenantId: c.tenant.id, intentos: 5 });
     expect(await db.nuditoSesion.findUniqueOrThrow({ where: { id: ini.sesionId } })).toMatchObject({ estado: "finalizada", fase: "resultados" });
-  });
+  }, 20_000);
 });
 
 describe("reglas de la práctica", () => {

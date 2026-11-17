@@ -47,9 +47,16 @@ async function fichasDelRepo(): Promise<Map<string, unknown>> {
 
 /** SHA-256 del tema editorial y su ficha JSON actual, global y compartida entre seed, servidor y CLI. */
 export async function huellaActualDeTema(clave: string): Promise<string | null> {
-  propuestas ??= propuestasDelRepo();
-  fichas ??= fichasDelRepo();
-  const [porClave, fichasPorClave] = await Promise.all([propuestas, fichas]);
+  // En desarrollo los JSON cambian sin reiniciar el proceso. No conservamos la lectura previa,
+  // porque una huella calculada contra esa copia puede ocultar temporalmente una ficha ya revisada.
+  const fuentes = process.env.NODE_ENV === "development"
+    ? Promise.all([propuestasDelRepo(), fichasDelRepo()])
+    : (() => {
+      propuestas ??= propuestasDelRepo();
+      fichas ??= fichasDelRepo();
+      return Promise.all([propuestas, fichas]);
+    })();
+  const [porClave, fichasPorClave] = await fuentes;
   const tema = temaPorClave(clave) ?? porClave.get(clave);
   if (!tema) return null;
   const ficha = fichasPorClave.get(clave) ?? null;

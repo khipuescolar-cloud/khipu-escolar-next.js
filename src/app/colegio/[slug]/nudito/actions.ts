@@ -106,3 +106,15 @@ export async function subirFotoAction(formData: FormData): Promise<ResultadoNudi
     return { archivoId: r.archivoId, transcripcion: r.lectura.transcripcion };
   });
 }
+
+export async function pedirClaseGuiadaAction(e: { alumnoId?: string | null; sesionId: string }) {
+  const p = z.object({ alumnoId, sesionId: uuid }).strict().safeParse(e);
+  if (!p.success) return invalido(p.error);
+  return ejecutar(p.data.alumnoId, (ctx, a) => sesiones.pedirClaseGuiada(ctx, a.acceso, p.data.sesionId));
+}
+
+export async function comprobarClaseGuiadaAction(e: { alumnoId?: string | null; sesionId: string; opcionId: string }) {
+  const p = z.object({ alumnoId, sesionId: uuid, opcionId: z.string().regex(/^[a-z0-9-]+$/) }).strict().safeParse(e);
+  if (!p.success) return invalido(p.error);
+  return ejecutar(p.data.alumnoId, (ctx, a) => sesiones.comprobarClaseGuiada(ctx, a.acceso, p.data.sesionId, p.data.opcionId));
+}

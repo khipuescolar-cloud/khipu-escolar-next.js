@@ -1,18 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { forbidden } from "next/navigation";
-import { ChevronRight, Info } from "lucide-react";
+import { ChevronRight, Clock3, Info } from "lucide-react";
 import { ConversacionNudito } from "@/components/nudito/ConversacionNudito";
 import { NuditoMascota } from "@/components/nudito/NuditoMascota";
 import { EncabezadoPagina } from "@/components/shell/EncabezadoPagina";
 import { evaluarAccesoTutor, type MotivoSinAccesoTutor } from "@/lib/server/nudito/acceso-tutor";
+import { MENSAJES_LIMITE } from "@/lib/server/nudito/seguridad";
 import { iniciarSesion } from "@/lib/server/nudito/sesiones";
+import { ErrorDeNegocio } from "@/lib/server/contexto-accion";
 import { requireFeature } from "@/lib/server/plan";
 import { requireTenantContext } from "@/lib/server/tenant";
 
 export const metadata: Metadata = { title: "Nudito" };
 
 const AVISO_IA = "Soy Nudito, un asistente con IA. Te ayudo a practicar; no reemplazo a tu profesor. Puedo equivocarme.";
+const MENSAJES_DE_LIMITE = new Set<string>(Object.values(MENSAJES_LIMITE));
 
 const SIN_ACCESO: Record<Exclude<MotivoSinAccesoTutor, "plan" | "rol" | "elegir_hijo">, { titulo: string; texto: string; enlace?: { href: string; texto: string } }> = {
   apagado: { titulo: "Nudito aún no está activo", texto: "Tu colegio todavía no activó Nudito. Cuando lo haga, podrás practicar aquí." },
@@ -76,7 +79,23 @@ export default async function NuditoPage({ params, searchParams }: PageProps<"/c
     );
   }
 
-  const inicial = await iniciarSesion(ctx, r.acceso, { alumnoId: r.acceso.alumno.id });
+  let inicial;
+  try {
+    inicial = await iniciarSesion(ctx, r.acceso, { alumnoId: r.acceso.alumno.id });
+  } catch (error) {
+    if (!(error instanceof ErrorDeNegocio) || !MENSAJES_DE_LIMITE.has(error.message)) throw error;
+    return (
+      <div className="flex flex-col">
+        <EncabezadoPagina titulo="Nudito" seccion="academico" />
+        <div className="flex flex-col items-center gap-3 rounded-[var(--radio-lg)] border border-borde-sutil bg-superficie p-6 text-center">
+          <NuditoMascota tamano={80} estado="reposo" />
+          <h2 className="flex items-center gap-2 font-titulo text-titulo-2"><Clock3 className="size-6" strokeWidth={2} aria-hidden />Por hoy terminamos de practicar</h2>
+          <p className="max-w-prose text-muted-foreground">{error.message}</p>
+          <p className="max-w-prose text-cuerpo-sm text-muted-foreground">Puedes descansar, volver a mirar tus apuntes y regresar cuando Nudito esté disponible.</p>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="flex flex-col">
       <EncabezadoPagina titulo="Nudito" seccion="academico" descripcion={r.acceso.modo === "hijo" ? `Practicando con ${r.alumno.primerNombre}.` : "Tu tutor para practicar a tu ritmo."} />

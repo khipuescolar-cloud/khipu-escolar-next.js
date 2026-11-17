@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { esDisciplinaDe } from "./disciplinas";
+import { esquemaClaseGuiada } from "./clase-guiada";
 
 const texto = z.string().trim().min(1);
 export const esquemaEjercicioBanco = z.object({
@@ -27,10 +28,12 @@ export const esquemaFicha = z.object({
   prerrequisitos: z.array(z.string()), ordenSugerido: z.number().int().positive(),
   ideaCentral: texto, pasos: z.array(texto).min(2),
   ejemplos: z.array(z.object({ situacion: texto, desarrollo: texto, respuesta: texto })).min(2).max(3),
+  recursos: z.array(z.object({ tipo: z.enum(["svg", "diagrama"]), titulo: texto.max(120), descripcion: texto.max(500).optional(), valor: texto.max(3000) })).max(5).optional(),
   erroresFrecuentes: z.array(z.object({ error: texto, correccion: texto })).min(1),
   vocabulario: z.array(z.object({ termino: texto, significado: texto })).min(1),
   ejercicios: z.array(esquemaEjercicioBanco).min(12),
   generadorId: z.string().optional(), fuentes: z.array(z.object({ documento: texto, url: z.url(), paginas: texto.optional() })).min(1),
+  claseGuiada: esquemaClaseGuiada.optional(),
   version: z.number().int().positive(), revisado: z.null(),
 }).superRefine((f, ctx) => {
   const prefijo = { matematica: "mat", comunicacion: "com", "ciencia-tecnologia": "cyt" }[f.area];

@@ -2,6 +2,7 @@ import "server-only";
 import type { AccesoNudito, Tema } from "@/lib/nudito/contratos";
 import { clavesDeVersion, planCompleto } from "@/lib/nudito/plan-publicado-reglas";
 import { mapearEstadoProgreso } from "@/lib/nudito/leccion";
+import { requireFeature } from "../plan";
 import { requireAlumnoVisible, type TenantContext } from "../tenant";
 import { auditar } from "../auditoria";
 import { cursoKhipu } from "@/lib/cursos-khipu/catalogo";
@@ -14,7 +15,9 @@ export type TemaDisponible = Tema;
 
 /** Solo la foto de la última versión habilitada del grado matriculado. */
 export async function temasPublicadosDelAlumno(ctx: TenantContext, acceso: AccesoNudito, cursoIdOClave: string): Promise<TemaDisponible[]> {
-  requireLectorCurriculum(ctx);
+  // Modo hijo: el apoderado ya pasó `evaluarAccesoNuditoPlus` (hijo suyo sin cuenta propia + consentimiento); `requireAlumnoVisible` lo reconfirma.
+  if (ctx.rol === "apoderado" && acceso.modo === "hijo") requireFeature(ctx, "nudito_plus");
+  else requireLectorCurriculum(ctx);
   await requireAlumnoVisible(ctx, acceso.alumno.id);
   const alumno = await ctx.db.alumno.findFirst({ where: { id: acceso.alumno.id }, select: { salon: { select: { anio: true, nivel: true, grado: true, cursos: { select: { id: true, nombre: true, cursoColegio: { select: { cursoKhipu: true } } } } } } } });
   const salon = alumno?.salon;

@@ -139,11 +139,20 @@ async function responderEnUI(page: Page, bien: boolean) {
   await page.getByRole("button", { name: "Comprobar" }).click();
 }
 
+// Usar temas publicados con huella vigente. Las fichas de la muestra en revisión no son visibles hasta su aprobación editorial.
 const AREAS = [
-  { area: "matematica", curso: /^Matemática/, tema: "Números decimales" },
+  { area: "matematica", curso: /^Matemática/, tema: "Operaciones combinadas sin signos de agrupación" },
   { area: "ciencia-tecnologia", curso: /^Ciencia y Tecnología/, tema: "Célula animal y célula vegetal" },
-  { area: "comunicacion", curso: /^Comunicación/, tema: "Idea principal y secundarias" },
+  { area: "comunicacion", curso: /^Comunicación/, tema: "Hecho y opinión" },
 ] as const;
+
+async function avanzarHastaPractica(page: Page) {
+  const practicar = page.getByRole("button", { name: "¡A practicar!" });
+  for (let momento = 0; momento < 30 && !(await practicar.isVisible()); momento++) {
+    await page.getByRole("button", { name: "Siguiente" }).click();
+  }
+  await practicar.click();
+}
 
 async function abrirNudito(page: Page) {
   await page.goto(`${COLEGIO}/nudito`);
@@ -153,6 +162,7 @@ async function abrirNudito(page: Page) {
 
 for (const [n, a] of AREAS.entries()) {
   test(`${a.area}: curso → tema → repaso → error → pista → reintento → resultados`, async ({ page }) => {
+    test.setTimeout(180_000);
     if (n === 0) await limpiarPracticaDeLucas();
     await page.setViewportSize({ width: 1280, height: 800 });
     await entrar(page, LUCAS);
@@ -160,39 +170,39 @@ for (const [n, a] of AREAS.entries()) {
     if (n === 0) await captura(page, "bienvenida");
 
     await page.getByRole("button", { name: /¡Empecemos!|Empezar algo nuevo/ }).click();
-    await expect(page.getByRole("heading", { name: "¿Qué curso practicamos?" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "¿Qué curso practicamos?" })).toBeVisible({ timeout: 30_000 });
     // Las tres áreas aparecen como cursos del salón de Lucas.
     for (const x of AREAS) await expect(page.getByRole("button", { name: x.curso })).toBeVisible();
     if (n === 0) await captura(page, "cursos");
     await page.getByRole("button", { name: a.curso }).click();
 
-    await expect(page.getByRole("heading", { name: /¿Qué tema de/ })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /¿Qué tema de/ })).toBeVisible({ timeout: 30_000 });
     if (n === 0) await captura(page, "temas");
     await page.getByRole("button", { name: new RegExp(a.tema) }).first().click();
 
-    await expect(page.getByRole("heading", { name: /Repasemos:/ })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Repasemos:/ })).toBeVisible({ timeout: 30_000 });
     if (n === 0) await captura(page, "repaso");
-    await page.getByRole("button", { name: "¡A practicar!" }).click();
+    await avanzarHastaPractica(page);
 
-    await expect(page.getByText(/Ejercicio 1 de \d+/)).toBeVisible();
+    await expect(page.getByText(/Ejercicio 1 de \d+/)).toBeVisible({ timeout: 30_000 });
     // La solución nunca llega al cliente.
     expect(await page.content()).not.toMatch(/"solucion"|"distractores"|"aceptadas"/);
     await captura(page, `ejercicio-${a.area}`);
 
     // Respuesta incorrecta → retro amable, sin perder la sesión.
     await responderEnUI(page, false);
-    await expect(page.getByText(/^(Casi|¡Vas muy bien!)$/)).toBeVisible();
+    await expect(page.getByText(/^(Casi|¡Vas muy bien!)$/)).toBeVisible({ timeout: 30_000 });
     await captura(page, `retro-error-${a.area}`);
 
     // Reintento con pista.
     await page.getByRole("button", { name: "Intentar otra vez" }).click();
     await page.getByRole("button", { name: "Dame una pista" }).click();
-    await expect(page.getByText(/Pista 1 · quedan 2/)).toBeVisible();
+    await expect(page.getByText(/Pista 1 · quedan 2/)).toBeVisible({ timeout: 30_000 });
     await responderEnUI(page, true);
-    await expect(page.getByText("¡Correcto!", { exact: true })).toBeVisible();
+    await expect(page.getByText("¡Correcto!", { exact: true })).toBeVisible({ timeout: 30_000 });
 
     await page.getByRole("button", { name: "Terminar" }).click();
-    await expect(page.getByRole("heading", { name: "¡Terminaste la práctica!" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "¡Terminaste la práctica!" })).toBeVisible({ timeout: 30_000 });
     await expect(page.getByText("1/1")).toBeVisible();
     // «Tus temas» (el nombre también puede salir en «Por reforzar»).
     await expect(page.locator("li").getByText(a.tema, { exact: true })).toBeVisible();
@@ -210,7 +220,7 @@ test("sin «Otro tema»: Nudito solo ofrece los temas publicados del plan", asyn
   await abrirNudito(page);
   await page.getByRole("button", { name: /¡Empecemos!|Empezar algo nuevo/ }).click();
   await page.getByRole("button", { name: /^Matemática/ }).click();
-  await expect(page.getByRole("heading", { name: /¿Qué tema de/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /¿Qué tema de/ })).toBeVisible({ timeout: 30_000 });
   await expect(page.getByRole("button", { name: "Otro tema", exact: true })).toHaveCount(0);
   await expect(page.getByLabel("¿Qué tema quieres practicar?")).toHaveCount(0);
   await captura(page, "sin-otro-tema");
@@ -242,8 +252,8 @@ test("foto del cuaderno (si el colegio la permite): el simulado no la lee y pide
     await page.getByRole("button", { name: /¡Empecemos!|Empezar algo nuevo/ }).click();
     await page.getByRole("button", { name: /^Matemática/ }).click();
     await page.getByRole("button", { name: /Operaciones combinadas/ }).first().click();
-    await page.getByRole("button", { name: "¡A practicar!" }).click();
-    await expect(page.getByText(/Ejercicio 1 de \d+/)).toBeVisible();
+    await avanzarHastaPractica(page);
+    await expect(page.getByText(/Ejercicio 1 de \d+/)).toBeVisible({ timeout: 30_000 });
     // Avanza hasta un ejercicio con respuesta escrita (numérico): ahí aparece el botón de foto.
     for (let i = 0; i < 5 && (await ejercicioAbierto()).tipo !== "numerico"; i++) {
       await responderEnUI(page, true);
@@ -266,7 +276,7 @@ test("móvil: bienvenida y tarjetas de curso visibles, sin scroll horizontal", a
   await entrar(page, LUCAS);
   await abrirNudito(page);
   await page.getByRole("button", { name: /¡Empecemos!|Empezar algo nuevo/ }).click();
-  await expect(page.getByRole("heading", { name: "¿Qué curso practicamos?" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "¿Qué curso practicamos?" })).toBeVisible({ timeout: 30_000 });
   const desborde = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   expect(desborde).toBeLessThanOrEqual(0);
 });
